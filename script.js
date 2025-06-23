@@ -12,6 +12,43 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Project card click functionality with better error handling
+document.addEventListener('DOMContentLoaded', () => {
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        const url = card.getAttribute('data-url');
+        if (url) {
+            // 添加键盘访问性
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'button');
+            card.setAttribute('aria-label', `访问 ${card.querySelector('.project-title').textContent} 项目`);
+            
+            const handleCardClick = (e) => {
+                // 防止点击GitHub图标时触发卡片点击
+                if (!e.target.closest('.project-link')) {
+                    try {
+                        window.open(url, '_blank', 'noopener,noreferrer');
+                    } catch (error) {
+                        console.warn('Failed to open project URL:', error);
+                        // Fallback to location change
+                        window.location.href = url;
+                    }
+                }
+            };
+            
+            card.addEventListener('click', handleCardClick);
+            
+            // 键盘支持
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleCardClick(e);
+                }
+            });
+        }
+    });
+});
+
 // Mobile navigation toggle
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');

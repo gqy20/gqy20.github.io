@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
+<head>    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qingyu Ge (gqy20) - 个人主页</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <meta name="description" content="Qingyu Ge，在读硕士生，专注于AI辅助科研工具开发">
+    <meta name="keywords" content="Qingyu Ge, gqy20, AI, 科研工具, 文献分析, Python, 机器学习">
+    <meta name="author" content="Qingyu Ge">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="https://avatars.githubusercontent.com/u/150650455?v=4" as="image">
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"></noscript>
 </head>
 <body>
     <header class="header">
@@ -18,8 +25,7 @@
                     <a href="#about" class="nav-link">关于我</a>
                     <a href="#projects" class="nav-link">项目</a>
                     <a href="#contact" class="nav-link">联系</a>
-                </div>
-                <div class="nav-toggle">
+                </div>                <div class="nav-toggle" aria-label="切换导航菜单" role="button" tabindex="0">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -32,9 +38,13 @@
         <!-- Hero Section -->
         <section id="home" class="hero">
             <div class="hero-container">
-                <div class="hero-content">
-                    <div class="hero-avatar">
-                        <img src="https://avatars.githubusercontent.com/u/150650455?v=4" alt="Qingyu Ge" class="avatar-img">
+                <div class="hero-content">                    <div class="hero-avatar">
+                        <img src="https://avatars.githubusercontent.com/u/150650455?v=4" 
+                             alt="Qingyu Ge" 
+                             class="avatar-img"
+                             loading="eager"
+                             width="150" 
+                             height="150">
                     </div>
                     <h1 class="hero-title">
                         Hi, 我是 <span class="highlight">Qingyu Ge</span>
@@ -67,10 +77,9 @@
                             目前我的研究重点包括智能文献分析系统、学术论文处理工具，以及AI辅助的代码生成与优化。
                             我相信技术能够让学术研究变得更加高效和有趣。
                         </p>
-                    </div>
-                    <div class="about-stats">
+                    </div>                    <div class="about-stats">
                         <div class="stat-item">
-                            <div class="stat-number">6</div>
+                            <div class="stat-number">5</div>
                             <div class="stat-label">开源项目</div>
                         </div>
                         <div class="stat-item">
@@ -90,9 +99,8 @@
         <section id="projects" class="projects">
             <div class="container">
                 <h2 class="section-title">精选项目</h2>
-                <div class="projects-grid">
-                    <!-- SLAIS Project -->
-                    <div class="project-card">
+                <div class="projects-grid">                    <!-- SLAIS Project -->
+                    <div class="project-card" data-url="https://github.com/gqy20/SLAIS">
                         <div class="project-header">
                             <h3 class="project-title">SLAIS</h3>
                             <div class="project-links">
@@ -111,10 +119,8 @@
                             <span class="tech-tag">AI</span>
                             <span class="tech-tag">PDF处理</span>
                         </div>
-                    </div>
-
-                    <!-- AI Coding Project -->
-                    <div class="project-card">
+                    </div>                    <!-- AI Coding Project -->
+                    <div class="project-card" data-url="https://github.com/gqy20/ai_coding">
                         <div class="project-header">
                             <h3 class="project-title">AI Coding</h3>
                             <div class="project-links">
@@ -132,10 +138,8 @@
                             <span class="tech-tag">代码生成</span>
                             <span class="tech-tag">自动化</span>
                         </div>
-                    </div>
-
-                    <!-- pub2tts Project -->
-                    <div class="project-card">
+                    </div>                    <!-- pub2tts Project -->
+                    <div class="project-card" data-url="https://github.com/gqy20/pub2tts">
                         <div class="project-header">
                             <h3 class="project-title">pub2tts</h3>
                             <div class="project-links">
@@ -153,10 +157,8 @@
                             <span class="tech-tag">TTS</span>
                             <span class="tech-tag">PubMed API</span>
                         </div>
-                    </div>
-
-                    <!-- Article MCP Project -->
-                    <div class="project-card">
+                    </div>                    <!-- Article MCP Project -->
+                    <div class="project-card" data-url="https://github.com/gqy20/article_mcp">
                         <div class="project-header">
                             <h3 class="project-title">article_mcp</h3>
                             <div class="project-links">
@@ -173,10 +175,8 @@
                             <span class="tech-tag">MCP</span>
                             <span class="tech-tag">文本处理</span>
                         </div>
-                    </div>
-
-                    <!-- Personal Homepage Project -->
-                    <div class="project-card">
+                    </div>                    <!-- Personal Homepage Project -->
+                    <div class="project-card" data-url="https://github.com/gqy20/gqy20">
                         <div class="project-header">
                             <h3 class="project-title">个人主页</h3>
                             <div class="project-links">

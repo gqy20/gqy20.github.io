@@ -277,11 +277,32 @@ body {
     box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid var(--border-color);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
+}
+
+.project-card:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    z-index: 1;
 }
 
 .project-header {
@@ -302,12 +323,16 @@ body {
     display: flex;
     gap: 0.5rem;
     align-items: center;
+    position: relative;
+    z-index: 2;
 }
 
 .project-link {
     color: var(--text-light);
     font-size: 1.2rem;
     transition: color 0.3s ease;
+    position: relative;
+    z-index: 3;
 }
 
 .project-link:hover {
