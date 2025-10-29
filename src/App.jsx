@@ -29,7 +29,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/components" element={<ComponentTest />} />
-          </Routes>
+                      </Routes>
         </motion.div>
       </div>
     </Router>

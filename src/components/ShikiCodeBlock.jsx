@@ -35,15 +35,9 @@ const ShikiCodeBlock = ({ children, className, ...props }) => {
   useEffect(() => {
     if (!children) return
 
-    // 正确解析语言：ReactMarkdown 传递的 className 格式为 "language-javascript"
-    let lang = 'text'
-    if (className) {
-      // 从 "language-javascript" 提取 "javascript"
-      const match = className.match(/language-(\w+)/)
-      if (match && match[1]) {
-        lang = match[1]
-      }
-    }
+    // 使用ReactMarkdown官方推荐的语言解析方式
+    const match = /language-(\w+)/.exec(className || '')
+    const lang = match ? match[1] : 'text'
 
     setLanguage(lang)
     setIsLoading(true)
