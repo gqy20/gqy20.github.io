@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { FaGithub, FaEnvelope, FaArrowDown } from 'react-icons/fa'
-import TypeAnimation from 'react-type-animation'
+import TypeAnimation from 'react-type-animation/dist/esm/TypeAnimation'
 import './Hero.css'
 
 const Hero = () => {
