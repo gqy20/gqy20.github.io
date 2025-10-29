@@ -97,7 +97,7 @@ const BlogPost = () => {
         <div className="error-container">
           <h2>加载失败</h2>
           <p>{error}</p>
-          <Link to="/#/blog" className="back-link">
+          <Link to="/blog" className="back-link">
             <FaArrowLeft /> 返回博客列表
           </Link>
         </div>
@@ -111,7 +111,7 @@ const BlogPost = () => {
         <div className="error-container">
           <h2>文章未找到</h2>
           <p>您访问的文章不存在或已被删除</p>
-          <Link to="/#/blog" className="back-link">
+          <Link to="/blog" className="back-link">
             <FaArrowLeft /> 返回博客列表
           </Link>
         </div>
@@ -129,7 +129,7 @@ const BlogPost = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <Link to="/#/blog" className="back-button">
+          <Link to="/blog" className="back-button">
             <FaArrowLeft /> 返回博客
           </Link>
         </motion.div>

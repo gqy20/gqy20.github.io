@@ -21,9 +21,9 @@
 }
 
 .navbar-container {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,14 +32,21 @@
 /* 大屏幕优化 */
 @media (min-width: 1440px) {
   .navbar-container {
-    max-width: 1600px;
+    max-width: 1800px;
     padding: 0 1rem;
   }
 }
 
 @media (min-width: 1920px) {
   .navbar-container {
-    max-width: 1800px;
+    max-width: 2000px;
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .navbar-container {
+    max-width: 2200px;
     padding: 0 2rem;
   }
 }

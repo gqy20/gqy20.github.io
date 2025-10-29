@@ -22,7 +22,7 @@
 
 /* 搜索和筛选控件 */
 .projects-controls {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto 2rem;
   display: flex;
   gap: 1rem;
@@ -34,13 +34,19 @@
 /* 大屏幕优化 */
 @media (min-width: 1440px) {
   .projects-controls {
-    max-width: 1600px;
+    max-width: 1800px;
   }
 }
 
 @media (min-width: 1920px) {
   .projects-controls {
-    max-width: 1800px;
+    max-width: 2000px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .projects-controls {
+    max-width: 2200px;
   }
 }
 
@@ -115,7 +121,7 @@
 
 /* 分类统计 */
 .category-stats {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto 2rem;
   display: flex;
   justify-content: center;
@@ -127,13 +133,19 @@
 /* 大屏幕优化 */
 @media (min-width: 1440px) {
   .category-stats {
-    max-width: 1600px;
+    max-width: 1800px;
   }
 }
 
 @media (min-width: 1920px) {
   .category-stats {
-    max-width: 1800px;
+    max-width: 2000px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .category-stats {
+    max-width: 2200px;
   }
 }
 
@@ -163,10 +175,10 @@
 
 /* 项目网格 */
 .projects-grid {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
   padding: 0 1rem;
 }
@@ -174,17 +186,25 @@
 /* 大屏幕优化 */
 @media (min-width: 1440px) {
   .projects-grid {
-    max-width: 1600px;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    max-width: 1800px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2.5rem;
   }
 }
 
 @media (min-width: 1920px) {
   .projects-grid {
-    max-width: 1800px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    max-width: 2000px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 3rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .projects-grid {
+    max-width: 2200px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 3.5rem;
   }
 }
 
