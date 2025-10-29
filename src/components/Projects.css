@@ -390,6 +390,64 @@
   gap: 0.75rem;
 }
 
+/* 项目操作按钮组 */
+.project-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.project-view-link.github-link {
+  background: rgba(24, 24, 27, 0.1);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.project-view-link.github-link:hover {
+  background: #24292e;
+  color: white;
+  border-color: #24292e;
+}
+
+.project-detail-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color);
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.project-detail-btn:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px -5px rgba(37, 99, 235, 0.5);
+}
+
+/* 增强的项目卡片点击效果 */
+.project-card.clickable {
+  user-select: none;
+}
+
+.project-card.clickable:hover {
+  box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.3);
+  border-color: var(--primary-color);
+}
+
+.project-card.clickable:active {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.2);
+}
+
 /* 加载状态 */
 .loading-container,
 .error-container,

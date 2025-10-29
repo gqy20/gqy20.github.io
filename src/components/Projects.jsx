@@ -10,9 +10,11 @@ import {
   FaFilter,
   FaCalendar,
   FaArchive,
-  FaSync
+  FaSync,
+  FaEye
 } from 'react-icons/fa'
 import './Projects.css'
+import ProjectDetailModal from './ProjectDetailModal'
 
 const Projects = () => {
   const [projectsData, setProjectsData] = useState(null)
@@ -21,6 +23,8 @@ const Projects = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [sortBy, setSortBy] = useState('updated')
+  const [selectedProject, setSelectedProject] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   // 加载项目数据
   useEffect(() => {
@@ -80,6 +84,30 @@ const Projects = () => {
 
     return projects
   }, [projectsData, selectedCategory, searchTerm, sortBy])
+
+  // 处理项目卡片点击
+  const handleProjectClick = (project) => {
+    setSelectedProject(project)
+    setIsModalOpen(true)
+  }
+
+  // 关闭弹窗
+  const closeModal = () => {
+    setIsModalOpen(false)
+    setSelectedProject(null)
+  }
+
+  // 键盘事件处理
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && isModalOpen) {
+        closeModal()
+      }
+    }
+
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [isModalOpen])
 
   if (loading) {
     return (
@@ -212,11 +240,23 @@ const Projects = () => {
           {filteredAndSortedProjects.map((project, index) => (
             <motion.div
               key={project.id}
-              className="project-card"
+              className="project-card clickable"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
+              whileHover={{
+                y: -10,
+                boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.2)",
+                scale: 1.02
+              }}
+              whileTap={{
+                scale: 0.98,
+                transition: { duration: 0.1 }
+              }}
+              onClick={() => handleProjectClick(project)}
+              role="button"
+              tabIndex={0}
+              aria-label={`查看项目 ${project.name} 的详细信息`}
             >
               <div className="project-header">
                 <div className="project-title-group">
@@ -281,16 +321,31 @@ const Projects = () => {
                   <FaCalendar /> 更新于 {new Date(project.updatedAt).toLocaleDateString('zh-CN')}
                 </span>
 
-                <motion.a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-view-link"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  查看项目 <FaExternalLinkAlt />
-                </motion.a>
+                <div className="project-actions">
+                  <motion.a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-view-link github-link"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <FaGithub /> 源码
+                  </motion.a>
+
+                  <motion.button
+                    className="project-detail-btn"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      handleProjectClick(project)
+                    }}
+                  >
+                    <FaEye /> 详情
+                  </motion.button>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -320,6 +375,13 @@ const Projects = () => {
             数据最后更新: {new Date(projectsData.lastUpdated).toLocaleString('zh-CN')}
           </p>
         </motion.div>
+
+        {/* 项目详情弹窗 */}
+        <ProjectDetailModal
+          project={selectedProject}
+          isOpen={isModalOpen}
+          onClose={closeModal}
+        />
       </div>
     </section>
   )
