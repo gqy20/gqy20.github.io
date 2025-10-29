@@ -18,6 +18,56 @@ import Button from './Button'
 import './Projects.css'
 import ProjectDetailModal from './ProjectDetailModal'
 
+// 规范化项目描述的函数
+const normalizeDescription = (description, name) => {
+  if (!description || description.includes('暂无描述')) {
+    return `${name} - 一个专注于创新和技术实践的项目`
+  }
+
+  // 清理描述
+  let cleanedDesc = description
+    .replace(/^- /, '') // 移除开头的 "- "
+    .replace(/ - .*项目$/, '') // 移除结尾的 " - xxx项目"
+    .trim()
+
+  // 对于英文描述，尝试提供中文版本
+  if (/[a-zA-Z]/.test(cleanedDesc) && !/[\u4e00-\u9fa5]/.test(cleanedDesc)) {
+    // 简单的关键词映射
+    const keywordMap = {
+      'MCP': 'MCP工具',
+      'article': '文献',
+      'genome': '基因组',
+      'protein': '蛋白质',
+      'bioinformatics': '生物信息学',
+      'research': '研究',
+      'tools': '工具集',
+      'analysis': '分析',
+      'system': '系统',
+      'development': '开发',
+      'collection': '集合',
+      'plugins': '插件'
+    }
+
+    let translatedDesc = cleanedDesc
+    Object.entries(keywordMap).forEach(([en, zh]) => {
+      translatedDesc = translatedDesc.replace(new RegExp(en, 'gi'), zh)
+    })
+
+    // 如果翻译后还有英文，保留原描述
+    if (/[a-zA-Z]/.test(translatedDesc)) {
+      return cleanedDesc.length > 50 ? cleanedDesc.substring(0, 47) + '...' : cleanedDesc
+    }
+    return translatedDesc
+  }
+
+  // 对于中文描述，限制长度
+  if (cleanedDesc.length > 60) {
+    return cleanedDesc.substring(0, 57) + '...'
+  }
+
+  return cleanedDesc
+}
+
 const Projects = () => {
   const [projectsData, setProjectsData] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -273,21 +323,9 @@ const Projects = () => {
                     </span>
                   )}
                 </div>
-
-                <div className="project-links">
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-link github-link"
-                    title="查看GitHub仓库"
-                  >
-                    <FaGithub />
-                  </a>
-                </div>
               </div>
 
-              <p className="project-description">{project.description}</p>
+              <p className="project-description">{normalizeDescription(project.description, project.name)}</p>
 
               <div className="project-meta">
                 <div className="project-stats">
@@ -326,7 +364,7 @@ const Projects = () => {
 
               <div className="project-footer">
                 <span className="update-time">
-                  <FaCalendar /> 更新于 {new Date(project.updatedAt).toLocaleDateString('zh-CN')}
+                  <FaCalendar /> {new Date(project.updatedAt).toLocaleDateString('zh-CN')}
                 </span>
 
                 <div className="project-actions">
@@ -334,12 +372,12 @@ const Projects = () => {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="project-view-link github-link"
+                    className="project-link github-link"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <FaGithub /> 源码
+                    <FaGithub />
                   </motion.a>
 
                   <motion.div
@@ -354,7 +392,7 @@ const Projects = () => {
                         handleProjectClick(project)
                       }}
                     >
-                      <FaEye /> 详情
+                      <FaEye />
                     </Button>
                   </motion.div>
                 </div>

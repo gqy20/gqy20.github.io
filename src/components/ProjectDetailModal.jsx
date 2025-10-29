@@ -5,17 +5,63 @@ import {
   FaTimes,
   FaStar,
   FaCodeBranch,
-  FaExclamationTriangle,
-  FaCalendar,
   FaArchive,
   FaRegFileCode,
-  FaTag,
-  FaLink,
-  FaUser
+  FaTag
 } from 'react-icons/fa'
 import Badge from './Badge'
 import Button from './Button'
 import './ProjectDetailModal.css'
+
+// 规范化项目描述的函数（从Projects.jsx复制）
+const normalizeDescription = (description, name) => {
+  if (!description || description.includes('暂无描述')) {
+    return `${name} - 一个专注于创新和技术实践的项目`
+  }
+
+  // 清理描述
+  let cleanedDesc = description
+    .replace(/^- /, '') // 移除开头的 "- "
+    .replace(/ - .*项目$/, '') // 移除结尾的 " - xxx项目"
+    .trim()
+
+  // 对于英文描述，尝试提供中文版本
+  if (/[a-zA-Z]/.test(cleanedDesc) && !/[\u4e00-\u9fa5]/.test(cleanedDesc)) {
+    // 简单的关键词映射
+    const keywordMap = {
+      'MCP': 'MCP工具',
+      'article': '文献',
+      'genome': '基因组',
+      'protein': '蛋白质',
+      'bioinformatics': '生物信息学',
+      'research': '研究',
+      'tools': '工具集',
+      'analysis': '分析',
+      'system': '系统',
+      'development': '开发',
+      'collection': '集合',
+      'plugins': '插件'
+    }
+
+    let translatedDesc = cleanedDesc
+    Object.entries(keywordMap).forEach(([en, zh]) => {
+      translatedDesc = translatedDesc.replace(new RegExp(en, 'gi'), zh)
+    })
+
+    // 如果翻译后还有英文，保留原描述
+    if (/[a-zA-Z]/.test(translatedDesc)) {
+      return cleanedDesc.length > 50 ? cleanedDesc.substring(0, 47) + '...' : cleanedDesc
+    }
+    return translatedDesc
+  }
+
+  // 对于中文描述，限制长度
+  if (cleanedDesc.length > 60) {
+    return cleanedDesc.substring(0, 57) + '...'
+  }
+
+  return cleanedDesc
+}
 
 const ProjectDetailModal = ({ project, isOpen, onClose }) => {
   if (!project) return null
@@ -57,204 +103,109 @@ const ProjectDetailModal = ({ project, isOpen, onClose }) => {
               damping: 30
             }}
           >
-            {/* 头部区域 */}
-            <div className="modal-header">
-              <div className="modal-title-section">
-                <h2 className="modal-title">{project.name}</h2>
-                {project.isArchived && (
-                  <span className="archive-badge">
-                    <FaArchive /> 已归档
-                  </span>
-                )}
-              </div>
-
-              <Button
-                variant="ghost"
-                className="modal-close-btn"
-                onClick={onClose}
-                aria-label="关闭详情"
-                size="icon"
-              >
-                <FaTimes />
-              </Button>
-            </div>
-
-            {/* 项目描述 */}
-            <div className="modal-description">
-              <p>{project.description}</p>
-            </div>
-
-            {/* 快速操作区域 */}
-            <div className="modal-actions">
-              <motion.a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="action-btn primary-btn"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <FaGithub /> 查看源码
-              </motion.a>
-
-              {project.homepage && (
-                <motion.a
-                  href={project.homepage}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="action-btn secondary-btn"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <FaExternalLinkAlt /> 访问项目
-                </motion.a>
-              )}
-            </div>
-
-            {/* 项目统计信息 */}
-            <div className="modal-stats">
-              <div className="stats-grid">
-                {project.stars > 0 && (
-                  <div className="stat-item">
-                    <FaStar className="stat-icon star" />
-                    <div>
-                      <div className="stat-value">{project.stars}</div>
-                      <div className="stat-label">Stars</div>
-                    </div>
+            {/* 极简卡片式布局 - 一次展示所有重要信息 */}
+            <div className="modal-card">
+              {/* 头部：标题、语言、操作按钮 */}
+              <div className="card-header">
+                <div className="header-left">
+                  <h2 className="card-title">
+                    {project.name}
+                    {project.isArchived && (
+                      <span className="archive-badge">
+                        <FaArchive /> 已归档
+                      </span>
+                    )}
+                  </h2>
+                  <div className="card-language">
+                    <FaRegFileCode className="language-icon" />
+                    <span>{project.language || 'Unknown'}</span>
                   </div>
-                )}
-
-                {project.forks > 0 && (
-                  <div className="stat-item">
-                    <FaCodeBranch className="stat-icon fork" />
-                    <div>
-                      <div className="stat-value">{project.forks}</div>
-                      <div className="stat-label">Forks</div>
-                    </div>
-                  </div>
-                )}
-
-                {project.issues > 0 && (
-                  <div className="stat-item">
-                    <FaExclamationTriangle className="stat-icon issue" />
-                    <div>
-                      <div className="stat-value">{project.issues}</div>
-                      <div className="stat-label">Issues</div>
-                    </div>
-                  </div>
-                )}
-
-                <div className="stat-item">
-                  <FaRegFileCode className="stat-icon size" />
-                  <div>
-                    <div className="stat-value">{project.size}KB</div>
-                    <div className="stat-label">大小</div>
-                  </div>
+                </div>
+                <div className="header-actions">
+                  <motion.a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="github-btn"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    title="查看源码"
+                  >
+                    <FaGithub />
+                  </motion.a>
+                  <motion.button
+                    className="card-close-btn"
+                    onClick={onClose}
+                    whileHover={{ scale: 1.1, rotate: 90 }}
+                    whileTap={{ scale: 0.9 }}
+                    title="关闭"
+                  >
+                    <FaTimes />
+                  </motion.button>
                 </div>
               </div>
-            </div>
 
-            {/* 项目元信息 */}
-            <div className="modal-meta">
-              <div className="meta-grid">
-                <div className="meta-item">
-                  <FaTag className="meta-icon" />
-                  <div>
-                    <div className="meta-label">分类</div>
-                    <div className="meta-value">{project.category}</div>
-                  </div>
-                </div>
+              {/* 项目描述 - 完整显示，不截断 */}
+              <div className="card-description">
+                <p>{project.description || `${project.name} - 一个专注于创新和技术实践的项目`}</p>
+              </div>
 
-                <div className="meta-item">
-                  <FaRegFileCode className="meta-icon" />
-                  <div>
-                    <div className="meta-label">主要语言</div>
-                    <div className="meta-value">{project.language || 'Unknown'}</div>
-                  </div>
-                </div>
-
-                <div className="meta-item">
-                  <FaCalendar className="meta-icon" />
-                  <div>
-                    <div className="meta-label">创建时间</div>
-                    <div className="meta-value">
-                      {new Date(project.createdAt).toLocaleDateString('zh-CN')}
+              {/* 核心数据：Stars、Forks、分类 */}
+              <div className="card-metrics">
+                <div className="metrics-list">
+                  {project.stars > 0 && (
+                    <div className="metric-item">
+                      <FaStar className="metric-icon star" />
+                      <span className="metric-value">{project.stars}</span>
                     </div>
-                  </div>
-                </div>
-
-                <div className="meta-item">
-                  <FaCalendar className="meta-icon" />
-                  <div>
-                    <div className="meta-label">最后更新</div>
-                    <div className="meta-value">
-                      {new Date(project.updatedAt).toLocaleDateString('zh-CN')}
+                  )}
+                  {project.forks > 0 && (
+                    <div className="metric-item">
+                      <FaCodeBranch className="metric-icon fork" />
+                      <span className="metric-value">{project.forks}</span>
                     </div>
-                  </div>
+                  )}
+                  {project.category && (
+                    <div className="metric-item category">
+                      <FaTag className="metric-icon" />
+                      <span className="metric-label">{project.category}</span>
+                    </div>
+                  )}
                 </div>
               </div>
-            </div>
 
-            {/* 技术标签 */}
-            {project.tags && project.tags.length > 0 && (
-              <div className="modal-tags">
-                <div className="tags-header">
-                  <FaTag className="tags-icon" />
-                  <h3>技术标签</h3>
-                </div>
-                <div className="tags-list">
-                  {project.tags.map((tag, index) => (
-                    <motion.div
-                      key={tag}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.05 }}
-                    >
-                      <Badge variant="outline" className="modal-tech-badge">
+              {/* 技术栈 - 突出显示 */}
+              {project.tags && project.tags.length > 0 && (
+                <div className="card-technologies">
+                  <div className="tech-label">技术栈</div>
+                  <div className="tech-list">
+                    {project.tags.map((tag, index) => (
+                      <Badge key={tag} variant="outline" className="tech-badge">
                         {tag}
                       </Badge>
-                    </motion.div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {/* 项目主题 */}
-            {project.topics && project.topics.length > 0 && (
-              <div className="modal-topics">
-                <div className="topics-header">
-                  <FaLink className="topics-icon" />
-                  <h3>GitHub Topics</h3>
+              {/* 项目主页链接（如果有的话） */}
+              {project.homepage && (
+                <div className="card-demo-link">
+                  <motion.a
+                    href={project.homepage}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="demo-btn"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    title="访问项目主页"
+                  >
+                    <FaExternalLinkAlt />
+                    <span>查看演示</span>
+                  </motion.a>
                 </div>
-                <div className="topics-list">
-                  {project.topics.map((topic, index) => (
-                    <motion.a
-                      key={topic}
-                      href={`https://github.com/topics/${topic}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="topic-link"
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                      whileHover={{ x: 5 }}
-                    >
-                      {topic}
-                    </motion.a>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* 许可证信息 */}
-            {project.license && (
-              <div className="modal-license">
-                <div className="license-info">
-                  <FaLink className="license-icon" />
-                  <span>许可证: {project.license}</span>
-                </div>
-              </div>
-            )}
+              )}
+            </div>
           </motion.div>
         </motion.div>
       )}
