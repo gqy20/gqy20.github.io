@@ -32,8 +32,12 @@ const MarkdownRenderer = ({ content }) => {
             <ol className="markdown-ordered-list" {...props}>{children}</ol>
           ),
           li: ({ children, ...props }) => {
-            // 检查是否是任务列表项
-            const isTaskItem = props.className?.includes('task-list-item')
+            // 更精确地检查是否是任务列表项
+            // 确保只有真正包含checkbox的li才被识别为任务列表项
+            const isTaskItem = props.className?.includes('task-list-item') &&
+                             React.Children.toArray(children).some(child =>
+                               React.isValidElement(child) && child.type === 'input' && child.props.type === 'checkbox'
+                             )
             if (isTaskItem) {
               return (
                 <li className="task-list-item" {...props}>
@@ -52,7 +56,20 @@ const MarkdownRenderer = ({ content }) => {
                 </code>
               )
             }
-            // 代码块使用ShikiCodeBlock组件
+
+            // 检测内容复杂度，简单内容使用内联样式
+            const content = String(children)
+            const isSimpleContent = !content.includes('\n') && content.length < 50
+
+            if (isSimpleContent) {
+              return (
+                <code className="markdown-inline-code" {...props}>
+                  {children}
+                </code>
+              )
+            }
+
+            // 复杂代码块使用ShikiCodeBlock组件
             return (
               <ShikiCodeBlock className={className} {...props}>
                 {children}
