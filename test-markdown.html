@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Markdown 代码块测试</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/react-markdown@10.0.0/umd/react-markdown.development.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        pre { background: #f4f4f4; padding: 10px; border-radius: 5px; }
+        code { background: #eee; padding: 2px 4px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { createElement } = React;
+        const { createRoot } = ReactDOM;
+        const ReactMarkdown = window.ReactMarkdown.default;
+
+        const testMarkdown = `# 测试代码块
+
+这是一个JavaScript代码块：
+
+\`\`\`javascript
+const hello = () => {
+  console.log("Hello World!");
+  return true;
+};
+\`\`\`
+
+这是一个Python代码块：
+
+\`\`\`python
+def hello():
+    print("Hello World!")
+    return True
+\`\`\`
+`;
+
+        function TestApp() {
+            return createElement('div', null,
+                createElement('h1', null, 'Markdown 代码块测试'),
+                createElement(ReactMarkdown, {
+                    children: testMarkdown,
+                    components: {
+                        code: ({ inline, children, className, ...props }) => {
+                            console.log('HTML 测试 - code组件:', {
+                                inline,
+                                className,
+                                children: String(children).substring(0, 50) + '...'
+                            });
+
+                            if (inline) {
+                                return createElement('code', {
+                                    style: { background: '#eee', padding: '2px 4px' },
+                                    ...props
+                                }, children);
+                            }
+
+                            return createElement('pre', {
+                                style: { background: '#f4f4f4', padding: '10px' }
+                            }, createElement('code', props, children));
+                        }
+                    }
+                })
+            );
+        }
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(createElement(TestApp));
+    </script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

@@ -51,16 +51,8 @@ const MarkdownRenderer = ({ content }) => {
             )
           },
           pre: ({ children, ...props }) => {
-            // 检查是否已经是ShikiCodeBlock处理的代码块
-            if (React.isValidElement(children) && children.type?.name === 'ShikiCodeBlock') {
-              return children
-            }
-            // 处理未通过code组件包装的pre标签
-            return (
-              <ShikiCodeBlock {...props}>
-                {children?.props?.children || children}
-              </ShikiCodeBlock>
-            )
+            // 直接返回children，让code组件处理所有代码块
+            return children
           },
           // 自定义链接渲染
           a: ({ children, href, ...props }) => (
