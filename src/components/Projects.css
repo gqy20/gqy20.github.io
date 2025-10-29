@@ -1,6 +1,7 @@
 .projects {
   min-height: 100vh;
   padding: 4rem 2rem;
+  padding-top: 6rem; /* 为固定导航栏留出空间 */
   background: var(--bg-light);
 }
 
@@ -403,6 +404,10 @@
 }
 
 @media (max-width: 768px) {
+  .projects {
+    padding-top: 5rem; /* 移动端减少顶部间距 */
+  }
+
   .projects-controls {
     flex-direction: column;
     align-items: stretch;

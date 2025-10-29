@@ -1,6 +1,7 @@
 .blog {
   min-height: 100vh;
   padding: 4rem 2rem;
+  padding-top: 6rem; /* 为固定导航栏留出空间 */
   background: var(--bg-light);
 }
 
@@ -142,6 +143,10 @@
 }
 
 @media (max-width: 768px) {
+  .blog {
+    padding-top: 5rem; /* 移动端减少顶部间距 */
+  }
+
   .blog-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;

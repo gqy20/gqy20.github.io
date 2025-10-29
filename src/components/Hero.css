@@ -5,6 +5,7 @@
   justify-content: center;
   position: relative;
   padding: 2rem;
+  padding-top: 6rem; /* 为固定导航栏留出空间 */
 }
 
 .hero-container {
@@ -319,6 +320,10 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding-top: 5rem; /* 移动端减少顶部间距 */
+  }
+
   .hero-buttons {
     flex-direction: column;
     align-items: center;
