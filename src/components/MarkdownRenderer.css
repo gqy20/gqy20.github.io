@@ -38,7 +38,7 @@
 
 /* 段落样式 */
 .markdown-paragraph {
-  margin: 1.5rem 0;
+  margin: 2rem 0;
   line-height: 1.8;
   color: var(--text-light);
 }
@@ -69,37 +69,35 @@
 .markdown-list.contains-task-list {
   list-style: none;
   padding-left: 0;
-  margin: 1.5rem 0;
+  margin: 1.2rem 0;
 }
 
 .task-list-item {
   display: flex;
   align-items: flex-start;
-  margin: 1rem 0;
-  padding: 0.75rem 1rem;
-  line-height: 1.7;
+  margin: 0.8rem 0;
+  padding: 0.25rem 0;
+  line-height: 1.6;
   color: var(--text-light);
-  border-radius: 8px;
-  transition: all 0.2s ease;
+  border-radius: 4px;
+  transition: all 0.15s ease;
   background: transparent;
-  min-height: 32px;
+  min-height: 20px;
 }
 
 .task-list-item:hover {
   background: var(--hover-bg);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .task-list-item input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  margin-right: 0.875rem;
+  width: 16px;
+  height: 16px;
+  margin-right: 0.75rem;
   margin-top: 2px;
-  border: 2px solid var(--border-color);
-  border-radius: 6px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 3px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
   flex-shrink: 0;
   appearance: none;
   -webkit-appearance: none;
@@ -110,8 +108,6 @@
 
 .task-list-item input[type="checkbox"]:hover {
   border-color: var(--primary-color);
-  transform: scale(1.05);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .task-list-item input[type="checkbox"]:checked {
@@ -127,35 +123,29 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: bold;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .task-list-item input[type="checkbox"]:checked + * {
   text-decoration: line-through;
   color: var(--text-secondary);
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
-/* 修复多行文本对齐问题 */
+/* 多行文本处理 */
 .task-list-item > *:not(input[type="checkbox"]) {
   flex: 1;
-  margin-top: 1px;
-  white-space: pre-wrap; /* 保留空格和换行 */
+  margin-top: 2px;
+  line-height: 1.2;
+  white-space: pre-line;
   word-break: break-word;
-  line-height: 1.7;
+  min-width: 0;
 }
 
-/* 任务列表文本容器 */
-.task-list-item .task-text {
-  flex: 1;
-  margin-top: 1px;
-  white-space: pre-wrap;
-  word-break: break-word;
-  line-height: 1.7;
-  min-height: 20px;
-  display: inline-block;
+.task-list-item p {
+  margin: 0;
+  line-height: 1.2;
 }
 
 /* 深色模式下的任务列表 */
@@ -170,29 +160,23 @@
 
 .app.dark .task-list-item input[type="checkbox"]:hover {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 .app.dark .task-list-item input[type="checkbox"]:checked {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
-}
-
-.app.dark .task-list-item input[type="checkbox"]:checked::after {
-  color: white;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* 代码样式 */
 .markdown-inline-code {
-  background: var(--bg-light);
+  background: rgba(37, 99, 235, 0.08);
   color: var(--primary-color);
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  font-size: 0.9em;
-  border: 1px solid var(--border-color);
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  font-size: 0.85em;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  font-weight: 500;
 }
 
 /* 代码块样式 - 现在由 ShikiCodeBlock 组件处理 */
@@ -266,9 +250,9 @@
 }
 
 .app.dark .markdown-inline-code {
-  background: #334155;
+  background: rgba(96, 165, 250, 0.1);
   color: #60a5fa;
-  border-color: #475569;
+  border-color: rgba(96, 165, 250, 0.3);
 }
 
 /* 响应式设计 */
