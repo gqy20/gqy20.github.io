@@ -11,5 +11,9 @@ export default defineConfig({
   assetsInclude: ['**/*.md'],
   css: {
     postcss: './postcss.config.js',
+  },
+  server: {
+    host: '0.0.0.0',
+    port: 5173
   }
 })

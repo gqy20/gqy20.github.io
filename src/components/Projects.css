@@ -627,3 +627,29 @@
 .app.dark .project-view-link:hover {
   background: var(--accent-color);
 }
+
+/* Badge 组件适配样式 */
+.project-tags .category-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.project-tags .tech-badge {
+  font-size: 0.7rem;
+  opacity: 0.9;
+}
+
+.project-tags .tech-badge:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* 深色模式下 Badge 样式调整 */
+.app.dark .project-tags .tech-badge {
+  opacity: 0.85;
+}
+
+.app.dark .project-tags .tech-badge:hover {
+  opacity: 1;
+}

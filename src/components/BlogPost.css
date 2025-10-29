@@ -436,3 +436,41 @@
 .app.dark .author-link:hover {
   box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
 }
+
+/* Badge 组件适配样式 */
+.meta-tags .blogpost-category-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.meta-tags .blogpost-tag-badge {
+  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  opacity: 0.9;
+}
+
+.meta-tags .blogpost-tag-badge:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* Button 组件适配样式 */
+.back-button {
+  margin-bottom: 1rem;
+}
+
+.nav-button {
+  margin-top: 1rem;
+}
+
+/* 深色模式下 Badge 样式调整 */
+.app.dark .meta-tags .blogpost-tag-badge {
+  opacity: 0.85;
+}
+
+.app.dark .meta-tags .blogpost-tag-badge:hover {
+  opacity: 1;
+}

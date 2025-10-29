@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { FaCalendar, FaClock, FaTag, FaUser, FaFolder } from 'react-icons/fa'
+import Badge from './Badge'
 import './Blog.css'
 
 const Blog = () => {
@@ -108,13 +109,13 @@ const Blog = () => {
                 <p className="blog-excerpt">{post.excerpt}</p>
 
                 <div className="blog-tags">
-                  <span className="category-tag">
+                  <Badge variant="secondary" className="blog-category-badge">
                     <FaFolder /> {post.category}
-                  </span>
+                  </Badge>
                   {post.tags.map((tag) => (
-                    <span key={tag} className="blog-tag">
+                    <Badge key={tag} variant="outline" className="blog-tag-badge">
                       <FaTag /> {tag}
-                    </span>
+                    </Badge>
                   ))}
                 </div>
 

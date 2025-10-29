@@ -6,6 +6,7 @@ import Hero from './components/Hero'
 import Projects from './components/Projects'
 import Blog from './components/Blog'
 import BlogPost from './components/BlogPost'
+import ComponentTest from './components/ComponentTest'
 import ParticleBackground from './components/ParticleBackground'
 import './App.css'
 
@@ -27,6 +28,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/components" element={<ComponentTest />} />
           </Routes>
         </motion.div>
       </div>

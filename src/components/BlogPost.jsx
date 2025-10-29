@@ -11,6 +11,8 @@ import {
   FaShare,
   FaBookmark
 } from 'react-icons/fa'
+import Badge from './Badge'
+import Button from './Button'
 import MarkdownRenderer from './MarkdownRenderer'
 import './BlogPost.css'
 
@@ -97,8 +99,10 @@ const BlogPost = () => {
         <div className="error-container">
           <h2>加载失败</h2>
           <p>{error}</p>
-          <Link to="/blog" className="back-link">
-            <FaArrowLeft /> 返回博客列表
+          <Link to="/blog">
+            <Button variant="outline" className="back-button">
+              <FaArrowLeft /> 返回博客列表
+            </Button>
           </Link>
         </div>
       </div>
@@ -111,8 +115,10 @@ const BlogPost = () => {
         <div className="error-container">
           <h2>文章未找到</h2>
           <p>您访问的文章不存在或已被删除</p>
-          <Link to="/blog" className="back-link">
-            <FaArrowLeft /> 返回博客列表
+          <Link to="/blog">
+            <Button variant="outline" className="back-button">
+              <FaArrowLeft /> 返回博客列表
+            </Button>
           </Link>
         </div>
       </div>
@@ -129,8 +135,10 @@ const BlogPost = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <Link to="/blog" className="back-button">
-            <FaArrowLeft /> 返回博客
+          <Link to="/blog">
+            <Button variant="ghost" className="back-button">
+              <FaArrowLeft /> 返回博客
+            </Button>
           </Link>
         </motion.div>
 
@@ -172,11 +180,13 @@ const BlogPost = () => {
               </div>
 
               <div className="meta-tags">
-                <span className="category-tag">{post.category}</span>
+                <Badge variant="secondary" className="blogpost-category-badge">
+                  {post.category}
+                </Badge>
                 {post.tags.map((tag) => (
-                  <span key={tag} className="tag">
+                  <Badge key={tag} variant="outline" className="blogpost-tag-badge">
                     <FaTag /> {tag}
-                  </span>
+                  </Badge>
                 ))}
               </div>
             </div>
@@ -238,8 +248,10 @@ const BlogPost = () => {
             </div>
 
             <div className="article-navigation">
-              <Link to="/blog" className="nav-button">
-                <FaArrowLeft /> 查看更多文章
+              <Link to="/blog">
+                <Button variant="default" className="nav-button">
+                  <FaArrowLeft /> 查看更多文章
+                </Button>
               </Link>
             </div>
           </div>

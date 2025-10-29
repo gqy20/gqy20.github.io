@@ -13,6 +13,7 @@ import {
   FaSync,
   FaEye
 } from 'react-icons/fa'
+import Badge from './Badge'
 import './Projects.css'
 import ProjectDetailModal from './ProjectDetailModal'
 
@@ -308,11 +309,13 @@ const Projects = () => {
               </div>
 
               <div className="project-tags">
-                <span className="category-tag">{project.category}</span>
+                <Badge variant="secondary" className="category-badge">
+                  {project.category}
+                </Badge>
                 {project.tags.map((tag) => (
-                  <span key={tag} className="tech-tag">
+                  <Badge key={tag} variant="outline" className="tech-badge">
                     {tag}
-                  </span>
+                  </Badge>
                 ))}
               </div>
 

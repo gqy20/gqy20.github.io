@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FaGithub, FaEnvelope, FaStar } from 'react-icons/fa'
-import ComponentTest from './ComponentTest'
 import './Hero.css'
 
 const Hero = () => {
@@ -134,17 +133,7 @@ const Hero = () => {
             </motion.a>
           </motion.div>
         </motion.div>
-
         </div>
-
-        {/* shadcn 组件测试区域 */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.3 }}
-        >
-          <ComponentTest />
-        </motion.div>
     </section>
   )
 }
