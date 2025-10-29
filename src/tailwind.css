@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 确保与现有样式系统兼容 */
+@layer base {
+  /* 保留现有的 CSS 变量系统 */
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
+/* Tailwind 组件样式 - 与现有样式协调 */
+@layer components {
+  /* Badge 组件基础样式已移至 Badge.css */
+  /* Button 组件基础样式已移至 Button.css */
+}

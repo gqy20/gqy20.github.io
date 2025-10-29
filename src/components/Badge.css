@@ -1,0 +1,166 @@
+/* Badge 组件样式 - 与现有设计系统协调 */
+
+.badge-base {
+  /* 基础样式 */
+  display: inline-flex;
+  align-items: center;
+  border-radius: 18px;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  border: 1px solid var(--border-color);
+  background: var(--bg-light);
+  color: var(--text-color);
+  transition: all 0.2s ease;
+  cursor: default;
+  white-space: nowrap;
+}
+
+/* 变体样式 */
+.badge-default {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.badge-secondary {
+  background: var(--bg-light);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+.badge-destructive {
+  background: #ef4444;
+  color: white;
+  border-color: #ef4444;
+}
+
+.badge-outline {
+  background: transparent;
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+.badge-success {
+  background: #10b981;
+  color: white;
+  border-color: #10b981;
+}
+
+.badge-warning {
+  background: #f59e0b;
+  color: white;
+  border-color: #f59e0b;
+}
+
+.badge-info {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+/* 悬停效果 */
+.badge-base:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.badge-default:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.badge-secondary:hover {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
+.badge-destructive:hover {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+
+.badge-outline:hover {
+  background: var(--bg-color);
+  border-color: var(--text-color);
+}
+
+.badge-success:hover {
+  background: #059669;
+  border-color: #059669;
+}
+
+.badge-warning:hover {
+  background: #d97706;
+  border-color: #d97706;
+}
+
+.badge-info:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+/* 数字徽章 */
+.badge-number {
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: ui-monospace, SFMono, Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 0.7rem;
+}
+
+/* 图标徽章 */
+.badge-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.badge-icon {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 深色模式适配 */
+.app.dark .badge-secondary {
+  background: var(--bg-light);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+.app.dark .badge-outline {
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+.app.dark .badge-secondary:hover {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
+/* 焦点样式 */
+.badge-base:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring), 0 0 0 0px var(--ring-offset);
+}
+
+/* 禁用状态 */
+.badge-base.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.badge-base.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}

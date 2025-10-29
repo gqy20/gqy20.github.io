@@ -8,5 +8,8 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets'
   },
-  assetsInclude: ['**/*.md']
+  assetsInclude: ['**/*.md'],
+  css: {
+    postcss: './postcss.config.js',
+  }
 })

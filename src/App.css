@@ -1,4 +1,9 @@
+@import './tailwind.css';
+@import './components/Badge.css';
+@import './components/Button.css';
+
 :root {
+  /* 保持现有颜色系统，与 Tailwind 协调 */
   --primary-color: #2563eb;
   --primary-dark: #1d4ed8;
   --secondary-color: #64748b;
@@ -10,6 +15,11 @@
   --border-color: #e2e8f0;
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* Tailwind 额外的变量 */
+  --radius: 0.5rem;
+  --ring: 0 0 0 3px rgba(59, 130, 246, 0.5);
+  --ring-offset: #fff;
 }
 
 .app.dark {
