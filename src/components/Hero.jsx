@@ -32,7 +32,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            Hi, 我是 <span className="highlight">Qingyu Ge</span>
+            你好，我是 <span className="highlight">Qingyu Ge</span>
           </motion.h1>
 
           <motion.div
@@ -41,7 +41,9 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
           >
-            在读硕士生 · AI辅助科研工具开发者
+            <span className="typing-text">在读硕士生</span>
+            <span className="separator">·</span>
+            <span className="typing-text">AI辅助科研工具开发者</span>
           </motion.div>
 
           <motion.p
@@ -50,7 +52,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9 }}
           >
-            专注于开发各种科研工具，利用人工智能技术提升学术研究效率
+            专注于开发AI驱动的科研工具，让学术研究变得更加高效和有趣
           </motion.p>
 
           <motion.div
@@ -60,7 +62,7 @@ const Hero = () => {
             transition={{ delay: 1.1 }}
           >
             <motion.a
-              href="#projects"
+              href="#/projects"
               className="btn btn-primary"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

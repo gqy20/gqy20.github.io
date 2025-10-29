@@ -16,10 +16,10 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
   }, [])
 
   const navItems = [
-    { name: '首页', href: '#/' },
-    { name: '关于我', href: '#/about' },
-    { name: '项目', href: '#/projects' },
-    { name: '联系', href: '#/contact' }
+    { name: '首页', href: '#/', icon: '🏠' },
+    { name: '关于', href: '#/about', icon: '👋' },
+    { name: '项目', href: '#/projects', icon: '💻' },
+    { name: '联系', href: '#/contact', icon: '📧' }
   ]
 
   return (
@@ -51,7 +51,8 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              {item.name}
+              <span className="nav-icon">{item.icon}</span>
+              <span className="nav-text">{item.name}</span>
             </motion.a>
           ))}
         </div>
