@@ -1,0 +1,66 @@
+<svg width="192" height="192" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8fafc;stop-opacity:1" />
+    </linearGradient>
+
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="4" result="offsetblur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.15"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Main background with rounded corners -->
+  <rect width="192" height="192" rx="48" fill="url(#bgGradient)" filter="url(#shadow)"/>
+
+  <!-- Inner decoration circle -->
+  <circle cx="96" cy="96" r="80" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+
+  <!-- Q Letter -->
+  <g transform="translate(45, 55)">
+    <path d="M 30 20
+             C 30 20, 5 20, 5 50
+             C 5 80, 30 80, 30 80
+             L 30 70
+             L 55 95
+             L 65 85
+             L 40 60
+             C 70 60, 80 50, 80 50
+             C 80 20, 55 20, 30 20 Z"
+          fill="url(#textGradient)"/>
+    <circle cx="55" cy="70" r="6" fill="url(#textGradient)"/>
+  </g>
+
+  <!-- Y Letter -->
+  <g transform="translate(100, 55)">
+    <path d="M 15 20
+             L 35 60
+             L 55 20
+             L 65 20
+             L 40 75
+             L 40 95
+             L 30 95
+             L 30 75
+             L 5 20
+             Z"
+          fill="url(#textGradient)"/>
+  </g>
+
+  <!-- Decorative dots -->
+  <circle cx="40" cy="40" r="3" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="152" cy="40" r="3" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="40" cy="152" r="3" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="152" cy="152" r="3" fill="rgba(255,255,255,0.4)"/>
+</svg>

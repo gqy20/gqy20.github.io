@@ -1,0 +1,73 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient circle -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0f0f0;stop-opacity:1" />
+    </linearGradient>
+
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.2"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Main circle background -->
+  <circle cx="100" cy="100" r="95" fill="url(#bgGradient)" filter="url(#shadow)"/>
+
+  <!-- Inner circle for depth -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+
+  <!-- Q Letter -->
+  <g transform="translate(55, 65)">
+    <!-- Q main shape -->
+    <path d="M 25 15
+             C 25 15, 10 15, 10 35
+             C 10 55, 25 55, 25 55
+             L 25 50
+             L 40 65
+             L 45 60
+             L 30 45
+             C 45 45, 50 40, 50 35
+             C 50 15, 35 15, 25 15 Z"
+          fill="url(#textGradient)"
+          stroke="none"/>
+
+    <!-- Q tail -->
+    <circle cx="40" cy="55" r="4" fill="url(#textGradient)"/>
+  </g>
+
+  <!-- Y Letter -->
+  <g transform="translate(105, 65)">
+    <!-- Y main shape -->
+    <path d="M 15 15
+             L 25 35
+             L 35 15
+             L 40 15
+             L 27 40
+             L 27 55
+             L 23 55
+             L 23 40
+             L 10 15
+             Z"
+          fill="url(#textGradient)"
+          stroke="none"/>
+  </g>
+
+  <!-- Decorative elements -->
+  <circle cx="30" cy="40" r="2" fill="rgba(255,255,255,0.6)"/>
+  <circle cx="170" cy="40" r="2" fill="rgba(255,255,255,0.6)"/>
+  <circle cx="30" cy="160" r="2" fill="rgba(255,255,255,0.6)"/>
+  <circle cx="170" cy="160" r="2" fill="rgba(255,255,255,0.6)"/>
+</svg>
