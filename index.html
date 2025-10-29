@@ -1,230 +1,35 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>    <meta charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qingyu Ge (gqy20) - 个人主页</title>
     <meta name="description" content="Qingyu Ge，在读硕士生，专注于AI辅助科研工具开发">
     <meta name="keywords" content="Qingyu Ge, gqy20, AI, 科研工具, 文献分析, Python, 机器学习">
     <meta name="author" content="Qingyu Ge">
-    
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gqy20.github.io/">
+    <meta property="og:title" content="Qingyu Ge - 个人主页">
+    <meta property="og:description" content="专注于AI辅助科研工具开发的在读硕士生">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/150650455?v=4">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://gqy20.github.io/">
+    <meta property="twitter:title" content="Qingyu Ge - 个人主页">
+    <meta property="twitter:description" content="专注于AI辅助科研工具开发的在读硕士生">
+    <meta property="twitter:image" content="https://avatars.githubusercontent.com/u/150650455?v=4">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
     <!-- Preload critical resources -->
-    <link rel="preload" href="style.css" as="style">
     <link rel="preload" href="https://avatars.githubusercontent.com/u/150650455?v=4" as="image">
-    
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"></noscript>
 </head>
 <body>
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <a href="#home" class="nav-logo">QY</a>
-                <div class="nav-menu">
-                    <a href="#home" class="nav-link">首页</a>
-                    <a href="#about" class="nav-link">关于我</a>
-                    <a href="#projects" class="nav-link">项目</a>
-                    <a href="#contact" class="nav-link">联系</a>
-                </div>                <div class="nav-toggle" aria-label="切换导航菜单" role="button" tabindex="0">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-container">
-                <div class="hero-content">                    <div class="hero-avatar">
-                        <img src="https://avatars.githubusercontent.com/u/150650455?v=4" 
-                             alt="Qingyu Ge" 
-                             class="avatar-img"
-                             loading="eager"
-                             width="150" 
-                             height="150">
-                    </div>
-                    <h1 class="hero-title">
-                        Hi, 我是 <span class="highlight">Qingyu Ge</span>
-                    </h1>
-                    <p class="hero-subtitle">在读硕士生 · AI辅助科研工具开发者</p>
-                    <p class="hero-description">
-                        专注于开发各种科研工具，利用人工智能技术提升学术研究效率
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">查看项目</a>
-                        <a href="https://github.com/gqy20" target="_blank" class="btn btn-secondary">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about">
-            <div class="container">
-                <h2 class="section-title">关于我</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>
-                            我是一名在读硕士研究生，对人工智能和科研工具开发充满热情。我致力于开发能够提升学术研究效率的工具，
-                            特别是在文献分析、数据处理和AI辅助编程方面。
-                        </p>
-                        <p>
-                            目前我的研究重点包括智能文献分析系统、学术论文处理工具，以及AI辅助的代码生成与优化。
-                            我相信技术能够让学术研究变得更加高效和有趣。
-                        </p>
-                    </div>                    <div class="about-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">5</div>
-                            <div class="stat-label">开源项目</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">3</div>
-                            <div class="stat-label">项目获得Star</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">2</div>
-                            <div class="stat-label">关注者</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="projects">
-            <div class="container">
-                <h2 class="section-title">精选项目</h2>
-                <div class="projects-grid">                    <!-- SLAIS Project -->
-                    <div class="project-card" data-url="https://github.com/gqy20/SLAIS">
-                        <div class="project-header">
-                            <h3 class="project-title">SLAIS</h3>
-                            <div class="project-links">
-                                <a href="https://github.com/gqy20/SLAIS" target="_blank" class="project-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <span class="project-stars">⭐ 1</span>
-                            </div>
-                        </div>
-                        <p class="project-description">
-                            智能文献分析与洞察系统 - 基于AI的PDF文献智能分析系统，专为科研人员设计，
-                            能够自动提取关键信息、生成深刻洞察并构建结构化报告。
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">AI</span>
-                            <span class="tech-tag">PDF处理</span>
-                        </div>
-                    </div>                    <!-- AI Coding Project -->
-                    <div class="project-card" data-url="https://github.com/gqy20/ai_coding">
-                        <div class="project-header">
-                            <h3 class="project-title">AI Coding</h3>
-                            <div class="project-links">
-                                <a href="https://github.com/gqy20/ai_coding" target="_blank" class="project-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <span class="project-stars">⭐ 1</span>
-                            </div>
-                        </div>
-                        <p class="project-description">
-                            用AI辅助编写代码 - 利用人工智能技术辅助程序开发，提高编程效率和代码质量。
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">AI</span>
-                            <span class="tech-tag">代码生成</span>
-                            <span class="tech-tag">自动化</span>
-                        </div>
-                    </div>                    <!-- pub2tts Project -->
-                    <div class="project-card" data-url="https://github.com/gqy20/pub2tts">
-                        <div class="project-header">
-                            <h3 class="project-title">pub2tts</h3>
-                            <div class="project-links">
-                                <a href="https://github.com/gqy20/pub2tts" target="_blank" class="project-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <span class="project-stars">⭐ 1</span>
-                            </div>
-                        </div>
-                        <p class="project-description">
-                            PubMed文献语音播报 - 从PubMed获取文献，将标题、关键词、摘要等内容转成中文并合成语音。
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">TTS</span>
-                            <span class="tech-tag">PubMed API</span>
-                        </div>
-                    </div>                    <!-- Article MCP Project -->
-                    <div class="project-card" data-url="https://github.com/gqy20/article_mcp">
-                        <div class="project-header">
-                            <h3 class="project-title">article_mcp</h3>
-                            <div class="project-links">
-                                <a href="https://github.com/gqy20/article_mcp" target="_blank" class="project-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <p class="project-description">
-                            文章处理工具 - 基于MCP协议的文章处理和分析工具。
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">MCP</span>
-                            <span class="tech-tag">文本处理</span>
-                        </div>
-                    </div>                    <!-- Personal Homepage Project -->
-                    <div class="project-card" data-url="https://github.com/gqy20/gqy20">
-                        <div class="project-header">
-                            <h3 class="project-title">个人主页</h3>
-                            <div class="project-links">
-                                <a href="https://github.com/gqy20/gqy20" target="_blank" class="project-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <p class="project-description">
-                            GitHub个人主页配置文件和说明。
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Markdown</span>
-                            <span class="tech-tag">GitHub</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2 class="section-title">联系我</h2>
-                <div class="contact-content">
-                    <p class="contact-text">
-                        如果你对我的项目感兴趣，或者想要合作交流，欢迎通过以下方式联系我：
-                    </p>
-                    <div class="contact-links">
-                        <a href="https://github.com/gqy20" target="_blank" class="contact-link">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
-                        </a>                        <a href="mailto:qingyu_ge@foxmail.com" class="contact-link">
-                            <i class="fas fa-envelope"></i>
-                            <span>qingyu_ge@foxmail.com</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Qingyu Ge. Made with ❤️ using GitHub Pages.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>

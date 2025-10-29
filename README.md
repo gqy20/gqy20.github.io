@@ -1,45 +1,108 @@
-# Qingyu Ge - 个人网页
+# Qingyu Ge - React 个人主页
 
-欢迎访问我的个人网页！这是一个使用GitHub Pages托管的静态网站，展示了我的项目和个人信息。
+## 🚀 炫酷特性
 
-## 🌟 网站特点
-
-- **现代化设计**: 采用现代化的UI设计，响应式布局
-- **项目展示**: 详细展示我的开源项目
-- **个人介绍**: 包含个人简介和统计信息
-- **联系方式**: 方便的联系方式链接
-
-## 🚀 主要项目
-
-### SLAIS - 智能文献分析系统
-基于AI的PDF文献智能分析系统，专为科研人员设计，能够自动提取关键信息、生成深刻洞察。
-
-### AI Coding - AI辅助编程
-利用人工智能技术辅助程序开发，提高编程效率和代码质量。
-
-### pub2tts - 文献语音播报
-从PubMed获取文献，将标题、关键词、摘要等内容转成中文并合成语音。
+- **🎨 粒子背景动画** - 交互式粒子效果，鼠标悬停和点击特效
+- **🌓 深色模式切换** - 支持亮色/暗色主题切换
+- **⚡ 流畅动画** - 基于 Framer Motion 的微交互动画
+- **📱 完全响应式** - 移动端友好的设计
+- **🎯 打字机效果** - 动态文字展示
+- **✨ 现代UI** - 玻璃态效果、渐变色彩、悬浮动画
 
 ## 🛠️ 技术栈
 
-- **前端**: HTML5, CSS3, JavaScript
-- **框架**: 原生JavaScript (无框架依赖)
-- **样式**: CSS Grid, Flexbox, CSS自定义属性
-- **图标**: Font Awesome
-- **托管**: GitHub Pages
+- **前端**: React 18 + Vite
+- **动画**: Framer Motion + React Type Animation
+- **粒子效果**: tsparticles
+- **样式**: CSS3 + CSS Variables
+- **图标**: React Icons
+- **部署**: GitHub Pages + GitHub Actions
 
-## 📝 使用说明
+## 📦 本地开发
 
-1. 克隆或下载此仓库
-2. 在GitHub仓库设置中启用GitHub Pages
-3. 选择主分支作为源
-4. 访问 `https://gqy20.github.io` 查看网站
+```bash
+# 安装依赖
+npm install
 
-## 📧 联系方式
+# 启动开发服务器
+npm run dev
 
-- GitHub: [@gqy20](https://github.com/gqy20)
-- 邮箱: 请通过GitHub联系
+# 构建生产版本
+npm run build
 
-## 📄 许可证
+# 预览构建结果
+npm run preview
+```
 
-本项目采用MIT许可证。详情请参阅LICENSE文件。
+## 🚀 自动部署
+
+**配置完成！** 现在你只需要：
+
+1. 修改代码
+2. 推送到 main 分支：
+   ```bash
+   git add .
+   git commit -m "update website"
+   git push origin main
+   ```
+
+GitHub Actions 会自动：
+- 安装依赖
+- 构建项目
+- 部署到 GitHub Pages
+
+**网站地址**: https://gqy20.github.io
+
+## 📁 项目结构
+
+```
+├── src/
+│   ├── components/
+│   │   ├── Navbar.jsx      # 导航栏 + 深色模式
+│   │   ├── Hero.jsx        # 首页英雄区域
+│   │   ├── ParticleBackground.jsx  # 粒子背景
+│   │   └── ...             # 其他组件
+│   ├── App.jsx             # 主应用
+│   └── main.jsx            # 入口文件
+├── .github/workflows/
+│   └── deploy.yml          # 自动部署配置
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
+## 🎨 自定义
+
+### 修改粒子效果
+编辑 `src/components/ParticleBackground.jsx` 中的配置
+
+### 修改颜色主题
+编辑 `src/App.css` 中的 CSS 变量
+
+### 添加新页面
+1. 在 `src/components/` 创建新组件
+2. 在 `src/App.jsx` 中添加路由
+
+## 🌟 炫酷功能说明
+
+### 粒子背景
+- 🖱️ 鼠标悬停：粒子连线效果
+- 🎯 点击效果：生成新粒子
+- 🌈 多彩粒子：蓝紫色调
+- ⚡ 流畅动画：60fps 渲染
+
+### 动画效果
+- 🔄 页面切换动画
+- 💫 悬浮效果
+- 📱 移动端手势
+- 🎪 打字机文字
+
+### 深色模式
+- 🌙 一键切换
+- 🎨 平滑过渡
+- 💾 状态记忆
+- 📱 全端支持
+
+---
+
+**现在开始你的炫酷个人网站之旅！** 🚀
