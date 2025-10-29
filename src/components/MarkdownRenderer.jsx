@@ -31,9 +31,18 @@ const MarkdownRenderer = ({ content }) => {
           ol: ({ children, ...props }) => (
             <ol className="markdown-ordered-list" {...props}>{children}</ol>
           ),
-          li: ({ children, ...props }) => (
-            <li className="markdown-list-item" {...props}>{children}</li>
-          ),
+          li: ({ children, ...props }) => {
+            // 检查是否是任务列表项
+            const isTaskItem = props.className?.includes('task-list-item')
+            if (isTaskItem) {
+              return (
+                <li className="task-list-item" {...props}>
+                  {children}
+                </li>
+              )
+            }
+            return <li className="markdown-list-item" {...props}>{children}</li>
+          },
           // 自定义代码块渲染 - 使用Shiki高亮
           code: ({ inline, children, className, ...props }) => {
             if (inline) {

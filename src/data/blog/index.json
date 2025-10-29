@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2025-10-29T04:30:00.000Z",
-  "totalPosts": 3,
+  "lastUpdated": "2025-10-29T10:00:00.000Z",
+  "totalPosts": 4,
   "categories": [
     "前端开发",
     "AI应用",
@@ -45,6 +45,19 @@
       "coverImage": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop",
       "published": true,
       "slug": "test-post"
+    },
+    {
+      "id": "task-list-demo",
+      "title": "任务列表演示",
+      "date": "2025-10-29",
+      "readTime": "2分钟",
+      "author": "Qingyu Ge",
+      "tags": ["演示", "Markdown", "任务列表"],
+      "category": "前端开发",
+      "excerpt": "演示 GitHub Flavored Markdown 任务列表的渲染效果。",
+      "coverImage": "https://images.unsplash.com/photo-1611224923853-80cb01435b9a?w=800&h=400&fit=crop",
+      "published": true,
+      "slug": "task-list-demo"
     }
   ]
 }
