@@ -14,6 +14,7 @@ import {
   FaEye
 } from 'react-icons/fa'
 import Badge from './Badge'
+import Button from './Button'
 import './Projects.css'
 import ProjectDetailModal from './ProjectDetailModal'
 
@@ -133,9 +134,9 @@ const Projects = () => {
             <FaExclamationTriangle className="error-icon" />
             <h3>加载失败</h3>
             <p>{error}</p>
-            <button onClick={() => window.location.reload()} className="retry-btn">
-              重试
-            </button>
+            <Button variant="outline" onClick={() => window.location.reload()} className="retry-btn">
+              <FaSync /> 重试
+            </Button>
           </div>
         </div>
       </section>
@@ -223,15 +224,19 @@ const Projects = () => {
           {projectsData.categories.map(category => {
             const count = projectsData.projects[category]?.length || 0
             return (
-              <motion.button
+              <motion.div
                 key={category}
-                className={`category-chip ${selectedCategory === category ? 'active' : ''}`}
-                onClick={() => setSelectedCategory(selectedCategory === category ? 'all' : category)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {category} ({count})
-              </motion.button>
+                <Button
+                  variant={selectedCategory === category ? "default" : "secondary"}
+                  className={`category-chip ${selectedCategory === category ? 'active' : ''}`}
+                  onClick={() => setSelectedCategory(selectedCategory === category ? 'all' : category)}
+                >
+                  {category} ({count})
+                </Button>
+              </motion.div>
             )
           })}
         </motion.div>
@@ -337,17 +342,21 @@ const Projects = () => {
                     <FaGithub /> 源码
                   </motion.a>
 
-                  <motion.button
-                    className="project-detail-btn"
+                  <motion.div
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      handleProjectClick(project)
-                    }}
                   >
-                    <FaEye /> 详情
-                  </motion.button>
+                    <Button
+                      variant="outline"
+                      className="project-detail-btn"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        handleProjectClick(project)
+                      }}
+                    >
+                      <FaEye /> 详情
+                    </Button>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>

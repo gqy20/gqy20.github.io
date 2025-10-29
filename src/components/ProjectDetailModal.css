@@ -449,3 +449,31 @@
 .modal-backdrop {
   animation: backdropFadeIn 0.2s ease-out;
 }
+
+/* Badge 和 Button 组件适配样式 */
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+}
+
+.modal-tech-badge {
+  font-size: 0.8rem;
+  margin: 0.25rem;
+}
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* 深色模式适配 */
+.app.dark .modal-tech-badge {
+  opacity: 0.9;
+}
+
+.app.dark .modal-tech-badge:hover {
+  opacity: 1;
+}

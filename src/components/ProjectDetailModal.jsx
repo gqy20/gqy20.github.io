@@ -13,6 +13,8 @@ import {
   FaLink,
   FaUser
 } from 'react-icons/fa'
+import Badge from './Badge'
+import Button from './Button'
 import './ProjectDetailModal.css'
 
 const ProjectDetailModal = ({ project, isOpen, onClose }) => {
@@ -66,13 +68,15 @@ const ProjectDetailModal = ({ project, isOpen, onClose }) => {
                 )}
               </div>
 
-              <button
+              <Button
+                variant="ghost"
                 className="modal-close-btn"
                 onClick={onClose}
                 aria-label="关闭详情"
+                size="icon"
               >
                 <FaTimes />
-              </button>
+              </Button>
             </div>
 
             {/* 项目描述 */}
@@ -200,15 +204,16 @@ const ProjectDetailModal = ({ project, isOpen, onClose }) => {
                 </div>
                 <div className="tags-list">
                   {project.tags.map((tag, index) => (
-                    <motion.span
+                    <motion.div
                       key={tag}
-                      className="tech-tag"
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.05 }}
                     >
-                      {tag}
-                    </motion.span>
+                      <Badge variant="outline" className="modal-tech-badge">
+                        {tag}
+                      </Badge>
+                    </motion.div>
                   ))}
                 </div>
               </div>

@@ -653,3 +653,23 @@
 .app.dark .project-tags .tech-badge:hover {
   opacity: 1;
 }
+
+/* Button 组件适配样式 */
+.retry-btn {
+  margin-top: 1rem;
+}
+
+.category-chip {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.category-chip.active {
+  background: var(--primary-color) !important;
+  color: white !important;
+}
+
+.project-detail-btn {
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+}
