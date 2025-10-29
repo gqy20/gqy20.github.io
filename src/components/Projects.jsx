@@ -2,13 +2,9 @@ import { useState, useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import {
   FaGithub,
-  FaExternalLinkAlt,
   FaStar,
-  FaCodeBranch,
-  FaExclamationTriangle,
   FaSearch,
   FaFilter,
-  FaCalendar,
   FaArchive,
   FaSync,
   FaEye
@@ -21,51 +17,17 @@ import ProjectDetailModal from './ProjectDetailModal'
 // 规范化项目描述的函数
 const normalizeDescription = (description, name) => {
   if (!description || description.includes('暂无描述')) {
-    return `${name} - 一个专注于创新和技术实践的项目`
+    return `${name} - 开源项目`
   }
 
-  // 清理描述
-  let cleanedDesc = description
+  // 基本清理
+  let cleaned = description
     .replace(/^- /, '') // 移除开头的 "- "
     .replace(/ - .*项目$/, '') // 移除结尾的 " - xxx项目"
     .trim()
 
-  // 对于英文描述，尝试提供中文版本
-  if (/[a-zA-Z]/.test(cleanedDesc) && !/[\u4e00-\u9fa5]/.test(cleanedDesc)) {
-    // 简单的关键词映射
-    const keywordMap = {
-      'MCP': 'MCP工具',
-      'article': '文献',
-      'genome': '基因组',
-      'protein': '蛋白质',
-      'bioinformatics': '生物信息学',
-      'research': '研究',
-      'tools': '工具集',
-      'analysis': '分析',
-      'system': '系统',
-      'development': '开发',
-      'collection': '集合',
-      'plugins': '插件'
-    }
-
-    let translatedDesc = cleanedDesc
-    Object.entries(keywordMap).forEach(([en, zh]) => {
-      translatedDesc = translatedDesc.replace(new RegExp(en, 'gi'), zh)
-    })
-
-    // 如果翻译后还有英文，保留原描述
-    if (/[a-zA-Z]/.test(translatedDesc)) {
-      return cleanedDesc.length > 50 ? cleanedDesc.substring(0, 47) + '...' : cleanedDesc
-    }
-    return translatedDesc
-  }
-
-  // 对于中文描述，限制长度
-  if (cleanedDesc.length > 60) {
-    return cleanedDesc.substring(0, 57) + '...'
-  }
-
-  return cleanedDesc
+  // 长度限制
+  return cleaned.length > 60 ? cleaned.substring(0, 57) + '...' : cleaned
 }
 
 const Projects = () => {
@@ -114,8 +76,7 @@ const Projects = () => {
       projects = projects.filter(project =>
         project.name.toLowerCase().includes(term) ||
         project.description.toLowerCase().includes(term) ||
-        project.language.toLowerCase().includes(term) ||
-        project.tags.some(tag => tag.toLowerCase().includes(term))
+        project.language.toLowerCase().includes(term)
       )
     }
 
@@ -124,10 +85,6 @@ const Projects = () => {
       switch (sortBy) {
         case 'stars':
           return b.stars - a.stars
-        case 'name':
-          return a.name.localeCompare(b.name)
-        case 'created':
-          return new Date(b.createdAt) - new Date(a.createdAt)
         case 'updated':
         default:
           return new Date(b.updatedAt) - new Date(a.updatedAt)
@@ -257,8 +214,6 @@ const Projects = () => {
               >
                 <option value="updated">最近更新</option>
                 <option value="stars">星标数</option>
-                <option value="created">创建时间</option>
-                <option value="name">名称排序</option>
               </select>
             </div>
           </div>
@@ -334,39 +289,19 @@ const Projects = () => {
                       <FaStar className="star-icon" /> {project.stars}
                     </span>
                   )}
-                  {project.forks > 0 && (
-                    <span className="stat">
-                      <FaCodeBranch /> {project.forks}
-                    </span>
-                  )}
-                  {project.issues > 0 && (
-                    <span className="stat">
-                      <FaExclamationTriangle /> {project.issues}
-                    </span>
-                  )}
+                  <span className="project-language">
+                    {project.language || 'Unknown'}
+                  </span>
                 </div>
-
-                <span className="project-language">
-                  {project.language || 'Unknown'}
-                </span>
               </div>
 
               <div className="project-tags">
                 <Badge variant="secondary" className="category-badge">
                   {project.category}
                 </Badge>
-                {project.tags.map((tag) => (
-                  <Badge key={tag} variant="outline" className="tech-badge">
-                    {tag}
-                  </Badge>
-                ))}
               </div>
 
               <div className="project-footer">
-                <span className="update-time">
-                  <FaCalendar /> {new Date(project.updatedAt).toLocaleDateString('zh-CN')}
-                </span>
-
                 <div className="project-actions">
                   <motion.a
                     href={project.url}
