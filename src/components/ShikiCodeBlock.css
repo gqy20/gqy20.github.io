@@ -107,10 +107,13 @@
   padding: 1rem !important;
   background: transparent !important;
   border: none !important;
-  font-family: 'Fira Code', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Source Code Pro', 'Menlo', 'Monaco', 'Ubuntu Mono', monospace;
   font-size: 0.9rem;
   line-height: 1.5;
   overflow-x: auto;
+  font-feature-settings: 'calt' 1, 'ss01' 1, 'ss02' 1, 'liga' 1; /* 启用编程连字符 */
+  -webkit-font-feature-settings: 'calt' 1, 'ss01' 1, 'ss02' 1, 'liga' 1;
+  -moz-font-feature-settings: 'calt' 1, 'ss01' 1, 'ss02' 1, 'liga' 1;
 }
 
 .code-content code {
@@ -125,10 +128,13 @@
 .code-loading {
   padding: 1rem;
   background: var(--bg-color);
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Source Code Pro', 'Menlo', 'Monaco', 'Ubuntu Mono', monospace;
   font-size: 0.9rem;
   line-height: 1.5;
   color: var(--text-secondary);
+  font-feature-settings: 'calt' 1, 'ss01' 1, 'ss02' 1, 'liga' 1;
+  -webkit-font-feature-settings: 'calt' 1, 'ss01' 1, 'ss02' 1, 'liga' 1;
+  -moz-font-feature-settings: 'calt' 1, 'ss01' 1, 'ss02' 1, 'liga' 1;
 }
 
 .code-loading pre {

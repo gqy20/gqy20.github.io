@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { createHighlighter } from 'shiki'
 import './ShikiCodeBlock.css'
 
@@ -21,7 +21,6 @@ const ShikiCodeBlock = ({ children, className, ...props }) => {
     }
 
     checkTheme()
-    // 监听主题变化
     const observer = new MutationObserver(checkTheme)
     const appElement = document.querySelector('.app') || document.body
     observer.observe(appElement, {
@@ -32,65 +31,100 @@ const ShikiCodeBlock = ({ children, className, ...props }) => {
     return () => observer.disconnect()
   }, [])
 
+  // 解析语言信息
+  const parsedLanguage = useMemo(() => {
+    if (!className) return 'text'
+
+    const patterns = [
+      /language-(\w+)/,
+      /lang-(\w+)/,
+      /(\w+)/
+    ]
+
+    for (const pattern of patterns) {
+      const match = pattern.exec(className)
+      if (match) {
+        const lang = match[1].toLowerCase()
+        const langMap = {
+          'js': 'javascript',
+          'ts': 'typescript',
+          'py': 'python',
+          'rb': 'ruby',
+          'sh': 'bash',
+          'zsh': 'bash',
+          'fish': 'bash',
+          'yml': 'yaml',
+          'dockerfile': 'dockerfile'
+        }
+        return langMap[lang] || lang
+      }
+    }
+
+    return 'text'
+  }, [className])
+
+  // 高亮代码
   useEffect(() => {
-    if (!children) return
+    if (!children) {
+      setIsLoading(false)
+      return
+    }
 
-    // 使用ReactMarkdown官方推荐的语言解析方式
-    const match = /language-(\w+)/.exec(className || '')
-    const lang = match ? match[1] : 'text'
-
+    const lang = parsedLanguage
     setLanguage(lang)
     setIsLoading(true)
 
-    // 初始化Shiki高亮器
-    createHighlighter({
-      themes: ['github-dark', 'github-light'],
-      langs: [
-        'javascript',
-        'typescript',
-        'python',
-        'css',
-        'html',
-        'json',
-        'bash',
-        'markdown',
-        'java',
-        'cpp',
-        'c',
-        'go',
-        'rust',
-        'sql',
-        'yaml',
-        'xml',
-        'php',
-        'ruby',
-        'swift',
-        'kotlin',
-        'scala',
-        'r',
-        'matlab',
-        'dockerfile',
-        'nginx',
-        'plaintext'
-      ]
-    }).then(highlighter => {
-      const code = highlighter.codeToHtml(String(children), {
-        lang,
-        theme: theme
-      })
-      setHighlightedCode(code)
-      setIsLoading(false)
-    }).catch(err => {
-      console.error('Shiki highlighter error:', err)
-      // 降级到纯文本显示
-      const escapedCode = String(children)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-      setHighlightedCode(`<pre><code>${escapedCode}</code></pre>`)
-      setIsLoading(false)
-    })
-  }, [children, className, theme, isDarkMode])
+    const highlightCode = async () => {
+      try {
+        const highlighter = await createHighlighter({
+          themes: ['github-dark', 'github-light'],
+          langs: [
+            'javascript',
+            'typescript',
+            'python',
+            'css',
+            'html',
+            'json',
+            'bash',
+            'markdown',
+            'java',
+            'cpp',
+            'c',
+            'go',
+            'rust',
+            'sql',
+            'yaml',
+            'xml',
+            'php',
+            'ruby',
+            'swift',
+            'kotlin',
+            'scala',
+            'r',
+            'dockerfile'
+          ]
+        })
+
+        const code = highlighter.codeToHtml(String(children), {
+          lang,
+          theme: theme
+        })
+        setHighlightedCode(code)
+        setIsLoading(false)
+      } catch (err) {
+        console.error('Shiki highlighter error:', err)
+        // 降级到纯文本显示
+        const escapedCode = String(children)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+        setHighlightedCode(`<pre><code>${escapedCode}</code></pre>`)
+        setIsLoading(false)
+      }
+    }
+
+    highlightCode()
+  }, [children, parsedLanguage, theme])
 
   const copyCode = async () => {
     try {
@@ -99,7 +133,7 @@ const ShikiCodeBlock = ({ children, className, ...props }) => {
       setTimeout(() => setIsCopied(false), 2000)
     } catch (err) {
       console.error('复制失败:', err)
-      // 降级方案：使用传统的复制方法
+      // 降级方案
       const textArea = document.createElement('textarea')
       textArea.value = String(children)
       document.body.appendChild(textArea)
@@ -140,10 +174,8 @@ const ShikiCodeBlock = ({ children, className, ...props }) => {
       'kotlin': 'Kotlin',
       'scala': 'Scala',
       'r': 'R',
-      'matlab': 'MATLAB',
       'dockerfile': 'Dockerfile',
-      'nginx': 'Nginx',
-      'plaintext': 'Text'
+      'text': 'Text'
     }
     return languageNames[lang] || lang.toUpperCase()
   }
