@@ -1,0 +1,323 @@
+/* Shiki代码块样式 */
+
+.code-block-wrapper {
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: var(--bg-light);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.code-block-wrapper:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* 代码块头部 */
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+}
+
+.code-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.language-badge {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  background: rgba(37, 99, 235, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.code-lines {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* 操作按钮区域 */
+.code-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.theme-toggle,
+.copy-button {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-color);
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+}
+
+.theme-toggle:hover:not(:disabled),
+.copy-button:hover:not(:disabled) {
+  background: var(--hover-bg);
+  color: var(--text-primary);
+  border-color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+.theme-toggle:disabled,
+.copy-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.copy-button.success {
+  color: #10b981;
+  border-color: #10b981;
+}
+
+/* 代码内容区域 */
+.code-content {
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  background: var(--bg-color);
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Shiki主题适配 */
+.code-content pre {
+  margin: 0;
+  padding: 1rem !important;
+  background: transparent !important;
+  border: none !important;
+  font-family: 'Fira Code', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+.code-content code {
+  background: transparent !important;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0 !important;
+}
+
+/* 加载状态 */
+.code-loading {
+  padding: 1rem;
+  background: var(--bg-color);
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.code-loading pre {
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+}
+
+.code-loading code {
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0;
+}
+
+/* 代码块中的滚动条样式 */
+.code-content::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.code-content::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+.code-content::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.code-content::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* 深色模式适配 */
+.app.dark .code-block-wrapper {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.app.dark .code-header {
+  background: #334155;
+  border-color: #475569;
+}
+
+.app.dark .code-content {
+  background: #1e293b;
+}
+
+.app.dark .theme-toggle,
+.app.dark .copy-button {
+  background: #475569;
+  border-color: #64748b;
+  color: #e2e8f0;
+}
+
+.app.dark .theme-toggle:hover:not(:disabled),
+.app.dark .copy-button:hover:not(:disabled) {
+  background: #64748b;
+  border-color: var(--primary-color);
+  color: #f1f5f9;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .code-header {
+    padding: 0.5rem 0.75rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .code-info {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .code-actions {
+    align-self: flex-end;
+  }
+
+  .language-badge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .code-lines {
+    font-size: 0.75rem;
+  }
+
+  .code-content {
+    font-size: 0.85rem;
+    padding: 0.75rem;
+    max-height: 300px;
+  }
+}
+
+/* 动画效果 */
+@keyframes copySuccess {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.copy-button.success {
+  animation: copySuccess 0.3s ease-in-out;
+}
+
+/* 代码块内联样式覆盖 */
+.code-content .shiki {
+  background: transparent !important;
+}
+
+.code-content .shiki pre {
+  background: transparent !important;
+  padding: 1rem !important;
+}
+
+/* 语言特定样式 */
+.language-badge.javascript,
+.language-badge.typescript {
+  color: #f7df1e;
+  background: rgba(247, 223, 30, 0.2);
+}
+
+.language-badge.python {
+  color: #3776ab;
+  background: rgba(55, 118, 171, 0.2);
+}
+
+.language-badge.css {
+  color: #1572b6;
+  background: rgba(21, 114, 182, 0.2);
+}
+
+.language-badge.html {
+  color: #e34c26;
+  background: rgba(227, 76, 38, 0.2);
+}
+
+.language-badge.json {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.language-badge.bash {
+  color: #4eaa25;
+  background: rgba(78, 170, 37, 0.2);
+}
+
+.language-badge.go {
+  color: #00add8;
+  background: rgba(0, 173, 216, 0.2);
+}
+
+.language-badge.rust {
+  color: #ce4e2a;
+  background: rgba(206, 78, 42, 0.2);
+}
+
+/* 错误状态 */
+.code-block-wrapper.error {
+  border-color: #ef4444;
+}
+
+.code-block-wrapper.error .code-header {
+  background: rgba(239, 68, 68, 0.1);
+  border-bottom-color: #ef4444;
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+  .code-block-wrapper {
+    border-width: 2px;
+  }
+
+  .language-badge {
+    border: 1px solid currentColor;
+  }
+
+  .theme-toggle,
+  .copy-button {
+    border-width: 2px;
+  }
+}

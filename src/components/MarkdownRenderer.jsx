@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import rehypeHighlight from 'rehype-highlight'
+import ShikiCodeBlock from './ShikiCodeBlock'
 import './MarkdownRenderer.css'
 
 const MarkdownRenderer = ({ content }) => {
@@ -9,7 +9,6 @@ const MarkdownRenderer = ({ content }) => {
     <div className="markdown-content">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeHighlight]}
         components={{
           // 自定义标题渲染
           h1: ({ children, ...props }) => (
@@ -35,8 +34,8 @@ const MarkdownRenderer = ({ content }) => {
           li: ({ children, ...props }) => (
             <li className="markdown-list-item" {...props}>{children}</li>
           ),
-          // 自定义代码块渲染
-          code: ({ inline, children, ...props }) => {
+          // 自定义代码块渲染 - 使用Shiki高亮
+          code: ({ inline, children, className, ...props }) => {
             if (inline) {
               return (
                 <code className="markdown-inline-code" {...props}>
@@ -44,15 +43,25 @@ const MarkdownRenderer = ({ content }) => {
                 </code>
               )
             }
+            // 代码块使用ShikiCodeBlock组件
             return (
-              <code className="markdown-code-block" {...props}>
+              <ShikiCodeBlock className={className} {...props}>
                 {children}
-              </code>
+              </ShikiCodeBlock>
             )
           },
-          pre: ({ children, ...props }) => (
-            <pre className="markdown-pre" {...props}>{children}</pre>
-          ),
+          pre: ({ children, ...props }) => {
+            // 检查是否已经是ShikiCodeBlock处理的代码块
+            if (React.isValidElement(children) && children.type?.name === 'ShikiCodeBlock') {
+              return children
+            }
+            // 处理未通过code组件包装的pre标签
+            return (
+              <ShikiCodeBlock {...props}>
+                {children?.props?.children || children}
+              </ShikiCodeBlock>
+            )
+          },
           // 自定义链接渲染
           a: ({ children, href, ...props }) => (
             <a

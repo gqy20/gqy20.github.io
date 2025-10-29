@@ -76,23 +76,7 @@
   border: 1px solid var(--border-color);
 }
 
-.markdown-pre {
-  background: var(--bg-color);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin: 1.5rem 0;
-  overflow-x: auto;
-  box-shadow: var(--shadow);
-}
-
-.markdown-code-block {
-  background: transparent !important;
-  color: var(--text-color);
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
+/* 代码块样式 - 现在由 ShikiCodeBlock 组件处理 */
 
 /* 链接样式 */
 .markdown-link {
