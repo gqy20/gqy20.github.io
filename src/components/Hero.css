@@ -9,9 +9,26 @@
 }
 
 .hero-container {
-  max-width: 1200px;
+  max-width: 1400px;
   width: 100%;
   text-align: center;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* 大屏幕优化 */
+@media (min-width: 1440px) {
+  .hero-container {
+    max-width: 1600px;
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero-container {
+    max-width: 1800px;
+    padding: 0 2rem;
+  }
 }
 
 .hero-content {

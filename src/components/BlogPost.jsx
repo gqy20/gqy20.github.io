@@ -238,7 +238,7 @@ const BlogPost = () => {
             </div>
 
             <div className="article-navigation">
-              <Link to="/#/blog" className="nav-button">
+              <Link to="/blog" className="nav-button">
                 <FaArrowLeft /> 查看更多文章
               </Link>
             </div>
