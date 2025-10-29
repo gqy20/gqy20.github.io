@@ -1,0 +1,221 @@
+.markdown-content {
+  line-height: 1.7;
+  color: var(--text-color);
+  font-size: 1rem;
+  max-width: none;
+}
+
+/* 标题样式 */
+.markdown-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-color);
+  margin: 2rem 0 1.5rem 0;
+  line-height: 1.2;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.markdown-heading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 2rem 0 1rem 0;
+  line-height: 1.3;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.markdown-subheading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 1.5rem 0 0.8rem 0;
+  line-height: 1.4;
+}
+
+/* 段落样式 */
+.markdown-paragraph {
+  margin: 1.5rem 0;
+  line-height: 1.8;
+  color: var(--text-light);
+}
+
+/* 列表样式 */
+.markdown-list {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.markdown-ordered-list {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.markdown-list-item {
+  margin: 0.8rem 0;
+  line-height: 1.6;
+  color: var(--text-light);
+}
+
+.markdown-list-item::marker {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* 代码样式 */
+.markdown-inline-code {
+  background: var(--bg-light);
+  color: var(--primary-color);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9em;
+  border: 1px solid var(--border-color);
+}
+
+.markdown-pre {
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  box-shadow: var(--shadow);
+}
+
+.markdown-code-block {
+  background: transparent !important;
+  color: var(--text-color);
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* 链接样式 */
+.markdown-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.markdown-link:hover {
+  color: var(--primary-dark);
+  border-bottom-color: var(--primary-color);
+}
+
+/* 引用样式 */
+.markdown-quote {
+  border-left: 4px solid var(--primary-color);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  background: rgba(37, 99, 235, 0.05);
+  border-radius: 0 8px 8px 0;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* 表格样式 */
+.markdown-table-wrapper {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.markdown-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+}
+
+.markdown-table-header {
+  background: var(--bg-light);
+  color: var(--text-color);
+  font-weight: 600;
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.markdown-table-cell {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-light);
+}
+
+.markdown-table tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+/* 代码高亮主题 */
+.app.dark .markdown-pre {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.app.dark .markdown-code-block {
+  color: #e2e8f0;
+}
+
+.app.dark .markdown-inline-code {
+  background: #334155;
+  color: #60a5fa;
+  border-color: #475569;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .markdown-content {
+    font-size: 0.95rem;
+  }
+
+  .markdown-title {
+    font-size: 2rem;
+  }
+
+  .markdown-heading {
+    font-size: 1.5rem;
+  }
+
+  .markdown-subheading {
+    font-size: 1.2rem;
+  }
+
+  .markdown-pre {
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .markdown-table-wrapper {
+    font-size: 0.9rem;
+  }
+
+  .markdown-table-header,
+  .markdown-table-cell {
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+/* 滚动条样式 */
+.markdown-pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.markdown-pre::-webkit-scrollbar-track {
+  background: var(--bg-light);
+  border-radius: 4px;
+}
+
+.markdown-pre::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.markdown-pre::-webkit-scrollbar-thumb:hover {
+  background: var(--text-light);
+}

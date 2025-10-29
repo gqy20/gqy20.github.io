@@ -1,0 +1,92 @@
+import React from 'react'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import rehypeHighlight from 'rehype-highlight'
+import './MarkdownRenderer.css'
+
+const MarkdownRenderer = ({ content }) => {
+  return (
+    <div className="markdown-content">
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeHighlight]}
+        components={{
+          // 自定义标题渲染
+          h1: ({ children, ...props }) => (
+            <h1 className="markdown-title" {...props}>{children}</h1>
+          ),
+          h2: ({ children, ...props }) => (
+            <h2 className="markdown-heading" {...props}>{children}</h2>
+          ),
+          h3: ({ children, ...props }) => (
+            <h3 className="markdown-subheading" {...props}>{children}</h3>
+          ),
+          // 自定义段落渲染
+          p: ({ children, ...props }) => (
+            <p className="markdown-paragraph" {...props}>{children}</p>
+          ),
+          // 自定义列表渲染
+          ul: ({ children, ...props }) => (
+            <ul className="markdown-list" {...props}>{children}</ul>
+          ),
+          ol: ({ children, ...props }) => (
+            <ol className="markdown-ordered-list" {...props}>{children}</ol>
+          ),
+          li: ({ children, ...props }) => (
+            <li className="markdown-list-item" {...props}>{children}</li>
+          ),
+          // 自定义代码块渲染
+          code: ({ inline, children, ...props }) => {
+            if (inline) {
+              return (
+                <code className="markdown-inline-code" {...props}>
+                  {children}
+                </code>
+              )
+            }
+            return (
+              <code className="markdown-code-block" {...props}>
+                {children}
+              </code>
+            )
+          },
+          pre: ({ children, ...props }) => (
+            <pre className="markdown-pre" {...props}>{children}</pre>
+          ),
+          // 自定义链接渲染
+          a: ({ children, href, ...props }) => (
+            <a
+              href={href}
+              className="markdown-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              {...props}
+            >
+              {children}
+            </a>
+          ),
+          // 自定义引用渲染
+          blockquote: ({ children, ...props }) => (
+            <blockquote className="markdown-quote" {...props}>{children}</blockquote>
+          ),
+          // 自定义表格渲染
+          table: ({ children, ...props }) => (
+            <div className="markdown-table-wrapper">
+              <table className="markdown-table" {...props}>{children}</table>
+            </div>
+          ),
+          th: ({ children, ...props }) => (
+            <th className="markdown-table-header" {...props}>{children}</th>
+          ),
+          td: ({ children, ...props }) => (
+            <td className="markdown-table-cell" {...props}>{children}</td>
+          ),
+        }}
+      >
+        {content}
+      </ReactMarkdown>
+    </div>
+  )
+}
+
+export default MarkdownRenderer

@@ -1,0 +1,50 @@
+{
+  "lastUpdated": "2025-10-29T04:30:00.000Z",
+  "totalPosts": 3,
+  "categories": [
+    "前端开发",
+    "AI应用",
+    "前端开发"
+  ],
+  "posts": [
+    {
+      "id": "react-personal-website",
+      "title": "使用React构建炫酷个人网站：从零到部署的完整指南",
+      "date": "2025-10-29",
+      "readTime": "12分钟",
+      "author": "Qingyu Ge",
+      "tags": ["React", "前端", "个人网站", "Vite", "GitHub Pages"],
+      "category": "前端开发",
+      "excerpt": "分享从零开始构建现代React个人网站的完整经验，包括动画效果、响应式设计、动态数据获取和GitHub Pages自动部署。",
+      "coverImage": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=400&fit=crop",
+      "published": true,
+      "slug": "react-personal-website"
+    },
+    {
+      "id": "ai-coding-tools",
+      "title": "AI辅助编程：提升开发效率的实用工具集",
+      "date": "2025-10-28",
+      "readTime": "8分钟",
+      "author": "Qingyu Ge",
+      "tags": ["AI", "编程工具", "效率提升", "MCP", "代码生成"],
+      "category": "AI应用",
+      "excerpt": "探索如何利用AI工具提升编程效率，包括代码补全、错误检测、文档生成等实用技巧。",
+      "coverImage": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop",
+      "published": true,
+      "slug": "ai-coding-tools"
+    },
+    {
+      "id": "test-post",
+      "title": "React开发技巧分享",
+      "date": "2025-10-29",
+      "readTime": "5分钟",
+      "author": "Qingyu Ge",
+      "tags": ["React", "前端", "技巧"],
+      "category": "前端开发",
+      "excerpt": "分享一些实用的React开发技巧和最佳实践。",
+      "coverImage": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop",
+      "published": true,
+      "slug": "test-post"
+    }
+  ]
+}

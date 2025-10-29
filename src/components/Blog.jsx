@@ -1,37 +1,59 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { FaGithub, FaCalendar, FaClock, FaTag } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import { FaCalendar, FaClock, FaTag, FaUser, FaFolder } from 'react-icons/fa'
 import './Blog.css'
 
 const Blog = () => {
-  const blogPosts = [
-    {
-      id: 1,
-      title: "使用React构建炫酷个人网站",
-      excerpt: "分享从零开始构建现代React个人网站的经验，包括动画效果、响应式设计和GitHub Pages部署。",
-      date: "2025-10-29",
-      readTime: "5分钟",
-      tags: ["React", "前端", "个人网站"],
-      githubUrl: "#"
-    },
-    {
-      id: 2,
-      title: "GitHub Actions自动化部署实践",
-      excerpt: "详细介绍如何配置GitHub Actions实现React项目的自动化部署，避免手动操作的烦恼。",
-      date: "2025-10-29",
-      readTime: "8分钟",
-      tags: ["GitHub Actions", "CI/CD", "自动化"],
-      githubUrl: "#"
-    },
-    {
-      id: 3,
-      title: "AI辅助科研工具开发心得",
-      excerpt: "分享开发AI驱动的科研工具过程中的思考、挑战和解决方案，以及如何提升研究效率。",
-      date: "2025-10-28",
-      readTime: "10分钟",
-      tags: ["AI", "科研工具", "Python"],
-      githubUrl: "#"
+  const [blogData, setBlogData] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    const loadBlogData = async () => {
+      try {
+        setLoading(true)
+        const data = await import('../data/blog/index.json')
+        setBlogData(data.default)
+      } catch (err) {
+        setError('加载博客数据失败')
+        console.error('Failed to load blog data:', err)
+      } finally {
+        setLoading(false)
+      }
     }
-  ]
+
+    loadBlogData()
+  }, [])
+
+  if (loading) {
+    return (
+      <section className="blog">
+        <div className="container">
+          <div className="loading-container">
+            <div className="loading-spinner"></div>
+            <p>正在加载博客文章...</p>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section className="blog">
+        <div className="container">
+          <div className="error-container">
+            <h3>加载失败</h3>
+            <p>{error}</p>
+            <button onClick={() => window.location.reload()} className="retry-btn">
+              重试
+            </button>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section className="blog">
@@ -42,7 +64,7 @@ const Blog = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          技术博客
+          技术博客 ({blogData?.totalPosts || 0})
         </motion.h2>
 
         <motion.p
@@ -51,11 +73,11 @@ const Blog = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          分享开发过程中的技术思考、项目经验和学习心得
+          分享开发过程中的技术思考、项目经验和学习心得，涵盖前端开发、AI应用和科研工具等领域
         </motion.p>
 
         <div className="blog-grid">
-          {blogPosts.map((post, index) => (
+          {blogData?.posts.map((post, index) => (
             <motion.article
               key={post.id}
               className="blog-card"
@@ -72,6 +94,9 @@ const Blog = () => {
                   <span className="blog-read-time">
                     <FaClock /> {post.readTime}
                   </span>
+                  <span className="blog-author">
+                    <FaUser /> {post.author}
+                  </span>
                 </div>
                 <h3 className="blog-title">{post.title}</h3>
               </div>
@@ -79,6 +104,9 @@ const Blog = () => {
               <p className="blog-excerpt">{post.excerpt}</p>
 
               <div className="blog-tags">
+                <span className="category-tag">
+                  <FaFolder /> {post.category}
+                </span>
                 {post.tags.map((tag) => (
                   <span key={tag} className="blog-tag">
                     <FaTag /> {tag}
@@ -86,14 +114,12 @@ const Blog = () => {
                 ))}
               </div>
 
-              <motion.a
-                href={post.githubUrl}
+              <Link
+                to={`/blog/${post.slug}`}
                 className="blog-link"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
               >
                 阅读全文 →
-              </motion.a>
+              </Link>
             </motion.article>
           ))}
         </div>
@@ -105,6 +131,9 @@ const Blog = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <p>更多技术文章正在编写中...</p>
+          <p className="last-updated">
+            最后更新: {new Date(blogData?.lastUpdated).toLocaleString('zh-CN')}
+          </p>
         </motion.div>
       </div>
     </section>

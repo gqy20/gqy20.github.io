@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
 import Blog from './components/Blog'
+import BlogPost from './components/BlogPost'
 import ParticleBackground from './components/ParticleBackground'
 import './App.css'
 
@@ -25,6 +26,7 @@ function App() {
             <Route path="/" element={<Hero />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
           </Routes>
         </motion.div>
       </div>
