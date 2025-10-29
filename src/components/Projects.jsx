@@ -7,7 +7,9 @@ import {
   FaFilter,
   FaArchive,
   FaSync,
-  FaEye
+  FaEye,
+  FaExternalLinkAlt,
+  FaTag
 } from 'react-icons/fa'
 import Badge from './Badge'
 import Button from './Button'
@@ -292,6 +294,12 @@ const Projects = () => {
                   <span className="project-language">
                     {project.language || 'Unknown'}
                   </span>
+                  {(project.latestRelease?.tagName || project.latestTag?.name) && (
+                    <span className="version-info">
+                      <FaTag className="version-icon" />
+                      {project.latestRelease?.tagName || project.latestTag?.name}
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -314,6 +322,21 @@ const Projects = () => {
                   >
                     <FaGithub />
                   </motion.a>
+
+                  {project.homepage && (
+                    <motion.a
+                      href={project.homepage}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link homepage-link"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={(e) => e.stopPropagation()}
+                      title={project.homepage}
+                    >
+                      <FaExternalLinkAlt />
+                    </motion.a>
+                  )}
 
                   <motion.div
                     whileHover={{ scale: 1.05 }}

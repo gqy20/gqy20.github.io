@@ -297,6 +297,30 @@
   backdrop-filter: blur(10px);
 }
 
+.project-link.github-link {
+  color: var(--text-color);
+  background: rgba(36, 41, 46, 0.1);
+  border: 1px solid rgba(36, 41, 46, 0.2);
+}
+
+.project-link.github-link:hover {
+  background: #24292e;
+  color: white;
+  border-color: #24292e;
+}
+
+.project-link.homepage-link {
+  color: var(--accent-color);
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.project-link.homepage-link:hover {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
 .project-link:hover {
   color: white;
   background: linear-gradient(135deg, var(--primary-color) 0%, rgba(37, 99, 235, 0.8) 100%);
@@ -350,6 +374,24 @@
   border-radius: 15px;
   font-size: 0.8rem;
   font-weight: 500;
+}
+
+.version-info {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  background: rgba(46, 204, 113, 0.1);
+  border-radius: 15px;
+  border: 1px solid rgba(46, 204, 113, 0.2);
+}
+
+.version-icon {
+  color: #2ecc71;
+  font-size: 0.75rem;
 }
 
 .project-tags {

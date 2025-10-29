@@ -99,6 +99,71 @@ async function fetchGitHubUserData() {
   }
 }
 
+// 获取单个项目的详细信息（包括releases和tags）
+async function fetchProjectDetails(repo) {
+  try {
+    // 获取releases信息
+    let releases = [];
+    let latestRelease = null;
+
+    try {
+      const releasesResponse = await fetch(`https://api.github.com/repos/${repo.full_name}/releases?per_page=5`);
+      if (releasesResponse.ok) {
+        releases = await releasesResponse.json();
+        if (releases.length > 0) {
+          latestRelease = {
+            tagName: releases[0].tag_name,
+            name: releases[0].name,
+            publishedAt: releases[0].published_at,
+            prerelease: releases[0].prerelease,
+            draft: releases[0].draft
+          };
+        }
+      }
+    } catch (error) {
+      console.log(`  ⚠️ 获取 ${repo.name} releases失败: ${error.message}`);
+    }
+
+    // 获取tags信息（作为releases的补充）
+    let tags = [];
+    let latestTag = null;
+
+    try {
+      const tagsResponse = await fetch(`https://api.github.com/repos/${repo.full_name}/tags?per_page=5`);
+      if (tagsResponse.ok) {
+        tags = await tagsResponse.json();
+        if (tags.length > 0 && !latestRelease) {
+          latestTag = {
+            name: tags[0].name,
+            commit: tags[0].commit?.sha,
+            zipball_url: tags[0].zipball_url,
+            tarball_url: tags[0].tarball_url
+          };
+        }
+      }
+    } catch (error) {
+      console.log(`  ⚠️ 获取 ${repo.name} tags失败: ${error.message}`);
+    }
+
+    return {
+      releases: releases,
+      latestRelease,
+      latestTag,
+      totalReleases: releases.length,
+      totalTags: tags.length
+    };
+  } catch (error) {
+    console.log(`  ❌ 获取 ${repo.name} 详细信息失败: ${error.message}`);
+    return {
+      releases: [],
+      latestRelease: null,
+      latestTag: null,
+      totalReleases: 0,
+      totalTags: 0
+    };
+  }
+}
+
 // 获取GitHub仓库数据
 async function fetchGitHubProjects() {
   try {
@@ -118,39 +183,56 @@ async function fetchGitHubProjects() {
     console.log(`📊 获取到 ${repos.length} 个仓库`);
 
     // 过滤并处理项目数据
-    const projects = repos
-      .filter(repo => !repo.fork && !repo.private && repo.name !== 'gqy20.github.io')
-      .map(repo => {
-        const categoryInfo = categorizeProject(repo);
+    const filteredRepos = repos.filter(repo => !repo.fork && !repo.private && repo.name !== 'gqy20.github.io');
+    console.log(`🔍 筛选出 ${filteredRepos.length} 个有效仓库`);
 
-        return {
-          id: repo.id,
-          name: repo.name,
-          fullName: repo.full_name,
-          description: repo.description || `暂无描述 - ${repo.language || '未知语言'}项目`,
-          url: repo.html_url,
-          language: repo.language || 'Unknown',
-          stars: repo.stargazers_count,
-          forks: repo.forks_count,
-          issues: repo.open_issues_count,
-          createdAt: repo.created_at,
-          updatedAt: repo.updated_at,
-          category: categoryInfo.category,
-          priority: categoryInfo.priority,
-          tags: categoryInfo.tags,
-          topics: repo.topics || [],
-          isArchived: repo.archived,
-          size: repo.size,
-          license: repo.license?.name || null
-        };
-      })
-      .sort((a, b) => {
-        // 按优先级和更新时间排序
-        if (a.priority !== b.priority) {
-          return a.priority - b.priority;
-        }
-        return new Date(b.updatedAt) - new Date(a.updatedAt);
-      });
+    // 批量获取项目详细信息（包括homepage和releases）
+    const projects = [];
+    for (let i = 0; i < filteredRepos.length; i++) {
+      const repo = filteredRepos[i];
+      const categoryInfo = categorizeProject(repo);
+
+      console.log(`  📦 获取 ${repo.name} 的详细信息... (${i + 1}/${filteredRepos.length})`);
+
+      const details = await fetchProjectDetails(repo);
+
+      const projectData = {
+        id: repo.id,
+        name: repo.name,
+        fullName: repo.full_name,
+        description: repo.description || `暂无描述 - ${repo.language || '未知语言'}项目`,
+        url: repo.html_url,
+        homepage: repo.homepage || null, // 新增：homepage字段
+        language: repo.language || 'Unknown',
+        stars: repo.stargazers_count,
+        forks: repo.forks_count,
+        issues: repo.open_issues_count,
+        createdAt: repo.created_at,
+        updatedAt: repo.updated_at,
+        category: categoryInfo.category,
+        priority: categoryInfo.priority,
+        tags: categoryInfo.tags,
+        topics: repo.topics || [],
+        isArchived: repo.archived,
+        size: repo.size,
+        license: repo.license?.name || null,
+        // 新增：版本和release信息
+        latestRelease: details.latestRelease,
+        latestTag: details.latestTag,
+        totalReleases: details.totalReleases,
+        totalTags: details.totalTags
+      };
+
+      projects.push(projectData);
+    }
+
+    // 按优先级和更新时间排序
+    projects.sort((a, b) => {
+      if (a.priority !== b.priority) {
+        return a.priority - b.priority;
+      }
+      return new Date(b.updatedAt) - new Date(a.updatedAt);
+    });
 
     // 按分类组织数据
     const categorizedProjects = {};
