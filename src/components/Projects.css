@@ -335,22 +335,32 @@
 }
 
 .category-tag {
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  background: var(--primary-color);
   color: white;
-  padding: 0.3rem 0.8rem;
-  border-radius: 15px;
+  padding: 6px 12px;
+  border-radius: 18px;
   font-size: 0.8rem;
   font-weight: 600;
+  letter-spacing: 0.025em;
 }
 
 .tech-tag {
   background: var(--bg-light);
   color: var(--text-color);
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
+  padding: 6px 12px;
+  border-radius: 18px;
   font-size: 0.8rem;
   font-weight: 500;
   border: 1px solid var(--border-color);
+  letter-spacing: 0.025em;
+  transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+  transform: translateY(-1px);
 }
 
 .project-footer {
