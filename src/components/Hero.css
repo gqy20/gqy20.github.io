@@ -120,14 +120,54 @@
 .hero-description {
   font-size: clamp(1rem, 3vw, 1.2rem);
   color: var(--text-light);
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.8;
 }
 
-.hero-buttons {
+/* 成就展示样式 */
+.hero-achievements {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.achievement-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.75rem 1.25rem;
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.achievement-badge:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+.achievement-icon {
+  color: #fbbf24;
+  font-size: 1rem;
+}
+
+.achievement-text {
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* 简化的行动按钮组 */
+.hero-actions {
   display: flex;
   gap: 1rem;
   justify-content: center;
@@ -341,6 +381,22 @@
 
 .app.dark .btn-github:hover {
   background: #3c434a;
+}
+
+/* 联系按钮样式 */
+.btn-contact {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  border: 2px solid var(--border-color);
+  backdrop-filter: blur(10px);
+}
+
+.btn-contact:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
 }
 
 @media (max-width: 768px) {
