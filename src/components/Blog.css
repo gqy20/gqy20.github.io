@@ -22,6 +22,12 @@
   gap: 2rem;
 }
 
+.blog-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 .blog-card {
   background: var(--bg-color);
   border-radius: var(--border-radius);
@@ -32,9 +38,10 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  height: 100%;
 }
 
-.blog-card:hover {
+.blog-card-link:hover .blog-card {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
   border-color: var(--primary-color);
@@ -192,7 +199,7 @@
   transition: transform 0.3s ease;
 }
 
-.blog-card:hover::before {
+.blog-card-link:hover .blog-card::before {
   transform: translateX(0);
 }
 

@@ -39,7 +39,7 @@ const BlogPost = () => {
         setPost(foundPost)
 
         // 加载文章内容
-        const contentResponse = await import(`../data/blog/${foundPost.id}.md`)
+        const contentResponse = await import(`../data/blog/${foundPost.id}.md?raw`)
         const contentText = contentResponse.default
 
         // 解析frontmatter和内容

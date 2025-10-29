@@ -78,49 +78,51 @@ const Blog = () => {
 
         <div className="blog-grid">
           {blogData?.posts.map((post, index) => (
-            <motion.article
+            <Link
               key={post.id}
-              className="blog-card"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
+              to={`/blog/${post.slug}`}
+              className="blog-card-link"
             >
-              <div className="blog-header">
-                <div className="blog-meta">
-                  <span className="blog-date">
-                    <FaCalendar /> {post.date}
-                  </span>
-                  <span className="blog-read-time">
-                    <FaClock /> {post.readTime}
-                  </span>
-                  <span className="blog-author">
-                    <FaUser /> {post.author}
-                  </span>
-                </div>
-                <h3 className="blog-title">{post.title}</h3>
-              </div>
-
-              <p className="blog-excerpt">{post.excerpt}</p>
-
-              <div className="blog-tags">
-                <span className="category-tag">
-                  <FaFolder /> {post.category}
-                </span>
-                {post.tags.map((tag) => (
-                  <span key={tag} className="blog-tag">
-                    <FaTag /> {tag}
-                  </span>
-                ))}
-              </div>
-
-              <Link
-                to={`/blog/${post.slug}`}
-                className="blog-link"
+              <motion.article
+                className="blog-card"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -10 }}
               >
-                阅读全文 →
-              </Link>
-            </motion.article>
+                <div className="blog-header">
+                  <div className="blog-meta">
+                    <span className="blog-date">
+                      <FaCalendar /> {post.date}
+                    </span>
+                    <span className="blog-read-time">
+                      <FaClock /> {post.readTime}
+                    </span>
+                    <span className="blog-author">
+                      <FaUser /> {post.author}
+                    </span>
+                  </div>
+                  <h3 className="blog-title">{post.title}</h3>
+                </div>
+
+                <p className="blog-excerpt">{post.excerpt}</p>
+
+                <div className="blog-tags">
+                  <span className="category-tag">
+                    <FaFolder /> {post.category}
+                  </span>
+                  {post.tags.map((tag) => (
+                    <span key={tag} className="blog-tag">
+                      <FaTag /> {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="blog-link">
+                  阅读全文 →
+                </div>
+              </motion.article>
+            </Link>
           ))}
         </div>
 
