@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { FaGithub, FaEnvelope, FaArrowDown } from 'react-icons/fa'
-import TypeAnimation from 'react-type-animation/dist/esm/TypeAnimation'
 import './Hero.css'
 
 const Hero = () => {
@@ -42,23 +41,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
           >
-            <TypeAnimation
-              sequence={[
-                '在读硕士生',
-                2000,
-                'AI辅助科研工具开发者',
-                2000,
-                '技术创新爱好者',
-                2000,
-                '开源贡献者',
-                2000,
-                '在读硕士生',
-              ]}
-              wrapper="span"
-              cursor={true}
-              repeat={Infinity}
-              deletionSpeed={50}
-            />
+            在读硕士生 · AI辅助科研工具开发者
           </motion.div>
 
           <motion.p
