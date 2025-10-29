@@ -17,9 +17,8 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
 
   const navItems = [
     { name: '首页', href: '#/', icon: '🏠' },
-    { name: '关于', href: '#/about', icon: '👋' },
     { name: '项目', href: '#/projects', icon: '💻' },
-    { name: '联系', href: '#/contact', icon: '📧' }
+    { name: '博客', href: '#/blog', icon: '📖' }
   ]
 
   return (

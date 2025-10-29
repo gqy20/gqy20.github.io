@@ -3,9 +3,8 @@ import { motion } from 'framer-motion'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import About from './components/About'
 import Projects from './components/Projects'
-import Contact from './components/Contact'
+import Blog from './components/Blog'
 import ParticleBackground from './components/ParticleBackground'
 import './App.css'
 
@@ -24,9 +23,8 @@ function App() {
         >
           <Routes>
             <Route path="/" element={<Hero />} />
-            <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/blog" element={<Blog />} />
           </Routes>
         </motion.div>
       </div>
