@@ -1,0 +1,628 @@
+{
+  "lastUpdated": "2025-10-29T03:48:43.604Z",
+  "totalProjects": 13,
+  "totalStars": 20,
+  "categories": [
+    "MCP工具",
+    "AI应用",
+    "科研工具",
+    "个人项目",
+    "其他项目"
+  ],
+  "projects": {
+    "MCP工具": [
+      {
+        "id": 1019340765,
+        "name": "article-mcp",
+        "fullName": "gqy20/article-mcp",
+        "description": "文献检索MCP",
+        "url": "https://github.com/gqy20/article-mcp",
+        "language": "Python",
+        "stars": 7,
+        "forks": 1,
+        "issues": 1,
+        "createdAt": "2025-07-14T07:18:21Z",
+        "updatedAt": "2025-10-28T12:53:25Z",
+        "category": "MCP工具",
+        "priority": 1,
+        "tags": [
+          "MCP",
+          "AI工具"
+        ],
+        "topics": [
+          "mcp"
+        ],
+        "isArchived": false,
+        "size": 735,
+        "license": null
+      },
+      {
+        "id": 1056570275,
+        "name": "genome-mcp",
+        "fullName": "gqy20/genome-mcp",
+        "description": "暂无描述 - Python项目",
+        "url": "https://github.com/gqy20/genome-mcp",
+        "language": "Python",
+        "stars": 2,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-09-14T11:24:18Z",
+        "updatedAt": "2025-10-28T09:10:17Z",
+        "category": "MCP工具",
+        "priority": 1,
+        "tags": [
+          "MCP",
+          "AI工具"
+        ],
+        "topics": [
+          "mcp"
+        ],
+        "isArchived": false,
+        "size": 835,
+        "license": null
+      },
+      {
+        "id": 1082386656,
+        "name": "protein-mcp",
+        "fullName": "gqy20/protein-mcp",
+        "description": "FastMCP-based protein data access tools for bioinformatics research",
+        "url": "https://github.com/gqy20/protein-mcp",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-10-24T07:00:21Z",
+        "updatedAt": "2025-10-24T09:21:07Z",
+        "category": "MCP工具",
+        "priority": 1,
+        "tags": [
+          "MCP",
+          "AI工具"
+        ],
+        "topics": [
+          "mcp"
+        ],
+        "isArchived": false,
+        "size": 82,
+        "license": "MIT License"
+      },
+      {
+        "id": 1038595724,
+        "name": "mcp_agent",
+        "fullName": "gqy20/mcp_agent",
+        "description": "暂无描述 - Python项目",
+        "url": "https://github.com/gqy20/mcp_agent",
+        "language": "Python",
+        "stars": 2,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-08-15T13:48:09Z",
+        "updatedAt": "2025-09-23T11:45:35Z",
+        "category": "MCP工具",
+        "priority": 1,
+        "tags": [
+          "MCP",
+          "AI工具"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 8019,
+        "license": null
+      }
+    ],
+    "AI应用": [
+      {
+        "id": 1077581287,
+        "name": "astro_light_pollution",
+        "fullName": "gqy20/astro_light_pollution",
+        "description": "一个基于 FastMCP 的天文光污染分析工具包，为 AI 助手提供专业的光污染评估和天文观测条件分析功能。",
+        "url": "https://github.com/gqy20/astro_light_pollution",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-10-16T12:57:00Z",
+        "updatedAt": "2025-10-16T13:17:23Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 136,
+        "license": null
+      },
+      {
+        "id": 993845459,
+        "name": "SLAIS",
+        "fullName": "gqy20/SLAIS",
+        "description": "SLAIS (Smart Literature Analysis and Insight System) 是一个基于人工智能的PDF文献智能分析系统，专为科研人员、学生和学术从业者设计。系统能够自动化地从PDF格式的学术文献中提取关键信息、生成深刻洞察并构建结构化报告，大幅提升文献阅读和研究效率。",
+        "url": "https://github.com/gqy20/SLAIS",
+        "language": "Python",
+        "stars": 4,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-05-31T16:41:17Z",
+        "updatedAt": "2025-09-26T13:09:23Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 16424,
+        "license": null
+      },
+      {
+        "id": 993844221,
+        "name": "ai_coding",
+        "fullName": "gqy20/ai_coding",
+        "description": "用AI辅助编写代码。",
+        "url": "https://github.com/gqy20/ai_coding",
+        "language": "Unknown",
+        "stars": 3,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-05-31T16:38:05Z",
+        "updatedAt": "2025-08-19T07:17:29Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 257,
+        "license": null
+      }
+    ],
+    "科研工具": [
+      {
+        "id": 958672660,
+        "name": "pub2tts",
+        "fullName": "gqy20/pub2tts",
+        "description": "从pubmed上获取文献，将标题、关键词、摘要等内容转成中文，并合成语音。",
+        "url": "https://github.com/gqy20/pub2tts",
+        "language": "Python",
+        "stars": 1,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-04-01T15:19:11Z",
+        "updatedAt": "2025-04-19T17:01:57Z",
+        "category": "科研工具",
+        "priority": 3,
+        "tags": [
+          "科研",
+          "学术"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 12980,
+        "license": null
+      }
+    ],
+    "个人项目": [
+      {
+        "id": 1006897739,
+        "name": "gqy20",
+        "fullName": "gqy20/gqy20",
+        "description": "个人主页",
+        "url": "https://github.com/gqy20/gqy20",
+        "language": "Unknown",
+        "stars": 1,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-06-23T06:53:28Z",
+        "updatedAt": "2025-07-29T07:37:09Z",
+        "category": "个人项目",
+        "priority": 6,
+        "tags": [
+          "个人",
+          "展示"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 3,
+        "license": null
+      }
+    ],
+    "其他项目": [
+      {
+        "id": 1084972160,
+        "name": "cc_plugins",
+        "fullName": "gqy20/cc_plugins",
+        "description": "Specialized collection of development plugins designed for expert analysis and research workflows",
+        "url": "https://github.com/gqy20/cc_plugins",
+        "language": "Unknown",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-10-28T12:18:33Z",
+        "updatedAt": "2025-10-28T13:27:29Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "其他"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 81,
+        "license": null
+      },
+      {
+        "id": 1064460174,
+        "name": "process-tracker",
+        "fullName": "gqy20/process-tracker",
+        "description": "暂无描述 - Go项目",
+        "url": "https://github.com/gqy20/process-tracker",
+        "language": "Go",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-09-26T04:26:09Z",
+        "updatedAt": "2025-10-27T09:50:41Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "go"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 7359,
+        "license": null
+      },
+      {
+        "id": 1070102277,
+        "name": "ZoteroFlow",
+        "fullName": "gqy20/ZoteroFlow",
+        "description": "暂无描述 - Go项目",
+        "url": "https://github.com/gqy20/ZoteroFlow",
+        "language": "Go",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-10-05T09:17:56Z",
+        "updatedAt": "2025-10-05T10:03:20Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "go"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 16667,
+        "license": null
+      },
+      {
+        "id": 1059262666,
+        "name": "note-gen-image-sync",
+        "fullName": "gqy20/note-gen-image-sync",
+        "description": "This is a NoteGen sync repository.",
+        "url": "https://github.com/gqy20/note-gen-image-sync",
+        "language": "Unknown",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-09-18T08:02:55Z",
+        "updatedAt": "2025-09-18T08:04:47Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "其他"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 28,
+        "license": null
+      }
+    ]
+  },
+  "allProjects": [
+    {
+      "id": 1019340765,
+      "name": "article-mcp",
+      "fullName": "gqy20/article-mcp",
+      "description": "文献检索MCP",
+      "url": "https://github.com/gqy20/article-mcp",
+      "language": "Python",
+      "stars": 7,
+      "forks": 1,
+      "issues": 1,
+      "createdAt": "2025-07-14T07:18:21Z",
+      "updatedAt": "2025-10-28T12:53:25Z",
+      "category": "MCP工具",
+      "priority": 1,
+      "tags": [
+        "MCP",
+        "AI工具"
+      ],
+      "topics": [
+        "mcp"
+      ],
+      "isArchived": false,
+      "size": 735,
+      "license": null
+    },
+    {
+      "id": 1056570275,
+      "name": "genome-mcp",
+      "fullName": "gqy20/genome-mcp",
+      "description": "暂无描述 - Python项目",
+      "url": "https://github.com/gqy20/genome-mcp",
+      "language": "Python",
+      "stars": 2,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-09-14T11:24:18Z",
+      "updatedAt": "2025-10-28T09:10:17Z",
+      "category": "MCP工具",
+      "priority": 1,
+      "tags": [
+        "MCP",
+        "AI工具"
+      ],
+      "topics": [
+        "mcp"
+      ],
+      "isArchived": false,
+      "size": 835,
+      "license": null
+    },
+    {
+      "id": 1082386656,
+      "name": "protein-mcp",
+      "fullName": "gqy20/protein-mcp",
+      "description": "FastMCP-based protein data access tools for bioinformatics research",
+      "url": "https://github.com/gqy20/protein-mcp",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-10-24T07:00:21Z",
+      "updatedAt": "2025-10-24T09:21:07Z",
+      "category": "MCP工具",
+      "priority": 1,
+      "tags": [
+        "MCP",
+        "AI工具"
+      ],
+      "topics": [
+        "mcp"
+      ],
+      "isArchived": false,
+      "size": 82,
+      "license": "MIT License"
+    },
+    {
+      "id": 1038595724,
+      "name": "mcp_agent",
+      "fullName": "gqy20/mcp_agent",
+      "description": "暂无描述 - Python项目",
+      "url": "https://github.com/gqy20/mcp_agent",
+      "language": "Python",
+      "stars": 2,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-08-15T13:48:09Z",
+      "updatedAt": "2025-09-23T11:45:35Z",
+      "category": "MCP工具",
+      "priority": 1,
+      "tags": [
+        "MCP",
+        "AI工具"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 8019,
+      "license": null
+    },
+    {
+      "id": 1077581287,
+      "name": "astro_light_pollution",
+      "fullName": "gqy20/astro_light_pollution",
+      "description": "一个基于 FastMCP 的天文光污染分析工具包，为 AI 助手提供专业的光污染评估和天文观测条件分析功能。",
+      "url": "https://github.com/gqy20/astro_light_pollution",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-10-16T12:57:00Z",
+      "updatedAt": "2025-10-16T13:17:23Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 136,
+      "license": null
+    },
+    {
+      "id": 993845459,
+      "name": "SLAIS",
+      "fullName": "gqy20/SLAIS",
+      "description": "SLAIS (Smart Literature Analysis and Insight System) 是一个基于人工智能的PDF文献智能分析系统，专为科研人员、学生和学术从业者设计。系统能够自动化地从PDF格式的学术文献中提取关键信息、生成深刻洞察并构建结构化报告，大幅提升文献阅读和研究效率。",
+      "url": "https://github.com/gqy20/SLAIS",
+      "language": "Python",
+      "stars": 4,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-05-31T16:41:17Z",
+      "updatedAt": "2025-09-26T13:09:23Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 16424,
+      "license": null
+    },
+    {
+      "id": 993844221,
+      "name": "ai_coding",
+      "fullName": "gqy20/ai_coding",
+      "description": "用AI辅助编写代码。",
+      "url": "https://github.com/gqy20/ai_coding",
+      "language": "Unknown",
+      "stars": 3,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-05-31T16:38:05Z",
+      "updatedAt": "2025-08-19T07:17:29Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 257,
+      "license": null
+    },
+    {
+      "id": 958672660,
+      "name": "pub2tts",
+      "fullName": "gqy20/pub2tts",
+      "description": "从pubmed上获取文献，将标题、关键词、摘要等内容转成中文，并合成语音。",
+      "url": "https://github.com/gqy20/pub2tts",
+      "language": "Python",
+      "stars": 1,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-04-01T15:19:11Z",
+      "updatedAt": "2025-04-19T17:01:57Z",
+      "category": "科研工具",
+      "priority": 3,
+      "tags": [
+        "科研",
+        "学术"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 12980,
+      "license": null
+    },
+    {
+      "id": 1006897739,
+      "name": "gqy20",
+      "fullName": "gqy20/gqy20",
+      "description": "个人主页",
+      "url": "https://github.com/gqy20/gqy20",
+      "language": "Unknown",
+      "stars": 1,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-06-23T06:53:28Z",
+      "updatedAt": "2025-07-29T07:37:09Z",
+      "category": "个人项目",
+      "priority": 6,
+      "tags": [
+        "个人",
+        "展示"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 3,
+      "license": null
+    },
+    {
+      "id": 1084972160,
+      "name": "cc_plugins",
+      "fullName": "gqy20/cc_plugins",
+      "description": "Specialized collection of development plugins designed for expert analysis and research workflows",
+      "url": "https://github.com/gqy20/cc_plugins",
+      "language": "Unknown",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-10-28T12:18:33Z",
+      "updatedAt": "2025-10-28T13:27:29Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "其他"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 81,
+      "license": null
+    },
+    {
+      "id": 1064460174,
+      "name": "process-tracker",
+      "fullName": "gqy20/process-tracker",
+      "description": "暂无描述 - Go项目",
+      "url": "https://github.com/gqy20/process-tracker",
+      "language": "Go",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-09-26T04:26:09Z",
+      "updatedAt": "2025-10-27T09:50:41Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "go"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 7359,
+      "license": null
+    },
+    {
+      "id": 1070102277,
+      "name": "ZoteroFlow",
+      "fullName": "gqy20/ZoteroFlow",
+      "description": "暂无描述 - Go项目",
+      "url": "https://github.com/gqy20/ZoteroFlow",
+      "language": "Go",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-10-05T09:17:56Z",
+      "updatedAt": "2025-10-05T10:03:20Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "go"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 16667,
+      "license": null
+    },
+    {
+      "id": 1059262666,
+      "name": "note-gen-image-sync",
+      "fullName": "gqy20/note-gen-image-sync",
+      "description": "This is a NoteGen sync repository.",
+      "url": "https://github.com/gqy20/note-gen-image-sync",
+      "language": "Unknown",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-09-18T08:02:55Z",
+      "updatedAt": "2025-09-18T08:04:47Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "其他"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 28,
+      "license": null
+    }
+  ]
+}
