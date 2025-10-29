@@ -1,8 +1,34 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { FaGithub, FaEnvelope, FaArrowDown } from 'react-icons/fa'
+import { FaGithub, FaEnvelope } from 'react-icons/fa'
 import './Hero.css'
 
 const Hero = () => {
+  const [projectStats, setProjectStats] = useState({
+    totalProjects: 13,
+    totalStars: 20,
+    followers: 2
+  })
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const loadProjectData = async () => {
+      try {
+        const data = await import('../data/projects.json')
+        setProjectStats({
+          totalProjects: data.default.totalProjects,
+          totalStars: data.default.totalStars,
+          followers: data.default.followers || 2
+        })
+      } catch (error) {
+        console.error('Failed to load project data:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadProjectData()
+  }, [])
   return (
     <section className="hero">
       <div className="hero-container">
@@ -68,7 +94,9 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="stat-number">5+</div>
+                <div className="stat-number">
+                  {loading ? '...' : projectStats.totalProjects}
+                </div>
                 <div className="stat-label">开源项目</div>
               </motion.div>
               <motion.div
@@ -76,7 +104,9 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="stat-number">3</div>
+                <div className="stat-number">
+                  {loading ? '...' : projectStats.totalStars}
+                </div>
                 <div className="stat-label">项目Star</div>
               </motion.div>
               <motion.div
@@ -84,7 +114,9 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="stat-number">2</div>
+                <div className="stat-number">
+                  {loading ? '...' : projectStats.followers}
+                </div>
                 <div className="stat-label">关注者</div>
               </motion.div>
             </div>
@@ -173,15 +205,7 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        <motion.div
-          className="scroll-indicator"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-        >
-          <FaArrowDown />
-        </motion.div>
-      </div>
+        </div>
     </section>
   )
 }

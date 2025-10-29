@@ -85,10 +85,27 @@ const categorizeProject = (repo) => {
   };
 };
 
+// 获取GitHub用户数据
+async function fetchGitHubUserData() {
+  try {
+    const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`);
+    if (!response.ok) {
+      throw new Error(`获取用户数据失败: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('获取用户数据失败:', error.message);
+    return { followers: 2 }; // 默认值
+  }
+}
+
 // 获取GitHub仓库数据
 async function fetchGitHubProjects() {
   try {
     console.log('🚀 开始获取GitHub项目数据...');
+
+    // 获取用户数据
+    const userData = await fetchGitHubUserData();
 
     // 获取所有公开仓库
     const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated&direction=desc`);
@@ -148,6 +165,7 @@ async function fetchGitHubProjects() {
       lastUpdated: new Date().toISOString(),
       totalProjects: projects.length,
       totalStars: projects.reduce((sum, p) => sum + p.stars, 0),
+      followers: userData.followers || 2,
       categories: Object.keys(categorizedProjects),
       projects: categorizedProjects,
       allProjects: projects
