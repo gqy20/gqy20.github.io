@@ -5,11 +5,6 @@ on:
     # 每天北京时间早上9点运行 (UTC+1小时)
     - cron: '0 1 * * *'
   workflow_dispatch: # 允许手动触发
-  push:
-    branches: [ main ]
-    paths:
-      - 'scripts/update-projects.js'
-      - '.github/workflows/update-projects.yml'
 
 jobs:
   update-projects:
@@ -85,6 +80,6 @@ EOF
             github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              workflow_id: 'pages.yml',
+              workflow_id: 'deploy.yml',
               ref: 'main'
             })
