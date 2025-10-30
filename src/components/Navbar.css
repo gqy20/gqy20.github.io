@@ -1,4 +1,4 @@
-/* 智能导航助手 - Jobs理念的"消失的界面" */
+/* 智能融合导航 - 平衡可用性与视觉体验 */
 .navbar {
   position: sticky;
   top: 0;
@@ -6,32 +6,38 @@
   padding: 1rem 0;
   background: transparent;
   border: none;
-  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  pointer-events: none; /* 默认不可交互，避免误操作 */
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* 始终保持可交互，确保可用性 */
+  pointer-events: auto;
+  /* 移除阴影和边框，减少视觉分离感 */
+  box-shadow: none;
+  border-bottom: none;
 }
 
-/* 基础状态：几乎完全透明，融入页面 */
+/* 基础状态：极淡但依然可发现 */
 .navbar.idle {
-  opacity: 0.03;
-  transform: scale(0.98);
-  pointer-events: none;
+  opacity: 0.15;
+  transform: scale(1);
+  /* 保持可交互，确保用户能发现和使用 */
+  pointer-events: auto;
 }
 
 /* 滑动意图：轻微显现，提供方向感 */
 .navbar.browsing {
-  opacity: 0.15;
-  transform: scale(0.99);
+  opacity: 0.4;
+  transform: scale(1);
   pointer-events: auto;
 }
 
 /* 寻找意图：适度可见，主动提供帮助 */
 .navbar.seeking {
-  opacity: 0.4;
+  opacity: 0.7;
   transform: scale(1);
   pointer-events: auto;
+  /* 极淡的背景融合，避免视觉分离 */
   background: linear-gradient(
     to bottom,
-    rgba(var(--bg-color-rgb, 255, 255, 255), 0.3) 0%,
+    rgba(var(--bg-color-rgb, 255, 255, 255), 0.05) 0%,
     rgba(var(--bg-color-rgb, 255, 255, 255), 0) 100%
   );
 }
@@ -40,18 +46,20 @@
 .app.dark .navbar.seeking {
   background: linear-gradient(
     to bottom,
-    rgba(var(--bg-color-rgb, 15, 23, 42), 0.3) 0%,
+    rgba(var(--bg-color-rgb, 15, 23, 42), 0.05) 0%,
     rgba(var(--bg-color-rgb, 15, 23, 42), 0) 100%
   );
 }
 
 /* 交互状态：完全可见，清晰提供导航 */
 .navbar.interacting {
-  opacity: 1;
-  transform: scale(1.02);
+  opacity: 0.95;
+  transform: scale(1);
   pointer-events: auto;
-  background: var(--bg-color);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  /* 极淡的背景，融入整体设计 */
+  background: rgba(var(--bg-color-rgb, 255, 255, 255), 0.8);
+  /* 移除阴影，减少视觉分离 */
+  box-shadow: none;
 }
 
 /* 边界呼吸效果 - 只有在用户需要时才出现 */

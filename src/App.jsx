@@ -19,6 +19,7 @@ function App() {
         <div className="app-content">
           <ParticleBackground />
           <main className="main-content">
+            {/* 智能融合导航：保持可用性，优化视觉体验 */}
             <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
             <motion.div
               initial={{ opacity: 0 }}
