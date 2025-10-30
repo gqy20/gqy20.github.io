@@ -16,21 +16,26 @@ function App() {
   return (
     <Router>
       <div className={`app ${isDarkMode ? 'dark' : ''}`}>
-        <ParticleBackground />
-        <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Routes>
-            <Route path="/" element={<Hero />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/components" element={<ComponentTest />} />
-                      </Routes>
-        </motion.div>
+        <div className="app-content">
+          <ParticleBackground />
+          <main className="main-content">
+            <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="page-content"
+            >
+              <Routes>
+                <Route path="/" element={<Hero />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/components" element={<ComponentTest />} />
+              </Routes>
+            </motion.div>
+          </main>
+        </div>
       </div>
     </Router>
   )

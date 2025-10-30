@@ -71,6 +71,23 @@ body {
   position: relative;
 }
 
+.app-content {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.main-content {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.page-content {
+  padding-top: 0; /* 导航栏已经在文档流中，不需要额外的padding */
+  min-height: calc(100vh - 80px); /* 减去导航栏高度 */
+}
+
 /* 粒子背景容器 */
 #particles-background {
   position: fixed;

@@ -1,25 +1,86 @@
+/* 智能导航助手 - Jobs理念的"消失的界面" */
 .navbar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
+  z-index: 100;
   padding: 1rem 0;
-  transition: all 0.3s ease;
+  background: transparent;
+  border: none;
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none; /* 默认不可交互，避免误操作 */
 }
 
-.navbar.scrolled {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-color);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+/* 基础状态：几乎完全透明，融入页面 */
+.navbar.idle {
+  opacity: 0.03;
+  transform: scale(0.98);
+  pointer-events: none;
 }
 
-.app.dark .navbar.scrolled {
-  background: rgba(15, 23, 42, 0.9);
-  border-bottom-color: var(--border-color);
+/* 滑动意图：轻微显现，提供方向感 */
+.navbar.browsing {
+  opacity: 0.15;
+  transform: scale(0.99);
+  pointer-events: auto;
 }
 
+/* 寻找意图：适度可见，主动提供帮助 */
+.navbar.seeking {
+  opacity: 0.4;
+  transform: scale(1);
+  pointer-events: auto;
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--bg-color-rgb, 255, 255, 255), 0.3) 0%,
+    rgba(var(--bg-color-rgb, 255, 255, 255), 0) 100%
+  );
+}
+
+/* 深色模式适配 */
+.app.dark .navbar.seeking {
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--bg-color-rgb, 15, 23, 42), 0.3) 0%,
+    rgba(var(--bg-color-rgb, 15, 23, 42), 0) 100%
+  );
+}
+
+/* 交互状态：完全可见，清晰提供导航 */
+.navbar.interacting {
+  opacity: 1;
+  transform: scale(1.02);
+  pointer-events: auto;
+  background: var(--bg-color);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 边界呼吸效果 - 只有在用户需要时才出现 */
+.navbar.seeking::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: var(--primary-color);
+  border-radius: 1px;
+  opacity: 0.6;
+  animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    width: 60px;
+    opacity: 0.3;
+  }
+  50% {
+    width: 120px;
+    opacity: 0.8;
+  }
+}
+
+/* 导航容器 - 始终保持相对定位用于子元素 */
 .navbar-container {
   max-width: 1600px;
   margin: 0 auto;
@@ -27,6 +88,39 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+}
+
+
+.navbar-logo {
+  position: absolute;
+  left: 1.5rem;
+  z-index: 2;
+}
+
+.navbar-menu {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navbar-controls {
+  position: absolute;
+  right: 1.5rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 /* 大屏幕优化 */
@@ -35,12 +129,28 @@
     max-width: 1800px;
     padding: 0 1rem;
   }
+
+  .navbar-logo {
+    left: 1rem;
+  }
+
+  .navbar-controls {
+    right: 1rem;
+  }
 }
 
 @media (min-width: 1920px) {
   .navbar-container {
     max-width: 2000px;
     padding: 0 1.5rem;
+  }
+
+  .navbar-logo {
+    left: 1.5rem;
+  }
+
+  .navbar-controls {
+    right: 1.5rem;
   }
 }
 
@@ -49,42 +159,24 @@
     max-width: 2200px;
     padding: 0 2rem;
   }
-}
 
-.navbar-logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  text-decoration: none;
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transition: all 0.3s ease;
-}
+  .navbar-logo {
+    left: 2rem;
+  }
 
-.navbar-menu {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
+  .navbar-controls {
+    right: 2rem;
+  }
 }
 
 .navbar-link {
   color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 25px;
   transition: all 0.3s ease;
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.nav-icon {
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
 }
 
 .nav-text {
@@ -93,21 +185,24 @@
 
 .navbar-link:hover {
   color: var(--primary-color);
-  background: rgba(37, 99, 235, 0.1);
 }
 
-.navbar-link:hover .nav-icon {
-  transform: scale(1.2) rotate(10deg);
+.navbar-link.active {
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
-.navbar-link:hover .nav-text {
-  transform: translateX(2px);
-}
-
-.navbar-controls {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.navbar-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: var(--primary-color);
+  border-radius: 1px;
+  transition: all 0.3s ease;
 }
 
 .theme-toggle,
@@ -117,14 +212,16 @@
   font-size: 1.2rem;
   color: var(--text-color);
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.75rem;
   border-radius: 50%;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .theme-toggle:hover,
@@ -143,24 +240,48 @@
   left: 0;
   right: 0;
   background: var(--bg-color);
-  border-bottom: 1px solid var(--border-color);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.05);
   overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .app.dark .mobile-menu {
-  background: var(--bg-color);
-  border-bottom-color: var(--border-color);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+/* 智能移动菜单状态 */
+.mobile-menu.idle {
+  opacity: 0.1;
+  transform: translateY(-10px);
+}
+
+.mobile-menu.browsing {
+  opacity: 0.3;
+  transform: translateY(0);
+}
+
+.mobile-menu.seeking {
+  opacity: 0.6;
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu.interacting {
+  opacity: 1;
+  transform: translateY(0);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .mobile-menu-link {
   display: block;
-  padding: 1rem 2rem;
+  padding: 1.25rem 2rem;
   color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
   border-bottom: 1px solid var(--border-color);
+  min-height: 60px;
+  font-size: 1.1rem;
 }
 
 .mobile-menu-link:last-child {
@@ -201,5 +322,29 @@
     width: 35px;
     height: 35px;
     font-size: 1rem;
+  }
+}
+
+/* 平滑滚动效果 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 移动端横屏优化 */
+@media (max-width: 768px) and (orientation: landscape) {
+  .navbar {
+    padding: 0.75rem 0;
+  }
+
+  .navbar-logo {
+    font-size: 1.4rem;
+  }
+
+  .theme-toggle,
+  .mobile-menu-toggle {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
   }
 }
