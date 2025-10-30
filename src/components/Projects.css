@@ -321,6 +321,20 @@
   border-color: var(--accent-color);
 }
 
+/* PyPI 官方 logo 样式 - 纯净展示 */
+.project-link.homepage-link.pypi-link {
+  /* 移除所有背景色，只保留基础样式 */
+}
+
+.pypi-logo {
+  /* 保持 PyPI logo 原生颜色，不进行任何颜色过滤 */
+  transition: transform 0.3s ease;
+}
+
+.project-link.homepage-link.pypi-link:hover .pypi-logo {
+  transform: scale(1.1);
+}
+
 .project-link:hover {
   color: white;
   background: linear-gradient(135deg, var(--primary-color) 0%, rgba(37, 99, 235, 0.8) 100%);

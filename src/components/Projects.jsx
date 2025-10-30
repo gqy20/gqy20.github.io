@@ -15,22 +15,7 @@ import Badge from './Badge'
 import Button from './Button'
 import './Projects.css'
 import ProjectDetailModal from './ProjectDetailModal'
-
-// 规范化项目描述的函数
-const normalizeDescription = (description, name) => {
-  if (!description || description.includes('暂无描述')) {
-    return `${name} - 开源项目`
-  }
-
-  // 基本清理
-  let cleaned = description
-    .replace(/^- /, '') // 移除开头的 "- "
-    .replace(/ - .*项目$/, '') // 移除结尾的 " - xxx项目"
-    .trim()
-
-  // 长度限制
-  return cleaned.length > 60 ? cleaned.substring(0, 57) + '...' : cleaned
-}
+import { getExternalLinkIcon, normalizeDescription } from '../utils/projectUtils'
 
 const Projects = () => {
   const [projectsData, setProjectsData] = useState(null)
@@ -328,13 +313,26 @@ const Projects = () => {
                       href={project.homepage}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="project-link homepage-link"
+                      className={`project-link homepage-link ${project.homepage?.includes('pypi.org') ? 'pypi-link' : ''}`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={(e) => e.stopPropagation()}
                       title={project.homepage}
                     >
-                      <FaExternalLinkAlt />
+                      {(() => {
+                        const iconType = getExternalLinkIcon(project.homepage)
+                        if (iconType === 'pypi') {
+                          return (
+                            <img
+                              src="https://pypi.org/static/images/logo-small.8998e9d1.svg"
+                              alt="PyPI"
+                              className="pypi-logo"
+                              style={{ width: '20px', height: '20px' }}
+                            />
+                          )
+                        }
+                        return <FaExternalLinkAlt />
+                      })()}
                     </motion.a>
                   )}
 

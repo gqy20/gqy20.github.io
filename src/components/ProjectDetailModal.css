@@ -273,6 +273,15 @@
   box-shadow: 0 6px 20px -6px rgba(99, 102, 241, 0.5);
 }
 
+/* PyPI logo 样式 */
+.demo-btn .pypi-logo {
+  transition: transform 0.3s ease;
+}
+
+.demo-btn:hover .pypi-logo {
+  transform: scale(1.1);
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
   .modal-backdrop {
