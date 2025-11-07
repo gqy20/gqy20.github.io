@@ -91,9 +91,7 @@ jobs:
           NEW_CONTENT=$(echo "$README_CONTENT" | sed "s|!\[Performance\](https://img\.shields\.io/badge/Performance-[^)]*)|$BADGE_MARKDOWN|")
         else
           # Add new badge after the first title
-          NEW_CONTENT=$(echo "$README_CONTENT" | sed "2i\\
-$BADGE_MARKDOWN
-")
+          NEW_CONTENT=$(echo "$README_CONTENT" | sed "2i\\$BADGE_MARKDOWN")
         fi
 
         echo "$NEW_CONTENT" > README.md
