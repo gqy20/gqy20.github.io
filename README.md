@@ -1,5 +1,7 @@
 # Qingyu Ge - React 个人主页
 
+![Performance](https://img.shields.io/badge/Performance-54%2F100-orange)
+
 ## 🚀 项目特色
 
 - **🎨 粒子背景动画** - 交互式粒子效果，鼠标悬停和点击特效
