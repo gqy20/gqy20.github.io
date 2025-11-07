@@ -96,22 +96,30 @@ const PrismCodeBlock = ({ children, className, ...props }) => {
 
   // 性能优化：缓存语言解析结果
   const language = useMemo(() => {
-    if (!className) return 'text'
+    if (!className) {
+      console.log('PrismCodeBlock: No className provided, defaulting to text')
+      return 'text'
+    }
 
-    // 支持多种语法格式
+    console.log('PrismCodeBlock: className received:', className)
+
+    // 支持多种语法格式 - 扩展模式匹配
     const patterns = [
-      /language-(\w+)/,
-      /lang-(\w+)/,
-      /^(\w+)$/
+      /language-(\w+)/,           // 标准格式: language-javascript
+      /lang-(\w+)/,               // 简化格式: lang-js
+      /^(\w+)$/                   // 直接格式: javascript
     ]
 
     for (const pattern of patterns) {
       const match = className.match(pattern)
       if (match) {
-        return match[1].toLowerCase()
+        const detectedLang = match[1].toLowerCase()
+        console.log(`PrismCodeBlock: Detected language "${detectedLang}" from pattern "${pattern}"`)
+        return detectedLang
       }
     }
 
+    console.log(`PrismCodeBlock: No language pattern matched in className "${className}", defaulting to text`)
     return 'text'
   }, [className])
 
