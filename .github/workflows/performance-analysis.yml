@@ -175,7 +175,7 @@ jobs:
     - name: Upload Performance Reports
       uses: actions/upload-artifact@v4
       with:
-        name: performance-reports-${{ github.run_number }}
+        name: performance-reports-${{ github.run_id }}
         path: |
           performance-reports/
         retention-days: 30

@@ -6,6 +6,9 @@ on:
     types:
       - completed
 
+permissions:
+  contents: write
+
 jobs:
   update-badge:
     runs-on: ubuntu-latest
@@ -14,22 +17,35 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Download performance reports
       uses: actions/download-artifact@v4
       with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        run-id: ${{ github.event.workflow_run.id }}
         name: performance-reports-${{ github.event.workflow_run.id }}
         path: ./temp-reports/
 
     - name: Extract performance score
       id: extract
       run: |
-        if [ -f "./temp-reports/performance-reports/lighthouse-mobile.json" ]; then
+        echo "Looking for performance reports..."
+        find ./temp-reports/ -type f -name "*.json" | head -10
+
+        if [ -f "./temp-reports/lighthouse-mobile.json" ]; then
+          SCORE=$(cat ./temp-reports/lighthouse-mobile.json | jq -r '.categories.performance.score * 100 | floor')
+          echo "score=$SCORE" >> $GITHUB_OUTPUT
+          echo "Performance score extracted: $SCORE"
+        elif [ -f "./temp-reports/performance-reports/lighthouse-mobile.json" ]; then
           SCORE=$(cat ./temp-reports/performance-reports/lighthouse-mobile.json | jq -r '.categories.performance.score * 100 | floor')
           echo "score=$SCORE" >> $GITHUB_OUTPUT
           echo "Performance score extracted: $SCORE"
         else
-          echo "No performance report found"
+          echo "No performance report found in expected locations"
+          echo "Available files:"
+          find ./temp-reports/ -type f
           exit 1
         fi
 
