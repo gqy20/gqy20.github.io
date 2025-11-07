@@ -11,7 +11,6 @@ const USE_PRISM = process.env.REACT_APP_USE_PRISM === 'true' ||
                  !process.env.REACT_APP_USE_SHIKI
 
 const MarkdownRenderer = ({ content }) => {
-  console.log(`Using ${USE_PRISM ? 'Prism.js' : 'Shiki'} for code highlighting`)
 
   return (
     <div className="markdown-content">
@@ -55,8 +54,9 @@ const MarkdownRenderer = ({ content }) => {
             }
             return <li className="markdown-list-item" {...props}>{children}</li>
           },
-          // 自定义代码块渲染 - 使用Shiki高亮
+          // 自定义代码块渲染 - 使用Prism.js高亮
           code: ({ inline, children, className, ...props }) => {
+
             if (inline) {
               return (
                 <code className="markdown-inline-code" {...props}>
