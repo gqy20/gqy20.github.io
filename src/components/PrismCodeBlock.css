@@ -1,0 +1,261 @@
+/* Prism.js 代码块样式 - 兼容现有设计系统 */
+.prism-code-block {
+  margin: 16px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.prism-code-block:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 代码头部 - 语言标识和操作按钮 */
+.prism-code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, var(--border-color), rgba(128, 128, 128, 0.1));
+  border-bottom: 1px solid var(--border-color);
+  min-height: 48px;
+}
+
+.prism-code-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.prism-language-badge {
+  background: var(--accent-color);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.prism-code-lines {
+  color: var(--text-color);
+  font-size: 12px;
+  opacity: 0.7;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+}
+
+.prism-code-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.prism-action-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-color);
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+}
+
+.prism-action-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateY(-1px);
+}
+
+.prism-action-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.prism-action-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* 加载状态 */
+.prism-loading-skeleton {
+  padding: 16px;
+  background: linear-gradient(90deg,
+    var(--border-color) 25%,
+    rgba(128, 128, 128, 0.1) 50%,
+    var(--border-color) 75%
+  );
+  background-size: 200% 100%;
+  animation: prism-loading 1.5s infinite;
+  border-radius: 8px;
+  margin: 8px 0;
+}
+
+@keyframes prism-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.prism-loading-text {
+  text-align: center;
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: 14px;
+  padding: 20px;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+}
+
+/* 代码内容区域 */
+.prism-code-content pre[class*="language-"] {
+  margin: 0;
+  padding: 20px;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: auto;
+  white-space: pre;
+  word-wrap: normal;
+  -webkit-overflow-scrolling: touch;
+}
+
+.prism-code-content code[class*="language-"] {
+  background: none;
+  padding: 0;
+  border: none;
+  font-size: inherit;
+  color: inherit;
+  font-family: inherit;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+/* Prism.js 主题适配 - 深色模式 */
+.prism-code-block .token.comment,
+.prism-code-block .token.prolog,
+.prism-code-block .token.doctype,
+.prism-code-block .token.cdata {
+  color: #6a737d;
+  font-style: italic;
+}
+
+.prism-code-block .token.punctuation {
+  color: #e1e4e8;
+}
+
+.prism-code-block .token.property,
+.prism-code-block .token.tag,
+.prism-code-block .token.boolean,
+.prism-code-block .token.number,
+.prism-code-block .token.constant,
+.prism-code-block .token.symbol,
+.prism-code-block .token.deleted {
+  color: #79b8ff;
+}
+
+.prism-code-block .token.selector,
+.prism-code-block .token.attr-name,
+.prism-code-block .token.string,
+.prism-code-block .token.char,
+.prism-code-block .token.builtin,
+.prism-code-block .token.inserted {
+  color: #9ecbff;
+}
+
+.prism-code-block .token.operator,
+.prism-code-block .token.entity,
+.prism-code-block .token.url,
+.prism-code-block .language-css .token.string,
+.prism-code-block .style .token.string {
+  color: #b392f0;
+}
+
+.prism-code-block .token.atrule,
+.prism-code-block .token.attr-value,
+.prism-code-block .token.keyword {
+  color: #f97583;
+}
+
+.prism-code-block .token.function,
+.prism-code-block .token.class-name {
+  color: #b392f0;
+}
+
+.prism-code-block .token.regex,
+.prism-code-block .token.important,
+.prism-code-block .token.variable {
+  color: #ffab70;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .prism-code-header {
+    padding: 10px 12px;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .prism-code-actions {
+    align-self: flex-end;
+  }
+
+  .prism-code-content pre[class*="language-"] {
+    padding: 16px;
+    font-size: 13px;
+  }
+
+  .prism-language-badge {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+}
+
+/* 浅色模式适配 */
+.app:not(.dark) .prism-code-block {
+  background-color: #ffffff;
+  border-color: #e1e4e8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.app:not(.dark) .prism-code-header {
+  background: linear-gradient(135deg, #f6f8fa, #e1e4e8);
+  border-bottom-color: #e1e4e8;
+}
+
+.app:not(.dark) .prism-code-content pre[class*="language-"] {
+  background-color: #ffffff;
+  color: #24292e;
+}
+
+/* 滚动条美化 */
+.prism-code-content pre[class*="language-"]::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.prism-code-content pre[class*="language-"]::-webkit-scrollbar-track {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.prism-code-content pre[class*="language-"]::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 4px;
+}
+
+.prism-code-content pre[class*="language-"]::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}

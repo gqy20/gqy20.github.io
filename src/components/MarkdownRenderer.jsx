@@ -2,9 +2,17 @@ import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import ShikiCodeBlock from './ShikiCodeBlockLazy'  // 使用懒加载版本
+import PrismCodeBlock from './PrismCodeBlock'      // 新的Prism.js实现
 import './MarkdownRenderer.css'
 
+// 通过环境变量控制使用哪种代码高亮方案
+const USE_PRISM = process.env.REACT_APP_USE_PRISM === 'true' ||
+                 process.env.NODE_ENV === 'development' &&
+                 !process.env.REACT_APP_USE_SHIKI
+
 const MarkdownRenderer = ({ content }) => {
+  console.log(`Using ${USE_PRISM ? 'Prism.js' : 'Shiki'} for code highlighting`)
+
   return (
     <div className="markdown-content">
       <ReactMarkdown
@@ -69,11 +77,12 @@ const MarkdownRenderer = ({ content }) => {
               )
             }
 
-            // 复杂代码块使用ShikiCodeBlock组件
+            // 复杂代码块使用动态选择的代码高亮组件
+            const CodeBlockComponent = USE_PRISM ? PrismCodeBlock : ShikiCodeBlock
             return (
-              <ShikiCodeBlock className={className} {...props}>
+              <CodeBlockComponent className={className} {...props}>
                 {children}
-              </ShikiCodeBlock>
+              </CodeBlockComponent>
             )
           },
           pre: ({ children, ...props }) => {

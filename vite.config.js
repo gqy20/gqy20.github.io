@@ -13,8 +13,8 @@ export default defineConfig({
       output: {
         // 手动代码分割优化
         manualChunks: {
-          // 将语法高亮相关代码分割到独立 chunk，延迟加载
-          'syntax-highlight': ['shiki'],
+          // Prism.js 语法高亮 - 模块化设计，按需加载
+          'prism': ['prismjs'],
           // React 相关库 - 不常变化，长期缓存
           'react-vendor': ['react', 'react-dom'],
           // 其他第三方库 - 相对稳定
@@ -39,9 +39,9 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5173
   },
-  // 优化依赖预构建，排除语法高亮库
+  // 优化依赖预构建，包含Prism.js核心以提升开发体验
   optimizeDeps: {
-    include: ['react', 'react-dom'],
-    exclude: ['shiki'] // 排除语法高亮库的预构建
+    include: ['react', 'react-dom', 'prismjs'],
+    // 移除shiki排除，因为我们已经切换到Prism.js
   }
 })
