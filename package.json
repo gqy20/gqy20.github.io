@@ -8,7 +8,12 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist",
+    "perf:check": "node scripts/performance-analysis.js",
+    "perf:quick": "lighthouse https://home.gqy20.top --chrome-flags=\"--headless --no-sandbox --disable-dev-shm-usage\" --only-categories=performance",
+    "perf:full": "lighthouse https://home.gqy20.top --chrome-flags=\"--headless --no-sandbox --disable-dev-shm-usage\" --output=html --output-path=./lighthouse-report.html",
+    "perf:mobile": "lighthouse https://home.gqy20.top --chrome-flags=\"--headless --no-sandbox --disable-dev-shm-usage\" --form-factor=mobile --output=json --output-path=./lighthouse-mobile.json",
+    "perf:desktop": "lighthouse https://home.gqy20.top --chrome-flags=\"--headless --no-sandbox --disable-dev-shm-usage\" --form-factor=desktop --output=json --output-path=./lighthouse-desktop.json"
   },
   "dependencies": {
     "clsx": "^2.1.1",

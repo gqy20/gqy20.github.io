@@ -20,6 +20,20 @@
 - **数据**: GitHub API + JSON
 - **图标**: React Icons
 - **部署**: GitHub Pages + GitHub Actions
+- **性能监控**: Lighthouse + 自动化分析
+
+## 📊 性能监控
+
+- **🚀 自动化分析**: GitHub Actions 每日运行 Lighthouse 性能检测
+- **📈 Core Web Vitals**: 监控 FCP、LCP、CLS、TBT 等关键指标
+- **🎯 多设备测试**: 移动端和桌面端性能全覆盖
+- **📋 优化建议**: 自动生成性能优化建议和趋势分析
+
+```bash
+# 本地性能检查
+npm run perf:check    # 完整分析
+npm run perf:quick    # 快速检查
+```
 
 ## 📦 本地开发
 

@@ -1,0 +1,232 @@
+name: Performance Analysis
+
+on:
+  schedule:
+    # 每天北京时间早上8点运行 (UTC 00:00)
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    # 手动触发
+  push:
+    branches: [ main ]
+    # 当以下文件发生变化时触发
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'package.json'
+      - 'vite.config.js'
+      - 'tailwind.config.js'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'package.json'
+      - 'vite.config.js'
+      - 'tailwind.config.js'
+
+env:
+  WEBSITE_URL: 'https://home.gqy20.top'
+  NODE_VERSION: '18'
+
+jobs:
+  performance-analysis:
+    name: Website Performance Analysis
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Install Lighthouse
+      run: npm install -g lighthouse
+
+    - name: Create reports directory
+      run: mkdir -p performance-reports
+
+    - name: Run Lighthouse Analysis (Mobile)
+      run: |
+        lighthouse "${{ env.WEBSITE_URL }}" \
+          --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+          --form-factor=mobile \
+          --output=json \
+          --output-path=./performance-reports/lighthouse-mobile.json
+
+    - name: Run Lighthouse Analysis (Desktop)
+      run: |
+        lighthouse "${{ env.WEBSITE_URL }}" \
+          --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+          --form-factor=desktop \
+          --output=json \
+          --output-path=./performance-reports/lighthouse-desktop.json
+
+    - name: Generate Performance Summary
+      run: |
+        cat > performance-reports/summary.md << 'EOF'
+        # 🚀 Website Performance Report
+
+        **Generated:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+        **Website:** ${{ env.WEBSITE_URL }}
+
+        EOF
+
+        # Extract mobile scores
+        MOBILE_PERFORMANCE=$(cat performance-reports/lighthouse-mobile.json | jq -r '.categories.performance.score * 100')
+        MOBILE_ACCESSIBILITY=$(cat performance-reports/lighthouse-mobile.json | jq -r '.categories.accessibility.score * 100')
+        MOBILE_BEST_PRACTICES=$(cat performance-reports/lighthouse-mobile.json | jq -r '.categories."best-practices".score * 100')
+        MOBILE_SEO=$(cat performance-reports/lighthouse-mobile.json | jq -r '.categories.seo.score * 100')
+
+        # Extract desktop scores
+        DESKTOP_PERFORMANCE=$(cat performance-reports/lighthouse-desktop.json | jq -r '.categories.performance.score * 100')
+        DESKTOP_ACCESSIBILITY=$(cat performance-reports/lighthouse-desktop.json | jq -r '.categories.accessibility.score * 100')
+        DESKTOP_BEST_PRACTICES=$(cat performance-reports/lighthouse-desktop.json | jq -r '.categories."best-practices".score * 100')
+        DESKTOP_SEO=$(cat performance-reports/lighthouse-desktop.json | jq -r '.categories.seo.score * 100')
+
+        # Extract Core Web Vitals
+        MOBILE_FCP=$(cat performance-reports/lighthouse-mobile.json | jq -r '.audits."first-contentful-paint".displayValue')
+        MOBILE_LCP=$(cat performance-reports/lighthouse-mobile.json | jq -r '.audits."largest-contentful-paint".displayValue')
+        MOBILE_CLS=$(cat performance-reports/lighthouse-mobile.json | jq -r '.audits."cumulative-layout-shift".displayValue')
+        MOBILE_TBT=$(cat performance-reports/lighthouse-mobile.json | jq -r '.audits."total-blocking-time".displayValue')
+
+        cat >> performance-reports/summary.md << EOF
+        ## 📊 Performance Scores
+
+        | Device | Performance | Accessibility | Best Practices | SEO |
+        |--------|-------------|--------------|----------------|-----|
+        | 📱 Mobile | ${MOBILE_PERFORMANCE}/100 | ${MOBILE_ACCESSIBILITY}/100 | ${MOBILE_BEST_PRACTICES}/100 | ${MOBILE_SEO}/100 |
+        | 🖥️ Desktop | ${DESKTOP_PERFORMANCE}/100 | ${DESKTOP_ACCESSIBILITY}/100 | ${DESKTOP_BEST_PRACTICES}/100 | ${DESKTOP_SEO}/100 |
+
+        ## 🎯 Core Web Vitals (Mobile)
+
+        | Metric | Value | Status |
+        |--------|-------|--------|
+        | First Contentful Paint | ${MOBILE_FCP} | $(echo "$MOBILE_FCP" | grep -q "s" && echo "⚠️ Slow" || echo "✅ Good") |
+        | Largest Contentful Paint | ${MOBILE_LCP} | $(echo "$MOBILE_LCP" | grep -q "s" && echo "⚠️ Slow" || echo "✅ Good") |
+        | Cumulative Layout Shift | ${MOBILE_CLS} | $(echo "$MOBILE_CLS" | grep -q "0" && echo "✅ Perfect" || echo "⚠️ Needs attention") |
+        | Total Blocking Time | ${MOBILE_TBT} | $(echo "$MOBILE_TBT" | grep -q "ms" && echo "✅ Good" || echo "⚠️ Slow") |
+
+        ## 💡 Performance Recommendations
+
+        EOF
+
+        # Add performance recommendations based on scores
+        if (( $(echo "$MOBILE_PERFORMANCE < 90" | bc -l) )); then
+          echo "### 🚨 Performance Issues Detected" >> performance-reports/summary.md
+          echo "" >> performance-reports/summary.md
+
+          if (( $(echo "$MOBILE_PERFORMANCE < 50" | bc -l) )); then
+            echo "- ❌ **Critical Performance Issues** - Score below 50" >> performance-reports/summary.md
+          else
+            echo "- ⚠️ **Performance Needs Improvement** - Score: ${MOBILE_PERFORMANCE}/100" >> performance-reports/summary.md
+          fi
+
+          echo "- 📱 Focus on mobile optimization" >> performance-reports/summary.md
+          echo "- 🎯 Reduce First Contentful Paint time" >> performance-reports/summary.md
+          echo "- 🚀 Optimize JavaScript execution" >> performance-reports/summary.md
+        else
+          echo "### 🎉 Excellent Performance!" >> performance-reports/summary.md
+          echo "" >> performance-reports/summary.md
+          echo "- ✅ Performance score: ${MOBILE_PERFORMANCE}/100" >> performance-reports/summary.md
+          echo "- 🚀 Website loads quickly and efficiently" >> performance-reports/summary.md
+        fi
+
+        cat >> performance-reports/summary.md << EOF
+
+        ---
+
+        *This report was automatically generated by GitHub Actions*
+        EOF
+
+    - name: Performance Score Check
+      run: |
+        MOBILE_PERFORMANCE=$(cat performance-reports/lighthouse-mobile.json | jq -r '.categories.performance.score * 100')
+        DESKTOP_PERFORMANCE=$(cat performance-reports/lighthouse-desktop.json | jq -r '.categories.performance.score * 100')
+
+        echo "Mobile Performance: $MOBILE_PERFORMANCE"
+        echo "Desktop Performance: $DESKTOP_PERFORMANCE"
+
+        # Set threshold values
+        MIN_PERFORMANCE_SCORE=60
+
+        # Check if performance is below threshold
+        if (( $(echo "$MOBILE_PERFORMANCE < $MIN_PERFORMANCE_SCORE" | bc -l) )) || (( $(echo "$DESKTOP_PERFORMANCE < $MIN_PERFORMANCE_SCORE" | bc -l) )); then
+          echo "::warning::Performance score is below $MIN_PERFORMANCE_SCORE. Consider optimization."
+        else
+          echo "::notice::Performance score is acceptable."
+        fi
+
+    - name: Generate HTML Report
+      run: |
+        lighthouse "${{ env.WEBSITE_URL }}" \
+          --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+          --form-factor=mobile \
+          --output=html \
+          --output-path=./performance-reports/lighthouse-report.html
+
+    - name: Upload Performance Reports
+      uses: actions/upload-artifact@v4
+      with:
+        name: performance-reports-${{ github.run_number }}
+        path: |
+          performance-reports/
+        retention-days: 30
+
+    - name: Comment on PR (if applicable)
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          const path = './performance-reports/summary.md';
+
+          if (fs.existsSync(path)) {
+            const summary = fs.readFileSync(path, 'utf8');
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: summary
+            });
+          }
+
+    - name: Generate Performance Badge Data
+      run: |
+        MOBILE_PERFORMANCE=$(cat performance-reports/lighthouse-mobile.json | jq -r '.categories.performance.score * 100 | floor')
+
+        # Create badge data (you can use shields.io to generate badges)
+        cat > performance-reports/badge.json << EOF
+        {
+          "schemaVersion": 1,
+          "label": "Performance",
+          "message": "${MOBILE_PERFORMANCE}/100",
+          "color": $(if (( $(echo "$MOBILE_PERFORMANCE >= 90" | bc -l) )); then echo '"brightgreen"'; elif (( $(echo "$MOBILE_PERFORMANCE >= 70" | bc -l) )); then echo '"yellow"'; elif (( $(echo "$MOBILE_PERFORMANCE >= 50" | bc -l) )); then echo '"orange"'; else echo '"red"'; fi)
+        }
+        EOF
+
+    - name: Display Summary in Job Output
+      run: |
+        echo "## 🚀 Performance Analysis Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+
+        MOBILE_PERFORMANCE=$(cat performance-reports/lighthouse-mobile.json | jq -r '.categories.performance.score * 100')
+        DESKTOP_PERFORMANCE=$(cat performance-reports/lighthouse-desktop.json | jq -r '.categories.performance.score * 100')
+
+        echo "| Device | Performance | Status |" >> $GITHUB_STEP_SUMMARY
+        echo "|--------|-------------|--------|" >> $GITHUB_STEP_SUMMARY
+        echo "| 📱 Mobile | ${MOBILE_PERFORMANCE}/100 | $(if (( $(echo "$MOBILE_PERFORMANCE >= 90" | bc -l) )); then echo "✅ Excellent"; elif (( $(echo "$MOBILE_PERFORMANCE >= 70" | bc -l) )); then echo "🟡 Good"; elif (( $(echo "$MOBILE_PERFORMANCE >= 50" | bc -l) )); then echo "🟠 Needs Work"; else echo "🔴 Poor"; fi) |" >> $GITHUB_STEP_SUMMARY
+        echo "| 🖥️ Desktop | ${DESKTOP_PERFORMANCE}/100 | $(if (( $(echo "$DESKTOP_PERFORMANCE >= 90" | bc -l) )); then echo "✅ Excellent"; elif (( $(echo "$DESKTOP_PERFORMANCE >= 70" | bc -l) )); then echo "🟡 Good"; elif (( $(echo "$DESKTOP_PERFORMANCE >= 50" | bc -l) )); then echo "🟠 Needs Work"; else echo "🔴 Poor"; fi) |" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+
+        echo "### 📊 Detailed Reports" >> $GITHUB_STEP_SUMMARY
+        echo "- 📱 [Mobile Report (Download)](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> $GITHUB_STEP_SUMMARY
+        echo "- 🖥️ [Desktop Report (Download)](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> $GITHUB_STEP_SUMMARY
+        echo "- 📄 [HTML Visual Report (Download)](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> $GITHUB_STEP_SUMMARY

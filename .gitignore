@@ -43,3 +43,10 @@ temp/
 
 # Debug
 debug.md
+
+# Performance reports (local only)
+lighthouse-*.html
+lighthouse-*.json
+performance-reports/
+!performance-reports/.gitkeep
+performance-badge.json

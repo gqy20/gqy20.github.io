@@ -1,0 +1,125 @@
+name: Update Performance Badge
+
+on:
+  workflow_run:
+    workflows: ["Performance Analysis"]
+    types:
+      - completed
+
+jobs:
+  update-badge:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Download performance reports
+      uses: actions/download-artifact@v4
+      with:
+        name: performance-reports-${{ github.event.workflow_run.id }}
+        path: ./temp-reports/
+
+    - name: Extract performance score
+      id: extract
+      run: |
+        if [ -f "./temp-reports/performance-reports/lighthouse-mobile.json" ]; then
+          SCORE=$(cat ./temp-reports/performance-reports/lighthouse-mobile.json | jq -r '.categories.performance.score * 100 | floor')
+          echo "score=$SCORE" >> $GITHUB_OUTPUT
+          echo "Performance score extracted: $SCORE"
+        else
+          echo "No performance report found"
+          exit 1
+        fi
+
+    - name: Generate badge color
+      id: color
+      run: |
+        SCORE="${{ steps.extract.outputs.score }}"
+        if [ "$SCORE" -ge 90 ]; then
+          COLOR="brightgreen"
+          STATUS="Excellent"
+        elif [ "$SCORE" -ge 70 ]; then
+          COLOR="yellow"
+          STATUS="Good"
+        elif [ "$SCORE" -ge 50 ]; then
+          COLOR="orange"
+          STATUS="Fair"
+        else
+          COLOR="red"
+          STATUS="Poor"
+        fi
+
+        echo "color=$COLOR" >> $GITHUB_OUTPUT
+        echo "status=$STATUS" >> $GITHUB_OUTPUT
+
+    - name: Update README with performance badge
+      run: |
+        SCORE="${{ steps.extract.outputs.score }}"
+        COLOR="${{ steps.color.outputs.color }}"
+        STATUS="${{ steps.color.outputs.status }}"
+
+        BADGE_URL="https://img.shields.io/badge/Performance-$SCORE%2F100-$COLOR"
+        BADGE_MARKDOWN="![Performance]($BADGE_URL)"
+
+        # Read current README
+        if [ -f "README.md" ]; then
+          README_CONTENT=$(cat README.md)
+
+          # Check if performance badge exists
+          if echo "$README_CONTENT" | grep -q "Performance.*shields.io"; then
+            # Update existing badge
+            NEW_CONTENT=$(echo "$README_CONTENT" | sed "s|!\[Performance\](https://img\.shields\.io/badge/Performance-[^)]*)|$BADGE_MARKDOWN|")
+          else
+            # Add new badge after the first title
+            NEW_CONTENT=$(echo "$README_CONTENT" | sed "2i\\
+$BADGE_MARKDOWN
+")
+          fi
+
+          echo "$NEW_CONTENT" > README.md
+
+          echo "README.md updated with performance badge"
+        else
+          echo "README.md not found"
+        fi
+
+    - name: Create performance summary file
+      run: |
+        SCORE="${{ steps.extract.outputs.score }}"
+        COLOR="${{ steps.color.outputs.color }}"
+        STATUS="${{ steps.color.outputs.status }}"
+        TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+
+        cat > performance-badge.json << EOF
+        {
+          "score": $SCORE,
+          "color": "$COLOR",
+          "status": "$STATUS",
+          "timestamp": "$TIMESTAMP",
+          "badgeUrl": "https://img.shields.io/badge/Performance-$SCORE%2F100-$COLOR"
+        }
+        EOF
+
+        echo "Performance badge data created"
+
+    - name: Commit changes
+      if: ${{ steps.extract.outputs.score }}
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+        git add README.md performance-badge.json
+
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Update performance badge: ${{ steps.extract.outputs.score }}/100 [automated]"
+          git push
+        fi
+
+    - name: Cleanup
+      if: always()
+      run: |
+        rm -rf ./temp-reports/
