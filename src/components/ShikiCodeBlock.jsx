@@ -45,16 +45,16 @@ const ShikiCodeBlock = ({ children, className, ...props }) => {
       const match = pattern.exec(className)
       if (match) {
         const lang = match[1].toLowerCase()
+        // 精简语言映射，只包含实际使用的语言
         const langMap = {
           'js': 'javascript',
-          'ts': 'typescript',
+          'jsx': 'javascript',  // JSX 映射到 JavaScript
+          'ts': 'javascript',   // TypeScript 映射到 JavaScript (减少语言包)
           'py': 'python',
-          'rb': 'ruby',
           'sh': 'bash',
           'zsh': 'bash',
           'fish': 'bash',
-          'yml': 'yaml',
-          'dockerfile': 'dockerfile'
+          'yml': 'yaml'
         }
         return langMap[lang] || lang
       }
@@ -76,32 +76,16 @@ const ShikiCodeBlock = ({ children, className, ...props }) => {
 
     const highlightCode = async () => {
       try {
+        // 只加载博客中实际使用的语言，大幅减少包体积
         const highlighter = await createHighlighter({
           themes: ['github-dark', 'github-light'],
           langs: [
-            'javascript',
-            'typescript',
-            'python',
-            'css',
-            'html',
-            'json',
-            'bash',
-            'markdown',
-            'java',
-            'cpp',
-            'c',
-            'go',
-            'rust',
-            'sql',
-            'yaml',
-            'xml',
-            'php',
-            'ruby',
-            'swift',
-            'kotlin',
-            'scala',
-            'r',
-            'dockerfile'
+            'javascript',  // 9个代码块，最常用
+            'python',      // 4个代码块
+            'yaml',        // 3个代码块
+            'css',         // 1个代码块
+            'bash',        // 1个代码块
+            'html'         // 基础支持
           ]
         })
 
@@ -149,32 +133,15 @@ const ShikiCodeBlock = ({ children, className, ...props }) => {
     setTheme(prev => prev === 'github-dark' ? 'github-light' : 'github-dark')
   }
 
-  // 获取语言显示名称
+  // 获取语言显示名称 - 精简到实际支持的语言
   const getLanguageDisplayName = (lang) => {
     const languageNames = {
       'javascript': 'JavaScript',
-      'typescript': 'TypeScript',
       'python': 'Python',
       'css': 'CSS',
       'html': 'HTML',
-      'json': 'JSON',
       'bash': 'Bash',
-      'markdown': 'Markdown',
-      'java': 'Java',
-      'cpp': 'C++',
-      'c': 'C',
-      'go': 'Go',
-      'rust': 'Rust',
-      'sql': 'SQL',
       'yaml': 'YAML',
-      'xml': 'XML',
-      'php': 'PHP',
-      'ruby': 'Ruby',
-      'swift': 'Swift',
-      'kotlin': 'Kotlin',
-      'scala': 'Scala',
-      'r': 'R',
-      'dockerfile': 'Dockerfile',
       'text': 'Text'
     }
     return languageNames[lang] || lang.toUpperCase()
