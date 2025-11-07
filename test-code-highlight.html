@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>代码高亮测试</title>
+    <script type="module">
+        // 测试PrismCodeBlock语言检测
+        const testCases = [
+            { className: 'language-css', expected: 'css' },
+            { className: 'language-javascript', expected: 'javascript' },
+            { className: 'language-jsx', expected: 'jsx' },
+            { className: 'css', expected: 'css' },
+            { className: 'javascript', expected: 'javascript' }
+        ];
+
+        console.log('Testing language detection patterns:');
+        testCases.forEach(test => {
+            const patterns = [
+                /language-(\w+)/,
+                /lang-(\w+)/,
+                /^(\w+)$/
+            ];
+
+            for (const pattern of patterns) {
+                const match = test.className.match(pattern);
+                if (match) {
+                    const detected = match[1].toLowerCase();
+                    console.log(`✓ ${test.className} -> ${detected} (expected: ${test.expected})`);
+                    break;
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>代码高亮测试页面</h1>
+    <p>请查看控制台输出</p>
+</body>
+</html>
