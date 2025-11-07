@@ -65,6 +65,7 @@ jobs:
         lighthouse "${{ env.WEBSITE_URL }}" \
           --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
           --form-factor=desktop \
+          --screenEmulation.disabled=true \
           --output=json \
           --output-path=./performance-reports/lighthouse-desktop.json
 
