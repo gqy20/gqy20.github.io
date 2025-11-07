@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import ShikiCodeBlock from './ShikiCodeBlock'
+import ShikiCodeBlock from './ShikiCodeBlockLazy'  // 使用懒加载版本
 import './MarkdownRenderer.css'
 
 const MarkdownRenderer = ({ content }) => {
