@@ -1,0 +1,54 @@
+name: Update Badge
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+    - run: npm ci
+    - run: npm install -g lighthouse
+    - name: Test performance
+      run: |
+        lighthouse "https://home.gqy20.top" \
+          --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+          --form-factor=mobile \
+          --only-categories=performance \
+          --output=json \
+          --output-path=result.json
+    - name: Get score
+      id: score
+      run: |
+        SCORE=$(cat result.json | jq -r '.categories.performance.score * 100 | floor')
+        echo "score=$SCORE" >> $GITHUB_OUTPUT
+    - name: Update README
+      run: |
+        SCORE="${{ steps.score.outputs.score }}"
+        COLOR="red"
+        if [ "$SCORE" -ge 90 ]; then COLOR="brightgreen"
+        elif [ "$SCORE" -ge 70 ]; then COLOR="yellow"
+        elif [ "$SCORE" -ge 50 ]; then COLOR="orange"
+        fi
+
+        sed -i "s|!\[Performance\](https://img\.shields\.io/badge/Performance-[^)]*)|![Performance](https://img.shields.io/badge/Performance-$SCORE%2F100-$COLOR)|" README.md || \
+        sed -i "2a\
+![Performance](https://img.shields.io/badge/Performance-$SCORE%2F100-$COLOR)
+" README.md
+    - name: Commit
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add README.md
+        git commit -m "Update badge: ${{ steps.score.outputs.score }}/100" || echo "No changes"
+        git push || echo "No changes to push"
