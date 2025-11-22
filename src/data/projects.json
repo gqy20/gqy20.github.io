@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2025-11-22T06:12:55.111Z",
-  "totalProjects": 13,
+  "lastUpdated": "2025-11-22T12:15:13.517Z",
+  "totalProjects": 14,
   "totalStars": 22,
   "followers": 6,
   "categories": [
@@ -22,7 +22,7 @@
         "language": "Python",
         "stars": 8,
         "forks": 3,
-        "issues": 2,
+        "issues": 3,
         "createdAt": "2025-07-14T07:18:21Z",
         "updatedAt": "2025-11-22T03:16:54Z",
         "category": "MCP工具",
@@ -154,6 +154,34 @@
       }
     ],
     "AI应用": [
+      {
+        "id": 1101781349,
+        "name": "biotools_agent",
+        "fullName": "gqy20/biotools_agent",
+        "description": "BioTools Agent - 生物信息学工具自动分析系统，使用AI分析GitHub生物信息学项目并生成可视化文档",
+        "url": "https://github.com/gqy20/biotools_agent",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-11-22T08:16:39Z",
+        "updatedAt": "2025-11-22T08:17:42Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 332,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 993845459,
         "name": "SLAIS",
@@ -433,7 +461,7 @@
       "language": "Python",
       "stars": 8,
       "forks": 3,
-      "issues": 2,
+      "issues": 3,
       "createdAt": "2025-07-14T07:18:21Z",
       "updatedAt": "2025-11-22T03:16:54Z",
       "category": "MCP工具",
@@ -562,6 +590,34 @@
       "latestTag": null,
       "totalReleases": 2,
       "totalTags": 3
+    },
+    {
+      "id": 1101781349,
+      "name": "biotools_agent",
+      "fullName": "gqy20/biotools_agent",
+      "description": "BioTools Agent - 生物信息学工具自动分析系统，使用AI分析GitHub生物信息学项目并生成可视化文档",
+      "url": "https://github.com/gqy20/biotools_agent",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-11-22T08:16:39Z",
+      "updatedAt": "2025-11-22T08:17:42Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 332,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 993845459,
