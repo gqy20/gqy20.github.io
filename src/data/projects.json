@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-06T06:13:42.036Z",
+  "lastUpdated": "2025-12-06T12:16:27.165Z",
   "totalProjects": 14,
   "totalStars": 23,
   "followers": 6,
@@ -291,10 +291,16 @@
         "isArchived": false,
         "size": 12980,
         "license": null,
-        "latestRelease": null,
+        "latestRelease": {
+          "tagName": "0.6",
+          "name": "0.6 ",
+          "publishedAt": "2025-04-19T17:00:43Z",
+          "prerelease": false,
+          "draft": false
+        },
         "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
+        "totalReleases": 3,
+        "totalTags": 3
       }
     ],
     "个人项目": [
@@ -720,10 +726,16 @@
       "isArchived": false,
       "size": 12980,
       "license": null,
-      "latestRelease": null,
+      "latestRelease": {
+        "tagName": "0.6",
+        "name": "0.6 ",
+        "publishedAt": "2025-04-19T17:00:43Z",
+        "prerelease": false,
+        "draft": false
+      },
       "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
+      "totalReleases": 3,
+      "totalTags": 3
     },
     {
       "id": 1006897739,
