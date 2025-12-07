@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2025-12-07T12:15:50.727Z",
-  "totalProjects": 14,
+  "lastUpdated": "2025-12-07T18:13:12.254Z",
+  "totalProjects": 15,
   "totalStars": 23,
   "followers": 6,
   "categories": [
@@ -268,6 +268,40 @@
       }
     ],
     "科研工具": [
+      {
+        "id": 1111722253,
+        "name": "pdfget",
+        "fullName": "gqy20/pdfget",
+        "description": "PDFGet - 智能文献搜索与批量下载工具，支持高级检索和并发下载。现代化的Python文献管理工具，提供高效的搜索、下载和管理功能。",
+        "url": "https://github.com/gqy20/pdfget",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-12-07T14:12:28Z",
+        "updatedAt": "2025-12-07T14:59:23Z",
+        "category": "科研工具",
+        "priority": 3,
+        "tags": [
+          "科研",
+          "学术"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 25336,
+        "license": null,
+        "latestRelease": {
+          "tagName": "v0.1.0",
+          "name": "Release 0.1.0",
+          "publishedAt": "2025-12-07T14:50:33Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 1,
+        "totalTags": 1
+      },
       {
         "id": 958672660,
         "name": "pub2tts",
@@ -702,6 +736,40 @@
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
+    },
+    {
+      "id": 1111722253,
+      "name": "pdfget",
+      "fullName": "gqy20/pdfget",
+      "description": "PDFGet - 智能文献搜索与批量下载工具，支持高级检索和并发下载。现代化的Python文献管理工具，提供高效的搜索、下载和管理功能。",
+      "url": "https://github.com/gqy20/pdfget",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-12-07T14:12:28Z",
+      "updatedAt": "2025-12-07T14:59:23Z",
+      "category": "科研工具",
+      "priority": 3,
+      "tags": [
+        "科研",
+        "学术"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 25336,
+      "license": null,
+      "latestRelease": {
+        "tagName": "v0.1.0",
+        "name": "Release 0.1.0",
+        "publishedAt": "2025-12-07T14:50:33Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 1,
+      "totalTags": 1
     },
     {
       "id": 958672660,
