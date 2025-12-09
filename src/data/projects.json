@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-08T18:15:25.422Z",
+  "lastUpdated": "2025-12-09T00:45:43.200Z",
   "totalProjects": 15,
   "totalStars": 23,
   "followers": 6,
@@ -39,9 +39,14 @@
         "size": 761,
         "license": "MIT License",
         "latestRelease": null,
-        "latestTag": null,
+        "latestTag": {
+          "name": "v0.1.9",
+          "commit": "d0b129aabe50815d0017d23be7a4dadb997cd60f",
+          "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.1.9",
+          "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.1.9"
+        },
         "totalReleases": 0,
-        "totalTags": 0
+        "totalTags": 5
       },
       {
         "id": 1056570275,
@@ -68,10 +73,16 @@
         "isArchived": false,
         "size": 1185,
         "license": "MIT License",
-        "latestRelease": null,
+        "latestRelease": {
+          "tagName": "v0.2.6",
+          "name": "Release v0.2.6",
+          "publishedAt": "2025-12-08T03:39:17Z",
+          "prerelease": false,
+          "draft": false
+        },
         "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
+        "totalReleases": 5,
+        "totalTags": 5
       },
       {
         "id": 1082386656,
@@ -99,9 +110,14 @@
         "size": 82,
         "license": "MIT License",
         "latestRelease": null,
-        "latestTag": null,
+        "latestTag": {
+          "name": "v0.1.5",
+          "commit": "de97aebfd0bd32d8c0cb830b15562b6d35d75725",
+          "zipball_url": "https://api.github.com/repos/gqy20/protein-mcp/zipball/refs/tags/v0.1.5",
+          "tarball_url": "https://api.github.com/repos/gqy20/protein-mcp/tarball/refs/tags/v0.1.5"
+        },
         "totalReleases": 0,
-        "totalTags": 0
+        "totalTags": 5
       },
       {
         "id": 1038595724,
@@ -126,10 +142,16 @@
         "isArchived": false,
         "size": 8019,
         "license": null,
-        "latestRelease": null,
+        "latestRelease": {
+          "tagName": "1.0.0-with-mcp-data",
+          "name": "Version 1.0.0-with-mcp-data",
+          "publishedAt": "2025-09-23T09:57:00Z",
+          "prerelease": false,
+          "draft": false
+        },
         "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
+        "totalReleases": 2,
+        "totalTags": 3
       }
     ],
     "AI应用": [
@@ -276,10 +298,16 @@
         "isArchived": false,
         "size": 12980,
         "license": null,
-        "latestRelease": null,
+        "latestRelease": {
+          "tagName": "0.6",
+          "name": "0.6 ",
+          "publishedAt": "2025-04-19T17:00:43Z",
+          "prerelease": false,
+          "draft": false
+        },
         "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
+        "totalReleases": 3,
+        "totalTags": 3
       }
     ],
     "开发工具": [
@@ -325,7 +353,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2025-06-23T06:53:28Z",
-        "updatedAt": "2025-12-08T11:24:12Z",
+        "updatedAt": "2025-12-08T19:27:21Z",
         "category": "个人项目",
         "priority": 6,
         "tags": [
@@ -334,7 +362,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 1239,
+        "size": 1176,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -392,10 +420,16 @@
         "isArchived": false,
         "size": 7359,
         "license": null,
-        "latestRelease": null,
+        "latestRelease": {
+          "tagName": "v0.4.1",
+          "name": "Process Tracker",
+          "publishedAt": "2025-10-27T09:53:30Z",
+          "prerelease": false,
+          "draft": false
+        },
         "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
+        "totalReleases": 4,
+        "totalTags": 4
       },
       {
         "id": 1070102277,
@@ -480,9 +514,14 @@
       "size": 761,
       "license": "MIT License",
       "latestRelease": null,
-      "latestTag": null,
+      "latestTag": {
+        "name": "v0.1.9",
+        "commit": "d0b129aabe50815d0017d23be7a4dadb997cd60f",
+        "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.1.9",
+        "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.1.9"
+      },
       "totalReleases": 0,
-      "totalTags": 0
+      "totalTags": 5
     },
     {
       "id": 1056570275,
@@ -509,10 +548,16 @@
       "isArchived": false,
       "size": 1185,
       "license": "MIT License",
-      "latestRelease": null,
+      "latestRelease": {
+        "tagName": "v0.2.6",
+        "name": "Release v0.2.6",
+        "publishedAt": "2025-12-08T03:39:17Z",
+        "prerelease": false,
+        "draft": false
+      },
       "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
+      "totalReleases": 5,
+      "totalTags": 5
     },
     {
       "id": 1082386656,
@@ -540,9 +585,14 @@
       "size": 82,
       "license": "MIT License",
       "latestRelease": null,
-      "latestTag": null,
+      "latestTag": {
+        "name": "v0.1.5",
+        "commit": "de97aebfd0bd32d8c0cb830b15562b6d35d75725",
+        "zipball_url": "https://api.github.com/repos/gqy20/protein-mcp/zipball/refs/tags/v0.1.5",
+        "tarball_url": "https://api.github.com/repos/gqy20/protein-mcp/tarball/refs/tags/v0.1.5"
+      },
       "totalReleases": 0,
-      "totalTags": 0
+      "totalTags": 5
     },
     {
       "id": 1038595724,
@@ -567,10 +617,16 @@
       "isArchived": false,
       "size": 8019,
       "license": null,
-      "latestRelease": null,
+      "latestRelease": {
+        "tagName": "1.0.0-with-mcp-data",
+        "name": "Version 1.0.0-with-mcp-data",
+        "publishedAt": "2025-09-23T09:57:00Z",
+        "prerelease": false,
+        "draft": false
+      },
       "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
+      "totalReleases": 2,
+      "totalTags": 3
     },
     {
       "id": 993845459,
@@ -713,10 +769,16 @@
       "isArchived": false,
       "size": 12980,
       "license": null,
-      "latestRelease": null,
+      "latestRelease": {
+        "tagName": "0.6",
+        "name": "0.6 ",
+        "publishedAt": "2025-04-19T17:00:43Z",
+        "prerelease": false,
+        "draft": false
+      },
       "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
+      "totalReleases": 3,
+      "totalTags": 3
     },
     {
       "id": 1101781349,
@@ -758,7 +820,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2025-06-23T06:53:28Z",
-      "updatedAt": "2025-12-08T11:24:12Z",
+      "updatedAt": "2025-12-08T19:27:21Z",
       "category": "个人项目",
       "priority": 6,
       "tags": [
@@ -767,7 +829,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 1239,
+      "size": 1176,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -823,10 +885,16 @@
       "isArchived": false,
       "size": 7359,
       "license": null,
-      "latestRelease": null,
+      "latestRelease": {
+        "tagName": "v0.4.1",
+        "name": "Process Tracker",
+        "publishedAt": "2025-10-27T09:53:30Z",
+        "prerelease": false,
+        "draft": false
+      },
       "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
+      "totalReleases": 4,
+      "totalTags": 4
     },
     {
       "id": 1070102277,
