@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-14T12:16:42.822Z",
+  "lastUpdated": "2025-12-14T18:13:35.059Z",
   "totalProjects": 15,
   "totalStars": 23,
   "followers": 6,
@@ -142,16 +142,10 @@
         "isArchived": false,
         "size": 8019,
         "license": null,
-        "latestRelease": {
-          "tagName": "1.0.0-with-mcp-data",
-          "name": "Version 1.0.0-with-mcp-data",
-          "publishedAt": "2025-09-23T09:57:00Z",
-          "prerelease": false,
-          "draft": false
-        },
+        "latestRelease": null,
         "latestTag": null,
-        "totalReleases": 2,
-        "totalTags": 3
+        "totalReleases": 0,
+        "totalTags": 0
       }
     ],
     "AI应用": [
@@ -298,16 +292,10 @@
         "isArchived": false,
         "size": 12980,
         "license": null,
-        "latestRelease": {
-          "tagName": "0.6",
-          "name": "0.6 ",
-          "publishedAt": "2025-04-19T17:00:43Z",
-          "prerelease": false,
-          "draft": false
-        },
+        "latestRelease": null,
         "latestTag": null,
-        "totalReleases": 3,
-        "totalTags": 3
+        "totalReleases": 0,
+        "totalTags": 0
       }
     ],
     "开发工具": [
@@ -617,16 +605,10 @@
       "isArchived": false,
       "size": 8019,
       "license": null,
-      "latestRelease": {
-        "tagName": "1.0.0-with-mcp-data",
-        "name": "Version 1.0.0-with-mcp-data",
-        "publishedAt": "2025-09-23T09:57:00Z",
-        "prerelease": false,
-        "draft": false
-      },
+      "latestRelease": null,
       "latestTag": null,
-      "totalReleases": 2,
-      "totalTags": 3
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 993845459,
@@ -769,16 +751,10 @@
       "isArchived": false,
       "size": 12980,
       "license": null,
-      "latestRelease": {
-        "tagName": "0.6",
-        "name": "0.6 ",
-        "publishedAt": "2025-04-19T17:00:43Z",
-        "prerelease": false,
-        "draft": false
-      },
+      "latestRelease": null,
       "latestTag": null,
-      "totalReleases": 3,
-      "totalTags": 3
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 1101781349,
