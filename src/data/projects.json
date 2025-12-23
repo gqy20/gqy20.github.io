@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2025-12-23T12:19:20.035Z",
+  "lastUpdated": "2025-12-23T18:16:26.173Z",
   "totalProjects": 15,
   "totalStars": 24,
-  "followers": 8,
+  "followers": 2,
   "categories": [
     "MCP工具",
     "AI应用",
@@ -262,7 +262,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 25593,
+        "size": 25604,
         "license": null,
         "latestRelease": {
           "tagName": "v0.1.3",
@@ -733,7 +733,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 25593,
+      "size": 25604,
       "license": null,
       "latestRelease": {
         "tagName": "v0.1.3",
