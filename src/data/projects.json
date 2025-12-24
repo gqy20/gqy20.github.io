@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-24T00:47:11.709Z",
+  "lastUpdated": "2025-12-24T06:16:37.589Z",
   "totalProjects": 15,
   "totalStars": 24,
   "followers": 7,
@@ -253,7 +253,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2025-12-07T14:12:28Z",
-        "updatedAt": "2025-12-23T12:11:06Z",
+        "updatedAt": "2025-12-24T02:03:32Z",
         "category": "科研工具",
         "priority": 3,
         "tags": [
@@ -262,18 +262,18 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 25604,
+        "size": 25608,
         "license": null,
         "latestRelease": {
-          "tagName": "v0.1.3",
-          "name": "Release 0.1.3",
-          "publishedAt": "2025-12-22T10:30:22Z",
+          "tagName": "v0.1.4",
+          "name": "Release 0.1.4",
+          "publishedAt": "2025-12-24T02:07:09Z",
           "prerelease": false,
           "draft": false
         },
         "latestTag": null,
-        "totalReleases": 3,
-        "totalTags": 3
+        "totalReleases": 4,
+        "totalTags": 4
       },
       {
         "id": 958672660,
@@ -724,7 +724,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2025-12-07T14:12:28Z",
-      "updatedAt": "2025-12-23T12:11:06Z",
+      "updatedAt": "2025-12-24T02:03:32Z",
       "category": "科研工具",
       "priority": 3,
       "tags": [
@@ -733,18 +733,18 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 25604,
+      "size": 25608,
       "license": null,
       "latestRelease": {
-        "tagName": "v0.1.3",
-        "name": "Release 0.1.3",
-        "publishedAt": "2025-12-22T10:30:22Z",
+        "tagName": "v0.1.4",
+        "name": "Release 0.1.4",
+        "publishedAt": "2025-12-24T02:07:09Z",
         "prerelease": false,
         "draft": false
       },
       "latestTag": null,
-      "totalReleases": 3,
-      "totalTags": 3
+      "totalReleases": 4,
+      "totalTags": 4
     },
     {
       "id": 958672660,
