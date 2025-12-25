@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-25T06:16:19.565Z",
+  "lastUpdated": "2025-12-25T12:18:40.895Z",
   "totalProjects": 15,
   "totalStars": 24,
   "followers": 7,
@@ -25,7 +25,7 @@
         "forks": 3,
         "issues": 0,
         "createdAt": "2025-07-14T07:18:21Z",
-        "updatedAt": "2025-12-25T02:24:35Z",
+        "updatedAt": "2025-12-25T11:18:40Z",
         "category": "MCP工具",
         "priority": 1,
         "tags": [
@@ -36,7 +36,7 @@
           "mcp"
         ],
         "isArchived": false,
-        "size": 892,
+        "size": 972,
         "license": "MIT License",
         "latestRelease": null,
         "latestTag": {
@@ -500,7 +500,7 @@
       "forks": 3,
       "issues": 0,
       "createdAt": "2025-07-14T07:18:21Z",
-      "updatedAt": "2025-12-25T02:24:35Z",
+      "updatedAt": "2025-12-25T11:18:40Z",
       "category": "MCP工具",
       "priority": 1,
       "tags": [
@@ -511,7 +511,7 @@
         "mcp"
       ],
       "isArchived": false,
-      "size": 892,
+      "size": 972,
       "license": "MIT License",
       "latestRelease": null,
       "latestTag": {
