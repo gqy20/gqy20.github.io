@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-25T00:47:21.894Z",
+  "lastUpdated": "2025-12-25T06:16:19.565Z",
   "totalProjects": 15,
   "totalStars": 24,
   "followers": 7,
@@ -13,6 +13,41 @@
   ],
   "projects": {
     "MCP工具": [
+      {
+        "id": 1019340765,
+        "name": "article-mcp",
+        "fullName": "gqy20/article-mcp",
+        "description": "文献检索MCP",
+        "url": "https://github.com/gqy20/article-mcp",
+        "homepage": "https://pypi.org/project/article-mcp/",
+        "language": "Python",
+        "stars": 9,
+        "forks": 3,
+        "issues": 0,
+        "createdAt": "2025-07-14T07:18:21Z",
+        "updatedAt": "2025-12-25T02:24:35Z",
+        "category": "MCP工具",
+        "priority": 1,
+        "tags": [
+          "MCP",
+          "AI工具"
+        ],
+        "topics": [
+          "mcp"
+        ],
+        "isArchived": false,
+        "size": 892,
+        "license": "MIT License",
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.1.9",
+          "commit": "d0b129aabe50815d0017d23be7a4dadb997cd60f",
+          "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.1.9",
+          "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.1.9"
+        },
+        "totalReleases": 0,
+        "totalTags": 5
+      },
       {
         "id": 1038595724,
         "name": "mcp_agent",
@@ -46,41 +81,6 @@
         "latestTag": null,
         "totalReleases": 2,
         "totalTags": 3
-      },
-      {
-        "id": 1019340765,
-        "name": "article-mcp",
-        "fullName": "gqy20/article-mcp",
-        "description": "文献检索MCP",
-        "url": "https://github.com/gqy20/article-mcp",
-        "homepage": "https://pypi.org/project/article-mcp/",
-        "language": "Python",
-        "stars": 9,
-        "forks": 3,
-        "issues": 0,
-        "createdAt": "2025-07-14T07:18:21Z",
-        "updatedAt": "2025-12-08T04:15:31Z",
-        "category": "MCP工具",
-        "priority": 1,
-        "tags": [
-          "MCP",
-          "AI工具"
-        ],
-        "topics": [
-          "mcp"
-        ],
-        "isArchived": false,
-        "size": 761,
-        "license": "MIT License",
-        "latestRelease": null,
-        "latestTag": {
-          "name": "v0.1.9",
-          "commit": "d0b129aabe50815d0017d23be7a4dadb997cd60f",
-          "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.1.9",
-          "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.1.9"
-        },
-        "totalReleases": 0,
-        "totalTags": 5
       },
       {
         "id": 1056570275,
@@ -489,6 +489,41 @@
   },
   "allProjects": [
     {
+      "id": 1019340765,
+      "name": "article-mcp",
+      "fullName": "gqy20/article-mcp",
+      "description": "文献检索MCP",
+      "url": "https://github.com/gqy20/article-mcp",
+      "homepage": "https://pypi.org/project/article-mcp/",
+      "language": "Python",
+      "stars": 9,
+      "forks": 3,
+      "issues": 0,
+      "createdAt": "2025-07-14T07:18:21Z",
+      "updatedAt": "2025-12-25T02:24:35Z",
+      "category": "MCP工具",
+      "priority": 1,
+      "tags": [
+        "MCP",
+        "AI工具"
+      ],
+      "topics": [
+        "mcp"
+      ],
+      "isArchived": false,
+      "size": 892,
+      "license": "MIT License",
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.1.9",
+        "commit": "d0b129aabe50815d0017d23be7a4dadb997cd60f",
+        "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.1.9",
+        "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.1.9"
+      },
+      "totalReleases": 0,
+      "totalTags": 5
+    },
+    {
       "id": 1038595724,
       "name": "mcp_agent",
       "fullName": "gqy20/mcp_agent",
@@ -521,41 +556,6 @@
       "latestTag": null,
       "totalReleases": 2,
       "totalTags": 3
-    },
-    {
-      "id": 1019340765,
-      "name": "article-mcp",
-      "fullName": "gqy20/article-mcp",
-      "description": "文献检索MCP",
-      "url": "https://github.com/gqy20/article-mcp",
-      "homepage": "https://pypi.org/project/article-mcp/",
-      "language": "Python",
-      "stars": 9,
-      "forks": 3,
-      "issues": 0,
-      "createdAt": "2025-07-14T07:18:21Z",
-      "updatedAt": "2025-12-08T04:15:31Z",
-      "category": "MCP工具",
-      "priority": 1,
-      "tags": [
-        "MCP",
-        "AI工具"
-      ],
-      "topics": [
-        "mcp"
-      ],
-      "isArchived": false,
-      "size": 761,
-      "license": "MIT License",
-      "latestRelease": null,
-      "latestTag": {
-        "name": "v0.1.9",
-        "commit": "d0b129aabe50815d0017d23be7a4dadb997cd60f",
-        "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.1.9",
-        "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.1.9"
-      },
-      "totalReleases": 0,
-      "totalTags": 5
     },
     {
       "id": 1056570275,
