@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-27T12:17:01.014Z",
+  "lastUpdated": "2025-12-27T18:13:31.361Z",
   "totalProjects": 16,
   "totalStars": 24,
   "followers": 7,
@@ -23,9 +23,9 @@
         "language": "Python",
         "stars": 9,
         "forks": 3,
-        "issues": 0,
+        "issues": 3,
         "createdAt": "2025-07-14T07:18:21Z",
-        "updatedAt": "2025-12-26T09:41:57Z",
+        "updatedAt": "2025-12-27T12:55:08Z",
         "category": "MCP工具",
         "priority": 1,
         "tags": [
@@ -36,14 +36,14 @@
           "mcp"
         ],
         "isArchived": false,
-        "size": 1353,
+        "size": 1625,
         "license": "MIT License",
         "latestRelease": null,
         "latestTag": {
-          "name": "v0.1.9",
-          "commit": "d0b129aabe50815d0017d23be7a4dadb997cd60f",
-          "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.1.9",
-          "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.1.9"
+          "name": "v0.2.1",
+          "commit": "728bf759d859dcaf55692ed67a1ea853323a95a4",
+          "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.1",
+          "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.1"
         },
         "totalReleases": 0,
         "totalTags": 5
@@ -313,17 +313,17 @@
     "开发工具": [
       {
         "id": 1123557369,
-        "name": "todo-cli",
-        "fullName": "gqy20/todo-cli",
+        "name": "justdo",
+        "fullName": "gqy20/justdo",
         "description": "一个简单的命令行待办事项工具 | TDD开发",
-        "url": "https://github.com/gqy20/todo-cli",
+        "url": "https://github.com/gqy20/justdo",
         "homepage": "http://home.gqy20.top/todo-cli/",
         "language": "Python",
         "stars": 0,
         "forks": 0,
         "issues": 2,
         "createdAt": "2025-12-27T05:55:00Z",
-        "updatedAt": "2025-12-27T09:59:11Z",
+        "updatedAt": "2025-12-27T12:32:45Z",
         "category": "开发工具",
         "priority": 5,
         "tags": [
@@ -332,14 +332,14 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 44,
+        "size": 45,
         "license": null,
         "latestRelease": null,
         "latestTag": {
           "name": "v0.1.1",
           "commit": "f79985810139767490a0156617e9d6de49055a12",
-          "zipball_url": "https://api.github.com/repos/gqy20/todo-cli/zipball/refs/tags/v0.1.1",
-          "tarball_url": "https://api.github.com/repos/gqy20/todo-cli/tarball/refs/tags/v0.1.1"
+          "zipball_url": "https://api.github.com/repos/gqy20/justdo/zipball/refs/tags/v0.1.1",
+          "tarball_url": "https://api.github.com/repos/gqy20/justdo/tarball/refs/tags/v0.1.1"
         },
         "totalReleases": 0,
         "totalTags": 2
@@ -531,9 +531,9 @@
       "language": "Python",
       "stars": 9,
       "forks": 3,
-      "issues": 0,
+      "issues": 3,
       "createdAt": "2025-07-14T07:18:21Z",
-      "updatedAt": "2025-12-26T09:41:57Z",
+      "updatedAt": "2025-12-27T12:55:08Z",
       "category": "MCP工具",
       "priority": 1,
       "tags": [
@@ -544,14 +544,14 @@
         "mcp"
       ],
       "isArchived": false,
-      "size": 1353,
+      "size": 1625,
       "license": "MIT License",
       "latestRelease": null,
       "latestTag": {
-        "name": "v0.1.9",
-        "commit": "d0b129aabe50815d0017d23be7a4dadb997cd60f",
-        "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.1.9",
-        "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.1.9"
+        "name": "v0.2.1",
+        "commit": "728bf759d859dcaf55692ed67a1ea853323a95a4",
+        "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.1",
+        "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.1"
       },
       "totalReleases": 0,
       "totalTags": 5
@@ -815,17 +815,17 @@
     },
     {
       "id": 1123557369,
-      "name": "todo-cli",
-      "fullName": "gqy20/todo-cli",
+      "name": "justdo",
+      "fullName": "gqy20/justdo",
       "description": "一个简单的命令行待办事项工具 | TDD开发",
-      "url": "https://github.com/gqy20/todo-cli",
+      "url": "https://github.com/gqy20/justdo",
       "homepage": "http://home.gqy20.top/todo-cli/",
       "language": "Python",
       "stars": 0,
       "forks": 0,
       "issues": 2,
       "createdAt": "2025-12-27T05:55:00Z",
-      "updatedAt": "2025-12-27T09:59:11Z",
+      "updatedAt": "2025-12-27T12:32:45Z",
       "category": "开发工具",
       "priority": 5,
       "tags": [
@@ -834,14 +834,14 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 44,
+      "size": 45,
       "license": null,
       "latestRelease": null,
       "latestTag": {
         "name": "v0.1.1",
         "commit": "f79985810139767490a0156617e9d6de49055a12",
-        "zipball_url": "https://api.github.com/repos/gqy20/todo-cli/zipball/refs/tags/v0.1.1",
-        "tarball_url": "https://api.github.com/repos/gqy20/todo-cli/tarball/refs/tags/v0.1.1"
+        "zipball_url": "https://api.github.com/repos/gqy20/justdo/zipball/refs/tags/v0.1.1",
+        "tarball_url": "https://api.github.com/repos/gqy20/justdo/tarball/refs/tags/v0.1.1"
       },
       "totalReleases": 0,
       "totalTags": 2
