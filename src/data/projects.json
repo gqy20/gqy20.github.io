@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-27T06:15:09.549Z",
+  "lastUpdated": "2025-12-27T12:17:01.014Z",
   "totalProjects": 16,
   "totalStars": 24,
   "followers": 7,
@@ -321,9 +321,9 @@
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "issues": 1,
+        "issues": 2,
         "createdAt": "2025-12-27T05:55:00Z",
-        "updatedAt": "2025-12-27T06:08:47Z",
+        "updatedAt": "2025-12-27T09:59:11Z",
         "category": "开发工具",
         "priority": 5,
         "tags": [
@@ -332,12 +332,17 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 0,
+        "size": 44,
         "license": null,
         "latestRelease": null,
-        "latestTag": null,
+        "latestTag": {
+          "name": "v0.1.1",
+          "commit": "f79985810139767490a0156617e9d6de49055a12",
+          "zipball_url": "https://api.github.com/repos/gqy20/todo-cli/zipball/refs/tags/v0.1.1",
+          "tarball_url": "https://api.github.com/repos/gqy20/todo-cli/tarball/refs/tags/v0.1.1"
+        },
         "totalReleases": 0,
-        "totalTags": 0
+        "totalTags": 2
       },
       {
         "id": 1101781349,
@@ -818,9 +823,9 @@
       "language": "Python",
       "stars": 0,
       "forks": 0,
-      "issues": 1,
+      "issues": 2,
       "createdAt": "2025-12-27T05:55:00Z",
-      "updatedAt": "2025-12-27T06:08:47Z",
+      "updatedAt": "2025-12-27T09:59:11Z",
       "category": "开发工具",
       "priority": 5,
       "tags": [
@@ -829,12 +834,17 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 0,
+      "size": 44,
       "license": null,
       "latestRelease": null,
-      "latestTag": null,
+      "latestTag": {
+        "name": "v0.1.1",
+        "commit": "f79985810139767490a0156617e9d6de49055a12",
+        "zipball_url": "https://api.github.com/repos/gqy20/todo-cli/zipball/refs/tags/v0.1.1",
+        "tarball_url": "https://api.github.com/repos/gqy20/todo-cli/tarball/refs/tags/v0.1.1"
+      },
       "totalReleases": 0,
-      "totalTags": 0
+      "totalTags": 2
     },
     {
       "id": 1101781349,
