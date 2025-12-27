@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2025-12-27T00:45:55.493Z",
-  "totalProjects": 15,
+  "lastUpdated": "2025-12-27T06:15:09.549Z",
+  "totalProjects": 16,
   "totalStars": 24,
   "followers": 7,
   "categories": [
@@ -311,6 +311,34 @@
       }
     ],
     "开发工具": [
+      {
+        "id": 1123557369,
+        "name": "todo-cli",
+        "fullName": "gqy20/todo-cli",
+        "description": "一个简单的命令行待办事项工具 | TDD开发",
+        "url": "https://github.com/gqy20/todo-cli",
+        "homepage": "http://home.gqy20.top/todo-cli/",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 1,
+        "createdAt": "2025-12-27T05:55:00Z",
+        "updatedAt": "2025-12-27T06:08:47Z",
+        "category": "开发工具",
+        "priority": 5,
+        "tags": [
+          "工具",
+          "开发"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 0,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 1101781349,
         "name": "biotools_agent",
@@ -779,6 +807,34 @@
       "latestTag": null,
       "totalReleases": 3,
       "totalTags": 3
+    },
+    {
+      "id": 1123557369,
+      "name": "todo-cli",
+      "fullName": "gqy20/todo-cli",
+      "description": "一个简单的命令行待办事项工具 | TDD开发",
+      "url": "https://github.com/gqy20/todo-cli",
+      "homepage": "http://home.gqy20.top/todo-cli/",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 1,
+      "createdAt": "2025-12-27T05:55:00Z",
+      "updatedAt": "2025-12-27T06:08:47Z",
+      "category": "开发工具",
+      "priority": 5,
+      "tags": [
+        "工具",
+        "开发"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 0,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 1101781349,
