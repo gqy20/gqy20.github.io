@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2025-12-28T06:15:29.482Z",
-  "totalProjects": 16,
+  "lastUpdated": "2025-12-28T12:17:22.414Z",
+  "totalProjects": 17,
   "totalStars": 24,
   "followers": 7,
   "categories": [
@@ -23,7 +23,7 @@
         "language": "Python",
         "stars": 9,
         "forks": 3,
-        "issues": 3,
+        "issues": 0,
         "createdAt": "2025-07-14T07:18:21Z",
         "updatedAt": "2025-12-27T12:55:08Z",
         "category": "MCP工具",
@@ -155,6 +155,34 @@
       }
     ],
     "AI应用": [
+      {
+        "id": 1124056645,
+        "name": "evo-flywheel",
+        "fullName": "gqy20/evo-flywheel",
+        "description": "AI驱动的进化生物学文献分析与报告系统",
+        "url": "https://github.com/gqy20/evo-flywheel",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 6,
+        "createdAt": "2025-12-28T08:23:12Z",
+        "updatedAt": "2025-12-28T11:00:37Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 126,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 993845459,
         "name": "SLAIS",
@@ -531,7 +559,7 @@
       "language": "Python",
       "stars": 9,
       "forks": 3,
-      "issues": 3,
+      "issues": 0,
       "createdAt": "2025-07-14T07:18:21Z",
       "updatedAt": "2025-12-27T12:55:08Z",
       "category": "MCP工具",
@@ -660,6 +688,34 @@
       },
       "totalReleases": 0,
       "totalTags": 5
+    },
+    {
+      "id": 1124056645,
+      "name": "evo-flywheel",
+      "fullName": "gqy20/evo-flywheel",
+      "description": "AI驱动的进化生物学文献分析与报告系统",
+      "url": "https://github.com/gqy20/evo-flywheel",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 6,
+      "createdAt": "2025-12-28T08:23:12Z",
+      "updatedAt": "2025-12-28T11:00:37Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 126,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 993845459,
