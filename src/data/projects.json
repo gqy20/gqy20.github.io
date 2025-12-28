@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-27T18:13:31.361Z",
+  "lastUpdated": "2025-12-28T00:54:31.638Z",
   "totalProjects": 16,
   "totalStars": 24,
   "followers": 7,
@@ -386,7 +386,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2025-06-23T06:53:28Z",
-        "updatedAt": "2025-12-26T19:25:54Z",
+        "updatedAt": "2025-12-27T19:24:27Z",
         "category": "个人项目",
         "priority": 6,
         "tags": [
@@ -395,7 +395,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 1870,
+        "size": 2028,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -886,7 +886,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2025-06-23T06:53:28Z",
-      "updatedAt": "2025-12-26T19:25:54Z",
+      "updatedAt": "2025-12-27T19:24:27Z",
       "category": "个人项目",
       "priority": 6,
       "tags": [
@@ -895,7 +895,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 1870,
+      "size": 2028,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
