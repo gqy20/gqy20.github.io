@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2025-12-31T06:16:51.709Z",
-  "totalProjects": 18,
+  "lastUpdated": "2025-12-31T12:12:45.086Z",
+  "totalProjects": 21,
   "totalStars": 24,
   "followers": 8,
   "categories": [
@@ -13,6 +13,73 @@
   ],
   "projects": {
     "MCP工具": [
+      {
+        "id": 1125737759,
+        "name": "crawl-mcp",
+        "fullName": "gqy20/crawl-mcp",
+        "description": "基于 crawl4ai 和 FastMCP 的 MCP 服务器，提供网页爬取和 AI 分析功能",
+        "url": "https://github.com/gqy20/crawl-mcp",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-12-31T09:05:15Z",
+        "updatedAt": "2025-12-31T10:59:01Z",
+        "category": "MCP工具",
+        "priority": 1,
+        "tags": [
+          "MCP",
+          "AI工具"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 69,
+        "license": "MIT License",
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.1.1",
+          "commit": "282de6c9a27defd4532f76337f815d040c1152b1",
+          "zipball_url": "https://api.github.com/repos/gqy20/crawl-mcp/zipball/refs/tags/v0.1.1",
+          "tarball_url": "https://api.github.com/repos/gqy20/crawl-mcp/tarball/refs/tags/v0.1.1"
+        },
+        "totalReleases": 0,
+        "totalTags": 2
+      },
+      {
+        "id": 1038595724,
+        "name": "mcp_agent",
+        "fullName": "gqy20/mcp_agent",
+        "description": "暂无描述 - Python项目",
+        "url": "https://github.com/gqy20/mcp_agent",
+        "homepage": null,
+        "language": "Python",
+        "stars": 2,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-08-15T13:48:09Z",
+        "updatedAt": "2025-12-31T06:36:43Z",
+        "category": "MCP工具",
+        "priority": 1,
+        "tags": [
+          "MCP",
+          "AI工具"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 8379,
+        "license": null,
+        "latestRelease": {
+          "tagName": "1.0.0-with-mcp-data",
+          "name": "Version 1.0.0-with-mcp-data",
+          "publishedAt": "2025-09-23T09:57:00Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 2,
+        "totalTags": 3
+      },
       {
         "id": 1019340765,
         "name": "article-mcp",
@@ -39,48 +106,9 @@
         "size": 1625,
         "license": "MIT License",
         "latestRelease": null,
-        "latestTag": {
-          "name": "v0.2.1",
-          "commit": "728bf759d859dcaf55692ed67a1ea853323a95a4",
-          "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.1",
-          "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.1"
-        },
-        "totalReleases": 0,
-        "totalTags": 5
-      },
-      {
-        "id": 1038595724,
-        "name": "mcp_agent",
-        "fullName": "gqy20/mcp_agent",
-        "description": "暂无描述 - Python项目",
-        "url": "https://github.com/gqy20/mcp_agent",
-        "homepage": null,
-        "language": "Python",
-        "stars": 2,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2025-08-15T13:48:09Z",
-        "updatedAt": "2025-12-21T08:19:42Z",
-        "category": "MCP工具",
-        "priority": 1,
-        "tags": [
-          "MCP",
-          "AI工具"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 8278,
-        "license": null,
-        "latestRelease": {
-          "tagName": "1.0.0-with-mcp-data",
-          "name": "Version 1.0.0-with-mcp-data",
-          "publishedAt": "2025-09-23T09:57:00Z",
-          "prerelease": false,
-          "draft": false
-        },
         "latestTag": null,
-        "totalReleases": 2,
-        "totalTags": 3
+        "totalReleases": 0,
+        "totalTags": 0
       },
       {
         "id": 1056570275,
@@ -107,16 +135,10 @@
         "isArchived": false,
         "size": 1185,
         "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.2.6",
-          "name": "Release v0.2.6",
-          "publishedAt": "2025-12-08T03:39:17Z",
-          "prerelease": false,
-          "draft": false
-        },
+        "latestRelease": null,
         "latestTag": null,
-        "totalReleases": 5,
-        "totalTags": 5
+        "totalReleases": 0,
+        "totalTags": 0
       },
       {
         "id": 1082386656,
@@ -144,17 +166,40 @@
         "size": 82,
         "license": "MIT License",
         "latestRelease": null,
-        "latestTag": {
-          "name": "v0.1.5",
-          "commit": "de97aebfd0bd32d8c0cb830b15562b6d35d75725",
-          "zipball_url": "https://api.github.com/repos/gqy20/protein-mcp/zipball/refs/tags/v0.1.5",
-          "tarball_url": "https://api.github.com/repos/gqy20/protein-mcp/tarball/refs/tags/v0.1.5"
-        },
+        "latestTag": null,
         "totalReleases": 0,
-        "totalTags": 5
+        "totalTags": 0
       }
     ],
     "AI应用": [
+      {
+        "id": 1125770543,
+        "name": "mind",
+        "fullName": "gqy20/mind",
+        "description": "AI agents that collaborate to spark innovation",
+        "url": "https://github.com/gqy20/mind",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-12-31T10:25:52Z",
+        "updatedAt": "2025-12-31T11:49:04Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 60,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 1124056645,
         "name": "evo-flywheel",
@@ -292,16 +337,10 @@
         "isArchived": false,
         "size": 25608,
         "license": null,
-        "latestRelease": {
-          "tagName": "v0.1.4",
-          "name": "Release 0.1.4",
-          "publishedAt": "2025-12-24T02:07:09Z",
-          "prerelease": false,
-          "draft": false
-        },
+        "latestRelease": null,
         "latestTag": null,
-        "totalReleases": 4,
-        "totalTags": 4
+        "totalReleases": 0,
+        "totalTags": 0
       },
       {
         "id": 958672660,
@@ -326,16 +365,10 @@
         "isArchived": false,
         "size": 12980,
         "license": null,
-        "latestRelease": {
-          "tagName": "0.6",
-          "name": "0.6 ",
-          "publishedAt": "2025-04-19T17:00:43Z",
-          "prerelease": false,
-          "draft": false
-        },
+        "latestRelease": null,
         "latestTag": null,
-        "totalReleases": 3,
-        "totalTags": 3
+        "totalReleases": 0,
+        "totalTags": 0
       }
     ],
     "开发工具": [
@@ -363,14 +396,9 @@
         "size": 45,
         "license": null,
         "latestRelease": null,
-        "latestTag": {
-          "name": "v0.1.1",
-          "commit": "f79985810139767490a0156617e9d6de49055a12",
-          "zipball_url": "https://api.github.com/repos/gqy20/justdo/zipball/refs/tags/v0.1.1",
-          "tarball_url": "https://api.github.com/repos/gqy20/justdo/tarball/refs/tags/v0.1.1"
-        },
+        "latestTag": null,
         "totalReleases": 0,
-        "totalTags": 2
+        "totalTags": 0
       },
       {
         "id": 1101781349,
@@ -414,7 +442,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2025-06-23T06:53:28Z",
-        "updatedAt": "2025-12-30T19:26:44Z",
+        "updatedAt": "2025-12-31T11:44:04Z",
         "category": "个人项目",
         "priority": 6,
         "tags": [
@@ -442,9 +470,9 @@
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "issues": 92,
+        "issues": 104,
         "createdAt": "2025-12-29T12:35:53Z",
-        "updatedAt": "2025-12-31T05:58:32Z",
+        "updatedAt": "2025-12-31T11:51:22Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -452,7 +480,37 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 329,
+        "size": 374,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
+        "id": 1125693327,
+        "name": "quick-py",
+        "fullName": "gqy20/quick-py",
+        "description": "现代化 Python 项目模板 - 使用 Copier 快速生成规范化的 Python 项目",
+        "url": "https://github.com/gqy20/quick-py",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-12-31T07:12:07Z",
+        "updatedAt": "2025-12-31T09:10:20Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "python"
+        ],
+        "topics": [
+          "copier",
+          "python"
+        ],
+        "isArchived": false,
+        "size": 82,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -471,7 +529,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2025-10-28T12:18:33Z",
-        "updatedAt": "2025-12-28T12:19:39Z",
+        "updatedAt": "2025-12-31T07:48:18Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -479,7 +537,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 416,
+        "size": 426,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -508,16 +566,10 @@
         "isArchived": false,
         "size": 7359,
         "license": null,
-        "latestRelease": {
-          "tagName": "v0.4.1",
-          "name": "Process Tracker",
-          "publishedAt": "2025-10-27T09:53:30Z",
-          "prerelease": false,
-          "draft": false
-        },
+        "latestRelease": null,
         "latestTag": null,
-        "totalReleases": 4,
-        "totalTags": 4
+        "totalReleases": 0,
+        "totalTags": 0
       },
       {
         "id": 1070102277,
@@ -577,6 +629,73 @@
   },
   "allProjects": [
     {
+      "id": 1125737759,
+      "name": "crawl-mcp",
+      "fullName": "gqy20/crawl-mcp",
+      "description": "基于 crawl4ai 和 FastMCP 的 MCP 服务器，提供网页爬取和 AI 分析功能",
+      "url": "https://github.com/gqy20/crawl-mcp",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-12-31T09:05:15Z",
+      "updatedAt": "2025-12-31T10:59:01Z",
+      "category": "MCP工具",
+      "priority": 1,
+      "tags": [
+        "MCP",
+        "AI工具"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 69,
+      "license": "MIT License",
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.1.1",
+        "commit": "282de6c9a27defd4532f76337f815d040c1152b1",
+        "zipball_url": "https://api.github.com/repos/gqy20/crawl-mcp/zipball/refs/tags/v0.1.1",
+        "tarball_url": "https://api.github.com/repos/gqy20/crawl-mcp/tarball/refs/tags/v0.1.1"
+      },
+      "totalReleases": 0,
+      "totalTags": 2
+    },
+    {
+      "id": 1038595724,
+      "name": "mcp_agent",
+      "fullName": "gqy20/mcp_agent",
+      "description": "暂无描述 - Python项目",
+      "url": "https://github.com/gqy20/mcp_agent",
+      "homepage": null,
+      "language": "Python",
+      "stars": 2,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-08-15T13:48:09Z",
+      "updatedAt": "2025-12-31T06:36:43Z",
+      "category": "MCP工具",
+      "priority": 1,
+      "tags": [
+        "MCP",
+        "AI工具"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 8379,
+      "license": null,
+      "latestRelease": {
+        "tagName": "1.0.0-with-mcp-data",
+        "name": "Version 1.0.0-with-mcp-data",
+        "publishedAt": "2025-09-23T09:57:00Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 2,
+      "totalTags": 3
+    },
+    {
       "id": 1019340765,
       "name": "article-mcp",
       "fullName": "gqy20/article-mcp",
@@ -602,48 +721,9 @@
       "size": 1625,
       "license": "MIT License",
       "latestRelease": null,
-      "latestTag": {
-        "name": "v0.2.1",
-        "commit": "728bf759d859dcaf55692ed67a1ea853323a95a4",
-        "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.1",
-        "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.1"
-      },
-      "totalReleases": 0,
-      "totalTags": 5
-    },
-    {
-      "id": 1038595724,
-      "name": "mcp_agent",
-      "fullName": "gqy20/mcp_agent",
-      "description": "暂无描述 - Python项目",
-      "url": "https://github.com/gqy20/mcp_agent",
-      "homepage": null,
-      "language": "Python",
-      "stars": 2,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2025-08-15T13:48:09Z",
-      "updatedAt": "2025-12-21T08:19:42Z",
-      "category": "MCP工具",
-      "priority": 1,
-      "tags": [
-        "MCP",
-        "AI工具"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 8278,
-      "license": null,
-      "latestRelease": {
-        "tagName": "1.0.0-with-mcp-data",
-        "name": "Version 1.0.0-with-mcp-data",
-        "publishedAt": "2025-09-23T09:57:00Z",
-        "prerelease": false,
-        "draft": false
-      },
       "latestTag": null,
-      "totalReleases": 2,
-      "totalTags": 3
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 1056570275,
@@ -670,16 +750,10 @@
       "isArchived": false,
       "size": 1185,
       "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.2.6",
-        "name": "Release v0.2.6",
-        "publishedAt": "2025-12-08T03:39:17Z",
-        "prerelease": false,
-        "draft": false
-      },
+      "latestRelease": null,
       "latestTag": null,
-      "totalReleases": 5,
-      "totalTags": 5
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 1082386656,
@@ -707,14 +781,37 @@
       "size": 82,
       "license": "MIT License",
       "latestRelease": null,
-      "latestTag": {
-        "name": "v0.1.5",
-        "commit": "de97aebfd0bd32d8c0cb830b15562b6d35d75725",
-        "zipball_url": "https://api.github.com/repos/gqy20/protein-mcp/zipball/refs/tags/v0.1.5",
-        "tarball_url": "https://api.github.com/repos/gqy20/protein-mcp/tarball/refs/tags/v0.1.5"
-      },
+      "latestTag": null,
       "totalReleases": 0,
-      "totalTags": 5
+      "totalTags": 0
+    },
+    {
+      "id": 1125770543,
+      "name": "mind",
+      "fullName": "gqy20/mind",
+      "description": "AI agents that collaborate to spark innovation",
+      "url": "https://github.com/gqy20/mind",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-12-31T10:25:52Z",
+      "updatedAt": "2025-12-31T11:49:04Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 60,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 1124056645,
@@ -851,16 +948,10 @@
       "isArchived": false,
       "size": 25608,
       "license": null,
-      "latestRelease": {
-        "tagName": "v0.1.4",
-        "name": "Release 0.1.4",
-        "publishedAt": "2025-12-24T02:07:09Z",
-        "prerelease": false,
-        "draft": false
-      },
+      "latestRelease": null,
       "latestTag": null,
-      "totalReleases": 4,
-      "totalTags": 4
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 958672660,
@@ -885,16 +976,10 @@
       "isArchived": false,
       "size": 12980,
       "license": null,
-      "latestRelease": {
-        "tagName": "0.6",
-        "name": "0.6 ",
-        "publishedAt": "2025-04-19T17:00:43Z",
-        "prerelease": false,
-        "draft": false
-      },
+      "latestRelease": null,
       "latestTag": null,
-      "totalReleases": 3,
-      "totalTags": 3
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 1123557369,
@@ -920,14 +1005,9 @@
       "size": 45,
       "license": null,
       "latestRelease": null,
-      "latestTag": {
-        "name": "v0.1.1",
-        "commit": "f79985810139767490a0156617e9d6de49055a12",
-        "zipball_url": "https://api.github.com/repos/gqy20/justdo/zipball/refs/tags/v0.1.1",
-        "tarball_url": "https://api.github.com/repos/gqy20/justdo/tarball/refs/tags/v0.1.1"
-      },
+      "latestTag": null,
       "totalReleases": 0,
-      "totalTags": 2
+      "totalTags": 0
     },
     {
       "id": 1101781349,
@@ -969,7 +1049,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2025-06-23T06:53:28Z",
-      "updatedAt": "2025-12-30T19:26:44Z",
+      "updatedAt": "2025-12-31T11:44:04Z",
       "category": "个人项目",
       "priority": 6,
       "tags": [
@@ -995,9 +1075,9 @@
       "language": "Python",
       "stars": 0,
       "forks": 0,
-      "issues": 92,
+      "issues": 104,
       "createdAt": "2025-12-29T12:35:53Z",
-      "updatedAt": "2025-12-31T05:58:32Z",
+      "updatedAt": "2025-12-31T11:51:22Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -1005,7 +1085,37 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 329,
+      "size": 374,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
+      "id": 1125693327,
+      "name": "quick-py",
+      "fullName": "gqy20/quick-py",
+      "description": "现代化 Python 项目模板 - 使用 Copier 快速生成规范化的 Python 项目",
+      "url": "https://github.com/gqy20/quick-py",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-12-31T07:12:07Z",
+      "updatedAt": "2025-12-31T09:10:20Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "python"
+      ],
+      "topics": [
+        "copier",
+        "python"
+      ],
+      "isArchived": false,
+      "size": 82,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -1024,7 +1134,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2025-10-28T12:18:33Z",
-      "updatedAt": "2025-12-28T12:19:39Z",
+      "updatedAt": "2025-12-31T07:48:18Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -1032,7 +1142,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 416,
+      "size": 426,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -1061,16 +1171,10 @@
       "isArchived": false,
       "size": 7359,
       "license": null,
-      "latestRelease": {
-        "tagName": "v0.4.1",
-        "name": "Process Tracker",
-        "publishedAt": "2025-10-27T09:53:30Z",
-        "prerelease": false,
-        "draft": false
-      },
+      "latestRelease": null,
       "latestTag": null,
-      "totalReleases": 4,
-      "totalTags": 4
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 1070102277,
