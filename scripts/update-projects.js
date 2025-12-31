@@ -11,6 +11,33 @@ const __dirname = path.dirname(__filename);
 const GITHUB_USERNAME = 'gqy20';
 const PROJECTS_FILE = path.join(__dirname, '../src/data/projects.json');
 
+// 获取认证 headers
+function getAuthHeaders() {
+  const token = process.env.GITHUB_TOKEN;
+  if (token) {
+    return {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/vnd.github.v3+json'
+    };
+  }
+  return {};
+}
+
+// 带认证的 fetch wrapper
+async function fetchWithAuth(url, options = {}) {
+  const headers = {
+    ...getAuthHeaders(),
+    ...(options.headers || {})
+  };
+
+  const response = await fetch(url, {
+    ...options,
+    headers
+  });
+
+  return response;
+}
+
 // 项目分类规则
 const categorizeProject = (repo) => {
   const name = repo.name.toLowerCase();
@@ -88,7 +115,7 @@ const categorizeProject = (repo) => {
 // 获取GitHub用户数据
 async function fetchGitHubUserData() {
   try {
-    const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`);
+    const response = await fetchWithAuth(`https://api.github.com/users/${GITHUB_USERNAME}`);
     if (!response.ok) {
       throw new Error(`获取用户数据失败: ${response.status}`);
     }
@@ -107,7 +134,7 @@ async function fetchProjectDetails(repo) {
     let latestRelease = null;
 
     try {
-      const releasesResponse = await fetch(`https://api.github.com/repos/${repo.full_name}/releases?per_page=5`);
+      const releasesResponse = await fetchWithAuth(`https://api.github.com/repos/${repo.full_name}/releases?per_page=5`);
       if (releasesResponse.ok) {
         releases = await releasesResponse.json();
         if (releases.length > 0) {
@@ -129,7 +156,7 @@ async function fetchProjectDetails(repo) {
     let latestTag = null;
 
     try {
-      const tagsResponse = await fetch(`https://api.github.com/repos/${repo.full_name}/tags?per_page=5`);
+      const tagsResponse = await fetchWithAuth(`https://api.github.com/repos/${repo.full_name}/tags?per_page=5`);
       if (tagsResponse.ok) {
         tags = await tagsResponse.json();
         if (tags.length > 0 && !latestRelease) {
@@ -173,7 +200,7 @@ async function fetchGitHubProjects() {
     const userData = await fetchGitHubUserData();
 
     // 获取所有公开仓库
-    const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated&direction=desc`);
+    const response = await fetchWithAuth(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated&direction=desc`);
 
     if (!response.ok) {
       throw new Error(`GitHub API请求失败: ${response.status}`);
