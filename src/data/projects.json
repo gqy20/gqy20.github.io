@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-01-03T00:45:21.378Z",
+  "lastUpdated": "2026-01-03T06:15:17.076Z",
   "totalProjects": 22,
   "totalStars": 24,
-  "followers": 8,
+  "followers": 9,
   "categories": [
     "MCP工具",
     "AI应用",
@@ -200,7 +200,7 @@
         "forks": 0,
         "issues": 2,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-01-02T16:18:51Z",
+        "updatedAt": "2026-01-03T00:52:27Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -218,7 +218,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 211,
+        "size": 213,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -540,9 +540,9 @@
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "issues": 227,
+        "issues": 235,
         "createdAt": "2025-12-29T12:35:53Z",
-        "updatedAt": "2026-01-02T23:50:27Z",
+        "updatedAt": "2026-01-03T05:52:33Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -550,7 +550,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 729,
+        "size": 841,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -889,7 +889,7 @@
       "forks": 0,
       "issues": 2,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-01-02T16:18:51Z",
+      "updatedAt": "2026-01-03T00:52:27Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -907,7 +907,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 211,
+      "size": 213,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -1221,9 +1221,9 @@
       "language": "Python",
       "stars": 0,
       "forks": 0,
-      "issues": 227,
+      "issues": 235,
       "createdAt": "2025-12-29T12:35:53Z",
-      "updatedAt": "2026-01-02T23:50:27Z",
+      "updatedAt": "2026-01-03T05:52:33Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -1231,7 +1231,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 729,
+      "size": 841,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
