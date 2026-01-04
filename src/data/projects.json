@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-04T06:15:24.998Z",
+  "lastUpdated": "2026-01-04T12:17:24.915Z",
   "totalProjects": 22,
   "totalStars": 24,
   "followers": 8,
@@ -13,6 +13,41 @@
   ],
   "projects": {
     "MCP工具": [
+      {
+        "id": 1019340765,
+        "name": "article-mcp",
+        "fullName": "gqy20/article-mcp",
+        "description": "文献检索MCP",
+        "url": "https://github.com/gqy20/article-mcp",
+        "homepage": "https://pypi.org/project/article-mcp/",
+        "language": "Python",
+        "stars": 9,
+        "forks": 4,
+        "issues": 0,
+        "createdAt": "2025-07-14T07:18:21Z",
+        "updatedAt": "2026-01-04T06:24:52Z",
+        "category": "MCP工具",
+        "priority": 1,
+        "tags": [
+          "MCP",
+          "AI工具"
+        ],
+        "topics": [
+          "mcp"
+        ],
+        "isArchived": false,
+        "size": 1660,
+        "license": "MIT License",
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.2.2",
+          "commit": "fdb02268e53da3cf804c59ec3e8ddde4aa4732f5",
+          "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.2",
+          "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
+        },
+        "totalReleases": 0,
+        "totalTags": 5
+      },
       {
         "id": 1038595724,
         "name": "mcp_agent",
@@ -79,41 +114,6 @@
         },
         "totalReleases": 0,
         "totalTags": 3
-      },
-      {
-        "id": 1019340765,
-        "name": "article-mcp",
-        "fullName": "gqy20/article-mcp",
-        "description": "文献检索MCP",
-        "url": "https://github.com/gqy20/article-mcp",
-        "homepage": "https://pypi.org/project/article-mcp/",
-        "language": "Python",
-        "stars": 9,
-        "forks": 4,
-        "issues": 0,
-        "createdAt": "2025-07-14T07:18:21Z",
-        "updatedAt": "2025-12-27T12:55:08Z",
-        "category": "MCP工具",
-        "priority": 1,
-        "tags": [
-          "MCP",
-          "AI工具"
-        ],
-        "topics": [
-          "mcp"
-        ],
-        "isArchived": false,
-        "size": 1625,
-        "license": "MIT License",
-        "latestRelease": null,
-        "latestTag": {
-          "name": "v0.2.1",
-          "commit": "728bf759d859dcaf55692ed67a1ea853323a95a4",
-          "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.1",
-          "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.1"
-        },
-        "totalReleases": 0,
-        "totalTags": 5
       },
       {
         "id": 1056570275,
@@ -200,7 +200,7 @@
         "forks": 0,
         "issues": 18,
         "createdAt": "2025-12-31T10:25:52Z",
-        "updatedAt": "2026-01-04T02:47:13Z",
+        "updatedAt": "2026-01-04T11:32:25Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -209,7 +209,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 490,
+        "size": 538,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -228,7 +228,7 @@
         "forks": 0,
         "issues": 1,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-01-03T20:31:16Z",
+        "updatedAt": "2026-01-04T11:10:01Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -246,7 +246,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 335,
+        "size": 356,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -540,9 +540,9 @@
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "issues": 282,
+        "issues": 299,
         "createdAt": "2025-12-29T12:35:53Z",
-        "updatedAt": "2026-01-04T05:57:16Z",
+        "updatedAt": "2026-01-04T11:47:00Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -550,7 +550,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 1013,
+        "size": 1261,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -705,6 +705,41 @@
   },
   "allProjects": [
     {
+      "id": 1019340765,
+      "name": "article-mcp",
+      "fullName": "gqy20/article-mcp",
+      "description": "文献检索MCP",
+      "url": "https://github.com/gqy20/article-mcp",
+      "homepage": "https://pypi.org/project/article-mcp/",
+      "language": "Python",
+      "stars": 9,
+      "forks": 4,
+      "issues": 0,
+      "createdAt": "2025-07-14T07:18:21Z",
+      "updatedAt": "2026-01-04T06:24:52Z",
+      "category": "MCP工具",
+      "priority": 1,
+      "tags": [
+        "MCP",
+        "AI工具"
+      ],
+      "topics": [
+        "mcp"
+      ],
+      "isArchived": false,
+      "size": 1660,
+      "license": "MIT License",
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.2.2",
+        "commit": "fdb02268e53da3cf804c59ec3e8ddde4aa4732f5",
+        "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.2",
+        "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
+      },
+      "totalReleases": 0,
+      "totalTags": 5
+    },
+    {
       "id": 1038595724,
       "name": "mcp_agent",
       "fullName": "gqy20/mcp_agent",
@@ -770,41 +805,6 @@
       },
       "totalReleases": 0,
       "totalTags": 3
-    },
-    {
-      "id": 1019340765,
-      "name": "article-mcp",
-      "fullName": "gqy20/article-mcp",
-      "description": "文献检索MCP",
-      "url": "https://github.com/gqy20/article-mcp",
-      "homepage": "https://pypi.org/project/article-mcp/",
-      "language": "Python",
-      "stars": 9,
-      "forks": 4,
-      "issues": 0,
-      "createdAt": "2025-07-14T07:18:21Z",
-      "updatedAt": "2025-12-27T12:55:08Z",
-      "category": "MCP工具",
-      "priority": 1,
-      "tags": [
-        "MCP",
-        "AI工具"
-      ],
-      "topics": [
-        "mcp"
-      ],
-      "isArchived": false,
-      "size": 1625,
-      "license": "MIT License",
-      "latestRelease": null,
-      "latestTag": {
-        "name": "v0.2.1",
-        "commit": "728bf759d859dcaf55692ed67a1ea853323a95a4",
-        "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.1",
-        "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.1"
-      },
-      "totalReleases": 0,
-      "totalTags": 5
     },
     {
       "id": 1056570275,
@@ -889,7 +889,7 @@
       "forks": 0,
       "issues": 18,
       "createdAt": "2025-12-31T10:25:52Z",
-      "updatedAt": "2026-01-04T02:47:13Z",
+      "updatedAt": "2026-01-04T11:32:25Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -898,7 +898,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 490,
+      "size": 538,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -917,7 +917,7 @@
       "forks": 0,
       "issues": 1,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-01-03T20:31:16Z",
+      "updatedAt": "2026-01-04T11:10:01Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -935,7 +935,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 335,
+      "size": 356,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -1221,9 +1221,9 @@
       "language": "Python",
       "stars": 0,
       "forks": 0,
-      "issues": 282,
+      "issues": 299,
       "createdAt": "2025-12-29T12:35:53Z",
-      "updatedAt": "2026-01-04T05:57:16Z",
+      "updatedAt": "2026-01-04T11:47:00Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -1231,7 +1231,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 1013,
+      "size": 1261,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
