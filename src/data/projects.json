@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-01-08T06:17:04.506Z",
-  "totalProjects": 22,
+  "lastUpdated": "2026-01-08T12:21:08.823Z",
+  "totalProjects": 23,
   "totalStars": 25,
   "followers": 8,
   "categories": [
@@ -188,6 +188,34 @@
       }
     ],
     "AI应用": [
+      {
+        "id": 1130347783,
+        "name": "cc-insights",
+        "fullName": "gqy20/cc-insights",
+        "description": "AI 驱动的 Claude Code 使用数据分析工具 - 可视化数据、发现模式、获取智能推荐",
+        "url": "https://github.com/gqy20/cc-insights",
+        "homepage": null,
+        "language": "Go",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-01-08T11:28:18Z",
+        "updatedAt": "2026-01-08T11:30:55Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 0,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 1126636339,
         "name": "TrendPluse",
@@ -540,9 +568,9 @@
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "issues": 486,
+        "issues": 498,
         "createdAt": "2025-12-29T12:35:53Z",
-        "updatedAt": "2026-01-08T05:56:43Z",
+        "updatedAt": "2026-01-08T11:51:35Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -550,7 +578,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 1662,
+        "size": 2058,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -876,6 +904,34 @@
       },
       "totalReleases": 0,
       "totalTags": 5
+    },
+    {
+      "id": 1130347783,
+      "name": "cc-insights",
+      "fullName": "gqy20/cc-insights",
+      "description": "AI 驱动的 Claude Code 使用数据分析工具 - 可视化数据、发现模式、获取智能推荐",
+      "url": "https://github.com/gqy20/cc-insights",
+      "homepage": null,
+      "language": "Go",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-01-08T11:28:18Z",
+      "updatedAt": "2026-01-08T11:30:55Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 0,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 1126636339,
@@ -1221,9 +1277,9 @@
       "language": "Python",
       "stars": 0,
       "forks": 0,
-      "issues": 486,
+      "issues": 498,
       "createdAt": "2025-12-29T12:35:53Z",
-      "updatedAt": "2026-01-08T05:56:43Z",
+      "updatedAt": "2026-01-08T11:51:35Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -1231,7 +1287,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 1662,
+      "size": 2058,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
