@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T12:19:44.981Z",
+  "lastUpdated": "2026-01-16T18:16:13.234Z",
   "totalProjects": 23,
   "totalStars": 27,
   "followers": 7,
@@ -190,6 +190,39 @@
     ],
     "AI应用": [
       {
+        "id": 1123557369,
+        "name": "justdo",
+        "fullName": "gqy20/justdo",
+        "description": "Just do it! - 简单的命令行待办事项工具 | 支持AI、用户画像、Web界面",
+        "url": "https://github.com/gqy20/justdo",
+        "homepage": "https://pypi.org/project/justdo/",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 6,
+        "createdAt": "2025-12-27T05:55:00Z",
+        "updatedAt": "2026-01-16T15:05:42Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 183,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.1.3",
+          "commit": "bed4ec0c49146f8f3466f055b25ddfa41c240ddd",
+          "zipball_url": "https://api.github.com/repos/gqy20/justdo/zipball/refs/tags/v0.1.3",
+          "tarball_url": "https://api.github.com/repos/gqy20/justdo/tarball/refs/tags/v0.1.3"
+        },
+        "totalReleases": 0,
+        "totalTags": 4
+      },
+      {
         "id": 1126636339,
         "name": "TrendPluse",
         "fullName": "gqy20/TrendPluse",
@@ -225,39 +258,6 @@
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
-      },
-      {
-        "id": 1123557369,
-        "name": "justdo",
-        "fullName": "gqy20/justdo",
-        "description": "Just do it! - 简单的命令行待办事项工具 | 支持AI、用户画像、Web界面",
-        "url": "https://github.com/gqy20/justdo",
-        "homepage": "https://pypi.org/project/justdo/",
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "issues": 6,
-        "createdAt": "2025-12-27T05:55:00Z",
-        "updatedAt": "2026-01-14T13:11:02Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 181,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": {
-          "name": "v0.1.3",
-          "commit": "bed4ec0c49146f8f3466f055b25ddfa41c240ddd",
-          "zipball_url": "https://api.github.com/repos/gqy20/justdo/zipball/refs/tags/v0.1.3",
-          "tarball_url": "https://api.github.com/repos/gqy20/justdo/tarball/refs/tags/v0.1.3"
-        },
-        "totalReleases": 0,
-        "totalTags": 4
       },
       {
         "id": 1130347783,
@@ -297,7 +297,7 @@
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "issues": 211,
+        "issues": 217,
         "createdAt": "2025-12-31T10:25:52Z",
         "updatedAt": "2026-01-04T16:03:18Z",
         "category": "AI应用",
@@ -908,6 +908,39 @@
       "totalTags": 5
     },
     {
+      "id": 1123557369,
+      "name": "justdo",
+      "fullName": "gqy20/justdo",
+      "description": "Just do it! - 简单的命令行待办事项工具 | 支持AI、用户画像、Web界面",
+      "url": "https://github.com/gqy20/justdo",
+      "homepage": "https://pypi.org/project/justdo/",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 6,
+      "createdAt": "2025-12-27T05:55:00Z",
+      "updatedAt": "2026-01-16T15:05:42Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 183,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.1.3",
+        "commit": "bed4ec0c49146f8f3466f055b25ddfa41c240ddd",
+        "zipball_url": "https://api.github.com/repos/gqy20/justdo/zipball/refs/tags/v0.1.3",
+        "tarball_url": "https://api.github.com/repos/gqy20/justdo/tarball/refs/tags/v0.1.3"
+      },
+      "totalReleases": 0,
+      "totalTags": 4
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -943,39 +976,6 @@
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
-    },
-    {
-      "id": 1123557369,
-      "name": "justdo",
-      "fullName": "gqy20/justdo",
-      "description": "Just do it! - 简单的命令行待办事项工具 | 支持AI、用户画像、Web界面",
-      "url": "https://github.com/gqy20/justdo",
-      "homepage": "https://pypi.org/project/justdo/",
-      "language": "Python",
-      "stars": 0,
-      "forks": 0,
-      "issues": 6,
-      "createdAt": "2025-12-27T05:55:00Z",
-      "updatedAt": "2026-01-14T13:11:02Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 181,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": {
-        "name": "v0.1.3",
-        "commit": "bed4ec0c49146f8f3466f055b25ddfa41c240ddd",
-        "zipball_url": "https://api.github.com/repos/gqy20/justdo/zipball/refs/tags/v0.1.3",
-        "tarball_url": "https://api.github.com/repos/gqy20/justdo/tarball/refs/tags/v0.1.3"
-      },
-      "totalReleases": 0,
-      "totalTags": 4
     },
     {
       "id": 1130347783,
@@ -1015,7 +1015,7 @@
       "language": "Python",
       "stars": 0,
       "forks": 0,
-      "issues": 211,
+      "issues": 217,
       "createdAt": "2025-12-31T10:25:52Z",
       "updatedAt": "2026-01-04T16:03:18Z",
       "category": "AI应用",
