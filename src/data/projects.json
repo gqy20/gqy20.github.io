@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-22T00:50:08.622Z",
+  "lastUpdated": "2026-01-22T06:17:40.999Z",
   "totalProjects": 23,
   "totalStars": 27,
   "followers": 7,
@@ -201,7 +201,7 @@
         "forks": 0,
         "issues": 4,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-01-21T01:36:33Z",
+        "updatedAt": "2026-01-22T01:43:09Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -219,7 +219,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 935,
+        "size": 972,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -919,7 +919,7 @@
       "forks": 0,
       "issues": 4,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-01-21T01:36:33Z",
+      "updatedAt": "2026-01-22T01:43:09Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -937,7 +937,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 935,
+      "size": 972,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
