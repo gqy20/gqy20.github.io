@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-01T06:34:28.838Z",
+  "lastUpdated": "2026-02-01T12:21:44.892Z",
   "totalProjects": 24,
   "totalStars": 29,
   "followers": 8,
@@ -201,7 +201,7 @@
         "forks": 0,
         "issues": 7,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-01-31T19:31:50Z",
+        "updatedAt": "2026-02-01T11:47:37Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -219,7 +219,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 2505,
+        "size": 2545,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -238,7 +238,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-01-27T14:15:31Z",
-        "updatedAt": "2026-01-31T16:54:50Z",
+        "updatedAt": "2026-02-01T11:02:49Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -247,7 +247,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 378,
+        "size": 9689,
         "license": "MIT License",
         "latestRelease": null,
         "latestTag": null,
@@ -956,7 +956,7 @@
       "forks": 0,
       "issues": 7,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-01-31T19:31:50Z",
+      "updatedAt": "2026-02-01T11:47:37Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -974,7 +974,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 2505,
+      "size": 2545,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -993,7 +993,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-01-27T14:15:31Z",
-      "updatedAt": "2026-01-31T16:54:50Z",
+      "updatedAt": "2026-02-01T11:02:49Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1002,7 +1002,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 378,
+      "size": 9689,
       "license": "MIT License",
       "latestRelease": null,
       "latestTag": null,
