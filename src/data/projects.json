@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-02-02T06:47:43.543Z",
+  "lastUpdated": "2026-02-02T12:29:24.955Z",
   "totalProjects": 25,
-  "totalStars": 29,
+  "totalStars": 30,
   "followers": 8,
   "categories": [
     "MCP工具",
@@ -13,6 +13,41 @@
   ],
   "projects": {
     "MCP工具": [
+      {
+        "id": 1019340765,
+        "name": "article-mcp",
+        "fullName": "gqy20/article-mcp",
+        "description": "文献检索MCP",
+        "url": "https://github.com/gqy20/article-mcp",
+        "homepage": "https://pypi.org/project/article-mcp/",
+        "language": "Python",
+        "stars": 11,
+        "forks": 4,
+        "issues": 0,
+        "createdAt": "2025-07-14T07:18:21Z",
+        "updatedAt": "2026-02-02T08:29:44Z",
+        "category": "MCP工具",
+        "priority": 1,
+        "tags": [
+          "MCP",
+          "AI工具"
+        ],
+        "topics": [
+          "mcp"
+        ],
+        "isArchived": false,
+        "size": 1660,
+        "license": "MIT License",
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.2.2",
+          "commit": "fdb02268e53da3cf804c59ec3e8ddde4aa4732f5",
+          "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.2",
+          "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
+        },
+        "totalReleases": 0,
+        "totalTags": 5
+      },
       {
         "id": 1125737759,
         "name": "crawl-mcp",
@@ -46,41 +81,6 @@
         "latestTag": null,
         "totalReleases": 1,
         "totalTags": 4
-      },
-      {
-        "id": 1019340765,
-        "name": "article-mcp",
-        "fullName": "gqy20/article-mcp",
-        "description": "文献检索MCP",
-        "url": "https://github.com/gqy20/article-mcp",
-        "homepage": "https://pypi.org/project/article-mcp/",
-        "language": "Python",
-        "stars": 10,
-        "forks": 4,
-        "issues": 0,
-        "createdAt": "2025-07-14T07:18:21Z",
-        "updatedAt": "2026-01-07T08:31:44Z",
-        "category": "MCP工具",
-        "priority": 1,
-        "tags": [
-          "MCP",
-          "AI工具"
-        ],
-        "topics": [
-          "mcp"
-        ],
-        "isArchived": false,
-        "size": 1660,
-        "license": "MIT License",
-        "latestRelease": null,
-        "latestTag": {
-          "name": "v0.2.2",
-          "commit": "fdb02268e53da3cf804c59ec3e8ddde4aa4732f5",
-          "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.2",
-          "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
-        },
-        "totalReleases": 0,
-        "totalTags": 5
       },
       {
         "id": 1038595724,
@@ -198,10 +198,10 @@
         "homepage": null,
         "language": "Python",
         "stars": 0,
-        "forks": 0,
-        "issues": 0,
+        "forks": 1,
+        "issues": 1,
         "createdAt": "2026-02-02T04:09:50Z",
-        "updatedAt": "2026-02-02T06:45:56Z",
+        "updatedAt": "2026-02-02T12:26:11Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -210,7 +210,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 47,
+        "size": 527,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -799,6 +799,41 @@
   },
   "allProjects": [
     {
+      "id": 1019340765,
+      "name": "article-mcp",
+      "fullName": "gqy20/article-mcp",
+      "description": "文献检索MCP",
+      "url": "https://github.com/gqy20/article-mcp",
+      "homepage": "https://pypi.org/project/article-mcp/",
+      "language": "Python",
+      "stars": 11,
+      "forks": 4,
+      "issues": 0,
+      "createdAt": "2025-07-14T07:18:21Z",
+      "updatedAt": "2026-02-02T08:29:44Z",
+      "category": "MCP工具",
+      "priority": 1,
+      "tags": [
+        "MCP",
+        "AI工具"
+      ],
+      "topics": [
+        "mcp"
+      ],
+      "isArchived": false,
+      "size": 1660,
+      "license": "MIT License",
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.2.2",
+        "commit": "fdb02268e53da3cf804c59ec3e8ddde4aa4732f5",
+        "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.2",
+        "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
+      },
+      "totalReleases": 0,
+      "totalTags": 5
+    },
+    {
       "id": 1125737759,
       "name": "crawl-mcp",
       "fullName": "gqy20/crawl-mcp",
@@ -831,41 +866,6 @@
       "latestTag": null,
       "totalReleases": 1,
       "totalTags": 4
-    },
-    {
-      "id": 1019340765,
-      "name": "article-mcp",
-      "fullName": "gqy20/article-mcp",
-      "description": "文献检索MCP",
-      "url": "https://github.com/gqy20/article-mcp",
-      "homepage": "https://pypi.org/project/article-mcp/",
-      "language": "Python",
-      "stars": 10,
-      "forks": 4,
-      "issues": 0,
-      "createdAt": "2025-07-14T07:18:21Z",
-      "updatedAt": "2026-01-07T08:31:44Z",
-      "category": "MCP工具",
-      "priority": 1,
-      "tags": [
-        "MCP",
-        "AI工具"
-      ],
-      "topics": [
-        "mcp"
-      ],
-      "isArchived": false,
-      "size": 1660,
-      "license": "MIT License",
-      "latestRelease": null,
-      "latestTag": {
-        "name": "v0.2.2",
-        "commit": "fdb02268e53da3cf804c59ec3e8ddde4aa4732f5",
-        "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.2",
-        "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
-      },
-      "totalReleases": 0,
-      "totalTags": 5
     },
     {
       "id": 1038595724,
@@ -981,10 +981,10 @@
       "homepage": null,
       "language": "Python",
       "stars": 0,
-      "forks": 0,
-      "issues": 0,
+      "forks": 1,
+      "issues": 1,
       "createdAt": "2026-02-02T04:09:50Z",
-      "updatedAt": "2026-02-02T06:45:56Z",
+      "updatedAt": "2026-02-02T12:26:11Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -993,7 +993,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 47,
+      "size": 527,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
