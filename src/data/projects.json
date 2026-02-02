@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-02-02T01:01:18.746Z",
-  "totalProjects": 24,
+  "lastUpdated": "2026-02-02T06:47:43.543Z",
+  "totalProjects": 25,
   "totalStars": 29,
   "followers": 8,
   "categories": [
@@ -190,6 +190,34 @@
     ],
     "AI应用": [
       {
+        "id": 1147668906,
+        "name": "IssueLab",
+        "fullName": "gqy20/IssueLab",
+        "description": "AI 辅助科研评审系统 - GitHub Issues + Claude Agent SDK",
+        "url": "https://github.com/gqy20/IssueLab",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-02-02T04:09:50Z",
+        "updatedAt": "2026-02-02T06:45:56Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 47,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
         "id": 1126636339,
         "name": "TrendPluse",
         "fullName": "gqy20/TrendPluse",
@@ -219,7 +247,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 2702,
+        "size": 2712,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -945,6 +973,34 @@
       "totalTags": 5
     },
     {
+      "id": 1147668906,
+      "name": "IssueLab",
+      "fullName": "gqy20/IssueLab",
+      "description": "AI 辅助科研评审系统 - GitHub Issues + Claude Agent SDK",
+      "url": "https://github.com/gqy20/IssueLab",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-02-02T04:09:50Z",
+      "updatedAt": "2026-02-02T06:45:56Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 47,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -974,7 +1030,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 2702,
+      "size": 2712,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
