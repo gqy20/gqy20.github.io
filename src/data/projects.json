@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-02-15T06:36:23.605Z",
+  "lastUpdated": "2026-02-15T12:21:43.776Z",
   "totalProjects": 26,
-  "totalStars": 42,
+  "totalStars": 43,
   "followers": 9,
   "categories": [
     "MCP工具",
@@ -459,6 +459,40 @@
     ],
     "科研工具": [
       {
+        "id": 958672660,
+        "name": "pub2tts",
+        "fullName": "gqy20/pub2tts",
+        "description": "从pubmed上获取文献，将标题、关键词、摘要等内容转成中文，并合成语音。",
+        "url": "https://github.com/gqy20/pub2tts",
+        "homepage": null,
+        "language": "Python",
+        "stars": 2,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-04-01T15:19:11Z",
+        "updatedAt": "2026-02-15T12:03:10Z",
+        "category": "科研工具",
+        "priority": 3,
+        "tags": [
+          "科研",
+          "学术"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 12980,
+        "license": null,
+        "latestRelease": {
+          "tagName": "0.6",
+          "name": "0.6 ",
+          "publishedAt": "2025-04-19T17:00:43Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 3,
+        "totalTags": 3
+      },
+      {
         "id": 1147668906,
         "name": "IssueLab",
         "fullName": "gqy20/IssueLab",
@@ -468,7 +502,7 @@
         "language": "Python",
         "stars": 9,
         "forks": 7,
-        "issues": 10,
+        "issues": 12,
         "createdAt": "2026-02-02T04:09:50Z",
         "updatedAt": "2026-02-12T19:39:52Z",
         "category": "科研工具",
@@ -519,40 +553,6 @@
         "latestTag": null,
         "totalReleases": 4,
         "totalTags": 4
-      },
-      {
-        "id": 958672660,
-        "name": "pub2tts",
-        "fullName": "gqy20/pub2tts",
-        "description": "从pubmed上获取文献，将标题、关键词、摘要等内容转成中文，并合成语音。",
-        "url": "https://github.com/gqy20/pub2tts",
-        "homepage": null,
-        "language": "Python",
-        "stars": 1,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2025-04-01T15:19:11Z",
-        "updatedAt": "2025-04-19T17:01:57Z",
-        "category": "科研工具",
-        "priority": 3,
-        "tags": [
-          "科研",
-          "学术"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 12980,
-        "license": null,
-        "latestRelease": {
-          "tagName": "0.6",
-          "name": "0.6 ",
-          "publishedAt": "2025-04-19T17:00:43Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 3,
-        "totalTags": 3
       }
     ],
     "Web开发": [
@@ -665,7 +665,7 @@
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "issues": 180,
+        "issues": 195,
         "createdAt": "2025-12-29T12:35:53Z",
         "updatedAt": "2026-02-08T07:03:59Z",
         "category": "其他项目",
@@ -675,7 +675,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 2307,
+        "size": 2605,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1270,6 +1270,40 @@
       "totalTags": 0
     },
     {
+      "id": 958672660,
+      "name": "pub2tts",
+      "fullName": "gqy20/pub2tts",
+      "description": "从pubmed上获取文献，将标题、关键词、摘要等内容转成中文，并合成语音。",
+      "url": "https://github.com/gqy20/pub2tts",
+      "homepage": null,
+      "language": "Python",
+      "stars": 2,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-04-01T15:19:11Z",
+      "updatedAt": "2026-02-15T12:03:10Z",
+      "category": "科研工具",
+      "priority": 3,
+      "tags": [
+        "科研",
+        "学术"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 12980,
+      "license": null,
+      "latestRelease": {
+        "tagName": "0.6",
+        "name": "0.6 ",
+        "publishedAt": "2025-04-19T17:00:43Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 3,
+      "totalTags": 3
+    },
+    {
       "id": 1147668906,
       "name": "IssueLab",
       "fullName": "gqy20/IssueLab",
@@ -1279,7 +1313,7 @@
       "language": "Python",
       "stars": 9,
       "forks": 7,
-      "issues": 10,
+      "issues": 12,
       "createdAt": "2026-02-02T04:09:50Z",
       "updatedAt": "2026-02-12T19:39:52Z",
       "category": "科研工具",
@@ -1330,40 +1364,6 @@
       "latestTag": null,
       "totalReleases": 4,
       "totalTags": 4
-    },
-    {
-      "id": 958672660,
-      "name": "pub2tts",
-      "fullName": "gqy20/pub2tts",
-      "description": "从pubmed上获取文献，将标题、关键词、摘要等内容转成中文，并合成语音。",
-      "url": "https://github.com/gqy20/pub2tts",
-      "homepage": null,
-      "language": "Python",
-      "stars": 1,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2025-04-01T15:19:11Z",
-      "updatedAt": "2025-04-19T17:01:57Z",
-      "category": "科研工具",
-      "priority": 3,
-      "tags": [
-        "科研",
-        "学术"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 12980,
-      "license": null,
-      "latestRelease": {
-        "tagName": "0.6",
-        "name": "0.6 ",
-        "publishedAt": "2025-04-19T17:00:43Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 3,
-      "totalTags": 3
     },
     {
       "id": 1155877877,
@@ -1468,7 +1468,7 @@
       "language": "Python",
       "stars": 0,
       "forks": 0,
-      "issues": 180,
+      "issues": 195,
       "createdAt": "2025-12-29T12:35:53Z",
       "updatedAt": "2026-02-08T07:03:59Z",
       "category": "其他项目",
@@ -1478,7 +1478,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 2307,
+      "size": 2605,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
