@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-06T01:05:48.049Z",
+  "lastUpdated": "2026-03-06T06:31:48.319Z",
   "totalProjects": 29,
   "totalStars": 45,
   "followers": 11,
@@ -202,7 +202,7 @@
         "forks": 0,
         "issues": 7,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-03-05T22:27:58Z",
+        "updatedAt": "2026-03-06T03:41:54Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -217,7 +217,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 6666,
+        "size": 6700,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -692,7 +692,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-03-03T13:41:53Z",
-        "updatedAt": "2026-03-05T14:43:19Z",
+        "updatedAt": "2026-03-06T03:17:43Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -1094,7 +1094,7 @@
       "forks": 0,
       "issues": 7,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-03-05T22:27:58Z",
+      "updatedAt": "2026-03-06T03:41:54Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1109,7 +1109,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 6666,
+      "size": 6700,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -1574,7 +1574,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-03-03T13:41:53Z",
-      "updatedAt": "2026-03-05T14:43:19Z",
+      "updatedAt": "2026-03-06T03:17:43Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
