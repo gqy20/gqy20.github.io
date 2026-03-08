@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-08T06:27:56.454Z",
+  "lastUpdated": "2026-03-08T12:21:18.117Z",
   "totalProjects": 30,
   "totalStars": 46,
   "followers": 11,
@@ -202,7 +202,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-03-07T09:33:56Z",
-        "updatedAt": "2026-03-08T04:45:36Z",
+        "updatedAt": "2026-03-08T10:54:57Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -224,7 +224,7 @@
           "typescript"
         ],
         "isArchived": false,
-        "size": 849,
+        "size": 1395,
         "license": "MIT License",
         "latestRelease": null,
         "latestTag": null,
@@ -506,7 +506,7 @@
         "language": "Python",
         "stars": 9,
         "forks": 7,
-        "issues": 1,
+        "issues": 2,
         "createdAt": "2026-02-02T04:09:50Z",
         "updatedAt": "2026-02-24T14:09:48Z",
         "category": "科研工具",
@@ -1135,7 +1135,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-03-07T09:33:56Z",
-      "updatedAt": "2026-03-08T04:45:36Z",
+      "updatedAt": "2026-03-08T10:54:57Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1157,7 +1157,7 @@
         "typescript"
       ],
       "isArchived": false,
-      "size": 849,
+      "size": 1395,
       "license": "MIT License",
       "latestRelease": null,
       "latestTag": null,
@@ -1437,7 +1437,7 @@
       "language": "Python",
       "stars": 9,
       "forks": 7,
-      "issues": 1,
+      "issues": 2,
       "createdAt": "2026-02-02T04:09:50Z",
       "updatedAt": "2026-02-24T14:09:48Z",
       "category": "科研工具",
