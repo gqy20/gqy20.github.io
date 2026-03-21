@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-21T12:21:40.834Z",
+  "lastUpdated": "2026-03-21T18:18:58.224Z",
   "totalProjects": 30,
   "totalStars": 59,
   "followers": 12,
@@ -202,7 +202,7 @@
         "forks": 1,
         "issues": 1,
         "createdAt": "2026-03-07T09:33:56Z",
-        "updatedAt": "2026-03-21T06:08:38Z",
+        "updatedAt": "2026-03-21T14:00:44Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -224,7 +224,7 @@
           "typescript"
         ],
         "isArchived": false,
-        "size": 5722,
+        "size": 5483,
         "license": "MIT License",
         "latestRelease": null,
         "latestTag": null,
@@ -303,7 +303,7 @@
         "language": "Python",
         "stars": 1,
         "forks": 0,
-        "issues": 1185,
+        "issues": 1191,
         "createdAt": "2025-12-31T10:25:52Z",
         "updatedAt": "2026-03-18T14:23:40Z",
         "category": "AI应用",
@@ -1136,7 +1136,7 @@
       "forks": 1,
       "issues": 1,
       "createdAt": "2026-03-07T09:33:56Z",
-      "updatedAt": "2026-03-21T06:08:38Z",
+      "updatedAt": "2026-03-21T14:00:44Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1158,7 +1158,7 @@
         "typescript"
       ],
       "isArchived": false,
-      "size": 5722,
+      "size": 5483,
       "license": "MIT License",
       "latestRelease": null,
       "latestTag": null,
@@ -1237,7 +1237,7 @@
       "language": "Python",
       "stars": 1,
       "forks": 0,
-      "issues": 1185,
+      "issues": 1191,
       "createdAt": "2025-12-31T10:25:52Z",
       "updatedAt": "2026-03-18T14:23:40Z",
       "category": "AI应用",
