@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-30T01:12:39.486Z",
+  "lastUpdated": "2026-03-30T07:12:34.790Z",
   "totalProjects": 31,
   "totalStars": 61,
   "followers": 12,
@@ -202,7 +202,7 @@
         "forks": 0,
         "issues": 7,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-03-29T22:26:26Z",
+        "updatedAt": "2026-03-30T02:43:00Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -217,7 +217,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 12655,
+        "size": 12669,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -534,7 +534,7 @@
         "language": "Python",
         "stars": 11,
         "forks": 5,
-        "issues": 2,
+        "issues": 1,
         "createdAt": "2026-02-02T04:09:50Z",
         "updatedAt": "2026-03-17T03:53:47Z",
         "category": "科研工具",
@@ -1163,7 +1163,7 @@
       "forks": 0,
       "issues": 7,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-03-29T22:26:26Z",
+      "updatedAt": "2026-03-30T02:43:00Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1178,7 +1178,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 12655,
+      "size": 12669,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -1493,7 +1493,7 @@
       "language": "Python",
       "stars": 11,
       "forks": 5,
-      "issues": 2,
+      "issues": 1,
       "createdAt": "2026-02-02T04:09:50Z",
       "updatedAt": "2026-03-17T03:53:47Z",
       "category": "科研工具",
