@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-04-01T12:47:49.395Z",
+  "lastUpdated": "2026-04-01T18:42:02.330Z",
   "totalProjects": 33,
   "totalStars": 64,
-  "followers": 12,
+  "followers": 13,
   "categories": [
     "MCP工具",
     "AI应用",
@@ -224,7 +224,7 @@
           "typescript"
         ],
         "isArchived": false,
-        "size": 6019,
+        "size": 6035,
         "license": "MIT License",
         "latestRelease": null,
         "latestTag": null,
@@ -303,7 +303,7 @@
         "language": "Python",
         "stars": 1,
         "forks": 0,
-        "issues": 1349,
+        "issues": 1353,
         "createdAt": "2025-12-31T10:25:52Z",
         "updatedAt": "2026-03-18T14:23:40Z",
         "category": "AI应用",
@@ -1251,7 +1251,7 @@
         "typescript"
       ],
       "isArchived": false,
-      "size": 6019,
+      "size": 6035,
       "license": "MIT License",
       "latestRelease": null,
       "latestTag": null,
@@ -1330,7 +1330,7 @@
       "language": "Python",
       "stars": 1,
       "forks": 0,
-      "issues": 1349,
+      "issues": 1353,
       "createdAt": "2025-12-31T10:25:52Z",
       "updatedAt": "2026-03-18T14:23:40Z",
       "category": "AI应用",
