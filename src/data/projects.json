@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-01T01:17:07.244Z",
+  "lastUpdated": "2026-04-01T07:05:56.631Z",
   "totalProjects": 33,
   "totalStars": 62,
   "followers": 12,
@@ -525,6 +525,40 @@
     ],
     "科研工具": [
       {
+        "id": 1111722253,
+        "name": "pdfget",
+        "fullName": "gqy20/pdfget",
+        "description": "PDFGet - 智能文献搜索与批量下载工具，支持高级检索和并发下载。",
+        "url": "https://github.com/gqy20/pdfget",
+        "homepage": "https://pypi.org/project/pdfget/",
+        "language": "Python",
+        "stars": 1,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-12-07T14:12:28Z",
+        "updatedAt": "2026-04-01T03:40:20Z",
+        "category": "科研工具",
+        "priority": 3,
+        "tags": [
+          "科研",
+          "学术"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 25667,
+        "license": null,
+        "latestRelease": {
+          "tagName": "v0.1.4",
+          "name": "Release 0.1.4",
+          "publishedAt": "2025-12-24T02:07:09Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 4,
+        "totalTags": 4
+      },
+      {
         "id": 1147668906,
         "name": "IssueLab",
         "fullName": "gqy20/IssueLab",
@@ -534,7 +568,7 @@
         "language": "Python",
         "stars": 11,
         "forks": 5,
-        "issues": 3,
+        "issues": 2,
         "createdAt": "2026-02-02T04:09:50Z",
         "updatedAt": "2026-03-17T03:53:47Z",
         "category": "科研工具",
@@ -585,40 +619,6 @@
         "latestTag": null,
         "totalReleases": 3,
         "totalTags": 3
-      },
-      {
-        "id": 1111722253,
-        "name": "pdfget",
-        "fullName": "gqy20/pdfget",
-        "description": "PDFGet - 智能文献搜索与批量下载工具，支持高级检索和并发下载。",
-        "url": "https://github.com/gqy20/pdfget",
-        "homepage": "https://pypi.org/project/pdfget/",
-        "language": "Python",
-        "stars": 1,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2025-12-07T14:12:28Z",
-        "updatedAt": "2025-12-24T02:03:32Z",
-        "category": "科研工具",
-        "priority": 3,
-        "tags": [
-          "科研",
-          "学术"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 25608,
-        "license": null,
-        "latestRelease": {
-          "tagName": "v0.1.4",
-          "name": "Release 0.1.4",
-          "publishedAt": "2025-12-24T02:07:09Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 4,
-        "totalTags": 4
       }
     ],
     "Web开发": [
@@ -794,7 +794,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-03-30T14:22:18Z",
-        "updatedAt": "2026-03-31T11:00:58Z",
+        "updatedAt": "2026-04-01T06:37:51Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -1550,6 +1550,40 @@
       "totalTags": 0
     },
     {
+      "id": 1111722253,
+      "name": "pdfget",
+      "fullName": "gqy20/pdfget",
+      "description": "PDFGet - 智能文献搜索与批量下载工具，支持高级检索和并发下载。",
+      "url": "https://github.com/gqy20/pdfget",
+      "homepage": "https://pypi.org/project/pdfget/",
+      "language": "Python",
+      "stars": 1,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-12-07T14:12:28Z",
+      "updatedAt": "2026-04-01T03:40:20Z",
+      "category": "科研工具",
+      "priority": 3,
+      "tags": [
+        "科研",
+        "学术"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 25667,
+      "license": null,
+      "latestRelease": {
+        "tagName": "v0.1.4",
+        "name": "Release 0.1.4",
+        "publishedAt": "2025-12-24T02:07:09Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 4,
+      "totalTags": 4
+    },
+    {
       "id": 1147668906,
       "name": "IssueLab",
       "fullName": "gqy20/IssueLab",
@@ -1559,7 +1593,7 @@
       "language": "Python",
       "stars": 11,
       "forks": 5,
-      "issues": 3,
+      "issues": 2,
       "createdAt": "2026-02-02T04:09:50Z",
       "updatedAt": "2026-03-17T03:53:47Z",
       "category": "科研工具",
@@ -1610,40 +1644,6 @@
       "latestTag": null,
       "totalReleases": 3,
       "totalTags": 3
-    },
-    {
-      "id": 1111722253,
-      "name": "pdfget",
-      "fullName": "gqy20/pdfget",
-      "description": "PDFGet - 智能文献搜索与批量下载工具，支持高级检索和并发下载。",
-      "url": "https://github.com/gqy20/pdfget",
-      "homepage": "https://pypi.org/project/pdfget/",
-      "language": "Python",
-      "stars": 1,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2025-12-07T14:12:28Z",
-      "updatedAt": "2025-12-24T02:03:32Z",
-      "category": "科研工具",
-      "priority": 3,
-      "tags": [
-        "科研",
-        "学术"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 25608,
-      "license": null,
-      "latestRelease": {
-        "tagName": "v0.1.4",
-        "name": "Release 0.1.4",
-        "publishedAt": "2025-12-24T02:07:09Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 4,
-      "totalTags": 4
     },
     {
       "id": 1165756196,
@@ -1811,7 +1811,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-03-30T14:22:18Z",
-      "updatedAt": "2026-03-31T11:00:58Z",
+      "updatedAt": "2026-04-01T06:37:51Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
