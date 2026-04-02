@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-04-02T12:41:53.290Z",
+  "lastUpdated": "2026-04-02T18:38:35.227Z",
   "totalProjects": 33,
-  "totalStars": 64,
+  "totalStars": 66,
   "followers": 13,
   "categories": [
     "MCP工具",
@@ -191,40 +191,6 @@
     ],
     "AI应用": [
       {
-        "id": 1126636339,
-        "name": "TrendPluse",
-        "fullName": "gqy20/TrendPluse",
-        "description": "GitHub 趋势智能分析工具 - 基于 AI 的开源项目趋势洞察",
-        "url": "https://github.com/gqy20/TrendPluse",
-        "homepage": "https://home.gqy20.top/TrendPluse/",
-        "language": "Python",
-        "stars": 2,
-        "forks": 0,
-        "issues": 7,
-        "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-04-01T19:59:16Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [
-          "ai-analysis",
-          "anthropic-claude",
-          "github-api",
-          "github-trends",
-          "trend-analysis"
-        ],
-        "isArchived": false,
-        "size": 13304,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
-      },
-      {
         "id": 1175140181,
         "name": "TrumanWorld",
         "fullName": "gqy20/TrumanWorld",
@@ -236,7 +202,7 @@
         "forks": 1,
         "issues": 6,
         "createdAt": "2026-03-07T09:33:56Z",
-        "updatedAt": "2026-04-01T12:18:25Z",
+        "updatedAt": "2026-04-02T15:07:21Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -258,8 +224,42 @@
           "typescript"
         ],
         "isArchived": false,
-        "size": 6035,
+        "size": 6044,
         "license": "MIT License",
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
+        "id": 1126636339,
+        "name": "TrendPluse",
+        "fullName": "gqy20/TrendPluse",
+        "description": "GitHub 趋势智能分析工具 - 基于 AI 的开源项目趋势洞察",
+        "url": "https://github.com/gqy20/TrendPluse",
+        "homepage": "https://home.gqy20.top/TrendPluse/",
+        "language": "Python",
+        "stars": 3,
+        "forks": 0,
+        "issues": 7,
+        "createdAt": "2026-01-02T09:55:54Z",
+        "updatedAt": "2026-04-02T13:07:16Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [
+          "ai-analysis",
+          "anthropic-claude",
+          "github-api",
+          "github-trends",
+          "trend-analysis"
+        ],
+        "isArchived": false,
+        "size": 13304,
+        "license": null,
         "latestRelease": null,
         "latestTag": null,
         "totalReleases": 0,
@@ -303,7 +303,7 @@
         "language": "Python",
         "stars": 1,
         "forks": 0,
-        "issues": 1364,
+        "issues": 1370,
         "createdAt": "2025-12-31T10:25:52Z",
         "updatedAt": "2026-03-18T14:23:40Z",
         "category": "AI应用",
@@ -783,39 +783,6 @@
     ],
     "其他项目": [
       {
-        "id": 1190160301,
-        "name": "minimax-studio",
-        "fullName": "gqy20/minimax-studio",
-        "description": "MiniMax Studio CLI for clip, planning, voice, music, stitch, and full video workflows.",
-        "url": "https://github.com/gqy20/minimax-studio",
-        "homepage": null,
-        "language": "Go",
-        "stars": 2,
-        "forks": 1,
-        "issues": 0,
-        "createdAt": "2026-03-24T02:45:33Z",
-        "updatedAt": "2026-04-02T11:42:09Z",
-        "category": "其他项目",
-        "priority": 7,
-        "tags": [
-          "go"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 6213,
-        "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.1.0",
-          "name": "v0.1.0 · MiniMax Studio",
-          "publishedAt": "2026-04-02T03:42:56Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 1,
-        "totalTags": 1
-      },
-      {
         "id": 1196258715,
         "name": "zotero_cli",
         "fullName": "gqy20/zotero_cli",
@@ -823,11 +790,11 @@
         "url": "https://github.com/gqy20/zotero_cli",
         "homepage": null,
         "language": "Go",
-        "stars": 1,
+        "stars": 2,
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-03-30T14:22:18Z",
-        "updatedAt": "2026-04-01T07:58:50Z",
+        "updatedAt": "2026-04-02T13:09:32Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -847,6 +814,39 @@
         "latestTag": null,
         "totalReleases": 2,
         "totalTags": 2
+      },
+      {
+        "id": 1190160301,
+        "name": "minimax-studio",
+        "fullName": "gqy20/minimax-studio",
+        "description": "MiniMax Studio CLI for clip, planning, voice, music, stitch, and full video workflows.",
+        "url": "https://github.com/gqy20/minimax-studio",
+        "homepage": null,
+        "language": "Go",
+        "stars": 2,
+        "forks": 1,
+        "issues": 0,
+        "createdAt": "2026-03-24T02:45:33Z",
+        "updatedAt": "2026-04-02T11:42:09Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "go"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 6215,
+        "license": "MIT License",
+        "latestRelease": {
+          "tagName": "v0.1.0",
+          "name": "v0.1.0 · MiniMax Studio",
+          "publishedAt": "2026-04-02T03:42:56Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 1,
+        "totalTags": 1
       },
       {
         "id": 1163329830,
@@ -1224,40 +1224,6 @@
       "totalTags": 5
     },
     {
-      "id": 1126636339,
-      "name": "TrendPluse",
-      "fullName": "gqy20/TrendPluse",
-      "description": "GitHub 趋势智能分析工具 - 基于 AI 的开源项目趋势洞察",
-      "url": "https://github.com/gqy20/TrendPluse",
-      "homepage": "https://home.gqy20.top/TrendPluse/",
-      "language": "Python",
-      "stars": 2,
-      "forks": 0,
-      "issues": 7,
-      "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-04-01T19:59:16Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [
-        "ai-analysis",
-        "anthropic-claude",
-        "github-api",
-        "github-trends",
-        "trend-analysis"
-      ],
-      "isArchived": false,
-      "size": 13304,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
-    },
-    {
       "id": 1175140181,
       "name": "TrumanWorld",
       "fullName": "gqy20/TrumanWorld",
@@ -1269,7 +1235,7 @@
       "forks": 1,
       "issues": 6,
       "createdAt": "2026-03-07T09:33:56Z",
-      "updatedAt": "2026-04-01T12:18:25Z",
+      "updatedAt": "2026-04-02T15:07:21Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1291,8 +1257,42 @@
         "typescript"
       ],
       "isArchived": false,
-      "size": 6035,
+      "size": 6044,
       "license": "MIT License",
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
+      "id": 1126636339,
+      "name": "TrendPluse",
+      "fullName": "gqy20/TrendPluse",
+      "description": "GitHub 趋势智能分析工具 - 基于 AI 的开源项目趋势洞察",
+      "url": "https://github.com/gqy20/TrendPluse",
+      "homepage": "https://home.gqy20.top/TrendPluse/",
+      "language": "Python",
+      "stars": 3,
+      "forks": 0,
+      "issues": 7,
+      "createdAt": "2026-01-02T09:55:54Z",
+      "updatedAt": "2026-04-02T13:07:16Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [
+        "ai-analysis",
+        "anthropic-claude",
+        "github-api",
+        "github-trends",
+        "trend-analysis"
+      ],
+      "isArchived": false,
+      "size": 13304,
+      "license": null,
       "latestRelease": null,
       "latestTag": null,
       "totalReleases": 0,
@@ -1336,7 +1336,7 @@
       "language": "Python",
       "stars": 1,
       "forks": 0,
-      "issues": 1364,
+      "issues": 1370,
       "createdAt": "2025-12-31T10:25:52Z",
       "updatedAt": "2026-03-18T14:23:40Z",
       "category": "AI应用",
@@ -1806,39 +1806,6 @@
       "totalTags": 0
     },
     {
-      "id": 1190160301,
-      "name": "minimax-studio",
-      "fullName": "gqy20/minimax-studio",
-      "description": "MiniMax Studio CLI for clip, planning, voice, music, stitch, and full video workflows.",
-      "url": "https://github.com/gqy20/minimax-studio",
-      "homepage": null,
-      "language": "Go",
-      "stars": 2,
-      "forks": 1,
-      "issues": 0,
-      "createdAt": "2026-03-24T02:45:33Z",
-      "updatedAt": "2026-04-02T11:42:09Z",
-      "category": "其他项目",
-      "priority": 7,
-      "tags": [
-        "go"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 6213,
-      "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.1.0",
-        "name": "v0.1.0 · MiniMax Studio",
-        "publishedAt": "2026-04-02T03:42:56Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 1,
-      "totalTags": 1
-    },
-    {
       "id": 1196258715,
       "name": "zotero_cli",
       "fullName": "gqy20/zotero_cli",
@@ -1846,11 +1813,11 @@
       "url": "https://github.com/gqy20/zotero_cli",
       "homepage": null,
       "language": "Go",
-      "stars": 1,
+      "stars": 2,
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-03-30T14:22:18Z",
-      "updatedAt": "2026-04-01T07:58:50Z",
+      "updatedAt": "2026-04-02T13:09:32Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -1870,6 +1837,39 @@
       "latestTag": null,
       "totalReleases": 2,
       "totalTags": 2
+    },
+    {
+      "id": 1190160301,
+      "name": "minimax-studio",
+      "fullName": "gqy20/minimax-studio",
+      "description": "MiniMax Studio CLI for clip, planning, voice, music, stitch, and full video workflows.",
+      "url": "https://github.com/gqy20/minimax-studio",
+      "homepage": null,
+      "language": "Go",
+      "stars": 2,
+      "forks": 1,
+      "issues": 0,
+      "createdAt": "2026-03-24T02:45:33Z",
+      "updatedAt": "2026-04-02T11:42:09Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "go"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 6215,
+      "license": "MIT License",
+      "latestRelease": {
+        "tagName": "v0.1.0",
+        "name": "v0.1.0 · MiniMax Studio",
+        "publishedAt": "2026-04-02T03:42:56Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 1,
+      "totalTags": 1
     },
     {
       "id": 1163329830,
