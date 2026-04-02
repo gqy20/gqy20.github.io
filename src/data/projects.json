@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-02T06:57:31.761Z",
+  "lastUpdated": "2026-04-02T12:41:53.290Z",
   "totalProjects": 33,
   "totalStars": 64,
   "followers": 13,
@@ -568,7 +568,7 @@
         "language": "Python",
         "stars": 11,
         "forks": 5,
-        "issues": 1,
+        "issues": 2,
         "createdAt": "2026-02-02T04:09:50Z",
         "updatedAt": "2026-03-17T03:53:47Z",
         "category": "科研工具",
@@ -794,7 +794,7 @@
         "forks": 1,
         "issues": 0,
         "createdAt": "2026-03-24T02:45:33Z",
-        "updatedAt": "2026-04-02T03:41:33Z",
+        "updatedAt": "2026-04-02T11:42:09Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -802,7 +802,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 6172,
+        "size": 6213,
         "license": "MIT License",
         "latestRelease": {
           "tagName": "v0.1.0",
@@ -1599,7 +1599,7 @@
       "language": "Python",
       "stars": 11,
       "forks": 5,
-      "issues": 1,
+      "issues": 2,
       "createdAt": "2026-02-02T04:09:50Z",
       "updatedAt": "2026-03-17T03:53:47Z",
       "category": "科研工具",
@@ -1817,7 +1817,7 @@
       "forks": 1,
       "issues": 0,
       "createdAt": "2026-03-24T02:45:33Z",
-      "updatedAt": "2026-04-02T03:41:33Z",
+      "updatedAt": "2026-04-02T11:42:09Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -1825,7 +1825,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 6172,
+      "size": 6213,
       "license": "MIT License",
       "latestRelease": {
         "tagName": "v0.1.0",
