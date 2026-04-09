@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-09T07:07:37.998Z",
-  "totalProjects": 33,
+  "lastUpdated": "2026-04-09T12:53:52.276Z",
+  "totalProjects": 34,
   "totalStars": 68,
   "followers": 15,
   "categories": [
@@ -567,8 +567,8 @@
         "homepage": null,
         "language": "Python",
         "stars": 11,
-        "forks": 5,
-        "issues": 3,
+        "forks": 4,
+        "issues": 4,
         "createdAt": "2026-02-02T04:09:50Z",
         "updatedAt": "2026-03-17T03:53:47Z",
         "category": "科研工具",
@@ -622,6 +622,34 @@
       }
     ],
     "Web开发": [
+      {
+        "id": 1205874308,
+        "name": "note_wall",
+        "fullName": "gqy20/note_wall",
+        "description": "留言墙（Note Wall）- 基于 Next.js + Supabase + Vercel 的在线留言墙",
+        "url": "https://github.com/gqy20/note_wall",
+        "homepage": null,
+        "language": "TypeScript",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-04-09T11:13:06Z",
+        "updatedAt": "2026-04-09T11:41:26Z",
+        "category": "Web开发",
+        "priority": 4,
+        "tags": [
+          "Web",
+          "前端"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 46,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 1165756196,
         "name": "codex_test",
@@ -1598,8 +1626,8 @@
       "homepage": null,
       "language": "Python",
       "stars": 11,
-      "forks": 5,
-      "issues": 3,
+      "forks": 4,
+      "issues": 4,
       "createdAt": "2026-02-02T04:09:50Z",
       "updatedAt": "2026-03-17T03:53:47Z",
       "category": "科研工具",
@@ -1650,6 +1678,34 @@
       "latestTag": null,
       "totalReleases": 3,
       "totalTags": 3
+    },
+    {
+      "id": 1205874308,
+      "name": "note_wall",
+      "fullName": "gqy20/note_wall",
+      "description": "留言墙（Note Wall）- 基于 Next.js + Supabase + Vercel 的在线留言墙",
+      "url": "https://github.com/gqy20/note_wall",
+      "homepage": null,
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-04-09T11:13:06Z",
+      "updatedAt": "2026-04-09T11:41:26Z",
+      "category": "Web开发",
+      "priority": 4,
+      "tags": [
+        "Web",
+        "前端"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 46,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 1165756196,
