@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-15T07:14:41.436Z",
+  "lastUpdated": "2026-04-15T12:54:06.363Z",
   "totalProjects": 35,
   "totalStars": 68,
   "followers": 15,
@@ -545,7 +545,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 25699,
+        "size": 25707,
         "license": null,
         "latestRelease": {
           "tagName": "v0.1.5",
@@ -568,7 +568,7 @@
         "language": "Python",
         "stars": 11,
         "forks": 4,
-        "issues": 5,
+        "issues": 6,
         "createdAt": "2026-02-02T04:09:50Z",
         "updatedAt": "2026-03-17T03:53:47Z",
         "category": "科研工具",
@@ -1631,7 +1631,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 25699,
+      "size": 25707,
       "license": null,
       "latestRelease": {
         "tagName": "v0.1.5",
@@ -1654,7 +1654,7 @@
       "language": "Python",
       "stars": 11,
       "forks": 4,
-      "issues": 5,
+      "issues": 6,
       "createdAt": "2026-02-02T04:09:50Z",
       "updatedAt": "2026-03-17T03:53:47Z",
       "category": "科研工具",
