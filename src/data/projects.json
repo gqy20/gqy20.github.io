@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-16T12:58:51.874Z",
+  "lastUpdated": "2026-04-16T18:54:39.510Z",
   "totalProjects": 35,
   "totalStars": 68,
   "followers": 15,
@@ -331,7 +331,7 @@
         "language": "Python",
         "stars": 1,
         "forks": 0,
-        "issues": 1566,
+        "issues": 1570,
         "createdAt": "2025-12-31T10:25:52Z",
         "updatedAt": "2026-03-18T14:23:40Z",
         "category": "AI应用",
@@ -822,7 +822,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-03-30T14:22:18Z",
-        "updatedAt": "2026-04-16T11:13:04Z",
+        "updatedAt": "2026-04-16T14:24:44Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -830,7 +830,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 334,
+        "size": 401,
         "license": "MIT License",
         "latestRelease": {
           "tagName": "v0.0.2",
@@ -1419,7 +1419,7 @@
       "language": "Python",
       "stars": 1,
       "forks": 0,
-      "issues": 1566,
+      "issues": 1570,
       "createdAt": "2025-12-31T10:25:52Z",
       "updatedAt": "2026-03-18T14:23:40Z",
       "category": "AI应用",
@@ -1900,7 +1900,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-03-30T14:22:18Z",
-      "updatedAt": "2026-04-16T11:13:04Z",
+      "updatedAt": "2026-04-16T14:24:44Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -1908,7 +1908,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 334,
+      "size": 401,
       "license": "MIT License",
       "latestRelease": {
         "tagName": "v0.0.2",
