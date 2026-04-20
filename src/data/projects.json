@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-20T12:59:37.892Z",
+  "lastUpdated": "2026-04-20T18:47:02.929Z",
   "totalProjects": 35,
   "totalStars": 69,
   "followers": 15,
@@ -258,7 +258,7 @@
           "typescript"
         ],
         "isArchived": false,
-        "size": 5892,
+        "size": 6324,
         "license": "MIT License",
         "latestRelease": null,
         "latestTag": null,
@@ -331,7 +331,7 @@
         "language": "Python",
         "stars": 1,
         "forks": 0,
-        "issues": 1626,
+        "issues": 1630,
         "createdAt": "2025-12-31T10:25:52Z",
         "updatedAt": "2026-03-18T14:23:40Z",
         "category": "AI应用",
@@ -720,7 +720,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-03-31T08:42:45Z",
-        "updatedAt": "2026-04-17T10:15:14Z",
+        "updatedAt": "2026-04-20T13:38:43Z",
         "category": "开发工具",
         "priority": 5,
         "tags": [
@@ -734,7 +734,7 @@
           "zotero"
         ],
         "isArchived": false,
-        "size": 5,
+        "size": 6,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -811,6 +811,39 @@
     ],
     "其他项目": [
       {
+        "id": 1196258715,
+        "name": "zotero_cli",
+        "fullName": "gqy20/zotero_cli",
+        "description": "暂无描述 - Go项目",
+        "url": "https://github.com/gqy20/zotero_cli",
+        "homepage": null,
+        "language": "Go",
+        "stars": 3,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-03-30T14:22:18Z",
+        "updatedAt": "2026-04-20T13:35:31Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "go"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 676,
+        "license": "MIT License",
+        "latestRelease": {
+          "tagName": "v0.0.4",
+          "name": "v0.0.4 · zot",
+          "publishedAt": "2026-04-20T13:38:28Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 4,
+        "totalTags": 4
+      },
+      {
         "id": 1207212892,
         "name": "manim-agent",
         "fullName": "gqy20/manim-agent",
@@ -836,39 +869,6 @@
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
-      },
-      {
-        "id": 1196258715,
-        "name": "zotero_cli",
-        "fullName": "gqy20/zotero_cli",
-        "description": "暂无描述 - Go项目",
-        "url": "https://github.com/gqy20/zotero_cli",
-        "homepage": null,
-        "language": "Go",
-        "stars": 3,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-03-30T14:22:18Z",
-        "updatedAt": "2026-04-17T10:13:43Z",
-        "category": "其他项目",
-        "priority": 7,
-        "tags": [
-          "go"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 526,
-        "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.0.3",
-          "name": "v0.0.3 · zot",
-          "publishedAt": "2026-04-17T10:04:29Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 3,
-        "totalTags": 3
       },
       {
         "id": 1190160301,
@@ -1346,7 +1346,7 @@
         "typescript"
       ],
       "isArchived": false,
-      "size": 5892,
+      "size": 6324,
       "license": "MIT License",
       "latestRelease": null,
       "latestTag": null,
@@ -1419,7 +1419,7 @@
       "language": "Python",
       "stars": 1,
       "forks": 0,
-      "issues": 1626,
+      "issues": 1630,
       "createdAt": "2025-12-31T10:25:52Z",
       "updatedAt": "2026-03-18T14:23:40Z",
       "category": "AI应用",
@@ -1802,7 +1802,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-03-31T08:42:45Z",
-      "updatedAt": "2026-04-17T10:15:14Z",
+      "updatedAt": "2026-04-20T13:38:43Z",
       "category": "开发工具",
       "priority": 5,
       "tags": [
@@ -1816,7 +1816,7 @@
         "zotero"
       ],
       "isArchived": false,
-      "size": 5,
+      "size": 6,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -1889,6 +1889,39 @@
       "totalTags": 0
     },
     {
+      "id": 1196258715,
+      "name": "zotero_cli",
+      "fullName": "gqy20/zotero_cli",
+      "description": "暂无描述 - Go项目",
+      "url": "https://github.com/gqy20/zotero_cli",
+      "homepage": null,
+      "language": "Go",
+      "stars": 3,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-03-30T14:22:18Z",
+      "updatedAt": "2026-04-20T13:35:31Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "go"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 676,
+      "license": "MIT License",
+      "latestRelease": {
+        "tagName": "v0.0.4",
+        "name": "v0.0.4 · zot",
+        "publishedAt": "2026-04-20T13:38:28Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 4,
+      "totalTags": 4
+    },
+    {
       "id": 1207212892,
       "name": "manim-agent",
       "fullName": "gqy20/manim-agent",
@@ -1914,39 +1947,6 @@
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
-    },
-    {
-      "id": 1196258715,
-      "name": "zotero_cli",
-      "fullName": "gqy20/zotero_cli",
-      "description": "暂无描述 - Go项目",
-      "url": "https://github.com/gqy20/zotero_cli",
-      "homepage": null,
-      "language": "Go",
-      "stars": 3,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-03-30T14:22:18Z",
-      "updatedAt": "2026-04-17T10:13:43Z",
-      "category": "其他项目",
-      "priority": 7,
-      "tags": [
-        "go"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 526,
-      "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.0.3",
-        "name": "v0.0.3 · zot",
-        "publishedAt": "2026-04-17T10:04:29Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 3,
-      "totalTags": 3
     },
     {
       "id": 1190160301,
