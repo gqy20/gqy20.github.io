@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-21T12:54:19.263Z",
+  "lastUpdated": "2026-04-21T18:53:18.885Z",
   "totalProjects": 35,
   "totalStars": 69,
   "followers": 15,
@@ -331,7 +331,7 @@
         "language": "Python",
         "stars": 1,
         "forks": 0,
-        "issues": 1640,
+        "issues": 1644,
         "createdAt": "2025-12-31T10:25:52Z",
         "updatedAt": "2026-03-18T14:23:40Z",
         "category": "AI应用",
@@ -720,7 +720,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-03-31T08:42:45Z",
-        "updatedAt": "2026-04-20T13:38:43Z",
+        "updatedAt": "2026-04-21T17:43:07Z",
         "category": "开发工具",
         "priority": 5,
         "tags": [
@@ -734,7 +734,7 @@
           "zotero"
         ],
         "isArchived": false,
-        "size": 6,
+        "size": 16,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -822,7 +822,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-03-30T14:22:18Z",
-        "updatedAt": "2026-04-20T13:35:31Z",
+        "updatedAt": "2026-04-21T18:28:03Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -830,18 +830,18 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 676,
+        "size": 907,
         "license": "MIT License",
         "latestRelease": {
-          "tagName": "v0.0.4",
-          "name": "v0.0.4 · zot",
-          "publishedAt": "2026-04-20T13:38:28Z",
+          "tagName": "v0.0.6",
+          "name": "v0.0.6 · zot",
+          "publishedAt": "2026-04-21T17:16:49Z",
           "prerelease": false,
           "draft": false
         },
         "latestTag": null,
-        "totalReleases": 4,
-        "totalTags": 4
+        "totalReleases": 5,
+        "totalTags": 5
       },
       {
         "id": 1207212892,
@@ -1419,7 +1419,7 @@
       "language": "Python",
       "stars": 1,
       "forks": 0,
-      "issues": 1640,
+      "issues": 1644,
       "createdAt": "2025-12-31T10:25:52Z",
       "updatedAt": "2026-03-18T14:23:40Z",
       "category": "AI应用",
@@ -1802,7 +1802,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-03-31T08:42:45Z",
-      "updatedAt": "2026-04-20T13:38:43Z",
+      "updatedAt": "2026-04-21T17:43:07Z",
       "category": "开发工具",
       "priority": 5,
       "tags": [
@@ -1816,7 +1816,7 @@
         "zotero"
       ],
       "isArchived": false,
-      "size": 6,
+      "size": 16,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -1900,7 +1900,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-03-30T14:22:18Z",
-      "updatedAt": "2026-04-20T13:35:31Z",
+      "updatedAt": "2026-04-21T18:28:03Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -1908,18 +1908,18 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 676,
+      "size": 907,
       "license": "MIT License",
       "latestRelease": {
-        "tagName": "v0.0.4",
-        "name": "v0.0.4 · zot",
-        "publishedAt": "2026-04-20T13:38:28Z",
+        "tagName": "v0.0.6",
+        "name": "v0.0.6 · zot",
+        "publishedAt": "2026-04-21T17:16:49Z",
         "prerelease": false,
         "draft": false
       },
       "latestTag": null,
-      "totalReleases": 4,
-      "totalTags": 4
+      "totalReleases": 5,
+      "totalTags": 5
     },
     {
       "id": 1207212892,
