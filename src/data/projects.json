@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-22T12:54:52.925Z",
+  "lastUpdated": "2026-04-22T18:54:24.210Z",
   "totalProjects": 35,
   "totalStars": 70,
   "followers": 16,
@@ -331,7 +331,7 @@
         "language": "Python",
         "stars": 1,
         "forks": 0,
-        "issues": 1652,
+        "issues": 1656,
         "createdAt": "2025-12-31T10:25:52Z",
         "updatedAt": "2026-03-18T14:23:40Z",
         "category": "AI应用",
@@ -720,7 +720,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-03-31T08:42:45Z",
-        "updatedAt": "2026-04-22T07:35:26Z",
+        "updatedAt": "2026-04-22T13:12:58Z",
         "category": "开发工具",
         "priority": 5,
         "tags": [
@@ -734,7 +734,7 @@
           "zotero"
         ],
         "isArchived": false,
-        "size": 17,
+        "size": 18,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1419,7 +1419,7 @@
       "language": "Python",
       "stars": 1,
       "forks": 0,
-      "issues": 1652,
+      "issues": 1656,
       "createdAt": "2025-12-31T10:25:52Z",
       "updatedAt": "2026-03-18T14:23:40Z",
       "category": "AI应用",
@@ -1802,7 +1802,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-03-31T08:42:45Z",
-      "updatedAt": "2026-04-22T07:35:26Z",
+      "updatedAt": "2026-04-22T13:12:58Z",
       "category": "开发工具",
       "priority": 5,
       "tags": [
@@ -1816,7 +1816,7 @@
         "zotero"
       ],
       "isArchived": false,
-      "size": 17,
+      "size": 18,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
