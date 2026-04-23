@@ -13,9 +13,8 @@ export function htmlOptimizePlugin() {
 
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
   `.trim()
 
       return html.replace(insertBefore, additionalTags + '\n  ' + insertBefore)

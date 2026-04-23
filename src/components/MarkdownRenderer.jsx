@@ -6,9 +6,9 @@ import PrismCodeBlock from './PrismCodeBlock'      // 新的Prism.js实现
 import './MarkdownRenderer.css'
 
 // 通过环境变量控制使用哪种代码高亮方案
-const USE_PRISM = process.env.REACT_APP_USE_PRISM === 'true' ||
-                 process.env.NODE_ENV === 'development' &&
-                 !process.env.REACT_APP_USE_SHIKI
+const USE_PRISM = import.meta.env.VITE_USE_PRISM === 'true' ||
+                 import.meta.env.DEV &&
+                 import.meta.env.VITE_USE_SHIKI !== 'true'
 
 const MarkdownRenderer = ({ content }) => {
 
