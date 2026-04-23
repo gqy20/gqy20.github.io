@@ -1,32 +1,22 @@
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import {
-  FaGithub,
-  FaExternalLinkAlt,
-  FaTimes,
-  FaStar,
-  FaCodeBranch,
   FaArchive,
-  FaRegFileCode,
-  FaTag
+  FaCodeBranch,
+  FaExternalLinkAlt,
+  FaGithub,
+  FaStar,
+  FaTimes
 } from 'react-icons/fa'
-import Badge from './Badge'
-import Button from './Button'
 import './ProjectDetailModal.css'
-import { getExternalLinkIcon, normalizeDescription, getLinkText } from '../utils/projectUtils'
+import { getLinkText } from '../utils/projectUtils'
 
 const ProjectDetailModal = ({ project, isOpen, onClose }) => {
   if (!project) return null
 
-  const handleBackdropClick = (e) => {
-    if (e.target === e.currentTarget) {
-      onClose()
-    }
-  }
+  const narrative = project.narrative
 
-  const handleKeyPress = (e) => {
-    if (e.key === 'Escape') {
-      onClose()
-    }
+  const handleBackdropClick = (event) => {
+    if (event.target === event.currentTarget) onClose()
   }
 
   return (
@@ -39,145 +29,74 @@ const ProjectDetailModal = ({ project, isOpen, onClose }) => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
           onClick={handleBackdropClick}
-          onKeyDown={handleKeyPress}
-          tabIndex={0}
         >
-          <motion.div
-            className="modal-content"
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+          <motion.article
+            className="project-modal"
+            initial={{ opacity: 0, scale: 0.96, y: 18 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{
-              duration: 0.3,
-              type: "spring",
-              stiffness: 300,
-              damping: 30
-            }}
+            exit={{ opacity: 0, scale: 0.96, y: 18 }}
+            transition={{ duration: 0.25 }}
           >
-            {/* 极简卡片式布局 - 一次展示所有重要信息 */}
-            <div className="modal-card">
-              {/* 头部：标题、语言、操作按钮 */}
-              <div className="card-header">
-                <div className="header-left">
-                  <h2 className="card-title">
-                    {project.name}
-                    {project.isArchived && (
-                      <span className="archive-badge">
-                        <FaArchive /> 已归档
-                      </span>
-                    )}
-                  </h2>
-                  <div className="card-language">
-                    <FaRegFileCode className="language-icon" />
-                    <span>{project.language || 'Unknown'}</span>
-                  </div>
-                </div>
-                <div className="header-actions">
-                  <motion.a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="github-btn"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    title="查看源码"
-                  >
-                    <FaGithub />
-                  </motion.a>
-                  <motion.button
-                    className="card-close-btn"
-                    onClick={onClose}
-                    whileHover={{ scale: 1.1, rotate: 90 }}
-                    whileTap={{ scale: 0.9 }}
-                    title="关闭"
-                  >
-                    <FaTimes />
-                  </motion.button>
-                </div>
+            <header className="project-modal-header">
+              <div>
+                <p>{project.portfolioTrack?.label || project.category}</p>
+                <h2>{project.name}</h2>
+                {project.isArchived && <span className="archive-note"><FaArchive /> 已归档</span>}
               </div>
+              <button type="button" className="modal-close" onClick={onClose} aria-label="关闭详情">
+                <FaTimes />
+              </button>
+            </header>
 
-              {/* 项目描述 - 完整显示，不截断 */}
-              <div className="card-description">
-                <p>{project.description || `${project.name} - 一个专注于创新和技术实践的项目`}</p>
-              </div>
+            <section className="project-modal-story">
+              <h3>{narrative.title}</h3>
+              <p>{narrative.summary}</p>
+            </section>
 
-              {/* 核心数据：Stars、Forks、分类 */}
-              <div className="card-metrics">
-                <div className="metrics-list">
-                  {project.stars > 0 && (
-                    <div className="metric-item">
-                      <FaStar className="metric-icon star" />
-                      <span className="metric-value">{project.stars}</span>
-                    </div>
-                  )}
-                  {project.forks > 0 && (
-                    <div className="metric-item">
-                      <FaCodeBranch className="metric-icon fork" />
-                      <span className="metric-value">{project.forks}</span>
-                    </div>
-                  )}
-                  {project.category && (
-                    <div className="metric-item category">
-                      <FaTag className="metric-icon" />
-                      <span className="metric-label">{project.category}</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* 技术栈 - 突出显示 */}
-              {project.tags && project.tags.length > 0 && (
-                <div className="card-technologies">
-                  <div className="tech-label">技术栈</div>
-                  <div className="tech-list">
-                    {project.tags.map((tag, index) => (
-                      <Badge key={tag} variant="outline" className="tech-badge">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* 项目主页链接（如果有的话） */}
-              {project.homepage && (
-                <div className="card-demo-link">
-                  <motion.a
-                    href={project.homepage}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="demo-btn"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    title="访问项目主页"
-                  >
-                    {(() => {
-                      const iconType = getExternalLinkIcon(project.homepage)
-                      if (iconType === 'pypi') {
-                        return (
-                          <>
-                            <img
-                              src="https://pypi.org/static/images/logo-small.8998e9d1.svg"
-                              alt="PyPI"
-                              className="pypi-logo"
-                              style={{ width: '20px', height: '20px' }}
-                            />
-                            <span>{getLinkText(project.homepage)}</span>
-                          </>
-                        )
-                      }
-                      return (
-                        <>
-                          <FaExternalLinkAlt />
-                          <span>{getLinkText(project.homepage)}</span>
-                        </>
-                      )
-                    })()}
-                  </motion.a>
-                </div>
-              )}
+            <div className="story-grid">
+              <section>
+                <span>问题</span>
+                <p>{narrative.problem}</p>
+              </section>
+              <section>
+                <span>AI 角色</span>
+                <p>{narrative.aiRole}</p>
+              </section>
             </div>
-          </motion.div>
+
+            <section className="built-section">
+              <span>我构建了</span>
+              <div>
+                {narrative.built.map(item => <em key={item}>{item}</em>)}
+              </div>
+            </section>
+
+            <section className="project-facts">
+              <div><strong>{project.language || 'Unknown'}</strong><span>主要语言</span></div>
+              <div><strong><FaStar /> {project.stars || 0}</strong><span>Stars</span></div>
+              <div><strong><FaCodeBranch /> {project.forks || 0}</strong><span>Forks</span></div>
+            </section>
+
+            {project.tags?.length > 0 && (
+              <section className="built-section muted">
+                <span>技术标签</span>
+                <div>
+                  {project.tags.map(tag => <em key={tag}>{tag}</em>)}
+                </div>
+              </section>
+            )}
+
+            <footer className="project-modal-actions">
+              <a href={project.url} target="_blank" rel="noopener noreferrer">
+                <FaGithub /> GitHub
+              </a>
+              {project.homepage && (
+                <a href={project.homepage} target="_blank" rel="noopener noreferrer">
+                  <FaExternalLinkAlt /> {getLinkText(project.homepage)}
+                </a>
+              )}
+            </footer>
+          </motion.article>
         </motion.div>
       )}
     </AnimatePresence>

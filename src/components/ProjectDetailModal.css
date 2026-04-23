@@ -1,402 +1,229 @@
-/* 项目详情弹窗 - 极简卡片式设计重构 */
-
 .modal-backdrop {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  inset: 0;
   z-index: 1000;
-  padding: 24px;
-  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(8, 11, 18, 0.72);
+  backdrop-filter: blur(18px);
 }
 
-.modal-content {
-  background: var(--card-bg);
-  border-radius: 24px;
-  box-shadow:
-    0 40px 80px -16px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-  max-width: 580px;
-  width: 100%;
-  max-height: 85vh;
+.project-modal {
+  width: min(760px, 100%);
+  max-height: min(860px, 88vh);
   overflow-y: auto;
-  position: relative;
-  border: none;
-  transform: translateZ(0);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.28);
 }
 
-/* 自定义滚动条 - 极简设计 */
-.modal-content::-webkit-scrollbar {
-  width: 4px;
+.project-modal::-webkit-scrollbar {
+  width: 6px;
 }
 
-.modal-content::-webkit-scrollbar-track {
-  background: transparent;
+.project-modal::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(100, 116, 139, 0.35);
 }
 
-.modal-content::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
+.project-modal-header,
+.project-modal-story,
+.story-grid,
+.built-section,
+.project-facts,
+.project-modal-actions {
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
-.modal-content::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* 极简卡片式布局 */
-.modal-card {
-  padding: 2rem;
-}
-
-/* 头部区域：标题、语言、操作按钮 */
-.card-header {
+.project-modal-header {
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  gap: 1rem;
+  align-items: flex-start;
 }
 
-.header-left {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-shrink: 0;
-}
-
-.github-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--text-primary);
-  text-decoration: none;
-  transition: all 0.2s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.github-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: var(--text-primary);
-}
-
-.card-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: 0;
-  line-height: 1.2;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.card-language {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-.language-icon {
-  font-size: 1rem;
+.project-modal-header p,
+.story-grid span,
+.built-section > span {
   color: var(--primary-color);
+  font-size: 0.78rem;
+  font-weight: 850;
+  margin: 0 0 0.7rem;
 }
 
-.archive-badge {
+.project-modal-header h2 {
+  color: var(--text-primary);
+  font-size: clamp(2rem, 5vw, 4.4rem);
+  font-weight: 820;
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 0;
+}
+
+.archive-note {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: rgba(251, 191, 36, 0.1);
-  color: #fbbf24;
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  align-self: flex-start;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 800;
 }
 
-.card-close-btn {
-  background: none;
-  border: none;
+.modal-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: transparent;
   color: var(--text-secondary);
-  font-size: 1.2rem;
   cursor: pointer;
-  padding: 10px;
-  border-radius: 50%;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
 }
 
-.card-close-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
+.modal-close:hover {
   color: var(--text-primary);
-  transform: scale(1.1) rotate(90deg);
+  border-color: var(--primary-color);
 }
 
-/* 项目描述 */
-.card-description {
-  margin-bottom: 1.5rem;
+.project-modal-story h3 {
+  color: var(--text-primary);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.18;
+  margin: 0 0 0.8rem;
 }
 
-.card-description p {
-  font-size: 1rem;
-  line-height: 1.6;
+.project-modal-story p,
+.story-grid p {
   color: var(--text-secondary);
+  line-height: 1.75;
   margin: 0;
 }
 
-/* 核心数据区域 */
-.card-metrics {
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  padding: 0;
 }
 
-.metrics-list {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+.story-grid section {
+  padding: 1.25rem;
 }
 
-.metric-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
+.story-grid section:first-child {
+  border-right: 1px solid var(--border-color);
 }
 
-.metric-icon {
-  color: var(--text-secondary);
-  font-size: 1rem;
-}
-
-.metric-icon.star {
-  color: #fbbf24;
-}
-
-.metric-icon.fork {
-  color: #60a5fa;
-}
-
-.metric-value {
-  font-weight: 700;
-  color: var(--text-primary);
-  font-size: 1rem;
-}
-
-.metric-label {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-}
-
-.metric-item.category .metric-label {
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
-/* 技术栈区域 - 突出显示 */
-.card-technologies {
-  margin-bottom: 2rem;
-}
-
-.tech-label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.75rem;
-}
-
-.tech-list {
+.built-section div {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-.tech-badge {
+.built-section em {
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  color: var(--text-secondary);
   font-size: 0.8rem;
-  font-weight: 500;
+  font-style: normal;
+  font-weight: 800;
+  padding: 0.28rem 0.66rem;
 }
 
-/* 项目演示链接区域 */
-.card-demo-link {
-  margin-top: 1.5rem;
+.built-section.muted {
+  background: rgba(148, 163, 184, 0.06);
+}
+
+.project-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 0;
+}
+
+.project-facts div {
+  padding: 1.1rem;
   text-align: center;
+  border-right: 1px solid var(--border-color);
 }
 
-.demo-btn {
+.project-facts div:last-child {
+  border-right: 0;
+}
+
+.project-facts strong {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.35rem;
+  color: var(--text-primary);
+  font-size: 1.15rem;
+  margin-bottom: 0.35rem;
+}
+
+.project-facts span {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.project-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  border-bottom: 0;
+}
+
+.project-modal-actions a {
+  display: inline-flex;
+  align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 12px;
+  min-height: 42px;
+  padding: 0 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--primary-color);
+  font-weight: 850;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-  color: white;
-  border: none;
-  min-height: 36px;
 }
 
-.demo-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px -6px rgba(99, 102, 241, 0.5);
+.project-modal-actions a:hover {
+  border-color: var(--primary-color);
+  color: var(--text-primary);
 }
 
-/* PyPI logo 样式 */
-.demo-btn .pypi-logo {
-  transition: transform 0.3s ease;
-}
-
-.demo-btn:hover .pypi-logo {
-  transform: scale(1.1);
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .modal-backdrop {
-    padding: 16px;
+    align-items: flex-end;
+    padding: 0.75rem;
   }
 
-  .modal-card {
-    padding: 1.5rem;
+  .project-modal {
+    max-height: 92vh;
   }
 
-  .card-title {
-    font-size: 1.5rem;
+  .story-grid {
+    grid-template-columns: 1fr;
   }
 
-  .card-header {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
+  .story-grid section:first-child {
+    border-right: 0;
+    border-bottom: 1px solid var(--border-color);
   }
 
-  .header-actions {
-    align-self: flex-end;
-    margin-top: 0.5rem;
+  .project-facts div {
+    padding: 0.9rem 0.45rem;
   }
 
-  .metrics-list {
-    gap: 1rem;
+  .project-facts strong {
+    font-size: 1rem;
   }
-}
-
-/* 深色模式适配 */
-.app.dark .modal-content {
-  background: var(--card-bg-dark);
-}
-
-.app.dark .card-header,
-.app.dark .card-metrics {
-  border-color: rgba(255, 255, 255, 0.03);
-}
-
-.app.dark .action-btn.secondary {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.08);
-}
-
-.app.dark .action-btn.secondary:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
-}
-
-/* 动画增强 */
-@keyframes modalSlideIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9) translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-@keyframes backdropFadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.modal-content {
-  animation: modalSlideIn 0.3s ease-out;
-}
-
-.modal-backdrop {
-  animation: backdropFadeIn 0.2s ease-out;
-}
-
-/* 主题变量支持 */
-:root {
-  --card-bg: rgba(255, 255, 255, 0.95);
-  --card-bg-dark: rgba(17, 24, 39, 0.95);
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
-  --primary-color: #6366f1;
-  --primary-dark: #4f46e5;
-  --border-color: rgba(229, 231, 235, 0.5);
-}
-
-.app.dark {
-  --text-primary: #f9fafb;
-  --text-secondary: #d1d5db;
-  --border-color: rgba(75, 85, 99, 0.3);
-}
-
-/* 确保CSS变量回退 */
-.modal-content {
-  background: rgba(255, 255, 255, 0.95);
-  background: var(--card-bg, rgba(255, 255, 255, 0.95));
-}
-
-.card-title {
-  color: #1f2937;
-  color: var(--text-primary, #1f2937);
-}
-
-.card-description p,
-.card-language,
-.metric-label {
-  color: #6b7280;
-  color: var(--text-secondary, #6b7280);
-}
-
-.tech-label {
-  color: #1f2937;
-  color: var(--text-primary, #1f2937);
 }
