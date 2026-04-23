@@ -26,7 +26,8 @@ on:
 
 env:
   WEBSITE_URL: 'https://home.gqy20.top'
-  NODE_VERSION: '18'
+  NODE_VERSION: '24'
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   performance-analysis:
