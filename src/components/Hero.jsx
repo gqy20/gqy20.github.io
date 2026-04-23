@@ -144,6 +144,9 @@ const Hero = () => {
               <a href="#systems" className="ai-button ai-button-primary">
                 查看代表系统 <FaArrowRight />
               </a>
+              <a href="#/projects" className="ai-button ai-button-secondary">
+                浏览全部项目 <FaArrowRight />
+              </a>
               <a href="#notes" className="ai-button ai-button-ghost">
                 构建记录
               </a>
@@ -177,10 +180,10 @@ const Hero = () => {
                 <strong>{loading ? '...' : stats.repositories}</strong>
                 <span>公开仓库</span>
               </div>
-              <div>
+              <a href="#/projects" aria-label="浏览全部展示项目">
                 <strong>{loading ? '...' : stats.projects}</strong>
                 <span>展示项目</span>
-              </div>
+              </a>
               <div>
                 <strong>{storySystems.length}</strong>
                 <span>代表系统</span>
