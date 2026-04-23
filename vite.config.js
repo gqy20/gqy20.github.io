@@ -11,14 +11,17 @@ export default defineConfig({
     // 文件名哈希，便于长期缓存
     rollupOptions: {
       output: {
-        // 手动代码分割优化
-        manualChunks: {
-          // Prism.js 语法高亮 - 模块化设计，按需加载
-          'prism': ['prismjs'],
-          // React 相关库 - 不常变化，长期缓存
-          'react-vendor': ['react', 'react-dom'],
-          // 其他第三方库 - 相对稳定
-          'vendor': ['react-router-dom', 'framer-motion', 'react-markdown']
+        manualChunks(id) {
+          if (!id.includes('node_modules')) return
+          if (id.includes('/prismjs/')) return 'prism'
+          if (id.includes('/react/') || id.includes('/react-dom/')) return 'react-vendor'
+          if (
+            id.includes('/react-router-dom/') ||
+            id.includes('/framer-motion/') ||
+            id.includes('/react-markdown/')
+          ) {
+            return 'vendor'
+          }
         },
         // 文件名包含内容哈希，便于缓存策略
         chunkFileNames: 'assets/[name]-[hash].js',
