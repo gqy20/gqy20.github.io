@@ -79,3 +79,21 @@ test('searches project names, descriptions, tracks, and narrative text', () => {
 
   assert.deepEqual(model.filtered.map(project => project.name), ['article-mcp'])
 })
+
+test('builds a compact directory grouped by portfolio track', () => {
+  const model = getProjectViewModel(projects, { searchTerm: '', sortBy: 'updated' })
+
+  assert.deepEqual(
+    model.directoryGroups.map(group => [group.id, group.projects.map(project => project.name)]),
+    [
+      ['tool-interfaces', ['article-mcp']],
+      ['ai-devtools', ['cc-insights']]
+    ]
+  )
+})
+
+test('directory search can include featured systems', () => {
+  const model = getProjectViewModel(projects, { searchTerm: '小镇', sortBy: 'updated' })
+
+  assert.deepEqual(model.directoryGroups.map(group => group.projects.map(project => project.name)), [['TrumanWorld']])
+})

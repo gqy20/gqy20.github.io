@@ -49,6 +49,45 @@ const compareByFeaturedOrder = (a, b) => {
   return normalizedA - normalizedB
 }
 
+const projectMatchesSearch = (project, searchTerm) => {
+  if (!searchTerm) return true
+
+  const haystack = [
+    project.name,
+    project.description,
+    project.language,
+    project.category,
+    project.portfolioTrack.label,
+    project.narrative.title,
+    project.narrative.summary,
+    project.narrative.problem,
+    ...(project.tags || [])
+  ].filter(Boolean).join(' ').toLowerCase()
+
+  return haystack.includes(searchTerm)
+}
+
+const sortProjects = (projects, sortBy) => [...projects].sort((a, b) => {
+  if (sortBy === 'featured') return Number(b.isFeatured) - Number(a.isFeatured) || compareByFeaturedOrder(a, b)
+  if (sortBy === 'stars') return b.stars - a.stars
+  return new Date(b.updatedAt) - new Date(a.updatedAt)
+})
+
+const buildDirectoryGroups = (projects, searchTerm, sortBy) => {
+  const directoryProjects = sortProjects(
+    projects.filter(project => (searchTerm || !project.isFeatured) && projectMatchesSearch(project, searchTerm)),
+    sortBy
+  )
+
+  return PORTFOLIO_TRACKS
+    .filter(track => !['all', 'featured'].includes(track.id))
+    .map(track => ({
+      ...track,
+      projects: directoryProjects.filter(project => project.portfolioTrack.id === track.id)
+    }))
+    .filter(group => group.projects.length > 0)
+}
+
 export const getProjectViewModel = (projects, options = {}) => {
   const selectedTrack = options.selectedTrack || 'all'
   const searchTerm = (options.searchTerm || '').trim().toLowerCase()
@@ -75,28 +114,15 @@ export const getProjectViewModel = (projects, options = {}) => {
   }
 
   if (searchTerm) {
-    filtered = filtered.filter(project => {
-      const haystack = [
-        project.name,
-        project.description,
-        project.language,
-        project.category,
-        project.portfolioTrack.label,
-        project.narrative.title,
-        project.narrative.summary,
-        project.narrative.problem,
-        ...(project.tags || [])
-      ].filter(Boolean).join(' ').toLowerCase()
-
-      return haystack.includes(searchTerm)
-    })
+    filtered = filtered.filter(project => projectMatchesSearch(project, searchTerm))
   }
 
-  filtered = [...filtered].sort((a, b) => {
-    if (sortBy === 'featured') return Number(b.isFeatured) - Number(a.isFeatured) || compareByFeaturedOrder(a, b)
-    if (sortBy === 'stars') return b.stars - a.stars
-    return new Date(b.updatedAt) - new Date(a.updatedAt)
-  })
+  filtered = sortProjects(filtered, sortBy)
 
-  return { featured, filtered, trackCounts }
+  return {
+    featured,
+    filtered,
+    trackCounts,
+    directoryGroups: buildDirectoryGroups(enriched, searchTerm, sortBy)
+  }
 }

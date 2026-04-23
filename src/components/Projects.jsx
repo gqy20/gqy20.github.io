@@ -10,10 +10,7 @@ import {
 } from 'react-icons/fa'
 import './Projects.css'
 import ProjectDetailModal from './ProjectDetailModal'
-import {
-  PORTFOLIO_TRACKS,
-  getProjectViewModel
-} from '../utils/portfolioProjects'
+import { getProjectViewModel } from '../utils/portfolioProjects'
 import { getExternalLinkIcon, normalizeDescription } from '../utils/projectUtils'
 
 const Projects = () => {
@@ -21,7 +18,6 @@ const Projects = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [searchTerm, setSearchTerm] = useState('')
-  const [selectedTrack, setSelectedTrack] = useState('all')
   const [sortBy, setSortBy] = useState('featured')
   const [selectedProject, setSelectedProject] = useState(null)
 
@@ -43,9 +39,9 @@ const Projects = () => {
   }, [])
 
   const viewModel = useMemo(() => {
-    if (!projectsData) return { featured: [], filtered: [], trackCounts: [] }
-    return getProjectViewModel(projectsData.allProjects, { selectedTrack, searchTerm, sortBy })
-  }, [projectsData, selectedTrack, searchTerm, sortBy])
+    if (!projectsData) return { featured: [], filtered: [], trackCounts: [], directoryGroups: [] }
+    return getProjectViewModel(projectsData.allProjects, { searchTerm, sortBy })
+  }, [projectsData, searchTerm, sortBy])
 
   const openProject = (project) => setSelectedProject(project)
   const closeProject = () => setSelectedProject(null)
@@ -126,8 +122,8 @@ const Projects = () => {
         <section className="project-browser" aria-labelledby="browser-title">
           <div className="section-heading browser-heading">
             <div>
-              <p>项目索引</p>
-              <h2 id="browser-title">按能力看，而不是按仓库看。</h2>
+              <p>作品目录</p>
+              <h2 id="browser-title">更多系统，按能力归档。</h2>
             </div>
             <div className="project-tools">
               <label className="search-box">
@@ -147,33 +143,12 @@ const Projects = () => {
             </div>
           </div>
 
-          <div className="track-tabs">
-            {PORTFOLIO_TRACKS.map(track => {
-              const count = track.id === 'all'
-                ? totalProjects
-                : track.id === 'featured'
-                  ? viewModel.featured.length
-                  : viewModel.trackCounts.find(item => item.id === track.id)?.count || 0
-              return (
-                <button
-                  type="button"
-                  key={track.id}
-                  className={selectedTrack === track.id ? 'active' : ''}
-                  onClick={() => setSelectedTrack(track.id)}
-                >
-                  {track.label}<span>{count}</span>
-                </button>
-              )
-            })}
-          </div>
-
-          {viewModel.filtered.length > 0 ? (
-            <div className="projects-grid">
-              {viewModel.filtered.map((project, index) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  index={index}
+          {viewModel.directoryGroups.length > 0 ? (
+            <div className="project-directory">
+              {viewModel.directoryGroups.map(group => (
+                <DirectoryGroup
+                  key={group.id}
+                  group={group}
                   onOpen={openProject}
                 />
               ))}
@@ -198,6 +173,47 @@ const Projects = () => {
         onClose={closeProject}
       />
     </section>
+  )
+}
+
+const DirectoryGroup = ({ group, onOpen }) => (
+  <section className="directory-group" aria-labelledby={`directory-${group.id}`}>
+    <div className="directory-group-heading">
+      <h3 id={`directory-${group.id}`}>{group.label}</h3>
+      <span>{group.projects.length} 个项目</span>
+    </div>
+    <div className="directory-list">
+      {group.projects.map(project => (
+        <DirectoryItem key={project.id} project={project} onOpen={onOpen} />
+      ))}
+    </div>
+  </section>
+)
+
+const DirectoryItem = ({ project, onOpen }) => {
+  const narrative = project.narrative
+  const homepageIcon = getExternalLinkIcon(project.homepage)
+
+  return (
+    <article className="directory-item">
+      <button type="button" className="directory-main" onClick={() => onOpen(project)}>
+        <span>{project.name}</span>
+        <strong>{narrative.title}</strong>
+        <em>{narrative.summary || normalizeDescription(project.description, project.name)}</em>
+      </button>
+      <div className="directory-meta">
+        {project.isArchived && <span><FaArchive /> 已归档</span>}
+        <span>{project.language || 'Unknown'}</span>
+        <a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} GitHub`}>
+          <FaGithub />
+        </a>
+        {project.homepage && (
+          <a href={project.homepage} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} 外部链接`}>
+            {homepageIcon === 'pypi' ? 'PyPI' : <FaExternalLinkAlt />}
+          </a>
+        )}
+      </div>
+    </article>
   )
 }
 
