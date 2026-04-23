@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-23T01:20:18.878Z",
+  "lastUpdated": "2026-04-23T07:18:46.437Z",
   "totalProjects": 35,
   "totalStars": 70,
   "followers": 16,
@@ -822,7 +822,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-03-30T14:22:18Z",
-        "updatedAt": "2026-04-22T08:04:30Z",
+        "updatedAt": "2026-04-23T06:10:29Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -830,7 +830,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 1169,
+        "size": 1565,
         "license": "MIT License",
         "latestRelease": {
           "tagName": "v0.0.7",
@@ -1900,7 +1900,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-03-30T14:22:18Z",
-      "updatedAt": "2026-04-22T08:04:30Z",
+      "updatedAt": "2026-04-23T06:10:29Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -1908,7 +1908,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 1169,
+      "size": 1565,
       "license": "MIT License",
       "latestRelease": {
         "tagName": "v0.0.7",
