@@ -27,6 +27,12 @@ on:
 env:
   WEBSITE_URL: 'https://home.gqy20.top'
   NODE_VERSION: '24'
+  LIGHTHOUSE_CHROME_FLAGS: >-
+    --headless=new
+    --no-sandbox
+    --disable-dev-shm-usage
+    --disable-gpu
+    --window-size=1350,940
 
 jobs:
   performance-analysis:
@@ -52,22 +58,59 @@ jobs:
     - name: Create reports directory
       run: mkdir -p performance-reports
 
+    - name: Create Lighthouse retry helper
+      run: |
+        cat > performance-reports/run-lighthouse.sh << 'EOF'
+        #!/usr/bin/env bash
+        set -euo pipefail
+
+        args=("$@")
+        output_path="${args[$((${#args[@]} - 1))]}"
+        unset 'args[$((${#args[@]} - 1))]'
+        max_attempts=3
+
+        for attempt in $(seq 1 "$max_attempts"); do
+          echo "Running Lighthouse attempt ${attempt}/${max_attempts}: ${output_path}"
+
+          if lighthouse "${args[@]}"; then
+            exit 0
+          fi
+
+          if [[ -f "$output_path" ]] && ! grep -q '"runtimeError"' "$output_path"; then
+            echo "Lighthouse returned non-zero, but report exists without runtimeError. Keeping report."
+            exit 0
+          fi
+
+          if [[ "$attempt" -lt "$max_attempts" ]]; then
+            sleep $((attempt * 5))
+          fi
+        done
+
+        echo "Lighthouse failed after ${max_attempts} attempts: ${output_path}" >&2
+        exit 1
+        EOF
+        chmod +x performance-reports/run-lighthouse.sh
+
     - name: Run Lighthouse Analysis (Mobile)
       run: |
-        lighthouse "${{ env.WEBSITE_URL }}" \
-          --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+        performance-reports/run-lighthouse.sh "${{ env.WEBSITE_URL }}" \
+          --chrome-flags="${{ env.LIGHTHOUSE_CHROME_FLAGS }}" \
           --form-factor=mobile \
+          --max-wait-for-fcp=30000 \
           --output=json \
-          --output-path=./performance-reports/lighthouse-mobile.json
+          --output-path=./performance-reports/lighthouse-mobile.json \
+          ./performance-reports/lighthouse-mobile.json
 
     - name: Run Lighthouse Analysis (Desktop)
       run: |
-        lighthouse "${{ env.WEBSITE_URL }}" \
-          --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+        performance-reports/run-lighthouse.sh "${{ env.WEBSITE_URL }}" \
+          --chrome-flags="${{ env.LIGHTHOUSE_CHROME_FLAGS }}" \
           --form-factor=desktop \
           --screenEmulation.disabled=true \
+          --max-wait-for-fcp=30000 \
           --output=json \
-          --output-path=./performance-reports/lighthouse-desktop.json
+          --output-path=./performance-reports/lighthouse-desktop.json \
+          ./performance-reports/lighthouse-desktop.json
 
     - name: Generate Performance Summary
       run: |
@@ -166,13 +209,16 @@ jobs:
 
     - name: Generate HTML Report
       run: |
-        lighthouse "${{ env.WEBSITE_URL }}" \
-          --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+        performance-reports/run-lighthouse.sh "${{ env.WEBSITE_URL }}" \
+          --chrome-flags="${{ env.LIGHTHOUSE_CHROME_FLAGS }}" \
           --form-factor=mobile \
+          --max-wait-for-fcp=30000 \
           --output=html \
-          --output-path=./performance-reports/lighthouse-report.html
+          --output-path=./performance-reports/lighthouse-report.html \
+          ./performance-reports/lighthouse-report.html
 
     - name: Upload Performance Reports
+      if: always()
       uses: actions/upload-artifact@v7
       with:
         name: performance-reports-${{ github.run_id }}

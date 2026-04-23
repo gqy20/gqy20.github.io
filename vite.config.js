@@ -13,7 +13,6 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (!id.includes('node_modules')) return
-          if (id.includes('/prismjs/')) return 'prism'
           if (id.includes('/react/') || id.includes('/react-dom/')) return 'react-vendor'
           if (
             id.includes('/react-router-dom/') ||
