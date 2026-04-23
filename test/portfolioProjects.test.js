@@ -1,6 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import {
+  PORTFOLIO_CONFIG,
   getPortfolioTrack,
   getProjectNarrative,
   getProjectViewModel
@@ -40,6 +41,13 @@ test('maps important repositories to portfolio tracks', () => {
   assert.equal(getPortfolioTrack(projects[0]).id, 'agent-systems')
   assert.equal(getPortfolioTrack(projects[1]).id, 'tool-interfaces')
   assert.equal(getPortfolioTrack(projects[2]).id, 'ai-devtools')
+})
+
+test('loads portfolio semantics from json config', () => {
+  assert.ok(PORTFOLIO_CONFIG.tracks.some(track => track.id === 'knowledge-work'))
+  assert.deepEqual(PORTFOLIO_CONFIG.featured.slice(0, 3), ['TrumanWorld', 'zotero_cli', 'TrendPluse'])
+  assert.equal(PORTFOLIO_CONFIG.projects.TrumanWorld.track, 'agent-systems')
+  assert.equal(PORTFOLIO_CONFIG.projects['article-mcp'].narrative.title, '让智能体检索论文')
 })
 
 test('uses hand-written narrative for flagship systems', () => {
