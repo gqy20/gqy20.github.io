@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { FaCalendar, FaClock, FaTag, FaUser, FaFolder } from 'react-icons/fa'
+import { FaArrowRight, FaCalendar, FaClock, FaFolder, FaTag } from 'react-icons/fa'
 import Badge from './Badge'
 import './Blog.css'
 
@@ -30,8 +30,8 @@ const Blog = () => {
   if (loading) {
     return (
       <section className="blog">
-        <div className="container">
-          <div className="loading-container">
+        <div className="blog-shell">
+          <div className="blog-state">
             <div className="loading-spinner"></div>
             <p>正在加载博客文章...</p>
           </div>
@@ -43,8 +43,8 @@ const Blog = () => {
   if (error) {
     return (
       <section className="blog">
-        <div className="container">
-          <div className="error-container">
+        <div className="blog-shell">
+          <div className="blog-state">
             <h3>加载失败</h3>
             <p>{error}</p>
             <button onClick={() => window.location.reload()} className="retry-btn">
@@ -58,40 +58,40 @@ const Blog = () => {
 
   return (
     <section className="blog">
-      <div className="container">
-        <motion.h2
-          className="section-title"
+      <div className="blog-shell">
+        <motion.header
+          className="blog-hero"
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45 }}
         >
-          技术博客 ({blogData?.totalPosts || 0})
-        </motion.h2>
+          <p>构建记录</p>
+          <h1>记录我如何把 AI 想法做成真实系统。</h1>
+          <div className="blog-hero-copy">
+            <span>{blogData?.totalPosts || 0} 篇关于智能体、工具接口、前端体验和自动化工作流的记录。</span>
+            <a href="#/projects">查看项目 <FaArrowRight /></a>
+          </div>
+        </motion.header>
 
-        <motion.p
-          className="blog-intro"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          分享开发过程中的技术思考、项目经验和学习心得，涵盖前端开发、AI应用和科研工具等领域
-        </motion.p>
-
-        <div className="blog-grid">
+        <div className="blog-list">
           {blogData?.posts.map((post, index) => (
             <Link
               key={post.id}
               to={`/blog/${post.slug}`}
-              className="blog-card-link"
+              className="blog-item-link"
             >
               <motion.article
-                className="blog-card"
-                initial={{ opacity: 0, y: 50 }}
+                className="blog-item"
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.38, delay: Math.min(index, 8) * 0.04 }}
               >
-                <div className="blog-header">
+                <div className="blog-index">
+                  {String(index + 1).padStart(2, '0')}
+                </div>
+
+                <div className="blog-main">
                   <div className="blog-meta">
                     <span className="blog-date">
                       <FaCalendar /> {post.date}
@@ -99,29 +99,23 @@ const Blog = () => {
                     <span className="blog-read-time">
                       <FaClock /> {post.readTime}
                     </span>
-                    <span className="blog-author">
-                      <FaUser /> {post.author}
-                    </span>
                   </div>
                   <h3 className="blog-title">{post.title}</h3>
-                </div>
+                  <p className="blog-excerpt">{post.excerpt}</p>
 
-                <p className="blog-excerpt">{post.excerpt}</p>
-
-                <div className="blog-tags">
-                  <Badge variant="secondary" className="blog-category-badge">
-                    <FaFolder /> {post.category}
-                  </Badge>
-                  {post.tags.map((tag) => (
-                    <Badge key={tag} variant="outline" className="blog-tag-badge">
-                      <FaTag /> {tag}
+                  <div className="blog-tags">
+                    <Badge variant="secondary" className="blog-category-badge">
+                      <FaFolder /> {post.category}
                     </Badge>
-                  ))}
+                    {post.tags.map((tag) => (
+                      <Badge key={tag} variant="outline" className="blog-tag-badge">
+                        <FaTag /> {tag}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="blog-link">
-                  阅读全文 →
-                </div>
+                <span className="blog-link">阅读 <FaArrowRight /></span>
               </motion.article>
             </Link>
           ))}
@@ -133,7 +127,6 @@ const Blog = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <p>更多技术文章正在编写中...</p>
           <p className="last-updated">
             最后更新: {new Date(blogData?.lastUpdated).toLocaleString('zh-CN')}
           </p>

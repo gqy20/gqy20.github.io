@@ -5,7 +5,7 @@
   padding: 0.85rem 0 0;
   background: transparent;
   border-bottom: 0;
-  transition: padding 0.25s ease;
+  transition: padding 0.25s ease, background 0.25s ease;
   pointer-events: auto;
   box-shadow: none;
 }
@@ -28,6 +28,14 @@
   transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
+.navbar.scrolled .navbar-container,
+.mobile-menu {
+  border-color: var(--site-line);
+  background: color-mix(in srgb, var(--site-surface-solid) 82%, transparent);
+  box-shadow: var(--site-shadow);
+  backdrop-filter: blur(16px);
+}
+
 .navbar-menu {
   display: flex;
   justify-content: center;
@@ -38,11 +46,6 @@
   border-radius: 8px;
   background: transparent;
   transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.app.dark .navbar-menu {
-  border-color: transparent;
-  background: transparent;
 }
 
 .navbar-logo {
@@ -57,7 +60,7 @@
   font-weight: 850;
   letter-spacing: 0;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
 .navbar-logo:hover {
@@ -78,7 +81,7 @@
   line-height: 1;
   padding: 0.62rem 0.82rem;
   border-radius: 6px;
-  transition: all 0.3s ease;
+  transition: color 0.2s ease, background 0.2s ease;
   position: relative;
 }
 
@@ -87,6 +90,7 @@
 }
 
 .navbar-link:hover {
+  background: rgba(37, 99, 235, 0.08);
   color: var(--primary-color);
 }
 
@@ -127,12 +131,6 @@
   backdrop-filter: blur(12px);
 }
 
-.app.dark .theme-toggle,
-.app.dark .mobile-menu-toggle {
-  background: transparent;
-  border-color: transparent;
-}
-
 .theme-toggle:hover,
 .mobile-menu-toggle:hover {
   background: rgba(37, 99, 235, 0.1);
@@ -149,31 +147,20 @@
   top: calc(100% + 0.5rem);
   left: 1rem;
   right: 1rem;
-  border: 1px solid rgba(18, 24, 38, 0.1);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 18px 48px rgba(18, 24, 38, 0.12);
-  backdrop-filter: blur(18px);
   overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.app.dark .mobile-menu {
-  border-color: rgba(238, 244, 255, 0.12);
-  background: rgba(8, 11, 18, 0.92);
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
 }
 
 .mobile-menu-link {
   display: block;
-  padding: 1.25rem 2rem;
+  padding: 1rem 1.1rem;
   color: var(--text-color);
   text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  font-weight: 750;
+  transition: background 0.2s ease, color 0.2s ease;
   border-bottom: 1px solid var(--border-color);
-  min-height: 60px;
-  font-size: 1.1rem;
+  min-height: 52px;
+  font-size: 1rem;
 }
 
 .mobile-menu-link:last-child {
@@ -183,7 +170,6 @@
 .mobile-menu-link:hover {
   background: rgba(37, 99, 235, 0.1);
   color: var(--primary-color);
-  padding-left: 2.5rem;
 }
 
 @media (max-width: 768px) {

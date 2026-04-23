@@ -7,7 +7,6 @@ import Projects from './components/Projects'
 import Blog from './components/Blog'
 import BlogPost from './components/BlogPost'
 import ComponentTest from './components/ComponentTest'
-import ParticleBackground from './components/ParticleBackground'
 import './App.css'
 
 function App() {
@@ -17,9 +16,7 @@ function App() {
     <Router>
       <div className={`app ${isDarkMode ? 'dark' : ''}`}>
         <div className="app-content">
-          <ParticleBackground />
           <main className="main-content">
-            {/* 智能融合导航：保持可用性，优化视觉体验 */}
             <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
             <motion.div
               initial={{ opacity: 0 }}
