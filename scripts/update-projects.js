@@ -212,6 +212,12 @@ async function fetchGitHubProjects() {
     // 过滤并处理项目数据
     const filteredRepos = repos.filter(repo => !repo.fork && !repo.private && repo.name !== 'gqy20.github.io');
     console.log(`🔍 筛选出 ${filteredRepos.length} 个有效仓库`);
+    const excludedRepos = repos
+      .filter(repo => !filteredRepos.includes(repo))
+      .map(repo => ({
+        name: repo.name,
+        reason: repo.private ? 'private' : repo.fork ? 'fork' : 'site-repository'
+      }));
 
     // 批量获取项目详细信息（包括homepage和releases）
     const projects = [];
@@ -272,12 +278,15 @@ async function fetchGitHubProjects() {
 
     const projectData = {
       lastUpdated: new Date().toISOString(),
+      totalRepositories: repos.length,
       totalProjects: projects.length,
+      totalRepositoryStars: repos.reduce((sum, repo) => sum + repo.stargazers_count, 0),
       totalStars: projects.reduce((sum, p) => sum + p.stars, 0),
       followers: userData.followers || 2,
       categories: Object.keys(categorizedProjects),
       projects: categorizedProjects,
-      allProjects: projects
+      allProjects: projects,
+      excludedRepositories: excludedRepos
     };
 
     // 确保目录存在
@@ -290,7 +299,9 @@ async function fetchGitHubProjects() {
     fs.writeFileSync(PROJECTS_FILE, JSON.stringify(projectData, null, 2), 'utf8');
 
     console.log('✅ 项目数据更新成功!');
+    console.log(`📚 公开仓库 ${projectData.totalRepositories} 个`);
     console.log(`📈 总计 ${projectData.totalProjects} 个项目`);
+    console.log(`⭐ 公开仓库总星标 ${projectData.totalRepositoryStars} 个`);
     console.log(`⭐ 总计 ${projectData.totalStars} 个星标`);
     console.log(`🏷️  ${projectData.categories.length} 个分类: ${projectData.categories.join(', ')}`);
 

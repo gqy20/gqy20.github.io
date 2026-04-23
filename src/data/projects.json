@@ -1,6 +1,8 @@
 {
-  "lastUpdated": "2026-04-23T09:17:18.128Z",
+  "lastUpdated": "2026-04-23T09:19:57.937Z",
+  "totalRepositories": 38,
   "totalProjects": 35,
+  "totalRepositoryStars": 71,
   "totalStars": 70,
   "followers": 16,
   "categories": [
@@ -179,14 +181,9 @@
         "size": 82,
         "license": "MIT License",
         "latestRelease": null,
-        "latestTag": {
-          "name": "v0.1.5",
-          "commit": "de97aebfd0bd32d8c0cb830b15562b6d35d75725",
-          "zipball_url": "https://api.github.com/repos/gqy20/protein-mcp/zipball/refs/tags/v0.1.5",
-          "tarball_url": "https://api.github.com/repos/gqy20/protein-mcp/tarball/refs/tags/v0.1.5"
-        },
+        "latestTag": null,
         "totalReleases": 0,
-        "totalTags": 5
+        "totalTags": 0
       }
     ],
     "AI应用": [
@@ -1036,16 +1033,10 @@
         "isArchived": false,
         "size": 7359,
         "license": null,
-        "latestRelease": {
-          "tagName": "v0.4.1",
-          "name": "Process Tracker",
-          "publishedAt": "2025-10-27T09:53:30Z",
-          "prerelease": false,
-          "draft": false
-        },
+        "latestRelease": null,
         "latestTag": null,
-        "totalReleases": 4,
-        "totalTags": 4
+        "totalReleases": 0,
+        "totalTags": 0
       },
       {
         "id": 1070102277,
@@ -1269,14 +1260,9 @@
       "size": 82,
       "license": "MIT License",
       "latestRelease": null,
-      "latestTag": {
-        "name": "v0.1.5",
-        "commit": "de97aebfd0bd32d8c0cb830b15562b6d35d75725",
-        "zipball_url": "https://api.github.com/repos/gqy20/protein-mcp/zipball/refs/tags/v0.1.5",
-        "tarball_url": "https://api.github.com/repos/gqy20/protein-mcp/tarball/refs/tags/v0.1.5"
-      },
+      "latestTag": null,
       "totalReleases": 0,
-      "totalTags": 5
+      "totalTags": 0
     },
     {
       "id": 1126636339,
@@ -2114,16 +2100,10 @@
       "isArchived": false,
       "size": 7359,
       "license": null,
-      "latestRelease": {
-        "tagName": "v0.4.1",
-        "name": "Process Tracker",
-        "publishedAt": "2025-10-27T09:53:30Z",
-        "prerelease": false,
-        "draft": false
-      },
+      "latestRelease": null,
       "latestTag": null,
-      "totalReleases": 4,
-      "totalTags": 4
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 1070102277,
@@ -2178,6 +2158,20 @@
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
+    }
+  ],
+  "excludedRepositories": [
+    {
+      "name": "gqy20.github.io",
+      "reason": "site-repository"
+    },
+    {
+      "name": "docker_image_pusher",
+      "reason": "fork"
+    },
+    {
+      "name": "zotero-arxiv-daily",
+      "reason": "fork"
     }
   ]
 }

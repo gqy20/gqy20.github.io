@@ -5,8 +5,8 @@ import './Hero.css'
 
 const Hero = () => {
   const [projectStats, setProjectStats] = useState({
-    totalProjects: 13,
-    totalStars: 20
+    totalRepositories: 13,
+    totalRepositoryStars: 20
   })
   const [loading, setLoading] = useState(true)
 
@@ -15,8 +15,8 @@ const Hero = () => {
       try {
         const data = await import('../data/projects.json')
         setProjectStats({
-          totalProjects: data.default.totalProjects,
-          totalStars: data.default.totalStars
+          totalRepositories: data.default.totalRepositories ?? data.default.totalProjects,
+          totalRepositoryStars: data.default.totalRepositoryStars ?? data.default.totalStars
         })
       } catch (error) {
         console.error('Failed to load project data:', error)
@@ -89,13 +89,13 @@ const Hero = () => {
             <div className="achievement-badge">
               <FaStar className="achievement-icon" />
               <span className="achievement-text">
-                {loading ? '...' : `${projectStats.totalProjects}+ 开源项目`}
+                {loading ? '...' : `${projectStats.totalRepositories}+ 公开仓库`}
               </span>
             </div>
             <div className="achievement-badge">
               <FaStar className="achievement-icon" />
               <span className="achievement-text">
-                {loading ? '...' : `${projectStats.totalStars}+ 项目Stars`}
+                {loading ? '...' : `${projectStats.totalRepositoryStars}+ GitHub Stars`}
               </span>
             </div>
           </motion.div>
