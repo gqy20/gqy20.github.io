@@ -125,27 +125,6 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
     { name: '博客', href: '#/blog', icon: '📖' }
   ]
 
-  // 智能透明度计算：根据状态和背景动态调整
-  const getOptimalOpacity = useCallback(() => {
-    switch (navigationState) {
-      case 'interacting':
-        return 0.95 // 完全可见，确保操作准确
-      case 'seeking':
-        return 0.7 // 高度可见，提供帮助
-      case 'browsing':
-        return 0.4 // 轻微可见，减少干扰
-      case 'idle':
-        return isScrolled ? 0.2 : 0.15 // 极淡，但依然可发现
-      default:
-        return 0.3
-    }
-  }, [navigationState, isScrolled])
-
-  // 调试信息（仅在开发环境显示）
-  if (process.env.NODE_ENV === 'development') {
-    console.log(`[Navigation State] ${navigationState} | Opacity: ${getOptimalOpacity()} | Scroll: ${isScrolled ? 'scrolled' : 'top'}`)
-  }
-
   return (
     <motion.nav
       className={`navbar ${navigationState} ${isScrolled ? 'scrolled' : ''}`}
