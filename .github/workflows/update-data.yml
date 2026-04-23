@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: write
 
     steps:
     - name: Checkout
@@ -32,13 +33,22 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Commit changes
+      id: commit
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
         git add src/data/projects.json
         if git diff --staged --quiet; then
           echo "No changes to commit"
+          echo "changed=false" >> "$GITHUB_OUTPUT"
         else
           git commit -m "Auto update projects data"
           git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
         fi
+
+    - name: Trigger deployment
+      if: steps.commit.outputs.changed == 'true'
+      run: gh workflow run deploy.yml --ref main
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
