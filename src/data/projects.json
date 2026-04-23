@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-23T09:19:57.937Z",
+  "lastUpdated": "2026-04-23T12:54:12.136Z",
   "totalRepositories": 38,
   "totalProjects": 35,
   "totalRepositoryStars": 71,
@@ -181,9 +181,14 @@
         "size": 82,
         "license": "MIT License",
         "latestRelease": null,
-        "latestTag": null,
+        "latestTag": {
+          "name": "v0.1.5",
+          "commit": "de97aebfd0bd32d8c0cb830b15562b6d35d75725",
+          "zipball_url": "https://api.github.com/repos/gqy20/protein-mcp/zipball/refs/tags/v0.1.5",
+          "tarball_url": "https://api.github.com/repos/gqy20/protein-mcp/tarball/refs/tags/v0.1.5"
+        },
         "totalReleases": 0,
-        "totalTags": 0
+        "totalTags": 5
       }
     ],
     "AI应用": [
@@ -565,7 +570,7 @@
         "language": "Python",
         "stars": 11,
         "forks": 3,
-        "issues": 11,
+        "issues": 12,
         "createdAt": "2026-02-02T04:09:50Z",
         "updatedAt": "2026-03-17T03:53:47Z",
         "category": "科研工具",
@@ -717,7 +722,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-03-31T08:42:45Z",
-        "updatedAt": "2026-04-22T13:12:58Z",
+        "updatedAt": "2026-04-23T10:22:01Z",
         "category": "开发工具",
         "priority": 5,
         "tags": [
@@ -731,7 +736,7 @@
           "zotero"
         ],
         "isArchived": false,
-        "size": 18,
+        "size": 19,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -819,7 +824,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-03-30T14:22:18Z",
-        "updatedAt": "2026-04-23T06:10:29Z",
+        "updatedAt": "2026-04-23T12:32:08Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -827,12 +832,12 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 1565,
+        "size": 1588,
         "license": "MIT License",
         "latestRelease": {
-          "tagName": "v0.0.7",
-          "name": "v0.0.7 · zot",
-          "publishedAt": "2026-04-22T07:35:10Z",
+          "tagName": "v0.0.8",
+          "name": "v0.0.8 · zot",
+          "publishedAt": "2026-04-23T09:26:41Z",
           "prerelease": false,
           "draft": false
         },
@@ -1033,10 +1038,16 @@
         "isArchived": false,
         "size": 7359,
         "license": null,
-        "latestRelease": null,
+        "latestRelease": {
+          "tagName": "v0.4.1",
+          "name": "Process Tracker",
+          "publishedAt": "2025-10-27T09:53:30Z",
+          "prerelease": false,
+          "draft": false
+        },
         "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
+        "totalReleases": 4,
+        "totalTags": 4
       },
       {
         "id": 1070102277,
@@ -1260,9 +1271,14 @@
       "size": 82,
       "license": "MIT License",
       "latestRelease": null,
-      "latestTag": null,
+      "latestTag": {
+        "name": "v0.1.5",
+        "commit": "de97aebfd0bd32d8c0cb830b15562b6d35d75725",
+        "zipball_url": "https://api.github.com/repos/gqy20/protein-mcp/zipball/refs/tags/v0.1.5",
+        "tarball_url": "https://api.github.com/repos/gqy20/protein-mcp/tarball/refs/tags/v0.1.5"
+      },
       "totalReleases": 0,
-      "totalTags": 0
+      "totalTags": 5
     },
     {
       "id": 1126636339,
@@ -1640,7 +1656,7 @@
       "language": "Python",
       "stars": 11,
       "forks": 3,
-      "issues": 11,
+      "issues": 12,
       "createdAt": "2026-02-02T04:09:50Z",
       "updatedAt": "2026-03-17T03:53:47Z",
       "category": "科研工具",
@@ -1788,7 +1804,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-03-31T08:42:45Z",
-      "updatedAt": "2026-04-22T13:12:58Z",
+      "updatedAt": "2026-04-23T10:22:01Z",
       "category": "开发工具",
       "priority": 5,
       "tags": [
@@ -1802,7 +1818,7 @@
         "zotero"
       ],
       "isArchived": false,
-      "size": 18,
+      "size": 19,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -1886,7 +1902,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-03-30T14:22:18Z",
-      "updatedAt": "2026-04-23T06:10:29Z",
+      "updatedAt": "2026-04-23T12:32:08Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -1894,12 +1910,12 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 1565,
+      "size": 1588,
       "license": "MIT License",
       "latestRelease": {
-        "tagName": "v0.0.7",
-        "name": "v0.0.7 · zot",
-        "publishedAt": "2026-04-22T07:35:10Z",
+        "tagName": "v0.0.8",
+        "name": "v0.0.8 · zot",
+        "publishedAt": "2026-04-23T09:26:41Z",
         "prerelease": false,
         "draft": false
       },
@@ -2100,10 +2116,16 @@
       "isArchived": false,
       "size": 7359,
       "license": null,
-      "latestRelease": null,
+      "latestRelease": {
+        "tagName": "v0.4.1",
+        "name": "Process Tracker",
+        "publishedAt": "2025-10-27T09:53:30Z",
+        "prerelease": false,
+        "draft": false
+      },
       "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
+      "totalReleases": 4,
+      "totalTags": 4
     },
     {
       "id": 1070102277,
