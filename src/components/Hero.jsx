@@ -9,102 +9,126 @@ import {
 } from 'react-icons/fa'
 import './Hero.css'
 
-const workflowNodes = [
+const featuredSystems = [
   {
-    key: 'intent',
-    label: 'Intent',
-    title: 'Frame the task',
-    description: '把模糊需求整理成可执行的目标、约束和上下文。',
-    project: 'TrendPluse'
+    name: 'TrumanWorld',
+    type: 'Agent simulation',
+    statement: '一个 AI 小镇实验：居民拥有记忆、计划与社交关系，观察者只能创造条件，不能直接操控想法。',
+    automates: '多智能体生活、交互与社会仿真',
+    aiRole: 'generative agents / memory / planning',
+    interface: 'FastAPI + Next.js'
   },
   {
-    key: 'agent',
-    label: 'Agent',
-    title: 'Reason and plan',
-    description: '让 AI 系统拆解问题、选择工具，并保留可追踪的推理路径。',
-    project: 'manim-agent'
+    name: 'IssueLab',
+    type: 'Agent collaboration',
+    statement: '基于 GitHub Issues 的多智能体讨论网络，让观点交锋、数字分身和异步协作留下可追踪轨迹。',
+    automates: '讨论组织、观点生成、协作记录',
+    aiRole: 'multi-agent debate / digital participants',
+    interface: 'GitHub Issues + Python'
   },
   {
-    key: 'tools',
-    label: 'Tools',
-    title: 'Call capabilities',
-    description: '通过 MCP 和自动化接口，把外部能力接入 Agent 工作流。',
-    project: 'article-mcp'
+    name: 'zotero_cli',
+    type: 'AI-native knowledge CLI',
+    statement: '让 Claude Code、Codex 等 AI agent 能直接操作 Zotero：检索、阅读 PDF、管理标注、生成引文。',
+    automates: '文献库检索、阅读、引用与知识管理',
+    aiRole: 'agent-operable research library',
+    interface: 'Go CLI'
   },
   {
-    key: 'data',
-    label: 'Data',
-    title: 'Retrieve context',
-    description: '从网页、文献、代码和领域数据中获取足够可靠的上下文。',
-    project: 'crawl-mcp'
+    name: 'TrendPluse',
+    type: 'Intelligence pipeline',
+    statement: '追踪 AI 编程工具和智能体生态，用模型从 GitHub 动态中提取趋势信号和结构化洞察。',
+    automates: '开源趋势采集、分析与报告生成',
+    aiRole: 'trend extraction / report synthesis',
+    interface: 'Python + reports'
   },
   {
-    key: 'action',
-    label: 'Action',
-    title: 'Ship outputs',
-    description: '把分析结果转成报告、代码、可视化或可复用的工具。',
-    project: 'genome-mcp'
+    name: 'manim-agent',
+    type: 'Agentic creation',
+    statement: '自然语言到 Manim 动画：Agent 写代码、渲染、审查、迭代，并接入配音和字幕流程。',
+    automates: '动画代码生成、渲染评审、视频产出',
+    aiRole: 'code generation / visual feedback loop',
+    interface: 'Python + Web'
   },
   {
-    key: 'feedback',
-    label: 'Feedback',
-    title: 'Measure and improve',
-    description: '用使用数据和趋势信号迭代模型协作方式。',
-    project: 'cc-insights'
+    name: 'article-mcp',
+    type: 'Tool interface',
+    statement: '把文献检索封装成模型可调用的 MCP 工具，让 agent 能稳定获取论文、摘要和全文上下文。',
+    automates: '文献发现与知识检索',
+    aiRole: 'MCP tool layer',
+    interface: 'FastMCP + PyPI'
   }
 ]
 
 const capabilityStack = [
   {
-    label: 'Agents',
-    title: 'AI systems that plan with tools',
-    description: '围绕任务规划、工具调用和反馈回路，构建能持续完成工作的 Agent 原型。'
+    label: 'Agent orchestration',
+    title: '让多个智能体能协作、争论、计划和行动。',
+    description: '从 TrumanWorld 到 IssueLab，重点不只是调用模型，而是设计智能体之间的关系、记忆、角色和反馈机制。',
+    projects: ['TrumanWorld', 'IssueLab', 'mind']
   },
   {
-    label: 'MCP',
-    title: 'Tool interfaces for model workflows',
-    description: '把检索、爬取、领域数据库和本地能力封装成稳定的模型上下文接口。'
+    label: 'Tool interfaces',
+    title: '把外部能力变成 AI 可以可靠调用的工具层。',
+    description: '用 MCP、CLI 和 API 把文献、网页、生物数据、天文评估、媒体生成等能力接入模型工作流。',
+    projects: ['article-mcp', 'crawl-mcp', 'genome-mcp', 'protein-mcp']
   },
   {
-    label: 'Coding',
-    title: 'AI coding as an operating layer',
-    description: '沉淀 AI 编程、代码分析和工程自动化实践，让开发过程可观察、可复用。'
+    label: 'Knowledge workflows',
+    title: '让 AI 进入真实的信息获取、阅读和整理流程。',
+    description: '围绕 Zotero、PDF、RSS、PubMed 和 GitHub 趋势，构建可持续运行的知识工作自动化。',
+    projects: ['zotero_cli', 'pdfget', 'rss2cubox', 'TrendPluse']
   },
   {
-    label: 'Automation',
-    title: 'From prompt to repeatable workflow',
-    description: '把一次性的提示词实验，整理成能反复运行、能被改进的工作流系统。'
+    label: 'Automation products',
+    title: '把一次提示词实验打磨成可分发的工具。',
+    description: '从 Go/Python CLI 到 Web 应用和报告流水线，关注可重复运行、可观测、可交付的自动化系统。',
+    projects: ['minimax-studio', 'justdo', 'flywheel', 'cc-insights']
+  },
+  {
+    label: 'AI coding workflows',
+    title: '把 AI 编程从对话变成可观察的工程系统。',
+    description: '沉淀 Skills、Claude Code 插件、使用数据分析和仓库审计，让 AI coding 能被度量和改进。',
+    projects: ['cc-insights', 'Skills_demo', 'cc_plugins', 'biotools_agent']
   }
 ]
 
-const projectCopy = {
-  TrendPluse: {
-    role: 'Trend intelligence',
-    summary: '用 AI 分析 GitHub 趋势，识别开源生态里的方向、信号和项目变化。'
+const applicationFields = [
+  {
+    field: 'Developer productivity',
+    description: '分析 AI coding 使用数据、构建 Skills 面板和插件工作流，让开发过程更可观察。',
+    projects: ['cc-insights', 'Skills_demo', 'cc_plugins']
   },
-  'manim-agent': {
-    role: 'Agentic creation',
-    summary: '探索 Agent 驱动的可视化生成流程，把意图转化成可执行的创作步骤。'
+  {
+    field: 'Knowledge work',
+    description: '让 agent 操作 Zotero、检索论文、阅读 PDF、生成报告，把知识管理变成可执行流程。',
+    projects: ['zotero_cli', 'pdfget', 'SLAIS']
   },
-  'article-mcp': {
-    role: 'Knowledge retrieval',
-    summary: '面向 Agent 的文献检索 MCP，把论文发现接入 AI 工作流。'
+  {
+    field: 'Information intelligence',
+    description: '从 RSS、GitHub、期刊和领域数据中采集信号，自动过滤、分析和输出洞察。',
+    projects: ['TrendPluse', 'rss2cubox', 'evo-flywheel']
   },
-  'crawl-mcp': {
-    role: 'Web context',
-    summary: '基于 crawl4ai 和 FastMCP 获取网页上下文，为 AI 分析提供可调用数据源。'
+  {
+    field: 'Creative automation',
+    description: '把视频、动画、配音、音乐和脚本生成组织成端到端创作流水线。',
+    projects: ['manim-agent', 'minimax-studio']
   },
-  'genome-mcp': {
-    role: 'Domain tools',
-    summary: '把基因组相关数据访问能力封装成 MCP 工具，服务专业场景里的 Agent。'
-  },
-  'cc-insights': {
-    role: 'Coding analytics',
-    summary: '分析 Claude Code 使用数据，发现 AI 编程模式并给出改进建议。'
+  {
+    field: 'Domain tools',
+    description: '把生物信息、蛋白结构、天文观测等专业能力封装成 AI 可以使用的工具。',
+    projects: ['genome-mcp', 'protein-mcp', 'astro_light_pollution']
   }
-}
+]
 
-const experimentNames = ['TrendPluse', 'article-mcp', 'crawl-mcp', 'manim-agent', 'cc-insights', 'genome-mcp']
+const toolLayer = [
+  { label: 'Literature', projects: ['zotero_cli', 'article-mcp', 'pdfget'] },
+  { label: 'Web context', projects: ['crawl-mcp', 'rss2cubox'] },
+  { label: 'Biology', projects: ['genome-mcp', 'protein-mcp'] },
+  { label: 'Agents', projects: ['TrumanWorld', 'IssueLab', 'mind'] },
+  { label: 'Coding', projects: ['cc-insights', 'Skills_demo'] },
+  { label: 'Media', projects: ['manim-agent', 'minimax-studio'] }
+]
 
 const Hero = () => {
   const [projectData, setProjectData] = useState(null)
@@ -141,18 +165,14 @@ const Hero = () => {
     projects: projectData?.totalProjects ?? 0
   }), [projectData])
 
-  const experiments = useMemo(() => (
-    experimentNames
-      .map(name => projectsByName.get(name))
-      .filter(Boolean)
-  ), [projectsByName])
-
   const selectedPosts = useMemo(() => {
     const posts = blogData?.posts || []
     return posts
       .filter(post => post.published && !['test-post', 'task-list-demo'].includes(post.id))
       .slice(0, 2)
   }, [blogData])
+
+  const getProject = (name) => projectsByName.get(name)
 
   return (
     <main className="ai-home">
@@ -164,18 +184,18 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55 }}
           >
-            <p className="ai-kicker">Qingyu Ge / AI systems / Agent workflows / MCP</p>
-            <h1>Building AI systems, agents, and workflows.</h1>
+            <p className="ai-kicker">Qingyu Ge / AI Agents / Automation</p>
+            <h1>Building AI agents and automation systems for real workflows.</h1>
             <p className="ai-lede">
-              我关注 AI 如何从一次对话变成一套能持续运行的系统：理解意图、调用工具、
-              读取上下文、产出行动，并从反馈中改进。
+              我关注 AI 如何进入真实工作流：理解任务、调用工具、处理上下文、执行动作，
+              并通过反馈持续改进。从多智能体系统到 MCP 工具层，从知识工作到创作自动化。
             </p>
             <div className="ai-actions">
-              <a href="#workflow" className="ai-button ai-button-primary">
-                Explore the stack <FaArrowRight />
+              <a href="#featured-systems" className="ai-button ai-button-primary">
+                View systems <FaArrowRight />
               </a>
-              <a href="https://github.com/gqy20" target="_blank" rel="noreferrer" className="ai-button ai-button-ghost">
-                <FaGithub /> GitHub
+              <a href="#build-notes" className="ai-button ai-button-ghost">
+                Build notes
               </a>
             </div>
           </motion.div>
@@ -187,14 +207,19 @@ const Hero = () => {
             transition={{ duration: 0.55, delay: 0.12 }}
           >
             <div className="signal-header">
-              <span>Current stack</span>
-              <span>live</span>
+              <span>Portfolio signal</span>
+              <span>active</span>
             </div>
             <div className="signal-grid">
-              {workflowNodes.slice(0, 4).map(node => (
-                <div className="signal-cell" key={node.key}>
-                  <span>{node.label}</span>
-                  <strong>{node.project}</strong>
+              {[
+                ['Agent systems', 'TrumanWorld / IssueLab'],
+                ['Tool layer', 'MCP / CLI / APIs'],
+                ['Knowledge work', 'Zotero / PDF / RSS'],
+                ['Automation', 'Coding / media / reports']
+              ].map(([label, value]) => (
+                <div className="signal-cell" key={label}>
+                  <span>{label}</span>
+                  <strong>{value}</strong>
                 </div>
               ))}
             </div>
@@ -208,41 +233,71 @@ const Hero = () => {
                 <span>stars</span>
               </div>
               <div>
-                <strong>{loading ? '...' : stats.projects}</strong>
-                <span>projects</span>
+                <strong>{featuredSystems.length}</strong>
+                <span>systems</span>
               </div>
             </div>
           </motion.aside>
         </div>
       </section>
 
-      <section className="ai-section workflow-section" id="workflow">
+      <section className="ai-section systems-section" id="featured-systems">
         <div className="ai-shell">
-          <div className="ai-section-heading">
-            <p>Workflow Map</p>
-            <h2>AI 不只是模型能力，而是一条可运行的工作流。</h2>
+          <div className="ai-section-heading heading-row">
+            <div>
+              <p>Featured Systems</p>
+              <h2>不是仓库列表，而是模型、工具、数据和行动组成的系统。</h2>
+            </div>
+            <a href="#/projects" className="text-link">
+              All projects <FaArrowRight />
+            </a>
           </div>
 
-          <div className="workflow-map" aria-label="AI workflow map">
-            {workflowNodes.map((node, index) => {
-              const project = projectsByName.get(node.project)
+          <div className="system-grid">
+            {featuredSystems.map((system, index) => {
+              const project = getProject(system.name)
               return (
                 <motion.article
-                  className="workflow-node"
-                  key={node.key}
+                  className="system-card"
+                  key={system.name}
                   initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-80px' }}
-                  transition={{ duration: 0.42, delay: index * 0.06 }}
+                  transition={{ duration: 0.42, delay: index * 0.05 }}
                 >
-                  <div className="node-index">{String(index + 1).padStart(2, '0')}</div>
-                  <div>
-                    <span className="node-label">{node.label}</span>
-                    <h3>{node.title}</h3>
-                    <p>{node.description}</p>
-                    <a href={project?.url || '#/projects'} target={project?.url ? '_blank' : undefined} rel="noreferrer">
-                      {node.project} <FaArrowRight />
-                    </a>
+                  <div className="system-topline">
+                    <span>{system.type}</span>
+                    {project?.stars !== undefined && (
+                      <span><FaStar /> {project.stars}</span>
+                    )}
+                  </div>
+                  <h3>{system.name}</h3>
+                  <p>{system.statement}</p>
+                  <dl className="system-details">
+                    <div>
+                      <dt>Automates</dt>
+                      <dd>{system.automates}</dd>
+                    </div>
+                    <div>
+                      <dt>AI role</dt>
+                      <dd>{system.aiRole}</dd>
+                    </div>
+                    <div>
+                      <dt>Interface</dt>
+                      <dd>{system.interface}</dd>
+                    </div>
+                  </dl>
+                  <div className="experiment-actions">
+                    {project?.url && (
+                      <a href={project.url} target="_blank" rel="noreferrer">
+                        <FaGithub /> Repo
+                      </a>
+                    )}
+                    {project?.homepage && (
+                      <a href={project.homepage} target="_blank" rel="noreferrer">
+                        <FaExternalLinkAlt /> Link
+                      </a>
+                    )}
                   </div>
                 </motion.article>
               )
@@ -255,7 +310,7 @@ const Hero = () => {
         <div className="ai-shell capability-layout">
           <div className="ai-section-heading sticky-heading">
             <p>Capability Stack</p>
-            <h2>从 Agent 到工具接口，再到可观察的 AI coding 实践。</h2>
+            <h2>主线是 agent system，不是单点工具。</h2>
           </div>
           <div className="capability-list">
             {capabilityStack.map((item, index) => (
@@ -270,73 +325,79 @@ const Hero = () => {
                 <span>{item.label}</span>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
+                <div className="project-chips">
+                  {item.projects.map(project => (
+                    <a href={getProject(project)?.url || '#/projects'} key={project} target={getProject(project)?.url ? '_blank' : undefined} rel="noreferrer">
+                      {project}
+                    </a>
+                  ))}
+                </div>
               </motion.article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="ai-section experiments-section" id="featured-work">
+      <section className="ai-section applications-section">
         <div className="ai-shell">
-          <div className="ai-section-heading heading-row">
-            <div>
-              <p>Selected Experiments</p>
-              <h2>不是项目列表，是 AI 能力栈的实验记录。</h2>
-            </div>
-            <a href="#/projects" className="text-link">
-              All projects <FaArrowRight />
-            </a>
+          <div className="ai-section-heading">
+            <p>Application Fields</p>
+            <h2>同一套 agent + tool + automation 方法，迁移到不同工作场景。</h2>
           </div>
-
-          <div className="experiment-grid">
-            {experiments.map((project, index) => {
-              const copy = projectCopy[project.name] || {
-                role: project.category,
-                summary: project.description
-              }
-              return (
-                <motion.article
-                  className="experiment-card"
-                  key={project.id}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-80px' }}
-                  transition={{ duration: 0.42, delay: index * 0.05 }}
-                >
-                  <div className="experiment-topline">
-                    <span>{copy.role}</span>
-                    <span><FaStar /> {project.stars}</span>
-                  </div>
-                  <h3>{project.name}</h3>
-                  <p>{copy.summary}</p>
-                  <div className="experiment-meta">
-                    <span>{project.language}</span>
-                    {(project.latestRelease?.tagName || project.latestTag?.name) && (
-                      <span>{project.latestRelease?.tagName || project.latestTag?.name}</span>
-                    )}
-                  </div>
-                  <div className="experiment-actions">
-                    <a href={project.url} target="_blank" rel="noreferrer">
-                      <FaGithub /> Repo
+          <div className="application-grid">
+            {applicationFields.map((field, index) => (
+              <motion.article
+                className="application-card"
+                key={field.field}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.42, delay: index * 0.04 }}
+              >
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <h3>{field.field}</h3>
+                <p>{field.description}</p>
+                <div className="project-chips">
+                  {field.projects.map(project => (
+                    <a href={getProject(project)?.url || '#/projects'} key={project} target={getProject(project)?.url ? '_blank' : undefined} rel="noreferrer">
+                      {project}
                     </a>
-                    {project.homepage && (
-                      <a href={project.homepage} target="_blank" rel="noreferrer">
-                        <FaExternalLinkAlt /> Link
-                      </a>
-                    )}
-                  </div>
-                </motion.article>
-              )
-            })}
+                  ))}
+                </div>
+              </motion.article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="ai-section log-section">
+      <section className="ai-section tool-layer-section">
+        <div className="ai-shell tool-layer-layout">
+          <div className="ai-section-heading">
+            <p>Tool Layer</p>
+            <h2>把领域能力封装成 AI 可以调用的接口。</h2>
+          </div>
+          <div className="tool-layer-map">
+            {toolLayer.map((group) => (
+              <div className="tool-row" key={group.label}>
+                <span>{group.label}</span>
+                <div>
+                  {group.projects.map(project => (
+                    <a href={getProject(project)?.url || '#/projects'} key={project} target={getProject(project)?.url ? '_blank' : undefined} rel="noreferrer">
+                      {project}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="ai-section log-section" id="build-notes">
         <div className="ai-shell log-layout">
           <div className="ai-section-heading">
-            <p>Build Log</p>
-            <h2>记录 AI 工具、工作流和开发方式的演化。</h2>
+            <p>Build Notes</p>
+            <h2>记录 agent、MCP、AI coding 和自动化系统的构建过程。</h2>
           </div>
           <div className="log-list">
             {selectedPosts.map(post => (
@@ -354,7 +415,7 @@ const Hero = () => {
         <div className="ai-shell contact-strip">
           <div>
             <p>Contact</p>
-            <h2>Open to conversations around agents, MCP, and AI-native workflows.</h2>
+            <h2>Open to conversations around AI agents, tool interfaces, and automation systems.</h2>
           </div>
           <div className="ai-actions">
             <a href="mailto:qingyu_ge@foxmail.com" className="ai-button ai-button-primary">
