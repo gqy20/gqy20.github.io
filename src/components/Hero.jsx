@@ -4,130 +4,81 @@ import {
   FaArrowRight,
   FaEnvelope,
   FaExternalLinkAlt,
-  FaGithub,
-  FaStar
+  FaGithub
 } from 'react-icons/fa'
 import './Hero.css'
 
-const featuredSystems = [
+const leadSystem = {
+  name: 'TrumanWorld',
+  label: '主角项目',
+  title: '一个有记忆的 AI 小镇',
+  description: '居民会记住经历、规划行动、形成关系。观察者只能改变环境，不能直接操控想法。',
+  built: ['记忆循环', '计划流程', '角色互动', 'Web 界面']
+}
+
+const storySystems = [
   {
     name: 'TrumanWorld',
-    type: 'Agent simulation',
-    statement: '一个 AI 小镇实验：居民拥有记忆、计划与社交关系，观察者只能创造条件，不能直接操控想法。',
-    automates: '多智能体生活、交互与社会仿真',
-    aiRole: 'generative agents / memory / planning',
-    interface: 'FastAPI + Next.js'
-  },
-  {
-    name: 'IssueLab',
-    type: 'Agent collaboration',
-    statement: '基于 GitHub Issues 的多智能体讨论网络，让观点交锋、数字分身和异步协作留下可追踪轨迹。',
-    automates: '讨论组织、观点生成、协作记录',
-    aiRole: 'multi-agent debate / digital participants',
-    interface: 'GitHub Issues + Python'
+    label: '多智能体世界',
+    title: '让智能体拥有记忆和日常',
+    description: '从单次对话走向持续生活：角色会记住、计划、互动，并在环境变化中演化。',
+    built: ['memory', 'planning', 'simulation']
   },
   {
     name: 'zotero_cli',
-    type: 'AI-native knowledge CLI',
-    statement: '让 Claude Code、Codex 等 AI agent 能直接操作 Zotero：检索、阅读 PDF、管理标注、生成引文。',
-    automates: '文献库检索、阅读、引用与知识管理',
-    aiRole: 'agent-operable research library',
-    interface: 'Go CLI'
+    label: '真实工具调用',
+    title: '让智能体操作文献库',
+    description: 'Claude Code 和 Codex 可以直接检索 Zotero、阅读 PDF、管理标注并生成引用。',
+    built: ['Go CLI', 'Zotero', 'PDF workflow']
   },
   {
     name: 'TrendPluse',
-    type: 'Intelligence pipeline',
-    statement: '追踪 AI 编程工具和智能体生态，用模型从 GitHub 动态中提取趋势信号和结构化洞察。',
-    automates: '开源趋势采集、分析与报告生成',
-    aiRole: 'trend extraction / report synthesis',
-    interface: 'Python + reports'
-  },
-  {
-    name: 'manim-agent',
-    type: 'Agentic creation',
-    statement: '自然语言到 Manim 动画：Agent 写代码、渲染、审查、迭代，并接入配音和字幕流程。',
-    automates: '动画代码生成、渲染评审、视频产出',
-    aiRole: 'code generation / visual feedback loop',
-    interface: 'Python + Web'
-  },
-  {
-    name: 'article-mcp',
-    type: 'Tool interface',
-    statement: '把文献检索封装成模型可调用的 MCP 工具，让 agent 能稳定获取论文、摘要和全文上下文。',
-    automates: '文献发现与知识检索',
-    aiRole: 'MCP tool layer',
-    interface: 'FastMCP + PyPI'
+    label: '自动化情报',
+    title: '捕捉 AI 生态趋势',
+    description: '从 GitHub 动态中追踪 AI 编程和智能体生态，用模型生成结构化洞察。',
+    built: ['data pipeline', 'LLM analysis', 'reports']
   }
 ]
 
-const capabilityStack = [
+const capabilities = [
   {
-    label: 'Agent orchestration',
-    title: '让多个智能体能协作、争论、计划和行动。',
-    description: '从 TrumanWorld 到 IssueLab，重点不只是调用模型，而是设计智能体之间的关系、记忆、角色和反馈机制。',
+    title: '智能体架构',
+    description: '设计记忆、角色、计划、协作和反馈机制。',
     projects: ['TrumanWorld', 'IssueLab', 'mind']
   },
   {
-    label: 'Tool interfaces',
-    title: '把外部能力变成 AI 可以可靠调用的工具层。',
-    description: '用 MCP、CLI 和 API 把文献、网页、生物数据、天文评估、媒体生成等能力接入模型工作流。',
-    projects: ['article-mcp', 'crawl-mcp', 'genome-mcp', 'protein-mcp']
+    title: '工具接口',
+    description: '用 MCP、CLI、API 把外部能力接入模型。',
+    projects: ['article-mcp', 'crawl-mcp', 'zotero_cli']
   },
   {
-    label: 'Knowledge workflows',
-    title: '让 AI 进入真实的信息获取、阅读和整理流程。',
-    description: '围绕 Zotero、PDF、RSS、PubMed 和 GitHub 趋势，构建可持续运行的知识工作自动化。',
-    projects: ['zotero_cli', 'pdfget', 'rss2cubox', 'TrendPluse']
+    title: '工作流自动化',
+    description: '把一次提示词实验变成可重复运行的系统。',
+    projects: ['TrendPluse', 'minimax-studio', 'rss2cubox']
   },
   {
-    label: 'Automation products',
-    title: '把一次提示词实验打磨成可分发的工具。',
-    description: '从 Go/Python CLI 到 Web 应用和报告流水线，关注可重复运行、可观测、可交付的自动化系统。',
-    projects: ['minimax-studio', 'justdo', 'flywheel', 'cc-insights']
-  },
-  {
-    label: 'AI coding workflows',
-    title: '把 AI 编程从对话变成可观察的工程系统。',
-    description: '沉淀 Skills、Claude Code 插件、使用数据分析和仓库审计，让 AI coding 能被度量和改进。',
-    projects: ['cc-insights', 'Skills_demo', 'cc_plugins', 'biotools_agent']
-  }
-]
-
-const applicationFields = [
-  {
-    field: 'Developer productivity',
-    description: '分析 AI coding 使用数据、构建 Skills 面板和插件工作流，让开发过程更可观察。',
+    title: 'AI 开发工具',
+    description: '分析、扩展和优化 AI coding 工作流。',
     projects: ['cc-insights', 'Skills_demo', 'cc_plugins']
-  },
-  {
-    field: 'Knowledge work',
-    description: '让 agent 操作 Zotero、检索论文、阅读 PDF、生成报告，把知识管理变成可执行流程。',
-    projects: ['zotero_cli', 'pdfget', 'SLAIS']
-  },
-  {
-    field: 'Information intelligence',
-    description: '从 RSS、GitHub、期刊和领域数据中采集信号，自动过滤、分析和输出洞察。',
-    projects: ['TrendPluse', 'rss2cubox', 'evo-flywheel']
-  },
-  {
-    field: 'Creative automation',
-    description: '把视频、动画、配音、音乐和脚本生成组织成端到端创作流水线。',
-    projects: ['manim-agent', 'minimax-studio']
-  },
-  {
-    field: 'Domain tools',
-    description: '把生物信息、蛋白结构、天文观测等专业能力封装成 AI 可以使用的工具。',
-    projects: ['genome-mcp', 'protein-mcp', 'astro_light_pollution']
   }
 ]
 
-const toolLayer = [
-  { label: 'Literature', projects: ['zotero_cli', 'article-mcp', 'pdfget'] },
-  { label: 'Web context', projects: ['crawl-mcp', 'rss2cubox'] },
-  { label: 'Biology', projects: ['genome-mcp', 'protein-mcp'] },
-  { label: 'Agents', projects: ['TrumanWorld', 'IssueLab', 'mind'] },
-  { label: 'Coding', projects: ['cc-insights', 'Skills_demo'] },
-  { label: 'Media', projects: ['manim-agent', 'minimax-studio'] }
+const scenes = [
+  ['知识工作', '文献检索、PDF 阅读、标注管理和报告生成。'],
+  ['开发效率', 'AI coding 数据分析、插件扩展和技能工作流。'],
+  ['信息分析', '从 RSS、GitHub 和领域数据中提取趋势信号。'],
+  ['创作自动化', '把动画、配音、音乐和视频流程串成工具链。']
+]
+
+const moreSystems = [
+  'IssueLab',
+  'manim-agent',
+  'article-mcp',
+  'crawl-mcp',
+  'genome-mcp',
+  'protein-mcp',
+  'cc-insights',
+  'minimax-studio'
 ]
 
 const Hero = () => {
@@ -161,7 +112,6 @@ const Hero = () => {
 
   const stats = useMemo(() => ({
     repositories: projectData?.totalRepositories ?? projectData?.totalProjects ?? 0,
-    stars: projectData?.totalRepositoryStars ?? projectData?.totalStars ?? 0,
     projects: projectData?.totalProjects ?? 0
   }), [projectData])
 
@@ -184,18 +134,18 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55 }}
           >
-            <p className="ai-kicker">Qingyu Ge / AI Agents / Automation</p>
-            <h1>Building AI agents and automation systems for real workflows.</h1>
+            <p className="ai-kicker">Qingyu Ge / AI Agent / 自动化</p>
+            <h1>让 AI 从回答问题，走向完成工作。</h1>
             <p className="ai-lede">
-              我关注 AI 如何进入真实工作流：理解任务、调用工具、处理上下文、执行动作，
-              并通过反馈持续改进。从多智能体系统到 MCP 工具层，从知识工作到创作自动化。
+              我构建能理解任务、调用工具、处理上下文并持续迭代的智能体系统，
+              关注 AI 在知识工作、开发效率、信息分析和自动化流程中的落地。
             </p>
             <div className="ai-actions">
-              <a href="#featured-systems" className="ai-button ai-button-primary">
-                View systems <FaArrowRight />
+              <a href="#systems" className="ai-button ai-button-primary">
+                查看代表系统 <FaArrowRight />
               </a>
-              <a href="#build-notes" className="ai-button ai-button-ghost">
-                Build notes
+              <a href="#notes" className="ai-button ai-button-ghost">
+                构建记录
               </a>
             </div>
           </motion.div>
@@ -207,17 +157,16 @@ const Hero = () => {
             transition={{ duration: 0.55, delay: 0.12 }}
           >
             <div className="signal-header">
-              <span>Portfolio signal</span>
-              <span>active</span>
+              <span>方向</span>
+              <span>持续构建中</span>
             </div>
-            <div className="signal-grid">
+            <div className="signal-list">
               {[
-                ['Agent systems', 'TrumanWorld / IssueLab'],
-                ['Tool layer', 'MCP / CLI / APIs'],
-                ['Knowledge work', 'Zotero / PDF / RSS'],
-                ['Automation', 'Coding / media / reports']
+                ['智能体系统', '记忆、计划、协作与反馈'],
+                ['工具调用接口', 'MCP、CLI、API 与真实数据'],
+                ['自动化工作流', '从提示词到可运行系统']
               ].map(([label, value]) => (
-                <div className="signal-cell" key={label}>
+                <div className="signal-row" key={label}>
                   <span>{label}</span>
                   <strong>{value}</strong>
                 </div>
@@ -226,39 +175,75 @@ const Hero = () => {
             <div className="signal-stats">
               <div>
                 <strong>{loading ? '...' : stats.repositories}</strong>
-                <span>repos</span>
+                <span>公开仓库</span>
               </div>
               <div>
-                <strong>{loading ? '...' : stats.stars}</strong>
-                <span>stars</span>
+                <strong>{loading ? '...' : stats.projects}</strong>
+                <span>展示项目</span>
               </div>
               <div>
-                <strong>{featuredSystems.length}</strong>
-                <span>systems</span>
+                <strong>{storySystems.length}</strong>
+                <span>代表系统</span>
               </div>
             </div>
           </motion.aside>
         </div>
       </section>
 
-      <section className="ai-section systems-section" id="featured-systems">
+      <section className="ai-section lead-section" id="systems">
+        <div className="ai-shell lead-layout">
+          <div className="ai-section-heading">
+            <p>主故事</p>
+            <h2>{leadSystem.title}</h2>
+          </div>
+          <motion.article
+            className="lead-card"
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.42 }}
+          >
+            <span>{leadSystem.label}</span>
+            <h3>{leadSystem.name}</h3>
+            <p>{leadSystem.description}</p>
+            <div className="built-line">
+              <strong>我构建了</strong>
+              {leadSystem.built.map(item => <em key={item}>{item}</em>)}
+            </div>
+            <div className="experiment-actions">
+              {getProject(leadSystem.name)?.url && (
+                <a href={getProject(leadSystem.name).url} target="_blank" rel="noreferrer">
+                  <FaGithub /> GitHub
+                </a>
+              )}
+              {getProject(leadSystem.name)?.homepage && (
+                <a href={getProject(leadSystem.name).homepage} target="_blank" rel="noreferrer">
+                  <FaExternalLinkAlt /> 访问
+                </a>
+              )}
+            </div>
+          </motion.article>
+        </div>
+      </section>
+
+      <section className="ai-section systems-section">
         <div className="ai-shell">
           <div className="ai-section-heading heading-row">
             <div>
-              <p>Featured Systems</p>
-              <h2>不是仓库列表，而是模型、工具、数据和行动组成的系统。</h2>
+              <p>代表系统</p>
+              <h2>三个项目，串起我的 AI 构建方向。</h2>
             </div>
             <a href="#/projects" className="text-link">
-              All projects <FaArrowRight />
+              全部项目 <FaArrowRight />
             </a>
           </div>
 
-          <div className="system-grid">
-            {featuredSystems.map((system, index) => {
+          <div className="system-grid story-grid">
+            {storySystems.map((system, index) => {
               const project = getProject(system.name)
               return (
                 <motion.article
-                  className="system-card"
+                  className="system-card story-card"
                   key={system.name}
                   initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -266,36 +251,23 @@ const Hero = () => {
                   transition={{ duration: 0.42, delay: index * 0.05 }}
                 >
                   <div className="system-topline">
-                    <span>{system.type}</span>
-                    {project?.stars !== undefined && (
-                      <span><FaStar /> {project.stars}</span>
-                    )}
+                    <span>{system.label}</span>
                   </div>
                   <h3>{system.name}</h3>
-                  <p>{system.statement}</p>
-                  <dl className="system-details">
-                    <div>
-                      <dt>Automates</dt>
-                      <dd>{system.automates}</dd>
-                    </div>
-                    <div>
-                      <dt>AI role</dt>
-                      <dd>{system.aiRole}</dd>
-                    </div>
-                    <div>
-                      <dt>Interface</dt>
-                      <dd>{system.interface}</dd>
-                    </div>
-                  </dl>
+                  <h4>{system.title}</h4>
+                  <p>{system.description}</p>
+                  <div className="built-line compact">
+                    {system.built.map(item => <em key={item}>{item}</em>)}
+                  </div>
                   <div className="experiment-actions">
                     {project?.url && (
                       <a href={project.url} target="_blank" rel="noreferrer">
-                        <FaGithub /> Repo
+                        <FaGithub /> GitHub
                       </a>
                     )}
                     {project?.homepage && (
                       <a href={project.homepage} target="_blank" rel="noreferrer">
-                        <FaExternalLinkAlt /> Link
+                        <FaExternalLinkAlt /> 访问
                       </a>
                     )}
                   </div>
@@ -309,20 +281,19 @@ const Hero = () => {
       <section className="ai-section capability-section">
         <div className="ai-shell capability-layout">
           <div className="ai-section-heading sticky-heading">
-            <p>Capability Stack</p>
-            <h2>主线是 agent system，不是单点工具。</h2>
+            <p>能力</p>
+            <h2>我能做什么。</h2>
           </div>
           <div className="capability-list">
-            {capabilityStack.map((item, index) => (
+            {capabilities.map((item, index) => (
               <motion.article
                 className="capability-item"
-                key={item.label}
+                key={item.title}
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.42, delay: index * 0.05 }}
               >
-                <span>{item.label}</span>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
                 <div className="project-chips">
@@ -338,66 +309,52 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className="ai-section applications-section">
+      <section className="ai-section scenes-section">
         <div className="ai-shell">
           <div className="ai-section-heading">
-            <p>Application Fields</p>
-            <h2>同一套 agent + tool + automation 方法，迁移到不同工作场景。</h2>
+            <p>场景</p>
+            <h2>可以落地在哪里。</h2>
           </div>
-          <div className="application-grid">
-            {applicationFields.map((field, index) => (
+          <div className="scene-grid">
+            {scenes.map(([title, description], index) => (
               <motion.article
-                className="application-card"
-                key={field.field}
+                className="scene-card"
+                key={title}
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.42, delay: index * 0.04 }}
               >
                 <span>{String(index + 1).padStart(2, '0')}</span>
-                <h3>{field.field}</h3>
-                <p>{field.description}</p>
-                <div className="project-chips">
-                  {field.projects.map(project => (
-                    <a href={getProject(project)?.url || '#/projects'} key={project} target={getProject(project)?.url ? '_blank' : undefined} rel="noreferrer">
-                      {project}
-                    </a>
-                  ))}
-                </div>
+                <h3>{title}</h3>
+                <p>{description}</p>
               </motion.article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="ai-section tool-layer-section">
-        <div className="ai-shell tool-layer-layout">
+      <section className="ai-section more-section">
+        <div className="ai-shell more-layout">
           <div className="ai-section-heading">
-            <p>Tool Layer</p>
-            <h2>把领域能力封装成 AI 可以调用的接口。</h2>
+            <p>更多实验</p>
+            <h2>围绕智能体、工具接口和自动化继续扩展。</h2>
           </div>
           <div className="tool-layer-map">
-            {toolLayer.map((group) => (
-              <div className="tool-row" key={group.label}>
-                <span>{group.label}</span>
-                <div>
-                  {group.projects.map(project => (
-                    <a href={getProject(project)?.url || '#/projects'} key={project} target={getProject(project)?.url ? '_blank' : undefined} rel="noreferrer">
-                      {project}
-                    </a>
-                  ))}
-                </div>
-              </div>
+            {moreSystems.map(project => (
+              <a href={getProject(project)?.url || '#/projects'} key={project} target={getProject(project)?.url ? '_blank' : undefined} rel="noreferrer">
+                {project}
+              </a>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="ai-section log-section" id="build-notes">
+      <section className="ai-section log-section" id="notes">
         <div className="ai-shell log-layout">
           <div className="ai-section-heading">
-            <p>Build Notes</p>
-            <h2>记录 agent、MCP、AI coding 和自动化系统的构建过程。</h2>
+            <p>记录</p>
+            <h2>记录构建过程。</h2>
           </div>
           <div className="log-list">
             {selectedPosts.map(post => (
@@ -414,8 +371,8 @@ const Hero = () => {
       <section className="ai-contact">
         <div className="ai-shell contact-strip">
           <div>
-            <p>Contact</p>
-            <h2>Open to conversations around AI agents, tool interfaces, and automation systems.</h2>
+            <p>联系</p>
+            <h2>欢迎交流 AI Agent、工具接口和自动化系统。</h2>
           </div>
           <div className="ai-actions">
             <a href="mailto:qingyu_ge@foxmail.com" className="ai-button ai-button-primary">
