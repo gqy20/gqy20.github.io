@@ -26,8 +26,8 @@ export default defineConfig({
         assetFileNames: 'assets/[name]-[hash].[ext]'
       }
     },
-    // 启用 source map 用于生产调试
-    sourcemap: true,
+    // 公开静态站默认不发布 source map，降低发布体积并避免暴露源码映射
+    sourcemap: false,
     // 设置 chunk 大小警告阈值
     chunkSizeWarningLimit: 1000
   },
@@ -42,6 +42,5 @@ export default defineConfig({
   // 优化依赖预构建，包含Prism.js核心以提升开发体验
   optimizeDeps: {
     include: ['react', 'react-dom', 'prismjs'],
-    // 移除shiki排除，因为我们已经切换到Prism.js
   }
 })

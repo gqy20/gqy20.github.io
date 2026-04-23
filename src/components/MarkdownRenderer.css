@@ -179,7 +179,7 @@
   font-weight: 500;
 }
 
-/* 代码块样式 - 现在由 ShikiCodeBlock 组件处理 */
+/* 代码块样式由 PrismCodeBlock 组件处理 */
 
 /* 链接样式 */
 .markdown-link {

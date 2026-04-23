@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react'
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react'
 import Prism from 'prismjs'
+import { FaCheck, FaCopy } from 'react-icons/fa'
 import './PrismCodeBlock.css'
 
 // 语言包加载器 - 按需加载，避免阻塞首屏
@@ -79,7 +80,7 @@ const LoadingSkeleton = ({ language }) => (
       </div>
       <div className="prism-code-actions">
         <button className="prism-action-button" disabled>
-          📋
+          <FaCopy />
         </button>
       </div>
     </div>
@@ -93,6 +94,7 @@ const PrismCodeBlock = ({ children, className, ...props }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [isCopied, setIsCopied] = useState(false)
   const [highlightError, setHighlightError] = useState(null)
+  const codeRef = useRef(null)
 
   // 性能优化：缓存语言解析结果
   const language = useMemo(() => {
@@ -177,8 +179,9 @@ const PrismCodeBlock = ({ children, className, ...props }) => {
             highlightTimer = requestAnimationFrame(() => {
               if (isMounted) {
                 try {
-                  // 执行语法高亮
-                  Prism.highlightAllUnder(document.querySelector('.prism-code-content'))
+                  if (codeRef.current) {
+                    Prism.highlightElement(codeRef.current)
+                  }
                   setIsHighlighted(true)
                   setHighlightError(null)
                 } catch (error) {
@@ -245,7 +248,7 @@ const PrismCodeBlock = ({ children, className, ...props }) => {
             title={isCopied ? "已复制!" : "复制代码"}
             aria-label={isCopied ? "已复制" : "复制代码"}
           >
-            {isCopied ? '✅' : '📋'}
+            {isCopied ? <FaCheck /> : <FaCopy />}
           </button>
         </div>
       </div>
@@ -253,14 +256,14 @@ const PrismCodeBlock = ({ children, className, ...props }) => {
       {/* 代码内容区域 */}
       <div className="prism-code-content">
         <pre className={`language-${language}`}>
-          <code className={`language-${language}`}>
+          <code ref={codeRef} className={`language-${language}`}>
             {children}
           </code>
         </pre>
       </div>
 
       {/* 错误提示（仅在开发环境显示） */}
-      {process.env.NODE_ENV === 'development' && highlightError && (
+      {import.meta.env.DEV && highlightError && (
         <div className="prism-error-hint" style={{
           padding: '8px 16px',
           background: 'rgba(255, 193, 7, 0.1)',
@@ -271,7 +274,7 @@ const PrismCodeBlock = ({ children, className, ...props }) => {
           color: '#856404'
         }}>
           <small>
-            ⚠️ 语法高亮失败，显示纯文本
+            语法高亮失败，显示纯文本
             {highlightError.message && `: ${highlightError.message}`}
           </small>
         </div>
