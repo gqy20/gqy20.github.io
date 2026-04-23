@@ -12,6 +12,7 @@ on:
     paths:
       - 'src/**'
       - 'public/**'
+      - '.github/workflows/performance-analysis.yml'
       - 'package.json'
       - 'vite.config.js'
       - 'tailwind.config.js'
@@ -20,12 +21,13 @@ on:
     paths:
       - 'src/**'
       - 'public/**'
+      - '.github/workflows/performance-analysis.yml'
       - 'package.json'
       - 'vite.config.js'
       - 'tailwind.config.js'
 
 env:
-  WEBSITE_URL: 'https://home.gqy20.top'
+  WEBSITE_URL: 'http://127.0.0.1:4173'
   NODE_VERSION: '24'
   LIGHTHOUSE_CHROME_FLAGS: >-
     --headless=new
@@ -51,6 +53,22 @@ jobs:
 
     - name: Install dependencies
       run: npm ci
+
+    - name: Build site
+      run: npm run build
+
+    - name: Start preview server
+      run: |
+        npm run preview -- --host 127.0.0.1 --port 4173 > performance-preview.log 2>&1 &
+        for attempt in {1..30}; do
+          if curl -fsS "${{ env.WEBSITE_URL }}" >/dev/null; then
+            exit 0
+          fi
+          sleep 1
+        done
+
+        cat performance-preview.log
+        exit 1
 
     - name: Install Lighthouse
       run: npm install -g lighthouse
