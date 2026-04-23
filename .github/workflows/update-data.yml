@@ -5,9 +5,6 @@ on:
     - cron: '0 */6 * * *'  # 每6小时更新一次
   workflow_dispatch:
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -17,12 +14,12 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v6
       with:
         node-version: '24'
         cache: 'npm'
