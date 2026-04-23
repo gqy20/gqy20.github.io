@@ -13,7 +13,7 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
 
   return (
-    <Router>
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <div className={`app ${isDarkMode ? 'dark' : ''}`}>
         <div className="app-content">
           <main className="main-content">

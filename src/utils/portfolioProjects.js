@@ -1,4 +1,4 @@
-import portfolioConfig from '../data/project-portfolio.json' with { type: 'json' }
+import portfolioConfig from '../data/project-portfolio.js'
 
 export const PORTFOLIO_CONFIG = portfolioConfig
 export const PORTFOLIO_TRACKS = portfolioConfig.tracks
