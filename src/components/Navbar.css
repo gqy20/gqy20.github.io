@@ -23,27 +23,27 @@
   align-items: center;
   position: relative;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: 10px;
   background: transparent;
   transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .navbar.scrolled .navbar-container,
 .mobile-menu {
-  border-color: var(--site-line);
-  background: color-mix(in srgb, var(--site-surface-solid) 82%, transparent);
-  box-shadow: var(--site-shadow);
+  border-color: var(--ai-line, var(--site-line));
+  background: color-mix(in srgb, var(--ai-panel, var(--site-surface-solid)) 85%, transparent);
+  box-shadow: 0 12px 40px rgba(17, 24, 39, 0.06);
   backdrop-filter: blur(16px);
 }
 
 .navbar-menu {
   display: flex;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 0.15rem;
   align-items: center;
   padding: 0.18rem;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: 10px;
   background: transparent;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
@@ -55,16 +55,17 @@
   min-width: 38px;
   height: 38px;
   border-radius: 8px;
-  color: var(--primary-color);
+  color: var(--ai-accent, var(--primary-color));
+  font-family: var(--ai-font-display, -apple-system, BlinkMacSystemFont, sans-serif);
   font-size: 1rem;
-  font-weight: 850;
-  letter-spacing: 0;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   text-decoration: none;
   transition: color 0.2s ease, background 0.2s ease;
 }
 
 .navbar-logo:hover {
-  color: var(--primary-dark);
+  color: var(--ai-accent-strong, var(--primary-dark));
 }
 
 .navbar-controls {
@@ -74,13 +75,14 @@
 }
 
 .navbar-link {
-  color: var(--text-color);
+  color: var(--ai-ink, var(--text-color));
   text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 650;
+  font-family: var(--ai-font-body, -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
   line-height: 1;
-  padding: 0.62rem 0.82rem;
-  border-radius: 6px;
+  padding: 0.6rem 0.85rem;
+  border-radius: 8px;
   transition: color 0.2s ease, background 0.2s ease;
   position: relative;
 }
@@ -90,21 +92,21 @@
 }
 
 .navbar-link:hover {
-  background: rgba(37, 99, 235, 0.08);
-  color: var(--primary-color);
+  background: rgba(37, 99, 235, 0.07);
+  color: var(--ai-accent, var(--primary-color));
 }
 
 .navbar-link.active {
-  color: var(--primary-color);
-  font-weight: 750;
+  color: var(--ai-accent, var(--primary-color));
+  font-weight: 700;
 }
 
 .navbar-link.active::after {
   content: '';
   position: absolute;
-  left: 0.82rem;
-  right: 0.82rem;
-  bottom: 0.18rem;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 0.16rem;
   display: block;
   height: 2px;
   border-radius: 1px;
@@ -116,7 +118,7 @@
   background: transparent;
   border: 1px solid transparent;
   font-size: 0.95rem;
-  color: var(--text-color);
+  color: var(--ai-ink, var(--text-color));
   cursor: pointer;
   padding: 0;
   border-radius: 8px;
@@ -133,9 +135,9 @@
 
 .theme-toggle:hover,
 .mobile-menu-toggle:hover {
-  background: rgba(37, 99, 235, 0.1);
-  border-color: rgba(37, 99, 235, 0.14);
-  color: var(--primary-color);
+  background: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.12);
+  color: var(--ai-accent, var(--primary-color));
 }
 
 .mobile-menu-toggle {
@@ -147,18 +149,19 @@
   top: calc(100% + 0.5rem);
   left: 1rem;
   right: 1rem;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
 .mobile-menu-link {
   display: block;
   padding: 1rem 1.1rem;
-  color: var(--text-color);
+  color: var(--ai-ink, var(--text-color));
   text-decoration: none;
-  font-weight: 750;
+  font-family: var(--ai-font-body, -apple-system, BlinkMacSystemFont, sans-serif);
+  font-weight: 600;
   transition: background 0.2s ease, color 0.2s ease;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--ai-line, var(--border-color));
   min-height: 52px;
   font-size: 1rem;
 }
@@ -168,8 +171,8 @@
 }
 
 .mobile-menu-link:hover {
-  background: rgba(37, 99, 235, 0.1);
-  color: var(--primary-color);
+  background: rgba(37, 99, 235, 0.07);
+  color: var(--ai-accent, var(--primary-color));
 }
 
 @media (max-width: 768px) {
