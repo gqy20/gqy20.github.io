@@ -1,6 +1,14 @@
 import React from 'react'
 import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
+import './button.css'
+
+const variantVisualMap = {
+  default: 'btn-visual-primary btn-hover-lift',
+  destructive: 'btn-visual-destructive btn-hover-lift',
+  success: 'btn-visual-success btn-hover-lift',
+  warning: 'btn-visual-warning btn-hover-lift',
+}
 
 const buttonVariants = cva(
   'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
@@ -34,17 +42,18 @@ const buttonVariants = cva(
 
 const Button = React.forwardRef(({
   className,
-  variant,
+  variant = 'default',
   size,
   asChild = false,
   children,
   ...props
 }, ref) => {
   const Comp = asChild ? 'span' : 'button'
+  const visualClass = variantVisualMap[variant] || ''
 
   return (
     <Comp
-      className={cn(buttonVariants({ variant, size }), className)}
+      className={cn(buttonVariants({ variant, size }), visualClass, className)}
       ref={ref}
       {...props}
     >

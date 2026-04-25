@@ -1,0 +1,52 @@
+/* Minimal visual polish for Button - only what Tailwind can't express */
+
+/* Primary button gradient + shadow */
+.btn-visual-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+.btn-visual-primary:hover {
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+/* Success/Warning/Destructive enhanced shadows */
+.btn-visual-success { box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); }
+.btn-visual-success:hover { box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4); }
+.btn-visual-warning { box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); }
+.btn-visual-warning:hover { box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4); }
+.btn-visual-destructive { box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3); }
+
+/* Hover lift effect */
+.btn-hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Pill shape */
+.btn-pill {
+  border-radius: 9999px;
+}
+
+/* Shine effect */
+@keyframes btn-shine {
+  from { background-position: -200% center; }
+  to { background-position: 200% center; }
+}
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.25) 50%, transparent 65%);
+  background-size: 200% 100%;
+  animation: btn-shine 2.5s ease-in-out infinite paused;
+}
+.btn-shine:hover::before {
+  animation-play-state: running;
+}

@@ -1,6 +1,5 @@
 @import './tailwind.css';
 @import './components/Badge.css';
-@import './components/Button.css';
 
 :root {
   --site-bg: #f5f7fb;

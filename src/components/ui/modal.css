@@ -1,0 +1,21 @@
+/* Minimal Modal styles - only what Tailwind can't express natively */
+
+/* Loading progress bar animation */
+@keyframes modal-loading-progress {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.modal-loading-bar::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 100%; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  animation: modal-loading-progress 1.5s infinite;
+}
+
+/* Focus ring for accessibility */
+.modal-backdrop:focus-within {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
