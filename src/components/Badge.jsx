@@ -16,7 +16,7 @@ const Badge = ({ className, variant = 'default', children, ...props }) => {
 
   return (
     <div
-      className={cn(baseClasses, variantClasses, className)}
+      className={cn(baseClasses, variantClasses[variant], className)}
       {...props}
     >
       {children}

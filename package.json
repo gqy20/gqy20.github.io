@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "test": "node --test \"test/**/*.test.js\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist",
     "perf:check": "node scripts/performance-analysis.js",
@@ -17,6 +18,7 @@
     "perf:desktop": "lighthouse https://home.gqy20.top --chrome-flags=\"--headless --no-sandbox --disable-dev-shm-usage\" --form-factor=desktop --output=json --output-path=./lighthouse-desktop.json"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^10.16.5",
     "prismjs": "^1.30.0",
@@ -31,12 +33,16 @@
   "devDependencies": {
     "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/postcss": "^4.1.16",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@vitejs/plugin-react": "^6.0.1",
     "autoprefixer": "^10.4.21",
     "gh-pages": "^6.1.0",
+    "jsdom": "^29.0.2",
     "node-fetch": "^2.7.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.16",
-    "vite": "^8.0.10"
+    "vite": "^8.0.10",
+    "vitest": "^4.1.5"
   }
 }
