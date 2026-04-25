@@ -32,6 +32,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
 
   const navItems = [
     { name: '首页', href: '#/' },
+    { name: '旅程', href: '#/journey' },
     { name: '项目', href: '#/projects' },
     { name: '博客', href: '#/blog' }
   ]

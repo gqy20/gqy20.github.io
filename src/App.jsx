@@ -4,8 +4,9 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
 import Blog from './components/Blog'
-import BlogPost from './components/BlogPost'
-import ComponentTest from './components/ComponentTest'
+import BlogPost from './components/BlogPost.jsx'
+import Journey from './components/Journey.jsx'
+import ComponentTest from './components/ComponentTest.jsx'
 import { useDarkMode } from './hooks/useDarkMode.js'
 import './App.css'
 
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/journey" element={<Journey />} />
                 <Route path="/components" element={<ComponentTest />} />
               </Routes>
             </motion.div>

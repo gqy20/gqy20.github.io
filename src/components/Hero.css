@@ -377,6 +377,55 @@
 
 /* (removed: capability-section, sticky-heading, capability-list/item, project-chips, scene-grid/card, tool-layer-map — replaced by timeline) */
 
+/* ── Featured Projects Grid (Homepage) ── */
+
+.featured-section {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.app.dark .featured-section {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.system-topline span {
+  display: block;
+  color: var(--ai-accent-strong);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.story-card {
+  display: flex;
+  min-height: 340px;
+  flex-direction: column;
+}
+
+.story-card h3 {
+  color: var(--ai-ink);
+  font-size: 1.22rem;
+  line-height: 1.3;
+  margin: 0 0 0.35rem;
+}
+
+.story-card h4 {
+  color: var(--ai-ink);
+  font-size: 1.35rem;
+  line-height: 1.25;
+  margin: 0 0 0.8rem;
+}
+
+.story-card p {
+  color: var(--ai-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
 .log-list {
   display: grid;
   gap: 0.9rem;
@@ -424,6 +473,10 @@
   .contact-strip {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .featured-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -479,6 +532,14 @@
   }
 
   /* (removed: lead-card, story-card, scene-card, capability-item min-height overrides) */
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-card {
+    min-height: auto;
+  }
 }
 
 /* ══════════════════════════════════════
