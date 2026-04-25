@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
@@ -7,17 +6,18 @@ import Projects from './components/Projects'
 import Blog from './components/Blog'
 import BlogPost from './components/BlogPost'
 import ComponentTest from './components/ComponentTest'
+import { useDarkMode } from './hooks/useDarkMode.js'
 import './App.css'
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const { isDarkMode, toggle: toggleDarkMode } = useDarkMode()
 
   return (
     <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <div className={`app ${isDarkMode ? 'dark' : ''}`}>
         <div className="app-content">
           <main className="main-content">
-            <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+            <Navbar isDarkMode={isDarkMode} setIsDarkMode={toggleDarkMode} />
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

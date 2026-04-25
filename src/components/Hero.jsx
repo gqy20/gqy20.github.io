@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { useProjectsData } from '../hooks/useProjectsData.js'
 import { motion } from 'framer-motion'
 import {
   FaArrowRight,
@@ -82,27 +83,14 @@ const moreSystems = [
 ]
 
 const Hero = () => {
-  const [projectData, setProjectData] = useState(null)
+  const { data: projectData, loading: projectsLoading } = useProjectsData()
   const [blogData, setBlogData] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const loading = projectsLoading || !blogData
 
   useEffect(() => {
-    const loadHomeData = async () => {
-      try {
-        const [projects, blog] = await Promise.all([
-          import('../data/projects.json'),
-          import('../data/blog/index.json')
-        ])
-        setProjectData(projects.default)
-        setBlogData(blog.default)
-      } catch (error) {
-        console.error('Failed to load home data:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    loadHomeData()
+    import('../data/blog/index.json')
+      .then(m => setBlogData(m.default))
+      .catch(() => {})
   }, [])
 
   const projectsByName = useMemo(() => {

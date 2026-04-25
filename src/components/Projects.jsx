@@ -12,31 +12,14 @@ import './Projects.css'
 import ProjectDetailModal from './ProjectDetailModal'
 import { getProjectViewModel } from '../utils/portfolioProjects'
 import { getExternalLinkIcon, normalizeDescription } from '../utils/projectUtils'
+import { useProjectsData } from '../hooks/useProjectsData.js'
 
 const Projects = () => {
-  const [projectsData, setProjectsData] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const { data: projectsData, loading, error: hookError } = useProjectsData()
+  const error = hookError ? '加载项目数据失败' : null
   const [searchTerm, setSearchTerm] = useState('')
   const [sortBy, setSortBy] = useState('featured')
   const [selectedProject, setSelectedProject] = useState(null)
-
-  useEffect(() => {
-    const loadProjectsData = async () => {
-      try {
-        setLoading(true)
-        const data = await import('../data/projects.json')
-        setProjectsData(data.default)
-      } catch (err) {
-        setError('加载项目数据失败')
-        console.error('Failed to load projects data:', err)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    loadProjectsData()
-  }, [])
 
   const viewModel = useMemo(() => {
     if (!projectsData) return { featured: [], filtered: [], trackCounts: [], directoryGroups: [] }
