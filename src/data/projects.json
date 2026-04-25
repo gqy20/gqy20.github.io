@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-25T12:34:00.201Z",
+  "lastUpdated": "2026-04-25T18:32:17.666Z",
   "totalRepositories": 38,
   "totalProjects": 35,
   "totalRepositoryStars": 71,
@@ -395,7 +395,7 @@
         "language": "Python",
         "stars": 1,
         "forks": 0,
-        "issues": 1688,
+        "issues": 1694,
         "createdAt": "2025-12-31T10:25:52Z",
         "updatedAt": "2026-03-18T14:23:40Z",
         "category": "AI应用",
@@ -784,7 +784,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-03-31T08:42:45Z",
-        "updatedAt": "2026-04-25T08:16:00Z",
+        "updatedAt": "2026-04-25T12:47:22Z",
         "category": "开发工具",
         "priority": 5,
         "tags": [
@@ -798,7 +798,7 @@
           "zotero"
         ],
         "isArchived": false,
-        "size": 24,
+        "size": 25,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -886,7 +886,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2025-12-31T07:12:07Z",
-        "updatedAt": "2026-04-25T12:25:33Z",
+        "updatedAt": "2026-04-25T15:51:10Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -897,7 +897,7 @@
           "python"
         ],
         "isArchived": false,
-        "size": 91,
+        "size": 193,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1485,7 +1485,7 @@
       "language": "Python",
       "stars": 1,
       "forks": 0,
-      "issues": 1688,
+      "issues": 1694,
       "createdAt": "2025-12-31T10:25:52Z",
       "updatedAt": "2026-03-18T14:23:40Z",
       "category": "AI应用",
@@ -1868,7 +1868,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-03-31T08:42:45Z",
-      "updatedAt": "2026-04-25T08:16:00Z",
+      "updatedAt": "2026-04-25T12:47:22Z",
       "category": "开发工具",
       "priority": 5,
       "tags": [
@@ -1882,7 +1882,7 @@
         "zotero"
       ],
       "isArchived": false,
-      "size": 24,
+      "size": 25,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -1966,7 +1966,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2025-12-31T07:12:07Z",
-      "updatedAt": "2026-04-25T12:25:33Z",
+      "updatedAt": "2026-04-25T15:51:10Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -1977,7 +1977,7 @@
         "python"
       ],
       "isArchived": false,
-      "size": 91,
+      "size": 193,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
