@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-26T12:36:23.833Z",
+  "lastUpdated": "2026-04-26T18:33:28.832Z",
   "totalRepositories": 40,
   "totalProjects": 37,
   "totalRepositoryStars": 71,
@@ -193,6 +193,34 @@
     ],
     "AI应用": [
       {
+        "id": 1207212892,
+        "name": "manim-agent",
+        "fullName": "gqy20/manim-agent",
+        "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
+        "url": "https://github.com/gqy20/manim-agent",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 1,
+        "issues": 0,
+        "createdAt": "2026-04-10T17:41:37Z",
+        "updatedAt": "2026-04-26T18:05:56Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 1519,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
         "id": 1126636339,
         "name": "TrendPluse",
         "fullName": "gqy20/TrendPluse",
@@ -259,34 +287,6 @@
         "latestTag": null,
         "totalReleases": 5,
         "totalTags": 5
-      },
-      {
-        "id": 1207212892,
-        "name": "manim-agent",
-        "fullName": "gqy20/manim-agent",
-        "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
-        "url": "https://github.com/gqy20/manim-agent",
-        "homepage": null,
-        "language": "Python",
-        "stars": 0,
-        "forks": 1,
-        "issues": 0,
-        "createdAt": "2026-04-10T17:41:37Z",
-        "updatedAt": "2026-04-23T13:40:39Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 1519,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
       },
       {
         "id": 1175140181,
@@ -395,7 +395,7 @@
         "language": "Python",
         "stars": 1,
         "forks": 0,
-        "issues": 1704,
+        "issues": 1710,
         "createdAt": "2025-12-31T10:25:52Z",
         "updatedAt": "2026-03-18T14:23:40Z",
         "category": "AI应用",
@@ -884,9 +884,9 @@
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "issues": 6,
+        "issues": 8,
         "createdAt": "2026-01-29T04:25:48Z",
-        "updatedAt": "2026-04-26T08:47:05Z",
+        "updatedAt": "2026-04-26T17:26:25Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -894,17 +894,17 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 542,
+        "size": 457,
         "license": null,
         "latestRelease": null,
         "latestTag": {
-          "name": "v1.1.2",
-          "commit": "950a1a33f21f5a9b5775d94ecf4be5d40967497a",
-          "zipball_url": "https://api.github.com/repos/gqy20/gearbox/zipball/refs/tags/v1.1.2",
-          "tarball_url": "https://api.github.com/repos/gqy20/gearbox/tarball/refs/tags/v1.1.2"
+          "name": "v1.1.4",
+          "commit": "49aa4df7c12216a4f64d6f49c15f025c6fd832dd",
+          "zipball_url": "https://api.github.com/repos/gqy20/gearbox/zipball/refs/tags/v1.1.4",
+          "tarball_url": "https://api.github.com/repos/gqy20/gearbox/tarball/refs/tags/v1.1.4"
         },
         "totalReleases": 0,
-        "totalTags": 3
+        "totalTags": 5
       },
       {
         "id": 1221333975,
@@ -918,7 +918,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-04-26T04:02:05Z",
-        "updatedAt": "2026-04-26T06:00:52Z",
+        "updatedAt": "2026-04-26T17:07:56Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -926,18 +926,18 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 176,
+        "size": 208,
         "license": null,
         "latestRelease": {
-          "tagName": "v1.1.2",
-          "name": "Gearbox Action v1.1.2",
-          "publishedAt": "2026-04-26T06:00:50Z",
+          "tagName": "v1.1.4",
+          "name": "Gearbox Action v1.1.4",
+          "publishedAt": "2026-04-26T15:15:14Z",
           "prerelease": false,
           "draft": false
         },
         "latestTag": null,
-        "totalReleases": 3,
-        "totalTags": 4
+        "totalReleases": 4,
+        "totalTags": 5
       },
       {
         "id": 1125693327,
@@ -1348,6 +1348,34 @@
       "totalTags": 5
     },
     {
+      "id": 1207212892,
+      "name": "manim-agent",
+      "fullName": "gqy20/manim-agent",
+      "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
+      "url": "https://github.com/gqy20/manim-agent",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 1,
+      "issues": 0,
+      "createdAt": "2026-04-10T17:41:37Z",
+      "updatedAt": "2026-04-26T18:05:56Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 1519,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -1414,34 +1442,6 @@
       "latestTag": null,
       "totalReleases": 5,
       "totalTags": 5
-    },
-    {
-      "id": 1207212892,
-      "name": "manim-agent",
-      "fullName": "gqy20/manim-agent",
-      "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
-      "url": "https://github.com/gqy20/manim-agent",
-      "homepage": null,
-      "language": "Python",
-      "stars": 0,
-      "forks": 1,
-      "issues": 0,
-      "createdAt": "2026-04-10T17:41:37Z",
-      "updatedAt": "2026-04-23T13:40:39Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 1519,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
     },
     {
       "id": 1175140181,
@@ -1550,7 +1550,7 @@
       "language": "Python",
       "stars": 1,
       "forks": 0,
-      "issues": 1704,
+      "issues": 1710,
       "createdAt": "2025-12-31T10:25:52Z",
       "updatedAt": "2026-03-18T14:23:40Z",
       "category": "AI应用",
@@ -2029,9 +2029,9 @@
       "language": "Python",
       "stars": 0,
       "forks": 0,
-      "issues": 6,
+      "issues": 8,
       "createdAt": "2026-01-29T04:25:48Z",
-      "updatedAt": "2026-04-26T08:47:05Z",
+      "updatedAt": "2026-04-26T17:26:25Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -2039,17 +2039,17 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 542,
+      "size": 457,
       "license": null,
       "latestRelease": null,
       "latestTag": {
-        "name": "v1.1.2",
-        "commit": "950a1a33f21f5a9b5775d94ecf4be5d40967497a",
-        "zipball_url": "https://api.github.com/repos/gqy20/gearbox/zipball/refs/tags/v1.1.2",
-        "tarball_url": "https://api.github.com/repos/gqy20/gearbox/tarball/refs/tags/v1.1.2"
+        "name": "v1.1.4",
+        "commit": "49aa4df7c12216a4f64d6f49c15f025c6fd832dd",
+        "zipball_url": "https://api.github.com/repos/gqy20/gearbox/zipball/refs/tags/v1.1.4",
+        "tarball_url": "https://api.github.com/repos/gqy20/gearbox/tarball/refs/tags/v1.1.4"
       },
       "totalReleases": 0,
-      "totalTags": 3
+      "totalTags": 5
     },
     {
       "id": 1221333975,
@@ -2063,7 +2063,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-04-26T04:02:05Z",
-      "updatedAt": "2026-04-26T06:00:52Z",
+      "updatedAt": "2026-04-26T17:07:56Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -2071,18 +2071,18 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 176,
+      "size": 208,
       "license": null,
       "latestRelease": {
-        "tagName": "v1.1.2",
-        "name": "Gearbox Action v1.1.2",
-        "publishedAt": "2026-04-26T06:00:50Z",
+        "tagName": "v1.1.4",
+        "name": "Gearbox Action v1.1.4",
+        "publishedAt": "2026-04-26T15:15:14Z",
         "prerelease": false,
         "draft": false
       },
       "latestTag": null,
-      "totalReleases": 3,
-      "totalTags": 4
+      "totalReleases": 4,
+      "totalTags": 5
     },
     {
       "id": 1125693327,
