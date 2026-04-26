@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-04-26T07:13:37.698Z",
-  "totalRepositories": 39,
-  "totalProjects": 36,
+  "lastUpdated": "2026-04-26T12:36:23.833Z",
+  "totalRepositories": 40,
+  "totalProjects": 37,
   "totalRepositoryStars": 71,
   "totalStars": 70,
   "followers": 16,
@@ -874,6 +874,38 @@
       }
     ],
     "其他项目": [
+      {
+        "id": 1144809756,
+        "name": "gearbox",
+        "fullName": "gqy20/gearbox",
+        "description": "暂无描述 - Python项目",
+        "url": "https://github.com/gqy20/gearbox",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 6,
+        "createdAt": "2026-01-29T04:25:48Z",
+        "updatedAt": "2026-04-26T08:47:05Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "python"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 542,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v1.1.2",
+          "commit": "950a1a33f21f5a9b5775d94ecf4be5d40967497a",
+          "zipball_url": "https://api.github.com/repos/gqy20/gearbox/zipball/refs/tags/v1.1.2",
+          "tarball_url": "https://api.github.com/repos/gqy20/gearbox/tarball/refs/tags/v1.1.2"
+        },
+        "totalReleases": 0,
+        "totalTags": 3
+      },
       {
         "id": 1221333975,
         "name": "gearbox-action",
@@ -1986,6 +2018,38 @@
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
+    },
+    {
+      "id": 1144809756,
+      "name": "gearbox",
+      "fullName": "gqy20/gearbox",
+      "description": "暂无描述 - Python项目",
+      "url": "https://github.com/gqy20/gearbox",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 6,
+      "createdAt": "2026-01-29T04:25:48Z",
+      "updatedAt": "2026-04-26T08:47:05Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "python"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 542,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v1.1.2",
+        "commit": "950a1a33f21f5a9b5775d94ecf4be5d40967497a",
+        "zipball_url": "https://api.github.com/repos/gqy20/gearbox/zipball/refs/tags/v1.1.2",
+        "tarball_url": "https://api.github.com/repos/gqy20/gearbox/tarball/refs/tags/v1.1.2"
+      },
+      "totalReleases": 0,
+      "totalTags": 3
     },
     {
       "id": 1221333975,
