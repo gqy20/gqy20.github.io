@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-04-26T01:21:54.910Z",
-  "totalRepositories": 38,
-  "totalProjects": 35,
+  "lastUpdated": "2026-04-26T07:13:37.698Z",
+  "totalRepositories": 39,
+  "totalProjects": 36,
   "totalRepositoryStars": 71,
   "totalStars": 70,
   "followers": 16,
@@ -874,6 +874,39 @@
       }
     ],
     "其他项目": [
+      {
+        "id": 1221333975,
+        "name": "gearbox-action",
+        "fullName": "gqy20/gearbox-action",
+        "description": "Marketplace release repository for Gearbox Action",
+        "url": "https://github.com/gqy20/gearbox-action",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-04-26T04:02:05Z",
+        "updatedAt": "2026-04-26T06:00:52Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "python"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 176,
+        "license": null,
+        "latestRelease": {
+          "tagName": "v1.1.2",
+          "name": "Gearbox Action v1.1.2",
+          "publishedAt": "2026-04-26T06:00:50Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 3,
+        "totalTags": 4
+      },
       {
         "id": 1125693327,
         "name": "quick-template",
@@ -1953,6 +1986,39 @@
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
+    },
+    {
+      "id": 1221333975,
+      "name": "gearbox-action",
+      "fullName": "gqy20/gearbox-action",
+      "description": "Marketplace release repository for Gearbox Action",
+      "url": "https://github.com/gqy20/gearbox-action",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-04-26T04:02:05Z",
+      "updatedAt": "2026-04-26T06:00:52Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "python"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 176,
+      "license": null,
+      "latestRelease": {
+        "tagName": "v1.1.2",
+        "name": "Gearbox Action v1.1.2",
+        "publishedAt": "2026-04-26T06:00:50Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 3,
+      "totalTags": 4
     },
     {
       "id": 1125693327,
