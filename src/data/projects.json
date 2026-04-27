@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-27T13:12:21.484Z",
+  "lastUpdated": "2026-04-27T19:01:23.525Z",
   "totalRepositories": 40,
   "totalProjects": 37,
   "totalRepositoryStars": 72,
@@ -74,15 +74,14 @@
         "isArchived": false,
         "size": 104,
         "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.1.3",
-          "name": "Release v0.1.3",
-          "publishedAt": "2026-01-15T03:18:38Z",
-          "prerelease": false,
-          "draft": false
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.1.3",
+          "commit": "3f43df07213f18201f83ddfc3bddbd92704484a6",
+          "zipball_url": "https://api.github.com/repos/gqy20/crawl-mcp/zipball/refs/tags/v0.1.3",
+          "tarball_url": "https://api.github.com/repos/gqy20/crawl-mcp/tarball/refs/tags/v0.1.3"
         },
-        "latestTag": null,
-        "totalReleases": 1,
+        "totalReleases": 0,
         "totalTags": 4
       },
       {
@@ -108,15 +107,14 @@
         "isArchived": false,
         "size": 8498,
         "license": null,
-        "latestRelease": {
-          "tagName": "1.0.0-with-mcp-data",
-          "name": "Version 1.0.0-with-mcp-data",
-          "publishedAt": "2025-09-23T09:57:00Z",
-          "prerelease": false,
-          "draft": false
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.1.0",
+          "commit": "3b03b522602e73d86f774e438881e6f735606fe6",
+          "zipball_url": "https://api.github.com/repos/gqy20/mcp_agent/zipball/refs/tags/v0.1.0",
+          "tarball_url": "https://api.github.com/repos/gqy20/mcp_agent/tarball/refs/tags/v0.1.0"
         },
-        "latestTag": null,
-        "totalReleases": 2,
+        "totalReleases": 0,
         "totalTags": 3
       },
       {
@@ -144,15 +142,14 @@
         "isArchived": false,
         "size": 1185,
         "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.2.6",
-          "name": "Release v0.2.6",
-          "publishedAt": "2025-12-08T03:39:17Z",
-          "prerelease": false,
-          "draft": false
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.2.6",
+          "commit": "6e4eeecf61365a01e034b3b99ca120b9fe993f6f",
+          "zipball_url": "https://api.github.com/repos/gqy20/genome-mcp/zipball/refs/tags/v0.2.6",
+          "tarball_url": "https://api.github.com/repos/gqy20/genome-mcp/tarball/refs/tags/v0.2.6"
         },
-        "latestTag": null,
-        "totalReleases": 5,
+        "totalReleases": 0,
         "totalTags": 5
       },
       {
@@ -192,6 +189,71 @@
       }
     ],
     "AI应用": [
+      {
+        "id": 1207212892,
+        "name": "manim-agent",
+        "fullName": "gqy20/manim-agent",
+        "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
+        "url": "https://github.com/gqy20/manim-agent",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 1,
+        "issues": 0,
+        "createdAt": "2026-04-10T17:41:37Z",
+        "updatedAt": "2026-04-27T15:05:38Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 8666,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
+        "id": 1144809756,
+        "name": "gearbox",
+        "fullName": "gqy20/gearbox",
+        "description": "AI-driven GitHub repository automation flywheel system",
+        "url": "https://github.com/gqy20/gearbox",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 6,
+        "createdAt": "2026-01-29T04:25:48Z",
+        "updatedAt": "2026-04-27T15:01:41Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [
+          "ai-agent",
+          "automation",
+          "github-actions"
+        ],
+        "isArchived": false,
+        "size": 596,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v1.1.6",
+          "commit": "d5329cf8ae4a609992a530db714ade272481603a",
+          "zipball_url": "https://api.github.com/repos/gqy20/gearbox/zipball/refs/tags/v1.1.6",
+          "tarball_url": "https://api.github.com/repos/gqy20/gearbox/tarball/refs/tags/v1.1.6"
+        },
+        "totalReleases": 0,
+        "totalTags": 5
+      },
       {
         "id": 1126636339,
         "name": "TrendPluse",
@@ -249,44 +311,15 @@
         "isArchived": false,
         "size": 1672,
         "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.0.9",
-          "name": "v0.0.9 · zot",
-          "publishedAt": "2026-04-25T08:15:46Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 5,
-        "totalTags": 5
-      },
-      {
-        "id": 1207212892,
-        "name": "manim-agent",
-        "fullName": "gqy20/manim-agent",
-        "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
-        "url": "https://github.com/gqy20/manim-agent",
-        "homepage": null,
-        "language": "Python",
-        "stars": 0,
-        "forks": 1,
-        "issues": 0,
-        "createdAt": "2026-04-10T17:41:37Z",
-        "updatedAt": "2026-04-27T07:53:50Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 8441,
-        "license": null,
         "latestRelease": null,
-        "latestTag": null,
+        "latestTag": {
+          "name": "v0.0.9",
+          "commit": "d2cafcf7de46bacfec874d9f3de196da600c247e",
+          "zipball_url": "https://api.github.com/repos/gqy20/zotero_cli/zipball/refs/tags/v0.0.9",
+          "tarball_url": "https://api.github.com/repos/gqy20/zotero_cli/tarball/refs/tags/v0.0.9"
+        },
         "totalReleases": 0,
-        "totalTags": 0
+        "totalTags": 5
       },
       {
         "id": 1175140181,
@@ -298,7 +331,7 @@
         "language": "Python",
         "stars": 11,
         "forks": 1,
-        "issues": 21,
+        "issues": 23,
         "createdAt": "2026-03-07T09:33:56Z",
         "updatedAt": "2026-04-14T09:15:14Z",
         "category": "AI应用",
@@ -395,7 +428,7 @@
         "language": "Python",
         "stars": 1,
         "forks": 0,
-        "issues": 1720,
+        "issues": 1724,
         "createdAt": "2025-12-31T10:25:52Z",
         "updatedAt": "2026-03-18T14:23:40Z",
         "category": "AI应用",
@@ -639,15 +672,14 @@
         "isArchived": false,
         "size": 25707,
         "license": null,
-        "latestRelease": {
-          "tagName": "v0.1.5",
-          "name": "Release 0.1.5",
-          "publishedAt": "2026-04-01T08:07:12Z",
-          "prerelease": false,
-          "draft": false
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.1.5",
+          "commit": "4dbab4f11f30b12e0841ac197d575e072550328c",
+          "zipball_url": "https://api.github.com/repos/gqy20/pdfget/zipball/refs/tags/v0.1.5",
+          "tarball_url": "https://api.github.com/repos/gqy20/pdfget/tarball/refs/tags/v0.1.5"
         },
-        "latestTag": null,
-        "totalReleases": 5,
+        "totalReleases": 0,
         "totalTags": 5
       },
       {
@@ -673,15 +705,14 @@
         "isArchived": false,
         "size": 12980,
         "license": null,
-        "latestRelease": {
-          "tagName": "0.6",
-          "name": "0.6 ",
-          "publishedAt": "2025-04-19T17:00:43Z",
-          "prerelease": false,
-          "draft": false
+        "latestRelease": null,
+        "latestTag": {
+          "name": "0.6",
+          "commit": "8a07f0ff434b422575487a2249c6e612c84cd256",
+          "zipball_url": "https://api.github.com/repos/gqy20/pub2tts/zipball/refs/tags/0.6",
+          "tarball_url": "https://api.github.com/repos/gqy20/pub2tts/tarball/refs/tags/0.6"
         },
-        "latestTag": null,
-        "totalReleases": 3,
+        "totalReleases": 0,
         "totalTags": 3
       }
     ],
@@ -875,38 +906,6 @@
     ],
     "其他项目": [
       {
-        "id": 1144809756,
-        "name": "gearbox",
-        "fullName": "gqy20/gearbox",
-        "description": "暂无描述 - Python项目",
-        "url": "https://github.com/gqy20/gearbox",
-        "homepage": null,
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "issues": 10,
-        "createdAt": "2026-01-29T04:25:48Z",
-        "updatedAt": "2026-04-27T13:11:47Z",
-        "category": "其他项目",
-        "priority": 7,
-        "tags": [
-          "python"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 527,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": {
-          "name": "v1.1.5",
-          "commit": "3e3ba73bad5c961c73a3a5257aabf6877d25ad8e",
-          "zipball_url": "https://api.github.com/repos/gqy20/gearbox/zipball/refs/tags/v1.1.5",
-          "tarball_url": "https://api.github.com/repos/gqy20/gearbox/tarball/refs/tags/v1.1.5"
-        },
-        "totalReleases": 0,
-        "totalTags": 5
-      },
-      {
         "id": 1221333975,
         "name": "gearbox-action",
         "fullName": "gqy20/gearbox-action",
@@ -918,7 +917,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-04-26T04:02:05Z",
-        "updatedAt": "2026-04-27T11:09:16Z",
+        "updatedAt": "2026-04-27T14:55:11Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -926,17 +925,16 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 234,
+        "size": 262,
         "license": null,
-        "latestRelease": {
-          "tagName": "v1.1.5",
-          "name": "Gearbox Action v1.1.5",
-          "publishedAt": "2026-04-27T11:09:14Z",
-          "prerelease": false,
-          "draft": false
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v1.1.6",
+          "commit": "e4496fa606591ff2e62797848b44c24a1ca39d17",
+          "zipball_url": "https://api.github.com/repos/gqy20/gearbox-action/zipball/refs/tags/v1.1.6",
+          "tarball_url": "https://api.github.com/repos/gqy20/gearbox-action/tarball/refs/tags/v1.1.6"
         },
-        "latestTag": null,
-        "totalReleases": 5,
+        "totalReleases": 0,
         "totalTags": 5
       },
       {
@@ -991,15 +989,14 @@
         "isArchived": false,
         "size": 6215,
         "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.1.0",
-          "name": "v0.1.0 · MiniMax Studio",
-          "publishedAt": "2026-04-02T03:42:56Z",
-          "prerelease": false,
-          "draft": false
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.1.0",
+          "commit": "cc371f5d9a3392780f10135d9cf8a4cd317b0242",
+          "zipball_url": "https://api.github.com/repos/gqy20/minimax-studio/zipball/refs/tags/v0.1.0",
+          "tarball_url": "https://api.github.com/repos/gqy20/minimax-studio/tarball/refs/tags/v0.1.0"
         },
-        "latestTag": null,
-        "totalReleases": 1,
+        "totalReleases": 0,
         "totalTags": 1
       },
       {
@@ -1105,15 +1102,14 @@
         "isArchived": false,
         "size": 7359,
         "license": null,
-        "latestRelease": {
-          "tagName": "v0.4.1",
-          "name": "Process Tracker",
-          "publishedAt": "2025-10-27T09:53:30Z",
-          "prerelease": false,
-          "draft": false
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.4.1",
+          "commit": "7e5034df613f966f8b6815056dc4055f28196b57",
+          "zipball_url": "https://api.github.com/repos/gqy20/process-tracker/zipball/refs/tags/v0.4.1",
+          "tarball_url": "https://api.github.com/repos/gqy20/process-tracker/tarball/refs/tags/v0.4.1"
         },
-        "latestTag": null,
-        "totalReleases": 4,
+        "totalReleases": 0,
         "totalTags": 4
       },
       {
@@ -1231,15 +1227,14 @@
       "isArchived": false,
       "size": 104,
       "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.1.3",
-        "name": "Release v0.1.3",
-        "publishedAt": "2026-01-15T03:18:38Z",
-        "prerelease": false,
-        "draft": false
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.1.3",
+        "commit": "3f43df07213f18201f83ddfc3bddbd92704484a6",
+        "zipball_url": "https://api.github.com/repos/gqy20/crawl-mcp/zipball/refs/tags/v0.1.3",
+        "tarball_url": "https://api.github.com/repos/gqy20/crawl-mcp/tarball/refs/tags/v0.1.3"
       },
-      "latestTag": null,
-      "totalReleases": 1,
+      "totalReleases": 0,
       "totalTags": 4
     },
     {
@@ -1265,15 +1260,14 @@
       "isArchived": false,
       "size": 8498,
       "license": null,
-      "latestRelease": {
-        "tagName": "1.0.0-with-mcp-data",
-        "name": "Version 1.0.0-with-mcp-data",
-        "publishedAt": "2025-09-23T09:57:00Z",
-        "prerelease": false,
-        "draft": false
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.1.0",
+        "commit": "3b03b522602e73d86f774e438881e6f735606fe6",
+        "zipball_url": "https://api.github.com/repos/gqy20/mcp_agent/zipball/refs/tags/v0.1.0",
+        "tarball_url": "https://api.github.com/repos/gqy20/mcp_agent/tarball/refs/tags/v0.1.0"
       },
-      "latestTag": null,
-      "totalReleases": 2,
+      "totalReleases": 0,
       "totalTags": 3
     },
     {
@@ -1301,15 +1295,14 @@
       "isArchived": false,
       "size": 1185,
       "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.2.6",
-        "name": "Release v0.2.6",
-        "publishedAt": "2025-12-08T03:39:17Z",
-        "prerelease": false,
-        "draft": false
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.2.6",
+        "commit": "6e4eeecf61365a01e034b3b99ca120b9fe993f6f",
+        "zipball_url": "https://api.github.com/repos/gqy20/genome-mcp/zipball/refs/tags/v0.2.6",
+        "tarball_url": "https://api.github.com/repos/gqy20/genome-mcp/tarball/refs/tags/v0.2.6"
       },
-      "latestTag": null,
-      "totalReleases": 5,
+      "totalReleases": 0,
       "totalTags": 5
     },
     {
@@ -1343,6 +1336,71 @@
         "commit": "de97aebfd0bd32d8c0cb830b15562b6d35d75725",
         "zipball_url": "https://api.github.com/repos/gqy20/protein-mcp/zipball/refs/tags/v0.1.5",
         "tarball_url": "https://api.github.com/repos/gqy20/protein-mcp/tarball/refs/tags/v0.1.5"
+      },
+      "totalReleases": 0,
+      "totalTags": 5
+    },
+    {
+      "id": 1207212892,
+      "name": "manim-agent",
+      "fullName": "gqy20/manim-agent",
+      "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
+      "url": "https://github.com/gqy20/manim-agent",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 1,
+      "issues": 0,
+      "createdAt": "2026-04-10T17:41:37Z",
+      "updatedAt": "2026-04-27T15:05:38Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 8666,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
+      "id": 1144809756,
+      "name": "gearbox",
+      "fullName": "gqy20/gearbox",
+      "description": "AI-driven GitHub repository automation flywheel system",
+      "url": "https://github.com/gqy20/gearbox",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 6,
+      "createdAt": "2026-01-29T04:25:48Z",
+      "updatedAt": "2026-04-27T15:01:41Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [
+        "ai-agent",
+        "automation",
+        "github-actions"
+      ],
+      "isArchived": false,
+      "size": 596,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v1.1.6",
+        "commit": "d5329cf8ae4a609992a530db714ade272481603a",
+        "zipball_url": "https://api.github.com/repos/gqy20/gearbox/zipball/refs/tags/v1.1.6",
+        "tarball_url": "https://api.github.com/repos/gqy20/gearbox/tarball/refs/tags/v1.1.6"
       },
       "totalReleases": 0,
       "totalTags": 5
@@ -1404,44 +1462,15 @@
       "isArchived": false,
       "size": 1672,
       "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.0.9",
-        "name": "v0.0.9 · zot",
-        "publishedAt": "2026-04-25T08:15:46Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 5,
-      "totalTags": 5
-    },
-    {
-      "id": 1207212892,
-      "name": "manim-agent",
-      "fullName": "gqy20/manim-agent",
-      "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
-      "url": "https://github.com/gqy20/manim-agent",
-      "homepage": null,
-      "language": "Python",
-      "stars": 0,
-      "forks": 1,
-      "issues": 0,
-      "createdAt": "2026-04-10T17:41:37Z",
-      "updatedAt": "2026-04-27T07:53:50Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 8441,
-      "license": null,
       "latestRelease": null,
-      "latestTag": null,
+      "latestTag": {
+        "name": "v0.0.9",
+        "commit": "d2cafcf7de46bacfec874d9f3de196da600c247e",
+        "zipball_url": "https://api.github.com/repos/gqy20/zotero_cli/zipball/refs/tags/v0.0.9",
+        "tarball_url": "https://api.github.com/repos/gqy20/zotero_cli/tarball/refs/tags/v0.0.9"
+      },
       "totalReleases": 0,
-      "totalTags": 0
+      "totalTags": 5
     },
     {
       "id": 1175140181,
@@ -1453,7 +1482,7 @@
       "language": "Python",
       "stars": 11,
       "forks": 1,
-      "issues": 21,
+      "issues": 23,
       "createdAt": "2026-03-07T09:33:56Z",
       "updatedAt": "2026-04-14T09:15:14Z",
       "category": "AI应用",
@@ -1550,7 +1579,7 @@
       "language": "Python",
       "stars": 1,
       "forks": 0,
-      "issues": 1720,
+      "issues": 1724,
       "createdAt": "2025-12-31T10:25:52Z",
       "updatedAt": "2026-03-18T14:23:40Z",
       "category": "AI应用",
@@ -1792,15 +1821,14 @@
       "isArchived": false,
       "size": 25707,
       "license": null,
-      "latestRelease": {
-        "tagName": "v0.1.5",
-        "name": "Release 0.1.5",
-        "publishedAt": "2026-04-01T08:07:12Z",
-        "prerelease": false,
-        "draft": false
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.1.5",
+        "commit": "4dbab4f11f30b12e0841ac197d575e072550328c",
+        "zipball_url": "https://api.github.com/repos/gqy20/pdfget/zipball/refs/tags/v0.1.5",
+        "tarball_url": "https://api.github.com/repos/gqy20/pdfget/tarball/refs/tags/v0.1.5"
       },
-      "latestTag": null,
-      "totalReleases": 5,
+      "totalReleases": 0,
       "totalTags": 5
     },
     {
@@ -1826,15 +1854,14 @@
       "isArchived": false,
       "size": 12980,
       "license": null,
-      "latestRelease": {
-        "tagName": "0.6",
-        "name": "0.6 ",
-        "publishedAt": "2025-04-19T17:00:43Z",
-        "prerelease": false,
-        "draft": false
+      "latestRelease": null,
+      "latestTag": {
+        "name": "0.6",
+        "commit": "8a07f0ff434b422575487a2249c6e612c84cd256",
+        "zipball_url": "https://api.github.com/repos/gqy20/pub2tts/zipball/refs/tags/0.6",
+        "tarball_url": "https://api.github.com/repos/gqy20/pub2tts/tarball/refs/tags/0.6"
       },
-      "latestTag": null,
-      "totalReleases": 3,
+      "totalReleases": 0,
       "totalTags": 3
     },
     {
@@ -2020,38 +2047,6 @@
       "totalTags": 0
     },
     {
-      "id": 1144809756,
-      "name": "gearbox",
-      "fullName": "gqy20/gearbox",
-      "description": "暂无描述 - Python项目",
-      "url": "https://github.com/gqy20/gearbox",
-      "homepage": null,
-      "language": "Python",
-      "stars": 0,
-      "forks": 0,
-      "issues": 10,
-      "createdAt": "2026-01-29T04:25:48Z",
-      "updatedAt": "2026-04-27T13:11:47Z",
-      "category": "其他项目",
-      "priority": 7,
-      "tags": [
-        "python"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 527,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": {
-        "name": "v1.1.5",
-        "commit": "3e3ba73bad5c961c73a3a5257aabf6877d25ad8e",
-        "zipball_url": "https://api.github.com/repos/gqy20/gearbox/zipball/refs/tags/v1.1.5",
-        "tarball_url": "https://api.github.com/repos/gqy20/gearbox/tarball/refs/tags/v1.1.5"
-      },
-      "totalReleases": 0,
-      "totalTags": 5
-    },
-    {
       "id": 1221333975,
       "name": "gearbox-action",
       "fullName": "gqy20/gearbox-action",
@@ -2063,7 +2058,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-04-26T04:02:05Z",
-      "updatedAt": "2026-04-27T11:09:16Z",
+      "updatedAt": "2026-04-27T14:55:11Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -2071,17 +2066,16 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 234,
+      "size": 262,
       "license": null,
-      "latestRelease": {
-        "tagName": "v1.1.5",
-        "name": "Gearbox Action v1.1.5",
-        "publishedAt": "2026-04-27T11:09:14Z",
-        "prerelease": false,
-        "draft": false
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v1.1.6",
+        "commit": "e4496fa606591ff2e62797848b44c24a1ca39d17",
+        "zipball_url": "https://api.github.com/repos/gqy20/gearbox-action/zipball/refs/tags/v1.1.6",
+        "tarball_url": "https://api.github.com/repos/gqy20/gearbox-action/tarball/refs/tags/v1.1.6"
       },
-      "latestTag": null,
-      "totalReleases": 5,
+      "totalReleases": 0,
       "totalTags": 5
     },
     {
@@ -2136,15 +2130,14 @@
       "isArchived": false,
       "size": 6215,
       "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.1.0",
-        "name": "v0.1.0 · MiniMax Studio",
-        "publishedAt": "2026-04-02T03:42:56Z",
-        "prerelease": false,
-        "draft": false
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.1.0",
+        "commit": "cc371f5d9a3392780f10135d9cf8a4cd317b0242",
+        "zipball_url": "https://api.github.com/repos/gqy20/minimax-studio/zipball/refs/tags/v0.1.0",
+        "tarball_url": "https://api.github.com/repos/gqy20/minimax-studio/tarball/refs/tags/v0.1.0"
       },
-      "latestTag": null,
-      "totalReleases": 1,
+      "totalReleases": 0,
       "totalTags": 1
     },
     {
@@ -2250,15 +2243,14 @@
       "isArchived": false,
       "size": 7359,
       "license": null,
-      "latestRelease": {
-        "tagName": "v0.4.1",
-        "name": "Process Tracker",
-        "publishedAt": "2025-10-27T09:53:30Z",
-        "prerelease": false,
-        "draft": false
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.4.1",
+        "commit": "7e5034df613f966f8b6815056dc4055f28196b57",
+        "zipball_url": "https://api.github.com/repos/gqy20/process-tracker/zipball/refs/tags/v0.4.1",
+        "tarball_url": "https://api.github.com/repos/gqy20/process-tracker/tarball/refs/tags/v0.4.1"
       },
-      "latestTag": null,
-      "totalReleases": 4,
+      "totalReleases": 0,
       "totalTags": 4
     },
     {
