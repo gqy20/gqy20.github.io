@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-04-27T08:00:18.446Z",
+  "lastUpdated": "2026-04-27T13:12:21.484Z",
   "totalRepositories": 40,
   "totalProjects": 37,
-  "totalRepositoryStars": 71,
-  "totalStars": 70,
+  "totalRepositoryStars": 72,
+  "totalStars": 71,
   "followers": 16,
   "categories": [
     "MCP工具",
@@ -204,7 +204,7 @@
         "forks": 0,
         "issues": 9,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-04-27T07:59:27Z",
+        "updatedAt": "2026-04-27T08:53:08Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -219,12 +219,46 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 18516,
+        "size": 18867,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
+      },
+      {
+        "id": 1196258715,
+        "name": "zotero_cli",
+        "fullName": "gqy20/zotero_cli",
+        "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
+        "url": "https://github.com/gqy20/zotero_cli",
+        "homepage": null,
+        "language": "Go",
+        "stars": 5,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-03-30T14:22:18Z",
+        "updatedAt": "2026-04-27T08:29:18Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 1672,
+        "license": "MIT License",
+        "latestRelease": {
+          "tagName": "v0.0.9",
+          "name": "v0.0.9 · zot",
+          "publishedAt": "2026-04-25T08:15:46Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 5,
+        "totalTags": 5
       },
       {
         "id": 1207212892,
@@ -247,46 +281,12 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 2088,
+        "size": 8441,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
-      },
-      {
-        "id": 1196258715,
-        "name": "zotero_cli",
-        "fullName": "gqy20/zotero_cli",
-        "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
-        "url": "https://github.com/gqy20/zotero_cli",
-        "homepage": null,
-        "language": "Go",
-        "stars": 4,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-03-30T14:22:18Z",
-        "updatedAt": "2026-04-25T08:13:31Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 1672,
-        "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.0.9",
-          "name": "v0.0.9 · zot",
-          "publishedAt": "2026-04-25T08:15:46Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 5,
-        "totalTags": 5
       },
       {
         "id": 1175140181,
@@ -598,7 +598,7 @@
         "language": "Python",
         "stars": 11,
         "forks": 3,
-        "issues": 12,
+        "issues": 13,
         "createdAt": "2026-02-02T04:09:50Z",
         "updatedAt": "2026-04-27T07:13:03Z",
         "category": "科研工具",
@@ -609,7 +609,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 1867,
+        "size": 1885,
         "license": "MIT License",
         "latestRelease": null,
         "latestTag": null,
@@ -884,9 +884,9 @@
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "issues": 13,
+        "issues": 10,
         "createdAt": "2026-01-29T04:25:48Z",
-        "updatedAt": "2026-04-27T05:19:25Z",
+        "updatedAt": "2026-04-27T13:11:47Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -894,14 +894,14 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 485,
+        "size": 527,
         "license": null,
         "latestRelease": null,
         "latestTag": {
-          "name": "v1.1.4",
-          "commit": "49aa4df7c12216a4f64d6f49c15f025c6fd832dd",
-          "zipball_url": "https://api.github.com/repos/gqy20/gearbox/zipball/refs/tags/v1.1.4",
-          "tarball_url": "https://api.github.com/repos/gqy20/gearbox/tarball/refs/tags/v1.1.4"
+          "name": "v1.1.5",
+          "commit": "3e3ba73bad5c961c73a3a5257aabf6877d25ad8e",
+          "zipball_url": "https://api.github.com/repos/gqy20/gearbox/zipball/refs/tags/v1.1.5",
+          "tarball_url": "https://api.github.com/repos/gqy20/gearbox/tarball/refs/tags/v1.1.5"
         },
         "totalReleases": 0,
         "totalTags": 5
@@ -918,7 +918,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-04-26T04:02:05Z",
-        "updatedAt": "2026-04-26T17:07:56Z",
+        "updatedAt": "2026-04-27T11:09:16Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -926,17 +926,17 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 208,
+        "size": 234,
         "license": null,
         "latestRelease": {
-          "tagName": "v1.1.4",
-          "name": "Gearbox Action v1.1.4",
-          "publishedAt": "2026-04-26T15:15:14Z",
+          "tagName": "v1.1.5",
+          "name": "Gearbox Action v1.1.5",
+          "publishedAt": "2026-04-27T11:09:14Z",
           "prerelease": false,
           "draft": false
         },
         "latestTag": null,
-        "totalReleases": 4,
+        "totalReleases": 5,
         "totalTags": 5
       },
       {
@@ -1359,7 +1359,7 @@
       "forks": 0,
       "issues": 9,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-04-27T07:59:27Z",
+      "updatedAt": "2026-04-27T08:53:08Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1374,12 +1374,46 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 18516,
+      "size": 18867,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
+    },
+    {
+      "id": 1196258715,
+      "name": "zotero_cli",
+      "fullName": "gqy20/zotero_cli",
+      "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
+      "url": "https://github.com/gqy20/zotero_cli",
+      "homepage": null,
+      "language": "Go",
+      "stars": 5,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-03-30T14:22:18Z",
+      "updatedAt": "2026-04-27T08:29:18Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 1672,
+      "license": "MIT License",
+      "latestRelease": {
+        "tagName": "v0.0.9",
+        "name": "v0.0.9 · zot",
+        "publishedAt": "2026-04-25T08:15:46Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 5,
+      "totalTags": 5
     },
     {
       "id": 1207212892,
@@ -1402,46 +1436,12 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 2088,
+      "size": 8441,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
-    },
-    {
-      "id": 1196258715,
-      "name": "zotero_cli",
-      "fullName": "gqy20/zotero_cli",
-      "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
-      "url": "https://github.com/gqy20/zotero_cli",
-      "homepage": null,
-      "language": "Go",
-      "stars": 4,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-03-30T14:22:18Z",
-      "updatedAt": "2026-04-25T08:13:31Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 1672,
-      "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.0.9",
-        "name": "v0.0.9 · zot",
-        "publishedAt": "2026-04-25T08:15:46Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 5,
-      "totalTags": 5
     },
     {
       "id": 1175140181,
@@ -1751,7 +1751,7 @@
       "language": "Python",
       "stars": 11,
       "forks": 3,
-      "issues": 12,
+      "issues": 13,
       "createdAt": "2026-02-02T04:09:50Z",
       "updatedAt": "2026-04-27T07:13:03Z",
       "category": "科研工具",
@@ -1762,7 +1762,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 1867,
+      "size": 1885,
       "license": "MIT License",
       "latestRelease": null,
       "latestTag": null,
@@ -2029,9 +2029,9 @@
       "language": "Python",
       "stars": 0,
       "forks": 0,
-      "issues": 13,
+      "issues": 10,
       "createdAt": "2026-01-29T04:25:48Z",
-      "updatedAt": "2026-04-27T05:19:25Z",
+      "updatedAt": "2026-04-27T13:11:47Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -2039,14 +2039,14 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 485,
+      "size": 527,
       "license": null,
       "latestRelease": null,
       "latestTag": {
-        "name": "v1.1.4",
-        "commit": "49aa4df7c12216a4f64d6f49c15f025c6fd832dd",
-        "zipball_url": "https://api.github.com/repos/gqy20/gearbox/zipball/refs/tags/v1.1.4",
-        "tarball_url": "https://api.github.com/repos/gqy20/gearbox/tarball/refs/tags/v1.1.4"
+        "name": "v1.1.5",
+        "commit": "3e3ba73bad5c961c73a3a5257aabf6877d25ad8e",
+        "zipball_url": "https://api.github.com/repos/gqy20/gearbox/zipball/refs/tags/v1.1.5",
+        "tarball_url": "https://api.github.com/repos/gqy20/gearbox/tarball/refs/tags/v1.1.5"
       },
       "totalReleases": 0,
       "totalTags": 5
@@ -2063,7 +2063,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-04-26T04:02:05Z",
-      "updatedAt": "2026-04-26T17:07:56Z",
+      "updatedAt": "2026-04-27T11:09:16Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -2071,17 +2071,17 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 208,
+      "size": 234,
       "license": null,
       "latestRelease": {
-        "tagName": "v1.1.4",
-        "name": "Gearbox Action v1.1.4",
-        "publishedAt": "2026-04-26T15:15:14Z",
+        "tagName": "v1.1.5",
+        "name": "Gearbox Action v1.1.5",
+        "publishedAt": "2026-04-27T11:09:14Z",
         "prerelease": false,
         "draft": false
       },
       "latestTag": null,
-      "totalReleases": 4,
+      "totalReleases": 5,
       "totalTags": 5
     },
     {
