@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-28T01:29:52.156Z",
+  "lastUpdated": "2026-04-28T08:00:50.131Z",
   "totalRepositories": 40,
   "totalProjects": 37,
   "totalRepositoryStars": 72,
@@ -202,9 +202,9 @@
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "issues": 6,
+        "issues": 10,
         "createdAt": "2026-01-29T04:25:48Z",
-        "updatedAt": "2026-04-28T01:26:43Z",
+        "updatedAt": "2026-04-28T07:26:14Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -217,7 +217,7 @@
           "github-actions"
         ],
         "isArchived": false,
-        "size": 596,
+        "size": 632,
         "license": null,
         "latestRelease": null,
         "latestTag": {
@@ -228,6 +228,34 @@
         },
         "totalReleases": 0,
         "totalTags": 5
+      },
+      {
+        "id": 1207212892,
+        "name": "manim-agent",
+        "fullName": "gqy20/manim-agent",
+        "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
+        "url": "https://github.com/gqy20/manim-agent",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 1,
+        "issues": 0,
+        "createdAt": "2026-04-10T17:41:37Z",
+        "updatedAt": "2026-04-28T04:12:44Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 8698,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
       },
       {
         "id": 1126636339,
@@ -256,35 +284,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 19129,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
-      },
-      {
-        "id": 1207212892,
-        "name": "manim-agent",
-        "fullName": "gqy20/manim-agent",
-        "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
-        "url": "https://github.com/gqy20/manim-agent",
-        "homepage": null,
-        "language": "Python",
-        "stars": 0,
-        "forks": 1,
-        "issues": 0,
-        "createdAt": "2026-04-10T17:41:37Z",
-        "updatedAt": "2026-04-27T15:05:38Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 8666,
+        "size": 19130,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -912,6 +912,36 @@
     ],
     "其他项目": [
       {
+        "id": 1125693327,
+        "name": "quick-template",
+        "fullName": "gqy20/quick-template",
+        "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
+        "url": "https://github.com/gqy20/quick-template",
+        "homepage": "https://home.gqy20.top/quick-template/",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-12-31T07:12:07Z",
+        "updatedAt": "2026-04-28T07:54:13Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "python"
+        ],
+        "topics": [
+          "copier",
+          "python"
+        ],
+        "isArchived": false,
+        "size": 193,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
         "id": 1221333975,
         "name": "gearbox-action",
         "fullName": "gqy20/gearbox-action",
@@ -943,36 +973,6 @@
         "latestTag": null,
         "totalReleases": 5,
         "totalTags": 5
-      },
-      {
-        "id": 1125693327,
-        "name": "quick-template",
-        "fullName": "gqy20/quick-template",
-        "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
-        "url": "https://github.com/gqy20/quick-template",
-        "homepage": "https://home.gqy20.top/quick-template/",
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2025-12-31T07:12:07Z",
-        "updatedAt": "2026-04-25T15:51:10Z",
-        "category": "其他项目",
-        "priority": 7,
-        "tags": [
-          "python"
-        ],
-        "topics": [
-          "copier",
-          "python"
-        ],
-        "isArchived": false,
-        "size": 193,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
       },
       {
         "id": 1190160301,
@@ -1362,9 +1362,9 @@
       "language": "Python",
       "stars": 0,
       "forks": 0,
-      "issues": 6,
+      "issues": 10,
       "createdAt": "2026-01-29T04:25:48Z",
-      "updatedAt": "2026-04-28T01:26:43Z",
+      "updatedAt": "2026-04-28T07:26:14Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1377,7 +1377,7 @@
         "github-actions"
       ],
       "isArchived": false,
-      "size": 596,
+      "size": 632,
       "license": null,
       "latestRelease": null,
       "latestTag": {
@@ -1388,6 +1388,34 @@
       },
       "totalReleases": 0,
       "totalTags": 5
+    },
+    {
+      "id": 1207212892,
+      "name": "manim-agent",
+      "fullName": "gqy20/manim-agent",
+      "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
+      "url": "https://github.com/gqy20/manim-agent",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 1,
+      "issues": 0,
+      "createdAt": "2026-04-10T17:41:37Z",
+      "updatedAt": "2026-04-28T04:12:44Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 8698,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 1126636339,
@@ -1416,35 +1444,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 19129,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
-    },
-    {
-      "id": 1207212892,
-      "name": "manim-agent",
-      "fullName": "gqy20/manim-agent",
-      "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
-      "url": "https://github.com/gqy20/manim-agent",
-      "homepage": null,
-      "language": "Python",
-      "stars": 0,
-      "forks": 1,
-      "issues": 0,
-      "createdAt": "2026-04-10T17:41:37Z",
-      "updatedAt": "2026-04-27T15:05:38Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 8666,
+      "size": 19130,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -2062,6 +2062,36 @@
       "totalTags": 0
     },
     {
+      "id": 1125693327,
+      "name": "quick-template",
+      "fullName": "gqy20/quick-template",
+      "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
+      "url": "https://github.com/gqy20/quick-template",
+      "homepage": "https://home.gqy20.top/quick-template/",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-12-31T07:12:07Z",
+      "updatedAt": "2026-04-28T07:54:13Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "python"
+      ],
+      "topics": [
+        "copier",
+        "python"
+      ],
+      "isArchived": false,
+      "size": 193,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1221333975,
       "name": "gearbox-action",
       "fullName": "gqy20/gearbox-action",
@@ -2093,36 +2123,6 @@
       "latestTag": null,
       "totalReleases": 5,
       "totalTags": 5
-    },
-    {
-      "id": 1125693327,
-      "name": "quick-template",
-      "fullName": "gqy20/quick-template",
-      "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
-      "url": "https://github.com/gqy20/quick-template",
-      "homepage": "https://home.gqy20.top/quick-template/",
-      "language": "Python",
-      "stars": 0,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2025-12-31T07:12:07Z",
-      "updatedAt": "2026-04-25T15:51:10Z",
-      "category": "其他项目",
-      "priority": 7,
-      "tags": [
-        "python"
-      ],
-      "topics": [
-        "copier",
-        "python"
-      ],
-      "isArchived": false,
-      "size": 193,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
     },
     {
       "id": 1190160301,
