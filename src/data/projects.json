@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-29T01:45:07.016Z",
-  "totalRepositories": 40,
+  "lastUpdated": "2026-04-29T07:54:58.715Z",
+  "totalRepositories": 41,
   "totalProjects": 37,
   "totalRepositoryStars": 72,
   "totalStars": 71,
@@ -264,7 +264,7 @@
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "issues": 20,
+        "issues": 25,
         "createdAt": "2026-01-29T04:25:48Z",
         "updatedAt": "2026-04-28T08:22:44Z",
         "category": "AI应用",
@@ -279,7 +279,7 @@
           "github-actions"
         ],
         "isArchived": false,
-        "size": 705,
+        "size": 721,
         "license": null,
         "latestRelease": null,
         "latestTag": {
@@ -1424,7 +1424,7 @@
       "language": "Python",
       "stars": 0,
       "forks": 0,
-      "issues": 20,
+      "issues": 25,
       "createdAt": "2026-01-29T04:25:48Z",
       "updatedAt": "2026-04-28T08:22:44Z",
       "category": "AI应用",
@@ -1439,7 +1439,7 @@
         "github-actions"
       ],
       "isArchived": false,
-      "size": 705,
+      "size": 721,
       "license": null,
       "latestRelease": null,
       "latestTag": {
@@ -2327,6 +2327,10 @@
     }
   ],
   "excludedRepositories": [
+    {
+      "name": "RSSHub",
+      "reason": "fork"
+    },
     {
       "name": "gqy20.github.io",
       "reason": "site-repository"
