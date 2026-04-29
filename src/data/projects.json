@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-29T07:54:58.715Z",
+  "lastUpdated": "2026-04-29T13:15:40.120Z",
   "totalRepositories": 41,
   "totalProjects": 37,
   "totalRepositoryStars": 72,
@@ -193,6 +193,34 @@
     ],
     "AI应用": [
       {
+        "id": 1171674153,
+        "name": "rss2cubox",
+        "fullName": "gqy20/rss2cubox",
+        "description": "将 RSS 订阅同步到 Cubox，支持 RSSHub 路由、并发抓取、AI 过滤、AI Agent 深化分析与全局洞察",
+        "url": "https://github.com/gqy20/rss2cubox",
+        "homepage": "https://info.gqy20.top/",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-03-03T13:41:53Z",
+        "updatedAt": "2026-04-29T12:47:15Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 3018,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
         "id": 1126636339,
         "name": "TrendPluse",
         "fullName": "gqy20/TrendPluse",
@@ -227,34 +255,6 @@
         "totalTags": 0
       },
       {
-        "id": 1171674153,
-        "name": "rss2cubox",
-        "fullName": "gqy20/rss2cubox",
-        "description": "将 RSS 订阅同步到 Cubox，支持 RSSHub 路由、并发抓取、AI 过滤、AI Agent 深化分析与全局洞察",
-        "url": "https://github.com/gqy20/rss2cubox",
-        "homepage": "https://info.gqy20.top/",
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-03-03T13:41:53Z",
-        "updatedAt": "2026-04-28T14:27:04Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 3018,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
-      },
-      {
         "id": 1144809756,
         "name": "gearbox",
         "fullName": "gqy20/gearbox",
@@ -264,7 +264,7 @@
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "issues": 25,
+        "issues": 27,
         "createdAt": "2026-01-29T04:25:48Z",
         "updatedAt": "2026-04-28T08:22:44Z",
         "category": "AI应用",
@@ -279,7 +279,7 @@
           "github-actions"
         ],
         "isArchived": false,
-        "size": 721,
+        "size": 707,
         "license": null,
         "latestRelease": null,
         "latestTag": {
@@ -635,7 +635,7 @@
         "language": "Python",
         "stars": 11,
         "forks": 3,
-        "issues": 14,
+        "issues": 15,
         "createdAt": "2026-02-02T04:09:50Z",
         "updatedAt": "2026-04-27T07:13:03Z",
         "category": "科研工具",
@@ -1353,6 +1353,34 @@
       "totalTags": 5
     },
     {
+      "id": 1171674153,
+      "name": "rss2cubox",
+      "fullName": "gqy20/rss2cubox",
+      "description": "将 RSS 订阅同步到 Cubox，支持 RSSHub 路由、并发抓取、AI 过滤、AI Agent 深化分析与全局洞察",
+      "url": "https://github.com/gqy20/rss2cubox",
+      "homepage": "https://info.gqy20.top/",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-03-03T13:41:53Z",
+      "updatedAt": "2026-04-29T12:47:15Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 3018,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -1387,34 +1415,6 @@
       "totalTags": 0
     },
     {
-      "id": 1171674153,
-      "name": "rss2cubox",
-      "fullName": "gqy20/rss2cubox",
-      "description": "将 RSS 订阅同步到 Cubox，支持 RSSHub 路由、并发抓取、AI 过滤、AI Agent 深化分析与全局洞察",
-      "url": "https://github.com/gqy20/rss2cubox",
-      "homepage": "https://info.gqy20.top/",
-      "language": "Python",
-      "stars": 0,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-03-03T13:41:53Z",
-      "updatedAt": "2026-04-28T14:27:04Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 3018,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
-    },
-    {
       "id": 1144809756,
       "name": "gearbox",
       "fullName": "gqy20/gearbox",
@@ -1424,7 +1424,7 @@
       "language": "Python",
       "stars": 0,
       "forks": 0,
-      "issues": 25,
+      "issues": 27,
       "createdAt": "2026-01-29T04:25:48Z",
       "updatedAt": "2026-04-28T08:22:44Z",
       "category": "AI应用",
@@ -1439,7 +1439,7 @@
         "github-actions"
       ],
       "isArchived": false,
-      "size": 721,
+      "size": 707,
       "license": null,
       "latestRelease": null,
       "latestTag": {
@@ -1793,7 +1793,7 @@
       "language": "Python",
       "stars": 11,
       "forks": 3,
-      "issues": 14,
+      "issues": 15,
       "createdAt": "2026-02-02T04:09:50Z",
       "updatedAt": "2026-04-27T07:13:03Z",
       "category": "科研工具",
@@ -2328,12 +2328,12 @@
   ],
   "excludedRepositories": [
     {
-      "name": "RSSHub",
-      "reason": "fork"
-    },
-    {
       "name": "gqy20.github.io",
       "reason": "site-repository"
+    },
+    {
+      "name": "RSSHub",
+      "reason": "fork"
     },
     {
       "name": "docker_image_pusher",
