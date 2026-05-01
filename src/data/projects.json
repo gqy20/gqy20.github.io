@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-30T19:02:56.456Z",
+  "lastUpdated": "2026-05-01T01:46:51.923Z",
   "totalRepositories": 41,
   "totalProjects": 37,
   "totalRepositoryStars": 72,
@@ -204,7 +204,7 @@
         "forks": 0,
         "issues": 9,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-04-29T20:09:27Z",
+        "updatedAt": "2026-04-30T23:04:38Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -219,7 +219,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 19235,
+        "size": 19638,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -264,7 +264,7 @@
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "issues": 33,
+        "issues": 37,
         "createdAt": "2026-01-29T04:25:48Z",
         "updatedAt": "2026-04-28T08:22:44Z",
         "category": "AI应用",
@@ -279,7 +279,7 @@
           "github-actions"
         ],
         "isArchived": false,
-        "size": 749,
+        "size": 753,
         "license": null,
         "latestRelease": null,
         "latestTag": {
@@ -432,7 +432,7 @@
         "language": "Python",
         "stars": 1,
         "forks": 0,
-        "issues": 1754,
+        "issues": 1760,
         "createdAt": "2025-12-31T10:25:52Z",
         "updatedAt": "2026-03-18T14:23:40Z",
         "category": "AI应用",
@@ -893,7 +893,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2025-06-23T06:53:28Z",
-        "updatedAt": "2026-04-29T20:18:58Z",
+        "updatedAt": "2026-04-30T20:17:25Z",
         "category": "个人项目",
         "priority": 6,
         "tags": [
@@ -902,7 +902,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 8915,
+        "size": 8976,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1364,7 +1364,7 @@
       "forks": 0,
       "issues": 9,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-04-29T20:09:27Z",
+      "updatedAt": "2026-04-30T23:04:38Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1379,7 +1379,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 19235,
+      "size": 19638,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -1424,7 +1424,7 @@
       "language": "Python",
       "stars": 0,
       "forks": 0,
-      "issues": 33,
+      "issues": 37,
       "createdAt": "2026-01-29T04:25:48Z",
       "updatedAt": "2026-04-28T08:22:44Z",
       "category": "AI应用",
@@ -1439,7 +1439,7 @@
         "github-actions"
       ],
       "isArchived": false,
-      "size": 749,
+      "size": 753,
       "license": null,
       "latestRelease": null,
       "latestTag": {
@@ -1592,7 +1592,7 @@
       "language": "Python",
       "stars": 1,
       "forks": 0,
-      "issues": 1754,
+      "issues": 1760,
       "createdAt": "2025-12-31T10:25:52Z",
       "updatedAt": "2026-03-18T14:23:40Z",
       "category": "AI应用",
@@ -2045,7 +2045,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2025-06-23T06:53:28Z",
-      "updatedAt": "2026-04-29T20:18:58Z",
+      "updatedAt": "2026-04-30T20:17:25Z",
       "category": "个人项目",
       "priority": 6,
       "tags": [
@@ -2054,7 +2054,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 8915,
+      "size": 8976,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
