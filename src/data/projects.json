@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-01T01:46:51.923Z",
+  "lastUpdated": "2026-05-01T07:56:46.707Z",
   "totalRepositories": 41,
   "totalProjects": 37,
   "totalRepositoryStars": 72,
@@ -16,6 +16,40 @@
   ],
   "projects": {
     "MCP工具": [
+      {
+        "id": 1125737759,
+        "name": "crawl-mcp",
+        "fullName": "gqy20/crawl-mcp",
+        "description": "基于 crawl4ai 和 FastMCP 的 MCP 服务器，提供网页爬取和 AI 分析功能",
+        "url": "https://github.com/gqy20/crawl-mcp",
+        "homepage": "https://pypi.org/project/crawl-mcp/",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-12-31T09:05:15Z",
+        "updatedAt": "2026-05-01T07:54:52Z",
+        "category": "MCP工具",
+        "priority": 1,
+        "tags": [
+          "MCP",
+          "AI工具"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 104,
+        "license": "MIT License",
+        "latestRelease": {
+          "tagName": "v0.1.3",
+          "name": "Release v0.1.3",
+          "publishedAt": "2026-01-15T03:18:38Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 1,
+        "totalTags": 5
+      },
       {
         "id": 1019340765,
         "name": "article-mcp",
@@ -50,40 +84,6 @@
         },
         "totalReleases": 0,
         "totalTags": 5
-      },
-      {
-        "id": 1125737759,
-        "name": "crawl-mcp",
-        "fullName": "gqy20/crawl-mcp",
-        "description": "基于 crawl4ai 和 FastMCP 的 MCP 服务器，提供网页爬取和 AI 分析功能",
-        "url": "https://github.com/gqy20/crawl-mcp",
-        "homepage": "https://pypi.org/project/crawl-mcp/",
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "issues": 3,
-        "createdAt": "2025-12-31T09:05:15Z",
-        "updatedAt": "2026-01-15T03:56:56Z",
-        "category": "MCP工具",
-        "priority": 1,
-        "tags": [
-          "MCP",
-          "AI工具"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 104,
-        "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.1.3",
-          "name": "Release v0.1.3",
-          "publishedAt": "2026-01-15T03:18:38Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 1,
-        "totalTags": 4
       },
       {
         "id": 1038595724,
@@ -264,7 +264,7 @@
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "issues": 37,
+        "issues": 38,
         "createdAt": "2026-01-29T04:25:48Z",
         "updatedAt": "2026-04-28T08:22:44Z",
         "category": "AI应用",
@@ -279,7 +279,7 @@
           "github-actions"
         ],
         "isArchived": false,
-        "size": 753,
+        "size": 758,
         "license": null,
         "latestRelease": null,
         "latestTag": {
@@ -1179,6 +1179,40 @@
   },
   "allProjects": [
     {
+      "id": 1125737759,
+      "name": "crawl-mcp",
+      "fullName": "gqy20/crawl-mcp",
+      "description": "基于 crawl4ai 和 FastMCP 的 MCP 服务器，提供网页爬取和 AI 分析功能",
+      "url": "https://github.com/gqy20/crawl-mcp",
+      "homepage": "https://pypi.org/project/crawl-mcp/",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-12-31T09:05:15Z",
+      "updatedAt": "2026-05-01T07:54:52Z",
+      "category": "MCP工具",
+      "priority": 1,
+      "tags": [
+        "MCP",
+        "AI工具"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 104,
+      "license": "MIT License",
+      "latestRelease": {
+        "tagName": "v0.1.3",
+        "name": "Release v0.1.3",
+        "publishedAt": "2026-01-15T03:18:38Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 1,
+      "totalTags": 5
+    },
+    {
       "id": 1019340765,
       "name": "article-mcp",
       "fullName": "gqy20/article-mcp",
@@ -1212,40 +1246,6 @@
       },
       "totalReleases": 0,
       "totalTags": 5
-    },
-    {
-      "id": 1125737759,
-      "name": "crawl-mcp",
-      "fullName": "gqy20/crawl-mcp",
-      "description": "基于 crawl4ai 和 FastMCP 的 MCP 服务器，提供网页爬取和 AI 分析功能",
-      "url": "https://github.com/gqy20/crawl-mcp",
-      "homepage": "https://pypi.org/project/crawl-mcp/",
-      "language": "Python",
-      "stars": 0,
-      "forks": 0,
-      "issues": 3,
-      "createdAt": "2025-12-31T09:05:15Z",
-      "updatedAt": "2026-01-15T03:56:56Z",
-      "category": "MCP工具",
-      "priority": 1,
-      "tags": [
-        "MCP",
-        "AI工具"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 104,
-      "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.1.3",
-        "name": "Release v0.1.3",
-        "publishedAt": "2026-01-15T03:18:38Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 1,
-      "totalTags": 4
     },
     {
       "id": 1038595724,
@@ -1424,7 +1424,7 @@
       "language": "Python",
       "stars": 0,
       "forks": 0,
-      "issues": 37,
+      "issues": 38,
       "createdAt": "2026-01-29T04:25:48Z",
       "updatedAt": "2026-04-28T08:22:44Z",
       "category": "AI应用",
@@ -1439,7 +1439,7 @@
         "github-actions"
       ],
       "isArchived": false,
-      "size": 753,
+      "size": 758,
       "license": null,
       "latestRelease": null,
       "latestTag": {
