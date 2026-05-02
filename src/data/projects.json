@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-02T07:16:14.441Z",
+  "lastUpdated": "2026-05-02T12:40:18.083Z",
   "totalRepositories": 41,
   "totalProjects": 37,
   "totalRepositoryStars": 72,
@@ -264,7 +264,7 @@
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "issues": 43,
+        "issues": 47,
         "createdAt": "2026-01-29T04:25:48Z",
         "updatedAt": "2026-04-28T08:22:44Z",
         "category": "AI应用",
@@ -279,7 +279,7 @@
           "github-actions"
         ],
         "isArchived": false,
-        "size": 766,
+        "size": 767,
         "license": null,
         "latestRelease": null,
         "latestTag": {
@@ -635,7 +635,7 @@
         "language": "Python",
         "stars": 11,
         "forks": 3,
-        "issues": 17,
+        "issues": 18,
         "createdAt": "2026-02-02T04:09:50Z",
         "updatedAt": "2026-04-27T07:13:03Z",
         "category": "科研工具",
@@ -1424,7 +1424,7 @@
       "language": "Python",
       "stars": 0,
       "forks": 0,
-      "issues": 43,
+      "issues": 47,
       "createdAt": "2026-01-29T04:25:48Z",
       "updatedAt": "2026-04-28T08:22:44Z",
       "category": "AI应用",
@@ -1439,7 +1439,7 @@
         "github-actions"
       ],
       "isArchived": false,
-      "size": 766,
+      "size": 767,
       "license": null,
       "latestRelease": null,
       "latestTag": {
@@ -1793,7 +1793,7 @@
       "language": "Python",
       "stars": 11,
       "forks": 3,
-      "issues": 17,
+      "issues": 18,
       "createdAt": "2026-02-02T04:09:50Z",
       "updatedAt": "2026-04-27T07:13:03Z",
       "category": "科研工具",
