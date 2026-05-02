@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-05-02T12:40:18.083Z",
-  "totalRepositories": 41,
-  "totalProjects": 37,
-  "totalRepositoryStars": 72,
-  "totalStars": 71,
+  "lastUpdated": "2026-05-02T18:39:13.784Z",
+  "totalRepositories": 42,
+  "totalProjects": 38,
+  "totalRepositoryStars": 73,
+  "totalStars": 72,
   "followers": 16,
   "categories": [
     "MCP工具",
@@ -16,6 +16,41 @@
   ],
   "projects": {
     "MCP工具": [
+      {
+        "id": 1019340765,
+        "name": "article-mcp",
+        "fullName": "gqy20/article-mcp",
+        "description": "文献检索MCP",
+        "url": "https://github.com/gqy20/article-mcp",
+        "homepage": "https://pypi.org/project/article-mcp/",
+        "language": "Python",
+        "stars": 14,
+        "forks": 3,
+        "issues": 0,
+        "createdAt": "2025-07-14T07:18:21Z",
+        "updatedAt": "2026-05-02T15:57:41Z",
+        "category": "MCP工具",
+        "priority": 1,
+        "tags": [
+          "MCP",
+          "AI工具"
+        ],
+        "topics": [
+          "mcp"
+        ],
+        "isArchived": false,
+        "size": 1660,
+        "license": "MIT License",
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.2.2",
+          "commit": "fdb02268e53da3cf804c59ec3e8ddde4aa4732f5",
+          "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.2",
+          "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
+        },
+        "totalReleases": 0,
+        "totalTags": 5
+      },
       {
         "id": 1125737759,
         "name": "crawl-mcp",
@@ -48,41 +83,6 @@
         },
         "latestTag": null,
         "totalReleases": 2,
-        "totalTags": 5
-      },
-      {
-        "id": 1019340765,
-        "name": "article-mcp",
-        "fullName": "gqy20/article-mcp",
-        "description": "文献检索MCP",
-        "url": "https://github.com/gqy20/article-mcp",
-        "homepage": "https://pypi.org/project/article-mcp/",
-        "language": "Python",
-        "stars": 13,
-        "forks": 3,
-        "issues": 0,
-        "createdAt": "2025-07-14T07:18:21Z",
-        "updatedAt": "2026-04-13T06:45:31Z",
-        "category": "MCP工具",
-        "priority": 1,
-        "tags": [
-          "MCP",
-          "AI工具"
-        ],
-        "topics": [
-          "mcp"
-        ],
-        "isArchived": false,
-        "size": 1660,
-        "license": "MIT License",
-        "latestRelease": null,
-        "latestTag": {
-          "name": "v0.2.2",
-          "commit": "fdb02268e53da3cf804c59ec3e8ddde4aa4732f5",
-          "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.2",
-          "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
-        },
-        "totalReleases": 0,
         "totalTags": 5
       },
       {
@@ -193,6 +193,34 @@
     ],
     "AI应用": [
       {
+        "id": 1171674153,
+        "name": "rss2cubox",
+        "fullName": "gqy20/rss2cubox",
+        "description": "将 RSS 订阅同步到 Cubox，支持 RSSHub 路由、并发抓取、AI 过滤、AI Agent 深化分析与全局洞察",
+        "url": "https://github.com/gqy20/rss2cubox",
+        "homepage": "https://info.gqy20.top/",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-03-03T13:41:53Z",
+        "updatedAt": "2026-05-02T16:03:53Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 3364,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
         "id": 1126636339,
         "name": "TrendPluse",
         "fullName": "gqy20/TrendPluse",
@@ -227,34 +255,6 @@
         "totalTags": 0
       },
       {
-        "id": 1171674153,
-        "name": "rss2cubox",
-        "fullName": "gqy20/rss2cubox",
-        "description": "将 RSS 订阅同步到 Cubox，支持 RSSHub 路由、并发抓取、AI 过滤、AI Agent 深化分析与全局洞察",
-        "url": "https://github.com/gqy20/rss2cubox",
-        "homepage": "https://info.gqy20.top/",
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-03-03T13:41:53Z",
-        "updatedAt": "2026-05-01T12:40:47Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 3261,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
-      },
-      {
         "id": 1144809756,
         "name": "gearbox",
         "fullName": "gqy20/gearbox",
@@ -264,7 +264,7 @@
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "issues": 47,
+        "issues": 50,
         "createdAt": "2026-01-29T04:25:48Z",
         "updatedAt": "2026-04-28T08:22:44Z",
         "category": "AI应用",
@@ -279,7 +279,7 @@
           "github-actions"
         ],
         "isArchived": false,
-        "size": 767,
+        "size": 784,
         "license": null,
         "latestRelease": null,
         "latestTag": {
@@ -432,7 +432,7 @@
         "language": "Python",
         "stars": 1,
         "forks": 0,
-        "issues": 1774,
+        "issues": 1780,
         "createdAt": "2025-12-31T10:25:52Z",
         "updatedAt": "2026-03-18T14:23:40Z",
         "category": "AI应用",
@@ -723,6 +723,34 @@
       }
     ],
     "Web开发": [
+      {
+        "id": 1227383431,
+        "name": "gk",
+        "fullName": "gqy20/gk",
+        "description": "中国高校信息并行爬取 + 可视化地图",
+        "url": "https://github.com/gqy20/gk",
+        "homepage": "https://gk-mauve.vercel.app",
+        "language": "TypeScript",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-05-02T15:55:50Z",
+        "updatedAt": "2026-05-02T18:18:44Z",
+        "category": "Web开发",
+        "priority": 4,
+        "tags": [
+          "Web",
+          "前端"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 1820,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 1205874308,
         "name": "note_wall",
@@ -1179,6 +1207,41 @@
   },
   "allProjects": [
     {
+      "id": 1019340765,
+      "name": "article-mcp",
+      "fullName": "gqy20/article-mcp",
+      "description": "文献检索MCP",
+      "url": "https://github.com/gqy20/article-mcp",
+      "homepage": "https://pypi.org/project/article-mcp/",
+      "language": "Python",
+      "stars": 14,
+      "forks": 3,
+      "issues": 0,
+      "createdAt": "2025-07-14T07:18:21Z",
+      "updatedAt": "2026-05-02T15:57:41Z",
+      "category": "MCP工具",
+      "priority": 1,
+      "tags": [
+        "MCP",
+        "AI工具"
+      ],
+      "topics": [
+        "mcp"
+      ],
+      "isArchived": false,
+      "size": 1660,
+      "license": "MIT License",
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.2.2",
+        "commit": "fdb02268e53da3cf804c59ec3e8ddde4aa4732f5",
+        "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.2",
+        "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
+      },
+      "totalReleases": 0,
+      "totalTags": 5
+    },
+    {
       "id": 1125737759,
       "name": "crawl-mcp",
       "fullName": "gqy20/crawl-mcp",
@@ -1210,41 +1273,6 @@
       },
       "latestTag": null,
       "totalReleases": 2,
-      "totalTags": 5
-    },
-    {
-      "id": 1019340765,
-      "name": "article-mcp",
-      "fullName": "gqy20/article-mcp",
-      "description": "文献检索MCP",
-      "url": "https://github.com/gqy20/article-mcp",
-      "homepage": "https://pypi.org/project/article-mcp/",
-      "language": "Python",
-      "stars": 13,
-      "forks": 3,
-      "issues": 0,
-      "createdAt": "2025-07-14T07:18:21Z",
-      "updatedAt": "2026-04-13T06:45:31Z",
-      "category": "MCP工具",
-      "priority": 1,
-      "tags": [
-        "MCP",
-        "AI工具"
-      ],
-      "topics": [
-        "mcp"
-      ],
-      "isArchived": false,
-      "size": 1660,
-      "license": "MIT License",
-      "latestRelease": null,
-      "latestTag": {
-        "name": "v0.2.2",
-        "commit": "fdb02268e53da3cf804c59ec3e8ddde4aa4732f5",
-        "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.2",
-        "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
-      },
-      "totalReleases": 0,
       "totalTags": 5
     },
     {
@@ -1353,6 +1381,34 @@
       "totalTags": 5
     },
     {
+      "id": 1171674153,
+      "name": "rss2cubox",
+      "fullName": "gqy20/rss2cubox",
+      "description": "将 RSS 订阅同步到 Cubox，支持 RSSHub 路由、并发抓取、AI 过滤、AI Agent 深化分析与全局洞察",
+      "url": "https://github.com/gqy20/rss2cubox",
+      "homepage": "https://info.gqy20.top/",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-03-03T13:41:53Z",
+      "updatedAt": "2026-05-02T16:03:53Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 3364,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -1387,34 +1443,6 @@
       "totalTags": 0
     },
     {
-      "id": 1171674153,
-      "name": "rss2cubox",
-      "fullName": "gqy20/rss2cubox",
-      "description": "将 RSS 订阅同步到 Cubox，支持 RSSHub 路由、并发抓取、AI 过滤、AI Agent 深化分析与全局洞察",
-      "url": "https://github.com/gqy20/rss2cubox",
-      "homepage": "https://info.gqy20.top/",
-      "language": "Python",
-      "stars": 0,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-03-03T13:41:53Z",
-      "updatedAt": "2026-05-01T12:40:47Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 3261,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
-    },
-    {
       "id": 1144809756,
       "name": "gearbox",
       "fullName": "gqy20/gearbox",
@@ -1424,7 +1452,7 @@
       "language": "Python",
       "stars": 0,
       "forks": 0,
-      "issues": 47,
+      "issues": 50,
       "createdAt": "2026-01-29T04:25:48Z",
       "updatedAt": "2026-04-28T08:22:44Z",
       "category": "AI应用",
@@ -1439,7 +1467,7 @@
         "github-actions"
       ],
       "isArchived": false,
-      "size": 767,
+      "size": 784,
       "license": null,
       "latestRelease": null,
       "latestTag": {
@@ -1592,7 +1620,7 @@
       "language": "Python",
       "stars": 1,
       "forks": 0,
-      "issues": 1774,
+      "issues": 1780,
       "createdAt": "2025-12-31T10:25:52Z",
       "updatedAt": "2026-03-18T14:23:40Z",
       "category": "AI应用",
@@ -1878,6 +1906,34 @@
       "latestTag": null,
       "totalReleases": 3,
       "totalTags": 3
+    },
+    {
+      "id": 1227383431,
+      "name": "gk",
+      "fullName": "gqy20/gk",
+      "description": "中国高校信息并行爬取 + 可视化地图",
+      "url": "https://github.com/gqy20/gk",
+      "homepage": "https://gk-mauve.vercel.app",
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-05-02T15:55:50Z",
+      "updatedAt": "2026-05-02T18:18:44Z",
+      "category": "Web开发",
+      "priority": 4,
+      "tags": [
+        "Web",
+        "前端"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 1820,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 1205874308,
