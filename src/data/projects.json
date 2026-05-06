@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-05-06T13:23:36.188Z",
+  "lastUpdated": "2026-05-06T19:16:36.735Z",
   "totalRepositories": 42,
   "totalProjects": 38,
   "totalRepositoryStars": 73,
   "totalStars": 72,
-  "followers": 16,
+  "followers": 15,
   "categories": [
     "MCP工具",
     "AI应用",
@@ -432,7 +432,7 @@
         "language": "Python",
         "stars": 1,
         "forks": 0,
-        "issues": 1824,
+        "issues": 1828,
         "createdAt": "2025-12-31T10:25:52Z",
         "updatedAt": "2026-03-18T14:23:40Z",
         "category": "AI应用",
@@ -1621,7 +1621,7 @@
       "language": "Python",
       "stars": 1,
       "forks": 0,
-      "issues": 1824,
+      "issues": 1828,
       "createdAt": "2025-12-31T10:25:52Z",
       "updatedAt": "2026-03-18T14:23:40Z",
       "category": "AI应用",
@@ -2386,12 +2386,12 @@
   ],
   "excludedRepositories": [
     {
-      "name": "RSSHub",
-      "reason": "fork"
-    },
-    {
       "name": "gqy20.github.io",
       "reason": "site-repository"
+    },
+    {
+      "name": "RSSHub",
+      "reason": "fork"
     },
     {
       "name": "docker_image_pusher",
