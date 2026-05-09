@@ -8,36 +8,3 @@
   color: var(--dt-ink);
   font-family: var(--dt-font-serif);
 }
-
-/* Journey-specific actions (inside PageHeader body) */
-.journey-hero__actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
-}
-
-.journey-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.7rem 1.5rem;
-  border-radius: 10px;
-  font-family: var(--dt-font-mono);
-  font-size: 0.82rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  cursor: pointer;
-}
-
-.journey-btn--primary {
-  background: var(--dt-accent);
-  color: #0a0e1a;
-  border: none;
-}
-
-.journey-btn--primary:hover {
-  background: #ffc97e;
-  transform: translateY(-2px);
-}

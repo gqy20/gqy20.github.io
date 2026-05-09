@@ -1,54 +1,62 @@
 import { motion } from 'framer-motion'
 import TimelineNode from './TimelineNode.jsx'
 
-export default function TimelineStage({ stage, getProject, stageIndex }) {
-  const isLeft = stage.side === 'left'
-  const industryCol = isLeft ? 'ai-timeline-nodes-left' : 'ai-timeline-nodes-right'
-  const projectCol = isLeft ? 'ai-timeline-nodes-right' : 'ai-timeline-nodes-left'
-
+export default function TimelineStage({ stage, getProject, index }) {
   return (
     <motion.div
-      className="ai-timeline-stage"
-      data-side={stage.side}
+      className="tl-stage"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
     >
-      <div className="ai-stage-header">
-        <span className="stage-label">{stage.label}</span>
-        <h3>{stage.theme}</h3>
-        <span className="ai-stage-period">{stage.period}</span>
-        <span className="ai-stage-theme">{stage.label} · {stage.theme}</span>
-      </div>
+      <div className="tl-stage__node" />
 
-      <div className={industryCol}>
+      <div className="tl-stage__body">
+        <header className="tl-stage__head">
+          <span className="tl-stage__num">{String(index + 1).padStart(2, '0')}</span>
+          <div className="tl-stage__title-block">
+            <h3 className="tl-stage__name">{stage.label}</h3>
+            <span className="tl-stage__theme">{stage.theme}</span>
+          </div>
+          <span className="tl-stage__period">{stage.period}</span>
+        </header>
+
         {stage.industryContext && (
-          <div className="ai-industry-context">{stage.industryContext}</div>
+          <p className="tl-stage__context">{stage.industryContext}</p>
         )}
-        {stage.industryEvents.map((event, i) => (
-          <TimelineNode
-            key={`industry-${stage.id}-${i}`}
-            type="industry"
-            data={event}
-            index={i}
-          />
-        ))}
-      </div>
 
-      <div className={projectCol}>
-        {stage.projects.map((proj, i) => (
-          <TimelineNode
-            key={`project-${stage.id}-${i}`}
-            type="project"
-            data={proj}
-            getProject={getProject}
-            index={i}
-          />
-        ))}
-      </div>
+        <div className="tl-stage__columns">
+          <div className="tl-stage__col">
+            <h4 className="tl-col-heading">行业事件</h4>
+            {stage.industryEvents.map((event, i) => (
+              <TimelineNode
+                key={`industry-${stage.id}-${i}`}
+                type="industry"
+                data={event}
+                index={i}
+              />
+            ))}
+          </div>
 
-      <div className="ai-stage-insight">{stage.stageInsight}</div>
+          <div className="tl-stage__col">
+            <h4 className="tl-col-heading">我的项目</h4>
+            {stage.projects.map((proj, i) => (
+              <TimelineNode
+                key={`project-${stage.id}-${i}`}
+                type="project"
+                data={proj}
+                getProject={getProject}
+                index={i}
+              />
+            ))}
+          </div>
+        </div>
+
+        {stage.stageInsight && (
+          <p className="tl-stage__insight">{stage.stageInsight}</p>
+        )}
+      </div>
     </motion.div>
   )
 }
