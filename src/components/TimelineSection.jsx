@@ -4,6 +4,27 @@ import { useProjectsData } from '../hooks/useProjectsData.js'
 import { timelineStages } from '../data/timeline.js'
 import './TimelineSection.css'
 
+/* parse messy date strings: "2025-12-07" / "2024-08→12" / "2025-12" / "2026-02" */
+function parseDateValue(s) {
+  if (!s) return 0
+  const cleaned = String(s).replace(/[→~—].*$/, '').trim()
+  const parts = cleaned.split('-').filter(Boolean)
+  const [y, m = '01', d = '01'] = parts
+  const yyyy = (y || '').padStart(4, '0')
+  const mm = (m || '01').padStart(2, '0')
+  const dd = (d || '01').padStart(2, '0')
+  const t = Date.parse(`${yyyy}-${mm}-${dd}T00:00:00`)
+  return Number.isNaN(t) ? 0 : t
+}
+
+function formatTickDate(s) {
+  if (!s) return ''
+  const cleaned = String(s).replace(/[→~—].*$/, '').trim()
+  const parts = cleaned.split('-').filter(Boolean)
+  if (parts.length >= 2) return `${parts[0]}.${parts[1].padStart(2, '0')}`
+  return cleaned
+}
+
 export default function TimelineSection() {
   const { data: projectData } = useProjectsData()
   const [activeStage, setActiveStage] = useState(timelineStages[0]?.id)
@@ -88,6 +109,12 @@ export default function TimelineSection() {
 }
 
 function TimelineStage({ stage, getProject, index }) {
+  const items = useMemo(() => {
+    const ind = (stage.industryEvents || []).map(e => ({ type: 'industry', date: e.date, data: e }))
+    const proj = (stage.projects || []).map(p => ({ type: 'project', date: p.date, data: p }))
+    return [...ind, ...proj].sort((a, b) => parseDateValue(a.date) - parseDateValue(b.date))
+  }, [stage])
+
   return (
     <motion.div
       className="tl-stage"
@@ -118,49 +145,55 @@ function TimelineStage({ stage, getProject, index }) {
         </div>
       )}
 
-      {/* Dual-track items */}
-      <div className="tl-row tl-row--items">
-        <div className="tl-col tl-col--world">
-          {stage.industryEvents.map((event, i) => (
-            <div key={`ind-${i}`} className="tl-item tl-item--industry">
-              <span className="tl-item__date">{event.date}</span>
-              <h4 className="tl-item__title">{event.title}</h4>
-              <p className="tl-item__desc">{event.description}</p>
-            </div>
-          ))}
-        </div>
-        <span className="tl-row__cell tl-row__cell--gutter" />
-        <div className="tl-col tl-col--me">
-          {stage.projects.map((proj, i) => {
-            const project = getProject(proj.name)
-            const isHero = proj.isHero
-            return (
-              <a
-                key={`proj-${i}`}
-                href={project?.url}
-                target="_blank"
-                rel="noreferrer"
-                className={`tl-item tl-item--project ${isHero ? 'tl-item--hero' : ''} ${proj.highlight ? 'tl-item--highlight' : ''}`}
-              >
-                <div className="tl-item__head">
-                  <h4 className="tl-item__title">{proj.name}</h4>
-                  <div className="tl-item__badges">
-                    {project?.stars > 0 && <span className="tl-item__stars">{project.stars}★</span>}
-                    {isHero && <span className="tl-item__badge--hero">主角</span>}
+      {/* Time-merged dual-track: each row holds one event OR one project */}
+      {items.map((item, i) => (
+        <div className="tl-row tl-row--item" key={`${stage.id}-item-${i}`}>
+          <div className="tl-col tl-col--world">
+            {item.type === 'industry' && (
+              <div className="tl-item tl-item--industry">
+                <span className="tl-item__date">{item.data.date}</span>
+                <h4 className="tl-item__title">{item.data.title}</h4>
+                <p className="tl-item__desc">{item.data.description}</p>
+              </div>
+            )}
+          </div>
+
+          <div className="tl-tick">
+            <span className="tl-tick__dot" />
+            <span className="tl-tick__date">{formatTickDate(item.date)}</span>
+          </div>
+
+          <div className="tl-col tl-col--me">
+            {item.type === 'project' && (() => {
+              const project = getProject(item.data.name)
+              const isHero = item.data.isHero
+              return (
+                <a
+                  href={project?.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`tl-item tl-item--project ${isHero ? 'tl-item--hero' : ''} ${item.data.highlight ? 'tl-item--highlight' : ''}`}
+                >
+                  <div className="tl-item__head">
+                    <h4 className="tl-item__title">{item.data.name}</h4>
+                    <div className="tl-item__badges">
+                      {project?.stars > 0 && <span className="tl-item__stars">{project.stars}★</span>}
+                      {isHero && <span className="tl-item__badge--hero">主角</span>}
+                    </div>
                   </div>
-                </div>
-                <span className="tl-item__date">{proj.date}</span>
-                <p className="tl-item__desc">{proj.description}</p>
-                <div className="tl-item__tags">
-                  {proj.tags.map(tag => (
-                    <span key={tag} className="tl-tag">{tag}</span>
-                  ))}
-                </div>
-              </a>
-            )
-          })}
+                  <span className="tl-item__date">{item.data.date}</span>
+                  <p className="tl-item__desc">{item.data.description}</p>
+                  <div className="tl-item__tags">
+                    {(item.data.tags || []).map(tag => (
+                      <span key={tag} className="tl-tag">{tag}</span>
+                    ))}
+                  </div>
+                </a>
+              )
+            })()}
+          </div>
         </div>
-      </div>
+      ))}
 
       {/* Insight: right-aligned reflection */}
       {stage.stageInsight && (

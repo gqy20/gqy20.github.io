@@ -307,10 +307,11 @@
   text-align: left;
 }
 
-/* ── Items row: dual-track ── */
+/* ── Item row: time-merged dual-track ── */
 
-.tl-row--items {
-  align-items: start;
+.tl-row--item {
+  align-items: center;
+  margin-bottom: 1.1rem;
 }
 
 .tl-col {
@@ -318,6 +319,7 @@
   flex-direction: column;
   gap: 0.65rem;
   padding: 0 1.5rem;
+  min-height: 1px;
 }
 
 .tl-col--world {
@@ -326,6 +328,48 @@
 
 .tl-col--me {
   text-align: left;
+}
+
+/* empty col still occupies grid space so the tick stays anchored */
+.tl-col:empty {
+  min-height: 1px;
+}
+
+/* Central tick marker — sits on the axis, shows date for every item */
+.tl-tick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.tl-tick__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dt-accent);
+  box-shadow:
+    0 0 0 3px var(--dt-bg),
+    0 0 10px rgba(255, 184, 107, 0.45),
+    0 0 20px rgba(255, 184, 107, 0.18);
+  flex-shrink: 0;
+}
+
+.tl-tick__date {
+  font-family: var(--dt-font-mono);
+  font-size: 0.56rem;
+  font-weight: 600;
+  color: var(--dt-dim);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  background: var(--dt-bg);
+  padding: 0.05rem 0.35rem;
+  border-radius: 3px;
 }
 
 /* ── Items ── */
@@ -549,9 +593,27 @@
   }
 
   .tl-col { padding: 0; }
+  .tl-col:empty { display: none; }
   .tl-col--world { text-align: left; }
   .tl-col--world .tl-item__head { flex-direction: row; }
   .tl-col--world .tl-item__tags { justify-content: flex-start; }
+
+  /* tick becomes a small inline date label above each item */
+  .tl-tick {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0;
+    gap: 0.45rem;
+  }
+  .tl-tick__dot {
+    width: 6px;
+    height: 6px;
+    box-shadow: 0 0 0 2px var(--dt-bg), 0 0 6px rgba(255, 184, 107, 0.4);
+  }
+  .tl-tick__date {
+    background: transparent;
+    padding: 0;
+  }
 
   .tl-stage { padding: 1.5rem 0 2rem; }
 }
