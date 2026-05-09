@@ -4,73 +4,17 @@
 
 .page-journey {
   min-height: 100vh;
-  padding: 5rem 0 8rem;
+  padding: 0 0 8rem;
   color: var(--dt-ink);
   font-family: var(--dt-font-serif);
 }
 
-.journey-hero {
-  max-width: 72vw;
-  margin: 0 auto;
-  padding: 0 clamp(2rem, 5vw, 5rem);
-}
-
-.journey-hero__head {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.journey-hero__num {
-  font-family: var(--dt-font-mono);
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: var(--dt-dim);
-  letter-spacing: 0.06em;
-  font-variant-numeric: tabular-nums;
-}
-
-.journey-hero__title {
-  font-family: var(--dt-font-mono);
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--dt-ink);
-  letter-spacing: 0.18em;
-}
-
-.journey-hero__rule {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, var(--dt-accent-line), transparent);
-}
-
-.journey-hero__heading {
-  font-family: 'Noto Serif SC', serif;
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin: 0 0 1.5rem;
-  color: var(--dt-ink);
-}
-
-.journey-hero__lede {
-  font-family: 'Noto Serif SC', serif;
-  font-style: italic;
-  font-size: 1.05rem;
-  line-height: 1.75;
-  color: var(--dt-muted);
-  max-width: 68ch;
-  margin: 0 0 2.5rem;
-  padding-left: 1rem;
-  border-left: 2px solid var(--dt-accent);
-}
-
+/* Journey-specific actions (inside PageHeader body) */
 .journey-hero__actions {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-top: 1.5rem;
 }
 
 .journey-btn {
@@ -96,15 +40,4 @@
 .journey-btn--primary:hover {
   background: #ffc97e;
   transform: translateY(-2px);
-}
-
-.journey-btn--secondary {
-  background: transparent;
-  color: var(--dt-muted);
-  border: 1px solid var(--dt-line);
-}
-
-.journey-btn--secondary:hover {
-  color: var(--dt-accent);
-  border-color: var(--dt-accent-line);
 }

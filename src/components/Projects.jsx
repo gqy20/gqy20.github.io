@@ -9,6 +9,7 @@ import {
   FaSync
 } from 'react-icons/fa'
 import './Projects.css'
+import PageHeader from './PageHeader.jsx'
 import ProjectDetailModal from './ProjectDetailModal'
 import { getProjectViewModel } from '../utils/portfolioProjects'
 import { getExternalLinkIcon, normalizeDescription } from '../utils/projectUtils'
@@ -69,20 +70,21 @@ const Projects = () => {
 
   return (
     <section className="projects">
-      <div className="projects-shell">
-        <motion.header
-          className="projects-hero"
+      <PageHeader num="02" title="PROJECTS">
+        <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <p>系统与工具</p>
-          <h1>这些项目证明同一件事：AI 要进入真实工作流。</h1>
-          <div className="projects-hero-copy">
-            <span>围绕智能体、工具接口和自动化系统沉淀的 {totalProjects} 个公开作品。</span>
-            <a href="#/blog">查看构建记录 <FaArrowRight /></a>
-          </div>
-        </motion.header>
+          <h1 className="page-header__heading">这些项目证明同一件事：AI 要进入真实工作流。</h1>
+          <p className="page-header__lede">
+            围绕智能体、工具接口和自动化系统沉淀的 {totalProjects} 个公开作品。
+            <a href="#/blog" className="page-header__link">查看构建记录 <FaArrowRight /></a>
+          </p>
+        </motion.div>
+      </PageHeader>
+
+      <div className="projects-shell">
 
         <section className="featured-projects" aria-labelledby="featured-title">
           <div className="section-heading">

@@ -1,0 +1,61 @@
+/* ══════════════════════════════════════
+   PageHeader — 统一章节头
+   ══════════════════════════════════════ */
+
+.page-header {
+  padding: 5rem 0 3rem;
+}
+
+.page-header__inner {
+  width: min(72vw, 1200px);
+  margin: 0 auto;
+  padding: 0 clamp(2rem, 4vw, 3rem);
+}
+
+.page-header__head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.page-header__num {
+  font-family: var(--dt-font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--dt-dim);
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.page-header__title {
+  font-family: var(--dt-font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--dt-ink);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.page-header__rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--dt-accent-line), transparent);
+}
+
+.page-header__home {
+  font-family: var(--dt-font-mono);
+  font-size: 0.72rem;
+  color: var(--dt-dim);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.page-header__home:hover {
+  color: var(--dt-accent);
+}

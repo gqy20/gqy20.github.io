@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { FaArrowRight, FaCalendar, FaClock, FaFolder, FaTag } from 'react-icons/fa'
 import Badge from './Badge'
+import PageHeader from './PageHeader.jsx'
 import './Blog.css'
 
 const Blog = () => {
@@ -58,21 +59,21 @@ const Blog = () => {
 
   return (
     <section className="blog">
-      <div className="blog-shell">
-        <motion.header
-          className="blog-hero"
+      <PageHeader num="03" title="BLOG">
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45 }}
         >
-          <p>构建记录</p>
-          <h1>记录我如何把 AI 想法做成真实系统。</h1>
-          <div className="blog-hero-copy">
-            <span>{blogData?.totalPosts || 0} 篇关于智能体、工具接口、前端体验和自动化工作流的记录。</span>
-            <a href="#/projects">查看项目 <FaArrowRight /></a>
-          </div>
-        </motion.header>
+          <h1 className="page-header__heading">记录我如何把 AI 想法做成真实系统。</h1>
+          <p className="page-header__lede">
+            {blogData?.totalPosts || 0} 篇关于智能体、工具接口、前端体验和自动化工作流的记录。
+            <a href="#/projects" className="page-header__link">查看项目 <FaArrowRight /></a>
+          </p>
+        </motion.div>
+      </PageHeader>
 
+      <div className="blog-shell">
         <div className="blog-list">
           {blogData?.posts.map((post, index) => (
             <Link
