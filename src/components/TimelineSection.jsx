@@ -1,4 +1,5 @@
-import { useEffect, useState, useMemo } from 'react'
+import { useEffect, useState, useMemo, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useProjectsData } from '../hooks/useProjectsData.js'
 import { timelineStages } from '../data/timeline.js'
@@ -46,11 +47,40 @@ export default function TimelineSection() {
     document.getElementById(`stage-${stageId}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
+  /* page-flip: wheel/touch → jump to next/prev panel, no intermediate scroll */
+  const panelsRef = useRef(null)
+  useEffect(() => {
+    const container = panelsRef.current
+    if (!container) return
+
+    let wheelTimeout = null
+    const onWheel = (e) => {
+      e.preventDefault()
+      if (wheelTimeout) return
+
+      const currentIndex = timelineStages.findIndex(s => s.id === activeStage)
+      let targetIndex = e.deltaY > 0
+        ? Math.min(currentIndex + 1, timelineStages.length - 1)
+        : Math.max(currentIndex - 1, 0)
+
+      if (targetIndex !== currentIndex) {
+        const targetEl = document.getElementById(`stage-${timelineStages[targetIndex].id}`)
+        targetEl?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+
+      wheelTimeout = setTimeout(() => { wheelTimeout = null }, 800)
+    }
+
+    container.addEventListener('wheel', onWheel, { passive: false })
+    return () => { container.removeEventListener('wheel', onWheel) }
+  }, [activeStage])
+
   return (
     <section className="tl-section" id="timeline">
-      {/* Vertical dial — sticky, centered in viewport while section is in view */}
+      {/* Vertical dial — sticky, aligned with panel content */}
       <aside className="tl-dial-col" aria-label="阶段导航">
         <nav className="tl-dial">
+          <span className="tl-dial__page-title">04 · JOURNEY</span>
           <span className="tl-dial__heading">章节</span>
           <div className="tl-dial__track">
             {timelineStages.map((stage, i) => {
@@ -73,11 +103,12 @@ export default function TimelineSection() {
           <span className="tl-dial__footer">
             {timelineStages.findIndex(s => s.id === activeStage) + 1} / {timelineStages.length}
           </span>
+          <Link to="/" className="tl-dial__home">← 首页</Link>
         </nav>
       </aside>
 
-      {/* Panels — one per stage */}
-      <div className="tl-panels">
+      {/* Panels — one per stage, page-flip container */}
+      <div className="tl-panels" ref={panelsRef}>
         {timelineStages.map((stage, i) => (
           <TimelinePanel
             key={stage.id}

@@ -1,78 +1,81 @@
 /* ══════════════════════════════════════
-   Timeline Section — v6 Pinned Panel
-   每阶段 = 一整面板 (≈100vh),左侧固定垂直转盘
+   Timeline Section — v9 Refined
+   参考: Linear / Apple Developer / Raycast / Stripe
    ══════════════════════════════════════ */
 
 .tl-section {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 200px 1fr;
   gap: 0;
   align-items: start;
   position: relative;
   padding: 0 0 6rem;
 }
 
-/* ── Vertical Dial Column (sticky during section) ── */
+/* ── Vertical Dial Column ── */
 
 .tl-dial-col {
   position: sticky;
   top: 0;
   height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
-  padding-left: clamp(1rem, 3vw, 2.5rem);
+  padding-left: clamp(1rem, 2.5vw, 2rem);
+  padding-top: clamp(2rem, 5vh, 3.5rem);
   z-index: 30;
 }
 
 .tl-dial {
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
+  gap: 1.2rem;
   position: relative;
+}
+
+.tl-dial__page-title {
+  font-family: var(--dt-font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--dt-accent);
+  text-transform: uppercase;
 }
 
 .tl-dial__heading {
   font-family: var(--dt-font-mono);
-  font-size: 0.55rem;
+  font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.28em;
   color: var(--dt-dim);
   text-transform: uppercase;
   padding-left: 0.1rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 
 .tl-dial__track {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 1.4rem;
   position: relative;
 }
 
-/* hairline connecting the dial nodes */
 .tl-dial__track::before {
   content: '';
   position: absolute;
   left: 0.95rem;
-  top: 0.45rem;
-  bottom: 0.45rem;
+  top: 0.4rem;
+  bottom: 0.4rem;
   width: 1px;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    var(--dt-line) 12%,
-    var(--dt-line) 88%,
-    transparent 100%
-  );
+  background: linear-gradient(180deg, transparent 0%, var(--dt-line) 12%, var(--dt-line) 88%, transparent 100%);
   z-index: 0;
 }
 
 .tl-dial__item {
   display: grid;
-  grid-template-columns: auto 32px 1fr;
+  grid-template-columns: auto 28px 1fr;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.5rem;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -82,88 +85,89 @@
   text-align: left;
   position: relative;
   z-index: 1;
-  transition: color 0.35s ease;
+  transition: color 0.3s ease;
 }
 
-.tl-dial__item:hover {
-  color: var(--dt-muted);
-}
-
-.tl-dial__item.is-active {
-  color: var(--dt-accent);
-}
+.tl-dial__item:hover { color: var(--dt-muted); }
+.tl-dial__item.is-active { color: var(--dt-accent); }
 
 .tl-dial__num {
-  font-size: 0.66rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   width: 1.5rem;
   font-variant-numeric: tabular-nums;
   background: var(--dt-bg);
   padding: 0.1rem 0.18rem;
-  position: relative;
   z-index: 1;
 }
 
 .tl-dial__bar {
-  width: 18px;
+  width: 16px;
   height: 1px;
   background: currentColor;
   opacity: 0.4;
-  transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
+  transition: width 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease;
   justify-self: start;
 }
 
 .tl-dial__item.is-active .tl-dial__bar {
-  width: 36px;
+  width: 32px;
   opacity: 1;
   box-shadow: 0 0 8px rgba(255, 184, 107, 0.4);
 }
 
 .tl-dial__label {
   font-family: var(--dt-font-display);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.005em;
+  letter-spacing: 0.003em;
   white-space: nowrap;
   opacity: 0.65;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.3s ease;
 }
 
 .tl-dial__item:hover .tl-dial__label,
-.tl-dial__item.is-active .tl-dial__label {
-  opacity: 1;
-}
+.tl-dial__item.is-active .tl-dial__label { opacity: 1; }
 
 .tl-dial__footer {
   font-family: var(--dt-font-mono);
-  font-size: 0.6rem;
+  font-size: 0.62rem;
   letter-spacing: 0.16em;
   color: var(--dt-dim);
-  margin-top: 0.6rem;
+  margin-top: 0.5rem;
   padding-left: 0.2rem;
   font-variant-numeric: tabular-nums;
 }
 
+.tl-dial__home {
+  font-family: var(--dt-font-mono);
+  font-size: 0.65rem;
+  color: var(--dt-dim);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  padding-left: 0.2rem;
+  transition: color 0.25s ease;
+}
+
+.tl-dial__home:hover {
+  color: var(--dt-accent);
+}
+
 /* ══════════════════════════════════════
-   Panels — scroll-snap page-flip container
-   Each panel = exactly 1 viewport, no overflow
-   Layout: left anchor (num+title+context) | right content (items)
+   Panels — scroll-snap container
+   Layout: left anchor | right flowing content
    ══════════════════════════════════════ */
 
 .tl-panels {
   width: 100%;
-  max-width: 1100px;
-  padding: 0 clamp(1rem, 4vw, 3rem) 0 clamp(0.5rem, 1vw, 1rem);
+  max-width: 1120px;
+  padding: 0 clamp(1.2rem, 3.5vw, 2.5rem) 0 clamp(0.5rem, 1vw, 1rem);
   margin: 0;
   height: 100vh;
-  overflow-y: auto;
+  overflow: hidden;
   scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
 }
-.tl-panels::-webkit-scrollbar { display: none; }
 
 .tl-panel {
   height: 100vh;
@@ -171,67 +175,59 @@
   scroll-snap-stop: always;
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: clamp(1.5rem, 3vw, 3rem);
+  gap: clamp(2rem, 3.5vw, 3.5rem);
   align-items: start;
-  padding: clamp(1.5rem, 4vh, 2.5rem) 0;
+  padding: clamp(2rem, 5vh, 3rem) 0;
   position: relative;
   overflow: hidden;
 }
 
-/* watermark big stage number bleeding off right */
+/* watermark */
 .tl-panel::after {
   content: attr(data-stagenum);
   position: absolute;
-  top: clamp(1rem, 3vh, 2rem);
-  right: -0.5rem;
+  top: clamp(1.5rem, 4vh, 2.5rem);
+  right: -0.3rem;
   font-family: var(--dt-font-display);
-  font-size: clamp(5rem, 12vw, 10rem);
+  font-size: clamp(6rem, 14vw, 12rem);
   font-weight: 900;
   line-height: 0.85;
   letter-spacing: -0.06em;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 184, 107, 0.06);
-  text-stroke: 1px rgba(255, 184, 107, 0.06);
+  -webkit-text-stroke: 1px rgba(255, 184, 107, 0.05);
+  text-stroke: 1px rgba(255, 184, 107, 0.05);
   pointer-events: none;
   user-select: none;
   z-index: 0;
   white-space: nowrap;
 }
 
-/* divider between panels */
 .tl-panel + .tl-panel::before {
   content: '';
   position: absolute;
-  left: 0;
-  right: 30%;
-  top: 0;
+  left: 0; right: 25%; top: 0;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--dt-line-strong) 30%,
-    var(--dt-line-strong) 70%,
-    transparent 100%
-  );
-  opacity: 0.5;
+  background: linear-gradient(90deg, transparent 0%, var(--dt-line-strong) 30%, var(--dt-line-strong) 70%, transparent 100%);
+  opacity: 0.4;
 }
 
 /* ══════════════════════════════════════
-   Left Anchor — stage identity (always consistent)
+   Left Anchor — stage identity
    ══════════════════════════════════════ */
 
 .tl-panel__anchor {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
   position: relative;
   z-index: 1;
-  max-width: 260px;
+  max-width: 280px;
+  padding-top: 0.3rem;
 }
 
 .tl-panel__anchor-num {
   font-family: var(--dt-font-mono);
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   font-weight: 700;
   color: var(--dt-accent);
   letter-spacing: 0.24em;
@@ -240,78 +236,73 @@
 .tl-panel__title {
   margin: 0;
   font-family: var(--dt-font-display);
-  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
   font-weight: 900;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
   color: var(--dt-ink);
 }
 
 .tl-panel__meta {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.6rem;
   flex-wrap: wrap;
   font-family: var(--dt-font-mono);
 }
 
 .tl-panel__period {
-  font-size: 0.64rem;
-  letter-spacing: 0.06em;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
   color: var(--dt-muted);
   font-variant-numeric: tabular-nums;
 }
 
 .tl-panel__theme {
-  padding: 0.12rem 0.5rem;
+  padding: 0.15rem 0.55rem;
   border: 1px solid var(--dt-line-strong);
   border-radius: 999px;
-  font-size: 0.56rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   color: var(--dt-muted);
 }
 
-/* context sits inside anchor, compact */
 .tl-panel__context {
-  margin: 0.3rem 0 0;
+  margin: 0.4rem 0 0;
   font-family: 'Noto Serif SC', serif;
-  font-size: 0.72rem;
-  line-height: 1.62;
+  font-size: 0.85rem;
+  line-height: 1.65;
   color: var(--dt-muted);
-  padding: 0.35rem 0 0.35rem 0.7rem;
+  padding: 0.4rem 0 0.4rem 0.8rem;
   border-left: 2px solid var(--dt-accent-line);
 }
 
 /* ══════════════════════════════════════
-   Right Content — flowing items area
+   Right Content — items area
    ══════════════════════════════════════ */
 
 .tl-panel__content {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1rem;
   position: relative;
   z-index: 1;
   min-width: 0;
-  overflow-y: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
 }
-.tl-panel__content::-webkit-scrollbar { display: none; }
 
 .tl-section-label {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.45rem;
   font-family: var(--dt-font-mono);
-  font-size: 0.54rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  padding-bottom: 0.35rem;
+  padding-bottom: 0.4rem;
   border-bottom: 1px solid var(--dt-line);
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.2rem;
 }
 
 .tl-section-label--world { color: var(--dt-dim); }
@@ -319,63 +310,63 @@
 
 .tl-section-label::before {
   content: '';
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: currentColor;
-  opacity: 0.6;
+  opacity: 0.55;
 }
 
-/* items flow horizontally on desktop, stack if few */
 .tl-items-row {
   display: flex;
   flex-direction: row;
-  gap: 0.6rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
 }
 
-/* ── Event card (compact inline) ── */
+/* ── Event card — minimal, no-border style ── */
 
 .tl-event {
-  flex: 1 1 220px;
-  min-width: 200px;
-  max-width: 320px;
-  padding: 0.5rem 0.65rem;
-  border: 1px solid var(--dt-line);
-  border-radius: 6px;
-  background: rgba(150, 200, 255, 0.025);
-  transition: border-color 0.25s ease, background 0.25s ease;
+  flex: 1 1 240px;
+  min-width: 220px;
+  max-width: 340px;
+  padding: 0.75rem 0.9rem;
+  border: none;
+  border-radius: 10px;
+  background: rgba(150, 200, 255, 0.04);
+  transition: background 0.25s ease, transform 0.2s ease;
 }
 
 .tl-event:hover {
-  border-color: var(--dt-line-strong);
-  background: rgba(150, 200, 255, 0.05);
+  background: rgba(150, 200, 255, 0.08);
+  transform: translateY(-1px);
 }
 
 .tl-event__date {
   display: block;
   font-family: var(--dt-font-mono);
-  font-size: 0.5rem;
-  letter-spacing: 0.06em;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
   color: var(--dt-dim);
   font-variant-numeric: tabular-nums;
+  margin-bottom: 0.15rem;
 }
 
 .tl-event__title {
-  margin: 0.1rem 0 0.15rem;
+  margin: 0;
   font-family: var(--dt-font-mono);
-  font-size: 0.74rem;
-  font-weight: 600;
+  font-size: 0.92rem;
+  font-weight: 650;
   color: var(--dt-ink);
-  letter-spacing: 0.005em;
-  line-height: 1.25;
+  letter-spacing: 0.003em;
+  line-height: 1.3;
 }
 
 .tl-event__desc {
-  margin: 0;
+  margin: 0.2rem 0 0;
   font-family: var(--dt-font-sans);
-  font-size: 0.64rem;
-  line-height: 1.45;
+  font-size: 0.8rem;
+  line-height: 1.5;
   color: var(--dt-muted);
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -383,63 +374,50 @@
   overflow: hidden;
 }
 
-/* ── Project card (flowing, auto-width) ── */
+/* ── Project card — elevated surface, clean hierarchy ── */
 
 .tl-project {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
-  flex: 1 1 240px;
-  min-width: 220px;
-  max-width: 340px;
-  padding: 0.55rem 0.7rem;
-  border: 1px solid var(--dt-line);
-  border-radius: 6px;
+  gap: 0.3rem;
+  flex: 1 1 260px;
+  min-width: 240px;
+  max-width: 360px;
+  padding: 0.8rem 0.95rem;
+  border: none;
+  border-radius: 10px;
   background: var(--dt-surface);
   text-decoration: none;
   color: inherit;
-  transition: all 0.28s ease;
+  transition: all 0.25s ease;
   position: relative;
 }
 
 .tl-project:hover {
-  border-color: var(--dt-accent-line);
   background: var(--dt-surface-2);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-.tl-project--highlight {
-  border-style: dashed;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .tl-project--hero {
-  background: linear-gradient(135deg, rgba(255, 184, 107, 0.07), rgba(255, 184, 107, 0.02));
-  border-color: var(--dt-accent-line);
-  border-style: solid;
+  background: linear-gradient(135deg, rgba(255, 184, 107, 0.08), rgba(255, 184, 107, 0.02));
+  border-left: 3px solid var(--dt-accent);
 }
 
-.tl-project--hero::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--dt-accent);
-  border-radius: 2px 0 0 2px;
+.tl-project--highlight {
+  background: rgba(255, 184, 107, 0.03);
 }
 
 .tl-project__head {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
   flex-wrap: wrap;
 }
 
 .tl-project__date {
   font-family: var(--dt-font-mono);
-  font-size: 0.54rem;
+  font-size: 0.62rem;
   letter-spacing: 0.05em;
   color: var(--dt-dim);
   font-variant-numeric: tabular-nums;
@@ -447,44 +425,48 @@
 
 .tl-project__stars {
   font-family: var(--dt-font-mono);
-  font-size: 0.58rem;
+  font-size: 0.66rem;
   color: var(--dt-accent);
 }
 
 .tl-project__badge {
   font-family: var(--dt-font-mono);
-  font-size: 0.48rem;
+  font-size: 0.55rem;
   font-weight: 700;
   color: #0a0e1a;
   background: var(--dt-accent);
-  padding: 0.08rem 0.35rem;
+  padding: 0.1rem 0.4rem;
   border-radius: 3px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
 }
 
 .tl-project__title {
-  margin: 0.02rem 0 0;
+  margin: 0.05rem 0 0;
   font-family: var(--dt-font-mono);
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 650;
   color: var(--dt-accent);
-  letter-spacing: 0.005em;
-  line-height: 1.25;
+  letter-spacing: 0.002em;
+  line-height: 1.28;
 }
 
 .tl-project__desc {
-  margin: 0;
+  margin: 0.15rem 0 0;
   font-family: var(--dt-font-sans);
-  font-size: 0.68rem;
-  line-height: 1.5;
+  font-size: 0.82rem;
+  line-height: 1.52;
   color: var(--dt-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .tl-project__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.2rem;
-  margin-top: 0.15rem;
+  gap: 0.25rem;
+  margin-top: 0.2rem;
 }
 
 .tl-tag {
@@ -492,25 +474,25 @@
   border-radius: 999px;
   color: var(--dt-dim);
   font-family: var(--dt-font-sans);
-  font-size: 0.52rem;
-  font-weight: 600;
-  padding: 0.06rem 0.4rem;
+  font-size: 0.6rem;
+  font-weight: 550;
+  padding: 0.08rem 0.45rem;
   white-space: nowrap;
 }
 
-/* ── Insight quote (sits at bottom of content area) ── */
+/* ── Insight quote ── */
 
 .tl-panel__insight {
-  margin: 0.4rem 0 0;
-  padding: 0.45rem 0.7rem 0.45rem 0.9rem;
+  margin: 0.5rem 0 0;
+  padding: 0.55rem 0.85rem 0.55rem 1rem;
   font-family: 'Noto Serif SC', serif;
   font-style: italic;
-  font-size: 0.7rem;
-  line-height: 1.58;
+  font-size: 0.85rem;
+  line-height: 1.6;
   color: var(--dt-muted);
   border-left: 2px solid var(--dt-accent);
   background: rgba(255, 184, 107, 0.03);
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 6px 6px 0;
 }
 
 /* ══════════════════════════════════════
@@ -518,30 +500,20 @@
    ══════════════════════════════════════ */
 
 @media (max-width: 1080px) {
-  .tl-section {
-    grid-template-columns: 180px 1fr;
-  }
-  .tl-dial-col {
-    padding-left: 1rem;
-  }
-  .tl-dial__label {
-    font-size: 0.7rem;
-  }
-  .tl-panel__anchor {
-    max-width: 200px;
-  }
+  .tl-section { grid-template-columns: 170px 1fr; }
+  .tl-dial-col { padding-left: 0.8rem; }
+  .tl-dial__label { font-size: 0.75rem; }
+  .tl-panel__anchor { max-width: 220px; }
 }
 
 @media (max-width: 760px) {
-  .tl-section {
-    grid-template-columns: 1fr;
-  }
+  .tl-section { grid-template-columns: 1fr; }
 
   .tl-dial-col {
     position: sticky;
     top: 0;
     height: auto;
-    background: rgba(10, 14, 26, 0.92);
+    background: rgba(10, 14, 26, 0.94);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--dt-line);
@@ -549,16 +521,9 @@
     z-index: 50;
   }
 
-  .tl-dial {
-    flex-direction: column;
-    gap: 0.3rem;
-    width: 100%;
-  }
-
+  .tl-dial { flex-direction: column; gap: 0.3rem; width: 100%; }
   .tl-dial__heading,
-  .tl-dial__footer {
-    display: none;
-  }
+  .tl-dial__footer { display: none; }
 
   .tl-dial__track {
     flex-direction: row;
@@ -566,10 +531,7 @@
     overflow-x: auto;
     padding-bottom: 0.1rem;
   }
-
-  .tl-dial__track::before {
-    display: none;
-  }
+  .tl-dial__track::before { display: none; }
 
   .tl-dial__item {
     grid-template-columns: auto;
@@ -581,52 +543,24 @@
     text-align: center;
   }
 
-  .tl-dial__num {
-    background: transparent;
-    width: auto;
-    padding: 0;
-  }
+  .tl-dial__num { background: transparent; width: auto; padding: 0; }
+  .tl-dial__bar { width: 18px; height: 1px; justify-self: center; }
+  .tl-dial__item.is-active .tl-dial__bar { width: 28px; }
+  .tl-dial__label { font-size: 0.6rem; opacity: 1; }
 
-  .tl-dial__bar {
-    width: 18px;
-    height: 1px;
-    justify-self: center;
-  }
+  .tl-panels { padding: 0 0.8rem; max-width: 100%; }
 
-  .tl-dial__item.is-active .tl-dial__bar {
-    width: 28px;
-  }
-
-  .tl-dial__label {
-    font-size: 0.58rem;
-    opacity: 1;
-  }
-
-  .tl-panels {
-    padding: 0 0.8rem;
-    max-width: 100%;
-  }
-
-  /* mobile: stack anchor above content */
   .tl-panel {
     height: auto;
     min-height: 80vh;
     grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1.2rem 0;
+    gap: 1.2rem;
+    padding: 1.5rem 0;
   }
 
-  .tl-panel__anchor {
-    max-width: 100%;
-  }
-
-  .tl-panel__content {
-    overflow-y: visible;
-  }
-
-  .tl-items-row {
-    flex-direction: column;
-  }
+  .tl-panel__anchor { max-width: 100%; }
+  .tl-panel__content { overflow-y: visible; }
+  .tl-items-row { flex-direction: column; }
 
   .tl-event,
   .tl-project {
@@ -645,7 +579,5 @@
   .tl-dial__bar,
   .tl-dial__label,
   .tl-event,
-  .tl-project {
-    transition: none;
-  }
+  .tl-project { transition: none; }
 }
