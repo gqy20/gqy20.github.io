@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react'
 import { useProjectsData } from '../hooks/useProjectsData.js'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaArrowRight, FaGithub } from 'react-icons/fa'
+import { FaArrowRight, FaGithub, FaEnvelope, FaGlobe } from 'react-icons/fa'
+import { SiGitee, SiBilibili } from 'react-icons/si'
 import './Hero.css'
 
 const STAGES = [
@@ -13,6 +14,23 @@ const STAGES = [
 
 const HERO_PROJECTS = ['TrumanWorld', 'zotero_cli', 'article-mcp', 'IssueLab', 'mind']
 
+const SOCIAL_LINKS = [
+  { name: 'GitHub', url: 'https://github.com/gqy20', icon: FaGithub },
+  { name: 'Gitee', url: 'https://gitee.com/gqy20', icon: SiGitee },
+  { name: 'Bilibili', url: 'https://space.bilibili.com/500302320', icon: SiBilibili },
+  { name: 'ModelScope', url: 'https://modelscope.cn/user/gqy20', icon: 'modelscope' },
+  { name: 'Email', url: 'mailto:qingyu_ge@foxmail.com', icon: FaEnvelope },
+  { name: 'Website', url: 'https://home.gqy20.top/', icon: FaGlobe },
+]
+
+function ModelScopeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: '0.85em', height: '0.85em' }}>
+      <path d="M12 2L3 7.5v9L12 22l9-5.5v-9L12 2zm0 2.5l6 3.5-6 3.5-6-3.5 6-3.5zm-7 5.2l6 3.5v6.6l-6-3.5v-6.6zm8 10.1v-6.6l6-3.5v6.6l-6 3.5z"/>
+    </svg>
+  )
+}
+
 function getStageForDate(dateStr) {
   if (!dateStr) return 0
   const d = new Date(dateStr)
@@ -22,48 +40,14 @@ function getStageForDate(dateStr) {
   return 3
 }
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.06 }
-  }
-}
-
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1, y: 0,
-    transition: { duration: 0.55, ease: [0.33, 1, 0.68, 1] }
+    transition: { duration: 0.5, ease: [0.33, 1, 0.68, 1] }
   }
 }
 
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.85 },
-  visible: {
-    opacity: 1, scale: 1,
-    transition: { duration: 0.45, ease: [0.33, 1, 0.68, 1] }
-  }
-}
-
-const lineGrow = {
-  hidden: { scaleX: 0 },
-  visible: {
-    scaleX: 1,
-    transition: { duration: 1.2, ease: [0.33, 1, 0.68, 1], delay: 0.6 }
-  }
-}
-
-const dotPop = (index) => ({
-  hidden: { opacity: 0, scale: 0 },
-  visible: {
-    opacity: 1, scale: 1,
-    transition: {
-      duration: 0.35,
-      delay: 0.8 + index * 0.08,
-      ease: [0.34, 1.56, 0.64, 1]
-    }
-  }
-})
 
 const Hero = () => {
   const { data: projectData, loading } = useProjectsData()
@@ -82,7 +66,6 @@ const Hero = () => {
   }, [projectData])
 
   const stats = useMemo(() => ({
-    repos: projectData?.totalRepositories ?? 0,
     projects: projectData?.totalProjects ?? 0
   }), [projectData])
 
@@ -99,23 +82,48 @@ const Hero = () => {
         <div className="hero-glow hero-glow--1" />
         <div className="hero-glow hero-glow--2" />
 
+        {/* Social links — top right */}
+        <motion.div
+          className="hero-socials"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.5 }}
+        >
+          {SOCIAL_LINKS.filter(s => s.url).map((link) => {
+            const isExternal = link.url.startsWith('http') || link.url.startsWith('mailto:')
+            const Icon = link.icon === 'modelscope' ? ModelScopeIcon : link.icon
+            return (
+              <a
+                key={link.name}
+                href={link.url}
+                className="hero-social"
+                target={isExternal ? '_blank' : undefined}
+                rel={isExternal ? 'noopener noreferrer' : undefined}
+                aria-label={link.name}
+                title={link.name}
+              >
+                <Icon />
+              </a>
+            )
+          })}
+        </motion.div>
+
+        {/* Content column — left-aligned */}
         <div className="hero-v2__inner">
           {/* Identity */}
           <motion.div className="hero-identity" variants={fadeUp}>
             <span className="hero-avatar">QY</span>
             <div className="hero-identity__text">
-              <strong>葛清宇</strong>
+              <strong>葛庆宇</strong>
               <span className="hero-identity__sep">/</span>
               <em>Qingyu Ge</em>
             </div>
           </motion.div>
 
-          {/* Role tags */}
-          <motion.div className="hero-tags" variants={fadeUp}>
-            <span className="hero-tag">AI Agent 构建者</span>
-            <span className="hero-tag hero-tag--muted">MCP 工具作者</span>
-            <span className="hero-tag hero-tag--muted">Multi-Agent 系统架构</span>
-          </motion.div>
+          {/* Role — inline quiet */}
+          <motion.p className="hero-role" variants={fadeUp}>
+            AI Agent 构建者 · MCP 工具作者 · Multi-Agent 系统架构
+          </motion.p>
 
           {/* Title */}
           <motion.h1 className="hero-title" variants={fadeUp}>
@@ -140,80 +148,87 @@ const Hero = () => {
             </a>
           </motion.div>
 
-          {/* Timeline */}
-          <motion.section className="hero-timeline" variants={containerVariants} initial="hidden" animate="visible">
-            {/* Track background line */}
-            <motion.div className="timeline-track" variants={lineGrow} />
-
-            {/* Time labels */}
-            <div className="timeline-labels">
-              <span>{timeRange.start}</span>
-              <span>{timeRange.end}</span>
-            </div>
-
-            {/* Dots + projects */}
-            <div className="timeline-dots">
-              {timelineProjects.map((project, i) => (
-                <motion.button
-                  key={project.id}
-                  className={`timeline-dot ${project.isHero ? 'timeline-dot--hero' : ''}`}
-                  style={{ left: `${(i / Math.max(timelineProjects.length - 1, 1)) * 100}%` }}
-                  variants={dotPop(i)}
-                  onMouseEnter={() => setHoveredProject(project)}
-                  onMouseLeave={() => setHoveredProject(null)}
-                  aria-label={`${project.name}: ${project.description?.slice(0, 60)}`}
-                >
-                  <span className="dot-core" />
-                </motion.button>
-              ))}
-            </div>
-
-            {/* Stage labels below track */}
-            <div className="timeline-stages">
-              {STAGES.map((stage, i) => (
-                <span
-                  key={stage.id}
-                  className="timeline-stage"
-                  style={{ left: `${(i / (STAGES.length - 1)) * 100}%` }}
-                >
-                  {stage.short}
-                </span>
-              ))}
-            </div>
-
-            {/* Hover tooltip */}
-            <AnimatePresence>
-              {hoveredProject && (
-                <motion.div
-                  className="timeline-tooltip"
-                  initial={{ opacity: 0, y: 6, scale: 0.96 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 6, scale: 0.96 }}
-                  transition={{ duration: 0.18 }}
-                  style={{
-                    left: `${(timelineProjects.indexOf(hoveredProject) / Math.max(timelineProjects.length - 1, 1)) * 100}%`
-                  }}
-                >
-                  <strong>{hoveredProject.name}</strong>
-                  <p>{hoveredProject.description?.slice(0, 80)}</p>
-                  <span className="tooltip-meta">
-                    {new Date(hoveredProject.createdAt).toLocaleDateString('zh-CN', { year: 'numeric', month: 'short' })}
-                    {hoveredProject.language && ` · ${hoveredProject.language}`}
-                  </span>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.section>
-
-          {/* Footer links */}
-          <motion.footer className="hero-footer" variants={scaleIn}>
-            <a href="https://github.com/gqy20" target="_blank" rel="noopener noreferrer">
-              <FaGithub /> GitHub
-            </a>
-            <span className="hero-footer__dot" />
-            <span>{stats.repos} 个公开仓库</span>
-          </motion.footer>
         </div>
+
+        {/* Timeline — breaks out, spans full width */}
+        <motion.section
+          className="hero-timeline"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.7 }}
+        >
+          {/* Track background line */}
+          <div className="timeline-track">
+            <div className="timeline-track-fill" />
+          </div>
+
+          {/* Time labels */}
+          <div className="timeline-labels">
+            <span>{timeRange.start}</span>
+            <span>{timeRange.end}</span>
+          </div>
+
+          {/* Dots + projects — positioned by JS via viewport % */}
+          <div className="timeline-dots">
+            {timelineProjects.map((project, i) => (
+              <motion.button
+                key={project.id}
+                className={`timeline-dot ${project.isHero ? 'timeline-dot--hero' : ''}`}
+                style={{
+                  left: `${(i / Math.max(timelineProjects.length - 1, 1)) * 100}%`
+                }}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.3,
+                  delay: 0.9 + i * 0.06,
+                  ease: [0.34, 1.56, 0.64, 1]
+                }}
+                onMouseEnter={() => setHoveredProject(project)}
+                onMouseLeave={() => setHoveredProject(null)}
+                aria-label={`${project.name}: ${project.description?.slice(0, 60)}`}
+              >
+                <span className="dot-core" />
+              </motion.button>
+            ))}
+          </div>
+
+          {/* Stage labels below track */}
+          <div className="timeline-stages">
+            {STAGES.map((stage, i) => (
+              <span
+                key={stage.id}
+                className="timeline-stage"
+                style={{ left: `${(i / (STAGES.length - 1)) * 100}%` }}
+              >
+                {stage.short}
+              </span>
+            ))}
+          </div>
+
+          {/* Hover tooltip */}
+          <AnimatePresence>
+            {hoveredProject && (
+              <motion.div
+                className="timeline-tooltip"
+                initial={{ opacity: 0, y: 6, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 6, scale: 0.96 }}
+                transition={{ duration: 0.16 }}
+                style={{
+                  left: `${(timelineProjects.indexOf(hoveredProject) / Math.max(timelineProjects.length - 1, 1)) * 100}%`
+                }}
+              >
+                <strong>{hoveredProject.name}</strong>
+                <p>{hoveredProject.description?.slice(0, 80)}</p>
+                <span className="tooltip-meta">
+                  {new Date(hoveredProject.createdAt).toLocaleDateString('zh-CN', { year: 'numeric', month: 'short' })}
+                  {hoveredProject.language && ` · ${hoveredProject.language}`}
+                </span>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.section>
       </section>
     </main>
   )
