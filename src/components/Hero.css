@@ -31,7 +31,7 @@
   font-family: var(--font-serif);
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 420px minmax(0, 1fr);
+  grid-template-columns: clamp(320px, 26vw, 420px) minmax(0, 1fr);
   align-items: stretch;
 
   /* Override page-content min-height calculation */
@@ -80,7 +80,7 @@
   position: sticky;
   top: 0;
   height: 100vh;
-  padding: 5rem 4rem 3.5rem;
+  padding: 5rem clamp(2rem, 3vw, 4rem) 3.5rem;
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -256,8 +256,8 @@
 .home-main {
   position: relative;
   z-index: 2;
-  padding: 5rem 6rem 8rem 5rem;
-  max-width: 820px;
+  padding: 5rem clamp(2rem, 5vw, 5rem) 8rem;
+  max-width: 72vw;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -391,6 +391,13 @@
 }
 
 .home-now-item__stars {
+  color: var(--muted);
+}
+
+.home-now-item__lang {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9rem;
   color: var(--muted);
 }
 
@@ -543,8 +550,8 @@
 
 .home-work-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(0.875rem, 1.2vw, 1.25rem);
   margin-bottom: 1.5rem;
 }
 
@@ -636,6 +643,9 @@
 }
 
 .work-card__lang {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.95rem;
   color: var(--muted);
 }
 

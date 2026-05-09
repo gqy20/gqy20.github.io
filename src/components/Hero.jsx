@@ -4,6 +4,7 @@ import { FaGithub, FaEnvelope, FaGlobe } from 'react-icons/fa'
 import { SiGitee, SiBilibili } from 'react-icons/si'
 import { useProjectsData } from '../hooks/useProjectsData.js'
 import blogIndex from '../data/blog/index.json'
+import LanguageIcon from './LanguageIcon.jsx'
 import './Hero.css'
 
 const SECTIONS = [
@@ -192,7 +193,7 @@ export default function Hero() {
                     <span className="home-now-item__name">{p.name}</span>
                     <span className="home-now-item__meta">
                       {p.stars > 0 && <span className="home-now-item__stars">{p.stars}★</span>}
-                      <span className="home-now-item__lang">{p.language}</span>
+                      <span className="home-now-item__lang"><LanguageIcon language={p.language} /></span>
                     </span>
                     <span className="home-now-item__desc">{NOW_DESC[name] || p.description}</span>
                   </a>
@@ -320,7 +321,7 @@ function WorkCard({ project }) {
       </div>
       <p className="work-card__desc">{project.description}</p>
       <div className="work-card__meta">
-        <span className="work-card__lang">{project.language}</span>
+        <span className="work-card__lang"><LanguageIcon language={project.language} /></span>
         <span className="work-card__category">{project.category}</span>
       </div>
     </a>
