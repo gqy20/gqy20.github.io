@@ -41,9 +41,9 @@ export const timelineStages = [
     industryContext:
       'Anthropic 发布 MCP（Model Context Protocol）开放协议。Claude Code 从 Beta 走向正式版。MCP 生态开始形成，工具接入有了标准化路径。',
     industryEvents: [
-      { date: '2024-11-25', title: 'MCP 协议发布', description: 'Anthropic 开放 Model Context Protocol 规范' },
-      { date: '2025-02-24', title: 'Claude Code Beta', description: '与 Claude 3.7 Sonnet 同日发布，首个 agentic CLI 工具' },
-      { date: '2025-05-22', title: 'Claude Code GA + Claude 4', description: '正式版发布，Agent 能力边界大幅扩展' },
+      { date: '2024-11-25', title: 'MCP 协议发布', description: 'Anthropic 开放 Model Context Protocol 规范', featured: true },
+      { date: '2025-02-24', title: 'Claude Code Beta', description: '与 Claude 3.7 Sonnet 同日发布，首个 agentic CLI 工具', featured: true },
+      { date: '2025-05-22', title: 'Claude Code GA + Claude 4', description: '正式版发布，Agent 能力边界大幅扩展', featured: true },
       { date: '2024-08→12', title: 'Cursor 爆发期', description: '$400M → $26亿估值，AI 编程工具进入主流' },
     ],
     projects: [
@@ -53,6 +53,7 @@ export const timelineStages = [
         description: '文献检索 MCP。第一个 MCP 项目，发布 PyPI v0.2.2。让智能体稳定获取论文和全文上下文。',
         tags: ['MCP', '文献检索', 'PyPI'],
         highlight: true,
+        featured: true,
       },
       {
         name: 'mcp_agent',
@@ -65,6 +66,7 @@ export const timelineStages = [
         date: '2025-09-14',
         description: '基因组数据 MCP（PyPI v0.2.6，5 个 release）。将 MCP 扩展到生物信息学领域。',
         tags: ['MCP', '生物信息', '基因组'],
+        featured: true,
       },
       {
         name: 'astro_light_pollution',
@@ -83,6 +85,7 @@ export const timelineStages = [
         date: '2025-10-28',
         description: 'Claude Code 专业插件集合——专家分析、研究工作流。CC GA 后 ~5 个月启动。',
         tags: ['CC插件', '专家分析'],
+        featured: true,
       },
     ],
     stageInsight:
@@ -97,10 +100,10 @@ export const timelineStages = [
     industryContext:
       'Claude Code v2.0（VS Code 扩展、检查点调试）、Plugins 公测、Agent Skills 开放标准相继发布。OpenClaw + Moltbook 病毒式传播，Multi-Agent 概念从论文走向工程实践。',
     industryEvents: [
-      { date: '2025-09-29', title: 'Claude Code v2.0', description: '原生 VS Code 扩展、UI 重做、时间旅行调试' },
+      { date: '2025-09-29', title: 'Claude Code v2.0', description: '原生 VS Code 扩展、UI 重做、时间旅行调试', featured: true },
       { date: '2025-10-09', title: 'CC Plugins 公测', description: '可安装 Slash Commands、MCP Servers、Hooks' },
-      { date: '2025-12', title: 'Agent Skills 规范', description: '开放标准，OpenAI Codex CLI 同步采用' },
-      { date: '2026-02', title: 'OpenClaw + Moltbook', description: '开源 Agent 框架 + AI 社交网络病毒式传播' },
+      { date: '2025-12', title: 'Agent Skills 规范', description: '开放标准，OpenAI Codex CLI 同步采用', featured: true },
+      { date: '2026-02', title: 'OpenClaw + Moltbook', description: '开源 Agent 框架 + AI 社交网络病毒式传播', featured: true },
     ],
     projects: [
       {
@@ -133,6 +136,7 @@ export const timelineStages = [
         description: '多智能体协作创新系统——"AI agents that collaborate to spark innovation"。从单工具转向多 Agent 协作的关键转折点。',
         tags: ['Multi-Agent', '协作', '创新'],
         highlight: true,
+        featured: true,
       },
       {
         name: 'TrendPluse',
@@ -158,12 +162,14 @@ export const timelineStages = [
         description: '多智能体科研讨论网络——基于 GitHub Issues，支持受控协作区触发跨仓库数字分身协作。与 OpenClaw/Moltbook 理念同源。',
         tags: ['Multi-Agent', '科研', 'GitHub Issues'],
         highlight: true,
+        featured: true,
       },
       {
         name: 'issuelab-secondme',
         date: '2026-02-12',
         description: 'IssueLab × SecondMe 集成——OAuth 登录、轨迹对话、用户画像、笔记沉淀。',
         tags: ['IssueLab', 'SecondMe', '数字身份'],
+        featured: true,
       },
     ],
     stageInsight:
@@ -197,6 +203,7 @@ export const timelineStages = [
         tags: ['Multi-Agent', '社会模拟', '记忆系统', 'Web界面'],
         highlight: true,
         isHero: true,
+        featured: true,
       },
       {
         name: 'minimax-studio',
@@ -211,6 +218,7 @@ export const timelineStages = [
           '为 Claude Code 等 AI Agent 设计的 Zotero 命行工具（Go 语言，v0.0.8，5 个 release）。不是给人用的 CLI，而是给 Agent 用的接口——Agent 可以直接检索文献库、阅读 PDF、管理标注、生成引文。',
         tags: ['Go', 'Zotero', 'AI原生', 'CLI'],
         highlight: true,
+        featured: true,
       },
       {
         name: 'homebrew-tap',
@@ -230,6 +238,7 @@ export const timelineStages = [
         description:
           'AI Agent 数学动画自动生成系统——自然语言输入，端到端产出带配音的 Manim 动画。Agent 不只是处理文本，而是完成完整的创作流程。',
         tags: ['Manim', '数学动画', 'Agent创作', '端到端'],
+        featured: true,
       },
     ],
     stageInsight:
