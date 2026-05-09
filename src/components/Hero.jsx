@@ -132,20 +132,32 @@ const Hero = () => {
             <br />构建者。
           </motion.h1>
 
-          {/* Subtitle */}
-          <motion.p className="hero-subtitle" variants={fadeUp}>
-            一年四个阶段，{loading ? '...' : stats.projects} 个开源项目。
-            围绕智能体、工具接口和自动化系统持续沉淀。
-          </motion.p>
-
           {/* CTAs */}
           <motion.div className="hero-actions" variants={fadeUp}>
             <a href="#/journey" className="ai-button ai-button-primary">
               查看完整旅程 <FaArrowRight />
             </a>
-            <a href="#/projects" className="ai-link">
+            <a href="#projects" className="ai-link">
               浏览全部项目 <FaArrowRight />
             </a>
+          </motion.div>
+
+          {/* Scroll indicator */}
+          <motion.div
+            className="hero-scroll"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 1.2 }}
+          >
+            <motion.div
+              className="hero-scroll__icon"
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </motion.div>
           </motion.div>
 
         </div>
@@ -157,6 +169,13 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.7 }}
         >
+          {/* Timeline header */}
+          <div className="timeline-header">
+            <span className="timeline-header__label">
+              一年四个阶段，{loading ? '...' : stats.projects} 个开源项目
+            </span>
+          </div>
+
           {/* Track background line */}
           <div className="timeline-track">
             <div className="timeline-track-fill" />
