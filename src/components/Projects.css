@@ -1,12 +1,13 @@
 /* ══════════════════════════════════════
-   Projects Page — 暗色技术档案馆
+   Projects Page — v10 Unified Theme
+   与 Timeline v9 设计语言对齐
    ══════════════════════════════════════ */
 
 .projects {
   min-height: 100vh;
-  padding: 6rem 0 4rem;
+  padding: 0 0 4rem;
   color: var(--dt-ink);
-  background: transparent; /* 使用全局背景 */
+  background: transparent;
 }
 
 .projects *,
@@ -16,58 +17,57 @@
 }
 
 .projects-shell {
-  width: min(1180px, calc(100% - 2rem));
+  width: min(1120px, calc(100% - 2rem));
   margin: 0 auto;
 }
 
-/* ── Hero Header ── */
+/* ── Inline Hero — no separate header bar ── */
 
 .projects-hero {
   max-width: 720px;
-  margin-bottom: 4rem;
+  padding: clamp(2.5rem, 6vh, 4rem) 0 1rem;
 }
 
 .projects-hero p,
 .section-heading p {
   color: var(--dt-accent);
-  font-family: var(--dt-font-sans);
-  font-size: 0.82rem;
+  font-family: var(--dt-font-mono);
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  margin: 0 0 1rem;
+  margin: 0 0 0.7rem;
 }
 
-/* ── Page Header Body (Projects) ── */
+/* ── Page Heading (inline) ── */
 
 .page-header__heading {
-  font-family: 'Noto Serif SC', serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-family: var(--dt-font-display);
+  font-size: clamp(1.8rem, 3.8vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
   color: var(--dt-ink);
-  margin: 0 0 1rem;
+  margin: 0 0 0.8rem;
 }
 
 .page-header__lede {
-  font-family: 'Noto Serif SC', serif;
-  font-style: italic;
-  font-size: 1rem;
-  line-height: 1.75;
+  font-family: var(--dt-font-sans);
+  font-size: 0.95rem;
+  line-height: 1.65;
   color: var(--dt-muted);
-  max-width: 58ch;
+  max-width: 56ch;
 }
 
 .page-header__link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  margin-left: 0.5rem;
+  gap: 0.35rem;
+  margin-left: 0.4rem;
   color: var(--dt-accent);
   text-decoration: none;
   font-family: var(--dt-font-mono);
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 600;
   transition: letter-spacing 0.25s ease;
 }
@@ -80,10 +80,10 @@
 .project-card-actions button {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.4rem;
   color: var(--dt-accent);
-  font-family: var(--dt-font-sans);
-  font-weight: 700;
+  font-family: var(--dt-font-mono);
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -91,19 +91,19 @@
 
 .featured-projects,
 .project-browser {
-  padding: 3.5rem 0;
+  padding: 2.5rem 0;
   border-top: 1px solid var(--dt-line);
 }
 
 .section-heading {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .section-heading h2 {
   color: var(--dt-ink);
   font-family: var(--dt-font-display);
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  font-weight: 800;
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  font-weight: 900;
   letter-spacing: -0.02em;
   line-height: 1.15;
   margin: 0;
@@ -121,28 +121,28 @@
 .featured-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
 .project-card {
   display: flex;
   flex-direction: column;
-  min-height: 300px;
-  padding: 1.35rem;
-  border: 1px solid var(--dt-line);
+  min-height: 280px;
+  padding: 1.2rem 1.15rem;
+  border: none;
   border-radius: 10px;
   background: var(--dt-surface);
-  transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+  transition: all 0.25s ease;
 }
 
 .project-card.featured {
-  min-height: 330px;
+  min-height: 300px;
 }
 
 .project-card:hover {
-  border-color: var(--dt-accent-line);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.32);
-  transform: translateY(-3px);
+  background: var(--dt-surface-2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .project-card-top {
@@ -150,82 +150,89 @@
   justify-content: space-between;
   gap: 1rem;
   color: var(--dt-accent);
-  font-family: var(--dt-font-sans);
-  font-size: 0.76rem;
+  font-family: var(--dt-font-mono);
+  font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
-  margin-bottom: 1.1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
 }
 
 .project-card-top em {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  color: var(--dt-muted);
+  gap: 0.25rem;
+  color: var(--dt-dim);
   font-style: normal;
 }
 
 .project-card h3 {
   font-family: var(--dt-font-display);
-  color: var(--dt-ink);
-  font-size: 1.2rem;
+  color: var(--dt-accent);
+  font-size: 1.05rem;
   font-weight: 800;
-  line-height: 1.25;
-  margin: 0 0 0.45rem;
+  line-height: 1.2;
+  margin: 0 0 0.35rem;
 }
 
 .project-card h4 {
   font-family: var(--dt-font-sans);
   color: var(--dt-ink);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  line-height: 1.35;
-  margin: 0 0 0.85rem;
+  line-height: 1.32;
+  margin: 0 0 0.6rem;
 }
 
 .project-card p {
   font-family: var(--dt-font-sans);
   color: var(--dt-muted);
-  font-size: 0.92rem;
-  line-height: 1.72;
+  font-size: 0.82rem;
+  line-height: 1.55;
   margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .project-built {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 1.1rem;
+  gap: 0.3rem;
+  margin-top: 0.85rem;
 }
 
 .project-built span {
   border: 1px solid var(--dt-line);
   border-radius: 999px;
-  color: var(--dt-muted);
+  color: var(--dt-dim);
   font-family: var(--dt-font-sans);
-  font-size: 0.74rem;
-  font-weight: 600;
-  padding: 0.22rem 0.55rem;
+  font-size: 0.62rem;
+  font-weight: 550;
+  padding: 0.12rem 0.45rem;
 }
 
 .project-card-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.85rem;
+  gap: 0.7rem;
   align-items: center;
   margin-top: auto;
-  padding-top: 1.2rem;
+  padding-top: 0.9rem;
 }
 
 .project-card-actions button {
-  padding: 0.55rem 1.1rem;
+  padding: 0.4rem 0.9rem;
   border: 1px solid var(--dt-line);
-  border-radius: 8px;
+  border-radius: 6px;
   background: transparent;
   cursor: pointer;
-  font-family: var(--dt-font-sans);
-  font-weight: 600;
+  font-family: var(--dt-font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
   color: var(--dt-accent);
+  letter-spacing: 0.02em;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
 
@@ -240,20 +247,21 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 0.75rem;
+  gap: 0.6rem;
 }
 
 .search-box {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  min-height: 44px;
-  padding: 0 0.85rem;
+  gap: 0.5rem;
+  min-height: 38px;
+  padding: 0 0.75rem;
   border: 1px solid var(--dt-line);
-  border-radius: 10px;
+  border-radius: 8px;
   background: var(--dt-surface);
-  color: var(--dt-muted);
-  font-family: var(--dt-font-sans);
+  color: var(--dt-dim);
+  font-family: var(--dt-font-mono);
+  font-size: 0.78rem;
 }
 
 .search-box input,
@@ -262,25 +270,27 @@
   outline: 0;
   background: transparent;
   color: var(--dt-ink);
-  font-family: var(--dt-font-sans);
-  min-width: 220px;
+  font-family: var(--dt-font-mono);
+  font-size: 0.78rem;
+  min-width: 200px;
 }
 
 .project-tools select {
-  min-height: 44px;
-  min-width: 130px;
-  padding: 0 0.8rem;
+  min-height: 38px;
+  min-width: 120px;
+  padding: 0 0.7rem;
   border: 1px solid var(--dt-line);
-  border-radius: 10px;
+  border-radius: 8px;
   background: var(--dt-surface);
-  font-family: var(--dt-font-sans);
+  font-family: var(--dt-font-mono);
+  font-size: 0.76rem;
 }
 
 /* ── Directory Groups ── */
 
 .project-directory {
   display: grid;
-  gap: 1.2rem;
+  gap: 1rem;
 }
 
 .directory-group {
@@ -292,54 +302,60 @@
   justify-content: space-between;
   gap: 1rem;
   align-items: baseline;
-  padding: 1.1rem 0 0.65rem;
+  padding: 0.9rem 0 0.5rem;
 }
 
 .directory-group-heading h3 {
   font-family: var(--dt-font-display);
   color: var(--dt-ink);
-  font-size: 1.1rem;
-  font-weight: 700;
-  line-height: 1.3;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.25;
   margin: 0;
 }
 
 .directory-group-heading span {
-  font-family: var(--dt-font-sans);
-  color: var(--dt-muted);
-  font-size: 0.8rem;
+  font-family: var(--dt-font-mono);
+  color: var(--dt-dim);
+  font-size: 0.7rem;
   font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .directory-list {
-  border: 1px solid var(--dt-line);
+  border: none;
   border-radius: 10px;
-  background: var(--dt-surface);
+  background: transparent;
   overflow: hidden;
 }
 
 .directory-item {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 1rem;
+  gap: 0.85rem;
   align-items: center;
-  min-height: 80px;
-  padding: 0 1.1rem;
-  border-bottom: 1px solid var(--dt-line);
+  min-height: 64px;
+  padding: 0 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   transition: background 0.2s ease;
+  border-radius: 6px;
 }
 
 .directory-item:last-child {
   border-bottom: 0;
 }
 
+.directory-item:hover {
+  background: var(--dt-surface);
+}
+
 .directory-main {
   display: grid;
-  grid-template-columns: minmax(120px, 0.32fr) minmax(160px, 0.4fr) minmax(0, 1fr);
-  gap: 0.9rem;
+  grid-template-columns: minmax(110px, 0.3fr) minmax(150px, 0.38fr) minmax(0, 1fr);
+  gap: 0.7rem;
   align-items: baseline;
   width: 100%;
-  padding: 1rem 0;
+  padding: 0.75rem 0;
   border: 0;
   background: transparent;
   color: inherit;
@@ -356,27 +372,27 @@
 .directory-main span {
   font-family: var(--dt-font-display);
   color: var(--dt-ink);
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: 0.88rem;
+  font-weight: 800;
 }
 
 .directory-main strong {
-  font-family: var(--dt-font-sans);
+  font-family: var(--dt-font-mono);
   color: var(--dt-ink);
-  font-size: 0.92rem;
-  font-weight: 600;
+  font-size: 0.82rem;
+  font-weight: 650;
 }
 
 .directory-main em {
   font-family: var(--dt-font-sans);
   color: var(--dt-muted);
   display: -webkit-box;
-  font-size: 0.88rem;
+  font-size: 0.78rem;
   font-style: normal;
-  line-height: 1.6;
+  line-height: 1.5;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
 }
 
 .directory-item:hover {
@@ -385,18 +401,18 @@
 
 .directory-meta {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.6rem;
   align-items: center;
-  font-family: var(--dt-font-sans);
-  color: var(--dt-muted);
-  font-size: 0.8rem;
+  font-family: var(--dt-font-mono);
+  color: var(--dt-dim);
+  font-size: 0.7rem;
   font-weight: 600;
   white-space: nowrap;
 }
 
 .directory-meta span {
   display: inline-flex;
-  gap: 0.3rem;
+  gap: 0.25rem;
 }
 
 .directory-meta a {
@@ -409,30 +425,32 @@
 .project-state {
   display: grid;
   place-items: center;
-  gap: 0.8rem;
-  min-height: 260px;
+  gap: 0.7rem;
+  min-height: 220px;
   padding: 2rem;
-  border: 1px solid var(--dt-line);
+  border: none;
   border-radius: 10px;
   background: var(--dt-surface);
   color: var(--dt-muted);
   text-align: center;
-  font-family: var(--dt-font-sans);
+  font-family: var(--dt-font-mono);
+  font-size: 0.82rem;
 }
 
 .project-state svg {
   color: var(--dt-accent);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
 .project-state button {
-  min-height: 40px;
+  min-height: 36px;
   padding: 0 1rem;
   border: 1px solid var(--dt-line);
-  border-radius: 8px;
-  background: var(--dt-ink);
-  color: var(--dt-bg);
-  font-family: var(--dt-font-sans);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--dt-accent);
+  font-family: var(--dt-font-mono);
+  font-size: 0.75rem;
   font-weight: 700;
   cursor: pointer;
 }
@@ -446,11 +464,12 @@
 }
 
 .data-footer {
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   border-top: 1px solid var(--dt-line);
-  color: var(--dt-muted);
-  font-family: var(--dt-font-sans);
-  font-size: 0.85rem;
+  color: var(--dt-dim);
+  font-family: var(--dt-font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
   text-align: center;
 }
 
@@ -475,14 +494,14 @@
 
   .directory-item {
     grid-template-columns: 1fr;
-    gap: 0.2rem;
-    padding: 0 0.9rem 0.9rem;
+    gap: 0.15rem;
+    padding: 0 0.7rem 0.7rem;
   }
 
   .directory-main {
     grid-template-columns: 1fr;
-    gap: 0.35rem;
-    padding-bottom: 0.35rem;
+    gap: 0.25rem;
+    padding-bottom: 0.25rem;
   }
 
   .directory-meta {
@@ -492,15 +511,15 @@
 
 @media (max-width: 560px) {
   .projects {
-    padding-top: 5rem;
+    padding-top: 4rem;
   }
 
   .projects-shell {
-    width: min(100% - 1.25rem, 1180px);
+    width: min(100% - 1.25rem, 1120px);
   }
 
   .projects-hero h1 {
-    font-size: clamp(2rem, 8vw, 2.6rem);
+    font-size: clamp(1.6rem, 7vw, 2.4rem);
   }
 
   .featured-grid {
