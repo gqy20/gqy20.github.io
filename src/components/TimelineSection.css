@@ -139,7 +139,7 @@
 /* Column Headers */
 .tl-headers {
   display: grid;
-  grid-template-columns: 1fr 80px 1fr;
+  grid-template-columns: 4fr 80px 6fr;
   align-items: end;
   margin-bottom: 2.5rem;
   padding-bottom: 1rem;
@@ -171,7 +171,7 @@
 /* Central axis spans the entire track */
 .tl-axis {
   position: absolute;
-  left: 50%;
+  left: calc(40% + 8px);
   top: 4.5rem;
   bottom: 0;
   width: 2px;
@@ -189,6 +189,34 @@
     0 0 24px rgba(255, 184, 107, 0.08);
   pointer-events: none;
   z-index: 0;
+}
+
+/* gentle pulse traveling down the axis — archive-room ambience */
+.tl-axis::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -10%;
+  width: 6px;
+  height: 90px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, transparent 0%, var(--dt-accent) 50%, transparent 100%);
+  filter: blur(1px);
+  border-radius: 6px;
+  opacity: 0;
+  animation: tl-axis-flow 9s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes tl-axis-flow {
+  0% { top: -10%; opacity: 0; }
+  8% { opacity: 0.85; }
+  92% { opacity: 0.85; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tl-axis::after { animation: none; opacity: 0; }
 }
 
 /* ══════════════════════════════════════
@@ -213,9 +241,28 @@
   opacity: 0.3;
 }
 
+/* big outlined stage number — bleeds off to the right as a watermark */
+.tl-stage::after {
+  content: attr(data-stagenum);
+  position: absolute;
+  top: 0.8rem;
+  right: -1rem;
+  font-family: var(--dt-font-display);
+  font-size: clamp(6.5rem, 12vw, 13rem);
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -0.06em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 184, 107, 0.075);
+  text-stroke: 1px rgba(255, 184, 107, 0.075);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
 .tl-row {
   display: grid;
-  grid-template-columns: 1fr 80px 1fr;
+  grid-template-columns: 4fr 80px 6fr;
   gap: 0;
   align-items: start;
 }
@@ -295,8 +342,9 @@
 }
 
 .tl-context {
-  margin: 0;
-  padding: 0.85rem 1.25rem;
+  position: relative;
+  margin: 0.55rem 0 0;
+  padding: 0.95rem 1.25rem;
   font-family: 'Noto Serif SC', serif;
   font-size: 0.84rem;
   line-height: 1.7;
@@ -305,6 +353,23 @@
   border-left: 2px solid var(--dt-line-strong);
   border-radius: 0 8px 8px 0;
   text-align: left;
+}
+
+.tl-context::before {
+  content: 'INDEX';
+  position: absolute;
+  top: -0.55rem;
+  left: 1rem;
+  font-family: var(--dt-font-mono);
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--dt-accent);
+  background: var(--dt-bg);
+  padding: 0.1rem 0.45rem;
+  border: 1px solid var(--dt-accent-line);
+  border-radius: 3px;
+  white-space: nowrap;
 }
 
 /* ── Item row: time-merged dual-track ── */
@@ -555,10 +620,10 @@
   .tl-mininav__period { font-size: 0.52rem; }
 
   /* axis offset to leave room for project content */
-  .tl-axis { left: 35%; }
+  .tl-axis { left: calc(40% + 8px); }
 
-  .tl-headers { grid-template-columns: 1fr 80px 1.5fr; }
-  .tl-row { grid-template-columns: 1fr 80px 1.5fr; }
+  .tl-headers { grid-template-columns: 4fr 80px 6fr; }
+  .tl-row { grid-template-columns: 4fr 80px 6fr; }
   .tl-col { padding: 0 0.75rem; }
 }
 

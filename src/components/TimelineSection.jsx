@@ -119,6 +119,7 @@ function TimelineStage({ stage, getProject, index }) {
     <motion.div
       className="tl-stage"
       id={`stage-${stage.id}`}
+      data-stagenum={String(index + 1).padStart(2, '0')}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
