@@ -114,8 +114,8 @@
 }
 
 .blog-item:hover {
-  background: rgba(37, 99, 235, 0.04);
-  border-color: rgba(37, 99, 235, 0.12);
+  background: var(--ai-accent-soft);
+  border-color: var(--ai-accent-line);
 }
 
 .blog-index {

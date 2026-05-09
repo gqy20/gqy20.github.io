@@ -1,20 +1,50 @@
-/* ════════════════════════════════════
-   AI Theme — Shared tokens for `.ai-home`
-   Used by: Hero.jsx (legacy v3 styles), Journey.jsx
-   ════════════════════════════════════ */
+/* ════════════════════════════════════════════════════════════
+   AI Theme — Global dark token system
+   "深夜里的工程笔记" design language
+   Used by: Hero (home), Projects, Blog, BlogPost, Journey, Navbar
+   ════════════════════════════════════════════════════════════ */
+
+:root {
+  /* — Background & surfaces — */
+  --ai-bg            : #0a0e1a;
+  --ai-bg-deeper     : #06090f;
+  --ai-panel         : rgba(15, 20, 36, 0.78);
+  --ai-surface       : #0f1424;
+  --ai-surface-2     : #161d33;
+
+  /* — Text — */
+  --ai-ink           : #e8edf5;
+  --ai-muted         : #8a96ab;
+  --ai-dim           : #5e6a7e;
+
+  /* — Lines — */
+  --ai-line          : rgba(150, 200, 255, 0.08);
+  --ai-line-strong   : rgba(150, 200, 255, 0.18);
+
+  /* — Accent (warm amber) — */
+  --ai-accent        : #ffb86b;
+  --ai-accent-strong : #ff9f3d;
+  --ai-accent-soft   : rgba(255, 184, 107, 0.10);
+  --ai-accent-glow   : rgba(255, 184, 107, 0.10);
+  --ai-accent-line   : rgba(255, 184, 107, 0.35);
+
+  /* — Fonts — */
+  --ai-font-display  : 'Fraunces', 'Noto Serif SC', Georgia, serif;
+  --ai-font-body     : 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ai-font-serif    : 'Noto Serif SC', 'Fraunces', Georgia, serif;
+  --ai-font-sans     : 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ai-font-mono     : 'Geist Mono', 'JetBrains Mono', ui-monospace, SFMono, monospace;
+}
+
+/* — Force dark page background — */
+body {
+  background: var(--ai-bg) !important;
+  color: var(--ai-ink) !important;
+}
+
+/* ── .ai-home wrapper (legacy, used by Journey) ── */
 
 .ai-home {
-  --ai-bg: #f8f9fc;
-  --ai-panel: rgba(255, 255, 255, 0.82);
-  --ai-ink: #0a0e1a;
-  --ai-muted: #5e6a7e;
-  --ai-line: rgba(10, 14, 26, 0.1);
-  --ai-accent: #2563eb;
-  --ai-accent-strong: #1d4ed8;
-  --ai-accent-glow: rgba(37, 99, 235, 0.12);
-  --ai-font-display: 'Inter', 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
-  --ai-font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --ai-font-mono: 'JetBrains Mono', ui-monospace, SFMono, monospace;
   color: var(--ai-ink);
   position: relative;
   overflow-x: hidden;
@@ -26,19 +56,7 @@
   box-sizing: border-box;
 }
 
-.app.dark .ai-home {
-  --ai-bg: #06090f;
-  --ai-panel: rgba(10, 14, 24, 0.82);
-  --ai-ink: #eef4ff;
-  --ai-muted: #8a96ab;
-  --ai-line: rgba(238, 244, 255, 0.1);
-  --ai-accent: #60a5fa;
-  --ai-accent-strong: #93bbfd;
-  --ai-accent-glow: rgba(96, 165, 250, 0.1);
-}
-
-/* ── Background layers ── */
-
+/* — Background grid for .ai-home page — */
 .ai-home::before {
   content: '';
   position: fixed;
@@ -49,32 +67,26 @@
     linear-gradient(90deg, var(--ai-line) 1px, transparent 1px),
     linear-gradient(180deg, var(--ai-line) 1px, transparent 1px),
     var(--ai-bg);
-  background-size: 48px 48px, 48px 48px, auto;
-  animation: ai-grid-drift 20s linear infinite;
+  background-size: 64px 64px, 64px 64px, auto;
+  animation: ai-grid-drift 24s linear infinite;
+  opacity: 0.55;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 100%);
 }
 
 @keyframes ai-grid-drift {
   from { background-position: 0 0, 0 0; }
-  to   { background-position: 48px 48px, 48px 48px; }
+  to   { background-position: 64px 64px, 64px 64px; }
 }
 
-.app.dark .ai-home::before {
-  animation-duration: 28s;
-}
-
-/* Noise texture */
+/* — Noise overlay — */
 .ai-home::after {
   content: '';
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.03;
+  opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
   background-size: 256px 256px;
-}
-
-.app.dark .ai-home::after {
-  opacity: 0.04;
+  mix-blend-mode: overlay;
 }

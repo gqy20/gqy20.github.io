@@ -8,6 +8,7 @@ import BlogPost from './components/BlogPost.jsx'
 import Journey from './components/Journey.jsx'
 import ComponentTest from './components/ComponentTest.jsx'
 import { useDarkMode } from './hooks/useDarkMode.js'
+import './styles/ai-theme.css'
 import './App.css'
 
 function Shell({ isDarkMode, toggleDarkMode }) {
