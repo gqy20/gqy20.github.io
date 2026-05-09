@@ -41,7 +41,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
     <motion.nav
       className={`navbar ${isScrolled ? 'scrolled' : ''}`}
       initial={{ y: -16, opacity: 0 }}
-      animate={{ y: 0 }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.28 }}
     >
       <div className="navbar-container">

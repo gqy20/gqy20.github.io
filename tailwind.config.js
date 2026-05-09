@@ -34,6 +34,12 @@ export default {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      fontFamily: {
+        display: ['Fraunces', 'Georgia', 'serif'],
+        serif: ['"Noto Serif SC"', 'Georgia', 'serif'],
+        sans: ['Geist', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        mono: ['"Geist Mono"', 'JetBrains Mono', 'ui-monospace', 'SFMono', 'monospace'],
+      },
     },
   },
   plugins: [],

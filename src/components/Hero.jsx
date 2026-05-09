@@ -1,104 +1,161 @@
-import { useMemo, useState } from 'react'
-import { useProjectsData } from '../hooks/useProjectsData.js'
-import { motion, AnimatePresence } from 'framer-motion'
-import { FaArrowRight, FaGithub, FaEnvelope, FaGlobe } from 'react-icons/fa'
+import { useEffect, useMemo, useState } from 'react'
+import { motion } from 'framer-motion'
+import { FaGithub, FaEnvelope, FaGlobe } from 'react-icons/fa'
 import { SiGitee, SiBilibili } from 'react-icons/si'
+import { useProjectsData } from '../hooks/useProjectsData.js'
+import blogIndex from '../data/blog/index.json'
 import './Hero.css'
 
-const STAGES = [
-  { id: 'consumer', label: 'AI 消费者', short: '消费者' },
-  { id: 'mcp-builder', label: 'MCP 采用者', short: 'MCP' },
-  { id: 'agent-builder', label: 'Agent 构建者', short: 'Agent' },
-  { id: 'agent-society', label: '社会构建者', short: '社会' },
+const SECTIONS = [
+  { id: 'about',     num: '01', label: 'ABOUT' },
+  { id: 'now',       num: '02', label: 'NOW' },
+  { id: 'stages',    num: '03', label: 'STAGES' },
+  { id: 'work',      num: '04', label: 'WORK' },
+  { id: 'writing',   num: '05', label: 'WRITING' },
+  { id: 'elsewhere', num: '06', label: 'ELSEWHERE' },
 ]
 
-const HERO_PROJECTS = ['TrumanWorld', 'zotero_cli', 'article-mcp', 'IssueLab', 'mind']
+const NOW_PROJECTS = ['TrumanWorld', 'article-mcp', 'IssueLab']
+
+const SELECTED_WORK = [
+  'TrumanWorld', 'article-mcp', 'IssueLab',
+  'SLAIS', 'zotero_cli', 'TrendPluse',
+]
+
+const NOW_DESC = {
+  'TrumanWorld': '一个 AI 不知道自己是 AI 的小镇，居民拥有自由意志',
+  'article-mcp': '一行命令把 PubMed 接进 Claude，文献检索的 MCP',
+  'IssueLab':    '让数字分身在 GitHub Issues 中协作的多智能体网络',
+}
+
+const STAGES_DATA = [
+  {
+    num: '01',
+    name: 'AI 消费者',
+    range: '2025.04 → 2025.06',
+    desc: '调用 API · 写脚本 · 看官方文档',
+    keyOutputs: ['pub2tts', 'ai_coding', 'SLAIS'],
+    learned: '把现成的 LLM 当成万能锤，能解决问题但很快就到天花板。',
+  },
+  {
+    num: '02',
+    name: 'MCP 采用者',
+    range: '2025.07 → 2025.11',
+    desc: '把现有工作包装成 LLM 可调用的工具',
+    keyOutputs: ['article-mcp · 14★', 'genome-mcp', 'protein-mcp'],
+    learned: '工具协议比工具本身更值钱——一个好接口能让别人的 Agent 直接用上你的工作。',
+  },
+  {
+    num: '03',
+    name: 'Agent 构建者',
+    range: '2025.12 → 2026.02',
+    desc: '让 AI 自己写代码、规划、产出',
+    keyOutputs: ['cc-insights', 'gearbox', 'mind', 'justdo'],
+    learned: 'Agent 不是「会用工具的 LLM」，而是「会管理自己上下文的进程」。',
+  },
+  {
+    num: '04',
+    name: 'Agent 社会构建者',
+    range: '2026.03 → 现在',
+    desc: '让多个 Agent 协作、涌现、进化',
+    keyOutputs: ['TrumanWorld', 'IssueLab', 'manim-agent'],
+    learned: '当 Agent 之间能形成稳定的协作结构，新能力就开始涌现——这才是有意思的部分。',
+  },
+]
 
 const SOCIAL_LINKS = [
-  { name: 'GitHub', url: 'https://github.com/gqy20', icon: FaGithub },
-  { name: 'Gitee', url: 'https://gitee.com/gqy20', icon: SiGitee },
-  { name: 'Bilibili', url: 'https://space.bilibili.com/500302320', icon: SiBilibili },
-  { name: 'ModelScope', url: 'https://modelscope.cn/user/gqy20', icon: 'modelscope' },
-  { name: 'Email', url: 'mailto:qingyu_ge@foxmail.com', icon: FaEnvelope },
-  { name: 'Website', url: 'https://home.gqy20.top/', icon: FaGlobe },
+  { name: 'GitHub',     url: 'https://github.com/gqy20',                  icon: FaGithub,      label: 'github.com/gqy20' },
+  { name: 'Gitee',      url: 'https://gitee.com/gqy20',                   icon: SiGitee,       label: 'gitee.com/gqy20' },
+  { name: 'Bilibili',   url: 'https://space.bilibili.com/500302320',      icon: SiBilibili,    label: 'space.bilibili.com/500302320' },
+  { name: 'ModelScope', url: 'https://modelscope.cn/user/gqy20',          icon: 'modelscope',  label: 'modelscope.cn/user/gqy20' },
+  { name: 'Email',      url: 'mailto:qingyu_ge@foxmail.com',              icon: FaEnvelope,    label: 'qingyu_ge@foxmail.com' },
+  { name: 'Site',       url: 'https://home.gqy20.top/',                   icon: FaGlobe,       label: 'home.gqy20.top' },
 ]
 
 function ModelScopeIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: '0.85em', height: '0.85em' }}>
-      <path d="M12 2L3 7.5v9L12 22l9-5.5v-9L12 2zm0 2.5l6 3.5-6 3.5-6-3.5 6-3.5zm-7 5.2l6 3.5v6.6l-6-3.5v-6.6zm8 10.1v-6.6l6-3.5v6.6l-6 3.5z"/>
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2L3 7.5v9L12 22l9-5.5v-9L12 2zm0 2.5l6 3.5-6 3.5-6-3.5 6-3.5zm-7 5.2l6 3.5v6.6l-6-3.5v-6.6zm8 10.1v-6.6l6-3.5v6.6l-6 3.5z" />
     </svg>
   )
 }
 
-function getStageForDate(dateStr) {
-  if (!dateStr) return 0
-  const d = new Date(dateStr)
-  if (d < new Date('2025-07-01')) return 0
-  if (d < new Date('2025-12-01')) return 1
-  if (d < new Date('2026-03-01')) return 2
-  return 3
+function isExternal(url) {
+  return url.startsWith('http') || url.startsWith('mailto:')
 }
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1, y: 0,
-    transition: { duration: 0.5, ease: [0.33, 1, 0.68, 1] }
-  }
-}
-
-
-const Hero = () => {
+export default function Hero() {
   const { data: projectData, loading } = useProjectsData()
-  const [hoveredProject, setHoveredProject] = useState(null)
+  const [activeSection, setActiveSection] = useState('about')
 
-  const timelineProjects = useMemo(() => {
-    if (!projectData?.allProjects) return []
-    return projectData.allProjects
-      .filter(p => p.createdAt && !p.name.startsWith('gqy20'))
-      .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
-      .map(p => ({
-        ...p,
-        stage: getStageForDate(p.createdAt),
-        isHero: HERO_PROJECTS.includes(p.name)
-      }))
+  const projectsByName = useMemo(() => {
+    if (!projectData?.allProjects) return {}
+    return Object.fromEntries(projectData.allProjects.map(p => [p.name, p]))
   }, [projectData])
 
-  const stats = useMemo(() => ({
-    projects: projectData?.totalProjects ?? 0
-  }), [projectData])
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) setActiveSection(e.target.id)
+        })
+      },
+      { rootMargin: '-30% 0px -60% 0px' }
+    )
+    document.querySelectorAll('.home-section').forEach(s => observer.observe(s))
+    return () => observer.disconnect()
+  }, [loading])
 
-  const timeRange = useMemo(() => {
-    if (timelineProjects.length === 0) return { start: '2025.04', end: '现在' }
-    const first = timelineProjects[0].createdAt.slice(0, 7).replace('-', '.')
-    return { start: first, end: '现在' }
-  }, [timelineProjects])
+  const handleNavClick = (e, id) => {
+    e.preventDefault()
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
-    <main className="ai-home">
-      <section className="hero-v2">
-        {/* Ambient glow */}
-        <div className="hero-glow hero-glow--1" />
-        <div className="hero-glow hero-glow--2" />
+    <div className="home">
+      <motion.aside
+        className="home-sidebar"
+        initial={{ x: -16, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
+      >
+        <div className="home-identity">
+          <h1 className="home-name">
+            <span className="home-name__zh">葛庆宇</span>
+            <span className="home-name__en">Qingyu Ge</span>
+          </h1>
+          <p className="home-role">AI Agent 构建者 · MCP 工具作者</p>
+          <p className="home-lede">
+            从调用 API，到让 Agent 自己思考——<br />
+            我用一年走完了 4 个阶段。
+          </p>
+        </div>
 
-        {/* Social links — top right */}
-        <motion.div
-          className="hero-socials"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.5 }}
-        >
-          {SOCIAL_LINKS.filter(s => s.url).map((link) => {
-            const isExternal = link.url.startsWith('http') || link.url.startsWith('mailto:')
+        <nav className="home-nav" aria-label="主要章节">
+          {SECTIONS.map(s => (
+            <a
+              key={s.id}
+              href={`#${s.id}`}
+              className={`home-nav__link ${activeSection === s.id ? 'is-active' : ''}`}
+              onClick={(e) => handleNavClick(e, s.id)}
+            >
+              <span className="home-nav__bar" />
+              <span className="home-nav__num">{s.num}</span>
+              <span className="home-nav__label">{s.label}</span>
+            </a>
+          ))}
+        </nav>
+
+        <div className="home-socials">
+          {SOCIAL_LINKS.map(link => {
             const Icon = link.icon === 'modelscope' ? ModelScopeIcon : link.icon
             return (
               <a
                 key={link.name}
                 href={link.url}
-                className="hero-social"
-                target={isExternal ? '_blank' : undefined}
-                rel={isExternal ? 'noopener noreferrer' : undefined}
+                className="home-social"
+                target={isExternal(link.url) ? '_blank' : undefined}
+                rel={isExternal(link.url) ? 'noopener noreferrer' : undefined}
                 aria-label={link.name}
                 title={link.name}
               >
@@ -106,151 +163,166 @@ const Hero = () => {
               </a>
             )
           })}
-        </motion.div>
-
-        {/* Content column — left-aligned */}
-        <div className="hero-v2__inner">
-          {/* Identity */}
-          <motion.div className="hero-identity" variants={fadeUp}>
-            <span className="hero-avatar">QY</span>
-            <div className="hero-identity__text">
-              <strong>葛庆宇</strong>
-              <span className="hero-identity__sep">/</span>
-              <em>Qingyu Ge</em>
-            </div>
-          </motion.div>
-
-          {/* Role — inline quiet */}
-          <motion.p className="hero-role" variants={fadeUp}>
-            AI Agent 构建者 · MCP 工具作者 · Multi-Agent 系统架构
-          </motion.p>
-
-          {/* Title */}
-          <motion.h1 className="hero-title" variants={fadeUp}>
-            从 AI 消费者，到{' '}
-            <span className="hl-accent">Agent 社会</span>
-            <br />构建者。
-          </motion.h1>
-
-          {/* CTAs */}
-          <motion.div className="hero-actions" variants={fadeUp}>
-            <a href="#/journey" className="ai-button ai-button-primary">
-              查看完整旅程 <FaArrowRight />
-            </a>
-            <a href="#projects" className="ai-link">
-              浏览全部项目 <FaArrowRight />
-            </a>
-          </motion.div>
-
-          {/* Scroll indicator */}
-          <motion.div
-            className="hero-scroll"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1.2 }}
-          >
-            <motion.div
-              className="hero-scroll__icon"
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </motion.div>
-          </motion.div>
-
         </div>
+      </motion.aside>
 
-        {/* Timeline — breaks out, spans full width */}
-        <motion.section
-          className="hero-timeline"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.7 }}
-        >
-          {/* Timeline header */}
-          <div className="timeline-header">
-            <span className="timeline-header__label">
-              一年四个阶段，{loading ? '...' : stats.projects} 个开源项目
-            </span>
-          </div>
+      <main className="home-main">
+        <SectionShell id="about" num="01" label="ABOUT" delay={0.05}>
+          <p>
+            我是 <strong>葛庆宇</strong>，一名从生物信息学背景转向 AI Agent 工程的开发者。
+            过去一年，我做了 <em>{loading ? '38' : projectData?.totalProjects}</em> 个开源项目，
+            收获 <em>{loading ? '72' : projectData?.totalStars}</em> 颗 stars，
+            完成了从「调用 API 的消费者」到「构建 Agent 社会的架构师」的跃迁。
+          </p>
+          <p>
+            我相信工具最终会构建工具，Agent 最终会孕育 Agent。
+            这个主页是我的工程笔记，也是对这一年的复盘。
+          </p>
+        </SectionShell>
 
-          {/* Track background line */}
-          <div className="timeline-track">
-            <div className="timeline-track-fill" />
-          </div>
+        <SectionShell id="now" num="02" label="NOW" delay={0.1}>
+          <p className="home-section__lede">现在我在做的 3 件事——也是接下来几个月的重点。</p>
+          <ul className="home-now-list">
+            {NOW_PROJECTS.map(name => {
+              const p = projectsByName[name]
+              if (!p) return null
+              return (
+                <li key={name}>
+                  <a href={p.url} target="_blank" rel="noopener noreferrer" className="home-now-item">
+                    <span className="home-now-item__name">{p.name}</span>
+                    <span className="home-now-item__meta">
+                      {p.stars > 0 && <span className="home-now-item__stars">{p.stars}★</span>}
+                      <span className="home-now-item__lang">{p.language}</span>
+                    </span>
+                    <span className="home-now-item__desc">{NOW_DESC[name] || p.description}</span>
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
+        </SectionShell>
 
-          {/* Time labels */}
-          <div className="timeline-labels">
-            <span>{timeRange.start}</span>
-            <span>{timeRange.end}</span>
-          </div>
-
-          {/* Dots + projects — positioned by JS via viewport % */}
-          <div className="timeline-dots">
-            {timelineProjects.map((project, i) => (
-              <motion.button
-                key={project.id}
-                className={`timeline-dot ${project.isHero ? 'timeline-dot--hero' : ''}`}
-                style={{
-                  left: `${(i / Math.max(timelineProjects.length - 1, 1)) * 100}%`
-                }}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  duration: 0.3,
-                  delay: 0.9 + i * 0.06,
-                  ease: [0.34, 1.56, 0.64, 1]
-                }}
-                onMouseEnter={() => setHoveredProject(project)}
-                onMouseLeave={() => setHoveredProject(null)}
-                aria-label={`${project.name}: ${project.description?.slice(0, 60)}`}
-              >
-                <span className="dot-core" />
-              </motion.button>
+        <SectionShell id="stages" num="03" label="STAGES" delay={0.15}>
+          <p className="home-section__lede">一年时间，四个阶段。每个阶段都有一次思维方式的更新。</p>
+          <ol className="home-stages">
+            {STAGES_DATA.map(stage => (
+              <li key={stage.num} className="home-stage">
+                <div className="home-stage__head">
+                  <span className="home-stage__num">{stage.num}</span>
+                  <h3 className="home-stage__name">{stage.name}</h3>
+                  <span className="home-stage__range">{stage.range}</span>
+                </div>
+                <p className="home-stage__desc">{stage.desc}</p>
+                <p className="home-stage__outputs">
+                  <span className="home-stage__outputs-label">关键产出</span>
+                  {stage.keyOutputs.map((out, i) => (
+                    <span key={out} className="home-stage__output">
+                      {i > 0 && <span className="home-stage__sep">·</span>}
+                      {out}
+                    </span>
+                  ))}
+                </p>
+                <p className="home-stage__learned">{stage.learned}</p>
+              </li>
             ))}
-          </div>
+          </ol>
+        </SectionShell>
 
-          {/* Stage labels below track */}
-          <div className="timeline-stages">
-            {STAGES.map((stage, i) => (
-              <span
-                key={stage.id}
-                className="timeline-stage"
-                style={{ left: `${(i / (STAGES.length - 1)) * 100}%` }}
-              >
-                {stage.short}
-              </span>
+        <SectionShell id="work" num="04" label="WORK" delay={0.2}>
+          <p className="home-section__lede">从 38 个项目里挑出最能讲清楚我在做什么的 6 个。</p>
+          <div className="home-work-grid">
+            {SELECTED_WORK.map(name => {
+              const p = projectsByName[name]
+              if (!p) return null
+              return <WorkCard key={name} project={p} />
+            })}
+          </div>
+          <p className="home-work-more">
+            <a href="#/projects">查看全部 {projectData?.totalProjects ?? 38} 个项目 →</a>
+          </p>
+        </SectionShell>
+
+        <SectionShell id="writing" num="05" label="WRITING" delay={0.25}>
+          <p className="home-section__lede">用文字回过头来梳理这一年里学到的东西。</p>
+          <ul className="home-writing-list">
+            {blogIndex.posts.map(post => (
+              <li key={post.id}>
+                <a href={`#/blog/${post.slug}`} className="home-writing-item">
+                  <span className="home-writing-item__date">{post.date.replace(/-/g, '.')}</span>
+                  <span className="home-writing-item__title">{post.title}</span>
+                  <span className="home-writing-item__time">{post.readTime}</span>
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
+        </SectionShell>
 
-          {/* Hover tooltip */}
-          <AnimatePresence>
-            {hoveredProject && (
-              <motion.div
-                className="timeline-tooltip"
-                initial={{ opacity: 0, y: 6, scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 6, scale: 0.96 }}
-                transition={{ duration: 0.16 }}
-                style={{
-                  left: `${(timelineProjects.indexOf(hoveredProject) / Math.max(timelineProjects.length - 1, 1)) * 100}%`
-                }}
-              >
-                <strong>{hoveredProject.name}</strong>
-                <p>{hoveredProject.description?.slice(0, 80)}</p>
-                <span className="tooltip-meta">
-                  {new Date(hoveredProject.createdAt).toLocaleDateString('zh-CN', { year: 'numeric', month: 'short' })}
-                  {hoveredProject.language && ` · ${hoveredProject.language}`}
-                </span>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.section>
-      </section>
-    </main>
+        <SectionShell id="elsewhere" num="06" label="ELSEWHERE" delay={0.3}>
+          <p className="home-section__lede">你能在哪里找到我。</p>
+          <ul className="home-elsewhere-list">
+            {SOCIAL_LINKS.map(link => (
+              <li key={link.name}>
+                <a
+                  href={link.url}
+                  target={isExternal(link.url) ? '_blank' : undefined}
+                  rel={isExternal(link.url) ? 'noopener noreferrer' : undefined}
+                  className="home-elsewhere-item"
+                >
+                  <span className="home-elsewhere-item__name">{link.name}</span>
+                  <span className="home-elsewhere-item__url">{link.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <footer className="home-footer">
+            <span>Built with React + Framer Motion</span>
+            <span>·</span>
+            <span>Last updated 2026.05</span>
+          </footer>
+        </SectionShell>
+      </main>
+    </div>
   )
 }
 
-export default Hero
+function SectionShell({ id, num, label, delay, children }) {
+  return (
+    <motion.section
+      id={id}
+      className="home-section"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.5, delay, ease: [0.33, 1, 0.68, 1] }}
+    >
+      <header className="home-section__head">
+        <span className="home-section__num">{num}</span>
+        <span className="home-section__title">{label}</span>
+        <span className="home-section__rule" />
+      </header>
+      <div className="home-section__body">{children}</div>
+    </motion.section>
+  )
+}
+
+function WorkCard({ project }) {
+  return (
+    <a
+      href={project.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="work-card"
+    >
+      <div className="work-card__head">
+        <h3 className="work-card__name">{project.name}</h3>
+        {project.stars > 0 && <span className="work-card__stars">{project.stars}★</span>}
+      </div>
+      <p className="work-card__desc">{project.description}</p>
+      <div className="work-card__meta">
+        <span className="work-card__lang">{project.language}</span>
+        <span className="work-card__category">{project.category}</span>
+      </div>
+    </a>
+  )
+}

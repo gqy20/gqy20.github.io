@@ -1,4 +1,5 @@
 import { FaArrowRight } from 'react-icons/fa'
+import '../styles/ai-theme.css'
 import TimelineSection from './TimelineSection.jsx'
 
 export default function Journey() {
