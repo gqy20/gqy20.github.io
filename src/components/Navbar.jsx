@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa'
+import { FaBars, FaTimes } from 'react-icons/fa'
 import './Navbar.css'
 
-const Navbar = ({ isDarkMode, setIsDarkMode }) => {
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [currentPath, setCurrentPath] = useState('/')
@@ -74,15 +74,6 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
         </div>
 
         <div className="navbar-controls">
-          <motion.button
-            className="theme-toggle"
-            onClick={() => setIsDarkMode(!isDarkMode)}
-            aria-label={isDarkMode ? '切换到亮色模式' : '切换到深色模式'}
-            whileTap={{ scale: 0.94 }}
-          >
-            {isDarkMode ? <FaSun /> : <FaMoon />}
-          </motion.button>
-
           <motion.button
             className="mobile-menu-toggle"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

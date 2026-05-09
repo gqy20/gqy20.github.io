@@ -16,6 +16,12 @@ const SECTIONS = [
   { id: 'elsewhere', num: '06', label: 'ELSEWHERE' },
 ]
 
+const PAGE_LINKS = [
+  { href: '#/projects', label: 'PROJECTS' },
+  { href: '#/blog',    label: 'BLOG' },
+  { href: '#/journey', label: 'JOURNEY' },
+]
+
 const NOW_PROJECTS = ['TrumanWorld', 'article-mcp', 'IssueLab']
 
 const SELECTED_WORK = [
@@ -143,6 +149,18 @@ export default function Hero() {
               <span className="home-nav__bar" />
               <span className="home-nav__num">{s.num}</span>
               <span className="home-nav__label">{s.label}</span>
+            </a>
+          ))}
+        </nav>
+
+        <nav className="home-pages" aria-label="页面导航">
+          {PAGE_LINKS.map(link => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="home-page-link"
+            >
+              {link.label}
             </a>
           ))}
         </nav>

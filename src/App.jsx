@@ -7,19 +7,17 @@ import Blog from './components/Blog'
 import BlogPost from './components/BlogPost.jsx'
 import Journey from './components/Journey.jsx'
 import ComponentTest from './components/ComponentTest.jsx'
-import { useDarkMode } from './hooks/useDarkMode.js'
-import './styles/ai-theme.css'
 import './App.css'
 
-function Shell({ isDarkMode, toggleDarkMode }) {
+function Shell() {
   const location = useLocation()
   const isHome = location.pathname === '/'
 
   return (
-    <div className={`app ${isDarkMode ? 'dark' : ''}`}>
+    <div className="app">
       <div className="app-content">
         <main className="main-content">
-          {!isHome && <Navbar isDarkMode={isDarkMode} setIsDarkMode={toggleDarkMode} />}
+          {!isHome && <Navbar />}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -42,11 +40,9 @@ function Shell({ isDarkMode, toggleDarkMode }) {
 }
 
 function App() {
-  const { isDarkMode, toggle: toggleDarkMode } = useDarkMode()
-
   return (
     <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-      <Shell isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+      <Shell />
     </Router>
   )
 }

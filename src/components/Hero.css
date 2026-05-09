@@ -5,19 +5,19 @@
 
 /* ── Root scope ───────────────────────────────────────────── */
 .home {
-  /* — Color tokens (forced dark, independent of .app.dark) — */
-  --bg          : #0a0e1a;
-  --bg-deeper   : #06090f;
-  --surface     : #0f1424;
-  --surface-2   : #161d33;
-  --line        : rgba(150, 200, 255, 0.08);
-  --line-strong : rgba(150, 200, 255, 0.18);
-  --ink         : #e8edf5;
-  --muted       : #8a96ab;
-  --dim         : #5e6a7e;
-  --accent      : #ffb86b;
-  --accent-soft : rgba(255, 184, 107, 0.10);
-  --accent-line : rgba(255, 184, 107, 0.35);
+  /* — Color tokens (引用全局暗色技术档案馆变量) — */
+  --bg          : var(--dt-bg);
+  --bg-deeper   : var(--dt-bg-deeper);
+  --surface     : var(--dt-surface);
+  --surface-2   : var(--dt-surface-2);
+  --line        : var(--dt-line);
+  --line-strong : var(--dt-line-strong);
+  --ink         : var(--dt-ink);
+  --muted       : var(--dt-muted);
+  --dim         : var(--dt-dim);
+  --accent      : var(--dt-accent);
+  --accent-soft : var(--dt-accent-soft);
+  --accent-line : var(--dt-accent-line);
 
   /* — Fonts — */
   --font-display: 'Fraunces', 'Noto Serif SC', Georgia, serif;
@@ -212,6 +212,32 @@
 
 .home-nav__link.is-active:hover .home-nav__bar {
   width: 32px;
+}
+
+/* — Page Links — */
+.home-pages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.home-page-link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--dim);
+  text-decoration: none;
+  padding: 0.4rem 0;
+  transition: color 0.25s ease, letter-spacing 0.25s ease;
+}
+
+.home-page-link:hover {
+  color: var(--accent);
+  letter-spacing: 0.16em;
 }
 
 /* — Socials — */

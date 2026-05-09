@@ -1,33 +1,12 @@
 /* ══════════════════════════════════════
-   Blog Page — Technical Editorial
+   Blog Page — 暗色技术档案馆
    ══════════════════════════════════════ */
 
 .blog {
-  --blog-bg: var(--ai-bg);
-  --blog-panel: var(--ai-panel);
-  --blog-ink: var(--ai-ink);
-  --blog-muted: var(--ai-muted);
-  --blog-line: var(--ai-line);
-  --blog-accent: var(--ai-accent);
   min-height: 100vh;
   padding: 6rem 0 4rem;
-  color: var(--ai-ink);
-  background:
-    linear-gradient(90deg, var(--ai-line) 1px, transparent 1px),
-    linear-gradient(180deg, var(--ai-line) 1px, transparent 1px),
-    radial-gradient(circle at 75% 5%, var(--ai-accent-glow), transparent 48%),
-    var(--ai-bg);
-  background-size: 56px 56px, 56px 56px, auto, auto;
-}
-
-.app.dark .blog {
-  --blog-bg: var(--ai-bg);
-  background:
-    linear-gradient(90deg, var(--ai-line) 1px, transparent 1px),
-    linear-gradient(180deg, var(--ai-line) 1px, transparent 1px),
-    radial-gradient(circle at 75% 5%, var(--ai-accent-glow), transparent 48%),
-    var(--ai-bg);
-  background-size: 56px 56px, 56px 56px, auto, auto;
+  color: var(--dt-ink);
+  background: transparent;
 }
 
 .blog *,
@@ -49,8 +28,8 @@
 }
 
 .blog-hero p {
-  color: var(--blog-accent);
-  font-family: var(--ai-font-body);
+  color: var(--dt-accent);
+  font-family: var(--dt-font-sans);
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -60,8 +39,8 @@
 
 .blog-hero h1 {
   max-width: 100%;
-  color: var(--blog-ink);
-  font-family: var(--ai-font-display);
+  color: var(--dt-ink);
+  font-family: var(--dt-font-display);
   font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -74,8 +53,8 @@
   flex-wrap: wrap;
   gap: 1rem 1.5rem;
   align-items: center;
-  color: var(--blog-muted);
-  font-family: var(--ai-font-body);
+  color: var(--dt-muted);
+  font-family: var(--dt-font-sans);
   font-size: 1.05rem;
   line-height: 1.78;
 }
@@ -85,8 +64,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  color: var(--blog-accent);
-  font-family: var(--ai-font-body);
+  color: var(--dt-accent);
+  font-family: var(--dt-font-sans);
   font-weight: 700;
   text-decoration: none;
 }
@@ -94,7 +73,7 @@
 /* ── Blog List ── */
 
 .blog-list {
-  border-top: 1px solid var(--blog-line);
+  border-top: 1px solid var(--dt-line);
 }
 
 .blog-item-link {
@@ -109,18 +88,18 @@
   gap: 1.25rem;
   align-items: start;
   padding: 1.35rem 0;
-  border-bottom: 1px solid var(--blog-line);
+  border-bottom: 1px solid var(--dt-line);
   transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .blog-item:hover {
-  background: var(--ai-accent-soft);
-  border-color: var(--ai-accent-line);
+  background: var(--dt-accent-soft);
+  border-color: var(--dt-accent-line);
 }
 
 .blog-index {
   color: var(--site-accent-soft);
-  font-family: var(--ai-font-display);
+  font-family: var(--dt-font-display);
   font-size: 1.6rem;
   font-weight: 800;
   line-height: 1;
@@ -134,8 +113,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.7rem 1rem;
-  color: var(--blog-muted);
-  font-family: var(--ai-font-body);
+  color: var(--dt-muted);
+  font-family: var(--dt-font-sans);
   font-size: 0.8rem;
   font-weight: 600;
   margin-bottom: 0.6rem;
@@ -149,8 +128,8 @@
 }
 
 .blog-title {
-  font-family: var(--ai-font-display);
-  color: var(--blog-ink);
+  font-family: var(--dt-font-display);
+  color: var(--dt-ink);
   font-size: 1.25rem;
   font-weight: 800;
   line-height: 1.28;
@@ -159,8 +138,8 @@
 
 .blog-excerpt {
   max-width: 58ch;
-  color: var(--blog-muted);
-  font-family: var(--ai-font-body);
+  color: var(--dt-muted);
+  font-family: var(--dt-font-sans);
   font-size: 0.92rem;
   line-height: 1.72;
   margin: 0;
@@ -182,14 +161,14 @@
 
 .blog-footer {
   padding-top: 2rem;
-  color: var(--blog-muted);
-  font-family: var(--ai-font-body);
+  color: var(--dt-muted);
+  font-family: var(--dt-font-sans);
   font-size: 0.85rem;
   text-align: center;
 }
 
 .last-updated {
-  color: var(--blog-muted);
+  color: var(--dt-muted);
   margin: 0;
 }
 
@@ -201,16 +180,16 @@
   gap: 0.8rem;
   min-height: 260px;
   padding: 2rem;
-  border: 1px solid var(--blog-line);
+  border: 1px solid var(--dt-line);
   border-radius: 10px;
-  background: var(--blog-panel);
-  color: var(--blog-muted);
+  background: var(--dt-surface);
+  color: var(--dt-muted);
   text-align: center;
-  font-family: var(--ai-font-body);
+  font-family: var(--dt-font-sans);
 }
 
 .blog-state h3 {
-  color: var(--blog-ink);
+  color: var(--dt-ink);
   margin: 0;
 }
 
@@ -221,8 +200,8 @@
 .loading-spinner {
   width: 34px;
   height: 34px;
-  border: 3px solid var(--blog-line);
-  border-top-color: var(--blog-accent);
+  border: 3px solid var(--dt-line);
+  border-top-color: var(--dt-accent);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -230,11 +209,11 @@
 .retry-btn {
   min-height: 40px;
   padding: 0 1rem;
-  border: 1px solid var(--blog-line);
+  border: 1px solid var(--dt-line);
   border-radius: 8px;
-  background: var(--blog-ink);
-  color: var(--blog-bg);
-  font-family: var(--ai-font-body);
+  background: var(--dt-ink);
+  color: var(--dt-bg);
+  font-family: var(--dt-font-sans);
   font-weight: 700;
   cursor: pointer;
 }
