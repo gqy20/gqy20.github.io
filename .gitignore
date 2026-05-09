@@ -50,3 +50,9 @@ lighthouse-*.json
 performance-reports/
 !performance-reports/.gitkeep
 performance-badge.json
+
+# Debug files
+.playwright-mcp/
+*.png
+PROFILE
+pnpm-lock.yaml
