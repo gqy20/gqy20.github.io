@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useProjectsData } from '../hooks/useProjectsData.js'
 import { timelineStages } from '../data/timeline.js'
@@ -6,6 +6,7 @@ import './TimelineSection.css'
 
 export default function TimelineSection() {
   const { data: projectData } = useProjectsData()
+  const [activeStage, setActiveStage] = useState(timelineStages[0]?.id)
 
   const projectsByName = useMemo(() => {
     const projects = projectData?.allProjects || []
@@ -14,13 +15,58 @@ export default function TimelineSection() {
 
   const getProject = (name) => projectsByName.get(name)
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter(e => e.isIntersecting)
+        if (visible.length === 0) return
+        const sorted = visible.sort(
+          (a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top)
+        )
+        const id = sorted[0].target.id.replace('stage-', '')
+        setActiveStage(id)
+      },
+      { rootMargin: '-30% 0px -55% 0px', threshold: 0 }
+    )
+    timelineStages.forEach(stage => {
+      const el = document.getElementById(`stage-${stage.id}`)
+      if (el) observer.observe(el)
+    })
+    return () => observer.disconnect()
+  }, [])
+
+  const handleNavClick = (stageId) => {
+    const el = document.getElementById(`stage-${stageId}`)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
   return (
     <section className="tl-section" id="timeline">
+      {/* Sticky mini stage navigator */}
+      <nav className="tl-mininav" aria-label="时间线阶段导航">
+        <div className="tl-mininav__inner">
+          {timelineStages.map((stage, i) => (
+            <button
+              key={stage.id}
+              type="button"
+              onClick={() => handleNavClick(stage.id)}
+              className={`tl-mininav__item ${activeStage === stage.id ? 'is-active' : ''}`}
+            >
+              <span className="tl-mininav__num">{String(i + 1).padStart(2, '0')}</span>
+              <span className="tl-mininav__dot" />
+              <span className="tl-mininav__label">{stage.label}</span>
+              <span className="tl-mininav__period">{stage.period}</span>
+            </button>
+          ))}
+        </div>
+      </nav>
+
       <div className="tl-shell">
         <div className="tl-track">
           {/* Column headers */}
           <div className="tl-headers">
             <span className="tl-header tl-header--world">AI 世界</span>
+            <span className="tl-headers__spacer" />
             <span className="tl-header tl-header--me">我的开发</span>
           </div>
 
@@ -45,34 +91,35 @@ function TimelineStage({ stage, getProject, index }) {
   return (
     <motion.div
       className="tl-stage"
+      id={`stage-${stage.id}`}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.55, delay: index * 0.08 }}
     >
-      {/* Node on axis */}
-      <div className="tl-node">
-        <span className="tl-node__num">{String(index + 1).padStart(2, '0')}</span>
-        <span className="tl-node__dot" />
+      {/* Head row: node + stage label centered on axis */}
+      <div className="tl-row tl-row--head">
+        <span className="tl-row__cell tl-row__cell--left" />
+        <div className="tl-node-block">
+          <span className="tl-node__num">{String(index + 1).padStart(2, '0')}</span>
+          <span className="tl-node__dot" />
+          <span className="tl-node__name">{stage.label}</span>
+          <span className="tl-node__period">{stage.period}</span>
+        </div>
+        <span className="tl-row__cell tl-row__cell--right" />
       </div>
 
-      {/* Stage label */}
-      <div className="tl-stage-label">
-        <span className="tl-stage-label__name">{stage.label}</span>
-        <span className="tl-stage-label__period">{stage.period}</span>
-      </div>
-
-      {/* Industry context as first left item */}
+      {/* Industry context: full-width on left side */}
       {stage.industryContext && (
-        <div className="tl-context-row">
+        <div className="tl-row tl-row--context">
           <p className="tl-context">{stage.industryContext}</p>
-          <div className="tl-context-spacer" />
+          <span className="tl-row__cell" />
+          <span className="tl-row__cell" />
         </div>
       )}
 
-      {/* Dual-track rows */}
-      <div className="tl-rows">
-        {/* Left: Industry events */}
+      {/* Dual-track items */}
+      <div className="tl-row tl-row--items">
         <div className="tl-col tl-col--world">
           {stage.industryEvents.map((event, i) => (
             <div key={`ind-${i}`} className="tl-item tl-item--industry">
@@ -82,8 +129,7 @@ function TimelineStage({ stage, getProject, index }) {
             </div>
           ))}
         </div>
-
-        {/* Right: Projects */}
+        <span className="tl-row__cell tl-row__cell--gutter" />
         <div className="tl-col tl-col--me">
           {stage.projects.map((proj, i) => {
             const project = getProject(proj.name)
@@ -116,10 +162,11 @@ function TimelineStage({ stage, getProject, index }) {
         </div>
       </div>
 
-      {/* Stage insight */}
+      {/* Insight: right-aligned reflection */}
       {stage.stageInsight && (
-        <div className="tl-insight-row">
-          <div className="tl-insight-spacer" />
+        <div className="tl-row tl-row--insight">
+          <span className="tl-row__cell" />
+          <span className="tl-row__cell" />
           <p className="tl-insight">{stage.stageInsight}</p>
         </div>
       )}
