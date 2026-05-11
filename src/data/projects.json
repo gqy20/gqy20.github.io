@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-11T01:50:40.564Z",
+  "lastUpdated": "2026-05-11T08:52:36.649Z",
   "totalRepositories": 43,
   "totalProjects": 39,
   "totalRepositoryStars": 73,
@@ -16,6 +16,40 @@
   ],
   "projects": {
     "MCP工具": [
+      {
+        "id": 1125737759,
+        "name": "crawl-mcp",
+        "fullName": "gqy20/crawl-mcp",
+        "description": "基于 crawl4ai 和 FastMCP 的 MCP 服务器，提供网页爬取和 AI 分析功能",
+        "url": "https://github.com/gqy20/crawl-mcp",
+        "homepage": "https://pypi.org/project/crawl-mcp/",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-12-31T09:05:15Z",
+        "updatedAt": "2026-05-11T04:02:58Z",
+        "category": "MCP工具",
+        "priority": 1,
+        "tags": [
+          "MCP",
+          "AI工具"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 158,
+        "license": "MIT License",
+        "latestRelease": {
+          "tagName": "v0.1.5",
+          "name": "Release v0.1.5",
+          "publishedAt": "2026-05-11T04:04:20Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 3,
+        "totalTags": 5
+      },
       {
         "id": 1019340765,
         "name": "article-mcp",
@@ -49,40 +83,6 @@
           "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
         },
         "totalReleases": 0,
-        "totalTags": 5
-      },
-      {
-        "id": 1125737759,
-        "name": "crawl-mcp",
-        "fullName": "gqy20/crawl-mcp",
-        "description": "基于 crawl4ai 和 FastMCP 的 MCP 服务器，提供网页爬取和 AI 分析功能",
-        "url": "https://github.com/gqy20/crawl-mcp",
-        "homepage": "https://pypi.org/project/crawl-mcp/",
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2025-12-31T09:05:15Z",
-        "updatedAt": "2026-05-01T08:45:21Z",
-        "category": "MCP工具",
-        "priority": 1,
-        "tags": [
-          "MCP",
-          "AI工具"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 132,
-        "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.1.4",
-          "name": "Release v0.1.4",
-          "publishedAt": "2026-05-01T08:48:32Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 2,
         "totalTags": 5
       },
       {
@@ -193,6 +193,34 @@
     ],
     "AI应用": [
       {
+        "id": 1171674153,
+        "name": "rss2cubox",
+        "fullName": "gqy20/rss2cubox",
+        "description": "将 RSS 订阅同步到 Cubox，支持 RSSHub 路由、并发抓取、AI 过滤、AI Agent 深化分析与全局洞察",
+        "url": "https://github.com/gqy20/rss2cubox",
+        "homepage": "https://info.gqy20.top/",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-03-03T13:41:53Z",
+        "updatedAt": "2026-05-11T08:19:57Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 3571,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
         "id": 1126636339,
         "name": "TrendPluse",
         "fullName": "gqy20/TrendPluse",
@@ -204,7 +232,7 @@
         "forks": 0,
         "issues": 9,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-05-10T22:38:17Z",
+        "updatedAt": "2026-05-11T03:43:28Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -219,7 +247,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 21623,
+        "size": 21637,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -248,34 +276,6 @@
         "topics": [],
         "isArchived": false,
         "size": 486,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
-      },
-      {
-        "id": 1171674153,
-        "name": "rss2cubox",
-        "fullName": "gqy20/rss2cubox",
-        "description": "将 RSS 订阅同步到 Cubox，支持 RSSHub 路由、并发抓取、AI 过滤、AI Agent 深化分析与全局洞察",
-        "url": "https://github.com/gqy20/rss2cubox",
-        "homepage": "https://info.gqy20.top/",
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-03-03T13:41:53Z",
-        "updatedAt": "2026-05-09T14:50:07Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 3571,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -763,7 +763,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-05-02T15:55:50Z",
-        "updatedAt": "2026-05-10T08:33:15Z",
+        "updatedAt": "2026-05-11T03:00:39Z",
         "category": "Web开发",
         "priority": 4,
         "tags": [
@@ -772,7 +772,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 4222,
+        "size": 4401,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1236,6 +1236,40 @@
   },
   "allProjects": [
     {
+      "id": 1125737759,
+      "name": "crawl-mcp",
+      "fullName": "gqy20/crawl-mcp",
+      "description": "基于 crawl4ai 和 FastMCP 的 MCP 服务器，提供网页爬取和 AI 分析功能",
+      "url": "https://github.com/gqy20/crawl-mcp",
+      "homepage": "https://pypi.org/project/crawl-mcp/",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-12-31T09:05:15Z",
+      "updatedAt": "2026-05-11T04:02:58Z",
+      "category": "MCP工具",
+      "priority": 1,
+      "tags": [
+        "MCP",
+        "AI工具"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 158,
+      "license": "MIT License",
+      "latestRelease": {
+        "tagName": "v0.1.5",
+        "name": "Release v0.1.5",
+        "publishedAt": "2026-05-11T04:04:20Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 3,
+      "totalTags": 5
+    },
+    {
       "id": 1019340765,
       "name": "article-mcp",
       "fullName": "gqy20/article-mcp",
@@ -1268,40 +1302,6 @@
         "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
       },
       "totalReleases": 0,
-      "totalTags": 5
-    },
-    {
-      "id": 1125737759,
-      "name": "crawl-mcp",
-      "fullName": "gqy20/crawl-mcp",
-      "description": "基于 crawl4ai 和 FastMCP 的 MCP 服务器，提供网页爬取和 AI 分析功能",
-      "url": "https://github.com/gqy20/crawl-mcp",
-      "homepage": "https://pypi.org/project/crawl-mcp/",
-      "language": "Python",
-      "stars": 0,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2025-12-31T09:05:15Z",
-      "updatedAt": "2026-05-01T08:45:21Z",
-      "category": "MCP工具",
-      "priority": 1,
-      "tags": [
-        "MCP",
-        "AI工具"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 132,
-      "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.1.4",
-        "name": "Release v0.1.4",
-        "publishedAt": "2026-05-01T08:48:32Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 2,
       "totalTags": 5
     },
     {
@@ -1410,6 +1410,34 @@
       "totalTags": 5
     },
     {
+      "id": 1171674153,
+      "name": "rss2cubox",
+      "fullName": "gqy20/rss2cubox",
+      "description": "将 RSS 订阅同步到 Cubox，支持 RSSHub 路由、并发抓取、AI 过滤、AI Agent 深化分析与全局洞察",
+      "url": "https://github.com/gqy20/rss2cubox",
+      "homepage": "https://info.gqy20.top/",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-03-03T13:41:53Z",
+      "updatedAt": "2026-05-11T08:19:57Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 3571,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -1421,7 +1449,7 @@
       "forks": 0,
       "issues": 9,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-05-10T22:38:17Z",
+      "updatedAt": "2026-05-11T03:43:28Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1436,7 +1464,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 21623,
+      "size": 21637,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -1465,34 +1493,6 @@
       "topics": [],
       "isArchived": false,
       "size": 486,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
-    },
-    {
-      "id": 1171674153,
-      "name": "rss2cubox",
-      "fullName": "gqy20/rss2cubox",
-      "description": "将 RSS 订阅同步到 Cubox，支持 RSSHub 路由、并发抓取、AI 过滤、AI Agent 深化分析与全局洞察",
-      "url": "https://github.com/gqy20/rss2cubox",
-      "homepage": "https://info.gqy20.top/",
-      "language": "Python",
-      "stars": 0,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-03-03T13:41:53Z",
-      "updatedAt": "2026-05-09T14:50:07Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 3571,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -1976,7 +1976,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-05-02T15:55:50Z",
-      "updatedAt": "2026-05-10T08:33:15Z",
+      "updatedAt": "2026-05-11T03:00:39Z",
       "category": "Web开发",
       "priority": 4,
       "tags": [
@@ -1985,7 +1985,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 4222,
+      "size": 4401,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
