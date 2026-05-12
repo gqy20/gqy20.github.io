@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-05-12T08:17:51.508Z",
-  "totalRepositories": 43,
-  "totalProjects": 39,
+  "lastUpdated": "2026-05-12T13:30:44.209Z",
+  "totalRepositories": 42,
+  "totalProjects": 38,
   "totalRepositoryStars": 73,
   "totalStars": 72,
   "followers": 15,
@@ -192,34 +192,6 @@
       }
     ],
     "AI应用": [
-      {
-        "id": 1232906183,
-        "name": "ai-pad",
-        "fullName": "gqy20/ai-pad",
-        "description": "暂无描述 - Rust项目",
-        "url": "https://github.com/gqy20/ai-pad",
-        "homepage": null,
-        "language": "Rust",
-        "stars": 0,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-05-08T11:52:27Z",
-        "updatedAt": "2026-05-12T07:17:37Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 699,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
-      },
       {
         "id": 1126636339,
         "name": "TrendPluse",
@@ -663,7 +635,7 @@
         "language": "Python",
         "stars": 11,
         "forks": 3,
-        "issues": 27,
+        "issues": 28,
         "createdAt": "2026-02-02T04:09:50Z",
         "updatedAt": "2026-04-27T07:13:03Z",
         "category": "科研工具",
@@ -1410,34 +1382,6 @@
       "totalTags": 5
     },
     {
-      "id": 1232906183,
-      "name": "ai-pad",
-      "fullName": "gqy20/ai-pad",
-      "description": "暂无描述 - Rust项目",
-      "url": "https://github.com/gqy20/ai-pad",
-      "homepage": null,
-      "language": "Rust",
-      "stars": 0,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-05-08T11:52:27Z",
-      "updatedAt": "2026-05-12T07:17:37Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 699,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
-    },
-    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -1878,7 +1822,7 @@
       "language": "Python",
       "stars": 11,
       "forks": 3,
-      "issues": 27,
+      "issues": 28,
       "createdAt": "2026-02-02T04:09:50Z",
       "updatedAt": "2026-04-27T07:13:03Z",
       "category": "科研工具",
