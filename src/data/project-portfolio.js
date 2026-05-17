@@ -9,7 +9,7 @@ const portfolioConfig = {
     { id: 'ai-devtools', label: 'AI 开发工具', shortLabel: '开发工具' },
     { id: 'domain-tools', label: '领域应用', shortLabel: '领域' }
   ],
-  featured: ['TrumanWorld', 'zotero_cli', 'TrendPluse', 'IssueLab'],
+  featured: ['TrumanWorld', 'IssueLab', 'biotools_agent', 'zotero_cli'],
   fallbackTrackByCategory: {
     MCP工具: 'tool-interfaces',
     AI应用: 'agent-systems',
@@ -57,6 +57,16 @@ const portfolioConfig = {
         problem: '多智能体协作需要留下过程，而不是只输出最终结论。',
         built: ['讨论流程', '角色设定', '协作记录', 'GitHub Issues 接口'],
         aiRole: 'AI 以不同角色参与讨论，并把观点演化保留下来。'
+      }
+    },
+    biotools_agent: {
+      track: 'ai-devtools',
+      narrative: {
+        title: '用 Claude Agent SDK 分析生物工具仓库',
+        summary: '面向生物信息学工具的 GitHub 仓库分析 Agent，支持安全扫描、架构分析和多格式报告生成。',
+        problem: '领域工具仓库数量多、质量差异大，人工评估安全性、结构和可复用性成本很高。',
+        built: ['Claude Agent SDK', '仓库分析流程', '安全扫描', '结构化报告'],
+        aiRole: 'AI 通过 Agent SDK 组织分析步骤、调用工具并生成可追踪的评估结果。'
       }
     },
     'article-mcp': {

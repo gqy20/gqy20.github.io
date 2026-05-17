@@ -9,11 +9,12 @@ import './Hero.css'
 
 const SECTIONS = [
   { id: 'about',     num: '01', label: 'ABOUT' },
-  { id: 'now',       num: '02', label: 'NOW' },
-  { id: 'stages',    num: '03', label: 'STAGES' },
+  { id: 'stack',     num: '02', label: 'STACK' },
+  { id: 'now',       num: '03', label: 'NOW' },
   { id: 'work',      num: '04', label: 'WORK' },
-  { id: 'writing',   num: '05', label: 'WRITING' },
-  { id: 'elsewhere', num: '06', label: 'ELSEWHERE' },
+  { id: 'stages',    num: '05', label: 'STAGES' },
+  { id: 'writing',   num: '06', label: 'WRITING' },
+  { id: 'elsewhere', num: '07', label: 'ELSEWHERE' },
 ]
 
 const PAGE_LINKS = [
@@ -22,17 +23,68 @@ const PAGE_LINKS = [
   { href: '#/journey', label: 'JOURNEY' },
 ]
 
-const NOW_PROJECTS = ['TrumanWorld', 'article-mcp', 'IssueLab']
+const NOW_PROJECTS = ['TrumanWorld', 'biotools_agent', 'IssueLab']
 
 const SELECTED_WORK = [
   'TrumanWorld', 'article-mcp', 'IssueLab',
-  'SLAIS', 'zotero_cli', 'TrendPluse',
+  'biotools_agent', 'zotero_cli', 'TrendPluse',
 ]
 
 const NOW_DESC = {
-  'TrumanWorld': '一个 AI 不知道自己是 AI 的小镇，居民拥有自由意志',
+  'TrumanWorld': 'AI 居民拥有记忆、关系和自由意志的社会模拟',
   'article-mcp': '一行命令把 PubMed 接进 Claude，文献检索的 MCP',
+  'biotools_agent': '基于 Claude Agent SDK 的生物信息学仓库分析 Agent',
   'IssueLab':    '让数字分身在 GitHub Issues 中协作的多智能体网络',
+}
+
+const AGENT_STACK = [
+  {
+    name: 'Claude Agent SDK',
+    role: '可执行的 Python Agent 工作流',
+    detail: '5 个项目覆盖 0.1.18 到 0.1.69，并在 TrendPluse 中形成生产级重试、超时、指标和结构化输出模式。',
+    projects: ['IssueLab', 'rss2cubox', 'manim-agent', 'mind', 'biotools_agent'],
+  },
+  {
+    name: 'Koog',
+    role: 'Android 端 Agent 运行时',
+    detail: '在 Aura 中接入 Koog 0.8.0，构建可流式对话、可调用本地工具、带记忆和关系状态的 Android AI 陪伴应用。',
+    projects: ['Aura'],
+  },
+  {
+    name: 'LangGraph',
+    role: '多主体状态编排与世界演化',
+    detail: '支撑 TrumanWorld 的记忆、关系、规则治理、事件时间线和多 Agent 协同。',
+    projects: ['TrumanWorld'],
+  },
+  {
+    name: 'MCP / FastMCP',
+    role: '把外部能力包装成 Agent 工具',
+    detail: '把文献、网页、生物数据和领域分析能力接入 Agent 的上下文与行动链路。',
+    projects: ['article-mcp', 'crawl-mcp', 'genome-mcp', 'protein-mcp'],
+  },
+  {
+    name: 'Agno',
+    role: '领域多 Agent 流水线原型',
+    detail: '在 gene-family-agent 中用于农学基因家族分析多智能体原型，随后完整迁移到 Claude Agent SDK。',
+    projects: ['gene-family-agent'],
+  },
+  {
+    name: 'Claude Code Skills / Plugins',
+    role: '扩展 AI 编程工作台',
+    detail: '围绕 Claude Code 做技能、插件和使用数据分析，让开发流程本身变成可增强对象。',
+    projects: ['Skills_demo', 'cc_plugins', 'cc-insights'],
+  },
+  {
+    name: 'GitHub Issues',
+    role: '可追踪的多 Agent 协作空间',
+    detail: '把讨论、分歧、观点演化和最终结论沉淀在 Issues 中，而不是只保留一次性答案。',
+    projects: ['IssueLab'],
+  },
+]
+
+const STACK_PROJECT_LINKS = {
+  Aura: 'https://github.com/gqy20/Aura',
+  'gene-family-agent': 'https://github.com/gqy20/gene-family-agent',
 }
 
 const STAGES_DATA = [
@@ -54,11 +106,11 @@ const STAGES_DATA = [
   },
   {
     num: '03',
-    name: 'Agent 构建者',
+    name: 'Agent 工程实践者',
     range: '2025.12 → 2026.02',
-    desc: '让 AI 自己写代码、规划、产出',
-    keyOutputs: ['cc-insights', 'gearbox', 'mind', 'justdo'],
-    learned: 'Agent 不是「会用工具的 LLM」，而是「会管理自己上下文的进程」。',
+    desc: '用 Claude Agent SDK、Skills 和自动化流程构建可运行的 Agent',
+    keyOutputs: ['mind', 'biotools_agent', 'manim-agent', 'rss2cubox'],
+    learned: 'Agent 不是「会用工具的 LLM」，而是「会管理上下文、调用工具并留下过程的进程」。',
   },
   {
     num: '04',
@@ -118,6 +170,10 @@ export default function Hero() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
+  const getStackProjectUrl = (project) => {
+    return projectsByName[project]?.url || STACK_PROJECT_LINKS[project] || null
+  }
+
   return (
     <div className="home">
       <motion.aside
@@ -131,10 +187,10 @@ export default function Hero() {
             <span className="home-name__zh">葛庆宇</span>
             <span className="home-name__en">Qingyu Ge</span>
           </h1>
-          <p className="home-role">AI Agent 构建者 · MCP 工具作者</p>
+          <p className="home-role">AI Agent 工程实践者 · MCP / Claude Agent SDK 工具作者</p>
           <p className="home-lede">
-            从调用 API，到让 Agent 自己思考——<br />
-            我用一年走完了 4 个阶段。
+            构建能检索资料、调用工具、管理上下文，<br />
+            并进入真实工作流的 Agent 系统。
           </p>
         </div>
 
@@ -188,19 +244,57 @@ export default function Hero() {
       <main className="home-main">
         <SectionShell id="about" num="01" label="ABOUT" delay={0.05}>
           <p>
-            我是 <strong>葛庆宇</strong>，一名从生物信息学背景转向 AI Agent 工程的开发者。
-            过去一年，我做了 <em>{loading ? '38' : projectData?.totalProjects}</em> 个开源项目，
-            收获 <em>{loading ? '72' : projectData?.totalStars}</em> 颗 stars，
-            完成了从「调用 API 的消费者」到「构建 Agent 社会的架构师」的跃迁。
+            我是 <strong>葛庆宇</strong>，从生物信息学背景转向 AI Agent 工程。
+            过去一年，我围绕文献检索、MCP 工具、Claude Agent SDK、多智能体协作和自动化工作流做了
+            <em>{loading ? '38' : projectData?.totalProjects}</em> 个开源项目，
+            收获 <em>{loading ? '72' : projectData?.totalStars}</em> 颗 stars。
           </p>
           <p>
-            我相信工具最终会构建工具，Agent 最终会孕育 Agent。
-            这个主页是我的工程笔记，也是对这一年的复盘。
+            我关心的不是一次性的 AI 回答，而是 Agent 如何稳定地使用工具、处理上下文，
+            并在真实任务中留下可验证的过程。这个主页记录这些项目、实验和阶段性判断。
+          </p>
+          <p>
+            其中 <em>5</em> 个 Python 项目基于 Claude Agent SDK 构建：
+            IssueLab、rss2cubox、manim-agent、mind 和 biotools_agent，
+            覆盖了 SDK 从 0.1.18 到 0.1.69 的迭代周期。
           </p>
         </SectionShell>
 
-        <SectionShell id="now" num="02" label="NOW" delay={0.1}>
-          <p className="home-section__lede">现在我在做的 3 件事——也是接下来几个月的重点。</p>
+        <SectionShell id="stack" num="02" label="STACK" delay={0.1}>
+          <p className="home-section__lede">
+            我不是只使用单一 Agent 框架，而是按系统层次组合运行时、状态编排、工具接口、开发环境和协作空间。
+          </p>
+          <div className="home-stack-grid">
+            {AGENT_STACK.map(item => (
+              <article key={item.name} className="stack-card">
+                <div className="stack-card__head">
+                  <h3 className="stack-card__name">{item.name}</h3>
+                  <span className="stack-card__role">{item.role}</span>
+                </div>
+                <p className="stack-card__detail">{item.detail}</p>
+                <p className="stack-card__projects">
+                  {item.projects.map(project => {
+                    const url = getStackProjectUrl(project)
+                    if (!url) return <span key={project}>{project}</span>
+                    return (
+                      <a
+                        key={project}
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {project}
+                      </a>
+                    )
+                  })}
+                </p>
+              </article>
+            ))}
+          </div>
+        </SectionShell>
+
+        <SectionShell id="now" num="03" label="NOW" delay={0.15}>
+          <p className="home-section__lede">当前重点：长期记忆、多智能体协作、科研工具接口，以及 Claude Agent SDK 的工程化应用。</p>
           <ul className="home-now-list">
             {NOW_PROJECTS.map(name => {
               const p = projectsByName[name]
@@ -221,7 +315,21 @@ export default function Hero() {
           </ul>
         </SectionShell>
 
-        <SectionShell id="stages" num="03" label="STAGES" delay={0.15}>
+        <SectionShell id="work" num="04" label="WORK" delay={0.2}>
+          <p className="home-section__lede">这些项目对应我对 Agent 系统的几个判断：工具接口、知识工作、Claude Agent SDK、自动化流程和多智能体协作。</p>
+          <div className="home-work-grid">
+            {SELECTED_WORK.map(name => {
+              const p = projectsByName[name]
+              if (!p) return null
+              return <WorkCard key={name} project={p} />
+            })}
+          </div>
+          <p className="home-work-more">
+            <a href="#/projects">查看全部 {projectData?.totalProjects ?? 38} 个项目 →</a>
+          </p>
+        </SectionShell>
+
+        <SectionShell id="stages" num="05" label="STAGES" delay={0.25}>
           <p className="home-section__lede">一年时间，四个阶段。每个阶段都有一次思维方式的更新。</p>
           <ol className="home-stages">
             {STAGES_DATA.map(stage => (
@@ -247,22 +355,8 @@ export default function Hero() {
           </ol>
         </SectionShell>
 
-        <SectionShell id="work" num="04" label="WORK" delay={0.2}>
-          <p className="home-section__lede">从 38 个项目里挑出最能讲清楚我在做什么的 6 个。</p>
-          <div className="home-work-grid">
-            {SELECTED_WORK.map(name => {
-              const p = projectsByName[name]
-              if (!p) return null
-              return <WorkCard key={name} project={p} />
-            })}
-          </div>
-          <p className="home-work-more">
-            <a href="#/projects">查看全部 {projectData?.totalProjects ?? 38} 个项目 →</a>
-          </p>
-        </SectionShell>
-
-        <SectionShell id="writing" num="05" label="WRITING" delay={0.25}>
-          <p className="home-section__lede">用文字回过头来梳理这一年里学到的东西。</p>
+        <SectionShell id="writing" num="06" label="WRITING" delay={0.3}>
+          <p className="home-section__lede">一些关于 Agent、工具接口和 AI 编程工作流的复盘。</p>
           <ul className="home-writing-list">
             {blogIndex.posts.map(post => (
               <li key={post.id}>
@@ -276,7 +370,7 @@ export default function Hero() {
           </ul>
         </SectionShell>
 
-        <SectionShell id="elsewhere" num="06" label="ELSEWHERE" delay={0.3}>
+        <SectionShell id="elsewhere" num="07" label="ELSEWHERE" delay={0.35}>
           <p className="home-section__lede">你能在哪里找到我。</p>
           <ul className="home-elsewhere-list">
             {SOCIAL_LINKS.map(link => (
