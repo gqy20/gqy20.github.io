@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-18T09:33:28.752Z",
+  "lastUpdated": "2026-05-18T14:48:41.509Z",
   "totalRepositories": 43,
   "totalProjects": 39,
   "totalRepositoryStars": 73,
@@ -250,14 +250,14 @@
         "size": 491,
         "license": null,
         "latestRelease": {
-          "tagName": "v0.1.0",
-          "name": "Aura 0.1.0",
-          "publishedAt": "2026-05-16T15:04:23Z",
+          "tagName": "v0.1.1",
+          "name": "Aura v0.1.1",
+          "publishedAt": "2026-05-18T09:39:31Z",
           "prerelease": false,
           "draft": false
         },
         "latestTag": null,
-        "totalReleases": 1,
+        "totalReleases": 2,
         "totalTags": 2
       },
       {
@@ -669,7 +669,7 @@
         "language": "Python",
         "stars": 11,
         "forks": 3,
-        "issues": 33,
+        "issues": 34,
         "createdAt": "2026-02-02T04:09:50Z",
         "updatedAt": "2026-04-27T07:13:03Z",
         "category": "科研工具",
@@ -1473,14 +1473,14 @@
       "size": 491,
       "license": null,
       "latestRelease": {
-        "tagName": "v0.1.0",
-        "name": "Aura 0.1.0",
-        "publishedAt": "2026-05-16T15:04:23Z",
+        "tagName": "v0.1.1",
+        "name": "Aura v0.1.1",
+        "publishedAt": "2026-05-18T09:39:31Z",
         "prerelease": false,
         "draft": false
       },
       "latestTag": null,
-      "totalReleases": 1,
+      "totalReleases": 2,
       "totalTags": 2
     },
     {
@@ -1890,7 +1890,7 @@
       "language": "Python",
       "stars": 11,
       "forks": 3,
-      "issues": 33,
+      "issues": 34,
       "createdAt": "2026-02-02T04:09:50Z",
       "updatedAt": "2026-04-27T07:13:03Z",
       "category": "科研工具",
