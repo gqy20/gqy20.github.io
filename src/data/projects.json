@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-05-20T14:27:30.404Z",
-  "totalRepositories": 43,
-  "totalProjects": 39,
+  "lastUpdated": "2026-05-20T19:58:44.104Z",
+  "totalRepositories": 44,
+  "totalProjects": 40,
   "totalRepositoryStars": 73,
   "totalStars": 72,
   "followers": 15,
@@ -192,6 +192,34 @@
       }
     ],
     "AI应用": [
+      {
+        "id": 1244811068,
+        "name": "werewolf",
+        "fullName": "gqy20/werewolf",
+        "description": "🐺 Claude Code 狼人杀 Game Master — AI 多实例跨实例编排的狼人杀游戏系统",
+        "url": "https://github.com/gqy20/werewolf",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-05-20T16:09:32Z",
+        "updatedAt": "2026-05-20T16:11:35Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 91,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 1126636339,
         "name": "TrendPluse",
@@ -466,7 +494,7 @@
         "language": "Python",
         "stars": 1,
         "forks": 0,
-        "issues": 1973,
+        "issues": 1975,
         "createdAt": "2025-12-31T10:25:52Z",
         "updatedAt": "2026-03-18T14:23:40Z",
         "category": "AI应用",
@@ -1416,6 +1444,34 @@
       "totalTags": 5
     },
     {
+      "id": 1244811068,
+      "name": "werewolf",
+      "fullName": "gqy20/werewolf",
+      "description": "🐺 Claude Code 狼人杀 Game Master — AI 多实例跨实例编排的狼人杀游戏系统",
+      "url": "https://github.com/gqy20/werewolf",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-05-20T16:09:32Z",
+      "updatedAt": "2026-05-20T16:11:35Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 91,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -1689,7 +1745,7 @@
       "language": "Python",
       "stars": 1,
       "forks": 0,
-      "issues": 1973,
+      "issues": 1975,
       "createdAt": "2025-12-31T10:25:52Z",
       "updatedAt": "2026-03-18T14:23:40Z",
       "category": "AI应用",
