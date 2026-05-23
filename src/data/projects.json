@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-23T08:01:21.693Z",
+  "lastUpdated": "2026-05-23T12:53:27.154Z",
   "totalRepositories": 44,
   "totalProjects": 40,
   "totalRepositoryStars": 73,
@@ -76,14 +76,9 @@
         "size": 1660,
         "license": "MIT License",
         "latestRelease": null,
-        "latestTag": {
-          "name": "v0.2.2",
-          "commit": "fdb02268e53da3cf804c59ec3e8ddde4aa4732f5",
-          "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.2",
-          "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
-        },
+        "latestTag": null,
         "totalReleases": 0,
-        "totalTags": 5
+        "totalTags": 0
       },
       {
         "id": 1038595724,
@@ -697,7 +692,7 @@
         "language": "Python",
         "stars": 11,
         "forks": 3,
-        "issues": 38,
+        "issues": 39,
         "createdAt": "2026-02-02T04:09:50Z",
         "updatedAt": "2026-04-27T07:13:03Z",
         "category": "科研工具",
@@ -1210,7 +1205,7 @@
         },
         "latestTag": null,
         "totalReleases": 4,
-        "totalTags": 4
+        "totalTags": 0
       },
       {
         "id": 1070102277,
@@ -1329,14 +1324,9 @@
       "size": 1660,
       "license": "MIT License",
       "latestRelease": null,
-      "latestTag": {
-        "name": "v0.2.2",
-        "commit": "fdb02268e53da3cf804c59ec3e8ddde4aa4732f5",
-        "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.2",
-        "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
-      },
+      "latestTag": null,
       "totalReleases": 0,
-      "totalTags": 5
+      "totalTags": 0
     },
     {
       "id": 1038595724,
@@ -1946,7 +1936,7 @@
       "language": "Python",
       "stars": 11,
       "forks": 3,
-      "issues": 38,
+      "issues": 39,
       "createdAt": "2026-02-02T04:09:50Z",
       "updatedAt": "2026-04-27T07:13:03Z",
       "category": "科研工具",
@@ -2451,7 +2441,7 @@
       },
       "latestTag": null,
       "totalReleases": 4,
-      "totalTags": 4
+      "totalTags": 0
     },
     {
       "id": 1070102277,
