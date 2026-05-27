@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-26T19:51:02.023Z",
+  "lastUpdated": "2026-05-27T02:01:55.713Z",
   "totalRepositories": 45,
   "totalProjects": 41,
   "totalRepositoryStars": 75,
@@ -193,6 +193,40 @@
     ],
     "AI应用": [
       {
+        "id": 1126636339,
+        "name": "TrendPluse",
+        "fullName": "gqy20/TrendPluse",
+        "description": "GitHub 趋势智能分析工具 - 基于 AI 的开源项目趋势洞察",
+        "url": "https://github.com/gqy20/TrendPluse",
+        "homepage": "https://home.gqy20.top/TrendPluse/",
+        "language": "Python",
+        "stars": 2,
+        "forks": 0,
+        "issues": 9,
+        "createdAt": "2026-01-02T09:55:54Z",
+        "updatedAt": "2026-05-26T20:53:04Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [
+          "ai-analysis",
+          "anthropic-claude",
+          "github-api",
+          "github-trends",
+          "trend-analysis"
+        ],
+        "isArchived": false,
+        "size": 25119,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
         "id": 1196258715,
         "name": "zotero_cli",
         "fullName": "gqy20/zotero_cli",
@@ -225,40 +259,6 @@
         "latestTag": null,
         "totalReleases": 5,
         "totalTags": 5
-      },
-      {
-        "id": 1126636339,
-        "name": "TrendPluse",
-        "fullName": "gqy20/TrendPluse",
-        "description": "GitHub 趋势智能分析工具 - 基于 AI 的开源项目趋势洞察",
-        "url": "https://github.com/gqy20/TrendPluse",
-        "homepage": "https://home.gqy20.top/TrendPluse/",
-        "language": "Python",
-        "stars": 2,
-        "forks": 0,
-        "issues": 9,
-        "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-05-25T20:22:30Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [
-          "ai-analysis",
-          "anthropic-claude",
-          "github-api",
-          "github-trends",
-          "trend-analysis"
-        ],
-        "isArchived": false,
-        "size": 25071,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
       },
       {
         "id": 1235648882,
@@ -528,7 +528,7 @@
         "language": "Python",
         "stars": 1,
         "forks": 0,
-        "issues": 2029,
+        "issues": 2033,
         "createdAt": "2025-12-31T10:25:52Z",
         "updatedAt": "2026-03-18T14:23:40Z",
         "category": "AI应用",
@@ -1045,7 +1045,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2025-06-23T06:53:28Z",
-        "updatedAt": "2026-05-25T20:40:52Z",
+        "updatedAt": "2026-05-26T20:59:09Z",
         "category": "个人项目",
         "priority": 6,
         "tags": [
@@ -1054,7 +1054,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 10589,
+        "size": 10605,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1478,6 +1478,40 @@
       "totalTags": 5
     },
     {
+      "id": 1126636339,
+      "name": "TrendPluse",
+      "fullName": "gqy20/TrendPluse",
+      "description": "GitHub 趋势智能分析工具 - 基于 AI 的开源项目趋势洞察",
+      "url": "https://github.com/gqy20/TrendPluse",
+      "homepage": "https://home.gqy20.top/TrendPluse/",
+      "language": "Python",
+      "stars": 2,
+      "forks": 0,
+      "issues": 9,
+      "createdAt": "2026-01-02T09:55:54Z",
+      "updatedAt": "2026-05-26T20:53:04Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [
+        "ai-analysis",
+        "anthropic-claude",
+        "github-api",
+        "github-trends",
+        "trend-analysis"
+      ],
+      "isArchived": false,
+      "size": 25119,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1196258715,
       "name": "zotero_cli",
       "fullName": "gqy20/zotero_cli",
@@ -1510,40 +1544,6 @@
       "latestTag": null,
       "totalReleases": 5,
       "totalTags": 5
-    },
-    {
-      "id": 1126636339,
-      "name": "TrendPluse",
-      "fullName": "gqy20/TrendPluse",
-      "description": "GitHub 趋势智能分析工具 - 基于 AI 的开源项目趋势洞察",
-      "url": "https://github.com/gqy20/TrendPluse",
-      "homepage": "https://home.gqy20.top/TrendPluse/",
-      "language": "Python",
-      "stars": 2,
-      "forks": 0,
-      "issues": 9,
-      "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-05-25T20:22:30Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [
-        "ai-analysis",
-        "anthropic-claude",
-        "github-api",
-        "github-trends",
-        "trend-analysis"
-      ],
-      "isArchived": false,
-      "size": 25071,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
     },
     {
       "id": 1235648882,
@@ -1813,7 +1813,7 @@
       "language": "Python",
       "stars": 1,
       "forks": 0,
-      "issues": 2029,
+      "issues": 2033,
       "createdAt": "2025-12-31T10:25:52Z",
       "updatedAt": "2026-03-18T14:23:40Z",
       "category": "AI应用",
@@ -2322,7 +2322,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2025-06-23T06:53:28Z",
-      "updatedAt": "2026-05-25T20:40:52Z",
+      "updatedAt": "2026-05-26T20:59:09Z",
       "category": "个人项目",
       "priority": 6,
       "tags": [
@@ -2331,7 +2331,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 10589,
+      "size": 10605,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
