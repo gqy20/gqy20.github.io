@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-05-29T09:00:24.484Z",
-  "totalRepositories": 45,
-  "totalProjects": 41,
+  "lastUpdated": "2026-05-29T14:32:26.044Z",
+  "totalRepositories": 46,
+  "totalProjects": 42,
   "totalRepositoryStars": 75,
   "totalStars": 74,
   "followers": 16,
@@ -192,6 +192,34 @@
       }
     ],
     "AI应用": [
+      {
+        "id": 1253462304,
+        "name": "bx-claim-demo",
+        "fullName": "gqy20/bx-claim-demo",
+        "description": "🚗 车险理赔 AI 初审系统 — LangGraph + FastAPI + Next.js",
+        "url": "https://github.com/gqy20/bx-claim-demo",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-05-29T13:40:48Z",
+        "updatedAt": "2026-05-29T13:40:58Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 0,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 1126636339,
         "name": "TrendPluse",
@@ -731,7 +759,7 @@
         "language": "Python",
         "stars": 11,
         "forks": 3,
-        "issues": 43,
+        "issues": 44,
         "createdAt": "2026-02-02T04:09:50Z",
         "updatedAt": "2026-04-27T07:13:03Z",
         "category": "科研工具",
@@ -831,7 +859,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-05-02T15:55:50Z",
-        "updatedAt": "2026-05-11T03:00:39Z",
+        "updatedAt": "2026-05-29T13:43:41Z",
         "category": "Web开发",
         "priority": 4,
         "tags": [
@@ -1478,6 +1506,34 @@
       "totalTags": 5
     },
     {
+      "id": 1253462304,
+      "name": "bx-claim-demo",
+      "fullName": "gqy20/bx-claim-demo",
+      "description": "🚗 车险理赔 AI 初审系统 — LangGraph + FastAPI + Next.js",
+      "url": "https://github.com/gqy20/bx-claim-demo",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-05-29T13:40:48Z",
+      "updatedAt": "2026-05-29T13:40:58Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 0,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -2014,7 +2070,7 @@
       "language": "Python",
       "stars": 11,
       "forks": 3,
-      "issues": 43,
+      "issues": 44,
       "createdAt": "2026-02-02T04:09:50Z",
       "updatedAt": "2026-04-27T07:13:03Z",
       "category": "科研工具",
@@ -2112,7 +2168,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-05-02T15:55:50Z",
-      "updatedAt": "2026-05-11T03:00:39Z",
+      "updatedAt": "2026-05-29T13:43:41Z",
       "category": "Web开发",
       "priority": 4,
       "tags": [
