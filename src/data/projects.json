@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-02T09:56:46.422Z",
+  "lastUpdated": "2026-06-02T15:51:34.237Z",
   "totalRepositories": 46,
   "totalProjects": 42,
   "totalRepositoryStars": 75,
@@ -761,7 +761,7 @@
         "forks": 1,
         "issues": 1,
         "createdAt": "2025-12-07T14:12:28Z",
-        "updatedAt": "2026-06-01T13:12:15Z",
+        "updatedAt": "2026-06-02T13:07:45Z",
         "category": "科研工具",
         "priority": 3,
         "tags": [
@@ -770,7 +770,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 25755,
+        "size": 25919,
         "license": null,
         "latestRelease": {
           "tagName": "v0.1.5",
@@ -793,7 +793,7 @@
         "language": "Python",
         "stars": 11,
         "forks": 3,
-        "issues": 47,
+        "issues": 48,
         "createdAt": "2026-02-02T04:09:50Z",
         "updatedAt": "2026-04-27T07:13:03Z",
         "category": "科研工具",
@@ -2072,7 +2072,7 @@
       "forks": 1,
       "issues": 1,
       "createdAt": "2025-12-07T14:12:28Z",
-      "updatedAt": "2026-06-01T13:12:15Z",
+      "updatedAt": "2026-06-02T13:07:45Z",
       "category": "科研工具",
       "priority": 3,
       "tags": [
@@ -2081,7 +2081,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 25755,
+      "size": 25919,
       "license": null,
       "latestRelease": {
         "tagName": "v0.1.5",
@@ -2104,7 +2104,7 @@
       "language": "Python",
       "stars": 11,
       "forks": 3,
-      "issues": 47,
+      "issues": 48,
       "createdAt": "2026-02-02T04:09:50Z",
       "updatedAt": "2026-04-27T07:13:03Z",
       "category": "科研工具",
