@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-02T02:12:38.235Z",
+  "lastUpdated": "2026-06-02T09:56:46.422Z",
   "totalRepositories": 46,
   "totalProjects": 42,
   "totalRepositoryStars": 75,
@@ -213,7 +213,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 10881,
+        "size": 24287,
         "license": null,
         "latestRelease": {
           "tagName": "v0.1.6",
@@ -859,7 +859,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-05-02T15:55:50Z",
-        "updatedAt": "2026-06-02T01:40:11Z",
+        "updatedAt": "2026-06-02T06:44:05Z",
         "category": "Web开发",
         "priority": 4,
         "tags": [
@@ -868,7 +868,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 4430,
+        "size": 3573,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1526,7 +1526,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 10881,
+      "size": 24287,
       "license": null,
       "latestRelease": {
         "tagName": "v0.1.6",
@@ -2168,7 +2168,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-05-02T15:55:50Z",
-      "updatedAt": "2026-06-02T01:40:11Z",
+      "updatedAt": "2026-06-02T06:44:05Z",
       "category": "Web开发",
       "priority": 4,
       "tags": [
@@ -2177,7 +2177,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 4430,
+      "size": 3573,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
