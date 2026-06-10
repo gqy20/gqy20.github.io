@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-09T19:52:18.875Z",
+  "lastUpdated": "2026-06-10T02:01:33.165Z",
   "totalRepositories": 45,
   "totalProjects": 41,
   "totalRepositoryStars": 76,
@@ -204,7 +204,7 @@
         "forks": 0,
         "issues": 9,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-06-08T21:11:33Z",
+        "updatedAt": "2026-06-09T20:55:56Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -219,7 +219,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 24386,
+        "size": 24435,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -831,7 +831,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-05-02T15:55:50Z",
-        "updatedAt": "2026-06-09T13:13:51Z",
+        "updatedAt": "2026-06-10T01:24:15Z",
         "category": "Web开发",
         "priority": 4,
         "tags": [
@@ -1045,7 +1045,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2025-06-23T06:53:28Z",
-        "updatedAt": "2026-06-08T21:16:40Z",
+        "updatedAt": "2026-06-09T21:06:06Z",
         "category": "个人项目",
         "priority": 6,
         "tags": [
@@ -1054,7 +1054,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 11488,
+        "size": 11558,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1489,7 +1489,7 @@
       "forks": 0,
       "issues": 9,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-06-08T21:11:33Z",
+      "updatedAt": "2026-06-09T20:55:56Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1504,7 +1504,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 24386,
+      "size": 24435,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -2112,7 +2112,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-05-02T15:55:50Z",
-      "updatedAt": "2026-06-09T13:13:51Z",
+      "updatedAt": "2026-06-10T01:24:15Z",
       "category": "Web开发",
       "priority": 4,
       "tags": [
@@ -2322,7 +2322,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2025-06-23T06:53:28Z",
-      "updatedAt": "2026-06-08T21:16:40Z",
+      "updatedAt": "2026-06-09T21:06:06Z",
       "category": "个人项目",
       "priority": 6,
       "tags": [
@@ -2331,7 +2331,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 11488,
+      "size": 11558,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
