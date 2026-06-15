@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-15T02:15:58.939Z",
+  "lastUpdated": "2026-06-15T11:38:56.700Z",
   "totalRepositories": 46,
   "totalProjects": 42,
   "totalRepositoryStars": 78,
@@ -193,6 +193,40 @@
     ],
     "AI应用": [
       {
+        "id": 1235648882,
+        "name": "Aura",
+        "fullName": "gqy20/Aura",
+        "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
+        "url": "https://github.com/gqy20/Aura",
+        "homepage": "https://aura-sepia-two.vercel.app",
+        "language": "Kotlin",
+        "stars": 0,
+        "forks": 1,
+        "issues": 0,
+        "createdAt": "2026-05-11T14:21:06Z",
+        "updatedAt": "2026-06-15T09:27:01Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 1180,
+        "license": null,
+        "latestRelease": {
+          "tagName": "v0.1.3",
+          "name": "Aura v0.1.3",
+          "publishedAt": "2026-05-25T04:14:05Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 4,
+        "totalTags": 4
+      },
+      {
         "id": 1126636339,
         "name": "TrendPluse",
         "fullName": "gqy20/TrendPluse",
@@ -287,40 +321,6 @@
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
-      },
-      {
-        "id": 1235648882,
-        "name": "Aura",
-        "fullName": "gqy20/Aura",
-        "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
-        "url": "https://github.com/gqy20/Aura",
-        "homepage": null,
-        "language": "Kotlin",
-        "stars": 0,
-        "forks": 1,
-        "issues": 0,
-        "createdAt": "2026-05-11T14:21:06Z",
-        "updatedAt": "2026-06-12T12:55:00Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 825,
-        "license": null,
-        "latestRelease": {
-          "tagName": "v0.1.3",
-          "name": "Aura v0.1.3",
-          "publishedAt": "2026-05-25T04:14:05Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 4,
-        "totalTags": 4
       },
       {
         "id": 1207212892,
@@ -1512,6 +1512,40 @@
       "totalTags": 5
     },
     {
+      "id": 1235648882,
+      "name": "Aura",
+      "fullName": "gqy20/Aura",
+      "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
+      "url": "https://github.com/gqy20/Aura",
+      "homepage": "https://aura-sepia-two.vercel.app",
+      "language": "Kotlin",
+      "stars": 0,
+      "forks": 1,
+      "issues": 0,
+      "createdAt": "2026-05-11T14:21:06Z",
+      "updatedAt": "2026-06-15T09:27:01Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 1180,
+      "license": null,
+      "latestRelease": {
+        "tagName": "v0.1.3",
+        "name": "Aura v0.1.3",
+        "publishedAt": "2026-05-25T04:14:05Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 4,
+      "totalTags": 4
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -1606,40 +1640,6 @@
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
-    },
-    {
-      "id": 1235648882,
-      "name": "Aura",
-      "fullName": "gqy20/Aura",
-      "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
-      "url": "https://github.com/gqy20/Aura",
-      "homepage": null,
-      "language": "Kotlin",
-      "stars": 0,
-      "forks": 1,
-      "issues": 0,
-      "createdAt": "2026-05-11T14:21:06Z",
-      "updatedAt": "2026-06-12T12:55:00Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 825,
-      "license": null,
-      "latestRelease": {
-        "tagName": "v0.1.3",
-        "name": "Aura v0.1.3",
-        "publishedAt": "2026-05-25T04:14:05Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 4,
-      "totalTags": 4
     },
     {
       "id": 1207212892,
