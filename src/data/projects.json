@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-17T14:44:43.353Z",
+  "lastUpdated": "2026-06-17T19:54:22.712Z",
   "totalRepositories": 46,
   "totalProjects": 42,
   "totalRepositoryStars": 80,
@@ -193,6 +193,40 @@
     ],
     "AI应用": [
       {
+        "id": 1196258715,
+        "name": "zotero_cli",
+        "fullName": "gqy20/zotero_cli",
+        "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
+        "url": "https://github.com/gqy20/zotero_cli",
+        "homepage": null,
+        "language": "Go",
+        "stars": 7,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-03-30T14:22:18Z",
+        "updatedAt": "2026-06-17T15:59:25Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 1973,
+        "license": "MIT License",
+        "latestRelease": {
+          "tagName": "v0.0.10",
+          "name": "v0.0.10 · zot",
+          "publishedAt": "2026-05-07T09:40:45Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 5,
+        "totalTags": 5
+      },
+      {
         "id": 1235648882,
         "name": "Aura",
         "fullName": "gqy20/Aura",
@@ -213,7 +247,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 2181,
+        "size": 2183,
         "license": null,
         "latestRelease": {
           "tagName": "v0.1.4",
@@ -349,40 +383,6 @@
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
-      },
-      {
-        "id": 1196258715,
-        "name": "zotero_cli",
-        "fullName": "gqy20/zotero_cli",
-        "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
-        "url": "https://github.com/gqy20/zotero_cli",
-        "homepage": null,
-        "language": "Go",
-        "stars": 7,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-03-30T14:22:18Z",
-        "updatedAt": "2026-06-06T14:56:50Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 1892,
-        "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.0.10",
-          "name": "v0.0.10 · zot",
-          "publishedAt": "2026-05-07T09:40:45Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 5,
-        "totalTags": 5
       },
       {
         "id": 1232906183,
@@ -1512,6 +1512,40 @@
       "totalTags": 5
     },
     {
+      "id": 1196258715,
+      "name": "zotero_cli",
+      "fullName": "gqy20/zotero_cli",
+      "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
+      "url": "https://github.com/gqy20/zotero_cli",
+      "homepage": null,
+      "language": "Go",
+      "stars": 7,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-03-30T14:22:18Z",
+      "updatedAt": "2026-06-17T15:59:25Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 1973,
+      "license": "MIT License",
+      "latestRelease": {
+        "tagName": "v0.0.10",
+        "name": "v0.0.10 · zot",
+        "publishedAt": "2026-05-07T09:40:45Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 5,
+      "totalTags": 5
+    },
+    {
       "id": 1235648882,
       "name": "Aura",
       "fullName": "gqy20/Aura",
@@ -1532,7 +1566,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 2181,
+      "size": 2183,
       "license": null,
       "latestRelease": {
         "tagName": "v0.1.4",
@@ -1668,40 +1702,6 @@
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
-    },
-    {
-      "id": 1196258715,
-      "name": "zotero_cli",
-      "fullName": "gqy20/zotero_cli",
-      "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
-      "url": "https://github.com/gqy20/zotero_cli",
-      "homepage": null,
-      "language": "Go",
-      "stars": 7,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-03-30T14:22:18Z",
-      "updatedAt": "2026-06-06T14:56:50Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 1892,
-      "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.0.10",
-        "name": "v0.0.10 · zot",
-        "publishedAt": "2026-05-07T09:40:45Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 5,
-      "totalTags": 5
     },
     {
       "id": 1232906183,
