@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-19T10:07:23.284Z",
+  "lastUpdated": "2026-06-19T14:35:29.018Z",
   "totalRepositories": 46,
   "totalProjects": 42,
   "totalRepositoryStars": 80,
@@ -193,6 +193,40 @@
     ],
     "AI应用": [
       {
+        "id": 1235648882,
+        "name": "Aura",
+        "fullName": "gqy20/Aura",
+        "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
+        "url": "https://github.com/gqy20/Aura",
+        "homepage": "https://aura.gqy20.top/",
+        "language": "Kotlin",
+        "stars": 2,
+        "forks": 1,
+        "issues": 0,
+        "createdAt": "2026-05-11T14:21:06Z",
+        "updatedAt": "2026-06-19T14:24:21Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 2183,
+        "license": null,
+        "latestRelease": {
+          "tagName": "v0.1.4",
+          "name": "Aura v0.1.4",
+          "publishedAt": "2026-06-16T09:47:29Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 5,
+        "totalTags": 5
+      },
+      {
         "id": 1130347783,
         "name": "cc-insights",
         "fullName": "gqy20/cc-insights",
@@ -287,40 +321,6 @@
           "tagName": "v0.0.10",
           "name": "v0.0.10 · zot",
           "publishedAt": "2026-05-07T09:40:45Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 5,
-        "totalTags": 5
-      },
-      {
-        "id": 1235648882,
-        "name": "Aura",
-        "fullName": "gqy20/Aura",
-        "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
-        "url": "https://github.com/gqy20/Aura",
-        "homepage": "https://aura.gqy20.top/",
-        "language": "Kotlin",
-        "stars": 2,
-        "forks": 1,
-        "issues": 0,
-        "createdAt": "2026-05-11T14:21:06Z",
-        "updatedAt": "2026-06-17T13:53:20Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 2183,
-        "license": null,
-        "latestRelease": {
-          "tagName": "v0.1.4",
-          "name": "Aura v0.1.4",
-          "publishedAt": "2026-06-16T09:47:29Z",
           "prerelease": false,
           "draft": false
         },
@@ -799,7 +799,7 @@
         "language": "Python",
         "stars": 11,
         "forks": 3,
-        "issues": 63,
+        "issues": 64,
         "createdAt": "2026-02-02T04:09:50Z",
         "updatedAt": "2026-04-27T07:13:03Z",
         "category": "科研工具",
@@ -1512,6 +1512,40 @@
       "totalTags": 5
     },
     {
+      "id": 1235648882,
+      "name": "Aura",
+      "fullName": "gqy20/Aura",
+      "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
+      "url": "https://github.com/gqy20/Aura",
+      "homepage": "https://aura.gqy20.top/",
+      "language": "Kotlin",
+      "stars": 2,
+      "forks": 1,
+      "issues": 0,
+      "createdAt": "2026-05-11T14:21:06Z",
+      "updatedAt": "2026-06-19T14:24:21Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 2183,
+      "license": null,
+      "latestRelease": {
+        "tagName": "v0.1.4",
+        "name": "Aura v0.1.4",
+        "publishedAt": "2026-06-16T09:47:29Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 5,
+      "totalTags": 5
+    },
+    {
       "id": 1130347783,
       "name": "cc-insights",
       "fullName": "gqy20/cc-insights",
@@ -1606,40 +1640,6 @@
         "tagName": "v0.0.10",
         "name": "v0.0.10 · zot",
         "publishedAt": "2026-05-07T09:40:45Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 5,
-      "totalTags": 5
-    },
-    {
-      "id": 1235648882,
-      "name": "Aura",
-      "fullName": "gqy20/Aura",
-      "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
-      "url": "https://github.com/gqy20/Aura",
-      "homepage": "https://aura.gqy20.top/",
-      "language": "Kotlin",
-      "stars": 2,
-      "forks": 1,
-      "issues": 0,
-      "createdAt": "2026-05-11T14:21:06Z",
-      "updatedAt": "2026-06-17T13:53:20Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 2183,
-      "license": null,
-      "latestRelease": {
-        "tagName": "v0.1.4",
-        "name": "Aura v0.1.4",
-        "publishedAt": "2026-06-16T09:47:29Z",
         "prerelease": false,
         "draft": false
       },
@@ -2116,7 +2116,7 @@
       "language": "Python",
       "stars": 11,
       "forks": 3,
-      "issues": 63,
+      "issues": 64,
       "createdAt": "2026-02-02T04:09:50Z",
       "updatedAt": "2026-04-27T07:13:03Z",
       "category": "科研工具",
