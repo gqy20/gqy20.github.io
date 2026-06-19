@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-19T02:40:45.929Z",
+  "lastUpdated": "2026-06-19T10:07:23.284Z",
   "totalRepositories": 46,
   "totalProjects": 42,
   "totalRepositoryStars": 80,
@@ -193,6 +193,40 @@
     ],
     "AI应用": [
       {
+        "id": 1130347783,
+        "name": "cc-insights",
+        "fullName": "gqy20/cc-insights",
+        "description": "AI 驱动的 Claude Code 使用数据分析工具 - 可视化数据、发现模式、获取智能推荐",
+        "url": "https://github.com/gqy20/cc-insights",
+        "homepage": null,
+        "language": "Go",
+        "stars": 3,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-01-08T11:28:18Z",
+        "updatedAt": "2026-06-19T06:39:53Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 11314,
+        "license": null,
+        "latestRelease": {
+          "tagName": "v0.1.1",
+          "name": "v0.1.1 · cc-insights",
+          "publishedAt": "2026-06-15T13:29:40Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 2,
+        "totalTags": 2
+      },
+      {
         "id": 1126636339,
         "name": "TrendPluse",
         "fullName": "gqy20/TrendPluse",
@@ -293,40 +327,6 @@
         "latestTag": null,
         "totalReleases": 5,
         "totalTags": 5
-      },
-      {
-        "id": 1130347783,
-        "name": "cc-insights",
-        "fullName": "gqy20/cc-insights",
-        "description": "AI 驱动的 Claude Code 使用数据分析工具 - 可视化数据、发现模式、获取智能推荐",
-        "url": "https://github.com/gqy20/cc-insights",
-        "homepage": null,
-        "language": "Go",
-        "stars": 3,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-01-08T11:28:18Z",
-        "updatedAt": "2026-06-15T13:27:43Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 11201,
-        "license": null,
-        "latestRelease": {
-          "tagName": "v0.1.1",
-          "name": "v0.1.1 · cc-insights",
-          "publishedAt": "2026-06-15T13:29:40Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 2,
-        "totalTags": 2
       },
       {
         "id": 1265662594,
@@ -1512,6 +1512,40 @@
       "totalTags": 5
     },
     {
+      "id": 1130347783,
+      "name": "cc-insights",
+      "fullName": "gqy20/cc-insights",
+      "description": "AI 驱动的 Claude Code 使用数据分析工具 - 可视化数据、发现模式、获取智能推荐",
+      "url": "https://github.com/gqy20/cc-insights",
+      "homepage": null,
+      "language": "Go",
+      "stars": 3,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-01-08T11:28:18Z",
+      "updatedAt": "2026-06-19T06:39:53Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 11314,
+      "license": null,
+      "latestRelease": {
+        "tagName": "v0.1.1",
+        "name": "v0.1.1 · cc-insights",
+        "publishedAt": "2026-06-15T13:29:40Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 2,
+      "totalTags": 2
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -1612,40 +1646,6 @@
       "latestTag": null,
       "totalReleases": 5,
       "totalTags": 5
-    },
-    {
-      "id": 1130347783,
-      "name": "cc-insights",
-      "fullName": "gqy20/cc-insights",
-      "description": "AI 驱动的 Claude Code 使用数据分析工具 - 可视化数据、发现模式、获取智能推荐",
-      "url": "https://github.com/gqy20/cc-insights",
-      "homepage": null,
-      "language": "Go",
-      "stars": 3,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-01-08T11:28:18Z",
-      "updatedAt": "2026-06-15T13:27:43Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 11201,
-      "license": null,
-      "latestRelease": {
-        "tagName": "v0.1.1",
-        "name": "v0.1.1 · cc-insights",
-        "publishedAt": "2026-06-15T13:29:40Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 2,
-      "totalTags": 2
     },
     {
       "id": 1265662594,
