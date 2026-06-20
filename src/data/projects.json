@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-06-19T19:20:59.037Z",
-  "totalRepositories": 46,
-  "totalProjects": 42,
+  "lastUpdated": "2026-06-20T02:02:16.537Z",
+  "totalRepositories": 47,
+  "totalProjects": 43,
   "totalRepositoryStars": 80,
   "totalStars": 79,
   "followers": 16,
@@ -193,6 +193,40 @@
     ],
     "AI应用": [
       {
+        "id": 1126636339,
+        "name": "TrendPluse",
+        "fullName": "gqy20/TrendPluse",
+        "description": "GitHub 趋势智能分析工具 - 基于 AI 的开源项目趋势洞察",
+        "url": "https://github.com/gqy20/TrendPluse",
+        "homepage": "https://home.gqy20.top/TrendPluse/",
+        "language": "Python",
+        "stars": 2,
+        "forks": 0,
+        "issues": 10,
+        "createdAt": "2026-01-02T09:55:54Z",
+        "updatedAt": "2026-06-19T20:25:50Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [
+          "ai-analysis",
+          "anthropic-claude",
+          "github-api",
+          "github-trends",
+          "trend-analysis"
+        ],
+        "isArchived": false,
+        "size": 24957,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
         "id": 1130347783,
         "name": "cc-insights",
         "fullName": "gqy20/cc-insights",
@@ -259,40 +293,6 @@
         "latestTag": null,
         "totalReleases": 5,
         "totalTags": 5
-      },
-      {
-        "id": 1126636339,
-        "name": "TrendPluse",
-        "fullName": "gqy20/TrendPluse",
-        "description": "GitHub 趋势智能分析工具 - 基于 AI 的开源项目趋势洞察",
-        "url": "https://github.com/gqy20/TrendPluse",
-        "homepage": "https://home.gqy20.top/TrendPluse/",
-        "language": "Python",
-        "stars": 2,
-        "forks": 0,
-        "issues": 9,
-        "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-06-18T21:22:08Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [
-          "ai-analysis",
-          "anthropic-claude",
-          "github-api",
-          "github-trends",
-          "trend-analysis"
-        ],
-        "isArchived": false,
-        "size": 24891,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
       },
       {
         "id": 1196258715,
@@ -1079,7 +1079,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2025-06-23T06:53:28Z",
-        "updatedAt": "2026-06-18T21:25:16Z",
+        "updatedAt": "2026-06-19T20:43:58Z",
         "category": "个人项目",
         "priority": 6,
         "tags": [
@@ -1088,7 +1088,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 12210,
+        "size": 12284,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1097,6 +1097,33 @@
       }
     ],
     "其他项目": [
+      {
+        "id": 1273955381,
+        "name": "anna-truman-director",
+        "fullName": "gqy20/anna-truman-director",
+        "description": "暂无描述 - Python项目",
+        "url": "https://github.com/gqy20/anna-truman-director",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-06-19T03:35:17Z",
+        "updatedAt": "2026-06-20T01:37:28Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "python"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 171,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 1125693327,
         "name": "quick-template",
@@ -1512,6 +1539,40 @@
       "totalTags": 5
     },
     {
+      "id": 1126636339,
+      "name": "TrendPluse",
+      "fullName": "gqy20/TrendPluse",
+      "description": "GitHub 趋势智能分析工具 - 基于 AI 的开源项目趋势洞察",
+      "url": "https://github.com/gqy20/TrendPluse",
+      "homepage": "https://home.gqy20.top/TrendPluse/",
+      "language": "Python",
+      "stars": 2,
+      "forks": 0,
+      "issues": 10,
+      "createdAt": "2026-01-02T09:55:54Z",
+      "updatedAt": "2026-06-19T20:25:50Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [
+        "ai-analysis",
+        "anthropic-claude",
+        "github-api",
+        "github-trends",
+        "trend-analysis"
+      ],
+      "isArchived": false,
+      "size": 24957,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1130347783,
       "name": "cc-insights",
       "fullName": "gqy20/cc-insights",
@@ -1578,40 +1639,6 @@
       "latestTag": null,
       "totalReleases": 5,
       "totalTags": 5
-    },
-    {
-      "id": 1126636339,
-      "name": "TrendPluse",
-      "fullName": "gqy20/TrendPluse",
-      "description": "GitHub 趋势智能分析工具 - 基于 AI 的开源项目趋势洞察",
-      "url": "https://github.com/gqy20/TrendPluse",
-      "homepage": "https://home.gqy20.top/TrendPluse/",
-      "language": "Python",
-      "stars": 2,
-      "forks": 0,
-      "issues": 9,
-      "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-06-18T21:22:08Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [
-        "ai-analysis",
-        "anthropic-claude",
-        "github-api",
-        "github-trends",
-        "trend-analysis"
-      ],
-      "isArchived": false,
-      "size": 24891,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
     },
     {
       "id": 1196258715,
@@ -2390,7 +2417,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2025-06-23T06:53:28Z",
-      "updatedAt": "2026-06-18T21:25:16Z",
+      "updatedAt": "2026-06-19T20:43:58Z",
       "category": "个人项目",
       "priority": 6,
       "tags": [
@@ -2399,7 +2426,34 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 12210,
+      "size": 12284,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
+      "id": 1273955381,
+      "name": "anna-truman-director",
+      "fullName": "gqy20/anna-truman-director",
+      "description": "暂无描述 - Python项目",
+      "url": "https://github.com/gqy20/anna-truman-director",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-06-19T03:35:17Z",
+      "updatedAt": "2026-06-20T01:37:28Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "python"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 171,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
