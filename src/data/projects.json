@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-20T13:20:23.781Z",
+  "lastUpdated": "2026-06-20T19:05:01.218Z",
   "totalRepositories": 47,
   "totalProjects": 43,
   "totalRepositoryStars": 80,
@@ -1109,7 +1109,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-06-19T03:35:17Z",
-        "updatedAt": "2026-06-20T04:18:24Z",
+        "updatedAt": "2026-06-20T14:32:46Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -1117,18 +1117,18 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 212,
+        "size": 232,
         "license": null,
         "latestRelease": {
-          "tagName": "truman-director-v0.3.0",
-          "name": "truman-director-v0.3.0",
-          "publishedAt": "2026-06-20T04:19:16Z",
+          "tagName": "truman-director-v0.3.2",
+          "name": "truman-director-v0.3.2",
+          "publishedAt": "2026-06-20T14:12:58Z",
           "prerelease": false,
           "draft": false
         },
         "latestTag": null,
-        "totalReleases": 1,
-        "totalTags": 1
+        "totalReleases": 2,
+        "totalTags": 3
       },
       {
         "id": 1125693327,
@@ -2451,7 +2451,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-06-19T03:35:17Z",
-      "updatedAt": "2026-06-20T04:18:24Z",
+      "updatedAt": "2026-06-20T14:32:46Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -2459,18 +2459,18 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 212,
+      "size": 232,
       "license": null,
       "latestRelease": {
-        "tagName": "truman-director-v0.3.0",
-        "name": "truman-director-v0.3.0",
-        "publishedAt": "2026-06-20T04:19:16Z",
+        "tagName": "truman-director-v0.3.2",
+        "name": "truman-director-v0.3.2",
+        "publishedAt": "2026-06-20T14:12:58Z",
         "prerelease": false,
         "draft": false
       },
       "latestTag": null,
-      "totalReleases": 1,
-      "totalTags": 1
+      "totalReleases": 2,
+      "totalTags": 3
     },
     {
       "id": 1125693327,
