@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-20T02:02:16.537Z",
+  "lastUpdated": "2026-06-20T08:36:50.179Z",
   "totalRepositories": 47,
   "totalProjects": 43,
   "totalRepositoryStars": 80,
@@ -193,6 +193,40 @@
     ],
     "AI应用": [
       {
+        "id": 1130347783,
+        "name": "cc-insights",
+        "fullName": "gqy20/cc-insights",
+        "description": "AI 驱动的 Claude Code 使用数据分析工具 - 可视化数据、发现模式、获取智能推荐",
+        "url": "https://github.com/gqy20/cc-insights",
+        "homepage": null,
+        "language": "Go",
+        "stars": 3,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-01-08T11:28:18Z",
+        "updatedAt": "2026-06-20T07:08:03Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 11776,
+        "license": "MIT License",
+        "latestRelease": {
+          "tagName": "v0.1.2",
+          "name": "v0.1.2 · cc-insights",
+          "publishedAt": "2026-06-19T16:36:47Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 3,
+        "totalTags": 3
+      },
+      {
         "id": 1126636339,
         "name": "TrendPluse",
         "fullName": "gqy20/TrendPluse",
@@ -225,40 +259,6 @@
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
-      },
-      {
-        "id": 1130347783,
-        "name": "cc-insights",
-        "fullName": "gqy20/cc-insights",
-        "description": "AI 驱动的 Claude Code 使用数据分析工具 - 可视化数据、发现模式、获取智能推荐",
-        "url": "https://github.com/gqy20/cc-insights",
-        "homepage": null,
-        "language": "Go",
-        "stars": 3,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-01-08T11:28:18Z",
-        "updatedAt": "2026-06-19T17:01:48Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 11645,
-        "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.1.2",
-          "name": "v0.1.2 · cc-insights",
-          "publishedAt": "2026-06-19T16:36:47Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 3,
-        "totalTags": 3
       },
       {
         "id": 1235648882,
@@ -1109,7 +1109,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-06-19T03:35:17Z",
-        "updatedAt": "2026-06-20T01:37:28Z",
+        "updatedAt": "2026-06-20T04:18:24Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -1117,12 +1117,18 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 171,
+        "size": 212,
         "license": null,
-        "latestRelease": null,
+        "latestRelease": {
+          "tagName": "truman-director-v0.3.0",
+          "name": "truman-director-v0.3.0",
+          "publishedAt": "2026-06-20T04:19:16Z",
+          "prerelease": false,
+          "draft": false
+        },
         "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
+        "totalReleases": 1,
+        "totalTags": 1
       },
       {
         "id": 1125693327,
@@ -1539,6 +1545,40 @@
       "totalTags": 5
     },
     {
+      "id": 1130347783,
+      "name": "cc-insights",
+      "fullName": "gqy20/cc-insights",
+      "description": "AI 驱动的 Claude Code 使用数据分析工具 - 可视化数据、发现模式、获取智能推荐",
+      "url": "https://github.com/gqy20/cc-insights",
+      "homepage": null,
+      "language": "Go",
+      "stars": 3,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-01-08T11:28:18Z",
+      "updatedAt": "2026-06-20T07:08:03Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 11776,
+      "license": "MIT License",
+      "latestRelease": {
+        "tagName": "v0.1.2",
+        "name": "v0.1.2 · cc-insights",
+        "publishedAt": "2026-06-19T16:36:47Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 3,
+      "totalTags": 3
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -1571,40 +1611,6 @@
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
-    },
-    {
-      "id": 1130347783,
-      "name": "cc-insights",
-      "fullName": "gqy20/cc-insights",
-      "description": "AI 驱动的 Claude Code 使用数据分析工具 - 可视化数据、发现模式、获取智能推荐",
-      "url": "https://github.com/gqy20/cc-insights",
-      "homepage": null,
-      "language": "Go",
-      "stars": 3,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-01-08T11:28:18Z",
-      "updatedAt": "2026-06-19T17:01:48Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 11645,
-      "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.1.2",
-        "name": "v0.1.2 · cc-insights",
-        "publishedAt": "2026-06-19T16:36:47Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 3,
-      "totalTags": 3
     },
     {
       "id": 1235648882,
@@ -2445,7 +2451,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-06-19T03:35:17Z",
-      "updatedAt": "2026-06-20T01:37:28Z",
+      "updatedAt": "2026-06-20T04:18:24Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -2453,12 +2459,18 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 171,
+      "size": 212,
       "license": null,
-      "latestRelease": null,
+      "latestRelease": {
+        "tagName": "truman-director-v0.3.0",
+        "name": "truman-director-v0.3.0",
+        "publishedAt": "2026-06-20T04:19:16Z",
+        "prerelease": false,
+        "draft": false
+      },
       "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
+      "totalReleases": 1,
+      "totalTags": 1
     },
     {
       "id": 1125693327,
