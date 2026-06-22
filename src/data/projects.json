@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-06-22T02:28:56.157Z",
+  "lastUpdated": "2026-06-22T11:27:50.794Z",
   "totalRepositories": 47,
   "totalProjects": 43,
-  "totalRepositoryStars": 80,
-  "totalStars": 79,
+  "totalRepositoryStars": 81,
+  "totalStars": 80,
   "followers": 16,
   "categories": [
     "MCP工具",
@@ -193,6 +193,40 @@
     ],
     "AI应用": [
       {
+        "id": 1235648882,
+        "name": "Aura",
+        "fullName": "gqy20/Aura",
+        "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
+        "url": "https://github.com/gqy20/Aura",
+        "homepage": "https://aura.gqy20.top/",
+        "language": "Kotlin",
+        "stars": 3,
+        "forks": 2,
+        "issues": 0,
+        "createdAt": "2026-05-11T14:21:06Z",
+        "updatedAt": "2026-06-22T10:03:00Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 6733,
+        "license": null,
+        "latestRelease": {
+          "tagName": "v0.1.5",
+          "name": "Aura v0.1.5",
+          "publishedAt": "2026-06-22T08:28:28Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 5,
+        "totalTags": 5
+      },
+      {
         "id": 1126636339,
         "name": "TrendPluse",
         "fullName": "gqy20/TrendPluse",
@@ -225,40 +259,6 @@
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
-      },
-      {
-        "id": 1235648882,
-        "name": "Aura",
-        "fullName": "gqy20/Aura",
-        "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
-        "url": "https://github.com/gqy20/Aura",
-        "homepage": "https://aura.gqy20.top/",
-        "language": "Kotlin",
-        "stars": 2,
-        "forks": 2,
-        "issues": 0,
-        "createdAt": "2026-05-11T14:21:06Z",
-        "updatedAt": "2026-06-21T08:36:53Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 2878,
-        "license": null,
-        "latestRelease": {
-          "tagName": "v0.1.4",
-          "name": "Aura v0.1.4",
-          "publishedAt": "2026-06-16T09:47:29Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 5,
-        "totalTags": 5
       },
       {
         "id": 1130347783,
@@ -1109,7 +1109,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-06-19T03:35:17Z",
-        "updatedAt": "2026-06-21T01:53:06Z",
+        "updatedAt": "2026-06-22T02:56:23Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -1117,7 +1117,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 236,
+        "size": 266,
         "license": null,
         "latestRelease": {
           "tagName": "truman-director-v0.3.3",
@@ -1545,6 +1545,40 @@
       "totalTags": 5
     },
     {
+      "id": 1235648882,
+      "name": "Aura",
+      "fullName": "gqy20/Aura",
+      "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
+      "url": "https://github.com/gqy20/Aura",
+      "homepage": "https://aura.gqy20.top/",
+      "language": "Kotlin",
+      "stars": 3,
+      "forks": 2,
+      "issues": 0,
+      "createdAt": "2026-05-11T14:21:06Z",
+      "updatedAt": "2026-06-22T10:03:00Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 6733,
+      "license": null,
+      "latestRelease": {
+        "tagName": "v0.1.5",
+        "name": "Aura v0.1.5",
+        "publishedAt": "2026-06-22T08:28:28Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 5,
+      "totalTags": 5
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -1577,40 +1611,6 @@
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
-    },
-    {
-      "id": 1235648882,
-      "name": "Aura",
-      "fullName": "gqy20/Aura",
-      "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
-      "url": "https://github.com/gqy20/Aura",
-      "homepage": "https://aura.gqy20.top/",
-      "language": "Kotlin",
-      "stars": 2,
-      "forks": 2,
-      "issues": 0,
-      "createdAt": "2026-05-11T14:21:06Z",
-      "updatedAt": "2026-06-21T08:36:53Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 2878,
-      "license": null,
-      "latestRelease": {
-        "tagName": "v0.1.4",
-        "name": "Aura v0.1.4",
-        "publishedAt": "2026-06-16T09:47:29Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 5,
-      "totalTags": 5
     },
     {
       "id": 1130347783,
@@ -2451,7 +2451,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-06-19T03:35:17Z",
-      "updatedAt": "2026-06-21T01:53:06Z",
+      "updatedAt": "2026-06-22T02:56:23Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -2459,7 +2459,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 236,
+      "size": 266,
       "license": null,
       "latestRelease": {
         "tagName": "truman-director-v0.3.3",
