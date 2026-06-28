@@ -1,16 +1,25 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'motion/react'
 import { Link } from 'react-router-dom'
-import { FaArrowRight, FaCalendar, FaClock, FaFolder, FaTag } from 'react-icons/fa'
+import { FaArrowRight, FaCalendar, FaClock, FaCode, FaFileAlt, FaFolder, FaSync, FaTag } from 'react-icons/fa'
 import Badge from './Badge'
 import './Blog.css'
 import PageHeader from './PageHeader'
 import { gsap, ScrollTrigger, useGSAP } from '../lib/gsap.js'
 
+const POST_TYPES = [
+  { key: 'all', label: '全部' },
+  { key: 'survey', label: '调研', icon: FaFileAlt },
+  { key: 'tutorial', label: '实操', icon: FaCode },
+]
+
+const TYPE_LABEL = { survey: '调研', tutorial: '实操' }
+
 const Blog = () => {
   const [blogData, setBlogData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [activeType, setActiveType] = useState('all')
 
   useEffect(() => {
     const loadBlogData = async () => {
@@ -79,6 +88,9 @@ const Blog = () => {
     )
   }
 
+  const posts = blogData?.posts || []
+  const filteredPosts = activeType === 'all' ? posts : posts.filter(p => p.type === activeType)
+
   return (
     <section className="blog" ref={rootRef}>
       <PageHeader num="03" title="BLOG" />
@@ -96,8 +108,22 @@ const Blog = () => {
             <a href="#/projects">查看项目 <FaArrowRight /></a>
           </div>
         </motion.div>
+        <nav className="blog-type-tabs" aria-label="文章类型">
+          {POST_TYPES.map(t => (
+            <button
+              key={t.key}
+              type="button"
+              className={`blog-type-tab ${activeType === t.key ? 'is-active' : ''}`}
+              onClick={() => setActiveType(t.key)}
+            >
+              {t.icon && <t.icon />} {t.label}
+            </button>
+          ))}
+        </nav>
         <div className="blog-list">
-          {blogData?.posts.map((post, index) => (
+          {filteredPosts.length === 0 ? (
+            <div className="blog-empty">{TYPE_LABEL[activeType] || ''}类文章,敬请期待 ✦</div>
+          ) : filteredPosts.map((post, index) => (
             <Link
               key={post.id}
               to={`/blog/${post.slug}`}
@@ -111,6 +137,11 @@ const Blog = () => {
                   <span className="blog-date">
                     <FaCalendar /> {post.date}
                   </span>
+                  {post.updated && post.updated !== post.date && (
+                    <span className="blog-updated" title="最近更新">
+                      <FaSync /> {post.updated}
+                    </span>
+                  )}
                   <span className="blog-read-time">
                     <FaClock /> {post.readTime}
                   </span>
@@ -121,6 +152,9 @@ const Blog = () => {
                   <p className="blog-excerpt">{post.excerpt}</p>
 
                   <div className="blog-tags">
+                    {post.type && (
+                      <span className="blog-type-badge">{TYPE_LABEL[post.type]}</span>
+                    )}
                     <Badge variant="secondary" className="blog-category-badge">
                       <FaFolder /> {post.category}
                     </Badge>

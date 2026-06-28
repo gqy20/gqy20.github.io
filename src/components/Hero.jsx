@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'motion/react'
 import { gsap, SplitText, useGSAP } from '../lib/gsap.js'
-import { FaGithub, FaEnvelope, FaGlobe } from 'react-icons/fa'
-import { SiGitee, SiBilibili } from 'react-icons/si'
 import { useProjectsData } from '../hooks/useProjectsData.js'
 import blogIndex from '../data/blog/index.json'
+import { SOCIAL_LINKS } from '../data/social.js'
+import { timelineStages } from '../data/timeline.js'
 import LanguageIcon from './LanguageIcon.jsx'
 import './Hero.css'
 
@@ -87,50 +87,6 @@ const STACK_PROJECT_LINKS = {
   Aura: 'https://github.com/gqy20/Aura',
   'gene-family-agent': 'https://github.com/gqy20/gene-family-agent',
 }
-
-const STAGES_DATA = [
-  {
-    num: '01',
-    name: 'AI 消费者',
-    range: '2025.04 → 2025.06',
-    desc: '调用 API · 写脚本 · 看官方文档',
-    keyOutputs: ['pub2tts', 'ai_coding', 'SLAIS'],
-    learned: '把现成的 LLM 当成万能锤，能解决问题但很快就到天花板。',
-  },
-  {
-    num: '02',
-    name: 'MCP 采用者',
-    range: '2025.07 → 2025.11',
-    desc: '把现有工作包装成 LLM 可调用的工具',
-    keyOutputs: ['article-mcp · 14★', 'genome-mcp', 'protein-mcp'],
-    learned: '工具协议比工具本身更值钱——一个好接口能让别人的 Agent 直接用上你的工作。',
-  },
-  {
-    num: '03',
-    name: 'Agent 工程实践者',
-    range: '2025.12 → 2026.02',
-    desc: '用 Claude Agent SDK、Skills 和自动化流程构建可运行的 Agent',
-    keyOutputs: ['mind', 'biotools_agent', 'manim-agent', 'rss2cubox'],
-    learned: 'Agent 不是「会用工具的 LLM」，而是「会管理上下文、调用工具并留下过程的进程」。',
-  },
-  {
-    num: '04',
-    name: 'Agent 社会构建者',
-    range: '2026.03 → 现在',
-    desc: '让多个 Agent 协作、涌现、进化',
-    keyOutputs: ['TrumanWorld', 'IssueLab', 'manim-agent'],
-    learned: '当 Agent 之间能形成稳定的协作结构，新能力就开始涌现——这才是有意思的部分。',
-  },
-]
-
-const SOCIAL_LINKS = [
-  { name: 'GitHub',     url: 'https://github.com/gqy20',                  icon: FaGithub,      label: 'github.com/gqy20' },
-  { name: 'Gitee',      url: 'https://gitee.com/gqy20',                   icon: SiGitee,       label: 'gitee.com/gqy20' },
-  { name: 'Bilibili',   url: 'https://space.bilibili.com/500302320',      icon: SiBilibili,    label: 'space.bilibili.com/500302320' },
-  { name: 'ModelScope', url: 'https://modelscope.cn/user/gqy20',          icon: 'modelscope',  label: 'modelscope.cn/user/gqy20' },
-  { name: 'Email',      url: 'mailto:qingyu_ge@foxmail.com',              icon: FaEnvelope,    label: 'qingyu_ge@foxmail.com' },
-  { name: 'Site',       url: 'https://home.gqy20.top/',                   icon: FaGlobe,       label: 'home.gqy20.top' },
-]
 
 function ModelScopeIcon() {
   return (
@@ -395,24 +351,24 @@ export default function Hero() {
         <SectionShell id="stages" num="05" label="STAGES" delay={0.25}>
           <p className="home-section__lede">一年时间，四个阶段。每个阶段都有一次思维方式的更新。</p>
           <ol className="home-stages">
-            {STAGES_DATA.map(stage => (
-              <li key={stage.num} className="home-stage">
+            {timelineStages.map((stage, i) => (
+              <li key={stage.id} className="home-stage">
                 <div className="home-stage__head">
-                  <span className="home-stage__num">{stage.num}</span>
-                  <h3 className="home-stage__name">{stage.name}</h3>
-                  <span className="home-stage__range">{stage.range}</span>
+                  <span className="home-stage__num">{String(i + 1).padStart(2, '0')}</span>
+                  <h3 className="home-stage__name">{stage.label}</h3>
+                  <span className="home-stage__range">{stage.period}</span>
                 </div>
-                <p className="home-stage__desc">{stage.desc}</p>
+                <p className="home-stage__desc">{stage.theme}</p>
                 <p className="home-stage__outputs">
                   <span className="home-stage__outputs-label">关键产出</span>
-                  {stage.keyOutputs.map((out, i) => (
-                    <span key={out} className="home-stage__output">
-                      {i > 0 && <span className="home-stage__sep">·</span>}
-                      {out}
+                  {stage.projects.slice(0, 3).map((p, i2) => (
+                    <span key={p.name} className="home-stage__output">
+                      {i2 > 0 && <span className="home-stage__sep">·</span>}
+                      {p.name}
                     </span>
                   ))}
                 </p>
-                <p className="home-stage__learned">{stage.learned}</p>
+                <p className="home-stage__learned">{stage.stageInsight}</p>
               </li>
             ))}
           </ol>

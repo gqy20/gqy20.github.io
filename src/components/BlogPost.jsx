@@ -10,12 +10,14 @@ import {
   FaArrowRight,
   FaGithub,
   FaShare,
-  FaFileAlt
+  FaFileAlt,
+  FaSync
 } from 'react-icons/fa'
 import Badge from './Badge'
 import Button from './Button'
 import MarkdownRenderer from './MarkdownRenderer'
 import { gsap, ScrollTrigger, SplitText, useGSAP } from '../lib/gsap.js'
+import { GITHUB_URL } from '../data/social.js'
 import './BlogPost.css'
 
 const BlogPost = () => {
@@ -335,6 +337,11 @@ const BlogPost = () => {
                   <span className="meta-item">
                     <FaCalendar /> {formatDate(post.date)}
                   </span>
+                  {post.updated && post.updated !== post.date && (
+                    <span className="meta-item meta-updated">
+                      <FaSync /> 更新于 {formatDate(post.updated)}
+                    </span>
+                  )}
                   <span className="meta-item">
                     <FaClock /> {post.readTime}
                   </span>
@@ -392,7 +399,7 @@ const BlogPost = () => {
                 <div className="author-info__head">
                   <h3>关于作者</h3>
                   <a
-                    href="https://github.com/gqy20"
+                    href={GITHUB_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="author-link"

@@ -140,6 +140,7 @@
   line-height: 1.15;
   color: var(--dt-ink);
   margin: 0 0 0.7rem;
+  text-wrap: balance;
 }
 
 .blog-post-excerpt {
@@ -175,6 +176,8 @@
   font-weight: 600;
   letter-spacing: 0.02em;
 }
+
+.meta-updated { opacity: 0.7; }
 
 .meta-item svg {
   color: var(--dt-accent);

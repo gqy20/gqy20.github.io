@@ -118,11 +118,61 @@
   font-size: 1.4rem;
   font-weight: 900;
   line-height: 1;
+  letter-spacing: 0.1em;
   transition: opacity 0.25s ease;
 }
 
 .blog-item:hover .blog-index-num {
   opacity: 0.7;
+}
+
+/* 类型筛选 tab */
+.blog-type-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1.5rem 0 1rem;
+  flex-wrap: wrap;
+}
+.blog-type-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--dt-line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--dt-dim);
+  font-family: var(--dt-font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.blog-type-tab:hover { color: var(--dt-muted); border-color: var(--dt-line-strong); }
+.blog-type-tab.is-active {
+  color: var(--dt-ink-on-accent);
+  background: var(--dt-accent);
+  border-color: var(--dt-accent);
+}
+.blog-type-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.12rem 0.5rem;
+  border-radius: 3px;
+  background: var(--dt-accent-tint);
+  color: var(--dt-accent);
+  font-family: var(--dt-font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.blog-empty {
+  padding: 3rem 1rem;
+  text-align: center;
+  color: var(--dt-dim);
+  font-family: var(--dt-font-mono);
+  font-size: 0.85rem;
 }
 
 .blog-main {
@@ -151,7 +201,8 @@
 }
 
 .blog-date,
-.blog-read-time {
+.blog-read-time,
+.blog-updated {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
@@ -163,8 +214,11 @@
   white-space: nowrap;
 }
 
+.blog-updated { opacity: 0.7; }
+
 .blog-date svg,
-.blog-read-time svg {
+.blog-read-time svg,
+.blog-updated svg {
   font-size: 0.6rem;
   opacity: 0.6;
 }
@@ -176,6 +230,7 @@
   font-weight: 800;
   line-height: 1.28;
   margin: 0 0 0.4rem;
+  text-wrap: balance;
   transition: color 0.22s ease;
 }
 
