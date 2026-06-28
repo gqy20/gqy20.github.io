@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { useProjectsData } from '../hooks/useProjectsData.js'
 import { timelineStages } from '../data/timeline.js'
 import './TimelineSection.css'

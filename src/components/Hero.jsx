@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { gsap, SplitText, useGSAP } from '../lib/gsap.js'
 import { FaGithub, FaEnvelope, FaGlobe } from 'react-icons/fa'
 import { SiGitee, SiBilibili } from 'react-icons/si'
