@@ -148,7 +148,6 @@
   line-height: 1.62;
   color: var(--dt-muted);
   margin: 0;
-  max-width: 60ch;
 }
 
 .meta-secondary {
@@ -571,6 +570,30 @@
   z-index: 1000;
   transition: width 0.08s linear;
   box-shadow: 0 0 8px rgba(255, 184, 107, 0.35);
+}
+
+/* 分享 toast */
+.blog-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--dt-surface);
+  color: var(--dt-ink);
+  border: 1px solid var(--dt-line-strong);
+  padding: 0.6rem 1.15rem;
+  border-radius: 8px;
+  font-family: var(--dt-font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  z-index: 1100;
+  animation: blog-toast-in 0.25s ease;
+}
+
+@keyframes blog-toast-in {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
 }
 
 /* eyebrow label —— 分类小标签（mono 宽字间距，高品味手法）*/

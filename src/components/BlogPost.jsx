@@ -9,8 +9,7 @@ import {
   FaArrowLeft,
   FaArrowRight,
   FaGithub,
-  FaShare,
-  FaBookmark
+  FaShare
 } from 'react-icons/fa'
 import Badge from './Badge'
 import Button from './Button'
@@ -27,6 +26,7 @@ const BlogPost = () => {
   const [toc, setToc] = useState([])
   const [activeId, setActiveId] = useState('')
   const [progress, setProgress] = useState(0)
+  const [toast, setToast] = useState('')
 
   const articleRef = useRef(null)
 
@@ -58,7 +58,9 @@ const BlogPost = () => {
 
         // 解析 frontmatter 和内容
         const frontmatterEnd = contentText.indexOf('---', 3) + 3
-        const markdownContent = contentText.substring(frontmatterEnd).trim()
+        let markdownContent = contentText.substring(frontmatterEnd).trim()
+        // 剥离开头与页面标题重复的 h1（header 已展示 post.title，正文无需重复）
+        markdownContent = markdownContent.replace(/^#\s+[^\n]*\n+/, '')
 
         setContent(markdownContent)
       } catch (err) {
@@ -146,17 +148,30 @@ const BlogPost = () => {
     })
   }
 
-  const handleShare = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: post?.title,
-        text: post?.excerpt,
-        url: window.location.href
-      })
-    } else {
-      navigator.clipboard.writeText(window.location.href)
-      alert('链接已复制到剪贴板')
+  const handleShare = async () => {
+    const url = window.location.href
+    const shareData = { title: post?.title, text: post?.excerpt, url }
+    // 移动端优先系统分享
+    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)
+    if (isMobile && navigator.share) {
+      try { await navigator.share(shareData) } catch {}
+      return
     }
+    // 桌面/兜底：复制链接 + toast 提示
+    try {
+      await navigator.clipboard.writeText(url)
+    } catch {
+      const ta = document.createElement('textarea')
+      ta.value = url
+      ta.style.position = 'fixed'
+      ta.style.opacity = '0'
+      document.body.appendChild(ta)
+      ta.select()
+      document.execCommand('copy')
+      document.body.removeChild(ta)
+    }
+    setToast('链接已复制到剪贴板')
+    setTimeout(() => setToast(''), 2000)
   }
 
   const scrollToHeading = (id) => {
@@ -245,6 +260,9 @@ const BlogPost = () => {
       {/* 顶部阅读进度线 */}
       <div className="reading-progress" style={{ width: `${progress}%` }} />
 
+      {/* 分享 toast */}
+      {toast && <div className="blog-toast">{toast}</div>}
+
       <div className="blog-post-shell">
         {/* ── 主栏：正文 ── */}
         <div className="blog-post-main">
@@ -319,17 +337,6 @@ const BlogPost = () => {
               <button className="action-button" onClick={handleShare}>
                 <FaShare /> 分享
               </button>
-              <button className="action-button">
-                <FaBookmark /> 收藏
-              </button>
-              <a
-                href="https://github.com/gqy20/gqy20.github.io"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="action-button"
-              >
-                <FaGithub /> 源码
-              </a>
             </div>
           </motion.header>
 
