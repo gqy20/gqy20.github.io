@@ -3,80 +3,167 @@
 
 :root {
   /* ════════════════════════════════════════════════════════════
-     暗色技术档案馆 - 统一全局变量
+     暗色技术档案馆 — 主题无关的语义令牌（默认主题）
+     切换 = 在 [data-theme='light'] 下覆盖这些变量，组件 CSS 无需改
      ════════════════════════════════════════════════════════════ */
+
+  /* — 表面层级 — */
   --dt-bg: #0a0e1a;
   --dt-bg-deeper: #06090f;
   --dt-surface: #0f1424;
   --dt-surface-2: #161d33;
+
+  /* — 线条（4 档：faint / base / strong / grid）— */
+  --dt-line-faint: rgba(150, 200, 255, 0.04);
   --dt-line: rgba(150, 200, 255, 0.08);
   --dt-line-strong: rgba(150, 200, 255, 0.18);
+  --dt-grid-color: rgba(150, 200, 255, 0.08);
+
+  /* — 文字（4 档）— */
   --dt-ink: #e8edf5;
   --dt-muted: #8a96ab;
   --dt-dim: #5e6a7e;
+  --dt-ink-on-accent: #0a0e1a;     /* accent 背景上的文字（亮色对比）*/
+
+  /* — 强调色 — */
   --dt-accent: #ffb86b;
+  --dt-accent-strong: #ff9a3c;
   --dt-accent-soft: rgba(255, 184, 107, 0.10);
   --dt-accent-line: rgba(255, 184, 107, 0.35);
 
-  /* 宽度令牌 — 全站统一尺度系统（正文 / 布局 / 宽视觉 三档）*/
-  --w-content: 880px;   /* 正文/阅读型：文章正文、hero 描述 */
-  --w-layout: 1280px;   /* 标准布局：列表、卡片网格、Timeline */
-  --w-wide: 1440px;     /* 宽布局：Hero、PageHeader 大视觉 */
+  /* — 阴影 / 光晕 — */
+  --dt-shadow-card: 0 8px 24px rgba(0, 0, 0, 0.30);
+  --dt-shadow-navbar: 0 12px 40px rgba(0, 0, 0, 0.32);
+  --dt-shadow-toast: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --dt-shadow-modal: 0 32px 90px rgba(0, 0, 0, 0.28);
+  --dt-glow-accent: 0 0 8px rgba(255, 184, 107, 0.35);
+  --dt-glow-accent-soft: 0 0 0 3px rgba(255, 184, 107, 0.16);
 
-  /* 字体 */
+  /* — 特殊场景 token（替代散落的硬编码）— */
+  --dt-code-inline-bg: rgba(255, 255, 255, 0.05);
+  --dt-quote-bg: rgba(255, 184, 107, 0.03);
+  --dt-cover-fade: rgba(10, 14, 26, 0.9);
+  --dt-event-tint: rgba(150, 200, 255, 0.04);
+  --dt-event-tint-hover: rgba(150, 200, 255, 0.08);
+  --dt-accent-tint: rgba(255, 184, 107, 0.03);
+  --dt-accent-tint-hover: rgba(255, 184, 107, 0.08);
+
+  /* — 滚动条 — */
+  --dt-scroll-track: rgba(248, 250, 252, 0.04);
+  --dt-scroll-thumb: var(--dt-accent-line);
+  --dt-scroll-thumb-hover: var(--dt-accent);
+
+  /* — 噪声 / 网格视觉 — */
+  --dt-noise-opacity: 0.05;
+
+  /* — 宽度令牌（与原版一致）— */
+  --w-content: 880px;
+  --w-layout: 1280px;
+  --w-wide: 1440px;
+
+  /* — 字体（与原版一致）— */
   --dt-font-display: 'Fraunces', 'Noto Serif SC', Georgia, serif;
   --dt-font-serif: 'Noto Serif SC', 'Fraunces', Georgia, serif;
   --dt-font-sans: -apple-system, BlinkMacSystemFont, sans-serif;
   --dt-font-mono: 'Geist Mono', 'JetBrains Mono', ui-monospace, SFMono, monospace;
 
   /* ════════════════════════════════════════════════════════════
-     原有变量（保持兼容）
+     兼容层（其他组件可能引用这些老变量名）
      ════════════════════════════════════════════════════════════ */
-  --site-bg: #f5f7fb;
-  --site-surface: rgba(255, 255, 255, 0.78);
-  --site-surface-solid: #ffffff;
-  --site-ink: #121826;
-  --site-muted: #5d687c;
-  --site-line: rgba(18, 24, 38, 0.12);
-  --site-accent: #2563eb;
-  --site-accent-soft: #60a5fa;
-  --site-shadow: 0 18px 60px rgba(18, 24, 38, 0.08);
+  --site-bg: var(--dt-bg);
+  --site-surface: var(--dt-surface);
+  --site-surface-solid: var(--dt-surface-2);
+  --site-ink: var(--dt-ink);
+  --site-muted: var(--dt-muted);
+  --site-line: var(--dt-line);
+  --site-accent: var(--dt-accent);
+  --site-accent-soft: var(--dt-accent-soft);
+  --site-shadow: var(--dt-shadow-card);
 
-  --primary-color: #2563eb;
-  --primary-dark: #1d4ed8;
-  --secondary-color: #64748b;
-  --accent-color: #8b5cf6;
-  --text-color: #1e293b;
-  --text-light: #64748b;
-  --bg-color: #ffffff;
-  --bg-light: #f8fafc;
-  --border-color: #e2e8f0;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --primary-color: var(--dt-accent);
+  --primary-dark: var(--dt-accent-strong);
+  --secondary-color: var(--dt-muted);
+  --accent-color: var(--dt-accent);
+  --text-color: var(--dt-ink);
+  --text-light: var(--dt-muted);
+  --bg-color: var(--dt-bg);
+  --bg-light: var(--dt-surface-2);
+  --border-color: var(--dt-line);
+  --shadow: var(--dt-shadow-card);
+  --shadow-lg: var(--dt-shadow-toast);
 
-  /* 卡片和模态框背景 */
-  --card-bg: rgba(255, 255, 255, 0.95);
-  --hover-bg: rgba(248, 250, 252, 0.8);
-  --text-primary: #1e293b;
-  --text-secondary: #64748b;
-  --warning-bg: rgba(251, 191, 36, 0.1);
+  --card-bg: var(--dt-surface);
+  --hover-bg: var(--dt-accent-soft);
+  --text-primary: var(--dt-ink);
+  --text-secondary: var(--dt-muted);
+  --warning-bg: rgba(251, 191, 36, 0.10);
   --warning-text: #d97706;
 
-  /* Tailwind 额外的变量 */
-  --radius: 0.5rem;
-  --ring: 0 0 0 3px rgba(255, 184, 107, 0.4);
+  --ring: 0 0 0 3px var(--dt-accent-soft);
   --ring-offset: var(--dt-bg);
+  --radius: 0.5rem;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ════════════════════════════════════════════════════════════
+   亮色主题 — 覆盖同名变量
+   关键差异：
+   - bg/surface 翻转为纸面感
+   - ink/muted 翻转为深色文字（保证对比度）
+   - accent 降一档饱和度（亮背景下原 #ffb86b 太刺眼）
+   - 阴影从黑色系切到深蓝灰、强度大幅降低
+   - 噪点 mix-blend-mode 在 light 下不能 overlay（直接看不到），这里通过
+     将 opacity 降到 0 后在 light 块中隐藏 noise
+   ════════════════════════════════════════════════════════════ */
+:root[data-theme='light'] {
+  --dt-bg: #f5f7fb;
+  --dt-bg-deeper: #ffffff;
+  --dt-surface: #ffffff;
+  --dt-surface-2: #eef1f7;
+
+  --dt-line-faint: rgba(18, 24, 38, 0.05);
+  --dt-line: rgba(18, 24, 38, 0.10);
+  --dt-line-strong: rgba(18, 24, 38, 0.20);
+  --dt-grid-color: rgba(18, 24, 38, 0.04);
+
+  --dt-ink: #121826;
+  --dt-muted: #5d687c;
+  --dt-dim: #8a96ab;
+  --dt-ink-on-accent: #ffffff;
+
+  --dt-accent: #d97706;
+  --dt-accent-strong: #b45309;
+  --dt-accent-soft: rgba(217, 119, 6, 0.10);
+  --dt-accent-line: rgba(217, 119, 6, 0.30);
+
+  --dt-shadow-card: 0 8px 24px rgba(18, 24, 38, 0.08);
+  --dt-shadow-navbar: 0 8px 24px rgba(18, 24, 38, 0.05);
+  --dt-shadow-toast: 0 10px 30px rgba(18, 24, 38, 0.12);
+  --dt-shadow-modal: 0 24px 60px rgba(18, 24, 38, 0.18);
+  --dt-glow-accent: 0 0 8px rgba(217, 119, 6, 0.20);
+  --dt-glow-accent-soft: 0 0 0 3px rgba(217, 119, 6, 0.18);
+
+  --dt-code-inline-bg: rgba(18, 24, 38, 0.06);
+  --dt-quote-bg: rgba(217, 119, 6, 0.05);
+  --dt-cover-fade: rgba(245, 247, 251, 0.92);
+  --dt-event-tint: rgba(18, 24, 38, 0.04);
+  --dt-event-tint-hover: rgba(18, 24, 38, 0.07);
+  --dt-accent-tint: rgba(217, 119, 6, 0.05);
+  --dt-accent-tint-hover: rgba(217, 119, 6, 0.10);
+
+  --dt-scroll-track: rgba(18, 24, 38, 0.04);
+  --dt-scroll-thumb: rgba(217, 119, 6, 0.30);
+  --dt-scroll-thumb-hover: rgba(217, 119, 6, 0.55);
+
+  --dt-noise-opacity: 0;        /* 亮色下直接隐藏 noise */
+  --warning-text: #b45309;
 }
 
-html {
-  overflow-x: hidden;
-}
+/* ════════════════════════════════════════════════════════════
+   Reset & Base
+   ════════════════════════════════════════════════════════════ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { overflow-x: hidden; }
 
 body {
   font-family: var(--dt-font-sans);
@@ -84,100 +171,100 @@ body {
   color: var(--dt-ink);
   background: var(--dt-bg);
   background-image:
-    linear-gradient(90deg, var(--dt-line) 1px, transparent 1px),
-    linear-gradient(180deg, var(--dt-line) 1px, transparent 1px);
+    linear-gradient(90deg, var(--dt-grid-color) 1px, transparent 1px),
+    linear-gradient(180deg, var(--dt-grid-color) 1px, transparent 1px);
   background-size: 64px 64px;
+
+  /* 主题切换平滑过渡 */
+  transition:
+    background-color 280ms ease,
+    color 280ms ease;
 }
 
-/* 全局噪声 overlay */
+/* 全局噪声 overlay（暗色专属：light 主题下 opacity 归零）*/
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.05;
+  opacity: var(--dt-noise-opacity);
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 256px 256px;
   mix-blend-mode: overlay;
+  transition: opacity 280ms ease;
 }
 
-.app {
-  min-height: 100vh;
-  position: relative;
-}
+.app { min-height: 100vh; position: relative; }
+.app-content { position: relative; min-height: 100vh; width: 100%; }
+.main-content { position: relative; width: 100%; min-height: 100vh; }
+.page-content { padding-top: 0; min-height: calc(100vh - 80px); }
 
-.app-content {
-  position: relative;
-  min-height: 100vh;
-  width: 100%;
-}
-
-.main-content {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-}
-
-.page-content {
-  padding-top: 0;
-  min-height: calc(100vh - 80px);
-}
-
-/* 滚动条样式 */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-light);
-}
-
+/* ════════════════════════════════════════════════════════════
+   滚动条
+   ════════════════════════════════════════════════════════════ */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--dt-scroll-track); }
 ::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
+  background: var(--dt-scroll-thumb);
   border-radius: 4px;
+  transition: background 200ms ease;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--dt-scroll-thumb-hover); }
+
+/* ════════════════════════════════════════════════════════════
+   全局过渡 — 任何用 --dt-* 的元素都自动平滑切换
+   排除 :before/:after（噪声、grid 等装饰层不需要过渡）
+   ════════════════════════════════════════════════════════════ */
+html, body, .app, .app-content, .main-content, .page-content,
+body > div, body > div > div, body > div > div > main {
+  transition: background-color 280ms ease;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-dark);
-}
-
-/* 动画效果 */
+/* ════════════════════════════════════════════════════════════
+   动画
+   ════════════════════════════════════════════════════════════ */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
+  0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
 }
-
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
 }
 
-.float-animation {
-  animation: float 3s ease-in-out infinite;
-}
+.float-animation { animation: float 3s ease-in-out infinite; }
+.pulse-animation { animation: pulse 2s ease-in-out infinite; }
 
-.pulse-animation {
-  animation: pulse 2s ease-in-out infinite;
-}
-
-/* 响应式设计 */
 @media (max-width: 768px) {
-  .app {
-    font-size: 14px;
+  .app { font-size: 14px; }
+}
+
+/* ════════════════════════════════════════════════════════════
+   大屏断点阶梯（与原版一致）
+   ════════════════════════════════════════════════════════════ */
+@media (min-width: 1440px) {
+  :root, :root[data-theme='light'] {
+    --w-layout: 1360px; --w-wide: 1520px;
+  }
+}
+@media (min-width: 1680px) {
+  :root, :root[data-theme='light'] {
+    --w-layout: 1440px; --w-wide: 1640px;
+  }
+}
+@media (min-width: 2160px) {
+  :root, :root[data-theme='light'] {
+    --w-layout: 1560px; --w-wide: 1760px;
   }
 }
 
 /* ════════════════════════════════════════════════════════════
-   大屏断点阶梯 — 放开 layout/wide 填满超宽屏（含 27寸 2560）
-   --w-content 始终封顶 880，保护阅读行长
+   reduce-motion
    ════════════════════════════════════════════════════════════ */
-@media (min-width: 1440px) {
-  :root { --w-layout: 1360px; --w-wide: 1520px; }
-}
-@media (min-width: 1680px) {
-  :root { --w-layout: 1440px; --w-wide: 1640px; }
-}
-@media (min-width: 2160px) {
-  :root { --w-layout: 1560px; --w-wide: 1760px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }

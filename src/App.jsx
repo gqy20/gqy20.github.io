@@ -7,6 +7,7 @@ import BlogPost from './components/BlogPost.jsx'
 import Journey from './components/Journey.jsx'
 import ComponentTest from './components/ComponentTest.jsx'
 import ScrollToTopButton from './components/ScrollToTopButton.jsx'
+import ThemeToggle from './components/ThemeToggle.jsx'
 import './App.css'
 
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
           </main>
         </div>
         <ScrollToTopButton />
+        <ThemeToggle />
       </div>
     </Router>
   )

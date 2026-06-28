@@ -110,7 +110,7 @@
 .tl-dial__item.is-active::before {
   border-color: var(--dt-accent);
   background: var(--dt-accent);
-  box-shadow: 0 0 0 3px rgba(255, 184, 107, 0.16);
+  box-shadow: var(--dt-glow-accent-soft);
 }
 
 .tl-dial__num {
@@ -338,12 +338,12 @@
   padding: 0.75rem 0.9rem;
   border: none;
   border-radius: 10px;
-  background: rgba(150, 200, 255, 0.04);
+  background: var(--dt-event-tint);
   transition: background 0.25s ease, transform 0.2s ease;
 }
 
 .tl-event:hover {
-  background: rgba(150, 200, 255, 0.08);
+  background: var(--dt-event-tint-hover);
   transform: translateY(-1px);
 }
 
@@ -401,16 +401,16 @@
 .tl-project:hover {
   background: var(--dt-surface-2);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--dt-shadow-card);
 }
 
 .tl-project--hero {
-  background: linear-gradient(135deg, rgba(255, 184, 107, 0.08), rgba(255, 184, 107, 0.02));
+  background: linear-gradient(135deg, var(--dt-accent-tint-hover), var(--dt-accent-tint));
   border-left: 3px solid var(--dt-accent);
 }
 
 .tl-project--highlight {
-  background: rgba(255, 184, 107, 0.03);
+  background: var(--dt-accent-tint);
 }
 
 .tl-project__head {
@@ -438,7 +438,7 @@
   font-family: var(--dt-font-mono);
   font-size: 0.62rem;
   font-weight: 700;
-  color: #0a0e1a;
+  color: var(--dt-ink-on-accent);
   background: var(--dt-accent);
   padding: 0.1rem 0.42rem;
   border-radius: 3px;
@@ -531,7 +531,7 @@
     position: sticky;
     top: 0;
     height: auto;
-    background: rgba(10, 14, 26, 0.94);
+    background: color-mix(in srgb, var(--dt-bg) 94%, transparent);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--dt-line);

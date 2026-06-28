@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  background: rgba(8, 11, 18, 0.72);
+  background: color-mix(in srgb, var(--dt-bg-deeper) 72%, transparent);
   backdrop-filter: blur(18px);
 }
 
@@ -18,7 +18,7 @@
   border-radius: 8px;
   background: var(--card-bg);
   color: var(--text-primary);
-  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.28);
+  box-shadow: var(--dt-shadow-modal);
 }
 
 .project-modal::-webkit-scrollbar {
@@ -27,7 +27,7 @@
 
 .project-modal::-webkit-scrollbar-thumb {
   border-radius: 999px;
-  background: rgba(100, 116, 139, 0.35);
+  background: var(--dt-scroll-thumb);
 }
 
 .project-modal-header,
@@ -139,7 +139,7 @@
 }
 
 .built-section.muted {
-  background: rgba(148, 163, 184, 0.06);
+  background: var(--dt-surface-2);
 }
 
 .project-facts {

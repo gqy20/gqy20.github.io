@@ -1,0 +1,60 @@
+/* ThemeToggle — 浮动按钮，所有页面共享
+   - fixed 定位：脱离任何容器依赖
+   - 高对比度：暗色下用浅色边 + 浅色图标；亮色下用深色边 + 深色图标
+   - 移动端：缩小到 36px，避免挡内容
+   - 不与 ScrollToTopButton 冲突：那个在右下，这个在右上 */
+
+.theme-toggle {
+  position: fixed;
+  top: clamp(0.7rem, 1.6vh, 1rem);
+  right: clamp(0.7rem, 1.6vw, 1rem);
+  z-index: 200;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0;
+  border: 1px solid var(--dt-line-strong);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--dt-bg) 75%, transparent);
+  color: var(--dt-ink);
+  font-size: 0.95rem;
+  cursor: pointer;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: var(--dt-shadow-card);
+  transition: color 200ms ease, background 200ms ease, border-color 200ms ease;
+  overflow: hidden;
+}
+
+.theme-toggle:hover {
+  color: var(--dt-accent);
+  border-color: var(--dt-accent);
+  background: var(--dt-accent-soft);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--dt-accent);
+  outline-offset: 2px;
+}
+
+.theme-toggle__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+@media (max-width: 480px) {
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 0.88rem;
+  }
+}

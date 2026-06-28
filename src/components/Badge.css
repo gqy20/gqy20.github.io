@@ -63,7 +63,7 @@
 /* 悬停效果 */
 .badge-base:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--dt-shadow-card);
 }
 
 .badge-default:hover {

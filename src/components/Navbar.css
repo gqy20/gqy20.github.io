@@ -32,7 +32,7 @@
 .mobile-menu {
   border-color: var(--dt-line);
   background: color-mix(in srgb, var(--dt-bg) 92%, transparent);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.32);
+  box-shadow: var(--dt-shadow-navbar);
   backdrop-filter: blur(16px);
 }
 

@@ -36,8 +36,8 @@
   width: 40px;
   height: 40px;
   border: none;
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--text-secondary);
+  background: var(--dt-surface-2);
+  color: var(--dt-muted);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -49,28 +49,25 @@
 }
 
 .floating-close:hover {
-  background: rgba(255, 255, 255, 0.2);
-  color: var(--text-primary);
+  background: var(--dt-accent-soft);
+  color: var(--dt-ink);
 }
 
 /* 导航内容区域 */
 .floating-content {
-  background: var(--card-bg, rgba(255, 255, 255, 0.95));
+  background: var(--dt-surface);
   border-radius: 24px;
   padding: 2rem;
-  box-shadow:
-    0 25px 50px -12px rgba(0, 0, 0, 0.25),
-    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  box-shadow: var(--dt-shadow-toast);
+  border: 1px solid var(--dt-line);
   backdrop-filter: blur(20px);
   position: relative;
   overflow: hidden;
 }
 
+/* .app.dark 旧选择器（保留以防外部样式依赖） */
 .app.dark .floating-content {
-  background: var(--card-bg-dark, rgba(17, 24, 39, 0.95));
-  box-shadow:
-    0 25px 50px -12px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  background: var(--dt-surface);
 }
 
 /* 快速导航 */
@@ -148,7 +145,7 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem 1.25rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--dt-bg-deeper);
   border-radius: 16px;
   margin-bottom: 1rem;
 }
@@ -183,11 +180,11 @@
 .nav-hint {
   text-align: center;
   font-size: 0.85rem;
-  color: var(--text-secondary);
+  color: var(--dt-muted);
   opacity: 0.8;
   font-style: italic;
   padding: 0.75rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--dt-bg-deeper);
   border-radius: 12px;
 }
 
@@ -198,7 +195,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: color-mix(in srgb, var(--dt-bg-deeper) 30%, transparent);
   backdrop-filter: blur(2px);
   z-index: -1;
 }
@@ -228,13 +225,10 @@
   }
 }
 
-/* 深色模式优化 */
-.app.dark .theme-control {
-  background: rgba(255, 255, 255, 0.03);
-}
-
+/* 深色模式优化（现在由 --dt-bg-deeper 统一驱动） */
+.app.dark .theme-control,
 .app.dark .nav-hint {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--dt-bg-deeper);
 }
 
 /* 动画增强 */
@@ -258,14 +252,7 @@
   }
 }
 
-/* 确保CSS变量回退 */
-.floating-content {
-  background: rgba(255, 255, 255, 0.95);
-}
-
-.app.dark .floating-content {
-  background: rgba(17, 24, 39, 0.95);
-}
+/* 确保CSS变量回退（已通过 --dt-surface 统一，无需重复声明） */
 
 /* 微交互细节 */
 .nav-item:focus {
