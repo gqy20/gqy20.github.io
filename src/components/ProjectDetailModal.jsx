@@ -9,8 +9,24 @@ import {
 } from 'react-icons/fa'
 import './ProjectDetailModal.css'
 import { getLinkText } from '../utils/projectUtils'
+import { gsap, useGSAP } from '../lib/gsap.js'
 
 const ProjectDetailModal = ({ project, isOpen, onClose }) => {
+  // Stars/Forks 数字计数(modal 打开后触发)
+  useGSAP(() => {
+    if (!isOpen || !project) return
+    const mm = gsap.matchMedia()
+    mm.add({
+      isReduce: '(prefers-reduced-motion: reduce)',
+      isNormal: '(prefers-reduced-motion: no-preference)'
+    }, ({ conditions }) => {
+      const { isReduce } = conditions
+      if (isReduce) return
+      gsap.from('.js-count', { textContent: 0, duration: 1, ease: 'power2.out', snap: { textContent: 1 }, stagger: 0.1, delay: 0.25 })
+    })
+    return () => mm.revert()
+  }, { dependencies: [isOpen, project] })
+
   if (!project) return null
 
   const narrative = project.narrative
@@ -73,8 +89,8 @@ const ProjectDetailModal = ({ project, isOpen, onClose }) => {
 
             <section className="project-facts">
               <div><strong>{project.language || 'Unknown'}</strong><span>主要语言</span></div>
-              <div><strong><FaStar /> {project.stars || 0}</strong><span>Stars</span></div>
-              <div><strong><FaCodeBranch /> {project.forks || 0}</strong><span>Forks</span></div>
+              <div><strong><FaStar /> <span className="js-count">{project.stars || 0}</span></strong><span>Stars</span></div>
+              <div><strong><FaCodeBranch /> <span className="js-count">{project.forks || 0}</span></strong><span>Forks</span></div>
             </section>
 
             {project.tags?.length > 0 && (

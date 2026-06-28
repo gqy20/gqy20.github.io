@@ -207,6 +207,27 @@ export default function Hero() {
     return () => mm.revert()
   }, { scope: rootRef, dependencies: [loading] })
 
+  // 各 section 标题(ABOUT/STACK/...):逐字入场(进视口时)
+  useGSAP(() => {
+    const mm = gsap.matchMedia()
+    mm.add({
+      isReduce: '(prefers-reduced-motion: reduce)',
+      isNormal: '(prefers-reduced-motion: no-preference)'
+    }, ({ conditions }) => {
+      const { isReduce: reduce } = conditions
+      gsap.utils.toArray('.home-section__title').forEach((label) => {
+        const split = SplitText.create(label, { type: 'chars' })
+        gsap.from(
+          split.chars,
+          reduce
+            ? { duration: 0 }
+            : { yPercent: 60, opacity: 0, duration: 0.5, ease: 'back.out(1.5)', stagger: 0.04, scrollTrigger: { trigger: label, start: 'top 85%', once: true } }
+        )
+      })
+    })
+    return () => mm.revert()
+  }, { scope: rootRef })
+
   const handleNavClick = (e, id) => {
     e.preventDefault()
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })

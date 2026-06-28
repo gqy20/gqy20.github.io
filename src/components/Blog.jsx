@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion } from 'motion/react'
 import { Link } from 'react-router-dom'
 import { FaArrowRight, FaCalendar, FaClock, FaFolder, FaTag } from 'react-icons/fa'
 import Badge from './Badge'
 import './Blog.css'
 import PageHeader from './PageHeader'
+import { gsap, ScrollTrigger, useGSAP } from '../lib/gsap.js'
 
 const Blog = () => {
   const [blogData, setBlogData] = useState(null)
@@ -27,6 +28,27 @@ const Blog = () => {
 
     loadBlogData()
   }, [])
+
+  const rootRef = useRef(null)
+
+  // 文章卡片:ScrollTrigger.batch 入场(替代手写 delay stagger)
+  useGSAP(() => {
+    const mm = gsap.matchMedia()
+    mm.add({
+      isReduce: '(prefers-reduced-motion: reduce)',
+      isNormal: '(prefers-reduced-motion: no-preference)'
+    }, ({ conditions }) => {
+      const { isReduce } = conditions
+      if (isReduce) return
+      gsap.set('.blog-item', { opacity: 0, y: 18 })
+      ScrollTrigger.batch('.blog-item', {
+        start: 'top 85%',
+        onEnter: (batch) => gsap.to(batch, { opacity: 1, y: 0, duration: 0.38, stagger: 0.06, ease: 'power2.out', overwrite: true }),
+        onLeaveBack: (batch) => gsap.set(batch, { opacity: 0, y: 18, overwrite: true })
+      })
+    })
+    return () => mm.revert()
+  }, { scope: rootRef, dependencies: [blogData] })
 
   if (loading) {
     return (
@@ -58,7 +80,7 @@ const Blog = () => {
   }
 
   return (
-    <section className="blog">
+    <section className="blog" ref={rootRef}>
       <PageHeader num="03" title="BLOG" />
       <div className="blog-shell">
         {/* Inline hero */}
@@ -81,13 +103,7 @@ const Blog = () => {
               to={`/blog/${post.slug}`}
               className="blog-item-link"
             >
-              <motion.article
-                className="blog-item"
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-80px' }}
-                transition={{ duration: 0.38, delay: Math.min(index, 8) * 0.04 }}
-              >
+              <article className="blog-item">
                 <div className="blog-index">
                   <span className="blog-index-num">
                     {String(index + 1).padStart(2, '0')}
@@ -123,7 +139,7 @@ const Blog = () => {
                 )}
 
                 <span className="blog-link">阅读 <FaArrowRight /></span>
-              </motion.article>
+              </article>
             </Link>
           ))}
         </div>

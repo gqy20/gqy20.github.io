@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'motion/react'
 import {
   FaArchive,
@@ -13,6 +13,7 @@ import ProjectDetailModal from './ProjectDetailModal'
 import { getProjectViewModel } from '../utils/portfolioProjects'
 import { getExternalLinkIcon, normalizeDescription } from '../utils/projectUtils'
 import { useProjectsData } from '../hooks/useProjectsData.js'
+import { gsap, ScrollTrigger, useGSAP } from '../lib/gsap.js'
 
 const Projects = () => {
   const { data: projectsData, loading, error: hookError } = useProjectsData()
@@ -25,6 +26,27 @@ const Projects = () => {
     if (!projectsData) return { featured: [], filtered: [], trackCounts: [], directoryGroups: [] }
     return getProjectViewModel(projectsData.allProjects, { searchTerm, sortBy })
   }, [projectsData, searchTerm, sortBy])
+
+  const rootRef = useRef(null)
+
+  // 代表系统卡片:ScrollTrigger.batch 方向感入场(替代手写 delay stagger)
+  useGSAP(() => {
+    const mm = gsap.matchMedia()
+    mm.add({
+      isReduce: '(prefers-reduced-motion: reduce)',
+      isNormal: '(prefers-reduced-motion: no-preference)'
+    }, ({ conditions }) => {
+      const { isReduce } = conditions
+      if (isReduce) return
+      gsap.set('.project-card', { opacity: 0, y: 28 })
+      ScrollTrigger.batch('.project-card', {
+        start: 'top 85%',
+        onEnter: (batch) => gsap.to(batch, { opacity: 1, y: 0, duration: 0.42, stagger: 0.08, ease: 'power2.out', overwrite: true }),
+        onLeaveBack: (batch) => gsap.set(batch, { opacity: 0, y: 28, overwrite: true })
+      })
+    })
+    return () => mm.revert()
+  }, { scope: rootRef, dependencies: [viewModel.featured] })
 
   const openProject = (project) => setSelectedProject(project)
   const closeProject = () => setSelectedProject(null)
@@ -68,7 +90,7 @@ const Projects = () => {
   const totalProjects = projectsData?.totalProjects || 0
 
   return (
-    <section className="projects">
+    <section className="projects" ref={rootRef}>
       <PageHeader num="02" title="PROJECTS" />
       <div className="projects-shell">
         {/* Inline hero */}
@@ -205,13 +227,7 @@ const ProjectCard = ({ project, index, featured = false, onOpen }) => {
   const homepageIcon = getExternalLinkIcon(project.homepage)
 
   return (
-    <motion.article
-      className={`project-card ${featured ? 'featured' : ''}`}
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.42, delay: Math.min(index, 8) * 0.035 }}
-    >
+    <article className={`project-card ${featured ? 'featured' : ''}`}>
       <div className="project-card-top">
         <span>{project.portfolioTrack.shortLabel}</span>
         {project.isArchived && <em><FaArchive /> 已归档</em>}
@@ -235,7 +251,7 @@ const ProjectCard = ({ project, index, featured = false, onOpen }) => {
           </a>
         )}
       </div>
-    </motion.article>
+    </article>
   )
 }
 
