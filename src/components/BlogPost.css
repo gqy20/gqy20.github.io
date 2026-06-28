@@ -140,7 +140,7 @@
   line-height: 1.15;
   color: var(--dt-ink);
   margin: 0 0 0.7rem;
-  text-wrap: balance;
+  text-wrap: wrap;
 }
 
 .blog-post-excerpt {

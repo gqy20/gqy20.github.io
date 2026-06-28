@@ -230,7 +230,7 @@
   font-weight: 800;
   line-height: 1.28;
   margin: 0 0 0.4rem;
-  text-wrap: balance;
+  text-wrap: wrap;
   transition: color 0.22s ease;
 }
 

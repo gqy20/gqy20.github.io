@@ -60,11 +60,37 @@ function countWords(text) {
   return cn + en
 }
 
+// 加粗语法 lint:**/__ 边缘带空格会导致加粗不渲染(CommonMark 规则)。
+// 提醒性质:跳过 frontmatter / 代码块 / 行内代码;命中处请人工核对(部分可能是正常关闭后接文字)。
+function lintBoldSpacing(content) {
+  const issues = []
+  // 中英文标点:用于排除正常加粗的关闭(标点**)和开放(**标点)
+  const PUNCT = '，。、；：！？.,;:!?…（(【《》」』"\'）)】'
+  // ** 后紧跟空格,且前面不是标点 → 开放失败/孤立(排除正常关闭"标点** 后空格")
+  const reAfter = new RegExp(`(?<![${PUNCT}])\\*\\* |(?<![${PUNCT}])__ `)
+  // ** 前紧跟空格,且后面是标点/行尾 → 关闭前空格失败(排除正常开放"空格**文字")
+  const reBefore = new RegExp(` (\\*\\*|__)(?=[${PUNCT}]|$)`)
+  const lines = content.split(/\r?\n/)
+  let inCode = false, inFm = false
+  lines.forEach((line, i) => {
+    if (i === 0 && line.trim() === '---') { inFm = true; return }
+    if (inFm) { if (line.trim() === '---') inFm = false; return }
+    if (/^\s*(```|~~~)/.test(line)) { inCode = !inCode; return }
+    if (inCode) return
+    if (/^\s*\|/.test(line)) return  // 跳过表格行
+    const clean = line.replace(/`[^`]*`/g, '').replace(/^(\s*)(\d+\.|-|\*|\+)\s+/, '$1')
+    if (reAfter.test(clean)) issues.push({ line: i + 1, kind: '** 后有空格', snippet: line.trim().slice(0, 55) })
+    if (reBefore.test(clean)) issues.push({ line: i + 1, kind: '** 前有空格', snippet: line.trim().slice(0, 55) })
+  })
+  return issues
+}
+
 function main() {
   const files = fs.readdirSync(BLOG_DIR)
     .filter(f => f.endsWith('.md') && !f.startsWith('_'))
 
   const posts = []
+  const lintIssues = []
   for (const file of files) {
     const content = fs.readFileSync(path.join(BLOG_DIR, file), 'utf8')
     const fm = parseFrontmatter(content)
@@ -72,6 +98,7 @@ function main() {
       console.warn(`⚠ 跳过(无 frontmatter): ${file}`)
       continue
     }
+    lintBoldSpacing(content).forEach(x => lintIssues.push({ file, ...x }))
     if (fm.published === false) continue  // 草稿不进 index
 
     const id = fm.id || file.replace(/\.md$/, '')
@@ -115,6 +142,16 @@ function main() {
   console.log(`✓ 同步 ${posts.length} 篇文章 → src/data/blog/index.json`)
   for (const p of posts) {
     console.log(`  • ${p.id}: ${p.wordCount} 字 → ${p.readTime}`)
+  }
+
+  // 加粗语法 lint(**/__ 边缘空格会导致加粗不渲染)
+  if (lintIssues.length) {
+    console.log(`\n⚠ 加粗语法检查 ${lintIssues.length} 处(** 边缘有空格可能不渲染,请核对):`)
+    for (const x of lintIssues) {
+      console.log(`  ${x.file} L${x.line} [${x.kind}] ${x.snippet}`)
+    }
+  } else {
+    console.log('\n✓ 加粗语法检查通过')
   }
 }
 

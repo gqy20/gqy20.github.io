@@ -1,0 +1,40 @@
+.mermaid-block {
+  margin: 16px 0;
+  padding: 20px;
+  border: 1px solid var(--dt-line);
+  border-radius: 12px;
+  background: var(--dt-surface);
+  box-shadow: var(--dt-shadow-card);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.mermaid-block:hover {
+  border-color: var(--dt-line-strong);
+}
+.mermaid-block .mermaid-svg { max-width: 100%; }
+.mermaid-block .mermaid-svg svg { max-width: 100%; height: auto; }
+
+.mermaid-loading {
+  color: var(--dt-dim);
+  font-family: 'SF Mono', Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+  padding: 1rem;
+}
+
+.mermaid-block--error { display: block; }
+.mermaid-error-msg {
+  color: var(--dt-accent);
+  font-size: 0.85rem;
+  margin: 0 0 0.5rem;
+}
+.mermaid-error-src {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--dt-dim);
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-family: 'SF Mono', Monaco, Consolas, monospace;
+}

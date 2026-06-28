@@ -16,7 +16,7 @@ import {
 import Badge from './Badge'
 import Button from './Button'
 import MarkdownRenderer from './MarkdownRenderer'
-import { gsap, ScrollTrigger, SplitText, useGSAP } from '../lib/gsap.js'
+import { gsap, ScrollTrigger, useGSAP } from '../lib/gsap.js'
 import { GITHUB_URL } from '../data/social.js'
 import './BlogPost.css'
 
@@ -109,14 +109,13 @@ const BlogPost = () => {
     if (el && el.scrollIntoView) el.scrollIntoView({ block: 'nearest' })
   }, [activeId])
 
-  // GSAP: 阅读进度条 scrub + TOC scroll-spy + 文章标题逐字（替换原手写 scroll 监听）
+  // GSAP: 阅读进度条 scrub + TOC scroll-spy（替换原手写 scroll 监听）
   useGSAP(() => {
     const mm = gsap.matchMedia()
     mm.add({
       isReduce: '(prefers-reduced-motion: reduce)',
       isNormal: '(prefers-reduced-motion: no-preference)'
-    }, ({ conditions }) => {
-      const { isReduce } = conditions
+    }, () => {
 
       // 阅读进度条:scaleX 跟随整页滚动
       gsap.fromTo('.reading-progress',
@@ -146,18 +145,6 @@ const BlogPost = () => {
           onEnterBack: () => setActiveId(h.id)
         })
       })
-
-      // 文章标题逐字上浮(行遮罩;reduced-motion 跳过)
-      if (!isReduce) {
-        const titleEl = rootRef.current?.querySelector('.blog-post-title')
-        if (titleEl) {
-          const split = SplitText.create(titleEl, { type: 'lines, chars', mask: 'lines' })
-          gsap.from(split.chars, {
-            yPercent: 100, opacity: 0,
-            duration: 0.7, ease: 'power3.out', stagger: 0.015
-          })
-        }
-      }
     })
     return () => mm.revert()
   }, { scope: rootRef, dependencies: [toc] })

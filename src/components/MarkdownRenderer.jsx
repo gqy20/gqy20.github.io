@@ -2,6 +2,7 @@ import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import PrismCodeBlock from './PrismCodeBlock'
+import MermaidBlock from './MermaidBlock'
 import './MarkdownRenderer.css'
 
 // 从 React children 递归提取纯文本（用于生成标题锚点 id）
@@ -81,6 +82,12 @@ const MarkdownRenderer = ({ content }) => {
 
             // 检测内容复杂度，简单内容使用内联样式
             const content = String(children)
+
+            // mermaid 图表块交给 MermaidBlock 动态渲染(优先,避免被当 inline)
+            if (/language-mermaid/.test(className || '')) {
+              return <MermaidBlock chart={content} />
+            }
+
             const isSimpleContent = !content.includes('\n') && content.length < 50
 
             if (isSimpleContent) {
