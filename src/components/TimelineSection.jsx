@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useProjectsData } from '../hooks/useProjectsData.js'
 import { timelineStages } from '../data/timeline.js'
-import { gsap, useGSAP } from '../lib/gsap.js'
+import { gsap, SplitText, useGSAP } from '../lib/gsap.js'
 import './TimelineSection.css'
 
 /* show featured items if any are flagged, otherwise fall back to first 3 */
@@ -64,6 +64,23 @@ export default function TimelineSection() {
             }
           }
         )
+      })
+
+      // insight 金句:行遮罩揭示(进视口时行从下方滑入)
+      gsap.utils.toArray('.tl-panel__insight').forEach((insight) => {
+        const split = SplitText.create(insight, { type: 'lines', mask: 'lines' })
+        gsap.from(split.lines, {
+          yPercent: 100,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: insight,
+            start: 'top bottom',
+            once: true
+          }
+        })
       })
     })
     return () => mm.revert()
