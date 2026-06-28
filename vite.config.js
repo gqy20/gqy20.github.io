@@ -21,6 +21,7 @@ export default defineConfig({
           ) {
             return 'vendor'
           }
+          if (id.includes('/gsap/')) return 'gsap-vendor'
         },
         // 文件名包含内容哈希，便于缓存策略
         chunkFileNames: 'assets/[name]-[hash].js',

@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import { gsap, SplitText, useGSAP } from '../lib/gsap.js'
 import { FaGithub, FaEnvelope, FaGlobe } from 'react-icons/fa'
 import { SiGitee, SiBilibili } from 'react-icons/si'
 import { useProjectsData } from '../hooks/useProjectsData.js'
@@ -165,6 +166,47 @@ export default function Hero() {
     return () => observer.disconnect()
   }, [loading])
 
+  const rootRef = useRef(null)
+
+  // 名字标题:逐字上浮入场(mount 时执行一次)
+  useGSAP(() => {
+    const mm = gsap.matchMedia()
+    mm.add({
+      isReduce: '(prefers-reduced-motion: reduce)',
+      isNormal: '(prefers-reduced-motion: no-preference)'
+    }, ({ conditions }) => {
+      const { isReduce: reduce } = conditions
+      const zh = SplitText.create('.home-name__zh', { type: 'chars' })
+      const en = SplitText.create('.home-name__en', { type: 'chars' })
+      gsap.from(
+        [...zh.chars, ...en.chars],
+        reduce
+          ? { duration: 0 }
+          : { yPercent: 60, opacity: 0, duration: 0.6, ease: 'back.out(1.5)', stagger: 0.05 }
+      )
+    })
+    return () => mm.revert()
+  }, { scope: rootRef })
+
+  // 统计数字:从 0 计数(数据加载完成后触发)
+  useGSAP(() => {
+    if (loading) return
+    const mm = gsap.matchMedia()
+    mm.add({
+      isReduce: '(prefers-reduced-motion: reduce)',
+      isNormal: '(prefers-reduced-motion: no-preference)'
+    }, ({ conditions }) => {
+      const { isReduce: reduce } = conditions
+      gsap.from(
+        '.js-stat',
+        reduce
+          ? { duration: 0 }
+          : { textContent: 0, duration: 1.6, ease: 'power2.out', snap: { textContent: 1 }, stagger: 0.18 }
+      )
+    })
+    return () => mm.revert()
+  }, { scope: rootRef, dependencies: [loading] })
+
   const handleNavClick = (e, id) => {
     e.preventDefault()
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -175,7 +217,7 @@ export default function Hero() {
   }
 
   return (
-    <div className="home">
+    <div className="home" ref={rootRef}>
       <motion.aside
         className="home-sidebar"
         initial={{ x: -16, opacity: 0 }}
@@ -246,8 +288,8 @@ export default function Hero() {
           <p>
             我是 <strong>葛庆宇</strong>，从生物信息学背景转向 AI Agent 工程。
             过去一年，我围绕文献检索、MCP 工具、Claude Agent SDK、多智能体协作和自动化工作流做了
-            <em>{loading ? '38' : projectData?.totalProjects}</em> 个开源项目，
-            收获 <em>{loading ? '72' : projectData?.totalStars}</em> 颗 stars。
+            <em className="js-stat">{loading ? '38' : projectData?.totalProjects}</em> 个开源项目，
+            收获 <em className="js-stat">{loading ? '72' : projectData?.totalStars}</em> 颗 stars。
           </p>
           <p>
             我关心的不是一次性的 AI 回答，而是 Agent 如何稳定地使用工具、处理上下文，
@@ -389,7 +431,7 @@ export default function Hero() {
           </ul>
 
           <footer className="home-footer">
-            <span>Built with React + Framer Motion</span>
+            <span>Built with React + Framer Motion + GSAP</span>
             <span>·</span>
             <span>Last updated 2026.05</span>
           </footer>
