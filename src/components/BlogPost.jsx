@@ -15,6 +15,7 @@ import {
 import Badge from './Badge'
 import Button from './Button'
 import MarkdownRenderer from './MarkdownRenderer'
+import { gsap, ScrollTrigger, SplitText, useGSAP } from '../lib/gsap.js'
 import './BlogPost.css'
 
 const BlogPost = () => {
@@ -26,10 +27,10 @@ const BlogPost = () => {
   const [error, setError] = useState(null)
   const [toc, setToc] = useState([])
   const [activeId, setActiveId] = useState('')
-  const [progress, setProgress] = useState(0)
   const [toast, setToast] = useState('')
 
   const articleRef = useRef(null)
+  const rootRef = useRef(null)
 
   // 加载文章数据 + 内容
   useEffect(() => {
@@ -39,7 +40,6 @@ const BlogPost = () => {
         setError(null)
         setToc([])
         setActiveId('')
-        setProgress(0)
 
         // 加载博客数据
         const blogDataResponse = await import('../data/blog/index.json')
@@ -75,20 +75,15 @@ const BlogPost = () => {
     loadBlogPost()
   }, [slug])
 
-  // 提取 H2/H3 → 注入 id → 构建 TOC + scroll-spy（scroll 驱动，比 IntersectionObserver 窄带判定更稳定）
+  // 提取 H2/H3 → 注入 id → 构建 TOC（scroll-spy 改由 GSAP ScrollTrigger 处理，见下方 useGSAP）
   useEffect(() => {
     if (!content) return
-
-    let rafId = null
-    let onScroll = null
     const timer = setTimeout(() => {
       const root = articleRef.current
       if (!root) return
-
       const heads = Array.from(root.querySelectorAll('h2, h3'))
       const seen = new Set()
       const items = heads.map((h, i) => {
-        // 优先用 MarkdownRenderer 受控注入的 id；没有则兜底（并去重）
         let id = h.id || `bp-heading-${i}`
         if (!h.id) h.id = id
         if (seen.has(id)) { id = `${id}-${i}`; h.id = id }
@@ -101,38 +96,8 @@ const BlogPost = () => {
       })
       setToc(items)
       if (items.length) setActiveId(items[0].id)
-      if (!items.length) return
-
-      // 阅读线：视口顶部往下 120px；标题顶部越过该线即视为"当前段"，取最后一个已越过的标题
-      const READING_LINE = 120
-      const sync = () => {
-        rafId = null
-        let current = items[0].id
-        for (const item of items) {
-          const el = document.getElementById(item.id)
-          if (!el) continue
-          if (el.getBoundingClientRect().top <= READING_LINE) current = item.id
-          else break
-        }
-        setActiveId(prev => (prev !== current ? current : prev))
-      }
-      onScroll = () => {
-        if (rafId) return
-        rafId = requestAnimationFrame(sync)
-      }
-      window.addEventListener('scroll', onScroll, { passive: true })
-      window.addEventListener('resize', onScroll)
-      sync()
     }, 120)
-
-    return () => {
-      clearTimeout(timer)
-      if (rafId) cancelAnimationFrame(rafId)
-      if (onScroll) {
-        window.removeEventListener('scroll', onScroll)
-        window.removeEventListener('resize', onScroll)
-      }
-    }
+    return () => clearTimeout(timer)
   }, [content])
 
   // TOC 当前项自动滚入侧栏可见区（block:nearest 只在不可见时滚侧栏，不干扰主页面）
@@ -142,21 +107,58 @@ const BlogPost = () => {
     if (el && el.scrollIntoView) el.scrollIntoView({ block: 'nearest' })
   }, [activeId])
 
-  // 阅读进度（整页滚动百分比）
-  useEffect(() => {
-    const onScroll = () => {
-      const doc = document.documentElement
-      const total = doc.scrollHeight - doc.clientHeight
-      setProgress(total > 0 ? Math.min(100, (doc.scrollTop / total) * 100) : 0)
-    }
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
-    }
-  }, [])
+  // GSAP: 阅读进度条 scrub + TOC scroll-spy + 文章标题逐字（替换原手写 scroll 监听）
+  useGSAP(() => {
+    const mm = gsap.matchMedia()
+    mm.add({
+      isReduce: '(prefers-reduced-motion: reduce)',
+      isNormal: '(prefers-reduced-motion: no-preference)'
+    }, ({ conditions }) => {
+      const { isReduce } = conditions
+
+      // 阅读进度条:scaleX 跟随整页滚动
+      gsap.fromTo('.reading-progress',
+        { scaleX: 0 },
+        {
+          scaleX: 1, ease: 'none',
+          scrollTrigger: {
+            trigger: '.blog-post',
+            start: 'top top',
+            end: 'max',
+            scrub: 0.2
+          }
+        }
+      )
+
+      // TOC scroll-spy:每个 heading 越过阅读线(视口顶 120px)时高亮
+      const heads = articleRef.current
+        ? Array.from(articleRef.current.querySelectorAll('h2, h3'))
+        : []
+      heads.forEach((h) => {
+        if (!h.id) return
+        ScrollTrigger.create({
+          trigger: h,
+          start: 'top 120px',
+          end: 'bottom 120px',
+          onEnter: () => setActiveId(h.id),
+          onEnterBack: () => setActiveId(h.id)
+        })
+      })
+
+      // 文章标题逐字上浮(行遮罩;reduced-motion 跳过)
+      if (!isReduce) {
+        const titleEl = rootRef.current?.querySelector('.blog-post-title')
+        if (titleEl) {
+          const split = SplitText.create(titleEl, { type: 'lines, chars', mask: 'lines' })
+          gsap.from(split.chars, {
+            yPercent: 100, opacity: 0,
+            duration: 0.7, ease: 'power3.out', stagger: 0.015
+          })
+        }
+      }
+    })
+    return () => mm.revert()
+  }, { scope: rootRef, dependencies: [toc] })
 
   const formatDate = (dateString) => {
     const date = new Date(dateString)
@@ -275,9 +277,9 @@ const BlogPost = () => {
   }
 
   return (
-    <div className="blog-post">
+    <div className="blog-post" ref={rootRef}>
       {/* 顶部阅读进度线 */}
-      <div className="reading-progress" style={{ width: `${progress}%` }} />
+      <div className="reading-progress" />
 
       {/* 分享 toast */}
       {toast && <div className="blog-toast">{toast}</div>}
