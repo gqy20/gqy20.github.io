@@ -45,7 +45,11 @@ describe('Portfolio Projects Utils', () => {
 
   it('loads portfolio semantics from json config', () => {
     expect(PORTFOLIO_CONFIG.tracks.some(track => track.id === 'knowledge-work')).toBe(true)
-    expect(PORTFOLIO_CONFIG.featured.slice(0, 3)).toEqual(['TrumanWorld', 'zotero_cli', 'TrendPluse'])
+    // featured 列表加载且每项均为有效 project id(不强依赖具体顺序——数据会被定时任务更新)
+    expect(PORTFOLIO_CONFIG.featured.length).toBeGreaterThanOrEqual(3)
+    PORTFOLIO_CONFIG.featured.slice(0, 3).forEach(id => {
+      expect(PORTFOLIO_CONFIG.projects[id]).toBeDefined()
+    })
     expect(PORTFOLIO_CONFIG.projects.TrumanWorld.track).toBe('agent-systems')
     expect(PORTFOLIO_CONFIG.projects['article-mcp'].narrative.title).toBe('让智能体检索论文')
   })
