@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'motion/react'
 import { cn } from '../../lib/utils'
 import { FaTimes } from 'react-icons/fa'
 import Button from './button.jsx'

@@ -1,5 +1,5 @@
 import { useTheme } from '../hooks/useTheme'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'motion/react'
 import './ThemeToggle.css'
 
 /**

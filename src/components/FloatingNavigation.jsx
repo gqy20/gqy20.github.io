@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'motion/react'
 import { FaSun, FaMoon, FaHome, FaCode, FaBook, FaTimes } from 'react-icons/fa'
 import './FloatingNavigation.css'
 
