@@ -72,6 +72,21 @@
   z-index: 0;
 }
 
+/* 进度填充层:叠在 track 背景竖线上,随滚动 scaleY 0→1 */
+.tl-dial__progress {
+  position: absolute;
+  left: 0.25rem;
+  top: 0.7rem;
+  bottom: 0.7rem;
+  width: 1px;
+  background: var(--dt-accent);
+  transform: scaleY(0);
+  transform-origin: top center;
+  z-index: 0;
+  opacity: 0.6;
+  box-shadow: var(--dt-glow-accent-soft);
+}
+
 .tl-dial__item {
   display: grid;
   grid-template-columns: auto 1fr;

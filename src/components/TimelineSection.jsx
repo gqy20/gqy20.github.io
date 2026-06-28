@@ -1,8 +1,9 @@
-import { useEffect, useState, useMemo } from 'react'
+import { useEffect, useState, useMemo, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useProjectsData } from '../hooks/useProjectsData.js'
 import { timelineStages } from '../data/timeline.js'
+import { gsap, useGSAP } from '../lib/gsap.js'
 import './TimelineSection.css'
 
 /* show featured items if any are flagged, otherwise fall back to first 3 */
@@ -15,6 +16,58 @@ function pickFeatured(arr) {
 export default function TimelineSection() {
   const { data: projectData } = useProjectsData()
   const [activeStage, setActiveStage] = useState(timelineStages[0]?.id)
+  const sectionRef = useRef(null)
+
+  // dial 进度条:随时间线滚动连续填充(桌面端;reduced-motion 直接填满)
+  useGSAP(() => {
+    const mm = gsap.matchMedia()
+    mm.add({
+      isDesktop: '(min-width: 761px)',
+      isReduce: '(prefers-reduced-motion: reduce)'
+    }, ({ conditions }) => {
+      const { isDesktop, isReduce } = conditions
+      if (!isDesktop) return
+      if (isReduce) {
+        gsap.set('.tl-dial__progress', { scaleY: 1 })
+        return
+      }
+      gsap.fromTo('.tl-dial__progress',
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.tl-section',
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 0.4
+          }
+        }
+      )
+
+      // 巨型编号景深:随 panel 滚过视口,小→大→小 + 视差位移
+      gsap.utils.toArray('.tl-panel__anchor-num').forEach((num) => {
+        const panel = num.closest('.tl-panel')
+        gsap.fromTo(num,
+          { scale: 0.7, opacity: 0.15, y: 60 },
+          {
+            keyframes: [
+              { scale: 1.15, opacity: 0.85, y: 0 },
+              { scale: 0.7, opacity: 0.15, y: -60 }
+            ],
+            ease: 'none',
+            scrollTrigger: {
+              trigger: panel,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 0.3
+            }
+          }
+        )
+      })
+    })
+    return () => mm.revert()
+  }, { scope: sectionRef })
 
   const projectsByName = useMemo(() => {
     const projects = projectData?.allProjects || []
@@ -50,12 +103,13 @@ export default function TimelineSection() {
   /* page-flip 翻页已移除：改为连续滚动（参考 Seiter Design 时间线）*/
 
   return (
-    <section className="tl-section" id="timeline">
+    <section className="tl-section" id="timeline" ref={sectionRef}>
       {/* Vertical dial — sticky, aligned with panel content */}
       <aside className="tl-dial-col" aria-label="阶段导航">
         <nav className="tl-dial">
           <span className="tl-dial__page-title">04 · JOURNEY</span>
           <div className="tl-dial__track">
+            <span className="tl-dial__progress" aria-hidden="true" />
             {timelineStages.map((stage, i) => {
               const isActive = activeStage === stage.id
               return (
