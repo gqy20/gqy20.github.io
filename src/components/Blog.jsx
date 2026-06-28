@@ -89,18 +89,18 @@ const Blog = () => {
                 transition={{ duration: 0.38, delay: Math.min(index, 8) * 0.04 }}
               >
                 <div className="blog-index">
-                  {String(index + 1).padStart(2, '0')}
+                  <span className="blog-index-num">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span className="blog-date">
+                    <FaCalendar /> {post.date}
+                  </span>
+                  <span className="blog-read-time">
+                    <FaClock /> {post.readTime}
+                  </span>
                 </div>
 
                 <div className="blog-main">
-                  <div className="blog-meta">
-                    <span className="blog-date">
-                      <FaCalendar /> {post.date}
-                    </span>
-                    <span className="blog-read-time">
-                      <FaClock /> {post.readTime}
-                    </span>
-                  </div>
                   <h3 className="blog-title">{post.title}</h3>
                   <p className="blog-excerpt">{post.excerpt}</p>
 
@@ -115,6 +115,12 @@ const Blog = () => {
                     ))}
                   </div>
                 </div>
+
+                {post.coverImage && (
+                  <div className="blog-cover">
+                    <img src={post.coverImage} alt={post.title} loading="lazy" />
+                  </div>
+                )}
 
                 <span className="blog-link">阅读 <FaArrowRight /></span>
               </motion.article>

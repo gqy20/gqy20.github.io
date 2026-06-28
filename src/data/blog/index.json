@@ -1,20 +1,32 @@
 {
   "lastUpdated": "2026-06-27T10:00:00.000Z",
   "totalPosts": 1,
-  "categories": ["AI应用"],
+  "categories": [
+    "AI应用"
+  ],
   "posts": [
     {
       "id": "open-source-knowledge-base-rag-survey",
-      "title": "2026 开源知识库 RAG 方案深度调研：从 Embedding 到商业可用性全解析",
+      "title": "2026 开源知识库 RAG 方案深度调研：降幻觉、技术实现与商业可用性全解析",
       "date": "2026-06-27",
-      "readTime": "25分钟",
+      "readTime": "23分钟",
       "author": "Qingyu Ge",
-      "tags": ["RAG", "知识库", "Embedding", "开源协议", "AI应用", "LLM"],
+      "tags": [
+        "RAG",
+        "知识库",
+        "Embedding",
+        "开源协议",
+        "AI应用",
+        "LLM",
+        "降幻觉",
+        "GraphRAG"
+      ],
       "category": "AI应用",
-      "excerpt": "全面调研 GitHub 上 6 个主流开源知识库/RAG 方案，深入分析分块策略、Embedding 参数配置、不同文件类型的预处理方案，以及各项目的开源协议和商业可用性。",
-      "coverImage": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+      "excerpt": "全面调研 GitHub 上 8 个主流开源知识库/RAG 方案，以「降低大模型幻觉」为主线，深入分析分块策略、Embedding 配置、RAGFlow 双流派融合与 GraphRAG 实测效果，以及各项目协议与商业可用性。",
+      "coverImage": "/blog/open-source-knowledge-base-rag-survey.jpg",
       "published": true,
-      "slug": "open-source-knowledge-base-rag-survey"
+      "slug": "open-source-knowledge-base-rag-survey",
+      "wordCount": 7884
     }
   ]
 }

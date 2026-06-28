@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   FaArchive,
-  FaArrowRight,
   FaExternalLinkAlt,
   FaGithub,
   FaSearch,
@@ -82,7 +81,6 @@ const Projects = () => {
           <h1 className="page-header__heading">这些项目证明同一件事：AI 要进入真实工作流。</h1>
           <p className="page-header__lede">
             围绕智能体、工具接口和自动化系统沉淀的 {totalProjects} 个公开作品。
-            <a href="#/blog" className="page-header__link">查看构建记录 <FaArrowRight /></a>
           </p>
         </motion.div>
 

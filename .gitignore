@@ -53,6 +53,7 @@ performance-badge.json
 
 # Debug files
 .playwright-mcp/
+.playwright-cli/
 *.png
 PROFILE
 pnpm-lock.yaml

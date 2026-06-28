@@ -11,6 +11,7 @@
     "test:watch": "vitest",
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist",
+    "blog:stats": "node scripts/calc-reading-stats.js",
     "perf:check": "node scripts/performance-analysis.js",
     "perf:quick": "lighthouse https://home.gqy20.top --chrome-flags=\"--headless --no-sandbox --disable-dev-shm-usage\" --only-categories=performance",
     "perf:full": "lighthouse https://home.gqy20.top --chrome-flags=\"--headless --no-sandbox --disable-dev-shm-usage\" --output=html --output-path=./lighthouse-report.html",

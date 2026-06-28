@@ -9,7 +9,8 @@ import {
   FaArrowLeft,
   FaArrowRight,
   FaGithub,
-  FaShare
+  FaShare,
+  FaFileAlt
 } from 'react-icons/fa'
 import Badge from './Badge'
 import Button from './Button'
@@ -74,11 +75,12 @@ const BlogPost = () => {
     loadBlogPost()
   }, [slug])
 
-  // 提取 H2/H3 → 注入 id → 构建 TOC + scroll-spy
+  // 提取 H2/H3 → 注入 id → 构建 TOC + scroll-spy（scroll 驱动，比 IntersectionObserver 窄带判定更稳定）
   useEffect(() => {
     if (!content) return
 
-    let observer
+    let rafId = null
+    let onScroll = null
     const timer = setTimeout(() => {
       const root = articleRef.current
       if (!root) return
@@ -99,29 +101,46 @@ const BlogPost = () => {
       })
       setToc(items)
       if (items.length) setActiveId(items[0].id)
-
       if (!items.length) return
 
-      observer = new IntersectionObserver(
-        (entries) => {
-          // 取当前进入视口"阅读带"的最靠前标题
-          const visible = entries
-            .filter(e => e.isIntersecting)
-            .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
-          if (visible.length) {
-            setActiveId(visible[0].target.id)
-          }
-        },
-        { rootMargin: '-5% 0px -78% 0px', threshold: 0 }
-      )
-      heads.forEach(h => observer.observe(h))
+      // 阅读线：视口顶部往下 120px；标题顶部越过该线即视为"当前段"，取最后一个已越过的标题
+      const READING_LINE = 120
+      const sync = () => {
+        rafId = null
+        let current = items[0].id
+        for (const item of items) {
+          const el = document.getElementById(item.id)
+          if (!el) continue
+          if (el.getBoundingClientRect().top <= READING_LINE) current = item.id
+          else break
+        }
+        setActiveId(prev => (prev !== current ? current : prev))
+      }
+      onScroll = () => {
+        if (rafId) return
+        rafId = requestAnimationFrame(sync)
+      }
+      window.addEventListener('scroll', onScroll, { passive: true })
+      window.addEventListener('resize', onScroll)
+      sync()
     }, 120)
 
     return () => {
       clearTimeout(timer)
-      if (observer) observer.disconnect()
+      if (rafId) cancelAnimationFrame(rafId)
+      if (onScroll) {
+        window.removeEventListener('scroll', onScroll)
+        window.removeEventListener('resize', onScroll)
+      }
     }
   }, [content])
+
+  // TOC 当前项自动滚入侧栏可见区（block:nearest 只在不可见时滚侧栏，不干扰主页面）
+  useEffect(() => {
+    if (!activeId) return
+    const el = document.querySelector('.toc-item.is-active')
+    if (el && el.scrollIntoView) el.scrollIntoView({ block: 'nearest' })
+  }, [activeId])
 
   // 阅读进度（整页滚动百分比）
   useEffect(() => {
@@ -317,6 +336,11 @@ const BlogPost = () => {
                   <span className="meta-item">
                     <FaClock /> {post.readTime}
                   </span>
+                  {post.wordCount && (
+                    <span className="meta-item">
+                      <FaFileAlt /> {post.wordCount.toLocaleString()} 字
+                    </span>
+                  )}
                 </div>
 
                 <div className="meta-tags">
@@ -382,7 +406,7 @@ const BlogPost = () => {
 
               <div className="article-navigation">
                 <Link to="/blog">
-                  <Button variant="default" className="nav-button">
+                  <Button variant="outline" className="nav-button">
                     <FaArrowLeft /> 查看更多文章
                   </Button>
                 </Link>
