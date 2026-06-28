@@ -161,7 +161,7 @@
 
 .tl-panels {
   width: 100%;
-  max-width: 1120px;
+  max-width: var(--w-layout);
   padding: 0 clamp(1.2rem, 3.5vw, 2.5rem) 0 clamp(0.5rem, 1vw, 1rem);
   margin: 0;
   height: 100vh;

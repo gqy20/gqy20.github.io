@@ -9,6 +9,7 @@ import {
   FaSync
 } from 'react-icons/fa'
 import './Projects.css'
+import PageHeader from './PageHeader'
 import ProjectDetailModal from './ProjectDetailModal'
 import { getProjectViewModel } from '../utils/portfolioProjects'
 import { getExternalLinkIcon, normalizeDescription } from '../utils/projectUtils'
@@ -69,15 +70,15 @@ const Projects = () => {
 
   return (
     <section className="projects">
+      <PageHeader num="02" title="PROJECTS" />
       <div className="projects-shell">
-        {/* Inline hero — no separate header bar */}
+        {/* Inline hero */}
         <motion.div
           className="projects-hero"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <p>02 · PROJECTS</p>
           <h1 className="page-header__heading">这些项目证明同一件事：AI 要进入真实工作流。</h1>
           <p className="page-header__lede">
             围绕智能体、工具接口和自动化系统沉淀的 {totalProjects} 个公开作品。

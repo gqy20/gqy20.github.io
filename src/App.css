@@ -18,6 +18,11 @@
   --dt-accent-soft: rgba(255, 184, 107, 0.10);
   --dt-accent-line: rgba(255, 184, 107, 0.35);
 
+  /* 宽度令牌 — 全站统一尺度系统（正文 / 布局 / 宽视觉 三档）*/
+  --w-content: 880px;   /* 正文/阅读型：文章正文、hero 描述 */
+  --w-layout: 1280px;   /* 标准布局：列表、卡片网格、Timeline */
+  --w-wide: 1440px;     /* 宽布局：Hero、PageHeader 大视觉 */
+
   /* 字体 */
   --dt-font-display: 'Fraunces', 'Noto Serif SC', Georgia, serif;
   --dt-font-serif: 'Noto Serif SC', 'Fraunces', Georgia, serif;
@@ -161,4 +166,18 @@ body::before {
   .app {
     font-size: 14px;
   }
+}
+
+/* ════════════════════════════════════════════════════════════
+   大屏断点阶梯 — 放开 layout/wide 填满超宽屏（含 27寸 2560）
+   --w-content 始终封顶 880，保护阅读行长
+   ════════════════════════════════════════════════════════════ */
+@media (min-width: 1440px) {
+  :root { --w-layout: 1360px; --w-wide: 1520px; }
+}
+@media (min-width: 1680px) {
+  :root { --w-layout: 1440px; --w-wide: 1640px; }
+}
+@media (min-width: 2160px) {
+  :root { --w-layout: 1560px; --w-wide: 1760px; }
 }

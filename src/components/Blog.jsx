@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { FaArrowRight, FaCalendar, FaClock, FaFolder, FaTag } from 'react-icons/fa'
 import Badge from './Badge'
 import './Blog.css'
+import PageHeader from './PageHeader'
 
 const Blog = () => {
   const [blogData, setBlogData] = useState(null)
@@ -58,15 +59,15 @@ const Blog = () => {
 
   return (
     <section className="blog">
+      <PageHeader num="03" title="BLOG" />
       <div className="blog-shell">
-        {/* Inline hero — no separate header bar */}
+        {/* Inline hero */}
         <motion.div
           className="blog-hero"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <p>03 · BLOG</p>
           <h1>记录我如何把 AI 想法做成真实系统。</h1>
           <div className="blog-hero-copy">
             <span>{blogData?.totalPosts || 0} 篇关于智能体、工具接口和自动化工作流的记录。</span>

@@ -6,6 +6,7 @@ import Blog from './components/Blog'
 import BlogPost from './components/BlogPost.jsx'
 import Journey from './components/Journey.jsx'
 import ComponentTest from './components/ComponentTest.jsx'
+import ScrollToTopButton from './components/ScrollToTopButton.jsx'
 import './App.css'
 
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
             </motion.div>
           </main>
         </div>
+        <ScrollToTopButton />
       </div>
     </Router>
   )

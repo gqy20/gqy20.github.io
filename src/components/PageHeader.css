@@ -3,13 +3,17 @@
    ══════════════════════════════════════ */
 
 .page-header {
-  padding: 5rem 0 3rem;
+  padding: clamp(1.75rem, 4.5vh, 2.75rem) 0 0;
+}
+
+.page-header__head {
+  margin-bottom: 0;
 }
 
 .page-header__inner {
-  width: min(72vw, 1200px);
+  width: min(var(--w-wide), calc(100% - 2.5rem));
   margin: 0 auto;
-  padding: 0 clamp(2rem, 4vw, 3rem);
+  padding: 0 clamp(1rem, 4vw, 3rem);
 }
 
 .page-header__head {

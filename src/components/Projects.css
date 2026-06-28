@@ -17,15 +17,15 @@
 }
 
 .projects-shell {
-  width: min(1120px, calc(100% - 2rem));
+  width: min(var(--w-layout), calc(100% - 2rem));
   margin: 0 auto;
 }
 
 /* ── Inline Hero — no separate header bar ── */
 
 .projects-hero {
-  max-width: 720px;
-  padding: clamp(2.5rem, 6vh, 4rem) 0 1rem;
+  max-width: var(--w-content);
+  padding: clamp(1.5rem, 4vh, 2.5rem) 0 1rem;
 }
 
 .projects-hero p,
