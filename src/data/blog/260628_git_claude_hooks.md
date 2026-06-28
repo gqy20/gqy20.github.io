@@ -1,10 +1,10 @@
 ---
 title: "当 AI 开始写代码,hooks 该挂在哪里?——从 git hooks 到 Claude Code hooks 的范式迁移"
-type: "deep-dive"
+type: "tutorial"
 date: "2026-06-28"
 updated: "2026-06-28"
 author: "Qingyu Ge"
-tags: ["Git Hooks", "Claude Code", "AI Coding", "Hooks", "Agent", "工程实践", "可观测性"]
+tags: ["Claude Code", "Git Hooks", "Agent", "可观测性", "工程实践"]
 category: "AI编程"
 excerpt: "git hooks 把逻辑挂进版本控制的生命周期,Claude Code hooks 把它挂进 AI 代理的生命周期——两者同源异流。本文从 git hooks 本质讲起,讲清为什么 AI Coding 时代必须有 hooks,再用我真实的 AI_PAD 全事件上报 + cc-insights 可视化系统,拆解如何给 Claude Code 装一套「Agent 的 APM」。"
 coverImage: "/blog/260628_git_claude_hooks.jpg"
@@ -419,7 +419,7 @@ echo -e "${BLUE}可升级技能${NC}: ${K_SKILLS[*]}"
 exit 0
 ```
 
-这个脚本几乎是一个** hook 编写的标准骨架**,五个步骤拆开看:
+这个脚本几乎是一个 **hook 编写的标准骨架**,五个步骤拆开看:
 
 1. **读输入**:`cat` 读 stdin,`jq` 解析出 `tool_name` 和 `tool_input` 里的字段;
 2. **守卫判断**:不是我要管的事件就 `exit 0` 放行——这极其重要,hook 必须对「不相关」的事件保持静默;

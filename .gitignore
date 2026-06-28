@@ -57,3 +57,6 @@ performance-badge.json
 *.png
 PROFILE
 pnpm-lock.yaml
+
+# Claude Code local (worktrees / settings)
+.claude/

@@ -60,16 +60,12 @@ function countWords(text) {
   return cn + en
 }
 
-// 加粗语法 lint:**/__ 边缘带空格会导致加粗不渲染(CommonMark 规则)。
-// 提醒性质:跳过 frontmatter / 代码块 / 行内代码;命中处请人工核对(部分可能是正常关闭后接文字)。
+// 加粗语法 lint:只抓真正导致粗体失效的两种 ** 边缘空格(CommonMark 规则)。
+//   1) 开放 ** 后紧跟空格(前是空白/行首,后是空格)→ ** 不构成粗体开始
+//   2) 关闭 ** 前紧跟空格(前是空格,后是空格/标点/行尾)→ ** 不构成粗体结束
+// 正常的「**粗体** 后接文字」「**粗体内嵌 `代码`**」不算 bug,不报。
 function lintBoldSpacing(content) {
   const issues = []
-  // 中英文标点:用于排除正常加粗的关闭(标点**)和开放(**标点)
-  const PUNCT = '，。、；：！？.,;:!?…（(【《》」』"\'）)】'
-  // ** 后紧跟空格,且前面不是标点 → 开放失败/孤立(排除正常关闭"标点** 后空格")
-  const reAfter = new RegExp(`(?<![${PUNCT}])\\*\\* |(?<![${PUNCT}])__ `)
-  // ** 前紧跟空格,且后面是标点/行尾 → 关闭前空格失败(排除正常开放"空格**文字")
-  const reBefore = new RegExp(` (\\*\\*|__)(?=[${PUNCT}]|$)`)
   const lines = content.split(/\r?\n/)
   let inCode = false, inFm = false
   lines.forEach((line, i) => {
@@ -78,9 +74,14 @@ function lintBoldSpacing(content) {
     if (/^\s*(```|~~~)/.test(line)) { inCode = !inCode; return }
     if (inCode) return
     if (/^\s*\|/.test(line)) return  // 跳过表格行
-    const clean = line.replace(/`[^`]*`/g, '').replace(/^(\s*)(\d+\.|-|\*|\+)\s+/, '$1')
-    if (reAfter.test(clean)) issues.push({ line: i + 1, kind: '** 后有空格', snippet: line.trim().slice(0, 55) })
-    if (reBefore.test(clean)) issues.push({ line: i + 1, kind: '** 前有空格', snippet: line.trim().slice(0, 55) })
+    // 行内代码替换成占位符,避免「粗体内嵌代码」去码后产生 ** 边缘空格的误判
+    const clean = line.replace(/`[^`]*`/g, 'C').replace(/^(\s*)(\d+\.|-|\*|\+)\s+/, '$1')
+    // 1) 开放 ** 后紧跟空格 → 粗体失效
+    if (/(^|\s)\*\*\s\S/.test(clean))
+      issues.push({ line: i + 1, kind: '开放 ** 后有空格(粗体失效)', snippet: line.trim().slice(0, 55) })
+    // 2) 关闭 ** 前紧跟空格(后接非词字符/行尾)→ 粗体失效
+    if (/\S\s\*\*(?=[^\w一-龥]|$)/.test(clean))
+      issues.push({ line: i + 1, kind: '关闭 ** 前有空格(粗体失效)', snippet: line.trim().slice(0, 55) })
   })
   return issues
 }

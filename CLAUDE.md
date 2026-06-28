@@ -90,10 +90,10 @@ npm run deploy
 2. 或者在 `scripts/update-projects.js` 中配置要包含的仓库
 
 ### 添加新博客文章
-1. 复制 `src/data/blog/_TEMPLATE.md` 改名为 `<id>.md`,填写 frontmatter + 正文(md frontmatter 是**唯一数据源**)
+1. 复制 `src/data/blog/_TEMPLATE.md` 改名为 `YYMMDD_词1_词2_词3.md`(创建日期_标题关键词,≤3 个英文词、全小写、_ 分隔),填写 frontmatter + 正文(md frontmatter 是**唯一数据源**)
 2. 运行 `npm run sync-blog` 自动生成 `src/data/blog/index.json`(从各 md frontmatter 派生,**无需手动编辑 index.json**)
-3. 规范:`type`(survey=调研 / tutorial=实操)必填;`tags` **不超过 5 个**;`updated`≠`date` 时显示"更新于";`wordCount` 由脚本自动统计正文
-4. 支持标准 Markdown 和 GitHub Flavored Markdown
+3. 规范:**文件名 = id = slug = 封面图名**(四者一致,如 `260628_git_claude_hooks`);`type`(survey=调研 / tutorial=实操)必填;`tags` **不超过 5 个**;`updated`≠`date` 时显示"更新于";`wordCount` 由脚本自动统计正文
+4. 支持标准 Markdown、GitHub Flavored Markdown;` ```mermaid ` 代码块会自动渲染成图表(MermaidBlock 组件)
 
 ### 修改颜色主题
 编辑 `src/App.css` 中的 CSS 变量定义，Tailwind 会自动读取这些变量。
