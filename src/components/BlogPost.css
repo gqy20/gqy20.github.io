@@ -391,7 +391,15 @@
 
 .author-info {
   flex: 1;
-  max-width: 480px;
+  min-width: 0;
+}
+
+.author-info__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
 }
 
 .author-info h3 {
@@ -399,7 +407,7 @@
   font-size: 1rem;
   font-weight: 800;
   color: var(--dt-ink);
-  margin: 0 0 0.5rem;
+  margin: 0;
 }
 
 .author-info p {

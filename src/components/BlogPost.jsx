@@ -356,12 +356,8 @@ const BlogPost = () => {
           >
             <div className="footer-content">
               <div className="author-info">
-                <h3>关于作者</h3>
-                <p>
-                  我是Qingyu Ge，一名在读硕士研究生，专注于AI辅助科研工具开发。
-                  热衷于分享技术经验和学习心得。
-                </p>
-                <div className="author-links">
+                <div className="author-info__head">
+                  <h3>关于作者</h3>
                   <a
                     href="https://github.com/gqy20"
                     target="_blank"
@@ -371,6 +367,10 @@ const BlogPost = () => {
                     <FaGithub /> GitHub
                   </a>
                 </div>
+                <p>
+                  我是Qingyu Ge，一名在读硕士研究生，专注于AI辅助科研工具开发。
+                  热衷于分享技术经验和学习心得。
+                </p>
               </div>
 
               <div className="article-navigation">
