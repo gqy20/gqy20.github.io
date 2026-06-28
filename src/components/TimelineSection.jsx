@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo, useRef } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useProjectsData } from '../hooks/useProjectsData.js'
@@ -47,33 +47,7 @@ export default function TimelineSection() {
     document.getElementById(`stage-${stageId}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
-  /* page-flip: wheel/touch → jump to next/prev panel, no intermediate scroll */
-  const panelsRef = useRef(null)
-  useEffect(() => {
-    const container = panelsRef.current
-    if (!container) return
-
-    let wheelTimeout = null
-    const onWheel = (e) => {
-      e.preventDefault()
-      if (wheelTimeout) return
-
-      const currentIndex = timelineStages.findIndex(s => s.id === activeStage)
-      let targetIndex = e.deltaY > 0
-        ? Math.min(currentIndex + 1, timelineStages.length - 1)
-        : Math.max(currentIndex - 1, 0)
-
-      if (targetIndex !== currentIndex) {
-        const targetEl = document.getElementById(`stage-${timelineStages[targetIndex].id}`)
-        targetEl?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }
-
-      wheelTimeout = setTimeout(() => { wheelTimeout = null }, 800)
-    }
-
-    container.addEventListener('wheel', onWheel, { passive: false })
-    return () => { container.removeEventListener('wheel', onWheel) }
-  }, [activeStage])
+  /* page-flip 翻页已移除：改为连续滚动（参考 Seiter Design 时间线）*/
 
   return (
     <section className="tl-section" id="timeline">
@@ -81,7 +55,6 @@ export default function TimelineSection() {
       <aside className="tl-dial-col" aria-label="阶段导航">
         <nav className="tl-dial">
           <span className="tl-dial__page-title">04 · JOURNEY</span>
-          <span className="tl-dial__heading">章节</span>
           <div className="tl-dial__track">
             {timelineStages.map((stage, i) => {
               const isActive = activeStage === stage.id
@@ -94,7 +67,6 @@ export default function TimelineSection() {
                   aria-current={isActive ? 'true' : undefined}
                 >
                   <span className="tl-dial__num">{String(i + 1).padStart(2, '0')}</span>
-                  <span className="tl-dial__bar" />
                   <span className="tl-dial__label">{stage.label}</span>
                 </button>
               )
@@ -108,7 +80,7 @@ export default function TimelineSection() {
       </aside>
 
       {/* Panels — one per stage, page-flip container */}
-      <div className="tl-panels" ref={panelsRef}>
+      <div className="tl-panels">
         {timelineStages.map((stage, i) => (
           <TimelinePanel
             key={stage.id}
@@ -138,7 +110,7 @@ function TimelinePanel({ stage, index, getProject }) {
     >
       {/* ── Left Anchor ── */}
       <div className="tl-panel__anchor">
-        <span className="tl-panel__anchor-num">STAGE {String(index + 1).padStart(2, '0')}</span>
+        <span className="tl-panel__anchor-num">{String(index + 1).padStart(2, '0')}</span>
         <h2 className="tl-panel__title">{stage.label}</h2>
         <div className="tl-panel__meta">
           <span className="tl-panel__period">{stage.period}</span>
