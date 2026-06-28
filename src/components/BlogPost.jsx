@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { useParams, Link } from 'react-router-dom'
 import {
@@ -7,6 +7,7 @@ import {
   FaUser,
   FaTag,
   FaArrowLeft,
+  FaArrowRight,
   FaGithub,
   FaShare,
   FaBookmark
@@ -20,31 +21,42 @@ const BlogPost = () => {
   const { slug } = useParams()
   const [post, setPost] = useState(null)
   const [content, setContent] = useState('')
+  const [allPosts, setAllPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [toc, setToc] = useState([])
+  const [activeId, setActiveId] = useState('')
+  const [progress, setProgress] = useState(0)
 
+  const articleRef = useRef(null)
+
+  // 加载文章数据 + 内容
   useEffect(() => {
     const loadBlogPost = async () => {
       try {
         setLoading(true)
+        setError(null)
+        setToc([])
+        setActiveId('')
+        setProgress(0)
 
         // 加载博客数据
         const blogDataResponse = await import('../data/blog/index.json')
         const blogData = blogDataResponse.default
-        const foundPost = blogData.posts.find(p => p.slug === slug)
+        setAllPosts(blogData.posts || [])
 
+        const foundPost = blogData.posts.find(p => p.slug === slug)
         if (!foundPost) {
           setError('文章未找到')
           return
         }
-
         setPost(foundPost)
 
         // 加载文章内容
         const contentResponse = await import(`../data/blog/${foundPost.id}.md?raw`)
         const contentText = contentResponse.default
 
-        // 解析frontmatter和内容
+        // 解析 frontmatter 和内容
         const frontmatterEnd = contentText.indexOf('---', 3) + 3
         const markdownContent = contentText.substring(frontmatterEnd).trim()
 
@@ -59,6 +71,71 @@ const BlogPost = () => {
 
     loadBlogPost()
   }, [slug])
+
+  // 提取 H2/H3 → 注入 id → 构建 TOC + scroll-spy
+  useEffect(() => {
+    if (!content) return
+
+    let observer
+    const timer = setTimeout(() => {
+      const root = articleRef.current
+      if (!root) return
+
+      const heads = Array.from(root.querySelectorAll('h2, h3'))
+      const seen = new Set()
+      const items = heads.map((h, i) => {
+        // 优先用 MarkdownRenderer 受控注入的 id；没有则兜底（并去重）
+        let id = h.id || `bp-heading-${i}`
+        if (!h.id) h.id = id
+        if (seen.has(id)) { id = `${id}-${i}`; h.id = id }
+        seen.add(id)
+        return {
+          id,
+          text: (h.textContent || '').replace(/[#*`]/g, '').trim(),
+          level: h.tagName.toLowerCase()
+        }
+      })
+      setToc(items)
+      if (items.length) setActiveId(items[0].id)
+
+      if (!items.length) return
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          // 取当前进入视口"阅读带"的最靠前标题
+          const visible = entries
+            .filter(e => e.isIntersecting)
+            .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+          if (visible.length) {
+            setActiveId(visible[0].target.id)
+          }
+        },
+        { rootMargin: '-5% 0px -78% 0px', threshold: 0 }
+      )
+      heads.forEach(h => observer.observe(h))
+    }, 120)
+
+    return () => {
+      clearTimeout(timer)
+      if (observer) observer.disconnect()
+    }
+  }, [content])
+
+  // 阅读进度（整页滚动百分比）
+  useEffect(() => {
+    const onScroll = () => {
+      const doc = document.documentElement
+      const total = doc.scrollHeight - doc.clientHeight
+      setProgress(total > 0 ? Math.min(100, (doc.scrollTop / total) * 100) : 0)
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [])
 
   const formatDate = (dateString) => {
     const date = new Date(dateString)
@@ -80,6 +157,44 @@ const BlogPost = () => {
       navigator.clipboard.writeText(window.location.href)
       alert('链接已复制到剪贴板')
     }
+  }
+
+  const scrollToHeading = (id) => {
+    const el = document.getElementById(id)
+    if (!el) return
+    // 手动计算位置，避免 sticky 父级下 scrollIntoView 失常；顶部留 90px 偏移
+    const y = el.getBoundingClientRect().top + window.scrollY - 90
+    window.scrollTo({ top: y, behavior: 'smooth' })
+    setActiveId(id)
+  }
+
+  const otherPosts = useMemo(
+    () => allPosts.filter(p => p.slug !== slug).slice(0, 5),
+    [allPosts, slug]
+  )
+
+  const renderMoreArticles = (variant) => {
+    if (!otherPosts.length) return null
+    return (
+      <div className={`more-articles ${variant ? `more-articles--${variant}` : ''}`}>
+        <h4 className="aside-label">MORE ARTICLES</h4>
+        <ul className="more-list">
+          {otherPosts.map(p => (
+            <li key={p.id}>
+              <Link to={`/blog/${p.slug}`} className="more-item">
+                <span className="more-item-title">{p.title}</span>
+                <span className="more-item-meta">
+                  {p.category} · {p.readTime}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <Link to="/blog" className="more-all">
+          查看全部 <FaArrowRight />
+        </Link>
+      </div>
+    )
   }
 
   if (loading) {
@@ -127,135 +242,171 @@ const BlogPost = () => {
 
   return (
     <div className="blog-post">
-      <div className="container">
-        {/* 返回按钮 */}
-        <motion.div
-          className="blog-post-nav"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Link to="/blog">
-            <Button variant="ghost" className="back-button">
-              <FaArrowLeft /> 返回博客
-            </Button>
-          </Link>
-        </motion.div>
+      {/* 顶部阅读进度线 */}
+      <div className="reading-progress" style={{ width: `${progress}%` }} />
 
-        {/* 文章头部 */}
-        <motion.header
-          className="blog-post-header"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          {post.coverImage && (
-            <div className="blog-post-cover">
-              <img
-                src={post.coverImage}
-                alt={post.title}
-                className="cover-image"
-              />
-              <div className="cover-overlay"></div>
-            </div>
-          )}
+      <div className="blog-post-shell">
+        {/* ── 主栏：正文 ── */}
+        <div className="blog-post-main">
+          {/* 返回按钮 */}
+          <motion.div
+            className="blog-post-nav"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Link to="/blog">
+              <Button variant="ghost" className="back-button">
+                <FaArrowLeft /> 返回博客
+              </Button>
+            </Link>
+          </motion.div>
 
-          <div className="blog-post-meta">
-            <div className="meta-primary">
-              <h1 className="blog-post-title">{post.title}</h1>
-              <p className="blog-post-excerpt">{post.excerpt}</p>
-            </div>
+          {/* 文章头部 */}
+          <motion.header
+            className="blog-post-header"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="post-eyebrow">ESSAY · {post.category}</p>
 
-            <div className="meta-secondary">
-              <div className="meta-info">
-                <span className="meta-item">
-                  <FaUser /> {post.author}
-                </span>
-                <span className="meta-item">
-                  <FaCalendar /> {formatDate(post.date)}
-                </span>
-                <span className="meta-item">
-                  <FaClock /> {post.readTime}
-                </span>
+            {post.coverImage && (
+              <div className="blog-post-cover">
+                <img
+                  src={post.coverImage}
+                  alt={post.title}
+                  className="cover-image"
+                />
+                <div className="cover-overlay"></div>
+              </div>
+            )}
+
+            <div className="blog-post-meta">
+              <div className="meta-primary">
+                <h1 className="blog-post-title">{post.title}</h1>
+                <p className="blog-post-excerpt">{post.excerpt}</p>
               </div>
 
-              <div className="meta-tags">
-                <Badge variant="secondary" className="blogpost-category-badge">
-                  {post.category}
-                </Badge>
-                {post.tags.map((tag) => (
-                  <Badge key={tag} variant="outline" className="blogpost-tag-badge">
-                    <FaTag /> {tag}
+              <div className="meta-secondary">
+                <div className="meta-info">
+                  <span className="meta-item">
+                    <FaUser /> {post.author}
+                  </span>
+                  <span className="meta-item">
+                    <FaCalendar /> {formatDate(post.date)}
+                  </span>
+                  <span className="meta-item">
+                    <FaClock /> {post.readTime}
+                  </span>
+                </div>
+
+                <div className="meta-tags">
+                  <Badge variant="secondary" className="blogpost-category-badge">
+                    {post.category}
                   </Badge>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* 操作按钮 */}
-          <div className="blog-post-actions">
-            <button className="action-button" onClick={handleShare}>
-              <FaShare /> 分享
-            </button>
-            <button className="action-button">
-              <FaBookmark /> 收藏
-            </button>
-            <a
-              href="https://github.com/gqy20/gqy20.github.io"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="action-button"
-            >
-              <FaGithub /> 源码
-            </a>
-          </div>
-        </motion.header>
-
-        {/* 文章内容 */}
-        <motion.article
-          className="blog-post-content"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <MarkdownRenderer content={content} />
-        </motion.article>
-
-        {/* 文章底部 */}
-        <motion.footer
-          className="blog-post-footer"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        >
-          <div className="footer-content">
-            <div className="author-info">
-              <h3>关于作者</h3>
-              <p>
-                我是Qingyu Ge，一名在读硕士研究生，专注于AI辅助科研工具开发。
-                热衷于分享技术经验和学习心得。
-              </p>
-              <div className="author-links">
-                <a
-                  href="https://github.com/gqy20"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="author-link"
-                >
-                  <FaGithub /> GitHub
-                </a>
+                  {post.tags.map((tag) => (
+                    <Badge key={tag} variant="outline" className="blogpost-tag-badge">
+                      <FaTag /> {tag}
+                    </Badge>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="article-navigation">
-              <Link to="/blog">
-                <Button variant="default" className="nav-button">
-                  <FaArrowLeft /> 查看更多文章
-                </Button>
-              </Link>
+            {/* 操作按钮 */}
+            <div className="blog-post-actions">
+              <button className="action-button" onClick={handleShare}>
+                <FaShare /> 分享
+              </button>
+              <button className="action-button">
+                <FaBookmark /> 收藏
+              </button>
+              <a
+                href="https://github.com/gqy20/gqy20.github.io"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="action-button"
+              >
+                <FaGithub /> 源码
+              </a>
             </div>
+          </motion.header>
+
+          {/* 文章内容 */}
+          <motion.article
+            ref={articleRef}
+            className="blog-post-content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <MarkdownRenderer content={content} />
+          </motion.article>
+
+          {/* 窄屏：内联的更多文章（宽屏由右侧栏承接，CSS 控制显隐） */}
+          {renderMoreArticles('inline')}
+
+          {/* 文章底部 */}
+          <motion.footer
+            className="blog-post-footer"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <div className="footer-content">
+              <div className="author-info">
+                <h3>关于作者</h3>
+                <p>
+                  我是Qingyu Ge，一名在读硕士研究生，专注于AI辅助科研工具开发。
+                  热衷于分享技术经验和学习心得。
+                </p>
+                <div className="author-links">
+                  <a
+                    href="https://github.com/gqy20"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="author-link"
+                  >
+                    <FaGithub /> GitHub
+                  </a>
+                </div>
+              </div>
+
+              <div className="article-navigation">
+                <Link to="/blog">
+                  <Button variant="default" className="nav-button">
+                    <FaArrowLeft /> 查看更多文章
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </motion.footer>
+        </div>
+
+        {/* ── 右侧栏：TOC + 更多文章（宽屏 sticky） ── */}
+        <aside className="blog-post-aside">
+          <div className="aside-inner">
+            {toc.length > 0 && (
+              <nav className="toc" aria-label="文章目录">
+                <h4 className="aside-label">ON THIS PAGE</h4>
+                <ul className="toc-list">
+                  {toc.map(item => (
+                    <li key={item.id}>
+                      <button
+                        className={`toc-item toc-${item.level} ${activeId === item.id ? 'is-active' : ''}`}
+                        onClick={() => scrollToHeading(item.id)}
+                      >
+                        {item.text}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            )}
+            {renderMoreArticles('aside')}
           </div>
-        </motion.footer>
+        </aside>
       </div>
     </div>
   )

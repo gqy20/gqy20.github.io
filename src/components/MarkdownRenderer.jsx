@@ -4,6 +4,26 @@ import remarkGfm from 'remark-gfm'
 import PrismCodeBlock from './PrismCodeBlock'
 import './MarkdownRenderer.css'
 
+// 从 React children 递归提取纯文本（用于生成标题锚点 id）
+const getNodeText = (children) =>
+  React.Children.toArray(children)
+    .map(c => {
+      if (typeof c === 'string' || typeof c === 'number') return String(c)
+      if (React.isValidElement(c)) return getNodeText(c.props.children)
+      return ''
+    })
+    .join('')
+
+// 标题文本 → 稳定 id（保留中英文/数字/连字符）
+const slugifyHeading = (text) => {
+  const t = (text || '').trim().toLowerCase()
+    .replace(/[^\w一-龥\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+  return t ? `sec-${t.slice(0, 50)}` : ''
+}
+
 const MarkdownRenderer = ({ content }) => {
 
   return (
@@ -16,10 +36,10 @@ const MarkdownRenderer = ({ content }) => {
             <h1 className="markdown-title" {...props}>{children}</h1>
           ),
           h2: ({ children, ...props }) => (
-            <h2 className="markdown-heading" {...props}>{children}</h2>
+            <h2 {...props} className="markdown-heading" id={slugifyHeading(getNodeText(children))}>{children}</h2>
           ),
           h3: ({ children, ...props }) => (
-            <h3 className="markdown-subheading" {...props}>{children}</h3>
+            <h3 {...props} className="markdown-subheading" id={slugifyHeading(getNodeText(children))}>{children}</h3>
           ),
           // 自定义段落渲染
           p: ({ children, ...props }) => (

@@ -24,7 +24,7 @@
 /* ── Inline Hero ── */
 
 .blog-hero {
-  max-width: 720px;
+  max-width: 920px;
   padding: clamp(2.5rem, 6vh, 4rem) 0 1rem;
 }
 

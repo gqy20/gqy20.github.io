@@ -1,63 +1,20 @@
 {
-  "lastUpdated": "2025-10-29T10:00:00.000Z",
-  "totalPosts": 4,
-  "categories": [
-    "前端开发",
-    "AI应用",
-    "前端开发"
-  ],
+  "lastUpdated": "2026-06-27T10:00:00.000Z",
+  "totalPosts": 1,
+  "categories": ["AI应用"],
   "posts": [
     {
-      "id": "react-personal-website",
-      "title": "使用React构建炫酷个人网站：从零到部署的完整指南",
-      "date": "2025-10-29",
-      "readTime": "12分钟",
+      "id": "open-source-knowledge-base-rag-survey",
+      "title": "2026 开源知识库 RAG 方案深度调研：从 Embedding 到商业可用性全解析",
+      "date": "2026-06-27",
+      "readTime": "25分钟",
       "author": "Qingyu Ge",
-      "tags": ["React", "前端", "个人网站", "Vite", "GitHub Pages"],
-      "category": "前端开发",
-      "excerpt": "分享从零开始构建现代React个人网站的完整经验，包括动画效果、响应式设计、动态数据获取和GitHub Pages自动部署。",
-      "coverImage": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=400&fit=crop",
-      "published": true,
-      "slug": "react-personal-website"
-    },
-    {
-      "id": "ai-coding-tools",
-      "title": "AI辅助编程：提升开发效率的实用工具集",
-      "date": "2025-10-28",
-      "readTime": "8分钟",
-      "author": "Qingyu Ge",
-      "tags": ["AI", "编程工具", "效率提升", "MCP", "代码生成"],
+      "tags": ["RAG", "知识库", "Embedding", "开源协议", "AI应用", "LLM"],
       "category": "AI应用",
-      "excerpt": "探索如何利用AI工具提升编程效率，包括代码补全、错误检测、文档生成等实用技巧。",
-      "coverImage": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop",
+      "excerpt": "全面调研 GitHub 上 6 个主流开源知识库/RAG 方案，深入分析分块策略、Embedding 参数配置、不同文件类型的预处理方案，以及各项目的开源协议和商业可用性。",
+      "coverImage": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
       "published": true,
-      "slug": "ai-coding-tools"
-    },
-    {
-      "id": "test-post",
-      "title": "React开发技巧分享",
-      "date": "2025-10-29",
-      "readTime": "5分钟",
-      "author": "Qingyu Ge",
-      "tags": ["React", "前端", "技巧"],
-      "category": "前端开发",
-      "excerpt": "分享一些实用的React开发技巧和最佳实践。",
-      "coverImage": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop",
-      "published": true,
-      "slug": "test-post"
-    },
-    {
-      "id": "task-list-demo",
-      "title": "任务列表演示",
-      "date": "2025-10-29",
-      "readTime": "2分钟",
-      "author": "Qingyu Ge",
-      "tags": ["演示", "Markdown", "任务列表"],
-      "category": "前端开发",
-      "excerpt": "演示 GitHub Flavored Markdown 任务列表的渲染效果。",
-      "coverImage": "https://images.unsplash.com/photo-1611224923853-80cb01435b9a?w=800&h=400&fit=crop",
-      "published": true,
-      "slug": "task-list-demo"
+      "slug": "open-source-knowledge-base-rag-survey"
     }
   ]
 }

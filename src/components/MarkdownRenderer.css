@@ -1,6 +1,21 @@
 .markdown-content {
+  /* 暗色站点变量映射：:root 里旧变量是浅色值(#fff/#f8fafc/#e2e8f0...)，
+     在此作用域内把它们重定向到 dt-* 暗色值，使本组件内所有
+     表格/表头/边框/内联代码/链接/引用等元素统一暗色，避免发白。 */
+  --bg-color: var(--dt-surface);
+  --bg-light: var(--dt-surface-2);
+  --text-color: var(--dt-ink);
+  --text-light: var(--dt-muted);
+  --text-secondary: var(--dt-dim);
+  --border-color: var(--dt-line);
+  --primary-color: var(--dt-accent);
+  --primary-dark: var(--dt-accent);
+  --accent-color: var(--dt-accent);
+  --hover-bg: var(--dt-accent-soft);
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+
   line-height: 1.7;
-  color: var(--text-color);
+  color: var(--dt-ink);
   font-size: 1rem;
   max-width: none;
 }
@@ -102,7 +117,7 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-color: white;
+  background-color: var(--dt-surface-2);
   position: relative;
 }
 
