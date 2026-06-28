@@ -34,7 +34,7 @@ export default function TimelineSection() {
           setActiveStage(visible[0].target.id.replace('stage-', ''))
         }
       },
-      { threshold: [0.25, 0.5, 0.75] }
+      { rootMargin: '-25% 0px -50% 0px', threshold: [0, 0.5, 1] }
     )
     timelineStages.forEach(s => {
       const el = document.getElementById(`stage-${s.id}`)
