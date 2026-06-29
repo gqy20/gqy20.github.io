@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-28T18:58:27.796Z",
+  "lastUpdated": "2026-06-29T02:05:17.891Z",
   "totalRepositories": 47,
   "totalProjects": 43,
   "totalRepositoryStars": 84,
@@ -204,7 +204,7 @@
         "forks": 0,
         "issues": 10,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-06-28T14:15:48Z",
+        "updatedAt": "2026-06-28T22:18:33Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -219,7 +219,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 24237,
+        "size": 24300,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1079,7 +1079,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2025-06-23T06:53:28Z",
-        "updatedAt": "2026-06-27T20:17:36Z",
+        "updatedAt": "2026-06-28T20:21:36Z",
         "category": "个人项目",
         "priority": 6,
         "tags": [
@@ -1088,7 +1088,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 12779,
+        "size": 12871,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1556,7 +1556,7 @@
       "forks": 0,
       "issues": 10,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-06-28T14:15:48Z",
+      "updatedAt": "2026-06-28T22:18:33Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1571,7 +1571,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 24237,
+      "size": 24300,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -2423,7 +2423,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2025-06-23T06:53:28Z",
-      "updatedAt": "2026-06-27T20:17:36Z",
+      "updatedAt": "2026-06-28T20:21:36Z",
       "category": "个人项目",
       "priority": 6,
       "tags": [
@@ -2432,7 +2432,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 12779,
+      "size": 12871,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
