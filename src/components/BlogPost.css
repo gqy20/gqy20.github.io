@@ -618,8 +618,8 @@
   width: min(var(--w-layout), calc(100% - 2.5rem));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 296px;
-  gap: 3.5rem;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 2.5rem;
   align-items: start;
 }
 
