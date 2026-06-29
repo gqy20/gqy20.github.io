@@ -78,10 +78,14 @@ export function rssPlugin() {
         if (!fs.existsSync(mdPath)) continue
 
         const raw = fs.readFileSync(mdPath, 'utf-8')
-        const { content } = matter(raw)
-        const html = String(
-          await remark().use(remarkGfm).use(remarkHtml).process(content)
-        )
+        const { content, data: fm } = matter(raw)
+
+        // 默认只放 excerpt,让 feed 体积小、reader 抓取快
+        // 需要全文进 <content:encoded> 的文章,在 frontmatter 加 `fullContent: true`
+        const includeFull = fm.fullContent === true
+        const html = includeFull
+          ? String(await remark().use(remarkGfm).use(remarkHtml).process(content))
+          : undefined
 
         const url = `${SITE}/blog/${p.slug}`
         feed.addItem({
@@ -91,7 +95,7 @@ export function rssPlugin() {
           guid: p.slug,
           date: new Date(p.updated || p.date),
           description: p.excerpt,
-          content: html,
+          ...(html !== undefined && { content: html }),
           author: [{ name: p.author || 'Qingyu Ge' }],
           category: (p.tags || []).map((t) => ({ name: t })),
           image: p.coverImage ? `${SITE}${p.coverImage}` : undefined,

@@ -18,6 +18,8 @@ excerpt: "一句话摘要,显示在博客列表卡片。"
 coverImage: "/blog/260628_my_topic.jpg"   # 可选。封面缩略图,放 public/blog/ 下,与文章同名
 published: true           # false 则不展示
 slug: "260628_my_topic"      # URL slug,与 id/文件名一致 → /blog/260628_my_topic
+fullContent: true         # 可选,默认 false。true 时文章全文进 RSS <content:encoded>(reader 内可直读);
+                         #        长文/代码密集建议留 false,只放 excerpt,feed 体积小、抓取快
 ---
 
 # 文章标题
@@ -40,4 +42,5 @@ slug: "260628_my_topic"      # URL slug,与 id/文件名一致 → /blog/260628_
 - **tags**:**最多 5 个**,具体、有区分度;别用"LLM""AI"这种泛词,别和 category 重复
 - **updated**:改过文章就更新;等于 date 时列表/详情不显示"更新于"
 - **readTime / wordCount**:都由 `npm run sync-blog` 从正文自动统计(350 字/分),frontmatter 不写
+- **fullContent**(可选,默认 `false`):决定该文章是否全文进 RSS / Atom feed 的 `<content:encoded>`。**默认只放 excerpt**(feed 体积小、reader 抓取快);短文/想让 reader 内直接读全文的,显式写 `fullContent: true`
 - **标题层级**:纯阿拉伯多级编号——`##`=`1.`、`###`=`1.1`、`####`=`1.1.1`;H1(文章标题)与"参考链接"附录不编号。**标题禁用 emoji**(含 `1️⃣` 数字编号、`⭐🆕🔵` 等装饰图标、`⚠️` 状态符);emoji 仅用于 callout(`>` 引用块的 💡⚠️📊)、行内强调、表格状态符 `✅❌`。正文交叉引用用"第 N 节",改编号时一并同步

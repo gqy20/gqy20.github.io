@@ -15,6 +15,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **组件**: 使用自定义 Badge、Button 等组件
 - **博客**: react-markdown + remark-gfm + rehype-highlight
 - **图标**: React Icons
+- **RSS / Atom**: 自研 `vite-plugin-rss.js`(build 末尾从 `index.json` + `*.md` 派生)
 - **部署**: GitHub Pages + GitHub Actions
 
 ## 核心开发命令
@@ -64,6 +65,8 @@ npm run deploy
 - `.github/workflows/deploy.yml`: 自动部署到 GitHub Pages
 - `.github/workflows/update-data.yml`: 每6小时自动更新 GitHub 项目数据
 - `scripts/update-projects.js`: GitHub API 数据获取脚本
+- `vite-plugin-rss.js`: Vite 插件,`build` 末尾生成 `dist/rss.xml` + `dist/atom.xml` + 各文章 `/blog/:slug` 跳转壳
+- `lefthook.yml` + package.json `prepare`: pre-commit 监听 `src/data/blog/*.md`,改 md 自动跑 `npm run sync-blog` 并 stage 重新生成的 `index.json`;`npm install` 时通过 prepare 脚本自动安装 hook
 
 ## 重要配置
 
@@ -91,10 +94,19 @@ npm run deploy
 
 ### 添加新博客文章
 1. 复制 `src/data/blog/_TEMPLATE.md` 改名为 `YYMMDD_词1_词2_词3.md`(创建日期_标题关键词,≤3 个英文词、全小写、_ 分隔),填写 frontmatter + 正文(md frontmatter 是**唯一数据源**)
-2. 运行 `npm run sync-blog` 自动生成 `src/data/blog/index.json`(从各 md frontmatter 派生,**无需手动编辑 index.json**)
-3. 规范:**文件名 = id = slug = 封面图名**(四者一致,如 `260628_git_claude_hooks`);`type`(survey=调研 / tutorial=实操)必填;`tags` **不超过 5 个**;`updated`≠`date` 时显示"更新于";`wordCount` 由脚本自动统计正文
+2. 运行 `npm run sync-blog` 自动生成 `src/data/blog/index.json`(从各 md frontmatter 派生,**无需手动编辑 index.json**)。**实际无需手动跑** —— `lefthook` pre-commit 监听 `*.md` 改动,`git add` + `commit` 时会自动跑并把重新生成的 `index.json` stage 进本次 commit
+3. 规范:**文件名 = id = slug = 封面图名**(四者一致,如 `260628_git_claude_hooks`);`type`(survey=调研 / tutorial=实操)必填;`tags` **不超过 5 个**;`updated`≠`date` 时显示"更新于";`wordCount` 由脚本自动统计正文;`fullContent`(可选,默认 `false`)决定该文是否全文进 RSS `<content:encoded>`(短文/想让 reader 内直读全文的,显式写 `true`)
 4. 支持标准 Markdown、GitHub Flavored Markdown;` ```mermaid ` 代码块会自动渲染成图表(MermaidBlock 组件)
 5. 标题规范:纯阿拉伯多级编号(`##`=`1.` / `###`=`1.1` / `####`=`1.1.1`),H1 与"参考链接"附录不编号;**标题禁 emoji**(编号用阿拉伯数字而非 `1️⃣`,不用 `⭐🆕🔵` 等装饰图标),emoji 仅留给 callout 引用块(💡⚠️📊)、行内强调、表格状态符(✅❌);正文交叉引用写"第 N 节"并随编号同步
+
+### RSS / Atom Feed
+- **地址**:`/rss.xml`(RSS 2.0) + `/atom.xml`(Atom 1.0),`index.html` 已带 autodiscovery `<link>`,reader 自动识别
+- **数据源**:`src/data/blog/index.json` + `src/data/blog/*.md` frontmatter
+- **生成时机**:`npm run build` 末尾(`vite-plugin-rss.js` 的 `closeBundle` 钩子),随前端一起部署
+- **文章链接**:`https://home.gqy20.top/blog/<slug>` —— 对外干净 URL;`build` 时同步生成对应跳转壳 HTML,内部 0 秒跳到 HashRouter SPA(`/#/blog/<slug>`),reader / 爬虫 / SEO 拿到真实 200
+- **内容策略**:**默认只放 excerpt**(feed 体积小、抓取快);`*.md` frontmatter 加 `fullContent: true` 才进 `<content:encoded>` 全文(长文/代码密集建议留 `false`)
+- **自动触发链路**:`改 .md` → `git commit`(lefthook 跑 sync-blog) → `git push main` → GH Actions `npm run build` → `vite-plugin-rss` 生成 feed + 跳转壳 → `actions/deploy-pages` 上线
+- **Hero 入口**:`src/data/social.js` 的 `SOCIAL_LINKS` 包含 `RSS`,Hero 侧栏、页脚、BlogPost 关于作者区都共用同一份数据
 
 ### 修改颜色主题
 编辑 `src/App.css` 中的 CSS 变量定义，Tailwind 会自动读取这些变量。
@@ -106,7 +118,7 @@ npm run deploy
 ## 部署和自动化
 
 ### 自动部署流程
-推送代码到 main 分支 → GitHub Actions 自动构建 → 部署到 GitHub Pages
+推送代码到 main 分支 → GitHub Actions 自动构建 → 部署到 GitHub Pages。**博客变更也会顺带重新生成 RSS**(`vite-plugin-rss.js` 是 build 流水线的一环),无需额外 cron / workflow
 
 ### 数据更新
 - 每6小时自动从 GitHub API 获取最新的项目数据
