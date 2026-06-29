@@ -15,7 +15,7 @@ fullContent: true
 
 # 我用 Claude Agent SDK 搭了 14 个项目,沉淀出 9 个反复出现的模式
 
-> 从单一 SDK 调用,到能稳定运行的 Agent 系统,中间隔着 9 个我反复重写过的工程模式。这篇不是 API 文档,是一份「第二次做 Agent 之前希望有人递给我的骨架清单」。
+> 从单一 SDK 调用,到能稳定运行的 Agent 系统,中间隔着 9 个我反复重写过的工程模式。这篇不是 API 文档,是一份跨项目、跨语言、跨框架的骨架清单。
 
 ## 1. 背景:为什么不是一篇"用法教程"
 
@@ -30,7 +30,7 @@ fullContent: true
 
 到了第 14 个项目 (`werewolf-agents`,多 agent 狼人杀),我已经不再思考"这个项目要用 SDK 的哪个 API",而是直接打开一个 starter 仓库,把 9 个骨架文件复制过去再改业务。**单 SDK 的 API 学一周就够了,跨项目的不变骨架要两年才能看全。**
 
-网上不缺 Claude Agent SDK 的"怎么用"教程,缺的是**"做过 N 个项目后哪些坑是通用的"**那份心法。这篇就是后者。
+网上不缺 Claude Agent SDK 的"怎么用"教程,缺的是**"做过 N 个项目后哪些坑是通用的"**那份清单。这篇就是后者。
 
 > 📊 **本文导览**
 
@@ -54,9 +54,7 @@ fullContent: true
 
 ## 2. 为什么是 Claude Agent SDK
 
-每次开新项目前,我都会被问:"为什么不直接用 LangGraph / Agno / 自己写 asyncio 编排?"
-
-我**不是没用过**。在 14 个项目里:
+在 14 个项目里:
 
 - `bx-claim-demo` 用过 **LangGraph**(车险理赔的强流程编排)
 - `gene-family-agent` 用过 **Agno**(多 agent 农学分析)
@@ -71,7 +69,7 @@ fullContent: true
 > 3. **Hooks 是真的挂上了生命周期**:承接上一篇文章讲的范式迁移(详见 26028 钩子文 §4),SDK 的 `PreToolUse`/`PostToolUse` 是我看过的所有框架里**对 hook 暴露最干净**的
 > 4. **流式消息能拿全**:`StreamEvent` 把 thinking、tool_use、tool_result、text 全部结构化吐出来,这是后文 §6 事件总线的物质基础
 
-我**不是说 LangGraph/Agno 不好**。当你有**强流程、强状态机**的需求(LangGraph 擅长),或者**有现成多 agent 模板要复用**(Agno 擅长),它们是更好的选择。**但当你想做的是"让 AI 真的去做一件事",Claude Agent SDK 90% 的情况下是最短路径。**
+当你有**强流程、强状态机**的需求(LangGraph 擅长),或者**有现成多 agent 模板要复用**(Agno 擅长),它们是更好的选择。**但当你想做的是"让 AI 真的去做一件事",Claude Agent SDK 90% 的情况下是最短路径。**
 
 本文后 9 个模式,**有 6 个框架无关**(在 LangGraph/Agno 里你也能用),有 3 个是 Claude Agent SDK 的特色(模式 3 的 `output_format`、模式 6 的 `StreamEvent`、模式 7 的 SDK 内建 trace ID)。我会标清楚。
 
@@ -79,7 +77,7 @@ fullContent: true
 
 ## 3. 模式 1:别直接 import SDK —— LLM 抽象层是第一个分叉口
 
-我见过的所有"写到一半想重写"的 agent 项目,**几乎都栽在同一个坑**:业务代码里散落着 `import anthropic` 或 `import openai` 或 `from claude_agent_sdk import query, ClaudeAgentOptions`,直接调用 SDK。
+我见过的所有"写到一半想重写"的 agent 项目,**都栽在同一个坑**:业务代码里散落着 `import anthropic` 或 `import openai` 或 `from claude_agent_sdk import query, ClaudeAgentOptions`,直接调用 SDK。
 
 为什么不?
 
@@ -141,13 +139,11 @@ SDK 适配层 (ClaudeSDKAdapter, OpenAIAdapter)  ← 唯一允许 import SDK 的
 Claude Agent SDK / OpenAI SDK / 本地模型
 ```
 
-**5 个项目以后,我会用代码 review 卡死"业务模块里出现 import SDK 直接调用"——这是个简单规则,但挡住的麻烦是指数级的。**
+**5 个项目以后,我会用代码 review 卡死"业务模块里出现 import SDK 直接调用"。**
 
 ---
 
 ## 4. 模式 2:JSON 是一等公民 —— Agent 时代 CLI 的 I/O 契约
-
-如果说模式 1 是"对内"的解耦,模式 2 是"对外"的契约。
 
 `zotero_cli` 是我做的最"硬核"的一个 CLI —— 它**同时面向两种用户**:人类(我自己在终端敲)和 AI agent(Claude Code 自动调)。这两种用户的 I/O 需求完全相反:
 
@@ -200,7 +196,7 @@ $ zot find "CRISPR" --fulltext --json
 ]
 ```
 
-> 💡 **核心设计原则**:面向人类的"漂亮"是**装饰**层,面向 agent 的"可解析"是**契约**层。装饰是给契约加注释,而不是相反。
+> 💡 面向人类的"漂亮"是**装饰**层,面向 agent 的"可解析"是**契约**层。装饰是给契约加注释,而不是相反。
 
 ### 4.1 为什么这模式在 Claude Agent SDK 生态特别重要
 
@@ -210,7 +206,7 @@ Claude Code(以及 Codex、Cursor)读你的 CLI 时,**第一步是把 stdout 喂
 2. LLM 要花额外的 reasoning 理解表格结构,准确性下降
 3. 输出的 JSON 经常被表格渲染破坏 —— 你以为 schema 严格,实际上 `--json` 在某个分支没生效
 
-`--json` 一开,这些问题全消失。**`zotero_cli` 的 README 里我把这条放在"AI Agent 集成"小节第一条,所有想用 CLI 接 Claude Code 的项目都该先看这条。**
+`--json` 一开,这些问题全消失。**`zotero_cli` 的 README 里我把这条放在"AI Agent 集成"小节第一条。**
 
 ### 4.2 一对相关 flag:`--snippet` 和 `--fulltext`
 
@@ -236,7 +232,7 @@ $ zot show A1B --json --fulltext
 
 ## 5. 模式 3:Schema 即 Prompt —— 让 Pydantic `Field(description=)` 双源合一
 
-这是全文最值钱的模式。**我在 14 个项目里见过无数人写 agent 的时候,把"提示词"和"输出格式"当两件事维护,最后两边对不上,debug 到崩溃。** `manim-agent` 给我看到一个极其优雅的解法,值得所有 agent 项目抄作业。
+`manim-agent` 给我看到一个极其优雅的解法,值得所有 agent 项目抄作业。
 
 ### 5.1 传统做法:提示词和 schema 两套
 
@@ -329,7 +325,7 @@ class PhaseSchemaRegistry:
 - 在前端用 ajv 校验返回的 JSON
 - 在 CI 里做回归测试
 
-> 💡 **核心洞察**:**同一份 schema,被 SDK 用、被前端用、被 CI 用、被文档用、被单元测试用 —— 单一数据源。** 这是 agent 项目的"DRY 终极版"。
+> 💡 **同一份 schema,被 SDK 用、被前端用、被 CI 用、被文档用、被单元测试用 —— 单一数据源。**
 
 ### 5.4 反向用法:从 SDK 拿到 schema 后,前端能省一半代码
 
@@ -347,23 +343,23 @@ class PhaseSchemaRegistry:
 
 > *"消费 Claude Agent SDK 消息流,提取结构化信息并输出实时日志。"*
 
-**"提取结构化信息"** —— 这是关键。SDK 给的是 `StreamEvent`,里面嵌着 `ToolUseBlock`、`TextBlock`、`ThinkingBlock`,需要**根据 phase 的 schema 把内容解析成强类型**。`Field(description=)` 让这一步零成本。
+SDK 给的是 `StreamEvent`,里面嵌着 `ToolUseBlock`、`TextBlock`、`ThinkingBlock`,需要**根据 phase 的 schema 把内容解析成强类型**。`Field(description=)` 让这一步零成本。
 
 ### 5.5 这模式的可移植性
 
 Schema 即 Prompt 在 Claude Agent SDK 上是**一等公民**(SDK 的 `output_format` 原生支持)。在 LangGraph / Agno 上**也能用**,但需要自己写一个"把 Pydantic 转成 provider-specific schema"的小适配器 —— 通常 30 行代码搞定,但要做一次。
 
-> 🎯 **判断标准**:如果你的 agent 项目里,提示词和输出 schema 在两个地方维护,**那就是反模式**。无论用什么 SDK,都应该用这个模式把两份合一份。
+> 🎯 如果你的 agent 项目里,提示词和输出 schema 在两个地方维护,**那就是反模式**。无论用什么 SDK,都应该用这个模式把两份合一份。
 
 ---
 
 ## 6. 模式 4:工具设计三原则 —— 单一职责 / 幂等 / 可逆
 
-`biotools_agent` 上线半年后,我把它的工具集拆过 3 次。前两次拆错了,第三次才稳下来 —— 不是拆得不够细,是拆得不对。拆工具不是"为了解耦而解耦",它有三条硬规则。
+`biotools_agent` 上线半年后,我把它的工具集拆过 3 次。前两次拆错了,第三次才稳下来。
 
 ### 6.1 单一职责:一个工具做一件事,且只做一件事
 
-第一个项目里我犯的错是给 agent 装"瑞士军刀"工具,比如 `analyze_repo` 一口气返回项目元数据 + 代码质量评分 + 安全扫描结果 + 性能特征。后来想加"只跑安全扫描"的入口,改不动 —— 因为这函数被 4 个调用方依赖。
+第一个项目里我犯的错是给 agent 装大而全的工具,比如 `analyze_repo` 一口气返回项目元数据 + 代码质量评分 + 安全扫描结果 + 性能特征。后来想加"只跑安全扫描"的入口,改不动 —— 因为这函数被 4 个调用方依赖。
 
 `biotools_agent` 重构后,工具按"能返回的字段"切分,而不是按"业务场景"切分:
 
@@ -385,7 +381,7 @@ def run_quality_analysis(url: str) -> QualityReport: ...
 
 为什么?Agent 决定"我下一步要不要看 security"时,**输入越窄它越准**。给它一个返回 17 个字段的大对象,LLM 经常忘记某个字段存在;给它一个返回 3 个字段的小对象,它每次都看完整。
 
-> 💡 **判断标准**:如果一个工具的 docstring 包含"和"、"以及"、"或者",它大概率违反单一职责。
+> 💡 如果一个工具的 docstring 包含"和"、"以及"、"或者",它大概率违反单一职责。
 
 ### 6.2 幂等:Agent 会反复调,工具要能扛住
 
@@ -467,7 +463,7 @@ def update_item(key: str, fields: dict, expected_version: int) -> Result:
 
 ## 7. 模式 5:多 agent 编排的两种姿势 —— fan-out vs pipeline
 
-第 5 个项目之后,我开始做"多 agent"类系统(`TrumanWorld`、`werewolf`、`IssueLab`、`mind`)。**多 agent 编排听起来高大上,实际只有两种基本姿势**,所有项目都是它们的组合或变体。
+第 5 个项目之后,我开始做"多 agent"类系统(`TrumanWorld`、`werewolf`、`IssueLab`、`mind`)。所有项目都是这两种姿势的组合或变体。
 
 ### 7.1 姿势 A:fan-out 并行 —— Agent 各自独立,主 agent 汇总
 
@@ -495,7 +491,7 @@ async def tick(self):
 - 每个 agent 独立思考,互不调用
 - 主 agent 做仲裁(决定哪个 decision 落地)
 - 适合"对同一个输入有多个视角"的场景
-- **强可扩展**:加 agent 改一行 `gather` 的列表
+- 加 agent 改一行 `gather` 的列表
 
 **Claude Agent SDK 对应物**:`Task` 工具,主 agent 委派子任务给子 agent。
 
@@ -518,7 +514,7 @@ async def run_pipeline(self, user_input: str) -> Video:
 - 强顺序:后一步消费前一步的输出
 - 每一步有独立的 schema(就是模式 3 的 PhaseSchemaRegistry)
 - 适合"流程可拆解、阶段可独立测试"的场景
-- **强可测试**:每一步可以 mock 掉前一步的输出单独跑
+- 每一步可以 mock 掉前一步的输出单独跑
 
 **Claude Agent SDK 对应物**:`query()` 多次调用,每次用上一轮的 `ResultMessage` 作下一轮的 context。
 
@@ -560,7 +556,7 @@ async def delegate_research(topic: str) -> str:
 
 `manim-agent` 上线第 2 周,我加了 `LogViewer` 前端组件,想"实时显示 agent 在做什么"。然后发现:agent 的 `StreamEvent` 流里有 thinking、tool_use、tool_result、text、error 各种类型,**如果直接转发给前端,前端要写一堆 `if/else` 分支,改一个事件类型要同步前后端**。
 
-我**花了 3 天**把整个事件系统重构。重构成什么?
+我**花了 3 天**把整个事件系统重构。
 
 ### 8.1 9 个事件类型,1 个枚举,1 个 payload 模型
 
@@ -617,7 +613,7 @@ class PipelineEvent(BaseModel):
     payload: dict[str, Any]                # ← 上面那些 payload 序列化后塞这里
 ```
 
-> 💡 **核心设计**:**事件类型是封闭枚举,具体 payload 用 dict[str, Any]**。这平衡了"类型安全"(enum 不会拼错)和"灵活扩展"(加新字段不改 enum)。
+> 💡 **事件类型是封闭枚举,具体 payload 用 dict[str, Any]**。这平衡了"类型安全"(enum 不会拼错)和"灵活扩展"(加新字段不改 enum)。
 
 ### 8.2 JSONL append-only 持久化
 
@@ -686,11 +682,11 @@ async def dispatch_message(self, msg: Message, task_id: str):
 
 **dispatcher 之外没有任何模块直接 import SDK 消息类型**。这条边界把"SDK 协议层"和"业务事件层"干净分开。
 
-> 🎯 **这条边界的价值**:**SDK 升级时不破坏业务**。SDK 0.x 升到 1.0,消息格式变了?改 dispatcher 一个文件就完事,业务模块一个字符都不动。
+> 🎯 **SDK 升级时不破坏业务**。SDK 0.x 升到 1.0,消息格式变了?改 dispatcher 一个文件就完事,业务模块一个字符都不动。
 
 ### 8.4 这模式为什么是 Claude Agent SDK 特色
 
-`StreamEvent` 把 thinking、tool_use、tool_result、text 全部结构化吐出来 —— 这是 Claude Agent SDK 相对 LangGraph / Agno 的**最大差异化优势**。其他框架要么只给 final result(没过程可观测),要么要你装额外的 tracing 库。**SDK 协议层 + dispatcher + 9-type 事件 + JSONL 持久化 = 开箱即用的可观测性**。
+`StreamEvent` 把 thinking、tool_use、tool_result、text 全部结构化吐出来 —— 这是 Claude Agent SDK 相对 LangGraph / Agno 的关键差异化优势。其他框架要么只给 final result(没过程可观测),要么要你装额外的 tracing 库。**SDK 协议层 + dispatcher + 9-type 事件 + JSONL 持久化 = 开箱即用的可观测性**。
 
 ---
 
@@ -880,7 +876,7 @@ def test_github_analyzer(monkeypatch):
     ...
 ```
 
-**5 个项目以后**,我的标准 starter 模板里这三种环境配置是 default include 的。**新项目第一周就在正确轨道上,不会"我本地能跑 CI 挂了"反复重写。**
+**5 个项目以后**,我的标准 starter 模板里这三种环境配置是 default include 的——**新项目第一周就在正确轨道上。**
 
 ### 10.3 一句话:配置跟随代码,但 values 跟随环境
 
@@ -890,7 +886,7 @@ def test_github_analyzer(monkeypatch):
 
 ## 11. 模式 9:从项目到飞轮 —— Agent 自己改 Agent
 
-最后一个模式,也是最难落地的。**前 8 个模式是让一个项目"稳定运行"。模式 9 是让多个项目之间形成正反馈飞轮。**
+**前 8 个模式是让一个项目"稳定运行"。模式 9 是让多个项目之间形成正反馈飞轮。**
 
 ### 11.1 gearbox 的设计思想
 
@@ -909,7 +905,7 @@ def test_github_analyzer(monkeypatch):
               改进 Agent 本身  ────┘
 ```
 
-**agent 的运行数据**(成功的 PR、失败的 review、用户反馈)回流成训练数据,**改 agent 本身**。这是 OpenAI Devin / Claude Code / Codex 这类 AI Coding 工具的**隐藏的护城河** —— 不只是模型强,是数据飞轮强。
+**agent 的运行数据**(成功的 PR、失败的 review、用户反馈)回流成训练数据,**改 agent 本身**。这是 OpenAI Devin / Claude Code / Codex 这类 AI Coding 工具的隐性壁垒——不只是模型强,是数据飞轮强。
 
 ### 11.2 在我的项目里,这模式怎么落地
 
@@ -938,28 +934,28 @@ def test_github_analyzer(monkeypatch):
 1. **每个 agent 运行都生成 event log**(就是模式 6)
 2. **每周花 1 小时看 event log**,找规律
 
-> 🔥 **大多数 agent 项目死在第 6 个月,不是因为模型不行,而是因为开发者从来没看过自己 agent 的运行数据。** 你不观察它,它就观察不了你,改进无从谈起。
+> 🔥 **大多数 agent 项目死在第 6 个月,是因为开发者从来没看过自己 agent 的运行数据。** 你不观察它,它就观察不了你,改进无从谈起。
 
 ---
 
 ## 12. 5 条军规
 
-写完 9 个模式,最后压舱的 5 条军规。这 5 条不是从框架里推出来的,是从 14 个项目里**踩坑踩出来**的:
+写完 9 个模式,最后 5 条军规收尾。这 5 条不是从框架里推出来的,是从 14 个项目里**踩坑踩出来**的:
 
 > **1. Agent 的每个决策点都要可观测。**
-> LLM 决定调哪个工具、传什么参数、放弃还是继续 —— 这些决策**不能只活在 LLM 的 context 里**。模式 6 + 7 是在做这件事。
+> LLM 决定调哪个工具、传什么参数、放弃还是继续 —— 这些决策**不能只活在 LLM 的 context 里**。
 >
 > **2. 任何写操作都要可逆或可审。**
-> Agent 写文件、调 API、改数据库 —— 写之前想清楚能不能 undo,不能 undo 就要留 audit log(谁、何时、什么内容、为什么)。模式 4.3 是在做这件事。
+> Agent 写文件、调 API、改数据库 —— 写之前想清楚能不能 undo,不能 undo 就要留 audit log(谁、何时、什么内容、为什么)。
 >
 > **3. 工具宁可少而精,不要多而杂。**
-> 17 个返回大对象的工具,LLM 永远学不会用;3 个返回窄对象的工具,LLM 第一次就懂。**每加一个工具,你都在替 LLM 加重上下文负担**。模式 4.1 是在做这件事。
+> 17 个返回大对象的工具,LLM 永远学不会用;3 个返回窄对象的工具,LLM 第一次就懂。**每加一个工具,你都在替 LLM 加重上下文负担**。
 >
 > **4. 配置文件跟随代码,不要反过来。**
-> 代码改了配置不改,12 个环境里 11 个跑挂 —— 这是 agent 项目的头号杀手。模式 8 是在做这件事。
+> 代码改了配置不改,12 个环境里 11 个跑挂 —— 这是 agent 项目的头号杀手。
 >
 > **5. 把"用户"和"Agent"当成两个独立消费者。**
-> 同一段输出,人类要好看、Agent 要好解析。**默认输出给人类,`--json` 给 agent**。模式 2 是在做这件事。
+> 同一段输出,人类要好看、Agent 要好解析。**默认输出给人类,`--json` 给 agent**。
 
 **14 个项目里,这 5 条我至少在 8 个项目里违反过,每次违反都付出 2-3 周代价**。如果你只能记住一件事,记住第 1 条:**没观测,就没改进。**
 
@@ -997,7 +993,7 @@ my-agent-project/
 └── README.md
 ```
 
-**约 1500-2000 行代码,这就是 14 个项目里我**反复复用**的最小骨架。**
+**约 1500-2000 行代码,这就是 14 个项目里我提炼的最小骨架。**
 
 ### 起步路径
 
@@ -1016,7 +1012,7 @@ my-agent-project/
 
 ### 起步骨架的开源计划
 
-我会把这套骨架抽成一个独立的 starter repo,叫 `agent-starter`(暂定名),预计 7 月初开源。届时本文会更新链接。**如果你想第一时间收到通知,RSS 订阅就是最简单的方式**(本站已上线 RSS,详见 [从 git hooks 到 Claude Code hooks 的范式迁移](/blog/260628_git_claude_hooks) 一文末尾)。
+我会把这套骨架抽成一个独立的 starter repo,叫 `agent-starter`(暂定名),预计 7 月初开源。届时本文会更新链接。**本站已上线 RSS,订阅即可第一时间收到通知**(详见 [从 git hooks 到 Claude Code hooks 的范式迁移](/blog/260628_git_claude_hooks))。
 
 ---
 
@@ -1041,13 +1037,10 @@ my-agent-project/
 | [`cc_plugins`](https://github.com/gqy20/cc_plugins) | 钩子 | Claude Code 插件集合(模式 6 钩子) |
 | [`Skills_demo`](https://github.com/gqy20/Skills_demo) | §2 | Claude Code Skills 演示 |
 
-**关联阅读**
+**关联阅读 / 外部参考**
 
 - [从 git hooks 到 Claude Code hooks 的范式迁移](/blog/260628_git_claude_hooks) —— 模式 6/7 钩子部分的前置知识
 - [2026 开源知识库 RAG 方案深度调研](/blog/260627_rag_kb_survey) —— 14 个项目里 8 个用到了 RAG,选型逻辑见此文
-
-**外部参考**
-
 - [Claude Agent SDK 官方文档](https://docs.claude.com/en/api/agent-sdk/overview) —— API 真相之源
 - [OpenTelemetry Trace/Span 模型](https://opentelemetry.io/docs/concepts/signals/traces/) —— 模式 7 的设计参照
 - [Pydantic Field](https://docs.pydantic.dev/latest/concepts/fields/) —— 模式 3 的双源合一基石
