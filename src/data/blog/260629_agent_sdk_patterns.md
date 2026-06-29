@@ -8,7 +8,6 @@ author: "Qingyu Ge"
 category: "AI编程"
 tags: ["Claude Agent SDK", "Agent", "架构", "工程实践", "可观测性"]
 excerpt: "从 biotools_agent、zotero_cli、cc-insights、manim-agent 到 TrumanWorld、werewolf、IssueLab,两年时间 14 个 Agent 项目反复重写同一个骨架。本文不讲用法教程,讲 9 个跨项目、跨语言、跨框架都会撞上的工程模式——其中 3 个(Schema 即 Prompt、事件总线、Trace/Span)是我最希望自己第一次做 Agent 时就看到的。"
-coverImage: "/blog/260629_agent_sdk_patterns.jpg"
 published: true
 slug: "260629_agent_sdk_patterns"
 fullContent: true
