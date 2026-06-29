@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { htmlOptimizePlugin } from './vite-plugin-html-optimize.js'
+import { rssPlugin } from './vite-plugin-rss.js'
 
 export default defineConfig({
-  plugins: [react(), htmlOptimizePlugin()],
+  plugins: [react(), htmlOptimizePlugin(), rssPlugin()],
   base: '/',
   build: {
     outDir: 'dist',

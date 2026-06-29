@@ -16,7 +16,8 @@
     "perf:quick": "lighthouse https://home.gqy20.top --chrome-flags=\"--headless --no-sandbox --disable-dev-shm-usage\" --only-categories=performance",
     "perf:full": "lighthouse https://home.gqy20.top --chrome-flags=\"--headless --no-sandbox --disable-dev-shm-usage\" --output=html --output-path=./lighthouse-report.html",
     "perf:mobile": "lighthouse https://home.gqy20.top --chrome-flags=\"--headless --no-sandbox --disable-dev-shm-usage\" --form-factor=mobile --output=json --output-path=./lighthouse-mobile.json",
-    "perf:desktop": "lighthouse https://home.gqy20.top --chrome-flags=\"--headless --no-sandbox --disable-dev-shm-usage\" --form-factor=desktop --output=json --output-path=./lighthouse-desktop.json"
+    "perf:desktop": "lighthouse https://home.gqy20.top --chrome-flags=\"--headless --no-sandbox --disable-dev-shm-usage\" --form-factor=desktop --output=json --output-path=./lighthouse-desktop.json",
+    "prepare": "lefthook install"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -42,9 +43,14 @@
     "@testing-library/user-event": "^14.6.1",
     "@vitejs/plugin-react": "^6.0.1",
     "autoprefixer": "^10.4.21",
+    "feed": "^5.2.1",
     "gh-pages": "^6.1.0",
+    "gray-matter": "^4.0.3",
     "jsdom": "^29.0.2",
+    "lefthook": "^2.1.9",
     "postcss": "^8.5.6",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
     "tailwindcss": "^4.1.16",
     "vite": "^8.0.10",
     "vitest": "^4.1.5"

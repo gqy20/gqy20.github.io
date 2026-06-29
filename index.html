@@ -33,6 +33,10 @@
     <link rel="mask-icon" href="/logo.svg" color="#ffb86b" />
     <meta name="theme-color" content="#0a0e1a" />
 
+    <!-- RSS autodiscovery:让 reader 在输入网址时自动发现订阅源 -->
+    <link rel="alternate" type="application/rss+xml" title="Qingyu Ge's Blog (RSS)" href="/rss.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Qingyu Ge's Blog (Atom)" href="/atom.xml" />
+
     <!-- FOUC guard: 在 React 渲染前同步写入主题，避免首屏闪烁 -->
     <script>
       (function () {

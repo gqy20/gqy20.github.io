@@ -1,0 +1,10 @@
+# lefthook:本地 git hooks 配置
+# - npm install 时通过 package.json 的 `prepare` 脚本自动安装
+# - 改 *.md → 自动跑 sync-blog 重生 index.json → stage 到本次 commit
+pre-commit:
+  parallel: true
+  commands:
+    sync-blog:
+      glob: "src/data/blog/*.md"
+      run: npm run sync-blog
+      stage_fixed: true

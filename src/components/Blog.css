@@ -127,11 +127,39 @@
 }
 
 /* 类型筛选 tab */
+.blog-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.5rem 0 1rem;
+  flex-wrap: wrap;
+}
 .blog-type-tabs {
   display: flex;
   gap: 0.5rem;
-  margin: 1.5rem 0 1rem;
   flex-wrap: wrap;
+}
+.blog-rss-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--dt-line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--dt-dim);
+  font-family: var(--dt-font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  margin-left: auto;
+}
+.blog-rss-link:hover {
+  color: var(--dt-muted);
+  border-color: var(--dt-line-strong);
 }
 .blog-type-tab {
   display: inline-flex;

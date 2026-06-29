@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'motion/react'
 import { Link } from 'react-router-dom'
-import { FaArrowRight, FaCalendar, FaClock, FaCode, FaFileAlt, FaFolder, FaSync, FaTag } from 'react-icons/fa'
+import { FaArrowRight, FaCalendar, FaClock, FaCode, FaFileAlt, FaFolder, FaRss, FaSync, FaTag } from 'react-icons/fa'
 import Badge from './Badge'
 import './Blog.css'
 import PageHeader from './PageHeader'
@@ -108,18 +108,30 @@ const Blog = () => {
             <a href="#/projects">查看项目 <FaArrowRight /></a>
           </div>
         </motion.div>
-        <nav className="blog-type-tabs" aria-label="文章类型">
-          {POST_TYPES.map(t => (
-            <button
-              key={t.key}
-              type="button"
-              className={`blog-type-tab ${activeType === t.key ? 'is-active' : ''}`}
-              onClick={() => setActiveType(t.key)}
-            >
-              {t.icon && <t.icon />} {t.label}
-            </button>
-          ))}
-        </nav>
+        <div className="blog-toolbar">
+          <nav className="blog-type-tabs" aria-label="文章类型">
+            {POST_TYPES.map(t => (
+              <button
+                key={t.key}
+                type="button"
+                className={`blog-type-tab ${activeType === t.key ? 'is-active' : ''}`}
+                onClick={() => setActiveType(t.key)}
+              >
+                {t.icon && <t.icon />} {t.label}
+              </button>
+            ))}
+          </nav>
+          <a
+            className="blog-rss-link"
+            href="/rss.xml"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="RSS 订阅"
+            title="用 RSS reader 订阅本博客"
+          >
+            <FaRss /> RSS
+          </a>
+        </div>
         <div className="blog-list">
           {filteredPosts.length === 0 ? (
             <div className="blog-empty">{TYPE_LABEL[activeType] || ''}类文章,敬请期待 ✦</div>
