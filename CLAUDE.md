@@ -94,6 +94,7 @@ npm run deploy
 2. 运行 `npm run sync-blog` 自动生成 `src/data/blog/index.json`(从各 md frontmatter 派生,**无需手动编辑 index.json**)
 3. 规范:**文件名 = id = slug = 封面图名**(四者一致,如 `260628_git_claude_hooks`);`type`(survey=调研 / tutorial=实操)必填;`tags` **不超过 5 个**;`updated`≠`date` 时显示"更新于";`wordCount` 由脚本自动统计正文
 4. 支持标准 Markdown、GitHub Flavored Markdown;` ```mermaid ` 代码块会自动渲染成图表(MermaidBlock 组件)
+5. 标题规范:纯阿拉伯多级编号(`##`=`1.` / `###`=`1.1` / `####`=`1.1.1`),H1 与"参考链接"附录不编号;**标题禁 emoji**(编号用阿拉伯数字而非 `1️⃣`,不用 `⭐🆕🔵` 等装饰图标),emoji 仅留给 callout 引用块(💡⚠️📊)、行内强调、表格状态符(✅❌);正文交叉引用写"第 N 节"并随编号同步
 
 ### 修改颜色主题
 编辑 `src/App.css` 中的 CSS 变量定义，Tailwind 会自动读取这些变量。

@@ -2,8 +2,9 @@
 # ════════════════════════════════════════════════
 # 博客文章 frontmatter 模板
 # 用法:复制本文件 → 改名为 YYMMDD_词1_词2_词3.md(创建日期_标题关键词,≤3 个英文词、全小写、_ 分隔) → 填写字段 + 写正文
-# 注意:展示层读取 src/data/blog/index.json 的元数据(不是这里的 frontmatter);
-#      frontmatter 仅作编辑参考,两处请保持一致。
+# 注意:md frontmatter 是唯一数据源;改完跑 `npm run sync-blog` 自动重新生成
+#      src/data/blog/index.json(从 frontmatter + 正文派生,readTime/wordCount 自动统计,
+#      无需手编 index.json)。列表卡片读 index.json,详情页读本文件正文。
 # ════════════════════════════════════════════════
 id: "260628_my_topic"          # = 文件名(去 .md)。文件名 / id / slug / 封面图 四者同名
 title: "文章标题"
@@ -23,10 +24,14 @@ slug: "260628_my_topic"      # URL slug,与 id/文件名一致 → /blog/260628_
 
 > 可选的引言/导读。
 
-## 一级小节
+## 1. 一级小节
 
 正文支持标准 Markdown 与 GitHub Flavored Markdown。
 所有 `##`、`###` 会自动进入右侧 TOC 目录。
+
+### 1.1 二级小节
+
+#### 1.1.1 三级小节
 
 ## 规范速查
 
@@ -35,3 +40,4 @@ slug: "260628_my_topic"      # URL slug,与 id/文件名一致 → /blog/260628_
 - **tags**:**最多 5 个**,具体、有区分度;别用"LLM""AI"这种泛词,别和 category 重复
 - **updated**:改过文章就更新;等于 date 时列表/详情不显示"更新于"
 - **readTime / wordCount**:都由 `npm run sync-blog` 从正文自动统计(350 字/分),frontmatter 不写
+- **标题层级**:纯阿拉伯多级编号——`##`=`1.`、`###`=`1.1`、`####`=`1.1.1`;H1(文章标题)与"参考链接"附录不编号。**标题禁用 emoji**(含 `1️⃣` 数字编号、`⭐🆕🔵` 等装饰图标、`⚠️` 状态符);emoji 仅用于 callout(`>` 引用块的 💡⚠️📊)、行内强调、表格状态符 `✅❌`。正文交叉引用用"第 N 节",改编号时一并同步
