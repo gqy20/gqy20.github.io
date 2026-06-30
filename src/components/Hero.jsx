@@ -28,12 +28,18 @@ const NOW_PROJECTS = ['TrumanWorld', 'biotools_agent', 'IssueLab']
 
 const SELECTED_WORK = [
   'TrumanWorld', 'article-mcp', 'IssueLab',
-  'biotools_agent', 'zotero_cli', 'TrendPluse',
+  'Aura', 'zotero_cli', 'cc-insights',
 ]
+
+// 项目数据快照:与 src/data/projects.json 同步,用于 loading / fallback 占位,
+// 避免数据未加载时闪现过时的旧数字。projects.json 增长后记得同步这里。
+const STATS_SNAPSHOT = {
+  totalProjects: 43,
+  totalStars: 83,
+}
 
 const NOW_DESC = {
   'TrumanWorld': 'AI 居民拥有记忆、关系和自由意志的社会模拟',
-  'article-mcp': '一行命令把 PubMed 接进 Claude，文献检索的 MCP',
   'biotools_agent': '基于 Claude Agent SDK 的生物信息学仓库分析 Agent',
   'IssueLab':    '让数字分身在 GitHub Issues 中协作的多智能体网络',
 }
@@ -42,7 +48,7 @@ const AGENT_STACK = [
   {
     name: 'Claude Agent SDK',
     role: '可执行的 Python Agent 工作流',
-    detail: '5 个项目覆盖 0.1.18 到 0.1.69，并在 TrendPluse 中形成生产级重试、超时、指标和结构化输出模式。',
+    detail: '14 个项目覆盖 SDK 0.1.18 到 0.2.110 的完整迭代，并在 TrendPluse 中形成生产级重试、超时、指标和结构化输出模式。',
     projects: ['IssueLab', 'rss2cubox', 'manim-agent', 'mind', 'biotools_agent'],
   },
   {
@@ -64,12 +70,6 @@ const AGENT_STACK = [
     projects: ['article-mcp', 'crawl-mcp', 'genome-mcp', 'protein-mcp'],
   },
   {
-    name: 'Agno',
-    role: '领域多 Agent 流水线原型',
-    detail: '在 gene-family-agent 中用于农学基因家族分析多智能体原型，随后完整迁移到 Claude Agent SDK。',
-    projects: ['gene-family-agent'],
-  },
-  {
     name: 'Claude Code Skills / Plugins',
     role: '扩展 AI 编程工作台',
     detail: '围绕 Claude Code 做技能、插件和使用数据分析，让开发流程本身变成可增强对象。',
@@ -82,11 +82,6 @@ const AGENT_STACK = [
     projects: ['IssueLab'],
   },
 ]
-
-const STACK_PROJECT_LINKS = {
-  Aura: 'https://github.com/gqy20/Aura',
-  'gene-family-agent': 'https://github.com/gqy20/gene-family-agent',
-}
 
 function ModelScopeIcon() {
   return (
@@ -190,7 +185,7 @@ export default function Hero() {
   }
 
   const getStackProjectUrl = (project) => {
-    return projectsByName[project]?.url || STACK_PROJECT_LINKS[project] || null
+    return projectsByName[project]?.url || null
   }
 
   return (
@@ -265,17 +260,17 @@ export default function Hero() {
           <p>
             我是 <strong>葛庆宇</strong>，从生物信息学背景转向 AI Agent 工程。
             过去一年，我围绕文献检索、MCP 工具、Claude Agent SDK、多智能体协作和自动化工作流做了
-            <em className="js-stat">{loading ? '38' : projectData?.totalProjects}</em> 个开源项目，
-            收获 <em className="js-stat">{loading ? '72' : projectData?.totalStars}</em> 颗 stars。
+            <em className="js-stat">{loading ? STATS_SNAPSHOT.totalProjects : projectData?.totalProjects}</em> 个开源项目，
+            收获 <em className="js-stat">{loading ? STATS_SNAPSHOT.totalStars : projectData?.totalStars}</em> 颗 stars。
           </p>
           <p>
             我关心的不是一次性的 AI 回答，而是 Agent 如何稳定地使用工具、处理上下文，
             并在真实任务中留下可验证的过程。这个主页记录这些项目、实验和阶段性判断。
           </p>
           <p>
-            其中 <em>5</em> 个 Python 项目基于 Claude Agent SDK 构建：
-            IssueLab、rss2cubox、manim-agent、mind 和 biotools_agent，
-            覆盖了 SDK 从 0.1.18 到 0.1.69 的迭代周期。
+            其中 <em>14</em> 个 Python 项目基于 Claude Agent SDK 构建，
+            覆盖了 SDK 从 0.1.18 到 0.2.110 的迭代周期——
+            <a href="#/blog/260629_agent_sdk_patterns">复盘沉淀出的 9 个模式</a>。
           </p>
         </SectionShell>
 
@@ -291,22 +286,24 @@ export default function Hero() {
                   <span className="stack-card__role">{item.role}</span>
                 </div>
                 <p className="stack-card__detail">{item.detail}</p>
-                <p className="stack-card__projects">
-                  {item.projects.map(project => {
-                    const url = getStackProjectUrl(project)
-                    if (!url) return <span key={project}>{project}</span>
-                    return (
-                      <a
-                        key={project}
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {project}
-                      </a>
-                    )
-                  })}
-                </p>
+                {item.projects.length > 0 && (
+                  <p className="stack-card__projects">
+                    {item.projects.map(project => {
+                      const url = getStackProjectUrl(project)
+                      if (!url) return <span key={project}>{project}</span>
+                      return (
+                        <a
+                          key={project}
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {project}
+                        </a>
+                      )
+                    })}
+                  </p>
+                )}
               </article>
             ))}
           </div>
@@ -335,7 +332,7 @@ export default function Hero() {
         </SectionShell>
 
         <SectionShell id="work" num="04" label="WORK" delay={0.2}>
-          <p className="home-section__lede">这些项目对应我对 Agent 系统的几个判断：工具接口、知识工作、Claude Agent SDK、自动化流程和多智能体协作。</p>
+          <p className="home-section__lede">这些项目对应我对 Agent 系统的几个判断：工具接口、知识工作、Claude Agent SDK、自动化流程、多智能体协作和移动端情感交互。</p>
           <div className="home-work-grid">
             {SELECTED_WORK.map(name => {
               const p = projectsByName[name]
@@ -344,7 +341,7 @@ export default function Hero() {
             })}
           </div>
           <p className="home-work-more">
-            <a href="#/projects">查看全部 {projectData?.totalProjects ?? 38} 个项目 →</a>
+            <a href="#/projects">查看全部 {projectData?.totalProjects ?? STATS_SNAPSHOT.totalProjects} 个项目 →</a>
           </p>
         </SectionShell>
 
@@ -410,7 +407,7 @@ export default function Hero() {
           <footer className="home-footer">
             <span>Built with React + Framer Motion + GSAP</span>
             <span>·</span>
-            <span>Last updated 2026.05</span>
+            <span>Last updated 2026.06</span>
           </footer>
         </SectionShell>
       </main>
