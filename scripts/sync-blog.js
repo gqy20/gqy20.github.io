@@ -60,10 +60,24 @@ function countWords(text) {
   return cn + en
 }
 
-// 加粗语法 lint:只抓真正导致粗体失效的两种 ** 边缘空格(CommonMark 规则)。
-//   1) 开放 ** 后紧跟空格(前是空白/行首,后是空格)→ ** 不构成粗体开始
-//   2) 关闭 ** 前紧跟空格(前是空格,后是空格/标点/行尾)→ ** 不构成粗体结束
-// 正常的「**粗体** 后接文字」「**粗体内嵌 `代码`**」不算 bug,不报。
+// 加粗语法 lint:用「配对扫描 **X**」一次性覆盖 4 类 CommonMark 边界 bug
+//   1) X 首字符是空白 → 左 ** 后导空白 → 「** foo」bug
+//   2) X 尾字符是空白 → 右 ** 前导空白 → 「**foo **」bug
+//   3a) X 首字符是 punct + 前字符是 letter → 左 ** 不 left-flanking
+//   3b) X 尾字符是 punct + 后字符是 letter → 右 ** 不 right-flanking
+// 配对扫描的好处:能精确区分左/右 **,避免「**core** 」(右 ** 后接空白是合法的)被误报。
+
+// 配对扫描用的字符集(模块顶层,避免每次 lint 都重建 Set)
+const PUNCT_SET = new Set([
+  '!', '"', '\'', ',', ';', ':', '?', '.', '-',
+  '(', ')', '[', ']', '{', '}',
+  // 全角中文标点
+  '。', '，', '！', '？', '；', '：',
+  '“', '”', '‘', '’'
+])
+// "letter 类" = 英文/数字/下划线 + 基本汉字
+const LETTER_RE = /[\w一-龥]/
+
 function lintBoldSpacing(content) {
   const issues = []
   const lines = content.split(/\r?\n/)
@@ -76,12 +90,36 @@ function lintBoldSpacing(content) {
     if (/^\s*\|/.test(line)) return  // 跳过表格行
     // 行内代码替换成占位符,避免「粗体内嵌代码」去码后产生 ** 边缘空格的误判
     const clean = line.replace(/`[^`]*`/g, 'C').replace(/^(\s*)(\d+\.|-|\*|\+)\s+/, '$1')
-    // 1) 开放 ** 后紧跟空格 → 粗体失效
-    if (/(^|\s)\*\*\s\S/.test(clean))
-      issues.push({ line: i + 1, kind: '开放 ** 后有空格(粗体失效)', snippet: line.trim().slice(0, 55) })
-    // 2) 关闭 ** 前紧跟空格(后接非词字符/行尾)→ 粗体失效
-    if (/\S\s\*\*(?=[^\w一-龥]|$)/.test(clean))
-      issues.push({ line: i + 1, kind: '关闭 ** 前有空格(粗体失效)', snippet: line.trim().slice(0, 55) })
+    // 配对扫描 **X**,统一检测 4 类边界 bug
+    for (const pm of clean.matchAll(/\*\*([^*\n]+?)\*\*/g)) {
+      const inner = pm[1]
+      const before = clean[pm.index - 1] || ''
+      const after = clean[pm.index + pm[0].length] || ''
+      const first = inner[0]
+      const last = inner[inner.length - 1]
+      let hit = false
+      // 1) X 首字符是空白 → 左 ** 后有空白
+      if (/\s/.test(first)) {
+        issues.push({ line: i + 1, kind: '开放 ** 后有空格(粗体失效)', snippet: line.trim().slice(0, 55) })
+        hit = true
+      }
+      // 2) X 尾字符是空白 → 右 ** 前有空白
+      if (/\s/.test(last)) {
+        issues.push({ line: i + 1, kind: '关闭 ** 前有空格(粗体失效)', snippet: line.trim().slice(0, 55) })
+        hit = true
+      }
+      // 3a) X 首字符是 punct + 前字符是 letter → 左 ** 不 left-flanking
+      if (PUNCT_SET.has(first) && LETTER_RE.test(before)) {
+        issues.push({ line: i + 1, kind: '** 后紧贴左标点(粗体失效)', snippet: line.trim().slice(0, 55) })
+        hit = true
+      }
+      // 3b) X 尾字符是 punct + 后字符是 letter → 右 ** 不 right-flanking
+      if (PUNCT_SET.has(last) && LETTER_RE.test(after)) {
+        issues.push({ line: i + 1, kind: '** 前紧贴右标点(粗体失效)', snippet: line.trim().slice(0, 55) })
+        hit = true
+      }
+      if (hit) break   // 一行只报一次,避免多对重复刷屏
+    }
   })
   return issues
 }

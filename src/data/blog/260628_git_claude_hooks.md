@@ -71,7 +71,7 @@ git hooks 的定义朴实得惊人([官方文档](https://git-scm.com/docs/githo
 
 ### 2.2 客户端 hooks 全景
 
-git 的 hook 分**客户端(client-side)**和**服务端(server-side)**两类。客户端 hook 在你本地仓库触发,最常用的有这些:
+git 的 hook 分 **客户端(client-side)** 和 **服务端(server-side)** 两类。客户端 hook 在你本地仓库触发,最常用的有这些:
 
 | Hook | 触发时机 | 能否阻断 | 典型用途 |
 |------|---------|---------|---------|

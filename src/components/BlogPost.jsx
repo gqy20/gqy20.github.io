@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from 'react'
+import { useState, useEffect, useRef, useMemo, useCallback, memo } from 'react'
 import { motion } from 'motion/react'
 import { useParams, Link } from 'react-router-dom'
 import {
@@ -102,22 +102,70 @@ const BlogPost = () => {
     return () => clearTimeout(timer)
   }, [content])
 
-  // TOC 当前项自动滚入侧栏可见区（block:nearest 只在不可见时滚侧栏，不干扰主页面）
+  // cursor 指示条对齐 active 标题;active 项离开侧栏可视区时手动滚 aside(用 scrollTop,
+  // 避免 scrollIntoView 的跨容器副作用——它会滚 window,干扰主滚动)。
   useEffect(() => {
     if (!activeId) return
-    const el = document.querySelector('.toc-item.is-active')
-    if (el && el.scrollIntoView) el.scrollIntoView({ block: 'nearest' })
+    const raf = requestAnimationFrame(() => {
+      const el = document.querySelector('.toc-item.is-active')
+      if (!el) return
+      const cursor = document.querySelector('.toc-cursor')
+      if (cursor) {
+        cursor.style.top = `${el.offsetTop}px`
+        cursor.style.height = `${el.offsetHeight}px`
+      }
+      const aside = document.querySelector('.blog-post-aside')
+      const list = document.querySelector('.toc-list')
+      if (aside && list) {
+        const er = el.getBoundingClientRect()
+        const ar = aside.getBoundingClientRect()
+        if (er.top < ar.top - 2 || er.bottom > ar.bottom + 2) {
+          aside.scrollTop = el.offsetTop + list.offsetTop - aside.clientHeight / 2 + el.offsetHeight / 2
+        }
+      }
+    })
+    return () => cancelAnimationFrame(raf)
   }, [activeId])
 
-  // GSAP: 阅读进度条 scrub + TOC scroll-spy（替换原手写 scroll 监听）
+  // TOC scroll-spy:scroll + rAF 调度 + 范围模式遍历(标题越线后保持高亮,直到下一个越线)。
+  // 渲染轻量靠 TocItem 的 memo(activeId 变化只重渲染 2 项),故可直接 setActiveId 保证连续。
+  // 文末哨兵 IO 兜底——哨兵进入视口 → 锁定最后一个标题。
+  useEffect(() => {
+    if (!toc.length) return
+    const heads = toc.map(t => document.getElementById(t.id)).filter(Boolean)
+    if (!heads.length) return
+
+    const OFFSET = 130
+    let scrollRafId = 0
+    const compute = () => {
+      scrollRafId = 0
+      const liveHeads = Array.from(document.querySelectorAll('.blog-post-content h2, .blog-post-content h3'))
+      let current = liveHeads[0]?.id || ''
+      for (const h of liveHeads) {
+        if (h.getBoundingClientRect().top <= OFFSET) current = h.id
+        else break
+      }
+      setActiveId(current)
+    }
+    const onScroll = () => {
+      if (!scrollRafId) scrollRafId = requestAnimationFrame(compute)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+
+    compute()
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (scrollRafId) cancelAnimationFrame(scrollRafId)
+    }
+  }, [toc])
+
+  // GSAP:仅保留阅读进度条 scrub(scroll-spy 已改用 IntersectionObserver)
   useGSAP(() => {
     const mm = gsap.matchMedia()
     mm.add({
       isReduce: '(prefers-reduced-motion: reduce)',
       isNormal: '(prefers-reduced-motion: no-preference)'
     }, () => {
-
-      // 阅读进度条:scaleX 跟随整页滚动
       gsap.fromTo('.reading-progress',
         { scaleX: 0 },
         {
@@ -130,21 +178,8 @@ const BlogPost = () => {
           }
         }
       )
-
-      // TOC scroll-spy:每个 heading 越过阅读线(视口顶 120px)时高亮
-      const heads = articleRef.current
-        ? Array.from(articleRef.current.querySelectorAll('h2, h3'))
-        : []
-      heads.forEach((h) => {
-        if (!h.id) return
-        ScrollTrigger.create({
-          trigger: h,
-          start: 'top 120px',
-          end: 'bottom 120px',
-          onEnter: () => setActiveId(h.id),
-          onEnterBack: () => setActiveId(h.id)
-        })
-      })
+      // NOTE: TOC 侧栏进度线(.toc-progress)的 scaleY 改由下方 scroll-spy 的 compute
+      // 直接设,与 active 高亮同帧同步(比独立 ScrollTrigger 稳,避开 rerun 时序竞态)
     })
     return () => mm.revert()
   }, { scope: rootRef, dependencies: [toc] })
@@ -184,14 +219,14 @@ const BlogPost = () => {
     setTimeout(() => setToast(''), 2000)
   }
 
-  const scrollToHeading = (id) => {
+  const handleSelect = useCallback((id) => {
     const el = document.getElementById(id)
     if (!el) return
-    // 手动计算位置，避免 sticky 父级下 scrollIntoView 失常；顶部留 90px 偏移
+    // 手动计算位置,避免 sticky 父级下 scrollIntoView 失常;顶部留 90px 偏移
     const y = el.getBoundingClientRect().top + window.scrollY - 90
     window.scrollTo({ top: y, behavior: 'smooth' })
     setActiveId(id)
-  }
+  }, [])
 
   const otherPosts = useMemo(
     () => allPosts.filter(p => p.slug !== slug).slice(0, 5),
@@ -418,15 +453,14 @@ const BlogPost = () => {
               <nav className="toc" aria-label="文章目录">
                 <h4 className="aside-label">ON THIS PAGE</h4>
                 <ul className="toc-list">
+                  <span className="toc-cursor" aria-hidden="true" />
                   {toc.map(item => (
-                    <li key={item.id}>
-                      <button
-                        className={`toc-item toc-${item.level} ${activeId === item.id ? 'is-active' : ''}`}
-                        onClick={() => scrollToHeading(item.id)}
-                      >
-                        {item.text}
-                      </button>
-                    </li>
+                    <TocItem
+                      key={item.id}
+                      item={item}
+                      isActive={activeId === item.id}
+                      onSelect={handleSelect}
+                    />
                   ))}
                 </ul>
               </nav>
@@ -438,5 +472,19 @@ const BlogPost = () => {
     </div>
   )
 }
+
+const TocItem = memo(function TocItem({ item, isActive, onSelect }) {
+  return (
+    <li>
+      <button
+        type="button"
+        className={`toc-item toc-${item.level} ${isActive ? 'is-active' : ''}`}
+        onClick={() => onSelect(item.id)}
+      >
+        {item.text}
+      </button>
+    </li>
+  )
+})
 
 export default BlogPost

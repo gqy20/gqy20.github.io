@@ -491,7 +491,7 @@ GBrain 是 Y Combinator CEO **Garry Tan** 开源的自用 Agent 大脑:把纯 Ma
 | **检索层** | Postgres + pgvector | HNSW 向量 + tsvector 关键词,**RRF 融合**(`score = Σ(1/(60+rank))`)+ 4 层去重 + 反向链接加权 |
 | **Skills** | 34 个 markdown 工作流 | 「thin harness, fat skills」——智能在 skill 文件里,不在运行时引擎;含 ingest / enrich / citation-fixer / cron-scheduler 等 |
 
-**(2) 降幻觉的两大差异化(别人没有合一的)**
+**(2) 降幻觉的两大差异化(竞品往往只有其一)**
 
 - **自连线知识图谱**:每次 `put_page` 用 regex 抽实体引用、建 typed edges(`attended` / `works_at` / `invested_in` / `founded` / `advises`),**零 LLM 调用**。这是它比纯向量 RAG 高出 +31.4 P@5 的来源——BrainBench 实测 P@5 49.1% / R@5 97.9%([GitHub README](https://github.com/garrytan/gbrain)、[vectorize 评测](https://vectorize.io/articles/what-is-gbrain))。
 - **Synthesis + gap analysis**:`gbrain think` 不只返回 chunks,而是给出**带引用的答案 + 诚实标注「大脑还不知道什么」**(哪些页 stale、哪些断言无引用、哪两页矛盾)。**主动暴露知识缺口**本身就是一种降幻觉手段——传统知识库只会「给 10 个相关 chunk」让你自己读。

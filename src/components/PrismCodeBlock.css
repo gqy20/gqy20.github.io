@@ -32,6 +32,9 @@
 }
 
 .prism-language-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   background: transparent;
   color: var(--dt-dim);
   border: 1px solid var(--dt-line);
@@ -40,6 +43,14 @@
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.03em;
+  line-height: 1;
+}
+
+.prism-lang-icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  /* Simple Icons 默认 fill="currentColor",靠父级 color 跟主题走 */
 }
 
 .prism-code-lines {
@@ -140,62 +151,47 @@
   word-wrap: normal;
 }
 
-/* Prism.js 主题适配 - 深色模式 */
+/* Prism.js token 配色 — Tomorrow Night 主题(经典暗色,高对比度)
+   替换:原来手写全是蓝色系,辨识度低;现在按 token 语义用不同色相 */
 .prism-code-block .token.comment,
 .prism-code-block .token.prolog,
 .prism-code-block .token.doctype,
 .prism-code-block .token.cdata {
-  color: #6a737d;
+  color: #8b949e;
   font-style: italic;
 }
 
-.prism-code-block .token.punctuation {
-  color: #e1e4e8;
-}
+.prism-code-block .token.punctuation { color: #c9d1d9; }
 
-.prism-code-block .token.property,
 .prism-code-block .token.tag,
+.prism-code-block .token.attr-name,
+.prism-code-block .token.namespace,
+.prism-code-block .token.deleted { color: #e2777a; }
+
 .prism-code-block .token.boolean,
 .prism-code-block .token.number,
+.prism-code-block .token.function { color: #f08d49; }
+
+.prism-code-block .token.property,
+.prism-code-block .token.class-name,
 .prism-code-block .token.constant,
-.prism-code-block .token.symbol,
-.prism-code-block .token.deleted {
-  color: #79b8ff;
-}
+.prism-code-block .token.symbol { color: #f8c555; }
 
 .prism-code-block .token.selector,
-.prism-code-block .token.attr-name,
+.prism-code-block .token.important,
+.prism-code-block .token.atrule,
+.prism-code-block .token.keyword,
+.prism-code-block .token.builtin { color: #cc99cd; }
+
 .prism-code-block .token.string,
 .prism-code-block .token.char,
-.prism-code-block .token.builtin,
-.prism-code-block .token.inserted {
-  color: #9ecbff;
-}
+.prism-code-block .token.attr-value,
+.prism-code-block .token.regex,
+.prism-code-block .token.variable { color: #7ec699; }
 
 .prism-code-block .token.operator,
 .prism-code-block .token.entity,
-.prism-code-block .token.url,
-.prism-code-block .language-css .token.string,
-.prism-code-block .style .token.string {
-  color: #b392f0;
-}
-
-.prism-code-block .token.atrule,
-.prism-code-block .token.attr-value,
-.prism-code-block .token.keyword {
-  color: #f97583;
-}
-
-.prism-code-block .token.function,
-.prism-code-block .token.class-name {
-  color: #b392f0;
-}
-
-.prism-code-block .token.regex,
-.prism-code-block .token.important,
-.prism-code-block .token.variable {
-  color: #ffab70;
-}
+.prism-code-block .token.url { color: #67cdcc; }
 
 /* 响应式设计 */
 @media (max-width: 768px) {

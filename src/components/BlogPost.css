@@ -618,7 +618,7 @@
   width: min(var(--w-layout), calc(100% - 2.5rem));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
+  grid-template-columns: minmax(0, 1fr) 360px;
   gap: 2.5rem;
   align-items: start;
 }
@@ -669,11 +669,22 @@
 
 /* ── TOC 目录 ── */
 .toc {
-  max-height: calc(55vh - 1.5rem);
-  overflow-y: auto;
+  position: relative;
   padding-right: 0.25rem;
-  scrollbar-width: thin;
-  scrollbar-color: var(--dt-scroll-thumb) transparent;
+}
+
+/* active 指示条:贴着当前 active 标题、随切换平滑滑动(与标题对齐,替代固定进度线) */
+.toc-cursor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 0;
+  background: var(--dt-accent);
+  border-radius: 1px;
+  transition: top 0.3s ease, height 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .toc::-webkit-scrollbar { width: 4px; }
@@ -692,6 +703,7 @@
   margin: 0;
   padding: 0;
 }
+.toc-list { position: relative; }
 
 .toc-item {
   display: block;
@@ -700,17 +712,17 @@
   background: none;
   border: none;
   border-left: 1px solid transparent;
-  padding: 0.3rem 0 0.3rem 0.75rem;
+  padding: 0.34rem 0 0.34rem 0.75rem;
   color: var(--dt-dim);
   font-family: var(--dt-font-sans);
-  font-size: 0.8rem;
+  font-size: 0.88rem;
   line-height: 1.4;
   cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .toc-item.toc-h3 {
-  font-size: 0.74rem;
+  font-size: 0.82rem;
   padding-left: 1.5rem;
 }
 
@@ -720,7 +732,6 @@
 
 .toc-item.is-active {
   color: var(--dt-accent);
-  border-left-color: var(--dt-accent);
   font-weight: 600;
 }
 
