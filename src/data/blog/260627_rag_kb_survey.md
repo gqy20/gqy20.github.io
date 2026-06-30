@@ -2,11 +2,11 @@
 title: "2026 开源知识库 RAG 方案深度调研:降幻觉、技术实现与商业可用性全解析"
 type: "survey"
 date: "2026-06-27"
-updated: "2026-06-29"
+updated: "2026-06-30"
 author: "Qingyu Ge"
 tags: ["RAG", "知识库", "Embedding", "降幻觉", "GraphRAG"]
 category: "AI应用"
-excerpt: "全面调研 GitHub 上 8 个主流开源知识库/RAG 方案,深入分析分块策略、Embedding 配置、文件预处理,并以「降低大模型幻觉」为主线,剖析 RAGFlow 的双流派融合与 GraphRAG 的实测效果,以及各项目的开源协议和商业可用性。助你选择最适合的知识库方案。"
+excerpt: "全面调研 GitHub 上 8 个主流开源知识库/RAG 方案,深入分析分块策略、Embedding 配置、文件预处理,并以「降低大模型幻觉」为主线,剖析 RAGFlow 的双流派融合与 GraphRAG 的实测效果,以及各项目的开源协议和商业可用性;并前瞻 2026 新涌现的「Agent 记忆 / 上下文图」赛道(GBrain / Mem0 / Graphiti / A-RAG)。助你选择最适合的知识库方案。"
 coverImage: "/blog/260627_rag_kb_survey.jpg"
 published: true
 id: "260627_rag_kb_survey"
@@ -21,7 +21,7 @@ slug: "260627_rag_kb_survey"
 
 在构建 AI 知识库系统时,核心挑战是**压低大模型的幻觉**。市面上的 RAG(检索增强生成)框架琳琅满目,但它们的**分块策略、Embedding 配置、文件预处理能力**差异巨大。
 
-> 📊 **市场规模**:据 [Onyx 2026 年企业 RAG 报告](https://onyx.app/insights/enterprise-rag-platforms-2026)(基于 MarketsandMarkets 数据),企业级 RAG 市场在 2025 年已达 **19.4 亿美元**,预计 2030 年增至 **98.6 亿美元**,复合增长率 38.4%。这意味着选型决策越来越关键。
+> 📊 **市场规模**:据 [Onyx 2026 年企业 RAG 报告](https://onyx.app/insights/enterprise-rag-platforms-2026)(基于 MarketsandMarkets 数据),企业级 RAG 市场在 2025 年已达 **19.4 亿美元**,预计 2030 年增至 **98.6 亿美元**,复合增长率 38.4%。
 
 本文从 GitHub 上筛选了 **8 个最主流的开箱即用知识库/RAG 平台**(均为 API + 自带前端,核心定位是知识库),剖析技术实现与开源协议,以**降低幻觉**为核心维度评估。
 
@@ -40,7 +40,7 @@ slug: "260627_rag_kb_survey"
 | **[MaxKB](https://github.com/1Panel-dev/MaxKB)** | 21.5k | 开箱即用知识库 | Python / Django / Vue | Docker 一键部署 |
 | **[QAnything](https://github.com/netease-youdao/QAnything)** | 14k | 本地知识库问答 | Python | BCEmbedding · 混合检索 |
 
-> ⚠️ **选型前置说明**:本文聚焦"**核心定位是知识库、提供 API、自带前端**"的开箱即用平台。LangChain / LangGraph / LlamaIndex 等更底层框架不在选型范围,**Haystack** 会在第 4 节单独点评。
+> ⚠️ **选型前置说明**:本文聚焦"**核心定位是知识库、提供 API、自带前端**"的开箱即用平台。LangChain / LangGraph / LlamaIndex 等更底层框架不在选型范围,**Haystack** 会在第 4 节单独点评。**2026 年新涌现的「Agent 记忆 / 上下文图」赛道(GBrain / Mem0 / Graphiti / Cognee / Letta / A-RAG)见第 4.7 节**。
 
 ---
 
@@ -105,8 +105,6 @@ flowchart TB
 没有 Parent 上下文的情况下,LLM 可能将"违约金 20%"错误归类到一般违约条款。
 
 #### 3.1.4 双流派合一:已集成 GraphRAG
-
-> 这是 RAGFlow 在 2025 年的关键升级。
 
 降幻觉有两大流派(详见第 4 节),RAGFlow 把**两者都内置**:
 
@@ -330,11 +328,9 @@ PDF / Word(docx) / PPT(pptx) / XLS(xlsx) / Markdown(md) / EML / TXT / 图片(jpg
 
 ## 4. 降幻觉专题:两大流派 + 5 大技术杠杆
 
-> **选知识库,本质是选降幻觉方案**。理解原理才能在任何项目间做对判断。
+> **选知识库,本质是选降幻觉方案,也是选一代架构**——不同代际解决不同问题,盲目上最新代际反而烧钱烧延迟。理解原理才能在任何项目间做对判断。
 
 ### 4.1 RAG 架构演进:从朴素到自主(Agentic RAG 元年)
-
-> **选知识库,本质是选一代架构**——不同代际解决不同问题,盲目上最新代际反而烧钱烧延迟。
 
 RAG 这几年走过四个台阶,每一代都在补上一代的短板:
 
@@ -466,13 +462,119 @@ LightRAG 之外,2025-2026 涌现了一批更高性价比的图增强 RAG,把 Gra
 | **[Pathway](https://github.com/pathwaycom/pathway)** | 62.8k | 自定义 | 实时数据 RAG | 实时索引 + 流式增量更新,知识库频繁变动场景最优 |
 | **[txtai](https://github.com/neuml/txtai)** | 12.7k | Apache-2.0 | all-in-one embeddings+RAG | 内置向量库,本地/离线 RAG,轻量自包含 |
 
-> 💡 **平台 vs 框架怎么选**:开箱即用平台(RAGFlow/Dify 等)部署即用、自带前端和 API;框架(Haystack 等)灵活可控、可深度定制,但要自己写后端和前端。**团队有工程能力且需要极致定制时选框架,追求快速落地时选平台。** Haystack 是企业级首选(有重量级背书),LlamaIndex 适合数据密集型检索,Pathway 适合实时场景,txtai 适合本地/边缘部署。
+> 💡 **平台 vs 框架怎么选**:开箱即用平台(RAGFlow/Dify 等)部署即用、自带前端和 API;框架(Haystack 等)灵活可控、可深度定制,但要自己写后端和前端。**团队有工程能力且需要极致定制时选框架,追求快速落地时选平台。**
+
+### 4.7 RAG 的下一站:Agent 记忆与上下文图(2026 新赛道)
+
+> 第 4.1 节判定 2026 是「Agentic RAG 元年」,这一节是它的落地证据。本节是区别于第 3 节(文档知识库平台)和第 4.6 节(底层 RAG 框架)的**第三类——Agent 记忆 / 上下文图**:解决「Agent 跨会话记忆 + 实体关系随时间演进」,选型逻辑与传统知识库不同,故单列。代表就是 **GBrain**。
+
+#### 4.7.1 GBrain — 自连线知识图谱 + 混合检索(Garry Tan 自用大脑)
+
+**GitHub**: [garrytan/gbrain](https://github.com/garrytan/gbrain) · **协议**: MIT · 2026-04-05 开源 · [架构详解](https://vectorize.io/articles/what-is-gbrain)
+
+GBrain 是 Y Combinator CEO **Garry Tan** 开源的自用 Agent 大脑:把纯 Markdown 笔记变成一个 agent 可读、可写、可推理的**自连线知识图谱**。它不是传统知识库,而是「让失忆的 coding agent 不再对代码以外的事失忆」。
+
+| 事实 | 值 |
+|------|-----|
+| 作者 | Garry Tan(YC 总裁) |
+| 协议 | MIT(可闭源商用、可 SaaS) |
+| 数据源 | git 仓库里的 Markdown(唯一真相源) |
+| 存储 | Postgres + pgvector(本地用 PGLite,2 秒就绪) |
+| 检索 | 混合:HNSW 向量 + tsvector 关键词 + RRF 融合 |
+| 接口 | CLI + MCP(stdio / OAuth 2.1 HTTP) |
+
+**(1) 三层架构**
+
+| 层 | 实现 | 职责 |
+|---|---|---|
+| **Brain Repo** | git 里的 Markdown | 「compiled truth + timeline」模式:顶部是当前最佳理解摘要,下面是 append-only 的时间线条目。可 `git diff` 审计 agent 一夜学到了什么 |
+| **检索层** | Postgres + pgvector | HNSW 向量 + tsvector 关键词,**RRF 融合**(`score = Σ(1/(60+rank))`)+ 4 层去重 + 反向链接加权 |
+| **Skills** | 34 个 markdown 工作流 | 「thin harness, fat skills」——智能在 skill 文件里,不在运行时引擎;含 ingest / enrich / citation-fixer / cron-scheduler 等 |
+
+**(2) 降幻觉的两大差异化(别人没有合一的)**
+
+- **自连线知识图谱**:每次 `put_page` 用 regex 抽实体引用、建 typed edges(`attended` / `works_at` / `invested_in` / `founded` / `advises`),**零 LLM 调用**。这是它比纯向量 RAG 高出 +31.4 P@5 的来源——BrainBench 实测 P@5 49.1% / R@5 97.9%([GitHub README](https://github.com/garrytan/gbrain)、[vectorize 评测](https://vectorize.io/articles/what-is-gbrain))。
+- **Synthesis + gap analysis**:`gbrain think` 不只返回 chunks,而是给出**带引用的答案 + 诚实标注「大脑还不知道什么」**(哪些页 stale、哪些断言无引用、哪两页矛盾)。**主动暴露知识缺口**本身就是一种降幻觉手段——传统知识库只会「给 10 个相关 chunk」让你自己读。
+
+```mermaid
+flowchart LR
+    S["Signal 到达<br/>会议/邮件/推文"] --> SD["Signal Detector<br/>抽 idea + 实体"]
+    SD --> BF["Brain-first 检索<br/>gbrain search/get"]
+    BF --> R["带完整上下文响应"]
+    R --> W["写入 brain 页<br/>+ timeline + 引用"]
+    W --> AL["Auto-link<br/>regex 建 typed edges<br/>零 LLM 调用"]
+    AL --> SY["Sync<br/>cron 保持新鲜"]
+    SY -.下一轮复用.-> BF
+```
+
+**(3) 适用性**
+
+- **适用**:个人/团队 Operator 想要 markdown-first 的自增值大脑;已在用 OpenClaw / Hermes / Claude Code / Codex(MCP 一行接入)。Garry 本人部署规模 **146,646 页 / 24,585 人 / 5,339 公司 / 66 个 cron**。
+- **不适用**:要托管云记忆即服务(GBrain 无 managed 版)、要自动从原始事实综合结构(那是 Hindsight 类)、要时序推理「上周为真但现在不为真」(那是下面的 Graphiti)。
+
+> 💡 **与本文的呼应**:GBrain 的「regex 零成本建图 + RRF」印证了第 4.5 节「RRF 杠杆」和第 4.4.2 节「GraphRAG 成本悬崖崩塌」——**不必上重型 GraphRAG,用轻量建图 + 混合检索就能拿到大部分收益**。这正是 RAGFlow 把图谱做成「可选轻量模式」的同款工程判断。
+
+#### 4.7.2 同赛道速览:Mem0 / Graphiti / Cognee / Letta(均 Apache-2.0,可商用)
+
+| 项目 | 协议 | 核心差异化 | 关键数据 | 一手链接 |
+|------|------|-----------|---------|---------|
+| **Mem0** | Apache-2.0(YC S24) | 通用 Agent 记忆层;2026-04 新算法:single-pass ADD-only 抽取 + entity linking + 多信号检索(semantic+BM25+entity)+ 时序推理 | LongMemEval **94.8**、BEAM 10M **48.6**(单遍检索,无 agentic 循环) | [github.com/mem0ai/mem0](https://github.com/mem0ai/mem0) |
+| **Graphiti**(Zep 开源) | Apache-2.0 | **时序上下文图**:fact 带 validity window,变更时 invalidate 不删除;episodes 溯源;prescribed + learned ontology;hybrid 检索(semantic+BM25+图遍历);bi-temporal | 对比 GraphRAG:**亚秒延迟** vs 后者「数秒到数十秒」 | [github.com/getzep/graphiti](https://github.com/getzep/graphiti) |
+| **Cognee** | Apache-2.0 | `remember`/`recall`/`forget`/`improve` 四操作;**整个记忆层跑单个 Postgres**(图+pgvector+session+metadata) | BEAM 100K **0.79** / 10M **0.67**;CI 里比「图库+向量库」分离栈快 ~10% | [github.com/topoteretes/cognee](https://github.com/topoteretes/cognee) |
+| **Letta**(原 MemGPT) | Apache-2.0 | 有状态 agent 平台,memory blocks(human / persona),model-agnostic;Letta Code CLI + Letta API | 官方推荐 Opus 4.5 / GPT-5.2 | [github.com/letta-ai/letta](https://github.com/letta-ai/letta) |
+
+**一句话区分**:
+
+- **Mem0** = 最通用的「记忆中间件」,`pip install mem0ai` 给任何 agent 加长期记忆,适合产品化集成;
+- **Graphiti** = 「时序优先」的上下文图,fact 会过期失效,**补上了第 4.4.2 节 GraphRAG 家族表缺的「实时演进」维度**(LazyGraphRAG / HippoRAG / PathRAG 都偏静态批处理);
+- **Cognee** = 「单 Postgres 全栈」极简运维,记忆层不依赖 Neo4j + Redis + 向量库一整套;
+- **Letta** = 「有状态 agent」平台侧重 agent 自我改进,记忆是它的核心能力之一。
+
+> 📊 **Graphiti vs GraphRAG(摘自 Graphiti README)**:GraphRAG 面向「静态文档摘要、批处理」,Graphiti 面向「动态演进、增量更新、精确历史查询」。二者不是替代,而是互补——静态语料用 GraphRAG/LightRAG,频繁变动的 agent 上下文用 Graphiti。
+
+#### 4.7.3 A-RAG — 真正「Agentic」的 RAG(学术 SOTA)
+
+**GitHub**: [Ayanami0730/arag](https://github.com/Ayanami0730/arag) · **论文**: [arXiv 2602.03442](https://arxiv.org/abs/2602.03442)(2026-02)· MIT
+
+A-RAG 给第 4.1.1 节「Agentic RAG」补了一个**有 SOTA 实测的落地框架**。论文核心论点:现有 **Graph-RAG**(一次性检索拼接)和 **Workflow-RAG**(预定义流程逐步执行)**都不让模型参与检索决策**,因此无法随模型变强而 scale。
+
+**A-RAG 的做法**:把三个**分层检索工具**直接交给模型自主调度(ReAct 式 action→observation→reasoning 循环):
+
+| 工具 | 粒度 | 机制 |
+|------|------|------|
+| `keyword_search` | 词级 | 精确词面匹配(大小写不敏感),适合已知实体/专名/术语 |
+| `semantic_search` | 句级 | 稠密检索(句向量余弦),适合概念查询、措辞未知 |
+| `chunk_read` | 块级 | 读取指定 chunk 全文 + 相邻 ±1 chunk 补上下文 |
+
+**三原则**:自主策略(动态选检索策略)+ 迭代执行(多轮,据中间结果调整)+ 交错工具调用。
+
+**实测(GPT-5-mini backbone,LLM-Acc %)**:
+
+| 方法 | MuSiQue | HotpotQA | 2Wiki |
+|------|:---:|:---:|:---:|
+| Naive RAG | 52.8 | 81.2 | 50.2 |
+| GraphRAG | 48.3 | 82.5 | 66.5 |
+| HippoRAG2 | 61.7 | 84.8 | 82.0 |
+| LinearRAG | 62.4 | 86.2 | 87.2 |
+| **A-RAG (Full)** | **74.1** | **94.5** | **89.7** |
+
+> A-RAG 在多跳 QA 上全面超过 HippoRAG2 / LinearRAG / GraphRAG([论文表](https://github.com/Ayanami0730/arag))。它用 **Qwen3-Embedding-0.6B** 建索引(呼应第 6.1 节 Qwen3-Embedding 系列)。**关键启示:把检索决策交给模型,模型越强 RAG 越强**——这是 Agentic RAG 区别于死流水线的本质。
+
+#### 4.7.4 选型:Agent 记忆 vs 传统知识库
+
+| 你的需求 | 选哪类 | 代表 |
+|---------|-------|------|
+| 文档问答 / 企业知识库 / 降幻觉优先 | **第 3 节传统平台** | RAGFlow / Dify / Onyx |
+| 给 Agent 跨会话长期记忆、实体关系演进 | **本节 Agent 记忆** | GBrain(个人/团队大脑)/ Mem0(通用)/ Graphiti(时序)/ Cognee(单 Postgres)/ Letta(有状态 agent) |
+| 多跳推理 SOTA / 学术研究 | **Agentic RAG 框架** | A-RAG |
+
+> 💡 **一句话总结**:传统知识库回答「**文档里写了什么**」,Agent 记忆回答「**这个 Agent 经历过 / 知道什么**」。两者不互斥——很多团队用 RAGFlow 做文档库,同时用 Mem0 / Graphiti 给 Agent 装记忆。
 
 ---
 
 ## 5. 真实案例与实测效果
 
-> 前面讲的都是"能力",这一节讲"证据"。选型不能只听厂商自述,要看真实落地数据。以下案例与评测均来自公开来源,已标注出处。
+> 选型不能只听厂商自述,要看真实落地数据。以下案例与评测均来自公开来源,已标注出处。
 
 ### 5.1 真实生产案例
 
@@ -505,7 +607,6 @@ LightRAG 之外,2025-2026 涌现了一批更高性价比的图增强 RAG,把 Gra
 | 场景 | 结论 | 来源 |
 |------|------|------|
 | **单跳简单问题** | 向量 RAG 准确率 **68.73%**,反而优于 GraphRAG | [Tailored AI / arXiv 2502.11371](https://tailoredai.substack.com/p/rag-vs-graphrag-a-performance-analysis)(Llama 3.1-8B) |
-| **多跳推理问题** | GraphRAG 显著优于向量 RAG | 同上 |
 | **RAG + GraphRAG 混合** | 比单一方法 **+6.4%**(MultiHop-RAG, Llama 3.1-70B),但成本 1.5~2x | 同上 |
 | **图增强 RAG 多跳推理** | 准确率约 **2x**([NVIDIA 实测](https://developer.nvidia.com/blog/boosting-qa-accuracy-with-graphrag-using-pyg-and-graph-databases/)) | NVIDIA PyG + GraphRAG |
 
@@ -522,11 +623,7 @@ LightRAG 之外,2025-2026 涌现了一批更高性价比的图增强 RAG,把 Gra
 
 > ⚠️ **重要纠偏**:一个常见误区是「GraphRAG 一定比向量 RAG 好」。实测数据恰恰相反——**简单事实检索,RAG 更快更准;GraphRAG 只在多跳推理/关系类问题上才占优**。两者是互补而非替代。这正解释了为什么 RAGFlow 选择「双模式」(检索用向量、推理用图谱)而非二选一。
 
-#### 5.2.1 成本对比:LightRAG 的杀手锏
-
-- **[LightRAG 查询阶段 token 成本比微软 GraphRAG 低约 6000 倍](https://www.ragdollai.io/blog/lightrag-vector-rags-speed-meets-graph-reasoning-at-1-100th-the-cost)**(GraphRAG 单次检索约 61 万 token,LightRAG 不足 100;索引成本相当)——这是它在中端市场胜出的关键
-- **微软 LazyGraphRAG**:索引成本仅全 GraphRAG 的 **0.1%**,查询成本 **4%**,效果却超过 GraphRAG Global Search
-- 这解释了 RAGFlow 为什么把 LightRAG 作为默认图谱模式(省 token),把 GraphRAG prompt 作为可选的高精度模式
+> 成本侧详见第 4.4.2 节:LightRAG 查询 token 仅为微软 GraphRAG 的 ~1/6000([RagdollAI 实测](https://www.ragdollai.io/blog/lightrag-vector-rags-speed-meets-graph-reasoning-at-1-100th-the-cost))、LazyGraphRAG 索引成本仅 0.1%——这正是 RAGFlow 把 LightRAG 设为默认图谱模式、GraphRAG prompt 作为高精度可选的工程原因。
 
 ### 5.3 客观反面声音:RAGFlow 也有短板
 
@@ -537,7 +634,7 @@ LightRAG 之外,2025-2026 涌现了一批更高性价比的图增强 RAG,把 Gra
 
 ### 5.4 怎么量化降幻觉效果(评估闭环)
 
-> 第 9.5 节那句「别跳过检索测试上线」,在这里展开成方法论。
+> 第 9.2 节那句「别跳过检索测试上线」,在这里展开成方法论。
 
 **第一步:把检索和生成拆开评估**。
 
@@ -562,7 +659,7 @@ LightRAG 之外,2025-2026 涌现了一批更高性价比的图增强 RAG,把 Gra
 
 **第三步:建评估集 + 持续监控**。从生产日志抽 50~100 条真实查询(覆盖简单事实、复杂推理、多跳、模糊问题),标注 ground truth,建立基线后再优化;Recall@K 降到 **60% 以下**就是检索瓶颈信号。2026 年的新进展:**CHARM** 框架专攻 Agentic RAG 多步推理的「错误传播」检测;**FaithLens** 仅 8B 参数,幻觉检测性能却超过 GPT-4.1——实时、低延迟的生产级幻觉监控正变得可负担([评估框架综述](https://callsphere.ai/blog/rag-evaluation-frameworks-2026-ragas-trulens-deepeval))。
 
-> 💡 **一句话总结**:RAGFlow 的 search 模式强、chat 模式弱,正是「检索好但生成没调好」的典型——这也印证了拆开评估的必要性。**先建评估集定基线,再谈优化**;否则所有调参都是盲飞。
+> 💡 **一句话总结**:**先建评估集定基线,再谈优化**;否则所有调参都是盲飞。
 
 ---
 
@@ -653,8 +750,7 @@ LightRAG 之外,2025-2026 涌现了一批更高性价比的图增强 RAG,把 Gra
 
 | 场景 | 推荐方案 | 备注 |
 |------|---------|------|
-| **英文 query 检索中文文档** | 用 `BGE-M3` / `Qwen3-Embedding-8B` 直接跨语种检索(zero-shot) | 利用模型的 Multi-Lingual Alignment 能力,无需翻译 |
-| **中文 query 检索英文文档** | 同上 | 同理 |
+| **跨语种检索(英 query 中文档 / 中 query 英文档)** | 用 `BGE-M3` / `Qwen3-Embedding-8B` 直接跨语种检索(zero-shot) | 利用模型的 Multi-Lingual Alignment 能力,无需翻译 |
 | **混合预料按语种分 Dataset** | 同一 Dataset 内所有 chunk 用同一 Embedding | 沿用第 3.1.5 节"关键约束"——保证同一向量空间可比 |
 | **评估基准** | [MKQA](https://github.com/apple/ml-mkqa)(Apple, 10k×26 语言,Wikidata QID 锚) + [XOR-Retrieve](https://github.com/AkariAsai/XORQA)(NAACL 2021, R@2kt / R@5kt) | — |
 
@@ -699,12 +795,18 @@ LightRAG 之外,2025-2026 涌现了一批更高性价比的图增强 RAG,把 Gra
 | **AnythingLLM** | MIT | ✅ 完全自由 | ✅ 是 | ✅ 是 | 无 |
 | **MaxKB** | GPL-3.0 | ❌ 强传染 | ❌ 否 | ❌ 否 | **强** |
 | **QAnything** | **AGPL-3.0** | ❌ 强传染(含网络) | ❌ 否 | ❌ 否 | **强** |
+| **GBrain**(4.7) | MIT | ✅ 完全自由 | ✅ 是 | ✅ 是 | 无 |
+| **Mem0**(4.7) | Apache-2.0 | ✅ 完全自由 | ✅ 是 | ✅ 是 | 无 |
+| **Graphiti**(4.7) | Apache-2.0 | ✅ 完全自由 | ✅ 是 | ✅ 是 | 无 |
+| **Cognee**(4.7) | Apache-2.0 | ✅ 完全自由 | ✅ 是 | ✅ 是 | 无 |
+| **Letta**(4.7) | Apache-2.0 | ✅ 完全自由 | ✅ 是 | ✅ 是 | 无 |
+| **A-RAG**(4.7) | MIT | ✅ 完全自由 | ✅ 是 | ✅ 是 | 无 |
 
 ### 7.2 详细解读
 
 #### 7.2.1 完全商业友好(Apache-2.0 / MIT)
 
-**RAGFlow、PrivateGPT、LightRAG、AnythingLLM** 都属于这一类:
+**RAGFlow、PrivateGPT、LightRAG、AnythingLLM**,以及第 4.7 节的 **GBrain / A-RAG(MIT)、Mem0 / Graphiti / Cognee / Letta(Apache-2.0)** 都属于这一类:
 
 - ✅ 商业使用、修改、分发、**闭源销售**均允许
 - ✅ 可用于 SaaS / 多租户服务
@@ -712,7 +814,7 @@ LightRAG 之外,2025-2026 涌现了一批更高性价比的图增强 RAG,把 Gra
 - ✅ 子许可证(sublicense)允许(MIT)
 - **唯一义务**:保留原始 LICENSE 文件 + 修改声明(不要求开源你的改动)
 
-> **结论**:这四个项目都可以直接作为商业产品的基础框架。
+> **结论**:这些项目都可以直接作为商业产品的基础框架。
 
 #### 7.2.2 有条件商业可用 — Dify / FastGPT
 
@@ -786,48 +888,39 @@ Onyx 采用与上述不同的 **open-core** 商业模式:
 | **自建生产级 RAG(写代码)** | **Haystack** | 架构清晰 + The Economist 等企业背书 + RAGAS 评估 |
 | **纯本地/离线学习参考** | **QAnything** | 断网可用(但 AGPL + 停滞,慎用) |
 | **快速 POC 验证** | **MaxKB / AnythingLLM** | 一键部署,开箱即用(MaxKB 注意 GPL) |
+| **给 Agent 装跨会话长期记忆** | **GBrain / Mem0 / Graphiti**(见 4.7) | Agent 记忆赛道,清一色 MIT/Apache,实体关系随时间演进 |
 
 ### 8.2 综合评分对比
 
 > 五星制(★ 越多越强)。横向看各项目优劣,纵向看同一项目在不同维度的短板。
 
-| 项目 | 可闭源商用 | 可 SaaS 多租户 | 协议宽松度 | 降幻觉能力 | 功能完整度 | 多语言支持(2026) |
-|------|:---:|:---:|:---:|:---:|:---:|:---:|
-| **RAGFlow** | ★★★★★ | ★★★★★ | ★★★★★ | ★★★★★ | ★★★★★ | ★★★★☆(v0.21.1+ 集成 MinerU/Docling,10 种 README 语言;中英混排是借道非原生) |
-| **Dify** | ★★★★☆ | ★☆☆☆☆ | ★★★★☆ | ★★★★☆ | ★★★★★ | ⚠️ 2026 多语言更新未在本次一手验证范围 |
-| **FastGPT** | ★★★★☆ | ★☆☆☆☆ | ★★★★☆ | ★★★★☆ | ★★★★☆ | ⚠️ 2026 多语言更新未在本次一手验证范围 |
-| **Onyx** | ★★★★★ | ★★★★☆ | ★★★★★ | ★★★★☆ | ★★★★☆ | ⚠️ 2026 多语言更新未在本次一手验证范围 |
-| **PrivateGPT** | ★★★★★ | ★★★★★ | ★★★★★ | ★★★☆☆ | ★★★☆☆ | ⚠️ 2026 多语言更新未在本次一手验证范围 |
-| **LightRAG** | ★★★★★ | ★★★★★ | ★★★★★ | ★★★★☆ | ★★☆☆☆ | ⚠️ 2026 多语言更新未在本次一手验证范围 |
-| **AnythingLLM** | ★★★★★ | ★★★★★ | ★★★★★ | ★★★☆☆ | ★★★☆☆ | ⚠️ 2026 多语言更新未在本次一手验证范围 |
-| **MaxKB** | ★☆☆☆☆ | ★☆☆☆☆ | ★☆☆☆☆ | ★★★☆☆ | ★★★☆☆ | ⚠️ 2026 多语言更新未在本次一手验证范围 |
-| **QAnything** | ★☆☆☆☆ | ★☆☆☆☆ | ★☆☆☆☆ | ★★★☆☆ | ★★☆☆☆ | ⚠️ 2026 多语言更新未在本次一手验证范围 |
+| 项目 | 可闭源商用 | 可 SaaS 多租户 | 协议宽松度 | 降幻觉能力 | 功能完整度 |
+|------|:---:|:---:|:---:|:---:|:---:|
+| **RAGFlow** | ★★★★★ | ★★★★★ | ★★★★★ | ★★★★★ | ★★★★★ |
+| **Dify** | ★★★★☆ | ★☆☆☆☆ | ★★★★☆ | ★★★★☆ | ★★★★★ |
+| **FastGPT** | ★★★★☆ | ★☆☆☆☆ | ★★★★☆ | ★★★★☆ | ★★★★☆ |
+| **Onyx** | ★★★★★ | ★★★★☆ | ★★★★★ | ★★★★☆ | ★★★★☆ |
+| **PrivateGPT** | ★★★★★ | ★★★★★ | ★★★★★ | ★★★☆☆ | ★★★☆☆ |
+| **LightRAG** | ★★★★★ | ★★★★★ | ★★★★★ | ★★★★☆ | ★★☆☆☆ |
+| **AnythingLLM** | ★★★★★ | ★★★★★ | ★★★★★ | ★★★☆☆ | ★★★☆☆ |
+| **MaxKB** | ★☆☆☆☆ | ★☆☆☆☆ | ★☆☆☆☆ | ★★★☆☆ | ★★★☆☆ |
+| **QAnything** | ★☆☆☆☆ | ★☆☆☆☆ | ★☆☆☆☆ | ★★★☆☆ | ★★☆☆☆ |
+
+> 多语言维度:仅 RAGFlow 经一手验证(v0.21.1+ 集成 MinerU/Docling、10 种 README 语言;中英混排借道 MinerU 非原生),其余项目 2026 多语言更新未在本次一手验证范围。
 
 ---
 
 ## 9. 总结与行动建议
 
-### 9.1 如果你追求「类似 Coze + 降幻觉最强」
+### 9.1 分场景速查(对照第 8.1 节)
 
-**RAGFlow 是目前最佳选择**:
-1. **降幻觉最强**:输入质量派全套(12 模板 + 父子分块 + 混合检索 + 重排 + 引用)**+ 已集成 GraphRAG**(双流派合一),这是其他平台都没有的差异化优势
-2. **协议**:Apache-2.0,无任何附加商业限制
-3. **文件支持最广**:23 种格式 + 深度文档理解
-4. **生产就绪**:83.7k Stars,活跃维护
+- **类似 Coze + 降幻觉最强** → **RAGFlow**:输入质量派全套 + 已集成 GraphRAG(双流派合一),Apache-2.0,23 种格式,83.7k Stars
+- **企业级知识库搜索** → **Onyx**:40+ 数据源 + 引用溯源 + 权限感知,核心 MIT(open-core)
+- **中文知识库 + OpenAI 兼容 API** → **FastGPT**(多租户 SaaS 注意授权)
+- **隐私/离线硬需求** → **PrivateGPT**:100% 本地、API-first、Apache-2.0
+- **给 Agent 装长期记忆** → 见第 4.7 节(GBrain / Mem0 / Graphiti)
 
-### 9.2 如果你在做企业级知识库搜索
-
-**Onyx** 值得优先评估:40+ 数据源连接 + 引用溯源 + 权限感知,核心 MIT 协议(open-core),企业功能按需付费。
-
-### 9.3 如果你需要中文知识库 + 快速接入
-
-**FastGPT** 是 OpenAI 兼容 API + 低门槛工作流的优选,但做多租户 SaaS 注意授权限制。
-
-### 9.4 如果隐私/离线是硬需求
-
-**PrivateGPT**:100% 本地、API-first、Apache-2.0,数据绝对不外泄。
-
-### 9.5 绝对要避开的坑
+### 9.2 绝对要避开的坑
 
 - **不要用 MaxKB(GPL-3.0)或 QAnything(AGPL-3.0)做商业产品基础**——除非你愿意把整个产品开源
 - **不要忽略 Rerank 重排**——一个 API 调用就能带来 10~30% 的相关性提升,是降幻觉性价比最高的优化
@@ -839,7 +932,7 @@ Onyx 采用与上述不同的 **open-core** 商业模式:
 - **不要被 MTEB 多语言子榜的"英语偏好"假象误导**——DELTA 论文(ACL 2026 Findings)揭示这是 evidence distribution 的副产品,而非模型固有偏差([arXiv 2601.02956](https://arxiv.org/abs/2601.02956))
 - **不要用 2025 年之前的 MinerU(AGPLv3)做商业产品基础**——2026-04(v3.1.0)已切换到 Apache 2.0 衍生(MinerU Open Source License),企业可商用
 
-### 9.6 降幻觉的终极心法
+### 9.3 降幻觉的终极心法
 
 > 选型时,逐项检查知识库是否踩中**降幻觉 5 大杠杆**(重排、混合检索、引用、父子分块、知识图谱)。踩中越多越强;**RAGFlow 是目前唯一五项全齐且双流派融合的开箱方案**。
 
@@ -863,6 +956,12 @@ Onyx 采用与上述不同的 **open-core** 商业模式:
 | Pathway | [github.com/pathwaycom/pathway](https://github.com/pathwaycom/pathway) | [pathway.com/developers](https://pathway.com/developers/) |
 | txtai | [github.com/neuml/txtai](https://github.com/neuml/txtai) | [neuml.github.io/txtai](https://neuml.github.io/txtai) |
 | Microsoft GraphRAG | [github.com/microsoft/graphrag](https://github.com/microsoft/graphrag) | [microsoft.github.io/graphrag](https://microsoft.github.io/graphrag/) |
+| GBrain | [github.com/garrytan/gbrain](https://github.com/garrytan/gbrain) | [架构详解(vectorize)](https://vectorize.io/articles/what-is-gbrain) |
+| Mem0 | [github.com/mem0ai/mem0](https://github.com/mem0ai/mem0) | [docs.mem0.ai](https://docs.mem0.ai) |
+| Graphiti | [github.com/getzep/graphiti](https://github.com/getzep/graphiti) | Zep 时序上下文图引擎 |
+| Cognee | [github.com/topoteretes/cognee](https://github.com/topoteretes/cognee) | AI 记忆 + 自托管知识图谱 |
+| Letta | [github.com/letta-ai/letta](https://github.com/letta-ai/letta) | 有状态 agent 平台(原 MemGPT) |
+| A-RAG | [github.com/Ayanami0730/arag](https://github.com/Ayanami0730/arag) | [arXiv 2602.03442](https://arxiv.org/abs/2602.03442) |
 
 ### 延伸阅读与专业观点
 
@@ -881,6 +980,11 @@ Onyx 采用与上述不同的 **open-core** 商业模式:
 - [GraphRAG 生产数据复盘(AgentMarketCap 2026)](https://agentmarketcap.ai/blog/2026/05/02/graphrag-vs-vector-rag-production-agent-pipelines) — 43% → 91% 零幻觉、成本悬崖 $33k → $33
 - [RAG 评估框架 2026:RAGAS / TruLens / DeepEval](https://callsphere.ai/blog/rag-evaluation-frameworks-2026-ragas-trulens-deepeval) — 评估闭环指标与工具对比
 - [微软 LazyGraphRAG 官方博客](https://www.microsoft.com/en-us/research/blog/lazygraphrag-setting-a-new-standard-for-quality-and-cost/) — 索引成本 0.1%、查询成本低 700 倍
+- [What Is GBrain?(vectorize)](https://vectorize.io/articles/what-is-gbrain) — GBrain 三层架构 / BrainBench / 34 skills 全解
+- [Mem0 新记忆算法(2026-04)](https://github.com/mem0ai/mem0) — LongMemEval 94.8 / BEAM 10M,单遍 ADD-only 抽取
+- [Graphiti vs GraphRAG(getzep)](https://github.com/getzep/graphiti) — 时序上下文图、亚秒延迟、bi-temporal
+- [A-RAG: Scaling Agentic RAG(arXiv 2602.03442)](https://arxiv.org/abs/2602.03442) — 分层检索接口,多跳 QA SOTA
+- [15 Best Open-Source RAG Frameworks 2026(Firecrawl)](https://www.firecrawl.dev/blog/best-open-source-rag-frameworks) — 含 Mem0 / R2R 等横向排名
 
 ---
 

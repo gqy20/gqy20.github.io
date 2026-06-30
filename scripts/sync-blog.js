@@ -9,8 +9,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const BLOG_DIR = path.join(__dirname, '..', 'src', 'data', 'blog')
 const INDEX_FILE = path.join(BLOG_DIR, 'index.json')
 
-// 阅读速度:中英混合技术文,中文偏慢 + 表格/代码干扰,取 350 字/分
-const WORDS_PER_MIN = 350
+// 阅读速度:中英混合技术文,中文信息密度高、字幅宽,取 500 字/分
+const WORDS_PER_MIN = 500
 
 // 解析简易 YAML frontmatter(string / array / bool / number)
 function parseFrontmatter(content) {

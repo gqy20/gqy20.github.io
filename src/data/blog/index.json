@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29T00:00:00.000Z",
+  "lastUpdated": "2026-06-30T00:00:00.000Z",
   "totalPosts": 3,
   "categories": [
     "AI编程",
@@ -12,7 +12,7 @@
       "type": "survey",
       "date": "2026-06-29",
       "updated": "2026-06-29",
-      "readTime": "20分钟",
+      "readTime": "14分钟",
       "author": "Qingyu Ge",
       "tags": [
         "Claude Agent SDK",
@@ -34,7 +34,7 @@
       "type": "tutorial",
       "date": "2026-06-28",
       "updated": "2026-06-28",
-      "readTime": "23分钟",
+      "readTime": "16分钟",
       "author": "Qingyu Ge",
       "tags": [
         "Claude Code",
@@ -55,8 +55,8 @@
       "title": "2026 开源知识库 RAG 方案深度调研:降幻觉、技术实现与商业可用性全解析",
       "type": "survey",
       "date": "2026-06-27",
-      "updated": "2026-06-29",
-      "readTime": "35分钟",
+      "updated": "2026-06-30",
+      "readTime": "28分钟",
       "author": "Qingyu Ge",
       "tags": [
         "RAG",
@@ -66,11 +66,11 @@
         "GraphRAG"
       ],
       "category": "AI应用",
-      "excerpt": "全面调研 GitHub 上 8 个主流开源知识库/RAG 方案,深入分析分块策略、Embedding 配置、文件预处理,并以「降低大模型幻觉」为主线,剖析 RAGFlow 的双流派融合与 GraphRAG 的实测效果,以及各项目的开源协议和商业可用性。助你选择最适合的知识库方案。",
+      "excerpt": "全面调研 GitHub 上 8 个主流开源知识库/RAG 方案,深入分析分块策略、Embedding 配置、文件预处理,并以「降低大模型幻觉」为主线,剖析 RAGFlow 的双流派融合与 GraphRAG 的实测效果,以及各项目的开源协议和商业可用性;并前瞻 2026 新涌现的「Agent 记忆 / 上下文图」赛道(GBrain / Mem0 / Graphiti / A-RAG)。助你选择最适合的知识库方案。",
       "coverImage": "/blog/260627_rag_kb_survey.jpg",
       "published": true,
       "slug": "260627_rag_kb_survey",
-      "wordCount": 12153
+      "wordCount": 13726
     }
   ]
 }
