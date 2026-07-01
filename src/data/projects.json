@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-07-01T02:05:26.459Z",
-  "totalRepositories": 47,
-  "totalProjects": 43,
+  "lastUpdated": "2026-07-01T09:24:30.150Z",
+  "totalRepositories": 48,
+  "totalProjects": 44,
   "totalRepositoryStars": 84,
   "totalStars": 83,
   "followers": 16,
@@ -192,6 +192,34 @@
       }
     ],
     "AI应用": [
+      {
+        "id": 1285578893,
+        "name": "vid-agent",
+        "fullName": "gqy20/vid-agent",
+        "description": "AI 团队的视频工作台：manim (数学/算法) + Remotion (产品/营销) 双引擎，AI Agent 编排视频生产",
+        "url": "https://github.com/gqy20/vid-agent",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-07-01T00:28:26Z",
+        "updatedAt": "2026-07-01T07:07:43Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 48860,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 1126636339,
         "name": "TrendPluse",
@@ -1543,6 +1571,34 @@
       },
       "totalReleases": 0,
       "totalTags": 5
+    },
+    {
+      "id": 1285578893,
+      "name": "vid-agent",
+      "fullName": "gqy20/vid-agent",
+      "description": "AI 团队的视频工作台：manim (数学/算法) + Remotion (产品/营销) 双引擎，AI Agent 编排视频生产",
+      "url": "https://github.com/gqy20/vid-agent",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-07-01T00:28:26Z",
+      "updatedAt": "2026-07-01T07:07:43Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 48860,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 1126636339,
