@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-04T12:53:47.848Z",
+  "lastUpdated": "2026-07-04T18:50:53.355Z",
   "totalRepositories": 48,
   "totalProjects": 44,
   "totalRepositoryStars": 90,
@@ -193,6 +193,68 @@
     ],
     "AI应用": [
       {
+        "id": 1285578893,
+        "name": "vid-agent",
+        "fullName": "gqy20/vid-agent",
+        "description": "AI 团队的视频工作台：manim (数学/算法) + Remotion (产品/营销) 双引擎，AI Agent 编排视频生产",
+        "url": "https://github.com/gqy20/vid-agent",
+        "homepage": null,
+        "language": "Python",
+        "stars": 1,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-07-01T00:28:26Z",
+        "updatedAt": "2026-07-04T15:11:50Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 147677,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
+        "id": 1130347783,
+        "name": "cc-insights",
+        "fullName": "gqy20/cc-insights",
+        "description": "AI 驱动的 Claude Code 使用数据分析工具 - 可视化数据、发现模式、获取智能推荐",
+        "url": "https://github.com/gqy20/cc-insights",
+        "homepage": null,
+        "language": "Go",
+        "stars": 4,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-01-08T11:28:18Z",
+        "updatedAt": "2026-07-04T14:36:55Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 13055,
+        "license": "MIT License",
+        "latestRelease": {
+          "tagName": "v0.2.0",
+          "name": "v0.2.0 · cc-insights",
+          "publishedAt": "2026-07-04T14:22:34Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 4,
+        "totalTags": 4
+      },
+      {
         "id": 1126636339,
         "name": "TrendPluse",
         "fullName": "gqy20/TrendPluse",
@@ -302,34 +364,6 @@
         "totalTags": 5
       },
       {
-        "id": 1285578893,
-        "name": "vid-agent",
-        "fullName": "gqy20/vid-agent",
-        "description": "AI 团队的视频工作台：manim (数学/算法) + Remotion (产品/营销) 双引擎，AI Agent 编排视频生产",
-        "url": "https://github.com/gqy20/vid-agent",
-        "homepage": null,
-        "language": "Python",
-        "stars": 1,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-07-01T00:28:26Z",
-        "updatedAt": "2026-07-01T12:21:05Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 48863,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
-      },
-      {
         "id": 1232906183,
         "name": "bitcat",
         "fullName": "gqy20/bitcat",
@@ -362,40 +396,6 @@
         "latestTag": null,
         "totalReleases": 5,
         "totalTags": 5
-      },
-      {
-        "id": 1130347783,
-        "name": "cc-insights",
-        "fullName": "gqy20/cc-insights",
-        "description": "AI 驱动的 Claude Code 使用数据分析工具 - 可视化数据、发现模式、获取智能推荐",
-        "url": "https://github.com/gqy20/cc-insights",
-        "homepage": null,
-        "language": "Go",
-        "stars": 4,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-01-08T11:28:18Z",
-        "updatedAt": "2026-06-26T00:55:36Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 11776,
-        "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.1.2",
-          "name": "v0.1.2 · cc-insights",
-          "publishedAt": "2026-06-19T16:36:47Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 3,
-        "totalTags": 3
       },
       {
         "id": 1207212892,
@@ -1573,6 +1573,68 @@
       "totalTags": 5
     },
     {
+      "id": 1285578893,
+      "name": "vid-agent",
+      "fullName": "gqy20/vid-agent",
+      "description": "AI 团队的视频工作台：manim (数学/算法) + Remotion (产品/营销) 双引擎，AI Agent 编排视频生产",
+      "url": "https://github.com/gqy20/vid-agent",
+      "homepage": null,
+      "language": "Python",
+      "stars": 1,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-07-01T00:28:26Z",
+      "updatedAt": "2026-07-04T15:11:50Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 147677,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
+      "id": 1130347783,
+      "name": "cc-insights",
+      "fullName": "gqy20/cc-insights",
+      "description": "AI 驱动的 Claude Code 使用数据分析工具 - 可视化数据、发现模式、获取智能推荐",
+      "url": "https://github.com/gqy20/cc-insights",
+      "homepage": null,
+      "language": "Go",
+      "stars": 4,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-01-08T11:28:18Z",
+      "updatedAt": "2026-07-04T14:36:55Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 13055,
+      "license": "MIT License",
+      "latestRelease": {
+        "tagName": "v0.2.0",
+        "name": "v0.2.0 · cc-insights",
+        "publishedAt": "2026-07-04T14:22:34Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 4,
+      "totalTags": 4
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -1682,34 +1744,6 @@
       "totalTags": 5
     },
     {
-      "id": 1285578893,
-      "name": "vid-agent",
-      "fullName": "gqy20/vid-agent",
-      "description": "AI 团队的视频工作台：manim (数学/算法) + Remotion (产品/营销) 双引擎，AI Agent 编排视频生产",
-      "url": "https://github.com/gqy20/vid-agent",
-      "homepage": null,
-      "language": "Python",
-      "stars": 1,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-07-01T00:28:26Z",
-      "updatedAt": "2026-07-01T12:21:05Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 48863,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
-    },
-    {
       "id": 1232906183,
       "name": "bitcat",
       "fullName": "gqy20/bitcat",
@@ -1742,40 +1776,6 @@
       "latestTag": null,
       "totalReleases": 5,
       "totalTags": 5
-    },
-    {
-      "id": 1130347783,
-      "name": "cc-insights",
-      "fullName": "gqy20/cc-insights",
-      "description": "AI 驱动的 Claude Code 使用数据分析工具 - 可视化数据、发现模式、获取智能推荐",
-      "url": "https://github.com/gqy20/cc-insights",
-      "homepage": null,
-      "language": "Go",
-      "stars": 4,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-01-08T11:28:18Z",
-      "updatedAt": "2026-06-26T00:55:36Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 11776,
-      "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.1.2",
-        "name": "v0.1.2 · cc-insights",
-        "publishedAt": "2026-06-19T16:36:47Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 3,
-      "totalTags": 3
     },
     {
       "id": 1207212892,
