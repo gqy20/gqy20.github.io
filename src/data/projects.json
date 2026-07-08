@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-08T13:22:41.536Z",
+  "lastUpdated": "2026-07-08T19:01:40.402Z",
   "totalRepositories": 48,
   "totalProjects": 44,
   "totalRepositoryStars": 92,
@@ -193,6 +193,34 @@
     ],
     "AI应用": [
       {
+        "id": 1285578893,
+        "name": "vid-agent",
+        "fullName": "gqy20/vid-agent",
+        "description": "AI 团队的视频工作台：manim (数学/算法) + Remotion (产品/营销) 双引擎，AI Agent 编排视频生产",
+        "url": "https://github.com/gqy20/vid-agent",
+        "homepage": null,
+        "language": "TypeScript",
+        "stars": 2,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-07-01T00:28:26Z",
+        "updatedAt": "2026-07-08T16:39:47Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 291248,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
         "id": 1196258715,
         "name": "zotero_cli",
         "fullName": "gqy20/zotero_cli",
@@ -225,34 +253,6 @@
         "latestTag": null,
         "totalReleases": 5,
         "totalTags": 5
-      },
-      {
-        "id": 1285578893,
-        "name": "vid-agent",
-        "fullName": "gqy20/vid-agent",
-        "description": "AI 团队的视频工作台：manim (数学/算法) + Remotion (产品/营销) 双引擎，AI Agent 编排视频生产",
-        "url": "https://github.com/gqy20/vid-agent",
-        "homepage": null,
-        "language": "TypeScript",
-        "stars": 2,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-07-01T00:28:26Z",
-        "updatedAt": "2026-07-08T09:06:50Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 291172,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
       },
       {
         "id": 1126636339,
@@ -1573,6 +1573,34 @@
       "totalTags": 5
     },
     {
+      "id": 1285578893,
+      "name": "vid-agent",
+      "fullName": "gqy20/vid-agent",
+      "description": "AI 团队的视频工作台：manim (数学/算法) + Remotion (产品/营销) 双引擎，AI Agent 编排视频生产",
+      "url": "https://github.com/gqy20/vid-agent",
+      "homepage": null,
+      "language": "TypeScript",
+      "stars": 2,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-07-01T00:28:26Z",
+      "updatedAt": "2026-07-08T16:39:47Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 291248,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1196258715,
       "name": "zotero_cli",
       "fullName": "gqy20/zotero_cli",
@@ -1605,34 +1633,6 @@
       "latestTag": null,
       "totalReleases": 5,
       "totalTags": 5
-    },
-    {
-      "id": 1285578893,
-      "name": "vid-agent",
-      "fullName": "gqy20/vid-agent",
-      "description": "AI 团队的视频工作台：manim (数学/算法) + Remotion (产品/营销) 双引擎，AI Agent 编排视频生产",
-      "url": "https://github.com/gqy20/vid-agent",
-      "homepage": null,
-      "language": "TypeScript",
-      "stars": 2,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-07-01T00:28:26Z",
-      "updatedAt": "2026-07-08T09:06:50Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 291172,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
     },
     {
       "id": 1126636339,
