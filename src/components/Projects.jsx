@@ -10,10 +10,10 @@ import {
 import './Projects.css'
 import PageHeader from './PageHeader'
 import ProjectDetailModal from './ProjectDetailModal'
+import ProjectVisual from './ProjectVisual'
 import { getProjectViewModel } from '../utils/portfolioProjects'
 import { getExternalLinkIcon, normalizeDescription } from '../utils/projectUtils'
 import { useProjectsData } from '../hooks/useProjectsData.js'
-import { gsap, ScrollTrigger, useGSAP } from '../lib/gsap.js'
 
 const Projects = () => {
   const { data: projectsData, loading, error: hookError } = useProjectsData()
@@ -28,25 +28,6 @@ const Projects = () => {
   }, [projectsData, searchTerm, sortBy])
 
   const rootRef = useRef(null)
-
-  // 代表系统卡片:ScrollTrigger.batch 方向感入场(替代手写 delay stagger)
-  useGSAP(() => {
-    const mm = gsap.matchMedia()
-    mm.add({
-      isReduce: '(prefers-reduced-motion: reduce)',
-      isNormal: '(prefers-reduced-motion: no-preference)'
-    }, ({ conditions }) => {
-      const { isReduce } = conditions
-      if (isReduce) return
-      gsap.set('.project-card', { opacity: 0, y: 28 })
-      ScrollTrigger.batch('.project-card', {
-        start: 'top 85%',
-        onEnter: (batch) => gsap.to(batch, { opacity: 1, y: 0, duration: 0.42, stagger: 0.08, ease: 'power2.out', overwrite: true }),
-        onLeaveBack: (batch) => gsap.set(batch, { opacity: 0, y: 28, overwrite: true })
-      })
-    })
-    return () => mm.revert()
-  }, { scope: rootRef, dependencies: [viewModel.featured] })
 
   const openProject = (project) => setSelectedProject(project)
   const closeProject = () => setSelectedProject(null)
@@ -113,11 +94,10 @@ const Projects = () => {
           </div>
           <div className="featured-grid">
             {viewModel.featured.slice(0, 4).map((project, index) => (
-              <ProjectCard
+              <ProjectShowcase
                 key={project.id}
                 project={project}
                 index={index}
-                featured
                 onOpen={openProject}
               />
             ))}
@@ -222,34 +202,52 @@ const DirectoryItem = ({ project, onOpen }) => {
   )
 }
 
-const ProjectCard = ({ project, index, featured = false, onOpen }) => {
+const ProjectShowcase = ({ project, index, onOpen }) => {
   const narrative = project.narrative
   const homepageIcon = getExternalLinkIcon(project.homepage)
+  const isLead = index === 0
 
   return (
-    <article className={`project-card ${featured ? 'featured' : ''}`}>
-      <div className="project-card-top">
-        <span>{project.portfolioTrack.shortLabel}</span>
-        {project.isArchived && <em><FaArchive /> 已归档</em>}
-      </div>
-      <h3>{project.name}</h3>
-      <h4>{narrative.title}</h4>
-      <p>{narrative.summary || normalizeDescription(project.description, project.name)}</p>
-      <div className="project-built">
-        {narrative.built.slice(0, 4).map(item => <span key={item}>{item}</span>)}
-      </div>
-      <div className="project-card-actions">
-        <button type="button" onClick={() => onOpen(project)}>
-          查看详情
-        </button>
-        <a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} GitHub`}>
-          <FaGithub />
-        </a>
-        {project.homepage && (
-          <a href={project.homepage} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} 外部链接`}>
-            {homepageIcon === 'pypi' ? 'PyPI' : <FaExternalLinkAlt />}
+    <article className={`featured-showcase ${isLead ? 'featured-showcase--lead' : ''}`}>
+      <ProjectVisual projectName={project.name} />
+      <div className="featured-showcase__content">
+        <div className="featured-showcase__meta">
+          <span>{project.portfolioTrack.shortLabel}</span>
+          <span>{project.language || 'Unknown'}</span>
+          {project.latestRelease?.tagName && <span>{project.latestRelease.tagName}</span>}
+          {project.isArchived && <em><FaArchive /> 已归档</em>}
+        </div>
+        <p className="featured-showcase__repo">{project.name}</p>
+        <h3>{narrative.title}</h3>
+        <p className="featured-showcase__summary">
+          {narrative.summary || normalizeDescription(project.description, project.name)}
+        </p>
+        <div className="featured-showcase__built" aria-label="核心构建内容">
+          {narrative.built.slice(0, isLead ? 5 : 3).map(item => <span key={item}>{item}</span>)}
+        </div>
+        <div className="featured-showcase__actions">
+          <button type="button" onClick={() => onOpen(project)}>查看系统</button>
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${project.name} GitHub 源码`}
+            title="查看 GitHub 源码"
+          >
+            <FaGithub />
           </a>
-        )}
+          {project.homepage && (
+            <a
+              href={project.homepage}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${project.name} 外部链接`}
+              title={homepageIcon === 'pypi' ? '查看 PyPI' : '查看演示'}
+            >
+              {homepageIcon === 'pypi' ? 'PyPI' : <FaExternalLinkAlt />}
+            </a>
+          )}
+        </div>
       </div>
     </article>
   )
