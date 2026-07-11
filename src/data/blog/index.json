@@ -34,7 +34,7 @@
       "type": "tutorial",
       "date": "2026-06-28",
       "updated": "2026-06-28",
-      "readTime": "16分钟",
+      "readTime": "17分钟",
       "author": "Qingyu Ge",
       "tags": [
         "Claude Code",
@@ -48,7 +48,7 @@
       "coverImage": "/blog/260628_git_claude_hooks.jpg",
       "published": true,
       "slug": "260628_git_claude_hooks",
-      "wordCount": 7991
+      "wordCount": 8222
     },
     {
       "id": "260627_rag_kb_survey",

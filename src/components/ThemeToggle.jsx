@@ -22,9 +22,8 @@ export default function ThemeToggle() {
       onClick={toggleTheme}
       aria-label={isDark ? '切换到亮色主题' : '切换到暗色主题'}
       title={isDark ? '切换到亮色主题（⌘/Ctrl+Shift+L）' : '切换到暗色主题（⌘/Ctrl+Shift+L）'}
-      whileTap={{ scale: 0.9 }}
-      whileHover={{ scale: 1.08 }}
-      transition={{ type: 'spring', stiffness: 360, damping: 22 }}
+      whileTap={{ scale: 0.96 }}
+      transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
     >
       <AnimatePresence mode="wait" initial={false}>
         <motion.span

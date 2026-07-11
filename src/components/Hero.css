@@ -51,11 +51,9 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background:
-    linear-gradient(90deg, var(--line) 1px, transparent 1px),
-    linear-gradient(180deg, var(--line) 1px, transparent 1px);
+  background: linear-gradient(90deg, var(--line) 1px, transparent 1px);
   background-size: 64px 64px;
-  opacity: 0.5;
+  opacity: 0.3;
   mask-image: radial-gradient(ellipse at center, black 40%, transparent 100%);
 }
 
@@ -153,6 +151,10 @@
   margin-top: 0.5rem;
 }
 
+.home-nav-toggle {
+  display: none;
+}
+
 .home-nav__link {
   position: relative;
   display: flex;
@@ -166,7 +168,7 @@
   color: var(--dim);
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.25s ease;
+  transition: color var(--dt-duration-base) var(--dt-ease-out);
 }
 
 .home-nav__bar {
@@ -174,7 +176,7 @@
   width: 0;
   height: 1.5px;
   background: var(--accent);
-  transition: width 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+  transition: width 280ms var(--dt-ease-out), background-color 180ms var(--dt-ease-out);
   flex-shrink: 0;
 }
 
@@ -191,6 +193,10 @@
 
 .home-nav__link:hover {
   color: var(--ink);
+}
+
+.home-nav__link:focus-visible {
+  border-radius: 4px;
 }
 
 .home-nav__link:hover .home-nav__bar {
@@ -260,7 +266,11 @@
   color: var(--muted);
   background: transparent;
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition:
+    color var(--dt-duration-fast) var(--dt-ease-out),
+    border-color var(--dt-duration-fast) var(--dt-ease-out),
+    background-color var(--dt-duration-base) var(--dt-ease-out),
+    transform var(--dt-duration-fast) var(--dt-ease-out);
 }
 
 .home-social svg {
@@ -274,6 +284,10 @@
   border-color: var(--accent-line);
   background: var(--accent-soft);
   transform: translateY(-2px);
+}
+
+.home-social:active {
+  transform: translateY(0) scale(0.96);
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -382,6 +396,216 @@
    § STACK — Agent framework layers
    ════════════════════════════════════════════════════════════ */
 
+.agent-workflow {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.72fr) minmax(0, 1.45fr);
+  gap: clamp(1.5rem, 3vw, 3.25rem);
+  align-items: center;
+  margin: 0 0 clamp(2rem, 4vw, 3.5rem);
+  padding: clamp(1.25rem, 2.5vw, 2rem) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.agent-workflow__copy h3 {
+  max-width: 13ch;
+  margin: 0 0 0.85rem;
+  color: var(--ink);
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.agent-workflow__copy > p:nth-of-type(2) {
+  max-width: 38ch;
+  margin: 0;
+  color: var(--muted);
+  font-family: 'Noto Serif SC', serif;
+  font-size: 0.86rem;
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+.agent-workflow__replay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--dim);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color var(--dt-duration-fast) var(--dt-ease-out), transform var(--dt-duration-fast) var(--dt-ease-out);
+}
+
+.agent-workflow__replay:hover {
+  color: var(--accent);
+  transform: rotate(-18deg);
+}
+
+.agent-workflow__replay:active {
+  transform: rotate(-18deg) scale(0.92);
+}
+
+.agent-workflow[data-running='true'] .agent-workflow__replay span {
+  animation: workflow-replay-spin 900ms linear infinite;
+}
+
+@keyframes workflow-replay-spin {
+  to { transform: rotate(360deg); }
+}
+
+.agent-workflow__label {
+  margin: 0 0 0.65rem;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.agent-workflow__stage {
+  position: relative;
+  min-width: 0;
+}
+
+.agent-workflow__stage:focus-visible {
+  border-radius: 6px;
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.agent-workflow__stage svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.agent-workflow__edge {
+  stroke: var(--line-strong);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.agent-workflow__edge--input,
+.agent-workflow__edge--result {
+  stroke: var(--accent);
+}
+
+.agent-workflow__node rect {
+  fill: var(--surface);
+  stroke: var(--line-strong);
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+}
+
+.agent-workflow__node--primary rect,
+.agent-workflow__node--result rect {
+  fill: var(--accent-soft);
+  stroke: var(--accent-line);
+}
+
+.agent-workflow__node circle {
+  fill: var(--accent);
+}
+
+.agent-workflow__packet {
+  fill: var(--accent);
+  stroke: var(--surface);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.agent-workflow__document,
+.agent-workflow__document-line {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.agent-workflow__scan {
+  fill: var(--accent);
+}
+
+.agent-workflow__node .agent-workflow__agent-core {
+  fill: var(--accent);
+  stroke: none;
+}
+
+.agent-workflow__node .agent-workflow__agent-ring {
+  fill: none;
+  stroke: var(--accent-line);
+  stroke-width: 1.2;
+  stroke-dasharray: 8 4;
+  vector-effect: non-scaling-stroke;
+}
+
+.agent-workflow__node text {
+  fill: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.agent-workflow__node .agent-workflow__node-note {
+  fill: var(--muted);
+  font-family: 'Noto Serif SC', serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.agent-workflow__result-mark {
+  opacity: 0;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.agent-workflow__node .agent-workflow__tool-meter {
+  fill: var(--accent);
+  stroke: none;
+}
+
+.agent-workflow__evidence rect {
+  fill: var(--accent);
+  stroke: none;
+}
+
+.agent-workflow__legend {
+  display: flex;
+  justify-content: flex-end;
+  gap: clamp(0.8rem, 2vw, 1.5rem);
+  margin-top: -0.15rem;
+  color: var(--dim);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+}
+
+.agent-workflow__scroll-hint {
+  display: none;
+}
+
 .home-stack-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
@@ -399,6 +623,7 @@
   background: var(--surface);
   position: relative;
   overflow: hidden;
+  transition: border-color var(--dt-duration-base) var(--dt-ease-out), background-color var(--dt-duration-base) var(--dt-ease-out), transform var(--dt-duration-base) var(--dt-ease-out);
 }
 
 .stack-card::before {
@@ -414,6 +639,7 @@
 .stack-card:hover {
   border-color: var(--accent-line);
   background: var(--surface-2);
+  transform: translateY(-2px);
 }
 
 .stack-card:hover::before {
@@ -510,7 +736,7 @@
   text-decoration: none;
   color: var(--ink);
   background: var(--surface);
-  transition: all 0.25s ease;
+  transition: border-color var(--dt-duration-base) var(--dt-ease-out), background-color var(--dt-duration-base) var(--dt-ease-out), transform var(--dt-duration-base) var(--dt-ease-out);
 }
 
 .home-now-item:hover {
@@ -712,10 +938,22 @@
   background: var(--surface);
   text-decoration: none;
   color: inherit;
-  transition: all 0.25s ease;
+  transition: border-color var(--dt-duration-base) var(--dt-ease-out), background-color var(--dt-duration-base) var(--dt-ease-out), transform var(--dt-duration-base) var(--dt-ease-out);
   min-height: 175px;
   position: relative;
   overflow: hidden;
+}
+
+.work-card__marker {
+  position: absolute;
+  top: 1.35rem;
+  left: 0;
+  width: 3px;
+  height: 1.1rem;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform var(--dt-duration-base) var(--dt-ease-out);
 }
 
 .work-card::before {
@@ -732,7 +970,11 @@
   border-color: var(--accent-line);
   background: var(--surface-2);
   transform: translateY(-2px);
-  box-shadow: var(--dt-shadow-card);
+}
+
+.work-card:hover .work-card__marker,
+.work-card:focus-visible .work-card__marker {
+  transform: scaleY(1);
 }
 
 .work-card:hover::before {
@@ -754,6 +996,16 @@
   color: var(--accent);
   margin: 0;
   letter-spacing: 0.005em;
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.26em;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color var(--dt-duration-base) var(--dt-ease-out);
+}
+
+.work-card:hover .work-card__name,
+.work-card:focus-visible .work-card__name {
+  text-decoration-color: currentColor;
 }
 
 .work-card__stars {
@@ -787,6 +1039,23 @@
   color: var(--dim);
   letter-spacing: 0.02em;
   position: relative;
+}
+
+.work-card__arrow {
+  margin-left: auto;
+  color: var(--dim);
+  font-size: 0.9rem;
+  transition: color var(--dt-duration-fast) var(--dt-ease-out), transform var(--dt-duration-base) var(--dt-ease-out);
+}
+
+.work-card:hover .work-card__arrow,
+.work-card:focus-visible .work-card__arrow {
+  color: var(--accent);
+  transform: translate(3px, -3px);
+}
+
+.work-card:active {
+  transform: translateY(0);
 }
 
 .work-card__lang {
@@ -1008,24 +1277,79 @@
 
   .home-lede { font-size: 0.9rem; }
 
-  .home-nav {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    gap: 1.5rem;
-    margin: 0 -1.5rem;
-    padding: 0 1.5rem 0.4rem;
-    scrollbar-width: none;
+  .home-nav-toggle {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.85rem;
+    width: 100%;
+    min-height: 44px;
+    padding: 0.7rem 0;
+    border: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: transparent;
+    color: var(--dim);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-align: left;
+    cursor: pointer;
   }
 
-  .home-nav::-webkit-scrollbar { display: none; }
+  .home-nav-toggle__label {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .home-nav-toggle__action {
+    color: var(--muted);
+  }
+
+  .home-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    flex: none;
+    gap: 0.15rem 1rem;
+    margin: -1.75rem 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+    transition: max-height 280ms var(--dt-ease-out), opacity 180ms var(--dt-ease-out), margin 280ms var(--dt-ease-out), visibility 0s linear 280ms;
+  }
+
+  .home-nav.is-open {
+    max-height: 18rem;
+    margin: -0.75rem 0 0;
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transition-delay: 0s;
+  }
 
   .home-nav__link {
-    flex-shrink: 0;
+    min-height: 44px;
+    padding: 0.65rem 0;
   }
 
   .home-main {
     padding: 2.5rem 1.5rem 4rem;
     gap: 3.75rem;
+  }
+
+  .agent-workflow {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .agent-workflow__copy h3 {
+    max-width: 20ch;
+  }
+
+  .agent-workflow__copy > p:nth-of-type(2) {
+    max-width: 58ch;
   }
 
   .home-section__head {
@@ -1092,6 +1416,39 @@
   .home-socials .home-social:nth-child(n+5) {
     display: none;
   }
+
+  .agent-workflow {
+    margin-bottom: 2rem;
+  }
+
+  .agent-workflow__stage {
+    margin: 0 -0.5rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .agent-workflow__stage svg {
+    width: 680px;
+    max-width: none;
+  }
+
+  .agent-workflow__scroll-hint {
+    display: block;
+    position: sticky;
+    left: 0;
+    width: max-content;
+    margin: 0;
+    padding: 0 0.5rem 0.65rem;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.03em;
+  }
+
+  .agent-workflow__legend {
+    justify-content: flex-start;
+    padding: 0 0.5rem 0.5rem;
+  }
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -1104,5 +1461,16 @@
   .home *::after {
     animation: none !important;
     transition: none !important;
+  }
+
+  .agent-workflow__edge {
+    stroke-dashoffset: 0 !important;
+    opacity: 1 !important;
+  }
+
+  .agent-workflow__node,
+  .agent-workflow__result-mark {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

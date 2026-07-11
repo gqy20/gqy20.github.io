@@ -27,7 +27,11 @@
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   box-shadow: var(--dt-shadow-card);
-  transition: color 200ms ease, background 200ms ease, border-color 200ms ease;
+  transition:
+    color var(--dt-duration-fast) var(--dt-ease-out),
+    background-color var(--dt-duration-base) var(--dt-ease-out),
+    border-color var(--dt-duration-fast) var(--dt-ease-out),
+    transform var(--dt-duration-fast) var(--dt-ease-out);
   overflow: hidden;
 }
 
@@ -35,6 +39,10 @@
   color: var(--dt-accent);
   border-color: var(--dt-accent);
   background: var(--dt-accent-soft);
+}
+
+.theme-toggle:active {
+  transform: scale(0.96);
 }
 
 .theme-toggle:focus-visible {

@@ -20,9 +20,9 @@
   --dt-grid-color: rgba(150, 200, 255, 0.08);
 
   /* — 文字（4 档）— */
-  --dt-ink: #e8edf5;
-  --dt-muted: #8a96ab;
-  --dt-dim: #5e6a7e;
+  --dt-ink: #edf1f7;
+  --dt-muted: #a9b4c7;
+  --dt-dim: #7f8ca3;
   --dt-ink-on-accent: #0a0e1a;     /* accent 背景上的文字（亮色对比）*/
 
   /* — 强调色 — */
@@ -30,6 +30,10 @@
   --dt-accent-strong: #ff9a3c;
   --dt-accent-soft: rgba(255, 184, 107, 0.10);
   --dt-accent-line: rgba(255, 184, 107, 0.35);
+  --dt-focus-ring: rgba(255, 184, 107, 0.28);
+  --dt-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dt-duration-fast: 160ms;
+  --dt-duration-base: 220ms;
 
   /* — 阴影 / 光晕 — */
   --dt-shadow-card: 0 8px 24px rgba(0, 0, 0, 0.30);
@@ -115,25 +119,26 @@
      将 opacity 降到 0 后在 light 块中隐藏 noise
    ════════════════════════════════════════════════════════════ */
 :root[data-theme='light'] {
-  --dt-bg: #f5f7fb;
-  --dt-bg-deeper: #ffffff;
+  --dt-bg: #f4f6fa;
+  --dt-bg-deeper: #eef1f6;
   --dt-surface: #ffffff;
-  --dt-surface-2: #eef1f7;
+  --dt-surface-2: #f8fafd;
 
   --dt-line-faint: rgba(18, 24, 38, 0.05);
-  --dt-line: rgba(18, 24, 38, 0.10);
-  --dt-line-strong: rgba(18, 24, 38, 0.20);
+  --dt-line: #d9dfe9;
+  --dt-line-strong: #b8c2d2;
   --dt-grid-color: rgba(18, 24, 38, 0.04);
 
-  --dt-ink: #121826;
-  --dt-muted: #5d687c;
-  --dt-dim: #8a96ab;
+  --dt-ink: #172033;
+  --dt-muted: #4f5c74;
+  --dt-dim: #68758e;
   --dt-ink-on-accent: #ffffff;
 
-  --dt-accent: #d97706;
-  --dt-accent-strong: #b45309;
-  --dt-accent-soft: rgba(217, 119, 6, 0.10);
-  --dt-accent-line: rgba(217, 119, 6, 0.30);
+  --dt-accent: #c45d00;
+  --dt-accent-strong: #a94f00;
+  --dt-accent-soft: rgba(196, 93, 0, 0.09);
+  --dt-accent-line: rgba(196, 93, 0, 0.38);
+  --dt-focus-ring: rgba(196, 93, 0, 0.22);
 
   --dt-shadow-card: 0 8px 24px rgba(18, 24, 38, 0.08);
   --dt-shadow-navbar: 0 8px 24px rgba(18, 24, 38, 0.05);
@@ -177,8 +182,15 @@ body {
 
   /* 主题切换平滑过渡 */
   transition:
-    background-color 280ms ease,
-    color 280ms ease;
+    background-color 260ms var(--dt-ease-out),
+    color 220ms var(--dt-ease-out);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--dt-accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px var(--dt-focus-ring);
 }
 
 /* 全局噪声 overlay（暗色专属：light 主题下 opacity 归零）*/

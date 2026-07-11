@@ -6,6 +6,7 @@ import blogIndex from '../data/blog/index.json'
 import { SOCIAL_LINKS } from '../data/social.js'
 import { timelineStages } from '../data/timeline.js'
 import LanguageIcon from './LanguageIcon.jsx'
+import AgentWorkflow from './AgentWorkflow.jsx'
 import './Hero.css'
 
 const SECTIONS = [
@@ -98,6 +99,7 @@ function isExternal(url) {
 export default function Hero() {
   const { data: projectData, loading } = useProjectsData()
   const [activeSection, setActiveSection] = useState('about')
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
 
   const projectsByName = useMemo(() => {
     if (!projectData?.allProjects) return {}
@@ -181,8 +183,11 @@ export default function Hero() {
 
   const handleNavClick = (e, id) => {
     e.preventDefault()
+    setIsMobileNavOpen(false)
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
+
+  const activeSectionData = SECTIONS.find(section => section.id === activeSection) ?? SECTIONS[0]
 
   const getStackProjectUrl = (project) => {
     return projectsByName[project]?.url || null
@@ -208,7 +213,23 @@ export default function Hero() {
           </p>
         </div>
 
-        <nav className="home-nav" aria-label="主要章节">
+        <button
+          type="button"
+          className="home-nav-toggle"
+          aria-expanded={isMobileNavOpen}
+          aria-controls="home-section-nav"
+          onClick={() => setIsMobileNavOpen(open => !open)}
+        >
+          <span>{activeSectionData.num} / {String(SECTIONS.length).padStart(2, '0')}</span>
+          <span className="home-nav-toggle__label">{activeSectionData.label}</span>
+          <span className="home-nav-toggle__action">{isMobileNavOpen ? '关闭' : '章节'}</span>
+        </button>
+
+        <nav
+          id="home-section-nav"
+          className={`home-nav ${isMobileNavOpen ? 'is-open' : ''}`}
+          aria-label="主要章节"
+        >
           {SECTIONS.map(s => (
             <a
               key={s.id}
@@ -278,6 +299,7 @@ export default function Hero() {
           <p className="home-section__lede">
             我不是只使用单一 Agent 框架，而是按系统层次组合运行时、状态编排、工具接口、开发环境和协作空间。
           </p>
+          <AgentWorkflow />
           <div className="home-stack-grid">
             {AGENT_STACK.map(item => (
               <article key={item.name} className="stack-card">
@@ -443,6 +465,7 @@ function WorkCard({ project }) {
       rel="noopener noreferrer"
       className="work-card"
     >
+      <span className="work-card__marker" aria-hidden="true" />
       <div className="work-card__head">
         <h3 className="work-card__name">{project.name}</h3>
         {project.stars > 0 && <span className="work-card__stars">{project.stars}★</span>}
@@ -451,6 +474,7 @@ function WorkCard({ project }) {
       <div className="work-card__meta">
         <span className="work-card__lang"><LanguageIcon language={project.language} /></span>
         <span className="work-card__category">{project.category}</span>
+        <span className="work-card__arrow" aria-hidden="true">↗</span>
       </div>
     </a>
   )
