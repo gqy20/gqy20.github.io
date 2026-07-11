@@ -70,14 +70,19 @@ const projectMatchesSearch = (project, searchTerm) => {
 const sortProjects = (projects, sortBy) => [...projects].sort((a, b) => {
   if (sortBy === 'featured') return Number(b.isFeatured) - Number(a.isFeatured) || compareByFeaturedOrder(a, b)
   if (sortBy === 'stars') return b.stars - a.stars
+  if (sortBy === 'name') return a.name.localeCompare(b.name)
   return new Date(b.updatedAt) - new Date(a.updatedAt)
 })
 
-const buildDirectoryGroups = (projects, searchTerm, sortBy) => {
-  const directoryProjects = sortProjects(
+const buildDirectoryGroups = (projects, searchTerm, sortBy, selectedTrack) => {
+  let directoryProjects = sortProjects(
     projects.filter(project => (searchTerm || !project.isFeatured) && projectMatchesSearch(project, searchTerm)),
     sortBy
   )
+
+  if (selectedTrack && selectedTrack !== 'all') {
+    directoryProjects = directoryProjects.filter(project => project.portfolioTrack.id === selectedTrack)
+  }
 
   return PORTFOLIO_TRACKS
     .filter(track => !['all', 'featured'].includes(track.id))
@@ -101,9 +106,10 @@ export const getProjectViewModel = (projects, options = {}) => {
   }))
 
   const featured = enriched.filter(project => project.isFeatured).sort(compareByFeaturedOrder)
+  const directoryBase = enriched.filter(project => !project.isFeatured)
   const trackCounts = PORTFOLIO_TRACKS.filter(track => !['all', 'featured'].includes(track.id)).map(track => ({
     ...track,
-    count: enriched.filter(project => project.portfolioTrack.id === track.id).length
+    count: directoryBase.filter(project => project.portfolioTrack.id === track.id).length
   }))
 
   let filtered = enriched
@@ -123,6 +129,6 @@ export const getProjectViewModel = (projects, options = {}) => {
     featured,
     filtered,
     trackCounts,
-    directoryGroups: buildDirectoryGroups(enriched, searchTerm, sortBy)
+    directoryGroups: buildDirectoryGroups(enriched, searchTerm, sortBy, selectedTrack)
   }
 }

@@ -72,6 +72,7 @@ describe('Portfolio Projects Utils', () => {
     expect(model.featured.map(p => p.name)).toEqual(['TrumanWorld'])
     expect(model.filtered.map(p => p.name)).toEqual(['article-mcp'])
     expect(model.trackCounts.find(t => t.id === 'tool-interfaces').count).toBe(1)
+    expect(model.directoryGroups.map(group => group.id)).toEqual(['tool-interfaces'])
   })
 
   it('searches project names, descriptions, tracks, and narrative text', () => {
@@ -99,5 +100,14 @@ describe('Portfolio Projects Utils', () => {
     const model = getProjectViewModel(projects, { searchTerm: '小镇', sortBy: 'updated' })
 
     expect(model.directoryGroups.map(g => g.projects.map(p => p.name))).toEqual([['TrumanWorld']])
+  })
+
+  it('sorts the directory by project name', () => {
+    const model = getProjectViewModel(projects, { searchTerm: '', sortBy: 'name' })
+
+    expect(model.directoryGroups.flatMap(group => group.projects.map(project => project.name))).toEqual([
+      'article-mcp',
+      'cc-insights'
+    ])
   })
 })

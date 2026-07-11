@@ -2,44 +2,62 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'motion/react'
 import {
   FaArchive,
+  FaCode,
   FaExternalLinkAlt,
   FaGithub,
   FaSearch,
   FaSync
 } from 'react-icons/fa'
+import {
+  SiCplusplus,
+  SiGo,
+  SiHtml5,
+  SiJavascript,
+  SiJupyter,
+  SiKotlin,
+  SiPython,
+  SiRuby,
+  SiRust,
+  SiShell,
+  SiSwift,
+  SiTypescript
+} from 'react-icons/si'
 import './Projects.css'
 import PageHeader from './PageHeader'
-import ProjectDetailModal from './ProjectDetailModal'
 import ProjectVisual from './ProjectVisual'
 import { getProjectViewModel } from '../utils/portfolioProjects'
-import { getExternalLinkIcon, normalizeDescription } from '../utils/projectUtils'
+import { getExternalLinkIcon, getLinkText, normalizeDescription } from '../utils/projectUtils'
 import { useProjectsData } from '../hooks/useProjectsData.js'
 
 const Projects = () => {
   const { data: projectsData, loading, error: hookError } = useProjectsData()
   const error = hookError ? '加载项目数据失败' : null
   const [searchTerm, setSearchTerm] = useState('')
-  const [sortBy, setSortBy] = useState('featured')
-  const [selectedProject, setSelectedProject] = useState(null)
+  const [sortBy, setSortBy] = useState('updated')
+  const [selectedTrack, setSelectedTrack] = useState('all')
+  const [visiblePerGroup, setVisiblePerGroup] = useState(2)
 
   const viewModel = useMemo(() => {
     if (!projectsData) return { featured: [], filtered: [], trackCounts: [], directoryGroups: [] }
-    return getProjectViewModel(projectsData.allProjects, { searchTerm, sortBy })
-  }, [projectsData, searchTerm, sortBy])
+    return getProjectViewModel(projectsData.allProjects, { searchTerm, sortBy, selectedTrack })
+  }, [projectsData, searchTerm, selectedTrack, sortBy])
+
+  const directoryState = useMemo(() => {
+    const limit = selectedTrack === 'all' ? visiblePerGroup : Math.max(visiblePerGroup, 8)
+    const groups = viewModel.directoryGroups.map(group => ({
+      ...group,
+      visibleProjects: group.projects.slice(0, limit)
+    }))
+    const total = viewModel.directoryGroups.reduce((sum, group) => sum + group.projects.length, 0)
+    const visible = groups.reduce((sum, group) => sum + group.visibleProjects.length, 0)
+    return { groups, total, visible }
+  }, [selectedTrack, viewModel.directoryGroups, visiblePerGroup])
 
   const rootRef = useRef(null)
 
-  const openProject = (project) => setSelectedProject(project)
-  const closeProject = () => setSelectedProject(null)
-
   useEffect(() => {
-    const handleEscape = (event) => {
-      if (event.key === 'Escape') closeProject()
-    }
-
-    document.addEventListener('keydown', handleEscape)
-    return () => document.removeEventListener('keydown', handleEscape)
-  }, [])
+    setVisiblePerGroup(2)
+  }, [searchTerm, selectedTrack, sortBy])
 
   if (loading) {
     return (
@@ -89,7 +107,6 @@ const Projects = () => {
 
         <section className="featured-projects" aria-labelledby="featured-title">
           <div className="section-heading">
-            <p>代表系统</p>
             <h2 id="featured-title">先看能讲清楚方向的项目。</h2>
           </div>
           <div className="featured-grid">
@@ -98,7 +115,6 @@ const Projects = () => {
                 key={project.id}
                 project={project}
                 index={index}
-                onOpen={openProject}
               />
             ))}
           </div>
@@ -107,8 +123,7 @@ const Projects = () => {
         <section className="project-browser" aria-labelledby="browser-title">
           <div className="section-heading browser-heading">
             <div>
-              <p>作品目录</p>
-              <h2 id="browser-title">更多系统，按能力归档。</h2>
+              <h2 id="browser-title">更多系统</h2>
             </div>
             <div className="project-tools">
               <label className="search-box">
@@ -120,24 +135,71 @@ const Projects = () => {
                   onChange={(event) => setSearchTerm(event.target.value)}
                 />
               </label>
-              <select value={sortBy} onChange={(event) => setSortBy(event.target.value)}>
-                <option value="featured">代表优先</option>
-                <option value="updated">最近更新</option>
-                <option value="stars">星标数</option>
-              </select>
+              <div className="sort-control" role="group" aria-label="项目排序方式">
+                {[
+                  ['updated', '最近更新'],
+                  ['stars', 'Stars'],
+                  ['name', 'A–Z']
+                ].map(([value, label]) => (
+                  <button
+                    type="button"
+                    key={value}
+                    className={sortBy === value ? 'is-active' : ''}
+                    aria-pressed={sortBy === value}
+                    onClick={() => setSortBy(value)}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
-          {viewModel.directoryGroups.length > 0 ? (
-            <div className="project-directory">
-              {viewModel.directoryGroups.map(group => (
+          <div className="capability-filter" aria-label="按能力筛选项目">
+            <button
+              type="button"
+              className={selectedTrack === 'all' ? 'is-active' : ''}
+              aria-pressed={selectedTrack === 'all'}
+              onClick={() => setSelectedTrack('all')}
+            >
+              全部 <span>{viewModel.trackCounts.reduce((sum, track) => sum + track.count, 0)}</span>
+            </button>
+            {viewModel.trackCounts.filter(track => track.count > 0).map(track => (
+              <button
+                type="button"
+                key={track.id}
+                className={selectedTrack === track.id ? 'is-active' : ''}
+                aria-pressed={selectedTrack === track.id}
+                onClick={() => setSelectedTrack(track.id)}
+              >
+                {track.shortLabel} <span>{track.count}</span>
+              </button>
+            ))}
+          </div>
+
+          {directoryState.groups.length > 0 ? (
+            <>
+              <div className="directory-summary" aria-live="polite">
+                显示 {directoryState.visible} / {directoryState.total} 个项目
+              </div>
+              <div className="project-directory">
+              {directoryState.groups.map(group => (
                 <DirectoryGroup
                   key={group.id}
                   group={group}
-                  onOpen={openProject}
                 />
               ))}
-            </div>
+              </div>
+              {directoryState.visible < directoryState.total && (
+                <button
+                  type="button"
+                  className="directory-more"
+                  onClick={() => setVisiblePerGroup(count => count + (selectedTrack === 'all' ? 2 : 8))}
+                >
+                  显示更多项目
+                </button>
+              )}
+            </>
           ) : (
             <div className="project-state">
               <FaSearch />
@@ -151,44 +213,58 @@ const Projects = () => {
           数据最后更新：{new Date(projectsData.lastUpdated).toLocaleString('zh-CN')}
         </footer>
       </div>
-
-      <ProjectDetailModal
-        project={selectedProject}
-        isOpen={Boolean(selectedProject)}
-        onClose={closeProject}
-      />
     </section>
   )
 }
 
-const DirectoryGroup = ({ group, onOpen }) => (
+const DirectoryGroup = ({ group }) => (
   <section className="directory-group" aria-labelledby={`directory-${group.id}`}>
     <div className="directory-group-heading">
       <h3 id={`directory-${group.id}`}>{group.label}</h3>
       <span>{group.projects.length} 个项目</span>
     </div>
     <div className="directory-list">
-      {group.projects.map(project => (
-        <DirectoryItem key={project.id} project={project} onOpen={onOpen} />
+      {group.visibleProjects.map(project => (
+        <DirectoryItem key={project.id} project={project} />
       ))}
     </div>
   </section>
 )
 
-const DirectoryItem = ({ project, onOpen }) => {
+const DirectoryItem = ({ project }) => {
   const narrative = project.narrative
   const homepageIcon = getExternalLinkIcon(project.homepage)
+  const hasDistinctTitle = narrative.title !== project.portfolioTrack.label
+  const capabilities = narrative.built
+    .filter(item => item?.toLowerCase() !== project.language?.toLowerCase())
+    .slice(0, 2)
+  const projectTarget = project.homepage || project.url
 
   return (
     <article className="directory-item">
-      <button type="button" className="directory-main" onClick={() => onOpen(project)}>
-        <span>{project.name}</span>
-        <strong>{narrative.title}</strong>
+      <div className="directory-main">
+        <span className="directory-title-line">
+          <a
+            className="directory-project-name"
+            href={projectTarget}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {project.name}
+          </a>
+          {hasDistinctTitle && <span className="directory-narrative-title">{narrative.title}</span>}
+        </span>
         <em>{narrative.summary || normalizeDescription(project.description, project.name)}</em>
-      </button>
+        {capabilities.length > 0 && (
+          <span className="directory-capabilities">
+            {capabilities.map(item => <small key={item}>{item}</small>)}
+          </span>
+        )}
+      </div>
       <div className="directory-meta">
         {project.isArchived && <span><FaArchive /> 已归档</span>}
-        <span>{project.language || 'Unknown'}</span>
+        <LanguageMark language={project.language} />
+        <time dateTime={project.updatedAt}>{formatProjectDate(project.updatedAt)}</time>
         <a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} GitHub`}>
           <FaGithub />
         </a>
@@ -202,10 +278,43 @@ const DirectoryItem = ({ project, onOpen }) => {
   )
 }
 
-const ProjectShowcase = ({ project, index, onOpen }) => {
+const LANGUAGE_ICONS = {
+  'c++': SiCplusplus,
+  go: SiGo,
+  html: SiHtml5,
+  javascript: SiJavascript,
+  'jupyter notebook': SiJupyter,
+  kotlin: SiKotlin,
+  python: SiPython,
+  ruby: SiRuby,
+  rust: SiRust,
+  shell: SiShell,
+  swift: SiSwift,
+  typescript: SiTypescript
+}
+
+const LanguageMark = ({ language }) => {
+  const label = language || 'Unknown'
+  const Icon = LANGUAGE_ICONS[label.toLowerCase()] || FaCode
+
+  return (
+    <span className="language-mark" title={`主要语言：${label}`} aria-label={`主要语言：${label}`}>
+      <Icon aria-hidden="true" />
+      {label}
+    </span>
+  )
+}
+
+const formatProjectDate = (value) => {
+  if (!value) return '日期未知'
+  return new Intl.DateTimeFormat('zh-CN', { year: 'numeric', month: '2-digit' }).format(new Date(value))
+}
+
+const ProjectShowcase = ({ project, index }) => {
   const narrative = project.narrative
-  const homepageIcon = getExternalLinkIcon(project.homepage)
   const isLead = index === 0
+  const primaryUrl = project.homepage || project.url
+  const primaryLabel = project.homepage ? getLinkText(project.homepage) : '查看源码'
 
   return (
     <article className={`featured-showcase ${isLead ? 'featured-showcase--lead' : ''}`}>
@@ -226,25 +335,23 @@ const ProjectShowcase = ({ project, index, onOpen }) => {
           {narrative.built.slice(0, isLead ? 5 : 3).map(item => <span key={item}>{item}</span>)}
         </div>
         <div className="featured-showcase__actions">
-          <button type="button" onClick={() => onOpen(project)}>查看系统</button>
           <a
-            href={project.url}
+            className="featured-showcase__primary"
+            href={primaryUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`${project.name} GitHub 源码`}
-            title="查看 GitHub 源码"
           >
-            <FaGithub />
+            {primaryLabel} <FaExternalLinkAlt />
           </a>
           {project.homepage && (
             <a
-              href={project.homepage}
+              href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`${project.name} 外部链接`}
-              title={homepageIcon === 'pypi' ? '查看 PyPI' : '查看演示'}
+              aria-label={`${project.name} GitHub 源码`}
+              title="查看 GitHub 源码"
             >
-              {homepageIcon === 'pypi' ? 'PyPI' : <FaExternalLinkAlt />}
+              <FaGithub />
             </a>
           )}
         </div>
