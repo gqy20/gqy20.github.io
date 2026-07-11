@@ -111,6 +111,19 @@
   margin-bottom: 1.5rem;
 }
 
+.blog-post-cover--visual {
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--dt-line-faint);
+  background: var(--dt-surface);
+}
+
+.blog-post-cover--visual .blog-visual,
+.blog-post-cover--visual svg {
+  width: 100%;
+  height: 100%;
+}
+
 .cover-image {
   width: 100%;
   height: 100%;

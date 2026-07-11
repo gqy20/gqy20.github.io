@@ -1,0 +1,146 @@
+.blog-visual {
+  width: 100%;
+  color: var(--dt-ink);
+}
+
+.blog-visual svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.bv-frame,
+.bv-panel,
+.bv-node,
+.bv-cap-node {
+  fill: var(--dt-surface);
+  stroke: var(--dt-line-strong);
+  stroke-width: 1;
+}
+
+.bv-agent-core-fill {
+  fill: var(--dt-accent-soft);
+  stroke: var(--dt-accent-line);
+  stroke-width: 1.4;
+}
+
+.bv-result-panel {
+  fill: var(--dt-surface-2);
+  stroke: var(--dt-accent-line);
+  stroke-width: 1;
+}
+
+.bv-panel--accent {
+  fill: var(--dt-accent-soft);
+  stroke: var(--dt-accent-line);
+}
+
+.bv-kicker,
+.bv-copy,
+.bv-node-label,
+.bv-title,
+.bv-section,
+.bv-citation {
+  font-family: var(--dt-font-mono);
+}
+
+.bv-kicker {
+  fill: var(--dt-muted);
+  font-size: 7px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+}
+
+.bv-copy,
+.bv-citation {
+  fill: var(--dt-muted);
+  font-size: 6px;
+  font-weight: 600;
+}
+
+.bv-title,
+.bv-section {
+  fill: var(--dt-ink);
+  font-size: 7px;
+  font-weight: 800;
+}
+
+.bv-section {
+  font-size: 10px;
+}
+
+.bv-node-label {
+  fill: var(--dt-ink);
+  font-size: 6px;
+  font-weight: 800;
+}
+
+.bv-status,
+.bv-packet,
+.bv-hook-signal,
+.bv-trace-dot,
+.bv-vector-dot,
+.bv-observe-line {
+  fill: var(--dt-accent);
+}
+
+.bv-trace-dot {
+  stroke: var(--dt-surface);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.bv-status--dim {
+  opacity: 0.3;
+}
+
+.bv-line {
+  fill: none;
+  stroke: var(--dt-line-strong);
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+}
+
+.bv-line {
+  stroke-dasharray: 1;
+}
+
+.bv-line--accent {
+  stroke: var(--dt-accent-line);
+}
+
+.bv-gate {
+  fill: var(--dt-accent-soft);
+  stroke: var(--dt-accent-line);
+  stroke-width: 1.2;
+}
+
+.bv-track {
+  fill: var(--dt-line);
+}
+
+.bv-observe-line {
+  transform: scaleX(0.08);
+}
+
+.bv-rag-chunk,
+.bv-answer-line {
+  fill: var(--dt-muted);
+  opacity: 0.58;
+}
+
+.bv-rag-chunk:nth-of-type(even) {
+  fill: var(--dt-accent);
+  opacity: 0.75;
+}
+
+.bv-hallucination {
+  fill: var(--dt-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-visual * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

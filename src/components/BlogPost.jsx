@@ -15,6 +15,7 @@ import {
 } from 'react-icons/fa'
 import Badge from './Badge'
 import Button from './Button'
+import BlogVisual from './BlogVisual'
 import MarkdownRenderer from './MarkdownRenderer'
 import { gsap, ScrollTrigger, useGSAP } from '../lib/gsap.js'
 import { GITHUB_URL } from '../data/social.js'
@@ -334,16 +335,9 @@ const BlogPost = () => {
           >
             <p className="post-eyebrow">ESSAY · {post.category}</p>
 
-            {post.coverImage && (
-              <div className="blog-post-cover">
-                <img
-                  src={post.coverImage}
-                  alt={post.title}
-                  className="cover-image"
-                />
-                <div className="cover-overlay"></div>
-              </div>
-            )}
+            <div className="blog-post-cover blog-post-cover--visual">
+              <BlogVisual postId={post.id} />
+            </div>
 
             <div className="blog-post-meta">
               <div className="meta-primary">

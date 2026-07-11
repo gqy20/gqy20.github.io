@@ -3,6 +3,7 @@ import { motion } from 'motion/react'
 import { Link } from 'react-router-dom'
 import { FaArrowRight, FaCalendar, FaClock, FaCode, FaFileAlt, FaFolder, FaRss, FaSync, FaTag } from 'react-icons/fa'
 import Badge from './Badge'
+import BlogVisual from './BlogVisual'
 import './Blog.css'
 import PageHeader from './PageHeader'
 import { gsap, ScrollTrigger, useGSAP } from '../lib/gsap.js'
@@ -178,11 +179,9 @@ const Blog = () => {
                   </div>
                 </div>
 
-                {post.coverImage && (
-                  <div className="blog-cover">
-                    <img src={post.coverImage} alt={post.title} loading="lazy" />
-                  </div>
-                )}
+                <div className="blog-cover">
+                  <BlogVisual postId={post.id} />
+                </div>
 
                 <span className="blog-link">阅读 <FaArrowRight /></span>
               </article>
