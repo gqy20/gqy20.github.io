@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-07-11T01:19:02.730Z",
+  "lastUpdated": "2026-07-11T07:28:36.496Z",
   "totalRepositories": 48,
   "totalProjects": 44,
   "totalRepositoryStars": 92,
   "totalStars": 90,
-  "followers": 18,
+  "followers": 19,
   "categories": [
     "MCP工具",
     "AI应用",
@@ -193,6 +193,40 @@
     ],
     "AI应用": [
       {
+        "id": 1196258715,
+        "name": "zotero_cli",
+        "fullName": "gqy20/zotero_cli",
+        "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
+        "url": "https://github.com/gqy20/zotero_cli",
+        "homepage": null,
+        "language": "Go",
+        "stars": 8,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-03-30T14:22:18Z",
+        "updatedAt": "2026-07-11T06:55:07Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 2286,
+        "license": "MIT License",
+        "latestRelease": {
+          "tagName": "v0.0.11",
+          "name": "v0.0.11 · zot",
+          "publishedAt": "2026-07-08T10:07:28Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 5,
+        "totalTags": 5
+      },
+      {
         "id": 1126636339,
         "name": "TrendPluse",
         "fullName": "gqy20/TrendPluse",
@@ -253,40 +287,6 @@
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
-      },
-      {
-        "id": 1196258715,
-        "name": "zotero_cli",
-        "fullName": "gqy20/zotero_cli",
-        "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
-        "url": "https://github.com/gqy20/zotero_cli",
-        "homepage": null,
-        "language": "Go",
-        "stars": 8,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-03-30T14:22:18Z",
-        "updatedAt": "2026-07-09T01:00:57Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 2286,
-        "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.0.11",
-          "name": "v0.0.11 · zot",
-          "publishedAt": "2026-07-08T10:07:28Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 5,
-        "totalTags": 5
       },
       {
         "id": 1235648882,
@@ -1573,6 +1573,40 @@
       "totalTags": 5
     },
     {
+      "id": 1196258715,
+      "name": "zotero_cli",
+      "fullName": "gqy20/zotero_cli",
+      "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
+      "url": "https://github.com/gqy20/zotero_cli",
+      "homepage": null,
+      "language": "Go",
+      "stars": 8,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-03-30T14:22:18Z",
+      "updatedAt": "2026-07-11T06:55:07Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 2286,
+      "license": "MIT License",
+      "latestRelease": {
+        "tagName": "v0.0.11",
+        "name": "v0.0.11 · zot",
+        "publishedAt": "2026-07-08T10:07:28Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 5,
+      "totalTags": 5
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -1633,40 +1667,6 @@
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
-    },
-    {
-      "id": 1196258715,
-      "name": "zotero_cli",
-      "fullName": "gqy20/zotero_cli",
-      "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
-      "url": "https://github.com/gqy20/zotero_cli",
-      "homepage": null,
-      "language": "Go",
-      "stars": 8,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-03-30T14:22:18Z",
-      "updatedAt": "2026-07-09T01:00:57Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 2286,
-      "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.0.11",
-        "name": "v0.0.11 · zot",
-        "publishedAt": "2026-07-08T10:07:28Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 5,
-      "totalTags": 5
     },
     {
       "id": 1235648882,
