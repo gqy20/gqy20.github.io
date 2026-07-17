@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-07-17T07:48:16.228Z",
+  "lastUpdated": "2026-07-17T12:56:49.615Z",
   "totalRepositories": 48,
   "totalProjects": 44,
-  "totalRepositoryStars": 93,
-  "totalStars": 91,
+  "totalRepositoryStars": 94,
+  "totalStars": 92,
   "followers": 19,
   "categories": [
     "MCP工具",
@@ -192,6 +192,34 @@
       }
     ],
     "AI应用": [
+      {
+        "id": 1207212892,
+        "name": "manim-agent",
+        "fullName": "gqy20/manim-agent",
+        "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
+        "url": "https://github.com/gqy20/manim-agent",
+        "homepage": null,
+        "language": "Python",
+        "stars": 2,
+        "forks": 1,
+        "issues": 0,
+        "createdAt": "2026-04-10T17:41:37Z",
+        "updatedAt": "2026-07-17T10:04:09Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 8698,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 1126636339,
         "name": "TrendPluse",
@@ -430,34 +458,6 @@
         "latestTag": null,
         "totalReleases": 5,
         "totalTags": 5
-      },
-      {
-        "id": 1207212892,
-        "name": "manim-agent",
-        "fullName": "gqy20/manim-agent",
-        "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
-        "url": "https://github.com/gqy20/manim-agent",
-        "homepage": null,
-        "language": "Python",
-        "stars": 1,
-        "forks": 1,
-        "issues": 0,
-        "createdAt": "2026-04-10T17:41:37Z",
-        "updatedAt": "2026-06-25T07:08:39Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 8698,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
       },
       {
         "id": 1265662594,
@@ -1573,6 +1573,34 @@
       "totalTags": 5
     },
     {
+      "id": 1207212892,
+      "name": "manim-agent",
+      "fullName": "gqy20/manim-agent",
+      "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
+      "url": "https://github.com/gqy20/manim-agent",
+      "homepage": null,
+      "language": "Python",
+      "stars": 2,
+      "forks": 1,
+      "issues": 0,
+      "createdAt": "2026-04-10T17:41:37Z",
+      "updatedAt": "2026-07-17T10:04:09Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 8698,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -1810,34 +1838,6 @@
       "latestTag": null,
       "totalReleases": 5,
       "totalTags": 5
-    },
-    {
-      "id": 1207212892,
-      "name": "manim-agent",
-      "fullName": "gqy20/manim-agent",
-      "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
-      "url": "https://github.com/gqy20/manim-agent",
-      "homepage": null,
-      "language": "Python",
-      "stars": 1,
-      "forks": 1,
-      "issues": 0,
-      "createdAt": "2026-04-10T17:41:37Z",
-      "updatedAt": "2026-06-25T07:08:39Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 8698,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
     },
     {
       "id": 1265662594,
