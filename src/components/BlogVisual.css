@@ -138,6 +138,54 @@
   fill: var(--dt-accent);
 }
 
+.bv-manim-packet {
+  fill: var(--dt-accent);
+  stroke: var(--dt-surface);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.bv-manim-input,
+.bv-manim-axis,
+.bv-manim-check path {
+  fill: none;
+  stroke: var(--dt-accent-line);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
+}
+
+.bv-manim-brace {
+  fill: var(--dt-accent);
+  font-family: var(--dt-font-mono);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.bv-manim-code-line {
+  fill: var(--dt-accent);
+  opacity: 0.78;
+}
+
+.bv-manim-curve,
+.bv-manim-repair {
+  fill: none;
+  stroke: var(--dt-accent-line);
+  stroke-dasharray: 1;
+  stroke-linecap: round;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.bv-manim-repair-tip {
+  fill: var(--dt-accent);
+}
+
+.bv-manim-play path {
+  fill: var(--dt-accent);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .blog-visual * {
     animation: none !important;

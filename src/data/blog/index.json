@@ -1,11 +1,33 @@
 {
-  "lastUpdated": "2026-06-30T00:00:00.000Z",
-  "totalPosts": 3,
+  "lastUpdated": "2026-07-21T00:00:00.000Z",
+  "totalPosts": 4,
   "categories": [
     "AI编程",
     "AI应用"
   ],
   "posts": [
+    {
+      "id": "260721_manim_agent",
+      "title": "打造 AI 数学科普视频生成系统——\"智绘科普\"项目拆解",
+      "type": "tutorial",
+      "date": "2026-07-21",
+      "updated": "2026-07-21",
+      "readTime": "16分钟",
+      "author": "Qingyu Ge",
+      "tags": [
+        "Manim",
+        "Claude Agent SDK",
+        "Agent Pipeline",
+        "质量门控",
+        "教育科技"
+      ],
+      "category": "AI编程",
+      "excerpt": "从自然语言到带配音的数学动画，完整拆解智绘科普如何通过分阶段 Agent 编排、结构化脚本、Manim 渲染、质量门控、错误自愈和全链路可观测，把不稳定的 AI 生成过程变成可编辑、可验证、可复用的教学视频流水线。",
+      "coverImage": "",
+      "published": true,
+      "slug": "260721_manim_agent",
+      "wordCount": 7648
+    },
     {
       "id": "260629_agent_sdk_patterns",
       "title": "我用 Claude Agent SDK 搭了 14 个项目,沉淀出 9 个反复出现的模式",

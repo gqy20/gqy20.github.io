@@ -55,6 +55,7 @@ performance-badge.json
 .playwright-mcp/
 .playwright-cli/
 *.png
+!public/blog/260721_manim_agent_*.png
 PROFILE
 pnpm-lock.yaml
 

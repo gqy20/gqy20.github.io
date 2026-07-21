@@ -3,6 +3,7 @@ import { gsap, useGSAP } from '../lib/gsap.js'
 import './BlogVisual.css'
 
 const VISUALS = {
+  '260721_manim_agent': ManimAgentVisual,
   '260629_agent_sdk_patterns': AgentPatternsVisual,
   '260628_git_claude_hooks': HooksVisual,
   '260627_rag_kb_survey': RagVisual
@@ -10,7 +11,8 @@ const VISUALS = {
 
 export default function BlogVisual({ postId, className = '' }) {
   const rootRef = useRef(null)
-  const Visual = VISUALS[postId] || AgentPatternsVisual
+  const visualId = VISUALS[postId] ? postId : '260629_agent_sdk_patterns'
+  const Visual = VISUALS[visualId]
 
   useGSAP(() => {
     const mm = gsap.matchMedia()
@@ -34,7 +36,24 @@ export default function BlogVisual({ postId, className = '' }) {
         .to('.bv-draw', { strokeDashoffset: 0, opacity: 1, duration: 1.4, stagger: 0.12 }, 0.25)
         .to('.bv-pop', { opacity: 1, y: 0, duration: 0.42, stagger: 0.1 }, 0.55)
 
-      if (postId === '260629_agent_sdk_patterns') {
+      if (visualId === '260721_manim_agent') {
+        timeline
+          .set('.bv-manim-stage', { autoAlpha: 0.28, y: 4 }, 0)
+          .set('.bv-manim-detail', { autoAlpha: 0.22, y: 2 }, 0)
+          .set('.bv-manim-packet', { autoAlpha: 0, x: 0 }, 0)
+          .set('.bv-manim-curve, .bv-manim-repair', { strokeDashoffset: 1, opacity: 0.18 }, 0)
+          .set('.bv-manim-check, .bv-manim-play', { opacity: 0.22, scale: 0.82, transformOrigin: 'center' }, 0)
+          .addLabel('pipeline', 1.1)
+          .to('.bv-manim-stage', { autoAlpha: 1, y: 0, duration: 0.34, stagger: 0.5 }, 'pipeline')
+          .to('.bv-manim-detail', { autoAlpha: 1, y: 0, duration: 0.28, stagger: 0.5 }, 'pipeline+=0.2')
+          .to('.bv-manim-packet', { autoAlpha: 1, duration: 0.16 }, 'pipeline')
+          .to('.bv-manim-packet', { x: 240, duration: 3.1, ease: 'none' }, 'pipeline+=0.12')
+          .to('.bv-manim-curve', { strokeDashoffset: 0, opacity: 1, duration: 0.72 }, 'pipeline+=1.55')
+          .to('.bv-manim-repair', { strokeDashoffset: 0, opacity: 1, duration: 0.78 }, 'pipeline+=2.25')
+          .to('.bv-manim-code', { scale: 1.08, duration: 0.24, yoyo: true, repeat: 1, transformOrigin: 'center' }, 'pipeline+=2.82')
+          .to('.bv-manim-check', { opacity: 1, scale: 1, duration: 0.34 }, 'pipeline+=3.2')
+          .to('.bv-manim-play', { opacity: 1, scale: 1, duration: 0.4 }, 'pipeline+=3.62')
+      } else if (visualId === '260629_agent_sdk_patterns') {
         timeline
           .set('.bv-agent-cap', { opacity: 0.24, scale: 0.78, transformOrigin: 'center' }, 0)
           .set('.bv-tool-node, .bv-agent-result', { opacity: 0.22, x: 8 }, 0)
@@ -59,7 +78,7 @@ export default function BlogVisual({ postId, className = '' }) {
             ]
           }, 2.05)
           .to('.bv-trace-dot', { opacity: 0, duration: 0.35 }, 6.75)
-      } else if (postId === '260628_git_claude_hooks') {
+      } else if (visualId === '260628_git_claude_hooks') {
         timeline
           .set('.bv-hook-packet', { x: -92, opacity: 0 }, 0)
           .set('.bv-hook-gate', { rotation: -18, transformOrigin: 'center' }, 0)
@@ -95,7 +114,7 @@ export default function BlogVisual({ postId, className = '' }) {
       }
     })
     return () => mm.revert()
-  }, { scope: rootRef, dependencies: [postId] })
+  }, { scope: rootRef, dependencies: [visualId] })
 
   return (
     <div className={`blog-visual ${className}`.trim()} ref={rootRef} aria-hidden="true">
@@ -115,6 +134,67 @@ function Frame({ label, children }) {
         {children}
       </g>
     </svg>
+  )
+}
+
+function ManimAgentVisual() {
+  const stages = [
+    { x: 22, label: 'INPUT', detail: 'topic' },
+    { x: 70, label: 'SPEC', detail: 'beats' },
+    { x: 118, label: 'CODE', detail: 'scene.py' },
+    { x: 166, label: 'RENDER', detail: 'manim' },
+    { x: 214, label: 'REVIEW', detail: 'gate' },
+    { x: 262, label: 'MP4', detail: 'voice' }
+  ]
+
+  return (
+    <Frame label="NATURAL LANGUAGE → VERIFIED VIDEO">
+      <path
+        className="bv-line bv-draw"
+        pathLength="1"
+        d="M60 88 H70 M108 88 H118 M156 88 H166 M204 88 H214 M252 88 H262"
+      />
+
+      {stages.map(({ x, label, detail }) => (
+        <g className="bv-manim-stage" key={label}>
+          <rect className={`bv-panel ${label === 'INPUT' || label === 'MP4' ? 'bv-panel--accent' : ''}`} x={x} y="66" width="38" height="44" rx="6" />
+          <text className="bv-node-label" x={x + 19} y="79" textAnchor="middle">{label}</text>
+          <text className="bv-copy" x={x + 19} y="101" textAnchor="middle">{detail}</text>
+        </g>
+      ))}
+
+      <g className="bv-manim-detail">
+        <path className="bv-manim-input" d="M32 87 H47 M42 82 L47 87 L42 92" />
+      </g>
+
+      <g className="bv-manim-detail">
+        <text className="bv-manim-brace" x="89" y="93" textAnchor="middle">{'{ }'}</text>
+      </g>
+
+      <g className="bv-manim-detail bv-manim-code">
+        <rect className="bv-manim-code-line" x="127" y="84" width="20" height="2.5" rx="1" />
+        <rect className="bv-manim-code-line" x="127" y="90" width="14" height="2.5" rx="1" />
+      </g>
+
+      <g>
+        <path className="bv-manim-curve" pathLength="1" d="M175 94 C179 80 189 80 195 94" />
+        <path className="bv-manim-axis" d="M174 95 H196 M185 80 V97" />
+      </g>
+
+      <g className="bv-manim-check">
+        <path d="M224 88 L231 94 L242 81" />
+      </g>
+
+      <g className="bv-manim-play">
+        <path d="M277 81 L290 88 L277 95 Z" />
+      </g>
+
+      <path className="bv-manim-repair" pathLength="1" d="M233 112 C233 140 137 140 137 112" />
+      <path className="bv-manim-repair-tip" d="M132 118 L137 111 L142 118" />
+      <text className="bv-copy bv-pop" x="185" y="151" textAnchor="middle">REPAIR · RETRY · TRACE</text>
+
+      <circle className="bv-manim-packet" cx="41" cy="88" r="3.5" />
+    </Frame>
   )
 }
 
