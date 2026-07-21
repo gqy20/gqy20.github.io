@@ -3,6 +3,7 @@ import { motion } from 'motion/react'
 import { FaArrowDown, FaExternalLinkAlt, FaPlay, FaTimes } from 'react-icons/fa'
 import PageHeader from './PageHeader.jsx'
 import GitCourseGraph from './GitCourseGraph.jsx'
+import GitCourseTitleMark from './GitCourseTitleMark.jsx'
 import { GIT_COURSE, getBilibiliPlayerUrl } from '../data/gitCourse.js'
 import './GitCourse.css'
 
@@ -25,7 +26,7 @@ export default function GitCourse() {
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="git-course-hero__copy">
-            <h1>看得见的 <span>Git</span></h1>
+            <h1><span className="git-course-title-text">看得见的</span> <GitCourseTitleMark /></h1>
             <p className="git-course-hero__lede">{GIT_COURSE.description}</p>
             <ul className="git-course-facts" aria-label="课程信息">
               <li>6 集</li>

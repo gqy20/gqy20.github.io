@@ -1,7 +1,17 @@
 .git-course-page {
+  --git-title-head: var(--dt-accent);
+  --git-title-main: #58a9a6;
+  --git-title-node-fill: var(--dt-bg);
+  --git-title-node-glow: rgba(255, 184, 107, 0.38);
   min-height: 100vh;
   padding-bottom: clamp(4rem, 10vw, 8rem);
   color: var(--dt-ink);
+}
+
+:root[data-theme='light'] .git-course-page {
+  --git-title-head: #b98723;
+  --git-title-main: #1f6869;
+  --git-title-node-glow: rgba(185, 135, 35, 0.3);
 }
 
 .git-course-page *,
@@ -36,11 +46,113 @@
   text-wrap: balance;
 }
 
-.git-course-hero h1 span {
-  color: var(--dt-accent);
-  font-family: var(--dt-font-mono);
-  font-size: 0.88em;
-  letter-spacing: -0.055em;
+.git-course-title-text {
+  white-space: nowrap;
+}
+
+.git-course-title-mark {
+  position: relative;
+  display: inline-block;
+  width: 1.52em;
+  height: 1.05em;
+  margin-left: 0.03em;
+  vertical-align: -0.19em;
+  isolation: isolate;
+}
+
+.git-course-title-mark svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.git-course-title-mark__accessible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.git-course-title-mark__glyphs {
+  fill: var(--dt-ink);
+  stroke: var(--git-title-head);
+  stroke-width: 1.25;
+  paint-order: stroke fill;
+  clip-path: inset(0 100% 0 0);
+  animation: git-course-title-reveal 620ms 110ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.git-course-title-mark__path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.git-course-title-mark__path--head {
+  stroke: var(--git-title-head);
+  stroke-width: 4.2;
+  filter: drop-shadow(0 0 2px var(--git-title-node-glow));
+  animation: git-course-title-draw 680ms 290ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.git-course-title-mark__path--graph {
+  stroke: var(--git-title-main);
+  stroke-width: 2.8;
+  animation: git-course-title-draw 620ms 410ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.git-course-title-mark__node {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: git-course-title-node-in 360ms 570ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.git-course-title-mark__node-ring {
+  fill: var(--git-title-node-fill);
+  stroke: var(--git-title-head);
+  stroke-width: 1.75;
+  filter: url(#git-course-title-node-glow);
+}
+
+.git-course-title-mark__node-core {
+  fill: var(--git-title-head);
+}
+
+.git-course-title-mark__node-pulse {
+  fill: none;
+  stroke: var(--git-title-head);
+  stroke-width: 1.2;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: git-course-title-node-pulse 520ms 850ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes git-course-title-reveal {
+  to { clip-path: inset(0); }
+}
+
+@keyframes git-course-title-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes git-course-title-node-in {
+  from { opacity: 0; transform: scale(0.45); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes git-course-title-node-pulse {
+  0% { opacity: 0; transform: scale(0.7); }
+  25% { opacity: 0.42; }
+  100% { opacity: 0; transform: scale(1.85); }
 }
 
 .git-course-hero__lede {
@@ -399,6 +511,26 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .git-course-title-mark__glyphs {
+    clip-path: inset(0);
+    animation: none;
+  }
+
+  .git-course-title-mark__path {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+
+  .git-course-title-mark__node {
+    opacity: 1;
+    animation: none;
+  }
+
+  .git-course-title-mark__node-pulse {
+    display: none;
+    animation: none;
+  }
+
   .git-course-episode__poster img,
   .git-course-episode__play,
   .git-course-jump {
