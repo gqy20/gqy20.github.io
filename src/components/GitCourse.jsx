@@ -25,7 +25,6 @@ export default function GitCourse() {
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="git-course-hero__copy">
-            <p className="git-course-kicker">VIDEO COURSE</p>
             <h1>看得见的 <span>Git</span></h1>
             <p className="git-course-hero__lede">{GIT_COURSE.description}</p>
             <ul className="git-course-facts" aria-label="课程信息">

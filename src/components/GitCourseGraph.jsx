@@ -47,7 +47,7 @@ export default function GitCourseGraph({ compact = false }) {
         <text x="668" y="252">C6</text>
       </g>
 
-      <g transform="translate(74 130)" aria-hidden="true">
+      <g transform="translate(55 130)" aria-hidden="true">
         <g className="git-course-graph__head">
           <rect width="74" height="32" rx="4" />
           <text x="37" y="21">HEAD</text>

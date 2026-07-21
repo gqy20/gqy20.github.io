@@ -79,10 +79,14 @@
   position: sticky;
   top: 0;
   height: 100vh;
-  padding: 5rem clamp(2rem, 3vw, 4rem) 3.5rem;
+  height: 100dvh;
+  padding:
+    clamp(2.75rem, 8vh, 5rem)
+    clamp(2rem, 3vw, 4rem)
+    clamp(2rem, 5.6vh, 3.5rem);
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: clamp(1.5rem, 4.8vh, 3rem);
   z-index: 2;
   border-right: 1px solid var(--line);
   background: var(--bg);
@@ -92,7 +96,7 @@
 .home-identity {
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
+  gap: clamp(1rem, 2.2vh, 1.4rem);
 }
 
 .home-name {
@@ -160,7 +164,7 @@
   display: flex;
   align-items: center;
   gap: 0.85rem;
-  padding: 0.6rem 0;
+  padding: clamp(0.4rem, 1.2vh, 0.6rem) 0;
   font-family: var(--font-mono);
   font-size: 0.78rem;
   font-weight: 500;
@@ -223,12 +227,13 @@
 
 /* — Page Links — */
 .home-pages {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.15rem clamp(0.75rem, 1.2vw, 1rem);
   margin-top: 0.5rem;
   padding-top: 1rem;
   border-top: 1px solid var(--line);
+  flex-shrink: 0;
 }
 
 .home-page-link {
@@ -251,8 +256,9 @@
 .home-socials {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: clamp(0.4rem, 0.6vw, 0.65rem);
   flex-wrap: wrap;
+  flex-shrink: 0;
 }
 
 .home-social {
@@ -1303,6 +1309,49 @@
 /* ════════════════════════════════════════════════════════════
    Responsive — 1024 / 768 / 480
    ════════════════════════════════════════════════════════════ */
+
+@media (min-width: 1025px) and (max-height: 820px) {
+  .home-sidebar {
+    padding-top: 2.5rem;
+    padding-bottom: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .home-identity {
+    gap: 0.75rem;
+  }
+
+  .home-name__zh {
+    font-size: 2.45rem;
+  }
+
+  .home-role {
+    font-size: 0.68rem;
+    line-height: 1.55;
+  }
+
+  .home-lede {
+    font-size: 0.86rem;
+    line-height: 1.55;
+  }
+
+  .home-nav {
+    margin-top: 0;
+  }
+
+  .home-nav__link {
+    padding: 0.34rem 0;
+  }
+
+  .home-pages {
+    margin-top: 0;
+    padding-top: 0.7rem;
+  }
+
+  .home-page-link {
+    padding: 0.3rem 0;
+  }
+}
 
 @media (max-width: 1024px) {
   .home {
