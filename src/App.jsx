@@ -12,6 +12,7 @@ const Projects = lazy(() => import('./components/Projects'))
 const Blog = lazy(() => import('./components/Blog'))
 const BlogPost = lazy(() => import('./components/BlogPost.jsx'))
 const Journey = lazy(() => import('./components/Journey.jsx'))
+const GitCourse = lazy(() => import('./components/GitCourse.jsx'))
 const ComponentTest = lazy(() => import('./components/ComponentTest.jsx'))
 
 export default function App() {
@@ -33,6 +34,8 @@ export default function App() {
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/blog/:slug" element={<BlogPost />} />
                   <Route path="/journey" element={<Journey />} />
+                  <Route path="/courses" element={<GitCourse />} />
+                  <Route path="/courses/git" element={<GitCourse />} />
                   <Route path="/components" element={<ComponentTest />} />
                 </Routes>
               </Suspense>

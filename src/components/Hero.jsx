@@ -7,6 +7,7 @@ import { SOCIAL_LINKS } from '../data/social.js'
 import { timelineStages } from '../data/timeline.js'
 import LanguageIcon from './LanguageIcon.jsx'
 import AgentWorkflow from './AgentWorkflow.jsx'
+import GitCourseGraph from './GitCourseGraph.jsx'
 import './Hero.css'
 
 const SECTIONS = [
@@ -14,13 +15,15 @@ const SECTIONS = [
   { id: 'stack',     num: '02', label: 'STACK' },
   { id: 'now',       num: '03', label: 'NOW' },
   { id: 'work',      num: '04', label: 'WORK' },
-  { id: 'stages',    num: '05', label: 'STAGES' },
-  { id: 'writing',   num: '06', label: 'WRITING' },
-  { id: 'elsewhere', num: '07', label: 'ELSEWHERE' },
+  { id: 'course',    num: '05', label: 'COURSE' },
+  { id: 'stages',    num: '06', label: 'STAGES' },
+  { id: 'writing',   num: '07', label: 'WRITING' },
+  { id: 'elsewhere', num: '08', label: 'ELSEWHERE' },
 ]
 
 const PAGE_LINKS = [
   { href: '#/projects', label: 'PROJECTS' },
+  { href: '#/courses/git', label: 'COURSES' },
   { href: '#/blog',    label: 'BLOG' },
   { href: '#/journey', label: 'JOURNEY' },
 ]
@@ -367,7 +370,21 @@ export default function Hero() {
           </p>
         </SectionShell>
 
-        <SectionShell id="stages" num="05" label="STAGES" delay={0.25}>
+        <SectionShell id="course" num="05" label="COURSE" delay={0.23}>
+          <a href="#/courses/git" className="home-course-feature">
+            <div className="home-course-feature__visual" aria-hidden="true">
+              <GitCourseGraph compact />
+            </div>
+            <div className="home-course-feature__copy">
+              <span className="home-course-feature__label">6 集 · 21 分钟 · 4K</span>
+              <h3>看得见的 Git</h3>
+              <p>从对象、暂存区和 commit 开始，一路画到 branch、HEAD 与 merge。</p>
+              <span className="home-course-feature__link">进入课程 →</span>
+            </div>
+          </a>
+        </SectionShell>
+
+        <SectionShell id="stages" num="06" label="STAGES" delay={0.25}>
           <p className="home-section__lede">一年时间，四个阶段。每个阶段都有一次思维方式的更新。</p>
           <ol className="home-stages">
             {timelineStages.map((stage, i) => (
@@ -393,7 +410,7 @@ export default function Hero() {
           </ol>
         </SectionShell>
 
-        <SectionShell id="writing" num="06" label="WRITING" delay={0.3}>
+        <SectionShell id="writing" num="07" label="WRITING" delay={0.3}>
           <p className="home-section__lede">一些关于 Agent、工具接口和 AI 编程工作流的复盘。</p>
           <ul className="home-writing-list">
             {blogIndex.posts.map(post => (
@@ -408,7 +425,7 @@ export default function Hero() {
           </ul>
         </SectionShell>
 
-        <SectionShell id="elsewhere" num="07" label="ELSEWHERE" delay={0.35}>
+        <SectionShell id="elsewhere" num="08" label="ELSEWHERE" delay={0.35}>
           <p className="home-section__lede">你能在哪里找到我。</p>
           <ul className="home-elsewhere-list">
             {SOCIAL_LINKS.map(link => (
@@ -429,7 +446,7 @@ export default function Hero() {
           <footer className="home-footer">
             <span>Built with React + Framer Motion + GSAP</span>
             <span>·</span>
-            <span>Last updated 2026.06</span>
+            <span>Last updated 2026.07</span>
           </footer>
         </SectionShell>
       </main>

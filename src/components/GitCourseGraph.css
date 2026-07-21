@@ -1,0 +1,124 @@
+.git-course-graph {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--dt-ink);
+}
+
+.git-course-graph__grid path {
+  fill: none;
+  stroke: var(--dt-line);
+  stroke-width: 1;
+}
+
+.git-course-graph__track,
+.git-course-graph__flow {
+  fill: none;
+  stroke: var(--dt-line-strong);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.git-course-graph__track--branch {
+  stroke: color-mix(in srgb, var(--dt-accent) 30%, var(--dt-line-strong));
+}
+
+.git-course-graph__flow {
+  stroke: var(--dt-accent);
+  stroke-width: 3;
+  stroke-dasharray: 0.17 0.08;
+  stroke-dashoffset: 1;
+  animation: git-course-flow 7s linear infinite;
+}
+
+.git-course-graph__flow--branch {
+  stroke: #58a9a6;
+  animation-delay: -2.5s;
+}
+
+.git-course-graph__nodes circle {
+  fill: var(--dt-surface-2);
+  stroke: var(--dt-ink);
+  stroke-width: 4;
+}
+
+.git-course-graph__nodes .git-course-graph__node--feature {
+  stroke: #58a9a6;
+}
+
+.git-course-graph__nodes .git-course-graph__node--merge {
+  fill: var(--dt-accent);
+  stroke: var(--dt-accent);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: git-course-merge 3.5s var(--dt-ease-out) infinite;
+}
+
+.git-course-graph__labels,
+.git-course-graph__branch-labels,
+.git-course-graph__head text {
+  font-family: var(--dt-font-mono);
+  font-weight: 600;
+  fill: var(--dt-muted);
+}
+
+.git-course-graph__labels {
+  font-size: 13px;
+  text-anchor: middle;
+}
+
+.git-course-graph__branch-labels {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+}
+
+.git-course-graph__head {
+  animation: git-course-head 7s var(--dt-ease-out) infinite;
+}
+
+.git-course-graph__head rect {
+  fill: var(--dt-accent);
+}
+
+.git-course-graph__head text {
+  fill: var(--dt-ink-on-accent);
+  font-size: 12px;
+  text-anchor: middle;
+  letter-spacing: 0.08em;
+}
+
+.git-course-graph__head path {
+  fill: none;
+  stroke: var(--dt-accent);
+  stroke-width: 2;
+}
+
+@keyframes git-course-flow {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes git-course-head {
+  0%, 18% { transform: translateX(0); }
+  32%, 48% { transform: translateX(158px); }
+  64%, 78% { transform: translateX(334px); }
+  92%, 100% { transform: translateX(496px); }
+}
+
+@keyframes git-course-merge {
+  0%, 45%, 100% { transform: scale(1); }
+  56% { transform: scale(1.2); }
+  68% { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .git-course-graph__flow,
+  .git-course-graph__head,
+  .git-course-graph__node--merge {
+    animation: none;
+  }
+
+  .git-course-graph__flow {
+    stroke-dashoffset: 0;
+  }
+}
