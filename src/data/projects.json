@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-07-22T13:15:16.068Z",
-  "totalRepositories": 48,
-  "totalProjects": 44,
+  "lastUpdated": "2026-07-22T18:52:53.441Z",
+  "totalRepositories": 49,
+  "totalProjects": 45,
   "totalRepositoryStars": 97,
   "totalStars": 95,
   "followers": 19,
@@ -1130,6 +1130,33 @@
       }
     ],
     "其他项目": [
+      {
+        "id": 1309022792,
+        "name": "slingshot",
+        "fullName": "gqy20/slingshot",
+        "description": "Deterministic Godot slingshot physics video renderer",
+        "url": "https://github.com/gqy20/slingshot",
+        "homepage": null,
+        "language": "GDScript",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-07-22T16:20:36Z",
+        "updatedAt": "2026-07-22T16:23:41Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "gdscript"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 36,
+        "license": "MIT License",
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 1273955381,
         "name": "anna-truman-director",
@@ -2500,6 +2527,33 @@
       "isArchived": false,
       "size": 14279,
       "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
+      "id": 1309022792,
+      "name": "slingshot",
+      "fullName": "gqy20/slingshot",
+      "description": "Deterministic Godot slingshot physics video renderer",
+      "url": "https://github.com/gqy20/slingshot",
+      "homepage": null,
+      "language": "GDScript",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-07-22T16:20:36Z",
+      "updatedAt": "2026-07-22T16:23:41Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "gdscript"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 36,
+      "license": "MIT License",
       "latestRelease": null,
       "latestTag": null,
       "totalReleases": 0,
