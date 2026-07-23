@@ -1,0 +1,25 @@
+; Engine configuration file.
+; The prototype uses only Godot primitives so the Web payload stays small.
+config_version=5
+
+[application]
+
+config/name="GQY Homepage Runtime"
+run/main_scene="res://main.tscn"
+boot_splash/bg_color=Color(0.039, 0.055, 0.102, 1)
+boot_splash/show_image=false
+
+[display]
+
+window/size/viewport_width=390
+window/size/viewport_height=652
+window/size/window_width_override=390
+window/size/window_height_override=652
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.039, 0.055, 0.102, 1)

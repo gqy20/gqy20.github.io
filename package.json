@@ -7,10 +7,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "godot:export": "bash scripts/export-godot-web.sh",
     "test": "vitest run",
     "test:watch": "vitest",
     "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist",
+    "deploy": "npm run godot:export && npm run build && gh-pages -d dist",
     "sync-blog": "node scripts/sync-blog.js",
     "perf:check": "node scripts/performance-analysis.js",
     "perf:quick": "lighthouse https://home.gqy20.top --chrome-flags=\"--headless --no-sandbox --disable-dev-shm-usage\" --only-categories=performance",

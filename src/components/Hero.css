@@ -146,6 +146,60 @@
   max-width: 22em;
 }
 
+.home-run-trigger {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.65rem 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: auto auto auto 1fr;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--dim);
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--dt-duration-fast) var(--dt-ease-out), border-color var(--dt-duration-fast) var(--dt-ease-out);
+}
+
+.home-run-trigger:hover {
+  color: var(--ink);
+  border-color: var(--accent-line);
+}
+
+.home-run-trigger__read { color: var(--muted); }
+
+.home-run-trigger__run {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--accent);
+}
+
+.home-run-trigger__run i {
+  width: 0.36rem;
+  height: 0.36rem;
+  background: var(--accent);
+  opacity: 0.5;
+  transition: opacity var(--dt-duration-fast) var(--dt-ease-out);
+}
+
+.home-run-trigger:hover .home-run-trigger__run i {
+  opacity: 1;
+}
+
+.home-run-trigger__action {
+  justify-self: end;
+  color: var(--dim);
+  font-size: 0.62rem;
+  letter-spacing: 0.03em;
+}
+
 /* — Navigation — */
 .home-nav {
   display: flex;
@@ -1335,6 +1389,11 @@
     line-height: 1.55;
   }
 
+  .home-run-trigger {
+    min-height: 38px;
+    padding-block: 0.45rem;
+  }
+
   .home-nav {
     margin-top: 0;
   }
@@ -1545,6 +1604,15 @@
 @media (max-width: 480px) {
   .home-name__zh { font-size: 1.95rem; }
   .home-name__en { font-size: 0.95rem; }
+
+  .home-run-trigger__action {
+    font-size: 0;
+  }
+
+  .home-run-trigger__action::after {
+    content: '启动';
+    font-size: 0.62rem;
+  }
 
   .home-socials .home-social:nth-child(n+5) {
     display: none;

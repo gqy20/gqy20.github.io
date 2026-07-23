@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'motion/react'
 import { gsap, SplitText, useGSAP } from '../lib/gsap.js'
 import { useProjectsData } from '../hooks/useProjectsData.js'
@@ -9,6 +9,7 @@ import { GIT_COURSE } from '../data/gitCourse.js'
 import LanguageIcon from './LanguageIcon.jsx'
 import AgentWorkflow from './AgentWorkflow.jsx'
 import GitCourseGraph from './GitCourseGraph.jsx'
+import RunMode from './RunMode.jsx'
 import './Hero.css'
 
 const SECTIONS = [
@@ -104,6 +105,13 @@ export default function Hero() {
   const { data: projectData, loading } = useProjectsData()
   const [activeSection, setActiveSection] = useState('about')
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
+  const [isRunModeOpen, setIsRunModeOpen] = useState(false)
+  const runTriggerRef = useRef(null)
+  const openRunMode = useCallback(() => setIsRunModeOpen(true), [])
+  const closeRunMode = useCallback(() => {
+    setIsRunModeOpen(false)
+    window.requestAnimationFrame(() => runTriggerRef.current?.focus())
+  }, [])
 
   const projectsByName = useMemo(() => {
     if (!projectData?.allProjects) return {}
@@ -215,6 +223,18 @@ export default function Hero() {
             构建能检索资料、调用工具、管理上下文，<br />
             并进入真实工作流的 Agent 系统。
           </p>
+          <button
+            ref={runTriggerRef}
+            type="button"
+            className="home-run-trigger"
+            aria-haspopup="dialog"
+            onClick={openRunMode}
+          >
+            <span className="home-run-trigger__read">READ</span>
+            <span aria-hidden="true">/</span>
+            <span className="home-run-trigger__run"><i aria-hidden="true" /> RUN</span>
+            <span className="home-run-trigger__action">运行这个主页</span>
+          </button>
         </div>
 
         <button
@@ -451,6 +471,7 @@ export default function Hero() {
           </footer>
         </SectionShell>
       </main>
+      <RunMode open={isRunModeOpen} onClose={closeRunMode} />
     </div>
   )
 }

@@ -12,6 +12,19 @@ jobs:
       with:
         node-version: '24'
     - run: npm install
+    - name: Cache Godot Web toolchain
+      uses: actions/cache@v6
+      with:
+        path: |
+          ${{ runner.temp }}/godot-4.7.1/godot
+          ~/.local/share/godot/export_templates/4.7.1.stable/web_nothreads_release.zip
+        key: godot-web-4.7.1-linux-x86_64-v1
+    - name: Install Godot Web toolchain
+      run: bash scripts/install-godot-web-ci.sh
+    - name: Export Godot homepage runtime
+      env:
+        GODOT_BIN: ${{ runner.temp }}/godot-4.7.1/godot
+      run: npm run godot:export
     - run: npm run build
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v5
