@@ -1,8 +1,8 @@
 export const GIT_COURSE = {
   slug: 'git',
   title: '看得见的 Git',
-  description: '把对象、暂存区、提交、分支、HEAD 与合并画成一条可以跟随的提交图。',
-  totalDuration: '21:04',
+  description: '把对象、暂存区、提交、分支、HEAD、合并与历史改写画成一条可以跟随的提交图。',
+  totalDuration: '28:32',
   episodes: [
     {
       number: '01',
@@ -63,6 +63,26 @@ export const GIT_COURSE = {
       bvid: 'BV1GZKH6vETo',
       url: 'https://www.bilibili.com/video/BV1GZKH6vETo/',
       cover: '/courses/git/ep06.webp',
+    },
+    {
+      number: '07',
+      title: 'Git rebase 不是移动提交：它会重写 commit 身份',
+      description: '把分支独有的 patch 在新基底逐个 replay，观察 parent 与 tree 如何让 commit hash 获得新的身份。',
+      duration: '03:55',
+      topic: 'Rebase / History rewrite',
+      bvid: 'BV1orKb6bEEZ',
+      url: 'https://www.bilibili.com/video/BV1orKb6bEEZ/',
+      cover: '/courses/git/ep07.webp',
+    },
+    {
+      number: '08',
+      title: 'Git 撤销怎么选？reset、revert、restore 一次讲清',
+      description: '把三个撤销命令放回 HEAD、Index、Working Tree 三层模型，按修改对象与共享状态选择更安全的操作。',
+      duration: '03:33',
+      topic: 'Reset / Revert / Restore',
+      bvid: null,
+      url: null,
+      cover: '/courses/git/ep08.webp',
     },
   ],
 }

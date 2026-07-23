@@ -315,10 +315,18 @@
   pointer-events: none;
 }
 
-.git-course-episode__poster:hover img,
-.git-course-episode__poster:focus-visible img {
+.git-course-episode__poster:not(.git-course-episode__poster--pending):hover img,
+.git-course-episode__poster:not(.git-course-episode__poster--pending):focus-visible img {
   transform: scale(1.025);
   filter: saturate(1.05);
+}
+
+.git-course-episode__poster--pending {
+  cursor: default;
+}
+
+.git-course-episode__poster--pending::after {
+  background: rgba(10, 14, 26, 0.34);
 }
 
 .git-course-episode__play {
@@ -362,6 +370,27 @@
   font-family: var(--dt-font-mono);
   font-size: 0.67rem;
   font-variant-numeric: tabular-nums;
+}
+
+.git-course-episode__status {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 999px;
+  color: #17211f;
+  background: rgba(255, 253, 242, 0.92);
+  font-family: var(--dt-font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transform: translate(-50%, -50%);
 }
 
 .git-course-episode__close {
@@ -455,6 +484,15 @@
 .git-course-episode__actions button:hover,
 .git-course-episode__actions a:hover {
   color: var(--dt-accent);
+}
+
+.git-course-episode__pending {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--dt-dim);
+  font-family: var(--dt-font-mono);
+  font-size: 0.73rem;
 }
 
 @media (max-width: 900px) {

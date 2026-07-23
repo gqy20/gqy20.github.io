@@ -29,7 +29,7 @@ export default function GitCourse() {
             <h1><span className="git-course-title-text">看得见的</span> <GitCourseTitleMark /></h1>
             <p className="git-course-hero__lede">{GIT_COURSE.description}</p>
             <ul className="git-course-facts" aria-label="课程信息">
-              <li>6 集</li>
+              <li>{GIT_COURSE.episodes.length} 集</li>
               <li>{GIT_COURSE.totalDuration}</li>
               <li>4K</li>
               <li>中文讲解</li>
@@ -54,12 +54,13 @@ export default function GitCourse() {
 
         <ol id="episodes" className="git-course-episodes">
           {GIT_COURSE.episodes.map((episode) => {
-            const isPlaying = playingEpisode === episode.number
+            const isPublished = Boolean(episode.bvid && episode.url)
+            const isPlaying = isPublished && playingEpisode === episode.number
 
             return (
               <motion.li
-                key={episode.bvid}
-                className={`git-course-episode ${isPlaying ? 'is-playing' : ''}`}
+                key={episode.number}
+                className={`git-course-episode ${isPlaying ? 'is-playing' : ''} ${isPublished ? '' : 'is-pending'}`}
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-64px' }}
@@ -86,7 +87,7 @@ export default function GitCourse() {
                         <FaTimes aria-hidden="true" /> 收起
                       </button>
                     </>
-                  ) : (
+                  ) : isPublished ? (
                     <button
                       type="button"
                       className="git-course-episode__poster"
@@ -105,6 +106,18 @@ export default function GitCourse() {
                       </span>
                       <span className="git-course-episode__duration">{episode.duration}</span>
                     </button>
+                  ) : (
+                    <div className="git-course-episode__poster git-course-episode__poster--pending">
+                      <img
+                        src={episode.cover}
+                        alt={`《看得见的 Git》第 ${episode.number} 集封面`}
+                        loading="lazy"
+                        width="1280"
+                        height="720"
+                      />
+                      <span className="git-course-episode__status">待发布</span>
+                      <span className="git-course-episode__duration">{episode.duration}</span>
+                    </div>
                   )}
                 </div>
 
@@ -116,12 +129,18 @@ export default function GitCourse() {
                   <h2>{episode.title}</h2>
                   <p>{episode.description}</p>
                   <div className="git-course-episode__actions">
-                    <button type="button" onClick={() => setPlayingEpisode(episode.number)}>
-                      <FaPlay aria-hidden="true" /> 在此播放
-                    </button>
-                    <a href={episode.url} target="_blank" rel="noopener noreferrer">
-                      前往 B 站 <FaExternalLinkAlt aria-hidden="true" />
-                    </a>
+                    {isPublished ? (
+                      <>
+                        <button type="button" onClick={() => setPlayingEpisode(episode.number)}>
+                          <FaPlay aria-hidden="true" /> 在此播放
+                        </button>
+                        <a href={episode.url} target="_blank" rel="noopener noreferrer">
+                          前往 B 站 <FaExternalLinkAlt aria-hidden="true" />
+                        </a>
+                      </>
+                    ) : (
+                      <span className="git-course-episode__pending">B 站链接待补充</span>
+                    )}
                   </div>
                 </div>
               </motion.li>

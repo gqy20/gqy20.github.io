@@ -2,14 +2,24 @@ import { describe, expect, it } from 'vitest'
 import { GIT_COURSE, getBilibiliPlayerUrl } from '../../src/data/gitCourse.js'
 
 describe('Git course data', () => {
-  it('contains six ordered, unique public episodes', () => {
-    expect(GIT_COURSE.episodes).toHaveLength(6)
-    expect(GIT_COURSE.episodes.map(episode => episode.number)).toEqual(['01', '02', '03', '04', '05', '06'])
-    expect(new Set(GIT_COURSE.episodes.map(episode => episode.bvid)).size).toBe(6)
+  it('contains eight ordered episodes with seven public releases', () => {
+    expect(GIT_COURSE.episodes).toHaveLength(8)
+    expect(GIT_COURSE.episodes.map(episode => episode.number)).toEqual(['01', '02', '03', '04', '05', '06', '07', '08'])
+
+    const publishedEpisodes = GIT_COURSE.episodes.filter(episode => episode.url)
+    const pendingEpisodes = GIT_COURSE.episodes.filter(episode => !episode.url)
+
+    expect(publishedEpisodes).toHaveLength(7)
+    expect(new Set(publishedEpisodes.map(episode => episode.bvid)).size).toBe(7)
+    expect(pendingEpisodes.map(episode => episode.number)).toEqual(['08'])
+    expect(pendingEpisodes[0].bvid).toBeNull()
 
     GIT_COURSE.episodes.forEach((episode) => {
-      expect(episode.url).toBe(`https://www.bilibili.com/video/${episode.bvid}/`)
       expect(episode.cover).toMatch(/^\/courses\/git\/ep\d{2}\.webp$/)
+    })
+
+    publishedEpisodes.forEach((episode) => {
+      expect(episode.url).toBe(`https://www.bilibili.com/video/${episode.bvid}/`)
     })
   })
 

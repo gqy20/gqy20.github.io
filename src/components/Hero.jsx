@@ -5,6 +5,7 @@ import { useProjectsData } from '../hooks/useProjectsData.js'
 import blogIndex from '../data/blog/index.json'
 import { SOCIAL_LINKS } from '../data/social.js'
 import { timelineStages } from '../data/timeline.js'
+import { GIT_COURSE } from '../data/gitCourse.js'
 import LanguageIcon from './LanguageIcon.jsx'
 import AgentWorkflow from './AgentWorkflow.jsx'
 import GitCourseGraph from './GitCourseGraph.jsx'
@@ -376,9 +377,9 @@ export default function Hero() {
               <GitCourseGraph compact />
             </div>
             <div className="home-course-feature__copy">
-              <span className="home-course-feature__label">6 集 · 21 分钟 · 4K</span>
+              <span className="home-course-feature__label">{GIT_COURSE.episodes.length} 集 · {GIT_COURSE.totalDuration} · 4K</span>
               <h3>看得见的 Git</h3>
-              <p>从对象、暂存区和 commit 开始，一路画到 branch、HEAD 与 merge。</p>
+              <p>从对象、暂存区和 commit 开始，一路画到 branch、HEAD、merge、rebase 与撤销。</p>
               <span className="home-course-feature__link">进入课程 →</span>
             </div>
           </a>

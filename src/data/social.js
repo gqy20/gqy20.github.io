@@ -8,7 +8,7 @@ export const SOCIAL_LINKS = [
   { name: 'GitHub',     url: 'https://github.com/gqy20',                  icon: FaGithub,      label: 'github.com/gqy20' },
   { name: 'Gitee',      url: 'https://gitee.com/gqy20',                   icon: SiGitee,       label: 'gitee.com/gqy20' },
   { name: 'Bilibili',   url: 'https://space.bilibili.com/500302320',      icon: SiBilibili,    label: 'space.bilibili.com/500302320' },
-  { name: 'ModelScope', url: 'https://modelscope.cn/user/gqy20',          icon: 'modelscope',  label: 'modelscope.cn/user/gqy20' },
+  { name: 'ModelScope', url: 'https://modelscope.cn/profile/gqy2025',     icon: 'modelscope',  label: 'modelscope.cn/profile/gqy2025' },
   { name: 'RSS',        url: '/rss.xml',                                  icon: FaRss,         label: 'RSS / Atom feed' },
   { name: 'Email',      url: 'mailto:qingyu_ge@foxmail.com',              icon: FaEnvelope,    label: 'qingyu_ge@foxmail.com' },
 ]
