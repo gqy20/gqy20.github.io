@@ -430,7 +430,7 @@
   letter-spacing: 0.01em;
 }
 
-.home-section__body a {
+.home-section__body :where(a) {
   color: var(--accent);
   text-decoration: underline;
   text-decoration-color: var(--accent-line);
@@ -438,7 +438,7 @@
   transition: color 0.2s ease;
 }
 
-.home-section__body a:hover {
+.home-section__body :where(a:hover) {
   color: var(--ink);
 }
 
