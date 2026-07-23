@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-23T08:05:59.501Z",
+  "lastUpdated": "2026-07-23T13:17:52.085Z",
   "totalRepositories": 49,
   "totalProjects": 45,
   "totalRepositoryStars": 97,
@@ -1142,7 +1142,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-07-22T16:20:36Z",
-        "updatedAt": "2026-07-23T01:49:22Z",
+        "updatedAt": "2026-07-23T10:05:10Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -1150,7 +1150,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 89,
+        "size": 49061,
         "license": "MIT License",
         "latestRelease": null,
         "latestTag": null,
@@ -2544,7 +2544,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-07-22T16:20:36Z",
-      "updatedAt": "2026-07-23T01:49:22Z",
+      "updatedAt": "2026-07-23T10:05:10Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -2552,7 +2552,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 89,
+      "size": 49061,
       "license": "MIT License",
       "latestRelease": null,
       "latestTag": null,
