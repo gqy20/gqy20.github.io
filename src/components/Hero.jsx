@@ -471,7 +471,7 @@ export default function Hero() {
           </footer>
         </SectionShell>
       </main>
-      <RunMode open={isRunModeOpen} onClose={closeRunMode} />
+      <RunMode open={isRunModeOpen} onClose={closeRunMode} projects={projectData?.allProjects} />
     </div>
   )
 }

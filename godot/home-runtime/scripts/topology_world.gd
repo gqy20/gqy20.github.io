@@ -16,6 +16,11 @@ var target_phase := -1.0
 var active_stage := 0
 var reduced_motion := false
 var navigation_hold := 0.0
+var selected_node := "context"
+var hovered_node := ""
+var path_running := false
+var path_target_phase := 0.88
+var is_visible := true
 var hit_areas: Dictionary = {}
 var message_callback
 
@@ -27,6 +32,23 @@ func _ready() -> void:
 	_send_parent({"type": "gqy:run:ready", "section": "about"})
 
 func _process(delta: float) -> void:
+	if not is_visible:
+		return
+
+	if path_running:
+		phase = move_toward(phase, path_target_phase, delta * 0.34)
+		var path_stage := clampi(int(floor(phase * 4.0)), 0, 3)
+		if path_stage != active_stage:
+			active_stage = path_stage
+			_send_active_stage()
+		if abs(phase - path_target_phase) < 0.002:
+			phase = path_target_phase
+			path_running = false
+			navigation_hold = 5.0
+			_send_parent({"type": "gqy:run:path-complete", "node": selected_node})
+		queue_redraw()
+		return
+
 	if reduced_motion:
 		queue_redraw()
 		return
@@ -92,17 +114,20 @@ func _draw_wide_world(size: Vector2) -> void:
 	]
 
 	_draw_flow_wide(context_rect, memory_rect, tools_rect, works)
-	_draw_context_module(context_rect, active_stage == 0)
-	_draw_memory_module(memory_rect, active_stage == 1)
-	_draw_tools_module(tools_rect, active_stage == 2)
-	_draw_work_module(works[0], "TrumanWorld", "01", active_stage == 3)
-	_draw_work_module(works[1], "IssueLab", "02", active_stage == 3)
-	_draw_work_module(works[2], "article-mcp", "03", active_stage == 3)
+	_draw_context_module(context_rect, active_stage == 0, selected_node == "context")
+	_draw_memory_module(memory_rect, active_stage == 1, selected_node == "memory")
+	_draw_tools_module(tools_rect, active_stage == 2, selected_node == "tools")
+	_draw_work_module(works[0], "TrumanWorld", "03", active_stage == 3, selected_node == "trumanworld")
+	_draw_work_module(works[1], "IssueLab", "04", active_stage == 3, selected_node == "issuelab")
+	_draw_work_module(works[2], "article-mcp", "05", active_stage == 3, selected_node == "article-mcp")
 
 	hit_areas = {
-		"about": context_rect,
-		"stack": memory_rect.merge(tools_rect),
-		"work": works[0].merge(works[2]),
+		"context": context_rect,
+		"memory": memory_rect,
+		"tools": tools_rect,
+		"trumanworld": works[0],
+		"issuelab": works[1],
+		"article-mcp": works[2],
 	}
 
 func _draw_compact_world(size: Vector2) -> void:
@@ -122,17 +147,20 @@ func _draw_compact_world(size: Vector2) -> void:
 	]
 
 	_draw_flow_compact(context_rect, memory_rect, tools_rect, works)
-	_draw_context_module(context_rect, active_stage == 0, true)
-	_draw_memory_module(memory_rect, active_stage == 1, true)
-	_draw_tools_module(tools_rect, active_stage == 2, true)
-	_draw_work_module(works[0], "Truman", "01", active_stage == 3, true)
-	_draw_work_module(works[1], "IssueLab", "02", active_stage == 3, true)
-	_draw_work_module(works[2], "article", "03", active_stage == 3, true)
+	_draw_context_module(context_rect, active_stage == 0, selected_node == "context", true)
+	_draw_memory_module(memory_rect, active_stage == 1, selected_node == "memory", true)
+	_draw_tools_module(tools_rect, active_stage == 2, selected_node == "tools", true)
+	_draw_work_module(works[0], "Truman", "03", active_stage == 3, selected_node == "trumanworld", true)
+	_draw_work_module(works[1], "IssueLab", "04", active_stage == 3, selected_node == "issuelab", true)
+	_draw_work_module(works[2], "article", "05", active_stage == 3, selected_node == "article-mcp", true)
 
 	hit_areas = {
-		"about": context_rect,
-		"stack": memory_rect.merge(tools_rect),
-		"work": works[0].merge(works[2]),
+		"context": context_rect,
+		"memory": memory_rect,
+		"tools": tools_rect,
+		"trumanworld": works[0],
+		"issuelab": works[1],
+		"article-mcp": works[2],
 	}
 
 func _draw_flow_wide(context_rect: Rect2, memory_rect: Rect2, tools_rect: Rect2, works: Array) -> void:
@@ -155,6 +183,7 @@ func _draw_flow_wide(context_rect: Rect2, memory_rect: Rect2, tools_rect: Rect2,
 	_draw_port(t_in)
 	_draw_port(t_out)
 
+	var selected_work := _selected_work_index()
 	var route := PackedVector2Array([
 		c_out,
 		m_in,
@@ -162,8 +191,8 @@ func _draw_flow_wide(context_rect: Rect2, memory_rect: Rect2, tools_rect: Rect2,
 		t_in,
 		t_out,
 		Vector2(branch_x, t_out.y),
-		Vector2(branch_x, works[1].get_center().y),
-		Vector2(works[1].position.x, works[1].get_center().y),
+		Vector2(branch_x, works[selected_work].get_center().y),
+		Vector2(works[selected_work].position.x, works[selected_work].get_center().y),
 	])
 	_draw_context_capsule(route)
 
@@ -187,7 +216,8 @@ func _draw_flow_compact(context_rect: Rect2, memory_rect: Rect2, tools_rect: Rec
 	_draw_port(t_in)
 	_draw_port(t_out)
 
-	var route := PackedVector2Array([c_out, m_in, m_out, t_in, t_out, Vector2(t_out.x, branch_y), Vector2(works[1].get_center().x, branch_y), Vector2(works[1].get_center().x, works[1].position.y)])
+	var selected_work := _selected_work_index()
+	var route := PackedVector2Array([c_out, m_in, m_out, t_in, t_out, Vector2(t_out.x, branch_y), Vector2(works[selected_work].get_center().x, branch_y), Vector2(works[selected_work].get_center().x, works[selected_work].position.y)])
 	_draw_context_capsule(route)
 
 func _draw_signal_segment(from: Vector2, to: Vector2) -> void:
@@ -220,8 +250,8 @@ func _point_on_route(route: PackedVector2Array, ratio: float) -> Vector2:
 		distance -= lengths[index]
 	return route[route.size() - 1]
 
-func _draw_context_module(rect: Rect2, active: bool, compact := false) -> void:
-	_draw_module_shell(rect, active, true)
+func _draw_context_module(rect: Rect2, active: bool, selected: bool, compact := false) -> void:
+	_draw_module_shell(rect, active, true, selected)
 	_draw_label(Vector2(rect.position.x, rect.position.y - 15.0), "CONTEXT", 14 if compact else 16, ACCENT)
 	var pad := 18.0 if compact else 22.0
 	var y := rect.position.y + pad
@@ -232,8 +262,8 @@ func _draw_context_module(rect: Rect2, active: bool, compact := false) -> void:
 	if not compact:
 		_draw_dot_matrix(Rect2(Vector2(rect.position.x + pad, rect.end.y - 66.0), Vector2(rect.size.x - pad * 2.0, 38.0)), ACCENT)
 
-func _draw_memory_module(rect: Rect2, active: bool, compact := false) -> void:
-	_draw_module_shell(rect, active)
+func _draw_memory_module(rect: Rect2, active: bool, selected: bool, compact := false) -> void:
+	_draw_module_shell(rect, active, false, selected)
 	_draw_module_header(rect, "MEMORY", "01", compact)
 	var center := rect.get_center()
 	var icon_width := minf(rect.size.x * 0.32, 58.0)
@@ -250,8 +280,8 @@ func _draw_memory_module(rect: Rect2, active: bool, compact := false) -> void:
 		draw_polyline(diamond, Color(MUTED, 0.75), 1.3, true)
 	_draw_status(rect, "SYNCED", compact)
 
-func _draw_tools_module(rect: Rect2, active: bool, compact := false) -> void:
-	_draw_module_shell(rect, active)
+func _draw_tools_module(rect: Rect2, active: bool, selected: bool, compact := false) -> void:
+	_draw_module_shell(rect, active, false, selected)
 	_draw_module_header(rect, "TOOLS", "02", compact)
 	var center := rect.get_center()
 	var spread := minf(48.0, rect.size.x * 0.24)
@@ -263,8 +293,8 @@ func _draw_tools_module(rect: Rect2, active: bool, compact := false) -> void:
 		draw_arc(point, 6.0, 0, TAU, 16, Color(MUTED, 0.9), 1.5, true)
 	_draw_status(rect, "READY", compact)
 
-func _draw_work_module(rect: Rect2, title: String, index: String, active: bool, compact := false) -> void:
-	_draw_module_shell(rect, active)
+func _draw_work_module(rect: Rect2, title: String, index: String, active: bool, selected: bool, compact := false) -> void:
+	_draw_module_shell(rect, active, false, selected)
 	var font_size := 10 if compact else 11
 	_draw_label(rect.position + Vector2(14.0, 24.0), title, font_size, INK)
 	_draw_label(Vector2(rect.end.x - (23.0 if compact else 28.0), rect.position.y + 24.0), index, font_size - 1, MUTED)
@@ -276,14 +306,14 @@ func _draw_work_module(rect: Rect2, title: String, index: String, active: bool, 
 	if not compact:
 		_draw_label(Vector2(rect.position.x + 14.0, rect.end.y - 13.0), "RUNNING", 10, FLOW)
 
-func _draw_module_shell(rect: Rect2, active: bool, context := false) -> void:
-	var outline := ACCENT if context or active else LINE
-	var fill := Color(ACCENT, 0.035) if active else Color(SURFACE, 0.84)
+func _draw_module_shell(rect: Rect2, active: bool, context := false, selected := false) -> void:
+	var outline := ACCENT if selected else FLOW if active else Color(ACCENT, 0.66) if context else LINE
+	var fill := Color(ACCENT, 0.065) if selected else Color(FLOW, 0.025) if active else Color(SURFACE, 0.84)
 	var points := _chamfer_points(rect, minf(10.0, rect.size.x * 0.07))
 	draw_colored_polygon(points, fill)
 	var closed := PackedVector2Array(points)
 	closed.append(points[0])
-	draw_polyline(closed, outline, 2.0 if active else 1.2, true)
+	draw_polyline(closed, outline, 2.4 if selected else 1.8 if active else 1.2, true)
 
 func _draw_module_header(rect: Rect2, title: String, index: String, compact: bool) -> void:
 	var font_size := 12 if compact else 14
@@ -338,32 +368,89 @@ func _gui_input_position(event) -> Vector2:
 		return event.position
 	return Vector2(-1, -1)
 
+func _node_at_position(position: Vector2) -> String:
+	for node in hit_areas:
+		if hit_areas[node].has_point(position):
+			return node
+	return ""
+
 func _unhandled_input(event) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		_send_parent({"type": "gqy:run:exit"})
 		get_viewport().set_input_as_handled()
 		return
 
+	if event is InputEventMouseMotion:
+		var next_hover := _node_at_position(event.position)
+		if next_hover != hovered_node:
+			hovered_node = next_hover
+			Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND if hovered_node != "" else Input.CURSOR_ARROW)
+			queue_redraw()
+
 	var pressed: bool = (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT) or (event is InputEventScreenTouch and event.pressed)
 	if not pressed:
 		return
 	var position := _gui_input_position(event)
-	for section in hit_areas:
-		if hit_areas[section].has_point(position):
-			_navigate_to(section)
-			get_viewport().set_input_as_handled()
-			return
+	var node := _node_at_position(position)
+	if node != "":
+		_select_node(node)
+		get_viewport().set_input_as_handled()
+
+func _selected_work_index() -> int:
+	if selected_node == "trumanworld":
+		return 0
+	if selected_node == "article-mcp":
+		return 2
+	return 1
+
+func _node_target(node: String) -> float:
+	match node:
+		"context": return 0.04
+		"memory": return 0.34
+		"tools": return 0.62
+		"trumanworld", "issuelab", "article-mcp": return 0.98
+		_: return 0.04
+
+func _node_section(node: String) -> String:
+	if node == "memory" or node == "tools":
+		return "stack"
+	if node == "trumanworld" or node == "issuelab" or node == "article-mcp":
+		return "work"
+	return "about"
+
+func _select_node(node: String) -> void:
+	selected_node = node
+	path_running = false
+	target_phase = _node_target(node)
+	active_stage = clampi(int(floor(target_phase * 4.0)), 0, 3)
+	navigation_hold = 4.0
+	_send_parent({"type": "gqy:run:select", "node": node})
+	_send_parent({"type": "gqy:run:active", "section": _node_section(node)})
+	queue_redraw()
+
+func _run_path(node: String) -> void:
+	selected_node = node
+	phase = 0.02
+	target_phase = -1.0
+	path_target_phase = _node_target(node)
+	active_stage = 0
+	navigation_hold = 0.0
+	_send_parent({"type": "gqy:run:active", "section": "about"})
+	if reduced_motion:
+		phase = path_target_phase
+		active_stage = clampi(int(floor(phase * 4.0)), 0, 3)
+		_send_active_stage()
+		_send_parent({"type": "gqy:run:path-complete", "node": selected_node})
+	else:
+		path_running = true
+	queue_redraw()
 
 func _navigate_to(section: String) -> void:
 	match section:
-		"about": target_phase = 0.04
-		"stack": target_phase = 0.45
-		"work": target_phase = 0.88
+		"about": _select_node("context")
+		"stack": _select_node("memory")
+		"work": _select_node("issuelab")
 		_: return
-	active_stage = clampi(int(floor(target_phase * 4.0)), 0, 3)
-	navigation_hold = 4.0
-	_send_parent({"type": "gqy:run:active", "section": section})
-	queue_redraw()
 
 func _send_active_stage() -> void:
 	var section := "about"
@@ -390,10 +477,19 @@ func _on_web_message(arguments: Array) -> void:
 	match payload.get("type", ""):
 		"gqy:run:navigate":
 			_navigate_to(str(payload.get("section", "about")))
+		"gqy:run:select":
+			_select_node(str(payload.get("node", "context")))
+		"gqy:run:path":
+			_run_path(str(payload.get("node", "issuelab")))
+		"gqy:run:visibility":
+			is_visible = bool(payload.get("visible", true))
+			set_process(is_visible)
+			if is_visible:
+				queue_redraw()
 		"gqy:run:preferences":
 			reduced_motion = bool(payload.get("reducedMotion", false))
 			if reduced_motion:
-				phase = 0.45
+				phase = _node_target(selected_node)
 			queue_redraw()
 
 func _send_parent(payload: Dictionary) -> void:
