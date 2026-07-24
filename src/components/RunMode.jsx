@@ -113,6 +113,33 @@ const INITIAL_LOGS = [
   { id: 0, stamp: '00:00', stage: 'BOOT', message: 'personal runtime waiting for input', tone: 'muted' },
 ]
 
+const JOURNEY_STAGES = {
+  context: {
+    index: '01',
+    eyebrow: 'SYSTEM INPUT',
+    title: '任务成为可追踪的上下文',
+    description: '目标、资料与约束被压缩成一个可传递的 Context Packet。',
+  },
+  memory: {
+    index: '02',
+    eyebrow: 'MEMORY LAYER',
+    title: '工程记忆开始响应',
+    description: '项目、文章与阶段判断被重新召回，为下一步行动补全背景。',
+  },
+  tools: {
+    index: '03',
+    eyebrow: 'TOOL INTERFACE',
+    title: '外部能力接入 Agent',
+    description: 'MCP、代码与状态编排被唤醒，把理解转化为可以执行的步骤。',
+  },
+  output: {
+    index: '04',
+    eyebrow: 'VERIFIED OUTPUT',
+    title: '上下文抵达真实项目',
+    description: 'IssueLab 把多智能体协作沉淀进 GitHub Issues，留下公开、可验证的过程。',
+  },
+}
+
 function parseRuntimeMessage(data) {
   if (typeof data !== 'string') return data
   try {
@@ -265,6 +292,32 @@ function ExecutionLog({ logs, activeSection, runtimeState }) {
   )
 }
 
+function JourneyOverlay({ stage, onSkip }) {
+  const content = JOURNEY_STAGES[stage] || JOURNEY_STAGES.context
+  const stageIndex = Object.keys(JOURNEY_STAGES).indexOf(stage)
+
+  return (
+    <div className="run-mode__journey" aria-live="polite">
+      <div key={stage} className="run-mode__journey-copy">
+        <span className="run-mode__journey-index">{content.index} / 04</span>
+        <p>{content.eyebrow}</p>
+        <h3>{content.title}</h3>
+        <span>{content.description}</span>
+      </div>
+
+      <div className="run-mode__journey-progress" aria-label={`引导进度：第 ${stageIndex + 1} 阶段，共 4 阶段`}>
+        {Object.keys(JOURNEY_STAGES).map((stageName, index) => (
+          <i key={stageName} className={index <= stageIndex ? 'is-active' : ''} />
+        ))}
+      </div>
+
+      <button type="button" className="run-mode__journey-skip" onClick={onSkip}>
+        跳过引导 <span aria-hidden="true">→</span>
+      </button>
+    </div>
+  )
+}
+
 export default function RunMode({ open, onClose, projects = [] }) {
   const iframeRef = useRef(null)
   const exitButtonRef = useRef(null)
@@ -280,6 +333,8 @@ export default function RunMode({ open, onClose, projects = [] }) {
   const [runtimeAttempt, setRuntimeAttempt] = useState(0)
   const [runtimeState, setRuntimeState] = useState('loading')
   const [runtimeError, setRuntimeError] = useState(null)
+  const [experienceMode, setExperienceMode] = useState('loading')
+  const [journeyStage, setJourneyStage] = useState('context')
   const [activeSection, setActiveSection] = useState('about')
   const [selectedNode, setSelectedNode] = useState('context')
   const [pathState, setPathState] = useState('idle')
@@ -330,6 +385,7 @@ export default function RunMode({ open, onClose, projects = [] }) {
     setCanMountRuntime(true)
     setRuntimeState('loading')
     runtimeStateRef.current = 'loading'
+    setExperienceMode('loading')
     setRuntimeError(null)
     slowTimeoutRef.current = window.setTimeout(() => {
       setRuntimeState(state => state === 'loading' ? 'slow' : state)
@@ -369,11 +425,29 @@ export default function RunMode({ open, onClose, projects = [] }) {
         clearRuntimeTimeouts()
         setRuntimeState('ready')
         setRuntimeError(null)
+        setExperienceMode('guided')
+        setJourneyStage('context')
         appendLog('RUNTIME', 'Godot 4.7 topology connected', 'success')
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
         postToRuntime({ type: 'gqy:run:preferences', reducedMotion })
-        postToRuntime({ type: 'gqy:run:select', node: selectedNode })
         postToRuntime({ type: 'gqy:run:visibility', visible: openRef.current })
+        postToRuntime({ type: 'gqy:run:journey', node: 'issuelab' })
+      }
+
+      if (payload.type === 'gqy:run:journey-stage' && JOURNEY_STAGES[payload.stage]) {
+        setJourneyStage(payload.stage)
+        const section = payload.stage === 'context' ? 'about' : payload.stage === 'output' ? 'work' : 'stack'
+        setActiveSection(section)
+        const stageCopy = JOURNEY_STAGES[payload.stage]
+        appendLog(stageCopy.eyebrow, stageCopy.title)
+      }
+
+      if (payload.type === 'gqy:run:journey-complete') {
+        const node = nodes[payload.node] ? payload.node : 'issuelab'
+        setSelectedNode(node)
+        setActiveSection('work')
+        setExperienceMode('explore')
+        appendLog('RESOLVED', `${nodes[node]?.title || 'IssueLab'} evidence ready`, 'success')
       }
 
       if (payload.type === 'gqy:run:active' && payload.section && pathStateRef.current === 'running') {
@@ -405,7 +479,7 @@ export default function RunMode({ open, onClose, projects = [] }) {
 
     window.addEventListener('message', handleMessage)
     return () => window.removeEventListener('message', handleMessage)
-  }, [appendLog, clearRuntimeTimeouts, hasOpened, nodes, onClose, postToRuntime, selectedNode])
+  }, [appendLog, clearRuntimeTimeouts, hasOpened, nodes, onClose, postToRuntime])
 
   useEffect(() => {
     if (!open) return undefined
@@ -460,6 +534,15 @@ export default function RunMode({ open, onClose, projects = [] }) {
     appendLog('RETRY', 'reloading Godot Web runtime')
   }
 
+  const handleSkipJourney = () => {
+    setJourneyStage('output')
+    setSelectedNode('issuelab')
+    setActiveSection('work')
+    setExperienceMode('explore')
+    postToRuntime({ type: 'gqy:run:journey-skip', node: 'issuelab' })
+    appendLog('SKIP', 'guided journey skipped; exploration unlocked')
+  }
+
   const loaderCopy = runtimeState === 'error'
     ? getErrorCopy(runtimeError)
     : runtimeState === 'slow'
@@ -468,7 +551,7 @@ export default function RunMode({ open, onClose, projects = [] }) {
 
   return (
     <div
-      className={`run-mode ${open ? 'is-open' : 'is-closed'}`}
+      className={`run-mode is-${experienceMode} ${open ? 'is-open' : 'is-closed'}`}
       role={open ? 'dialog' : undefined}
       aria-modal={open ? 'true' : undefined}
       aria-labelledby={open ? 'run-mode-title' : undefined}
@@ -555,6 +638,10 @@ export default function RunMode({ open, onClose, projects = [] }) {
             <span>LIVE TOPOLOGY</span>
             <span>CLICK A NODE TO INSPECT</span>
           </div>
+
+          {runtimeState === 'ready' && experienceMode === 'guided' && (
+            <JourneyOverlay stage={journeyStage} onSkip={handleSkipJourney} />
+          )}
         </section>
 
         <RuntimeInspector

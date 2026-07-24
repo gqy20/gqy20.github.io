@@ -21,6 +21,11 @@ var hovered_node := ""
 var path_running := false
 var path_target_phase := 0.88
 var is_visible := true
+var journey_running := false
+var journey_progress := 0.0
+var journey_stage := -1
+var journey_target := "issuelab"
+var journey_duration := 9.2
 var hit_areas: Dictionary = {}
 var message_callback
 
@@ -33,6 +38,19 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if not is_visible:
+		return
+
+	if journey_running:
+		journey_progress = minf(1.0, journey_progress + delta / journey_duration)
+		phase = journey_progress
+		var next_journey_stage := clampi(int(floor(journey_progress * 4.0)), 0, 3)
+		if next_journey_stage != journey_stage:
+			journey_stage = next_journey_stage
+			_send_journey_stage()
+		active_stage = next_journey_stage
+		if journey_progress >= 1.0:
+			_finish_journey(false)
+		queue_redraw()
 		return
 
 	if path_running:
@@ -78,6 +96,9 @@ func _draw() -> void:
 		return
 
 	draw_rect(Rect2(Vector2.ZERO, size), BG)
+	if journey_running:
+		_draw_journey_world(size)
+		return
 	_draw_grid(size)
 	hit_areas.clear()
 
@@ -96,6 +117,70 @@ func _draw_grid(size: Vector2) -> void:
 	while y <= size.y:
 		draw_line(Vector2(0, y), Vector2(size.x, y), LINE_FAINT, 1.0)
 		y += spacing
+
+func _draw_journey_grid(size: Vector2, camera_x: float) -> void:
+	var spacing := 72.0
+	var offset_x := fmod(-camera_x * 0.09, spacing)
+	var x := offset_x - spacing
+	while x <= size.x + spacing:
+		draw_line(Vector2(x, 0), Vector2(x, size.y), Color(LINE_FAINT, 0.055), 1.0)
+		x += spacing
+	var horizon := size.y * 0.52
+	for index in range(1, 8):
+		var distance := float(index * index) * 15.0
+		draw_line(Vector2(0, horizon - distance), Vector2(size.x, horizon - distance), Color(LINE_FAINT, 0.04), 1.0)
+		draw_line(Vector2(0, horizon + distance), Vector2(size.x, horizon + distance), Color(LINE_FAINT, 0.04), 1.0)
+
+func _draw_journey_world(size: Vector2) -> void:
+	var spacing := maxf(860.0, size.x * 0.74)
+	var eased_progress := journey_progress * journey_progress * (3.0 - 2.0 * journey_progress)
+	var camera_x := eased_progress * spacing * 3.0
+	_draw_journey_grid(size, camera_x)
+
+	var module_width := clampf(size.x * 0.36, 380.0, 540.0)
+	var module_height := clampf(size.y * 0.36, 220.0, 330.0)
+	var module_size := Vector2(module_width, module_height)
+	var context_rect := Rect2(Vector2(-module_width * 0.5, -module_height * 0.5), module_size)
+	var memory_rect := Rect2(Vector2(spacing - module_width * 0.5, -module_height * 0.5), module_size)
+	var tools_rect := Rect2(Vector2(spacing * 2.0 - module_width * 0.5, -module_height * 0.5), module_size)
+	var work_size := Vector2(module_width * 0.72, module_height * 0.62)
+	var output_x := spacing * 3.0
+	var works := [
+		Rect2(Vector2(output_x - work_size.x * 0.5, -work_size.y * 1.75), work_size),
+		Rect2(Vector2(output_x - work_size.x * 0.5, -work_size.y * 0.5), work_size),
+		Rect2(Vector2(output_x - work_size.x * 0.5, work_size.y * 0.75), work_size),
+	]
+
+	draw_set_transform(Vector2(size.x * 0.5 - camera_x, size.y * 0.52), 0.0, Vector2.ONE)
+
+	var route := PackedVector2Array([
+		context_rect.get_center(),
+		Vector2(context_rect.end.x, 0.0),
+		Vector2(memory_rect.position.x, 0.0),
+		memory_rect.get_center(),
+		Vector2(memory_rect.end.x, 0.0),
+		Vector2(tools_rect.position.x, 0.0),
+		tools_rect.get_center(),
+		Vector2(tools_rect.end.x, 0.0),
+		Vector2(works[1].position.x, 0.0),
+		works[1].get_center(),
+	])
+	draw_polyline(route, Color(FLOW, 0.38), 2.0, true)
+	for rect in [context_rect, memory_rect, tools_rect, works[1]]:
+		_draw_port(rect.get_center(), FLOW)
+
+	_draw_context_module(context_rect, active_stage == 0, journey_stage == 0)
+	_draw_memory_module(memory_rect, active_stage == 1, journey_stage == 1)
+	_draw_tools_module(tools_rect, active_stage == 2, journey_stage == 2)
+	_draw_label(Vector2(output_x - work_size.x * 0.5, works[0].position.y - 34.0), "VERIFIED OUTPUTS", 15, MUTED)
+	_draw_work_module(works[0], "TrumanWorld", "03", false, false)
+	_draw_work_module(works[1], "IssueLab", "04", active_stage == 3, journey_stage == 3)
+	_draw_work_module(works[2], "article-mcp", "05", false, false)
+	_draw_context_capsule(route)
+
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	draw_rect(Rect2(Vector2(0, 0), Vector2(size.x, size.y * 0.16)), Color(BG_DEEP, 0.62))
+	draw_rect(Rect2(Vector2(0, size.y * 0.84), Vector2(size.x, size.y * 0.16)), Color(BG_DEEP, 0.72))
 
 func _draw_wide_world(size: Vector2) -> void:
 	var top := maxf(74.0, size.y * 0.13)
@@ -379,6 +464,8 @@ func _unhandled_input(event) -> void:
 		_send_parent({"type": "gqy:run:exit"})
 		get_viewport().set_input_as_handled()
 		return
+	if journey_running:
+		return
 
 	if event is InputEventMouseMotion:
 		var next_hover := _node_at_position(event.position)
@@ -429,6 +516,7 @@ func _select_node(node: String) -> void:
 	queue_redraw()
 
 func _run_path(node: String) -> void:
+	journey_running = false
 	selected_node = node
 	phase = 0.02
 	target_phase = -1.0
@@ -444,6 +532,42 @@ func _run_path(node: String) -> void:
 	else:
 		path_running = true
 	queue_redraw()
+
+func _start_journey(node: String) -> void:
+	journey_target = node if node == "trumanworld" or node == "issuelab" or node == "article-mcp" else "issuelab"
+	selected_node = journey_target
+	journey_progress = 0.0
+	journey_stage = 0
+	phase = 0.0
+	active_stage = 0
+	path_running = false
+	target_phase = -1.0
+	navigation_hold = 0.0
+	journey_running = true
+	_send_journey_stage()
+	if reduced_motion:
+		journey_progress = 1.0
+		_finish_journey(false)
+	queue_redraw()
+
+func _finish_journey(skipped: bool) -> void:
+	journey_running = false
+	selected_node = journey_target
+	phase = _node_target(journey_target)
+	target_phase = -1.0
+	active_stage = 3
+	navigation_hold = 5.0
+	_send_parent({"type": "gqy:run:journey-complete", "node": journey_target, "skipped": skipped})
+	queue_redraw()
+
+func _send_journey_stage() -> void:
+	var stage_names := ["context", "memory", "tools", "output"]
+	var safe_stage := clampi(journey_stage, 0, stage_names.size() - 1)
+	_send_parent({
+		"type": "gqy:run:journey-stage",
+		"stage": stage_names[safe_stage],
+		"index": safe_stage,
+	})
 
 func _navigate_to(section: String) -> void:
 	match section:
@@ -481,6 +605,11 @@ func _on_web_message(arguments: Array) -> void:
 			_select_node(str(payload.get("node", "context")))
 		"gqy:run:path":
 			_run_path(str(payload.get("node", "issuelab")))
+		"gqy:run:journey":
+			_start_journey(str(payload.get("node", "issuelab")))
+		"gqy:run:journey-skip":
+			journey_target = str(payload.get("node", journey_target))
+			_finish_journey(true)
 		"gqy:run:visibility":
 			is_visible = bool(payload.get("visible", true))
 			set_process(is_visible)

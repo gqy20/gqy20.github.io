@@ -48,6 +48,30 @@ describe('RunMode', () => {
     expect(document.head.querySelectorAll('[href="/runtime/home/index.wasm"]')).toHaveLength(1)
   })
 
+  it('moves from the guided journey into project exploration', () => {
+    render(<RunMode open onClose={() => {}} />)
+    const frame = screen.getByTitle('葛庆宇的 Agent 运行拓扑')
+
+    fireEvent(window, new window.MessageEvent('message', {
+      data: JSON.stringify({ type: 'gqy:run:ready' }),
+      source: frame.contentWindow,
+    }))
+    expect(screen.getByText('任务成为可追踪的上下文')).toBeDefined()
+
+    fireEvent(window, new window.MessageEvent('message', {
+      data: JSON.stringify({ type: 'gqy:run:journey-stage', stage: 'output' }),
+      source: frame.contentWindow,
+    }))
+    expect(screen.getByRole('heading', { name: '上下文抵达真实项目' })).toBeDefined()
+
+    fireEvent(window, new window.MessageEvent('message', {
+      data: JSON.stringify({ type: 'gqy:run:journey-complete', node: 'issuelab' }),
+      source: frame.contentWindow,
+    }))
+    expect(screen.queryByRole('heading', { name: '上下文抵达真实项目' })).toBeNull()
+    expect(screen.getByRole('heading', { name: 'IssueLab' })).toBeDefined()
+  })
+
   it('does not download the iframe when the browser is unsupported', () => {
     const secureContextDescriptor = Object.getOwnPropertyDescriptor(window, 'isSecureContext')
     Object.defineProperty(window, 'isSecureContext', { configurable: true, value: false })
