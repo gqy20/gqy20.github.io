@@ -26,6 +26,11 @@ var journey_progress := 0.0
 var journey_stage := -1
 var journey_target := "issuelab"
 var journey_duration := 9.2
+var project_run_running := false
+var project_view_active := false
+var project_run_progress := 0.0
+var project_run_stage := -1
+var project_run_duration := 6.0
 var hit_areas: Dictionary = {}
 var message_callback
 
@@ -50,6 +55,18 @@ func _process(delta: float) -> void:
 		active_stage = next_journey_stage
 		if journey_progress >= 1.0:
 			_finish_journey(false)
+		queue_redraw()
+		return
+
+	if project_run_running:
+		project_run_progress = minf(1.0, project_run_progress + delta / project_run_duration)
+		phase = project_run_progress
+		var next_project_stage := clampi(int(floor(project_run_progress * 4.0)), 0, 3)
+		if next_project_stage != project_run_stage:
+			project_run_stage = next_project_stage
+			_send_project_stage()
+		if project_run_progress >= 1.0:
+			_finish_project_run()
 		queue_redraw()
 		return
 
@@ -98,6 +115,9 @@ func _draw() -> void:
 	draw_rect(Rect2(Vector2.ZERO, size), BG)
 	if journey_running:
 		_draw_journey_world(size)
+		return
+	if project_run_running or project_view_active:
+		_draw_project_run_world(size)
 		return
 	_draw_grid(size)
 	hit_areas.clear()
@@ -181,6 +201,170 @@ func _draw_journey_world(size: Vector2) -> void:
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	draw_rect(Rect2(Vector2(0, 0), Vector2(size.x, size.y * 0.16)), Color(BG_DEEP, 0.62))
 	draw_rect(Rect2(Vector2(0, size.y * 0.84), Vector2(size.x, size.y * 0.16)), Color(BG_DEEP, 0.72))
+
+func _project_stage_progress(stage_index: int) -> float:
+	return clampf(project_run_progress * 4.0 - float(stage_index), 0.0, 1.0)
+
+func _draw_project_run_world(size: Vector2) -> void:
+	hit_areas.clear()
+	_draw_journey_grid(size, project_run_progress * size.x * 0.24)
+	_draw_label(Vector2(34.0, 54.0), "PROJECT RUNTIME / %s" % selected_node.to_upper(), 13, ACCENT)
+	_draw_label(Vector2(34.0, 76.0), "LIVE EVIDENCE TRACE", 10, Color(MUTED, 0.66))
+	match selected_node:
+		"trumanworld": _draw_truman_run(size)
+		"article-mcp": _draw_article_run(size)
+		_: _draw_issuelab_run(size)
+
+	var progress_width := size.x - 68.0
+	draw_rect(Rect2(Vector2(34.0, size.y - 34.0), Vector2(progress_width, 2.0)), LINE)
+	draw_rect(Rect2(Vector2(34.0, size.y - 34.0), Vector2(progress_width * project_run_progress, 2.0)), ACCENT)
+	for index in range(4):
+		var marker_x := 34.0 + progress_width * float(index) / 3.0
+		draw_rect(Rect2(Vector2(marker_x - 2.0, size.y - 38.0), Vector2(4.0, 10.0)), ACCENT if project_run_stage >= index else LINE, true)
+
+func _draw_truman_run(size: Vector2) -> void:
+	var center := Vector2(size.x * 0.53, size.y * 0.51)
+	var event_rect := Rect2(Vector2(size.x * 0.07, center.y - 64.0), Vector2(size.x * 0.2, 128.0))
+	var ledger_rect := Rect2(Vector2(size.x * 0.79, center.y - 106.0), Vector2(size.x * 0.16, 212.0))
+	var agents := [
+		center + Vector2(-92.0, -116.0),
+		center + Vector2(104.0, -88.0),
+		center + Vector2(126.0, 92.0),
+		center + Vector2(-104.0, 112.0),
+	]
+
+	_draw_module_shell(event_rect, project_run_stage == 0, true, project_run_stage == 0)
+	_draw_label(event_rect.position + Vector2(18.0, 30.0), "WORLD EVENT", 12, ACCENT)
+	_draw_label(event_rect.position + Vector2(18.0, 58.0), "A NEW SIGNAL", 17, INK)
+	_draw_label(event_rect.position + Vector2(18.0, 84.0), "enters the timeline", 11, MUTED)
+
+	var signal_progress := _project_stage_progress(0)
+	var signal_end := center.lerp(event_rect.get_center(), 1.0 - signal_progress)
+	draw_line(event_rect.get_center(), signal_end, Color(FLOW, 0.82), 2.0, true)
+	draw_circle(signal_end, 6.0, ACCENT)
+
+	var agent_alpha := _project_stage_progress(1)
+	for index in range(agents.size()):
+		var point: Vector2 = agents[index]
+		draw_line(center, point, Color(FLOW, 0.18 + agent_alpha * 0.42), 1.4, true)
+		draw_circle(point, 19.0, Color(SURFACE_RAISED, 0.92))
+		draw_arc(point, 19.0, 0.0, TAU, 28, Color(FLOW, 0.22 + agent_alpha * 0.68), 1.8, true)
+		_draw_label(point + Vector2(-7.0, 5.0), "A%02d" % (index + 1), 9, MUTED)
+
+	draw_circle(center, 36.0, Color(ACCENT, 0.08))
+	draw_arc(center, 36.0, 0.0, TAU, 36, ACCENT, 2.0, true)
+	_draw_label(center + Vector2(-21.0, 5.0), "STATE", 10, INK)
+
+	var governance_progress := _project_stage_progress(2)
+	for ring in range(3):
+		var radius := 54.0 + float(ring) * 38.0 + governance_progress * 14.0
+		draw_arc(center, radius, 0.0, TAU, 56, Color(FLOW, (0.22 - float(ring) * 0.045) * governance_progress), 1.0, true)
+	for index in range(agents.size()):
+		var next_index := (index + 1) % agents.size()
+		draw_line(agents[index], agents[next_index], Color(ACCENT, 0.42 * governance_progress), 1.2, true)
+
+	var evidence_progress := _project_stage_progress(3)
+	_draw_module_shell(ledger_rect, project_run_stage == 3, false, evidence_progress > 0.92)
+	_draw_label(ledger_rect.position + Vector2(16.0, 28.0), "WORLD LEDGER", 11, FLOW)
+	for row in range(5):
+		var row_y := ledger_rect.position.y + 54.0 + float(row) * 28.0
+		draw_rect(Rect2(Vector2(ledger_rect.position.x + 16.0, row_y), Vector2(6.0, 6.0)), ACCENT if row < 3 else FLOW)
+		draw_line(Vector2(ledger_rect.position.x + 32.0, row_y + 3.0), Vector2(ledger_rect.end.x - 18.0, row_y + 3.0), Color(MUTED, 0.22 + evidence_progress * 0.46), 1.0)
+	_draw_label(Vector2(ledger_rect.position.x + 16.0, ledger_rect.end.y - 18.0), "STATE COMMITTED", 10, Color(FLOW, evidence_progress))
+
+func _draw_issuelab_run(size: Vector2) -> void:
+	var center_y := size.y * 0.5
+	var issue_rect := Rect2(Vector2(size.x * 0.06, center_y - 86.0), Vector2(size.x * 0.21, 172.0))
+	var result_rect := Rect2(Vector2(size.x * 0.77, center_y - 86.0), Vector2(size.x * 0.18, 172.0))
+	var agent_x := size.x * 0.49
+	var agents := [
+		Vector2(agent_x, center_y - 112.0),
+		Vector2(agent_x + 82.0, center_y),
+		Vector2(agent_x, center_y + 112.0),
+	]
+
+	_draw_module_shell(issue_rect, project_run_stage == 0, true, project_run_stage == 0)
+	_draw_label(issue_rect.position + Vector2(18.0, 30.0), "GITHUB ISSUE / 071", 11, ACCENT)
+	for row in range(4):
+		var width := issue_rect.size.x * (0.72 if row == 0 else 0.54 + float(row % 2) * 0.12)
+		draw_line(issue_rect.position + Vector2(18.0, 62.0 + row * 20.0), issue_rect.position + Vector2(18.0 + width, 62.0 + row * 20.0), Color(MUTED, 0.62), 1.3)
+	_draw_label(issue_rect.position + Vector2(18.0, issue_rect.size.y - 20.0), "RESEARCH QUESTION", 10, FLOW)
+
+	var dispatch_progress := _project_stage_progress(0)
+	var dispatch_end: Vector2 = agents[1].lerp(issue_rect.get_center(), 1.0 - dispatch_progress)
+	draw_line(issue_rect.get_center(), dispatch_end, Color(FLOW, 0.72), 2.0, true)
+	draw_circle(dispatch_end, 6.0, ACCENT)
+
+	var agent_progress := _project_stage_progress(1)
+	var agent_labels := ["RESEARCH", "REVIEW", "SYNTHESIS"]
+	for index in range(agents.size()):
+		var point: Vector2 = agents[index]
+		draw_circle(point, 27.0, Color(SURFACE_RAISED, 0.94))
+		draw_arc(point, 27.0, 0.0, TAU, 32, Color(FLOW, 0.3 + agent_progress * 0.65), 1.8, true)
+		_draw_label(point + Vector2(-26.0, 49.0), agent_labels[index], 9, MUTED)
+
+	var debate_progress := _project_stage_progress(2)
+	for index in range(agents.size()):
+		var next_index := (index + 1) % agents.size()
+		draw_line(agents[index], agents[next_index], Color(ACCENT, 0.22 + debate_progress * 0.58), 2.0, true)
+		var pulse: Vector2 = agents[index].lerp(agents[next_index], fmod(project_run_progress * 5.0 + float(index) * 0.28, 1.0))
+		draw_circle(pulse, 4.0, FLOW)
+
+	var result_progress := _project_stage_progress(3)
+	_draw_module_shell(result_rect, project_run_stage == 3, false, result_progress > 0.92)
+	_draw_label(result_rect.position + Vector2(16.0, 30.0), "VERIFIED THREAD", 11, FLOW)
+	for row in range(3):
+		var row_y := result_rect.position.y + 62.0 + float(row) * 26.0
+		draw_rect(Rect2(Vector2(result_rect.position.x + 16.0, row_y - 4.0), Vector2(7.0, 7.0)), ACCENT)
+		draw_line(Vector2(result_rect.position.x + 34.0, row_y), Vector2(result_rect.end.x - 18.0, row_y), Color(MUTED, 0.3 + result_progress * 0.45), 1.2)
+	_draw_label(result_rect.position + Vector2(16.0, result_rect.size.y - 18.0), "PUBLIC EVIDENCE", 10, Color(FLOW, result_progress))
+	draw_line(agents[1], result_rect.get_center(), Color(FLOW, 0.24 + result_progress * 0.66), 2.0, true)
+
+func _draw_article_run(size: Vector2) -> void:
+	var center_y := size.y * 0.5
+	var query_rect := Rect2(Vector2(size.x * 0.05, center_y - 58.0), Vector2(size.x * 0.18, 116.0))
+	var filter_center := Vector2(size.x * 0.61, center_y)
+	var response_rect := Rect2(Vector2(size.x * 0.78, center_y - 102.0), Vector2(size.x * 0.17, 204.0))
+	var source_x := size.x * 0.36
+
+	_draw_module_shell(query_rect, project_run_stage == 0, true, project_run_stage == 0)
+	_draw_label(query_rect.position + Vector2(16.0, 28.0), "SEARCH INTENT", 11, ACCENT)
+	_draw_label(query_rect.position + Vector2(16.0, 61.0), "agent memory", 14, INK)
+	_draw_label(query_rect.position + Vector2(16.0, 86.0), "AND retrieval", 11, MUTED)
+
+	var source_progress := _project_stage_progress(1)
+	var source_labels := ["CROSSREF", "PUBMED", "OPENALEX"]
+	for index in range(3):
+		var source_rect := Rect2(Vector2(source_x, center_y - 116.0 + float(index) * 82.0), Vector2(size.x * 0.15, 58.0))
+		_draw_module_shell(source_rect, project_run_stage == 1, false, false)
+		_draw_label(source_rect.position + Vector2(14.0, 24.0), source_labels[index], 10, MUTED)
+		_draw_label(source_rect.position + Vector2(14.0, 44.0), "%02d records" % (23 - index * 5), 9, Color(FLOW, source_progress))
+		draw_line(query_rect.get_center(), source_rect.get_center(), Color(FLOW, 0.18 + source_progress * 0.42), 1.2, true)
+
+	var filter_progress := _project_stage_progress(2)
+	var funnel := PackedVector2Array([
+		filter_center + Vector2(-44.0, -64.0),
+		filter_center + Vector2(44.0, -64.0),
+		filter_center + Vector2(16.0, 14.0),
+		filter_center + Vector2(16.0, 62.0),
+		filter_center + Vector2(-16.0, 62.0),
+		filter_center + Vector2(-16.0, 14.0),
+	])
+	var funnel_closed := PackedVector2Array(funnel)
+	funnel_closed.append(funnel[0])
+	draw_colored_polygon(funnel, Color(FLOW, 0.035 + filter_progress * 0.06))
+	draw_polyline(funnel_closed, Color(FLOW, 0.25 + filter_progress * 0.62), 1.8, true)
+	_draw_label(filter_center + Vector2(-31.0, -82.0), "FILTER", 10, FLOW)
+	_draw_label(filter_center + Vector2(-24.0, 2.0), "DEDUP", 9, MUTED)
+
+	var response_progress := _project_stage_progress(3)
+	draw_line(filter_center + Vector2(16.0, 62.0), response_rect.get_center(), Color(FLOW, 0.22 + response_progress * 0.66), 2.0, true)
+	_draw_module_shell(response_rect, project_run_stage == 3, false, response_progress > 0.92)
+	_draw_label(response_rect.position + Vector2(16.0, 28.0), "STRUCTURED RESULT", 10, FLOW)
+	for row in range(5):
+		var row_y := response_rect.position.y + 56.0 + float(row) * 25.0
+		draw_line(Vector2(response_rect.position.x + 16.0, row_y), Vector2(response_rect.end.x - 18.0 - float(row % 2) * 22.0, row_y), Color(MUTED, 0.28 + response_progress * 0.5), 1.2)
+	_draw_label(response_rect.position + Vector2(16.0, response_rect.size.y - 18.0), "RETURN TO AGENT", 10, Color(ACCENT, response_progress))
 
 func _draw_wide_world(size: Vector2) -> void:
 	var top := maxf(74.0, size.y * 0.13)
@@ -464,7 +648,7 @@ func _unhandled_input(event) -> void:
 		_send_parent({"type": "gqy:run:exit"})
 		get_viewport().set_input_as_handled()
 		return
-	if journey_running:
+	if journey_running or project_run_running:
 		return
 
 	if event is InputEventMouseMotion:
@@ -508,6 +692,8 @@ func _node_section(node: String) -> String:
 func _select_node(node: String) -> void:
 	selected_node = node
 	path_running = false
+	project_run_running = false
+	project_view_active = false
 	target_phase = _node_target(node)
 	active_stage = clampi(int(floor(target_phase * 4.0)), 0, 3)
 	navigation_hold = 4.0
@@ -517,6 +703,8 @@ func _select_node(node: String) -> void:
 
 func _run_path(node: String) -> void:
 	journey_running = false
+	project_run_running = false
+	project_view_active = false
 	selected_node = node
 	phase = 0.02
 	target_phase = -1.0
@@ -533,6 +721,43 @@ func _run_path(node: String) -> void:
 		path_running = true
 	queue_redraw()
 
+func _start_project_run(node: String) -> void:
+	if node != "trumanworld" and node != "issuelab" and node != "article-mcp":
+		_run_path(node)
+		return
+	journey_running = false
+	path_running = false
+	selected_node = node
+	project_run_progress = 0.0
+	project_run_stage = 0
+	project_run_running = true
+	project_view_active = true
+	target_phase = -1.0
+	navigation_hold = 0.0
+	_send_project_stage()
+	if reduced_motion:
+		project_run_progress = 1.0
+		project_run_stage = 3
+		_send_project_stage()
+		_finish_project_run()
+	queue_redraw()
+
+func _finish_project_run() -> void:
+	project_run_running = false
+	project_view_active = true
+	project_run_progress = 1.0
+	project_run_stage = 3
+	phase = 1.0
+	_send_parent({"type": "gqy:run:project-complete", "node": selected_node})
+	queue_redraw()
+
+func _send_project_stage() -> void:
+	_send_parent({
+		"type": "gqy:run:project-stage",
+		"node": selected_node,
+		"stage": project_run_stage,
+	})
+
 func _start_journey(node: String) -> void:
 	journey_target = node if node == "trumanworld" or node == "issuelab" or node == "article-mcp" else "issuelab"
 	selected_node = journey_target
@@ -541,6 +766,8 @@ func _start_journey(node: String) -> void:
 	phase = 0.0
 	active_stage = 0
 	path_running = false
+	project_run_running = false
+	project_view_active = false
 	target_phase = -1.0
 	navigation_hold = 0.0
 	journey_running = true
@@ -605,6 +832,8 @@ func _on_web_message(arguments: Array) -> void:
 			_select_node(str(payload.get("node", "context")))
 		"gqy:run:path":
 			_run_path(str(payload.get("node", "issuelab")))
+		"gqy:run:project-run":
+			_start_project_run(str(payload.get("node", "issuelab")))
 		"gqy:run:journey":
 			_start_journey(str(payload.get("node", "issuelab")))
 		"gqy:run:journey-skip":

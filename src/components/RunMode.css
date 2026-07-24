@@ -622,6 +622,59 @@
   animation: run-panel-reveal 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+.run-mode.is-project-running .run-mode__world {
+  box-shadow: inset -2rem 0 5rem rgba(6, 9, 15, 0.28);
+}
+
+.run-mode.is-project-running .run-mode__inspector {
+  background: rgba(6, 9, 15, 0.985);
+}
+
+.run-mode.is-project-running .run-mode__world-label span:last-child {
+  color: var(--run-accent);
+}
+
+.run-mode__world-completion {
+  position: absolute;
+  z-index: 2;
+  left: clamp(1.5rem, 3vw, 3rem);
+  bottom: clamp(1.5rem, 4vh, 3rem);
+  width: min(28rem, calc(100% - 3rem));
+  padding: 1.15rem 1.25rem 1.25rem;
+  border-left: 2px solid var(--run-accent);
+  color: var(--run-ink);
+  background: rgba(6, 9, 15, 0.88);
+  backdrop-filter: blur(14px);
+  animation: run-completion-enter 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  pointer-events: none;
+}
+
+.run-mode__world-completion > span {
+  color: var(--run-flow);
+  font-family: var(--dt-font-mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.12em;
+}
+
+.run-mode__world-completion strong {
+  display: block;
+  margin-top: 0.55rem;
+  font-family: var(--dt-font-serif);
+  font-size: clamp(1.55rem, 2.6vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.run-mode__world-completion p {
+  max-width: 46ch;
+  margin: 0.7rem 0 0;
+  color: var(--run-muted);
+  font-family: var(--dt-font-sans);
+  font-size: 0.7rem;
+  line-height: 1.6;
+}
+
 .run-mode__inspector {
   min-width: 0;
   min-height: 0;
@@ -839,6 +892,189 @@
   opacity: 0.72;
 }
 
+.run-mode__path-action.is-project-action {
+  position: relative;
+  overflow: hidden;
+  min-height: 64px;
+}
+
+.run-mode__path-action.is-project-action::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: var(--run-flow);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.run-mode.is-project-running .run-mode__path-action.is-project-action::after {
+  animation: run-project-progress 6s linear both;
+}
+
+.run-mode__dossier {
+  margin-top: 1.4rem;
+  border-top: 1px solid var(--run-line);
+  border-bottom: 1px solid var(--run-line);
+}
+
+.run-mode__dossier > header {
+  padding: 1rem 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+}
+
+.run-mode__dossier > header span,
+.run-mode__dossier > header strong {
+  color: var(--run-flow);
+  font-family: var(--dt-font-mono);
+  font-size: 0.54rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.run-mode__dossier > header p {
+  max-width: 36ch;
+  margin: 0.55rem 0 0;
+  color: var(--run-muted);
+  font-family: var(--dt-font-sans);
+  font-size: 0.68rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.run-mode__dossier > header > strong {
+  color: var(--run-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.run-mode__dossier ol {
+  margin: 0;
+  padding: 0 0 0.9rem;
+  list-style: none;
+}
+
+.run-mode__dossier li {
+  position: relative;
+  padding: 0.7rem 0 0.7rem 2rem;
+  color: rgba(169, 180, 199, 0.46);
+  transition: color 260ms ease, transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.run-mode__dossier li::before {
+  content: '';
+  position: absolute;
+  left: 0.42rem;
+  top: 2rem;
+  bottom: -0.7rem;
+  width: 1px;
+  background: var(--run-line);
+}
+
+.run-mode__dossier li:last-child::before {
+  display: none;
+}
+
+.run-mode__dossier li > i {
+  position: absolute;
+  left: 0;
+  top: 0.72rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 1px solid currentColor;
+  display: grid;
+  place-items: center;
+  color: inherit;
+  background: var(--run-bg-deeper);
+  font-family: var(--dt-font-mono);
+  font-size: 0.42rem;
+  font-style: normal;
+}
+
+.run-mode__dossier li span,
+.run-mode__dossier li strong {
+  display: block;
+}
+
+.run-mode__dossier li span {
+  font-family: var(--dt-font-mono);
+  font-size: 0.47rem;
+  letter-spacing: 0.08em;
+}
+
+.run-mode__dossier li strong {
+  margin-top: 0.28rem;
+  color: currentColor;
+  font-family: var(--dt-font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.run-mode__dossier li p {
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
+  color: var(--run-muted);
+  font-family: var(--dt-font-sans);
+  font-size: 0.63rem;
+  line-height: 1.55;
+  opacity: 0;
+  transition: max-height 300ms ease, margin 300ms ease, opacity 220ms ease;
+}
+
+.run-mode__dossier li.is-complete {
+  color: rgba(99, 217, 255, 0.72);
+}
+
+.run-mode__dossier li.is-active {
+  color: var(--run-accent);
+  transform: translateX(0.2rem);
+}
+
+.run-mode__dossier li.is-active > i {
+  background: rgba(255, 184, 107, 0.12);
+  box-shadow: 0 0 1.2rem rgba(255, 184, 107, 0.24);
+}
+
+.run-mode__dossier li.is-active p,
+.run-mode__dossier li.is-complete p {
+  max-height: 5rem;
+  margin-top: 0.4rem;
+  opacity: 1;
+}
+
+.run-mode__dossier-proof {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.7rem;
+  color: var(--run-flow);
+  background: rgba(99, 217, 255, 0.055);
+}
+
+.run-mode__dossier-proof > span {
+  font-size: 0.48rem;
+}
+
+.run-mode__dossier-proof p {
+  margin: 0;
+  color: var(--run-muted);
+  font-family: var(--dt-font-sans);
+  font-size: 0.62rem;
+  line-height: 1.5;
+}
+
+.run-mode__dossier-proof strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--run-flow);
+  font-family: var(--dt-font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.08em;
+}
+
 .run-mode__project-links {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -874,6 +1110,12 @@
   letter-spacing: 0.09em;
 }
 
+.run-mode__outputs > p span {
+  float: right;
+  color: var(--run-flow);
+  font-variant-numeric: tabular-nums;
+}
+
 .run-mode__outputs > div {
   border-top: 1px solid var(--run-line-faint);
 }
@@ -906,6 +1148,13 @@
   margin-right: 0.5rem;
   color: var(--run-accent);
   font-size: 0.48rem;
+}
+
+.run-mode__outputs button span > i {
+  margin-right: 0.45rem;
+  color: var(--run-flow);
+  font-size: 0.56rem;
+  font-style: normal;
 }
 
 .run-mode__outputs button small {
@@ -1028,6 +1277,16 @@
 @keyframes run-panel-reveal {
   from { opacity: 0; transform: translateY(0.75rem); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes run-project-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes run-completion-enter {
+  from { opacity: 0; transform: translateY(1.25rem); clip-path: inset(100% 0 0); }
+  to { opacity: 1; transform: translateY(0); clip-path: inset(0); }
 }
 
 @keyframes run-signal-pulse {
