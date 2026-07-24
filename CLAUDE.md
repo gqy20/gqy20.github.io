@@ -24,11 +24,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # 安装依赖
 npm install
 
-# 启动开发服务器 (http://localhost:5173 或 http://你的局域网IP:5173)
+# 启动开发服务器（先检查/导出 Godot Web Runtime）
 npm run dev
 
-# 构建生产版本
+# 完整构建（Godot Runtime + React）
 npm run build
+
+# 手动导出或校验 Godot Runtime
+npm run godot:export
+npm run godot:check
 
 # 预览构建结果
 npm run preview

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { GODOT_RUNTIME_URL } from '../utils/godotRuntime.js'
 import './RunMode.css'
 
 const RUN_SECTIONS = [
@@ -7,7 +8,6 @@ const RUN_SECTIONS = [
   { id: 'work', label: 'WORK', detail: 'verified output' },
 ]
 
-const RUNTIME_URL = '/runtime/home/index.html?embed=1'
 const WORK_NODE_IDS = ['trumanworld', 'issuelab', 'article-mcp']
 const SECTION_DEFAULT_NODE = {
   about: 'context',
@@ -276,6 +276,8 @@ export default function RunMode({ open, onClose, projects = [] }) {
   const slowTimeoutRef = useRef(null)
   const hardTimeoutRef = useRef(null)
   const [hasOpened, setHasOpened] = useState(open)
+  const [canMountRuntime, setCanMountRuntime] = useState(() => open && !getRuntimeSupportIssue())
+  const [runtimeAttempt, setRuntimeAttempt] = useState(0)
   const [runtimeState, setRuntimeState] = useState('loading')
   const [runtimeError, setRuntimeError] = useState(null)
   const [activeSection, setActiveSection] = useState('about')
@@ -309,10 +311,43 @@ export default function RunMode({ open, onClose, projects = [] }) {
     iframeRef.current?.contentWindow?.postMessage(JSON.stringify(payload), window.location.origin)
   }, [])
 
+  const clearRuntimeTimeouts = useCallback(() => {
+    window.clearTimeout(slowTimeoutRef.current)
+    window.clearTimeout(hardTimeoutRef.current)
+  }, [])
+
+  const startRuntimeLoad = useCallback(() => {
+    clearRuntimeTimeouts()
+    const supportIssue = getRuntimeSupportIssue()
+    if (supportIssue) {
+      setCanMountRuntime(false)
+      setRuntimeState('error')
+      runtimeStateRef.current = 'error'
+      setRuntimeError(supportIssue)
+      return false
+    }
+
+    setCanMountRuntime(true)
+    setRuntimeState('loading')
+    runtimeStateRef.current = 'loading'
+    setRuntimeError(null)
+    slowTimeoutRef.current = window.setTimeout(() => {
+      setRuntimeState(state => state === 'loading' ? 'slow' : state)
+    }, 12000)
+    hardTimeoutRef.current = window.setTimeout(() => {
+      setRuntimeState(state => state === 'ready' ? state : 'error')
+      setRuntimeError('timeout')
+    }, 45000)
+    return true
+  }, [clearRuntimeTimeouts])
+
   useEffect(() => {
     openRef.current = open
-    if (open) setHasOpened(true)
-  }, [open])
+    if (open) {
+      setHasOpened(true)
+      if (runtimeStateRef.current !== 'ready') startRuntimeLoad()
+    }
+  }, [open, startRuntimeLoad])
 
   useEffect(() => {
     runtimeStateRef.current = runtimeState
@@ -331,8 +366,7 @@ export default function RunMode({ open, onClose, projects = [] }) {
       if (!payload?.type?.startsWith('gqy:run:')) return
 
       if (payload.type === 'gqy:run:ready') {
-        window.clearTimeout(slowTimeoutRef.current)
-        window.clearTimeout(hardTimeoutRef.current)
+        clearRuntimeTimeouts()
         setRuntimeState('ready')
         setRuntimeError(null)
         appendLog('RUNTIME', 'Godot 4.7 topology connected', 'success')
@@ -371,7 +405,7 @@ export default function RunMode({ open, onClose, projects = [] }) {
 
     window.addEventListener('message', handleMessage)
     return () => window.removeEventListener('message', handleMessage)
-  }, [appendLog, hasOpened, nodes, onClose, postToRuntime, selectedNode])
+  }, [appendLog, clearRuntimeTimeouts, hasOpened, nodes, onClose, postToRuntime, selectedNode])
 
   useEffect(() => {
     if (!open) return undefined
@@ -381,37 +415,19 @@ export default function RunMode({ open, onClose, projects = [] }) {
     exitButtonRef.current?.focus()
     postToRuntime({ type: 'gqy:run:visibility', visible: true })
 
-    if (runtimeStateRef.current !== 'ready') {
-      const supportIssue = getRuntimeSupportIssue()
-      if (supportIssue) {
-        setRuntimeState('error')
-        setRuntimeError(supportIssue)
-      } else {
-        setRuntimeState('loading')
-        slowTimeoutRef.current = window.setTimeout(() => {
-          setRuntimeState(state => state === 'loading' ? 'slow' : state)
-        }, 12000)
-        hardTimeoutRef.current = window.setTimeout(() => {
-          setRuntimeState(state => state === 'ready' ? state : 'error')
-          setRuntimeError('timeout')
-        }, 45000)
-      }
-    }
-
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') onClose()
     }
 
     document.addEventListener('keydown', handleKeyDown)
     return () => {
-      window.clearTimeout(slowTimeoutRef.current)
-      window.clearTimeout(hardTimeoutRef.current)
+      clearRuntimeTimeouts()
       document.removeEventListener('keydown', handleKeyDown)
       document.body.classList.remove('run-mode-open')
       postToRuntime({ type: 'gqy:run:visibility', visible: false })
       returnFocusRef.current?.focus?.()
     }
-  }, [open, onClose, postToRuntime])
+  }, [clearRuntimeTimeouts, open, onClose, postToRuntime])
 
   if (!open && !hasOpened) return null
 
@@ -436,6 +452,12 @@ export default function RunMode({ open, onClose, projects = [] }) {
     pathStateRef.current = 'running'
     setLogs([{ id: ++logIdRef.current, stamp: '00:00', stage: 'CONTEXT', message: 'new context packet dispatched', tone: 'success' }])
     postToRuntime({ type: 'gqy:run:path', node })
+  }
+
+  const handleRetryRuntime = () => {
+    if (!startRuntimeLoad()) return
+    setRuntimeAttempt(attempt => attempt + 1)
+    appendLog('RETRY', 'reloading Godot Web runtime')
   }
 
   const loaderCopy = runtimeState === 'error'
@@ -502,17 +524,32 @@ export default function RunMode({ open, onClose, projects = [] }) {
       <main className="run-mode__stage">
         <section className="run-mode__world" aria-label="Agent 运行拓扑">
           <div className={`run-mode__loader is-${runtimeState}`} aria-hidden={runtimeState === 'ready'}>
+            <div className="run-mode__loader-preview" aria-hidden="true">
+              <span>CONTEXT</span>
+              <i />
+              <span>MEMORY</span>
+              <i />
+              <span>TOOLS</span>
+            </div>
             <div className="run-mode__loader-line"><span /></div>
             <p>{loaderCopy}</p>
+            {runtimeState === 'error' && (
+              <button type="button" className="run-mode__retry" onClick={handleRetryRuntime}>
+                重新加载运行时
+              </button>
+            )}
           </div>
 
-          <iframe
-            ref={iframeRef}
-            className={`run-mode__frame ${runtimeState === 'ready' ? 'is-ready' : ''}`}
-            src={RUNTIME_URL}
-            title="葛庆宇的 Agent 运行拓扑"
-            allow="fullscreen"
-          />
+          {canMountRuntime && (
+            <iframe
+              key={runtimeAttempt}
+              ref={iframeRef}
+              className={`run-mode__frame ${runtimeState === 'ready' ? 'is-ready' : ''}`}
+              src={`${GODOT_RUNTIME_URL}&attempt=${runtimeAttempt}`}
+              title="葛庆宇的 Agent 运行拓扑"
+              allow="fullscreen"
+            />
+          )}
 
           <div className="run-mode__world-label" aria-hidden="true">
             <span>LIVE TOPOLOGY</span>

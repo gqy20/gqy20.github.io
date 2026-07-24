@@ -39,6 +39,8 @@ npm run perf:quick    # 快速检查
 
 ## 📦 本地开发
 
+首次运行需要 Node.js 24 和 Godot 4.7.1（或通过 `GODOT_BIN` 指定可执行文件）。`dev` 和 `build` 会检查 Godot Web Runtime，只在产物缺失或源文件更新时重新导出。
+
 ```bash
 # 安装依赖
 npm install
@@ -48,6 +50,13 @@ npm run dev
 
 # 构建生产版本
 npm run build
+
+# 仅重新导出 / 校验 Godot Runtime
+npm run godot:export
+npm run godot:check
+
+# 特殊场景下只构建 React（要求 Runtime 已存在）
+npm run build:web
 
 # 预览构建结果
 npm run preview

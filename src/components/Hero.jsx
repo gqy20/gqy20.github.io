@@ -10,6 +10,7 @@ import LanguageIcon from './LanguageIcon.jsx'
 import AgentWorkflow from './AgentWorkflow.jsx'
 import GitCourseGraph from './GitCourseGraph.jsx'
 import RunMode from './RunMode.jsx'
+import { warmGodotRuntime } from '../utils/godotRuntime.js'
 import './Hero.css'
 
 const SECTIONS = [
@@ -107,10 +108,24 @@ export default function Hero() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
   const [isRunModeOpen, setIsRunModeOpen] = useState(false)
   const runTriggerRef = useRef(null)
-  const openRunMode = useCallback(() => setIsRunModeOpen(true), [])
+  const prepareRunMode = useCallback(() => warmGodotRuntime({ includeEngine: true }), [])
+  const openRunMode = useCallback(() => {
+    prepareRunMode()
+    setIsRunModeOpen(true)
+  }, [prepareRunMode])
   const closeRunMode = useCallback(() => {
     setIsRunModeOpen(false)
     window.requestAnimationFrame(() => runTriggerRef.current?.focus())
+  }, [])
+
+  useEffect(() => {
+    const warmShell = () => warmGodotRuntime()
+    if ('requestIdleCallback' in window) {
+      const idleId = window.requestIdleCallback(warmShell, { timeout: 3000 })
+      return () => window.cancelIdleCallback(idleId)
+    }
+    const timeoutId = window.setTimeout(warmShell, 1500)
+    return () => window.clearTimeout(timeoutId)
   }, [])
 
   const projectsByName = useMemo(() => {
@@ -228,6 +243,8 @@ export default function Hero() {
             type="button"
             className="home-run-trigger"
             aria-haspopup="dialog"
+            onPointerEnter={prepareRunMode}
+            onFocus={prepareRunMode}
             onClick={openRunMode}
           >
             <span className="home-run-trigger__read">READ</span>
