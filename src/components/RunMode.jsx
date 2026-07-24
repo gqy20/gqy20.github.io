@@ -170,6 +170,77 @@ const PROJECT_TRACES = {
   },
 }
 
+const PROJECT_EVIDENCE = {
+  trumanworld: {
+    eyebrow: 'LIVE SYSTEM / DIRECTOR CONSOLE',
+    title: '事件可以回放，关系变化有账本',
+    summary: 'TrumanWorld 已打通世界快照、事件时间线、Agent 详情与导演干预。这里展示的是仓库中真实运行界面，而不是概念稿。',
+    visual: {
+      type: 'image',
+      src: 'https://raw.githubusercontent.com/gqy20/TrumanWorld/main/docs/images/world-view.jpg',
+      alt: 'TrumanWorld 导演控制台的真实世界视图，显示小镇地图、AI 居民位置与状态面板',
+      caption: 'WORLD VIEW / docs/images/world-view.jpg',
+    },
+    facts: [
+      { label: 'BACKEND', value: '637 tests' },
+      { label: 'FRONTEND', value: '148 tests' },
+      { label: 'SCENARIOS', value: '2 worlds' },
+    ],
+    links: [
+      { label: '查看世界视图', href: 'https://github.com/gqy20/TrumanWorld/blob/main/docs/images/world-view.jpg' },
+      { label: '查看事件回放', href: 'https://github.com/gqy20/TrumanWorld/blob/main/docs/images/event-timeline.png' },
+      { label: '打开导演控制台', href: 'https://truman.gqy25.top/' },
+    ],
+  },
+  issuelab: {
+    eyebrow: 'PUBLIC THREAD / ISSUE #188',
+    title: '一次文献误报，留下可复查判断',
+    summary: 'Issue #188 从摘要缺失和零关键词命中出发，经过 moderator 与 pubmed_observer 独立复核，最终保留一篇、剔除一篇，并提出四项流水线修复建议。',
+    visual: {
+      type: 'thread',
+      items: [
+        { role: 'moderator', action: '发现摘要缺失与 0 关键词匹配', tone: 'warn' },
+        { role: 'pubmed_observer', action: '使用 NCBI E-utilities 独立验证', tone: 'flow' },
+        { role: 'observer', action: '阻止重复触发，等待人工确认', tone: 'muted' },
+        { role: 'decision', action: '保留 PMID 42086051，剔除噪声候选', tone: 'accent' },
+      ],
+    },
+    facts: [
+      { label: 'ISSUE', value: '#188' },
+      { label: 'COMMENTS', value: '5 public' },
+      { label: 'OUTCOME', value: '1 kept / 1 dropped' },
+    ],
+    links: [
+      { label: '打开完整讨论', href: 'https://github.com/gqy20/IssueLab/issues/188' },
+      { label: '查看独立复核', href: 'https://github.com/gqy20/IssueLab/issues/188#issuecomment-4701168292' },
+    ],
+  },
+  'article-mcp': {
+    eyebrow: 'PUBLISHED TOOL / v0.2.2',
+    title: '一条命令，连接六类学术来源',
+    summary: 'article-mcp 以 FastMCP 提供文献搜索、详情、参考文献、关系分析与期刊质量五个工具，并通过 PyPI 直接分发。',
+    visual: {
+      type: 'terminal',
+      lines: [
+        '$ uvx article-mcp',
+        '→ search_literature',
+        '  keyword: "agent memory retrieval"',
+        '  sources: [europe_pmc, pubmed, openalex]',
+        '← structured articles + identifiers',
+      ],
+    },
+    facts: [
+      { label: 'TOOLS', value: '5 core' },
+      { label: 'SOURCES', value: '6 connected' },
+      { label: 'RELEASE', value: 'v0.2.2' },
+    ],
+    links: [
+      { label: '查看工具定义', href: 'https://github.com/gqy20/article-mcp#5-个核心工具' },
+      { label: '打开 PyPI', href: 'https://pypi.org/project/article-mcp/' },
+    ],
+  },
+}
+
 function parseRuntimeMessage(data) {
   if (typeof data !== 'string') return data
   try {
@@ -213,6 +284,81 @@ function buildProjectNode(project, id, index) {
     ],
     tags: project.tags?.length ? project.tags : [project.category].filter(Boolean),
   }
+}
+
+function EvidencePanel({ node, shareState, onClose, onShare }) {
+  const closeButtonRef = useRef(null)
+  const [imageFailed, setImageFailed] = useState(false)
+  const evidence = PROJECT_EVIDENCE[node.id]
+
+  useEffect(() => {
+    setImageFailed(false)
+    closeButtonRef.current?.focus()
+  }, [node.id])
+
+  if (!evidence) return null
+
+  return (
+    <article className="run-mode__evidence" aria-labelledby={`run-evidence-${node.id}`}>
+      <header className="run-mode__evidence-head">
+        <div>
+          <span>{evidence.eyebrow}</span>
+          <h3 id={`run-evidence-${node.id}`}>{evidence.title}</h3>
+        </div>
+        <button ref={closeButtonRef} type="button" onClick={onClose} aria-label="关闭真实证据档案">×</button>
+      </header>
+
+      <div className="run-mode__evidence-body">
+        <div className={`run-mode__evidence-visual is-${evidence.visual.type}`}>
+          {evidence.visual.type === 'image' && !imageFailed && (
+            <figure>
+              <img src={evidence.visual.src} alt={evidence.visual.alt} onError={() => setImageFailed(true)} />
+              <figcaption>{evidence.visual.caption}</figcaption>
+            </figure>
+          )}
+          {evidence.visual.type === 'image' && imageFailed && (
+            <div className="run-mode__evidence-image-fallback" role="status">
+              <span>REMOTE ARTIFACT UNAVAILABLE</span>
+              <p>真实界面暂时无法载入，可以通过右侧“查看世界视图”直接打开原始文件。</p>
+            </div>
+          )}
+          {evidence.visual.type === 'thread' && (
+            <ol aria-label="Issue 188 公开讨论摘要">
+              {evidence.visual.items.map((item, index) => (
+                <li key={item.role} className={`is-${item.tone}`}>
+                  <span>0{index + 1}</span>
+                  <div><strong>@{item.role}</strong><p>{item.action}</p></div>
+                </li>
+              ))}
+            </ol>
+          )}
+          {evidence.visual.type === 'terminal' && (
+            <pre aria-label="article-mcp 运行示例"><code>{evidence.visual.lines.join('\n')}</code></pre>
+          )}
+        </div>
+
+        <div className="run-mode__evidence-content">
+          <p>{evidence.summary}</p>
+          <dl>
+            {evidence.facts.map(fact => (
+              <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>
+            ))}
+          </dl>
+          <nav aria-label={`${node.title} 真实证据链接`}>
+            {evidence.links.map(link => (
+              <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
+                {link.label}<span aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </nav>
+          <button type="button" className="run-mode__evidence-share" onClick={() => onShare(node.id)}>
+            <span aria-hidden="true">⌁</span>
+            {shareState === 'copied' ? '体验链接已复制' : shareState === 'error' ? '复制失败，请重试' : '分享这个运行体验'}
+          </button>
+        </div>
+      </div>
+    </article>
+  )
 }
 
 function RuntimeInspector({ node, projectNodes, runtimeState, pathState, projectRun, visitedProjects, onSelect, onRunPath }) {
@@ -396,15 +542,17 @@ function JourneyOverlay({ stage, onSkip }) {
   )
 }
 
-export default function RunMode({ open, onClose, projects = [] }) {
+export default function RunMode({ open, onClose, projects = [], initialProject = null }) {
   const iframeRef = useRef(null)
   const exitButtonRef = useRef(null)
+  const evidenceTriggerRef = useRef(null)
   const returnFocusRef = useRef(null)
   const openRef = useRef(open)
   const runtimeStateRef = useRef('loading')
   const pathStateRef = useRef('idle')
   const logIdRef = useRef(0)
   const completionAnnouncedRef = useRef(false)
+  const initialProjectRef = useRef(WORK_NODE_IDS.includes(initialProject) ? initialProject : null)
   const slowTimeoutRef = useRef(null)
   const hardTimeoutRef = useRef(null)
   const [hasOpened, setHasOpened] = useState(open)
@@ -419,6 +567,8 @@ export default function RunMode({ open, onClose, projects = [] }) {
   const [pathState, setPathState] = useState('idle')
   const [projectRun, setProjectRun] = useState({ node: null, status: 'idle', stage: -1 })
   const [visitedProjects, setVisitedProjects] = useState([])
+  const [evidenceNode, setEvidenceNode] = useState(null)
+  const [shareState, setShareState] = useState('idle')
   const [logs, setLogs] = useState(INITIAL_LOGS)
 
   const appendLog = useCallback((stage, message, tone = 'default') => {
@@ -512,13 +662,25 @@ export default function RunMode({ open, onClose, projects = [] }) {
         clearRuntimeTimeouts()
         setRuntimeState('ready')
         setRuntimeError(null)
-        setExperienceMode('guided')
-        setJourneyStage('context')
         appendLog('RUNTIME', 'Godot 4.7 topology connected', 'success')
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
         postToRuntime({ type: 'gqy:run:preferences', reducedMotion })
         postToRuntime({ type: 'gqy:run:visibility', visible: openRef.current })
-        postToRuntime({ type: 'gqy:run:journey', node: 'issuelab' })
+        const directProject = initialProjectRef.current
+        if (directProject && nodes[directProject]) {
+          setExperienceMode('explore')
+          setSelectedNode(directProject)
+          setActiveSection('work')
+          setPathState('running')
+          pathStateRef.current = 'running'
+          setProjectRun({ node: directProject, status: 'running', stage: 0 })
+          setLogs([{ id: ++logIdRef.current, stamp: '00:00', stage: 'DEEPLINK', message: `${nodes[directProject].title} runtime entered`, tone: 'success' }])
+          postToRuntime({ type: 'gqy:run:project-run', node: directProject })
+        } else {
+          setExperienceMode('guided')
+          setJourneyStage('context')
+          postToRuntime({ type: 'gqy:run:journey', node: 'issuelab' })
+        }
       }
 
       if (payload.type === 'gqy:run:journey-stage' && JOURNEY_STAGES[payload.stage]) {
@@ -546,6 +708,8 @@ export default function RunMode({ open, onClose, projects = [] }) {
         setPathState('running')
         pathStateRef.current = 'running'
         setProjectRun({ node: payload.node, status: 'running', stage })
+        setEvidenceNode(null)
+        setShareState('idle')
         appendLog(traceStage.label, traceStage.title)
       }
 
@@ -556,6 +720,8 @@ export default function RunMode({ open, onClose, projects = [] }) {
         pathStateRef.current = 'complete'
         setProjectRun({ node: payload.node, status: 'complete', stage: 3 })
         setVisitedProjects(current => current.includes(payload.node) ? current : [...current, payload.node])
+        setEvidenceNode(payload.node)
+        setShareState('idle')
         appendLog('VERIFIED', `${nodes[payload.node]?.title || 'project'} left an inspectable trace`, 'success')
       }
 
@@ -575,6 +741,8 @@ export default function RunMode({ open, onClose, projects = [] }) {
         setPathState('idle')
         pathStateRef.current = 'idle'
         setProjectRun(current => current.node === payload.node ? current : { node: payload.node, status: 'idle', stage: -1 })
+        setEvidenceNode(null)
+        setShareState('idle')
         appendLog('SELECT', `${nodes[payload.node].title} locked in inspector`)
       }
 
@@ -600,7 +768,13 @@ export default function RunMode({ open, onClose, projects = [] }) {
     postToRuntime({ type: 'gqy:run:visibility', visible: true })
 
     const handleKeyDown = (event) => {
-      if (event.key === 'Escape') onClose()
+      if (event.key !== 'Escape') return
+      if (evidenceNode) {
+        setEvidenceNode(null)
+        window.requestAnimationFrame(() => evidenceTriggerRef.current?.focus())
+      } else {
+        onClose()
+      }
     }
 
     document.addEventListener('keydown', handleKeyDown)
@@ -611,7 +785,7 @@ export default function RunMode({ open, onClose, projects = [] }) {
       postToRuntime({ type: 'gqy:run:visibility', visible: false })
       returnFocusRef.current?.focus?.()
     }
-  }, [clearRuntimeTimeouts, open, onClose, postToRuntime])
+  }, [clearRuntimeTimeouts, evidenceNode, open, onClose, postToRuntime])
 
   if (!open && !hasOpened) return null
 
@@ -621,6 +795,8 @@ export default function RunMode({ open, onClose, projects = [] }) {
     setSelectedNode(node)
     setPathState('idle')
     setProjectRun({ node, status: 'idle', stage: -1 })
+    setEvidenceNode(null)
+    setShareState('idle')
     postToRuntime({ type: 'gqy:run:navigate', section })
   }
 
@@ -631,6 +807,8 @@ export default function RunMode({ open, onClose, projects = [] }) {
     setPathState('idle')
     pathStateRef.current = 'idle'
     setProjectRun(current => current.node === node ? current : { node, status: 'idle', stage: -1 })
+    setEvidenceNode(null)
+    setShareState('idle')
     postToRuntime({ type: 'gqy:run:select', node })
   }
 
@@ -639,6 +817,8 @@ export default function RunMode({ open, onClose, projects = [] }) {
     pathStateRef.current = 'running'
     if (WORK_NODE_IDS.includes(node)) {
       setProjectRun({ node, status: 'running', stage: 0 })
+      setEvidenceNode(null)
+      setShareState('idle')
       setLogs([{ id: ++logIdRef.current, stamp: '00:00', stage: 'PROJECT', message: `${nodes[node].title} runtime entered`, tone: 'success' }])
       postToRuntime({ type: 'gqy:run:project-run', node })
       return
@@ -661,6 +841,24 @@ export default function RunMode({ open, onClose, projects = [] }) {
     setProjectRun({ node: 'issuelab', status: 'idle', stage: -1 })
     postToRuntime({ type: 'gqy:run:journey-skip', node: 'issuelab' })
     appendLog('SKIP', 'guided journey skipped; exploration unlocked')
+  }
+
+  const handleShareEvidence = async (node) => {
+    const url = new URL(window.location.href)
+    url.searchParams.set('run', node)
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('clipboard unavailable')
+      await navigator.clipboard.writeText(url.toString())
+      setShareState('copied')
+      window.setTimeout(() => setShareState('idle'), 2200)
+    } catch {
+      setShareState('error')
+    }
+  }
+
+  const handleCloseEvidence = () => {
+    setEvidenceNode(null)
+    window.requestAnimationFrame(() => evidenceTriggerRef.current?.focus())
   }
 
   const loaderCopy = runtimeState === 'error'
@@ -761,7 +959,23 @@ export default function RunMode({ open, onClose, projects = [] }) {
             <span>{projectRun.status === 'running' ? 'GENERATING EVIDENCE TRACE' : projectRun.status === 'complete' ? 'TRACE VERIFIED' : 'CLICK A NODE TO INSPECT'}</span>
           </div>
 
-          {systemComplete && experienceMode === 'explore' && projectRun.status !== 'running' && (
+          {evidenceNode === selected.id && projectRun.status === 'complete' && (
+            <EvidencePanel
+              node={selected}
+              shareState={shareState}
+              onClose={handleCloseEvidence}
+              onShare={handleShareEvidence}
+            />
+          )}
+
+          {projectRun.status === 'complete' && PROJECT_EVIDENCE[selected.id] && evidenceNode !== selected.id && (
+            <button ref={evidenceTriggerRef} type="button" className="run-mode__evidence-open" onClick={() => setEvidenceNode(selected.id)}>
+              <span>VERIFIED ARTIFACT</span>
+              打开真实证据 <i aria-hidden="true">↗</i>
+            </button>
+          )}
+
+          {systemComplete && experienceMode === 'explore' && projectRun.status !== 'running' && !evidenceNode && (
             <div className="run-mode__world-completion" role="status">
               <span>SYSTEM MAP COMPLETE</span>
               <strong>3 条工作流，1 个方法</strong>

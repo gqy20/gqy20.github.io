@@ -284,7 +284,7 @@ func _draw_issuelab_run(size: Vector2) -> void:
 	]
 
 	_draw_module_shell(issue_rect, project_run_stage == 0, true, project_run_stage == 0)
-	_draw_label(issue_rect.position + Vector2(18.0, 30.0), "GITHUB ISSUE / 071", 11, ACCENT)
+	_draw_label(issue_rect.position + Vector2(18.0, 30.0), "GITHUB ISSUE / 188", 11, ACCENT)
 	for row in range(4):
 		var width := issue_rect.size.x * (0.72 if row == 0 else 0.54 + float(row % 2) * 0.12)
 		draw_line(issue_rect.position + Vector2(18.0, 62.0 + row * 20.0), issue_rect.position + Vector2(18.0 + width, 62.0 + row * 20.0), Color(MUTED, 0.62), 1.3)

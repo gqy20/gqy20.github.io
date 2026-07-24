@@ -38,6 +38,14 @@ const SELECTED_WORK = [
   'Aura', 'zotero_cli', 'cc-insights',
 ]
 
+const DIRECT_RUN_PROJECTS = new Set(['trumanworld', 'issuelab', 'article-mcp'])
+
+function getDirectRunProject() {
+  if (typeof window === 'undefined') return null
+  const project = new URLSearchParams(window.location.search).get('run')
+  return DIRECT_RUN_PROJECTS.has(project) ? project : null
+}
+
 // 项目数据快照:与 src/data/projects.json 同步,用于 loading / fallback 占位,
 // 避免数据未加载时闪现过时的旧数字。projects.json 增长后记得同步这里。
 const STATS_SNAPSHOT = {
@@ -104,17 +112,26 @@ function isExternal(url) {
 
 export default function Hero() {
   const { data: projectData, loading } = useProjectsData()
+  const directRunProject = useMemo(getDirectRunProject, [])
   const [activeSection, setActiveSection] = useState('about')
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
-  const [isRunModeOpen, setIsRunModeOpen] = useState(false)
+  const [isRunModeOpen, setIsRunModeOpen] = useState(Boolean(directRunProject))
+  const [initialRunProject, setInitialRunProject] = useState(directRunProject)
   const runTriggerRef = useRef(null)
   const prepareRunMode = useCallback(() => warmGodotRuntime({ includeEngine: true }), [])
   const openRunMode = useCallback(() => {
     prepareRunMode()
+    setInitialRunProject(null)
     setIsRunModeOpen(true)
   }, [prepareRunMode])
   const closeRunMode = useCallback(() => {
     setIsRunModeOpen(false)
+    setInitialRunProject(null)
+    const url = new URL(window.location.href)
+    if (url.searchParams.has('run')) {
+      url.searchParams.delete('run')
+      window.history.replaceState({}, '', url)
+    }
     window.requestAnimationFrame(() => runTriggerRef.current?.focus())
   }, [])
 
@@ -488,7 +505,12 @@ export default function Hero() {
           </footer>
         </SectionShell>
       </main>
-      <RunMode open={isRunModeOpen} onClose={closeRunMode} projects={projectData?.allProjects} />
+      <RunMode
+        open={isRunModeOpen}
+        onClose={closeRunMode}
+        projects={projectData?.allProjects}
+        initialProject={initialRunProject}
+      />
     </div>
   )
 }

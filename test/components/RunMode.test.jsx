@@ -100,6 +100,23 @@ describe('RunMode', () => {
     expect(screen.getByLabelText('IssueLab 运行档案').textContent).toContain('TRACE VERIFIED')
     expect(screen.getByText('1 / 3 VERIFIED')).toBeDefined()
     expect(screen.getByRole('button', { name: /REPLAY PROJECT/ })).toBeDefined()
+    expect(screen.getByRole('heading', { name: '一次文献误报，留下可复查判断' })).toBeDefined()
+    expect(screen.getByRole('link', { name: /打开完整讨论/ }).getAttribute('href')).toBe('https://github.com/gqy20/IssueLab/issues/188')
+  })
+
+  it('starts a shared project experience without replaying the global introduction', () => {
+    const { container } = render(<RunMode open initialProject="trumanworld" onClose={() => {}} />)
+    const frame = screen.getByTitle('葛庆宇的 Agent 运行拓扑')
+
+    fireEvent(window, new window.MessageEvent('message', {
+      data: JSON.stringify({ type: 'gqy:run:ready' }),
+      source: frame.contentWindow,
+    }))
+
+    expect(screen.queryByText('任务成为可追踪的上下文')).toBeNull()
+    expect(screen.getByRole('heading', { name: 'TrumanWorld' })).toBeDefined()
+    expect(screen.getByRole('button', { name: /RUNNING PROJECT/ })).toBeDefined()
+    expect(container.querySelector('.run-mode.is-project-running')).not.toBeNull()
   })
 
   it('closes the exploration loop after all three project traces', () => {
@@ -117,6 +134,7 @@ describe('RunMode', () => {
       }))
     }
 
+    fireEvent.click(screen.getByRole('button', { name: '关闭真实证据档案' }))
     expect(screen.getByText('3 条工作流，1 个方法')).toBeDefined()
     expect(screen.getByText('3 / 3 VERIFIED')).toBeDefined()
   })
