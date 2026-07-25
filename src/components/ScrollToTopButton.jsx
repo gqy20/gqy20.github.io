@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import { AnimatePresence, motion } from 'motion/react'
-import { FaArrowUp } from 'react-icons/fa'
 import './ScrollToTopButton.css'
 
 /** 浮动返回顶部按钮：滚动超过约一屏后右下角浮现，全局所有页面可见。 */
@@ -14,24 +12,19 @@ const ScrollToTopButton = () => {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  if (!show) return null
+
   return (
-    <AnimatePresence>
-      {show && (
-        <motion.button
-          type="button"
-          className="scroll-top-btn"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          initial={{ opacity: 0, scale: 0.8, y: 12 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.8, y: 12 }}
-          whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.92 }}
-          aria-label="返回顶部"
-        >
-          <FaArrowUp />
-        </motion.button>
-      )}
-    </AnimatePresence>
+    <button
+      type="button"
+      className="scroll-top-btn"
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      aria-label="返回顶部"
+    >
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="m18 15-6-6-6 6" />
+      </svg>
+    </button>
   )
 }
 

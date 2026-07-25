@@ -1,5 +1,4 @@
 import { useTheme } from '../hooks/useTheme'
-import { motion, AnimatePresence } from 'motion/react'
 import './ThemeToggle.css'
 
 /**
@@ -16,29 +15,17 @@ export default function ThemeToggle() {
   const isDark = theme === 'dark'
 
   return (
-    <motion.button
+    <button
       type="button"
       className="theme-toggle"
       onClick={toggleTheme}
       aria-label={isDark ? '切换到亮色主题' : '切换到暗色主题'}
       title={isDark ? '切换到亮色主题（⌘/Ctrl+Shift+L）' : '切换到暗色主题（⌘/Ctrl+Shift+L）'}
-      whileTap={{ scale: 0.96 }}
-      transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
     >
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.span
-          key={theme}
-          className="theme-toggle__icon"
-          initial={{ y: -8, opacity: 0, rotate: -45 }}
-          animate={{ y: 0, opacity: 1, rotate: 0 }}
-          exit={{ y: 8, opacity: 0, rotate: 45 }}
-          transition={{ duration: 0.22, ease: [0.33, 1, 0.68, 1] }}
-          aria-hidden="true"
-        >
-          {isDark ? <SunIcon /> : <MoonIcon />}
-        </motion.span>
-      </AnimatePresence>
-    </motion.button>
+      <span key={theme} className="theme-toggle__icon" aria-hidden="true">
+        {isDark ? <SunIcon /> : <MoonIcon />}
+      </span>
+    </button>
   )
 }
 

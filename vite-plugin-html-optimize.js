@@ -7,7 +7,6 @@ export function htmlOptimizePlugin() {
       const insertBefore = '</head>'
       const additionalTags = `
     <!-- Resource Hints for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://avatars.githubusercontent.com">
     <link rel="dns-prefetch" href="https://api.github.com">
 

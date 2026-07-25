@@ -1,5 +1,4 @@
 import { lazy, Suspense } from 'react'
-import { motion } from 'motion/react'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import Hero from './components/Hero'
 import ScrollToTopButton from './components/ScrollToTopButton.jsx'
@@ -21,12 +20,7 @@ export default function App() {
       <div className="app">
         <div className="app-content">
           <main className="main-content">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="page-content"
-            >
+            <div className="page-content">
               <Suspense fallback={<div className="route-loading">加载中…</div>}>
                 <Routes>
                   <Route path="/" element={<Hero />} />
@@ -39,7 +33,7 @@ export default function App() {
                   <Route path="/components" element={<ComponentTest />} />
                 </Routes>
               </Suspense>
-            </motion.div>
+            </div>
           </main>
         </div>
         <ScrollToTopButton />

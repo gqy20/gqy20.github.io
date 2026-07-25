@@ -270,7 +270,7 @@
 
 .tl-panel__context {
   margin: 0.4rem 0 0;
-  font-family: 'Noto Serif SC', serif;
+  font-family: var(--dt-font-serif);
   font-size: 0.85rem;
   line-height: 1.65;
   color: var(--dt-muted);
@@ -507,7 +507,7 @@
   z-index: 1;
   margin: 0.5rem 0 0;
   padding: 0.4rem 0;
-  font-family: 'Noto Serif SC', serif;
+  font-family: var(--dt-font-serif);
   font-style: italic;
   font-size: 0.85rem;
   line-height: 1.6;

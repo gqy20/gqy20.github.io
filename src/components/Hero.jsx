@@ -1,5 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { motion } from 'motion/react'
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { gsap, SplitText, useGSAP } from '../lib/gsap.js'
 import { useProjectsData } from '../hooks/useProjectsData.js'
 import blogIndex from '../data/blog/index.json'
@@ -9,9 +8,11 @@ import { GIT_COURSE } from '../data/gitCourse.js'
 import LanguageIcon from './LanguageIcon.jsx'
 import AgentWorkflow from './AgentWorkflow.jsx'
 import GitCourseGraph from './GitCourseGraph.jsx'
-import RunMode from './RunMode.jsx'
 import { warmGodotRuntime } from '../utils/godotRuntime.js'
 import './Hero.css'
+
+const loadRunMode = () => import('./RunMode.jsx')
+const RunMode = lazy(loadRunMode)
 
 const SECTIONS = [
   { id: 'about',     num: '01', label: 'ABOUT' },
@@ -116,11 +117,16 @@ export default function Hero() {
   const [activeSection, setActiveSection] = useState('about')
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
   const [isRunModeOpen, setIsRunModeOpen] = useState(Boolean(directRunProject))
+  const [hasLoadedRunMode, setHasLoadedRunMode] = useState(Boolean(directRunProject))
   const [initialRunProject, setInitialRunProject] = useState(directRunProject)
   const runTriggerRef = useRef(null)
-  const prepareRunMode = useCallback(() => warmGodotRuntime({ includeEngine: true }), [])
+  const prepareRunMode = useCallback(() => {
+    void loadRunMode()
+    warmGodotRuntime({ includeEngine: true })
+  }, [])
   const openRunMode = useCallback(() => {
     prepareRunMode()
+    setHasLoadedRunMode(true)
     setInitialRunProject(null)
     setIsRunModeOpen(true)
   }, [prepareRunMode])
@@ -135,16 +141,6 @@ export default function Hero() {
     window.requestAnimationFrame(() => runTriggerRef.current?.focus())
   }, [])
 
-  useEffect(() => {
-    const warmShell = () => warmGodotRuntime()
-    if ('requestIdleCallback' in window) {
-      const idleId = window.requestIdleCallback(warmShell, { timeout: 3000 })
-      return () => window.cancelIdleCallback(idleId)
-    }
-    const timeoutId = window.setTimeout(warmShell, 1500)
-    return () => window.clearTimeout(timeoutId)
-  }, [])
-
   const projectsByName = useMemo(() => {
     if (!projectData?.allProjects) return {}
     return Object.fromEntries(projectData.allProjects.map(p => [p.name, p]))
@@ -154,7 +150,10 @@ export default function Hero() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(e => {
-          if (e.isIntersecting) setActiveSection(e.target.id)
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible')
+            setActiveSection(e.target.id)
+          }
         })
       },
       { rootMargin: '-30% 0px -60% 0px' }
@@ -204,7 +203,7 @@ export default function Hero() {
     return () => mm.revert()
   }, { scope: rootRef, dependencies: [loading] })
 
-  // 各 section 标题(ABOUT/STACK/...):逐字入场(进视口时)
+  // 各 section 标题只在进入视口时拆字，避免首屏处理整页文本。
   useGSAP(() => {
     const mm = gsap.matchMedia()
     mm.add({
@@ -212,15 +211,30 @@ export default function Hero() {
       isNormal: '(prefers-reduced-motion: no-preference)'
     }, ({ conditions }) => {
       const { isReduce: reduce } = conditions
-      gsap.utils.toArray('.home-section__title').forEach((label) => {
-        const split = SplitText.create(label, { type: 'chars' })
-        gsap.from(
-          split.chars,
-          reduce
-            ? { duration: 0 }
-            : { yPercent: 60, opacity: 0, duration: 0.5, ease: 'back.out(1.5)', stagger: 0.04, scrollTrigger: { trigger: label, start: 'top 85%', once: true } }
-        )
-      })
+      if (reduce) return
+
+      const splits = []
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          observer.unobserve(entry.target)
+          const split = SplitText.create(entry.target, { type: 'chars' })
+          splits.push(split)
+          gsap.from(split.chars, {
+            yPercent: 60,
+            opacity: 0,
+            duration: 0.5,
+            ease: 'back.out(1.5)',
+            stagger: 0.04,
+          })
+        })
+      }, { rootMargin: '0px 0px -12% 0px' })
+
+      gsap.utils.toArray('.home-section__title').forEach(label => observer.observe(label))
+      return () => {
+        observer.disconnect()
+        splits.forEach(split => split.revert())
+      }
     })
     return () => mm.revert()
   }, { scope: rootRef })
@@ -239,12 +253,7 @@ export default function Hero() {
 
   return (
     <div className="home" ref={rootRef}>
-      <motion.aside
-        className="home-sidebar"
-        initial={{ x: -16, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-      >
+      <aside className="home-sidebar">
         <div className="home-identity">
           <h1 className="home-name">
             <span className="home-name__zh">葛庆宇</span>
@@ -261,6 +270,7 @@ export default function Hero() {
             className="home-run-trigger"
             aria-haspopup="dialog"
             onPointerEnter={prepareRunMode}
+            onPointerDown={prepareRunMode}
             onFocus={prepareRunMode}
             onClick={openRunMode}
           >
@@ -332,7 +342,7 @@ export default function Hero() {
             )
           })}
         </div>
-      </motion.aside>
+      </aside>
 
       <main className="home-main">
         <SectionShell id="about" num="01" label="ABOUT" delay={0.05}>
@@ -505,25 +515,26 @@ export default function Hero() {
           </footer>
         </SectionShell>
       </main>
-      <RunMode
-        open={isRunModeOpen}
-        onClose={closeRunMode}
-        projects={projectData?.allProjects}
-        initialProject={initialRunProject}
-      />
+      {hasLoadedRunMode && (
+        <Suspense fallback={isRunModeOpen ? <div className="home-run-loading" role="status">正在进入运行态…</div> : null}>
+          <RunMode
+            open={isRunModeOpen}
+            onClose={closeRunMode}
+            projects={projectData?.allProjects}
+            initialProject={initialRunProject}
+          />
+        </Suspense>
+      )}
     </div>
   )
 }
 
 function SectionShell({ id, num, label, delay, children }) {
   return (
-    <motion.section
+    <section
       id={id}
       className="home-section"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.5, delay, ease: [0.33, 1, 0.68, 1] }}
+      style={{ '--home-reveal-delay': `${delay}s` }}
     >
       <header className="home-section__head">
         <span className="home-section__num">{num}</span>
@@ -531,7 +542,7 @@ function SectionShell({ id, num, label, delay, children }) {
         <span className="home-section__rule" />
       </header>
       <div className="home-section__body">{children}</div>
-    </motion.section>
+    </section>
   )
 }
 

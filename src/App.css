@@ -66,10 +66,10 @@
   --w-wide: 1440px;
 
   /* — 字体（与原版一致）— */
-  --dt-font-display: 'Fraunces', 'Noto Serif SC', Georgia, serif;
-  --dt-font-serif: 'Noto Serif SC', 'Fraunces', Georgia, serif;
+  --dt-font-display: 'Iowan Old Style', 'Baskerville', 'Songti SC', 'STSong', Georgia, serif;
+  --dt-font-serif: 'Songti SC', 'STSong', 'Noto Serif CJK SC', 'Iowan Old Style', Georgia, serif;
   --dt-font-sans: -apple-system, BlinkMacSystemFont, sans-serif;
-  --dt-font-mono: 'Geist Mono', 'JetBrains Mono', ui-monospace, SFMono, monospace;
+  --dt-font-mono: 'SFMono-Regular', 'Cascadia Code', 'Liberation Mono', ui-monospace, monospace;
 
   /* ════════════════════════════════════════════════════════════
      兼容层（其他组件可能引用这些老变量名）

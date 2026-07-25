@@ -55,6 +55,12 @@
   align-items: center;
   justify-content: center;
   line-height: 0;
+  animation: theme-icon-enter 220ms var(--dt-ease-out) both;
+}
+
+@keyframes theme-icon-enter {
+  from { opacity: 0; transform: translateY(-6px) rotate(-35deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0); }
 }
 
 @media (max-width: 480px) {
