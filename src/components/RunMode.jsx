@@ -2,26 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { GODOT_RUNTIME_URL } from '../utils/godotRuntime.js'
 import './RunMode.css'
 
-const RUN_SECTIONS = [
-  { id: 'about', label: 'ABOUT', detail: 'identity / context' },
-  { id: 'stack', label: 'STACK', detail: 'memory / tools' },
-  { id: 'work', label: 'WORK', detail: 'verified output' },
-]
-
 const WORK_NODE_IDS = ['trumanworld', 'issuelab', 'article-mcp']
-const SECTION_DEFAULT_NODE = {
-  about: 'context',
-  stack: 'memory',
-  work: 'issuelab',
-}
-const NODE_SECTION = {
-  context: 'about',
-  memory: 'stack',
-  tools: 'stack',
-  trumanworld: 'work',
-  issuelab: 'work',
-  'article-mcp': 'work',
-}
 
 const FALLBACK_PROJECTS = {
   TrumanWorld: {
@@ -64,77 +45,38 @@ const FALLBACK_PROJECTS = {
 const SYSTEM_NODES = {
   context: {
     id: 'context',
-    index: '00',
     type: 'SYSTEM CONTEXT',
     title: '可验证的 Agent 工作流',
     description: '把任务、资料与约束组织成可追踪的上下文，然后交给记忆和工具层处理。',
-    status: 'LOADED',
-    route: ['CONTEXT'],
-    metrics: [
-      { label: 'FOCUS', value: 'Agent systems' },
-      { label: 'MODE', value: 'Evidence first' },
-      { label: 'OUTPUT', value: 'Public work' },
-    ],
-    tags: ['Context', 'Constraints', 'Evidence'],
   },
   memory: {
     id: 'memory',
-    index: '01',
     type: 'MEMORY LAYER',
     title: '持续维护的工程记忆',
     description: '文章、课程、项目记录与阶段判断共同构成长期记忆，让新的工作可以复用已有上下文。',
-    status: 'SYNCED',
-    route: ['CONTEXT', 'MEMORY'],
-    metrics: [
-      { label: 'ARTICLES', value: '4 deep dives' },
-      { label: 'COURSE', value: '8 Git lessons' },
-      { label: 'STAGES', value: '4 iterations' },
-    ],
-    tags: ['Writing', 'Courses', 'Timeline'],
   },
   tools: {
     id: 'tools',
-    index: '02',
     type: 'TOOL INTERFACE',
     title: '把外部能力接入 Agent',
     description: 'MCP、Claude Agent SDK、Koog 与 LangGraph 负责连接资料、代码、状态和多主体协作。',
-    status: 'READY',
-    route: ['CONTEXT', 'MEMORY', 'TOOLS'],
-    metrics: [
-      { label: 'SDK', value: 'Claude Agent' },
-      { label: 'PROTOCOL', value: 'MCP / FastMCP' },
-      { label: 'STATE', value: 'LangGraph' },
-    ],
-    tags: ['MCP', 'Agent SDK', 'Koog', 'LangGraph'],
   },
 }
 
-const INITIAL_LOGS = [
-  { id: 0, stamp: '00:00', stage: 'BOOT', message: 'personal runtime waiting for input', tone: 'muted' },
-]
-
 const JOURNEY_STAGES = {
   context: {
-    index: '01',
-    eyebrow: 'SYSTEM INPUT',
     title: '任务成为可追踪的上下文',
     description: '目标、资料与约束被压缩成一个可传递的 Context Packet。',
   },
   memory: {
-    index: '02',
-    eyebrow: 'MEMORY LAYER',
     title: '工程记忆开始响应',
     description: '项目、文章与阶段判断被重新召回，为下一步行动补全背景。',
   },
   tools: {
-    index: '03',
-    eyebrow: 'TOOL INTERFACE',
     title: '外部能力接入 Agent',
     description: 'MCP、代码与状态编排被唤醒，把理解转化为可以执行的步骤。',
   },
   output: {
-    index: '04',
-    eyebrow: 'VERIFIED OUTPUT',
     title: '上下文抵达真实项目',
     description: 'IssueLab 把多智能体协作沉淀进 GitHub Issues，留下公开、可验证的过程。',
   },
@@ -267,22 +209,13 @@ function getErrorCopy(reason) {
   return '运行时仍未响应。可以继续等待，或刷新页面后重试。'
 }
 
-function buildProjectNode(project, id, index) {
+function buildProjectNode(project, id) {
   return {
     ...project,
     id,
-    index,
     type: 'VERIFIED OUTPUT',
     title: project.name,
     description: project.description?.replaceAll('——', '，') || '项目说明正在同步。',
-    status: 'RUNNING',
-    route: ['CONTEXT', 'MEMORY', 'TOOLS', project.name],
-    metrics: [
-      { label: 'STARS', value: String(project.stars ?? 0) },
-      { label: 'LANGUAGE', value: project.language || 'Unknown' },
-      { label: 'ISSUES', value: String(project.issues ?? 0) },
-    ],
-    tags: project.tags?.length ? project.tags : [project.category].filter(Boolean),
   }
 }
 
@@ -361,62 +294,22 @@ function EvidencePanel({ node, shareState, onClose, onShare }) {
   )
 }
 
-function RuntimeInspector({ node, projectNodes, runtimeState, pathState, projectRun, visitedProjects, onSelect, onRunPath }) {
-  const inspectorRef = useRef(null)
+function RuntimeFocus({ node, runtimeState, pathState, projectRun, visitedProjects, onRunPath }) {
   const isProject = node.type === 'VERIFIED OUTPUT'
-  const trace = PROJECT_TRACES[node.id]
   const isCurrentRun = projectRun.node === node.id
   const isRunning = isCurrentRun && projectRun.status === 'running'
   const isVisited = visitedProjects.includes(node.id)
-  const visibleStage = isCurrentRun ? projectRun.stage : isVisited ? 3 : -1
   const actionLabel = isRunning
     ? 'RUNNING PROJECT'
     : isProject
       ? isVisited ? 'REPLAY PROJECT' : 'ENTER PROJECT'
       : pathState === 'running' ? 'RUNNING PATH' : 'RUN THIS PATH'
 
-  useEffect(() => {
-    if (inspectorRef.current) inspectorRef.current.scrollTop = 0
-  }, [node.id])
-
   return (
-    <aside ref={inspectorRef} className="run-mode__inspector" aria-label="节点详情" aria-live="polite">
-      <header className="run-mode__inspector-head">
-        <span>{node.type}</span>
-        <span>{node.index} / 05</span>
-      </header>
-
-      <div className="run-mode__inspector-title">
-        <div>
-          <span className="run-mode__node-status"><i aria-hidden="true" /> {node.status}</span>
-          <h3>{node.title}</h3>
-        </div>
-        <span className="run-mode__node-mark" aria-hidden="true">{node.index}</span>
-      </div>
-
-      <p className="run-mode__inspector-copy">{node.description}</p>
-
-      <div className="run-mode__route" aria-label={`运行路径：${node.route.join(' 到 ')}`}>
-        {node.route.map((step, index) => (
-          <span key={step}>
-            {index > 0 && <i aria-hidden="true">→</i>}
-            <b>{step}</b>
-          </span>
-        ))}
-      </div>
-
-      <dl className="run-mode__metrics">
-        {node.metrics.map(metric => (
-          <div key={metric.label}>
-            <dt>{metric.label}</dt>
-            <dd>{metric.value}</dd>
-          </div>
-        ))}
-      </dl>
-
-      <div className="run-mode__tags" aria-label="相关技术">
-        {node.tags.map(tag => <span key={tag}>{tag}</span>)}
-      </div>
+    <aside className="run-mode__focus" aria-label="节点详情" aria-live="polite">
+      <span className="run-mode__focus-kind">{node.type}</span>
+      <h3>{node.title}</h3>
+      <p>{node.description}</p>
 
       <button
         type="button"
@@ -424,95 +317,47 @@ function RuntimeInspector({ node, projectNodes, runtimeState, pathState, project
         disabled={runtimeState !== 'ready' || pathState === 'running'}
         onClick={() => onRunPath(node.id)}
       >
-        <span aria-hidden="true">▶</span>
-        <span>
-          <strong>{actionLabel}</strong>
-          <small>{isRunning ? '项目证据正在生成' : isProject ? '进入这个项目的真实工作流' : pathState === 'running' ? '上下文正在通过运行拓扑' : '让上下文沿当前节点链路运行'}</small>
-        </span>
+        {actionLabel}
       </button>
-
-      {trace && (
-        <section className={`run-mode__dossier ${isRunning ? 'is-running' : ''}`} aria-label={`${node.title} 运行档案`}>
-          <header>
-            <div>
-              <span>PROJECT TRACE</span>
-              <p>{trace.thesis}</p>
-            </div>
-            <strong>{String(Math.max(visibleStage + 1, 0)).padStart(2, '0')} / 04</strong>
-          </header>
-          <ol>
-            {trace.stages.map((stage, index) => (
-              <li
-                key={stage.label}
-                className={`${index < visibleStage ? 'is-complete' : ''} ${index === visibleStage ? 'is-active' : ''}`}
-              >
-                <i aria-hidden="true">{index < visibleStage ? '✓' : `0${index + 1}`}</i>
-                <div>
-                  <span>{stage.label}</span>
-                  <strong>{stage.title}</strong>
-                  <p>{stage.detail}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-          {isVisited && !isRunning && (
-            <div className="run-mode__dossier-proof">
-              <span aria-hidden="true">■</span>
-              <p><strong>TRACE VERIFIED</strong>这条工作流已完成，可以重播或进入源码继续检查。</p>
-            </div>
-          )}
-        </section>
-      )}
-
-      {isProject && (
-        <div className="run-mode__project-links">
-          <a href={node.url} target="_blank" rel="noopener noreferrer">查看 GitHub <span aria-hidden="true">↗</span></a>
-          {node.homepage && <a href={node.homepage} target="_blank" rel="noopener noreferrer">打开项目 <span aria-hidden="true">↗</span></a>}
-        </div>
-      )}
-
-      <div className="run-mode__outputs">
-        <p>CONNECTED OUTPUTS <span>{visitedProjects.length} / {projectNodes.length} VERIFIED</span></p>
-        <div>
-          {projectNodes.map(project => (
-            <button
-              key={project.id}
-              type="button"
-              className={project.id === node.id ? 'is-selected' : ''}
-              aria-pressed={project.id === node.id}
-              onClick={() => onSelect(project.id)}
-            >
-              <span>{visitedProjects.includes(project.id) && <i aria-hidden="true">✓</i>}{project.title}</span>
-              <small>{visitedProjects.includes(project.id) ? 'SEEN' : `${project.metrics[0].value}★`}</small>
-            </button>
-          ))}
-        </div>
-      </div>
     </aside>
   )
 }
 
-function ExecutionLog({ logs, activeSection, runtimeState }) {
+function ProjectDock({ projects, selectedNode, visitedProjects, onSelect }) {
   return (
-    <footer className="run-mode__console">
-      <div className="run-mode__console-label">
-        <span>EXECUTION LOG</span>
-        <small>{runtimeState === 'ready' ? 'STREAM ONLINE' : 'AWAITING RUNTIME'}</small>
-      </div>
-      <ol role="log" aria-live="polite">
-        {logs.map(log => (
-          <li key={log.id} className={`is-${log.tone || 'default'}`}>
-            <time>{log.stamp}</time>
-            <strong>{log.stage}</strong>
-            <span>{log.message}</span>
-          </li>
-        ))}
-      </ol>
-      <div className="run-mode__console-state">
-        <i aria-hidden="true" />
-        <span>{activeSection.toUpperCase()}</span>
-      </div>
-    </footer>
+    <nav className="run-mode__project-dock" aria-label="选择项目">
+      {projects.map(project => {
+        const isVisited = visitedProjects.includes(project.id)
+        return (
+          <button
+            key={project.id}
+            type="button"
+            className={project.id === selectedNode ? 'is-selected' : ''}
+            data-visited={isVisited || undefined}
+            aria-pressed={project.id === selectedNode}
+            aria-label={`${project.title}${isVisited ? '，已验证' : ''}`}
+            onClick={() => onSelect(project.id)}
+          >
+            {project.title}
+          </button>
+        )
+      })}
+    </nav>
+  )
+}
+
+function ProjectRunCaption({ node, stage }) {
+  const trace = PROJECT_TRACES[node.id]
+  const safeStage = Math.max(0, Math.min(stage, 3))
+  const content = trace?.stages[safeStage]
+  if (!content) return null
+
+  return (
+    <section className="run-mode__run-caption" aria-label={`${node.title} 当前运行阶段`} aria-live="polite">
+      <span>{String(safeStage + 1).padStart(2, '0')} / 04</span>
+      <h3>{content.title}</h3>
+      <p>{content.detail}</p>
+    </section>
   )
 }
 
@@ -523,8 +368,7 @@ function JourneyOverlay({ stage, onSkip }) {
   return (
     <div className="run-mode__journey" aria-live="polite">
       <div key={stage} className="run-mode__journey-copy">
-        <span className="run-mode__journey-index">{content.index} / 04</span>
-        <p>{content.eyebrow}</p>
+        <span className="run-mode__journey-index">{String(stageIndex + 1).padStart(2, '0')} / 04</span>
         <h3>{content.title}</h3>
         <span>{content.description}</span>
       </div>
@@ -550,8 +394,6 @@ export default function RunMode({ open, onClose, projects = [], initialProject =
   const openRef = useRef(open)
   const runtimeStateRef = useRef('loading')
   const pathStateRef = useRef('idle')
-  const logIdRef = useRef(0)
-  const completionAnnouncedRef = useRef(false)
   const initialProjectRef = useRef(WORK_NODE_IDS.includes(initialProject) ? initialProject : null)
   const slowTimeoutRef = useRef(null)
   const hardTimeoutRef = useRef(null)
@@ -562,27 +404,19 @@ export default function RunMode({ open, onClose, projects = [], initialProject =
   const [runtimeError, setRuntimeError] = useState(null)
   const [experienceMode, setExperienceMode] = useState('loading')
   const [journeyStage, setJourneyStage] = useState('context')
-  const [activeSection, setActiveSection] = useState('about')
   const [selectedNode, setSelectedNode] = useState('context')
   const [pathState, setPathState] = useState('idle')
   const [projectRun, setProjectRun] = useState({ node: null, status: 'idle', stage: -1 })
   const [visitedProjects, setVisitedProjects] = useState([])
   const [evidenceNode, setEvidenceNode] = useState(null)
   const [shareState, setShareState] = useState('idle')
-  const [logs, setLogs] = useState(INITIAL_LOGS)
-
-  const appendLog = useCallback((stage, message, tone = 'default') => {
-    const id = ++logIdRef.current
-    const stamp = `00:${String(id).padStart(2, '0')}`
-    setLogs(current => [...current, { id, stamp, stage, message, tone }].slice(-4))
-  }, [])
 
   const projectNodes = useMemo(() => {
     const projectMap = Object.fromEntries(projects.map(project => [project.name, project]))
     return [
-      buildProjectNode(projectMap.TrumanWorld || FALLBACK_PROJECTS.TrumanWorld, 'trumanworld', '03'),
-      buildProjectNode(projectMap.IssueLab || FALLBACK_PROJECTS.IssueLab, 'issuelab', '04'),
-      buildProjectNode(projectMap['article-mcp'] || FALLBACK_PROJECTS['article-mcp'], 'article-mcp', '05'),
+      buildProjectNode(projectMap.TrumanWorld || FALLBACK_PROJECTS.TrumanWorld, 'trumanworld'),
+      buildProjectNode(projectMap.IssueLab || FALLBACK_PROJECTS.IssueLab, 'issuelab'),
+      buildProjectNode(projectMap['article-mcp'] || FALLBACK_PROJECTS['article-mcp'], 'article-mcp'),
     ]
   }, [projects])
 
@@ -645,12 +479,6 @@ export default function RunMode({ open, onClose, projects = [], initialProject =
   }, [pathState])
 
   useEffect(() => {
-    if (visitedProjects.length !== WORK_NODE_IDS.length || completionAnnouncedRef.current) return
-    completionAnnouncedRef.current = true
-    appendLog('SYSTEM MAP', 'three project workflows verified', 'success')
-  }, [appendLog, visitedProjects.length])
-
-  useEffect(() => {
     if (!hasOpened) return undefined
 
     const handleMessage = (event) => {
@@ -662,7 +490,6 @@ export default function RunMode({ open, onClose, projects = [], initialProject =
         clearRuntimeTimeouts()
         setRuntimeState('ready')
         setRuntimeError(null)
-        appendLog('RUNTIME', 'Godot 4.7 topology connected', 'success')
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
         postToRuntime({ type: 'gqy:run:preferences', reducedMotion })
         postToRuntime({ type: 'gqy:run:visibility', visible: openRef.current })
@@ -670,11 +497,9 @@ export default function RunMode({ open, onClose, projects = [], initialProject =
         if (directProject && nodes[directProject]) {
           setExperienceMode('explore')
           setSelectedNode(directProject)
-          setActiveSection('work')
           setPathState('running')
           pathStateRef.current = 'running'
           setProjectRun({ node: directProject, status: 'running', stage: 0 })
-          setLogs([{ id: ++logIdRef.current, stamp: '00:00', stage: 'DEEPLINK', message: `${nodes[directProject].title} runtime entered`, tone: 'success' }])
           postToRuntime({ type: 'gqy:run:project-run', node: directProject })
         } else {
           setExperienceMode('guided')
@@ -685,71 +510,47 @@ export default function RunMode({ open, onClose, projects = [], initialProject =
 
       if (payload.type === 'gqy:run:journey-stage' && JOURNEY_STAGES[payload.stage]) {
         setJourneyStage(payload.stage)
-        const section = payload.stage === 'context' ? 'about' : payload.stage === 'output' ? 'work' : 'stack'
-        setActiveSection(section)
-        const stageCopy = JOURNEY_STAGES[payload.stage]
-        appendLog(stageCopy.eyebrow, stageCopy.title)
       }
 
       if (payload.type === 'gqy:run:journey-complete') {
         const node = nodes[payload.node] ? payload.node : 'issuelab'
         setSelectedNode(node)
-        setActiveSection('work')
         setExperienceMode('explore')
         setProjectRun({ node, status: 'idle', stage: -1 })
-        appendLog('RESOLVED', `${nodes[node]?.title || 'IssueLab'} evidence ready`, 'success')
       }
 
       if (payload.type === 'gqy:run:project-stage' && PROJECT_TRACES[payload.node]) {
         const stage = Math.max(0, Math.min(Number(payload.stage) || 0, 3))
-        const traceStage = PROJECT_TRACES[payload.node].stages[stage]
         setSelectedNode(payload.node)
-        setActiveSection('work')
         setPathState('running')
         pathStateRef.current = 'running'
         setProjectRun({ node: payload.node, status: 'running', stage })
         setEvidenceNode(null)
         setShareState('idle')
-        appendLog(traceStage.label, traceStage.title)
       }
 
       if (payload.type === 'gqy:run:project-complete' && PROJECT_TRACES[payload.node]) {
         setSelectedNode(payload.node)
-        setActiveSection('work')
         setPathState('complete')
         pathStateRef.current = 'complete'
         setProjectRun({ node: payload.node, status: 'complete', stage: 3 })
         setVisitedProjects(current => current.includes(payload.node) ? current : [...current, payload.node])
         setEvidenceNode(payload.node)
         setShareState('idle')
-        appendLog('VERIFIED', `${nodes[payload.node]?.title || 'project'} left an inspectable trace`, 'success')
-      }
-
-      if (payload.type === 'gqy:run:active' && payload.section && pathStateRef.current === 'running') {
-        setActiveSection(payload.section)
-        const stageCopy = {
-          about: ['CONTEXT', 'task and constraints loaded'],
-          stack: ['STACK', 'memory matched, tool interface ready'],
-          work: ['OUTPUT', 'verified project resolved'],
-        }[payload.section]
-        if (stageCopy) appendLog(stageCopy[0], stageCopy[1])
       }
 
       if (payload.type === 'gqy:run:select' && nodes[payload.node]) {
         setSelectedNode(payload.node)
-        setActiveSection(NODE_SECTION[payload.node] || 'about')
         setPathState('idle')
         pathStateRef.current = 'idle'
         setProjectRun(current => current.node === payload.node ? current : { node: payload.node, status: 'idle', stage: -1 })
         setEvidenceNode(null)
         setShareState('idle')
-        appendLog('SELECT', `${nodes[payload.node].title} locked in inspector`)
       }
 
       if (payload.type === 'gqy:run:path-complete') {
         setPathState('complete')
         pathStateRef.current = 'complete'
-        appendLog('RESOLVED', `${nodes[payload.node]?.title || 'output'} path completed`, 'success')
       }
 
       if (payload.type === 'gqy:run:exit' && openRef.current) onClose()
@@ -757,7 +558,7 @@ export default function RunMode({ open, onClose, projects = [], initialProject =
 
     window.addEventListener('message', handleMessage)
     return () => window.removeEventListener('message', handleMessage)
-  }, [appendLog, clearRuntimeTimeouts, hasOpened, nodes, onClose, postToRuntime])
+  }, [clearRuntimeTimeouts, hasOpened, nodes, onClose, postToRuntime])
 
   useEffect(() => {
     if (!open) return undefined
@@ -789,21 +590,9 @@ export default function RunMode({ open, onClose, projects = [], initialProject =
 
   if (!open && !hasOpened) return null
 
-  const handleSectionChange = (section) => {
-    const node = SECTION_DEFAULT_NODE[section]
-    setActiveSection(section)
-    setSelectedNode(node)
-    setPathState('idle')
-    setProjectRun({ node, status: 'idle', stage: -1 })
-    setEvidenceNode(null)
-    setShareState('idle')
-    postToRuntime({ type: 'gqy:run:navigate', section })
-  }
-
   const handleSelectNode = (node) => {
     if (!nodes[node]) return
     setSelectedNode(node)
-    setActiveSection(NODE_SECTION[node] || 'about')
     setPathState('idle')
     pathStateRef.current = 'idle'
     setProjectRun(current => current.node === node ? current : { node, status: 'idle', stage: -1 })
@@ -819,28 +608,23 @@ export default function RunMode({ open, onClose, projects = [], initialProject =
       setProjectRun({ node, status: 'running', stage: 0 })
       setEvidenceNode(null)
       setShareState('idle')
-      setLogs([{ id: ++logIdRef.current, stamp: '00:00', stage: 'PROJECT', message: `${nodes[node].title} runtime entered`, tone: 'success' }])
       postToRuntime({ type: 'gqy:run:project-run', node })
       return
     }
-    setLogs([{ id: ++logIdRef.current, stamp: '00:00', stage: 'CONTEXT', message: 'new context packet dispatched', tone: 'success' }])
     postToRuntime({ type: 'gqy:run:path', node })
   }
 
   const handleRetryRuntime = () => {
     if (!startRuntimeLoad()) return
     setRuntimeAttempt(attempt => attempt + 1)
-    appendLog('RETRY', 'reloading Godot Web runtime')
   }
 
   const handleSkipJourney = () => {
     setJourneyStage('output')
     setSelectedNode('issuelab')
-    setActiveSection('work')
     setExperienceMode('explore')
     setProjectRun({ node: 'issuelab', status: 'idle', stage: -1 })
     postToRuntime({ type: 'gqy:run:journey-skip', node: 'issuelab' })
-    appendLog('SKIP', 'guided journey skipped; exploration unlocked')
   }
 
   const handleShareEvidence = async (node) => {
@@ -878,51 +662,24 @@ export default function RunMode({ open, onClose, projects = [], initialProject =
       aria-hidden={!open}
       inert={!open}
     >
-      <aside className="run-mode__sidebar">
-        <header className="run-mode__identity">
+      <header className="run-mode__chrome">
+        <div className="run-mode__identity">
           <h2 id="run-mode-title">
             <span>葛庆宇</span>
             <small>Qingyu Ge</small>
           </h2>
-          <p>Agent systems that carry context into verifiable work.</p>
-        </header>
-
-        <div className="run-mode__switch" aria-label="主页状态">
-          <button type="button" onClick={onClose}>READ</button>
-          <span className="run-mode__switch-active" aria-current="true">
-            <i aria-hidden="true" /> RUN
-          </span>
         </div>
-
-        <nav className="run-mode__nav" aria-label="运行模块">
-          {RUN_SECTIONS.map((section, index) => (
-            <button
-              key={section.id}
-              type="button"
-              className={activeSection === section.id ? 'is-active' : ''}
-              aria-pressed={activeSection === section.id}
-              onClick={() => handleSectionChange(section.id)}
-            >
-              <span className="run-mode__nav-index">0{index + 1}</span>
-              <span>
-                <strong>{section.label}</strong>
-                <small>{section.detail}</small>
-              </span>
-            </button>
-          ))}
-        </nav>
 
         <div className="run-mode__runtime-status" aria-live="polite">
           <span className={`run-mode__status-dot is-${runtimeState}`} aria-hidden="true" />
-          <span>{runtimeState === 'ready' ? 'GODOT RUNTIME ACTIVE' : runtimeState === 'slow' ? 'COMPILING RUNTIME' : runtimeState === 'error' ? 'RUNTIME UNAVAILABLE' : 'INITIALIZING RUNTIME'}</span>
+          <span>{runtimeState === 'ready' ? 'RUNTIME ACTIVE' : runtimeState === 'slow' ? 'COMPILING' : runtimeState === 'error' ? 'UNAVAILABLE' : 'INITIALIZING'}</span>
         </div>
 
         <button ref={exitButtonRef} type="button" className="run-mode__exit" onClick={onClose}>
-          <span aria-hidden="true">↪</span>
-          退出运行
-          <kbd>ESC</kbd>
+          READ
+          <kbd aria-hidden="true">ESC</kbd>
         </button>
-      </aside>
+      </header>
 
       <main className="run-mode__stage">
         <section className="run-mode__world" aria-label="Agent 运行拓扑">
@@ -954,11 +711,6 @@ export default function RunMode({ open, onClose, projects = [], initialProject =
             />
           )}
 
-          <div className="run-mode__world-label" aria-hidden="true">
-            <span>{projectRun.status === 'running' ? 'PROJECT RUNTIME' : projectRun.status === 'complete' ? 'PROJECT EVIDENCE' : 'LIVE TOPOLOGY'}</span>
-            <span>{projectRun.status === 'running' ? 'GENERATING EVIDENCE TRACE' : projectRun.status === 'complete' ? 'TRACE VERIFIED' : 'CLICK A NODE TO INSPECT'}</span>
-          </div>
-
           {evidenceNode === selected.id && projectRun.status === 'complete' && (
             <EvidencePanel
               node={selected}
@@ -977,29 +729,45 @@ export default function RunMode({ open, onClose, projects = [], initialProject =
 
           {systemComplete && experienceMode === 'explore' && projectRun.status !== 'running' && !evidenceNode && (
             <div className="run-mode__world-completion" role="status">
-              <span>SYSTEM MAP COMPLETE</span>
-              <strong>3 条工作流，1 个方法</strong>
-              <p>上下文已经穿过世界模拟、科研协作与文献工具，并留下三个可检查的结果。</p>
+              三条工作流已验证
             </div>
           )}
 
           {runtimeState === 'ready' && experienceMode === 'guided' && (
             <JourneyOverlay stage={journeyStage} onSkip={handleSkipJourney} />
           )}
+
+          {runtimeState === 'ready' && experienceMode === 'explore' && projectRun.status === 'running' && (
+            <ProjectRunCaption node={selected} stage={projectRun.stage} />
+          )}
+
+          {runtimeState === 'ready' && experienceMode === 'explore' && pathState === 'running' && projectRun.status !== 'running' && (
+            <section className="run-mode__run-caption" aria-label="当前运行路径" aria-live="polite">
+              <span>RUNNING PATH</span>
+              <h3>{selected.title}</h3>
+              <p>上下文正在沿选定链路移动。</p>
+            </section>
+          )}
+
+          {runtimeState === 'ready' && experienceMode === 'explore' && pathState !== 'running' && projectRun.status !== 'running' && !evidenceNode && (
+            <>
+              <RuntimeFocus
+                node={selected}
+                runtimeState={runtimeState}
+                pathState={pathState}
+                projectRun={projectRun}
+                visitedProjects={visitedProjects}
+                onRunPath={handleRunPath}
+              />
+              <ProjectDock
+                projects={projectNodes}
+                selectedNode={selected.id}
+                visitedProjects={visitedProjects}
+                onSelect={handleSelectNode}
+              />
+            </>
+          )}
         </section>
-
-        <RuntimeInspector
-          node={selected}
-          projectNodes={projectNodes}
-          runtimeState={runtimeState}
-          pathState={pathState}
-          projectRun={projectRun}
-          visitedProjects={visitedProjects}
-          onSelect={handleSelectNode}
-          onRunPath={handleRunPath}
-        />
-
-        <ExecutionLog logs={logs} activeSection={activeSection} runtimeState={runtimeState} />
       </main>
     </div>
   )

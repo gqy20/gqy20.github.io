@@ -90,18 +90,18 @@ describe('RunMode', () => {
       data: JSON.stringify({ type: 'gqy:run:project-stage', node: 'issuelab', stage: 2 }),
       source: frame.contentWindow,
     }))
-    expect(screen.getByLabelText('IssueLab 运行档案').textContent).toContain('观点与证据形成线程')
+    expect(screen.getByLabelText('IssueLab 当前运行阶段').textContent).toContain('观点与证据形成线程')
     expect(screen.getByText('03 / 04')).toBeDefined()
 
     fireEvent(window, new window.MessageEvent('message', {
       data: JSON.stringify({ type: 'gqy:run:project-complete', node: 'issuelab' }),
       source: frame.contentWindow,
     }))
-    expect(screen.getByLabelText('IssueLab 运行档案').textContent).toContain('TRACE VERIFIED')
-    expect(screen.getByText('1 / 3 VERIFIED')).toBeDefined()
-    expect(screen.getByRole('button', { name: /REPLAY PROJECT/ })).toBeDefined()
     expect(screen.getByRole('heading', { name: '一次文献误报，留下可复查判断' })).toBeDefined()
     expect(screen.getByRole('link', { name: /打开完整讨论/ }).getAttribute('href')).toBe('https://github.com/gqy20/IssueLab/issues/188')
+    fireEvent.click(screen.getByRole('button', { name: '关闭真实证据档案' }))
+    expect(screen.getByRole('button', { name: /REPLAY PROJECT/ })).toBeDefined()
+    expect(screen.getByRole('button', { name: 'IssueLab，已验证' })).toBeDefined()
   })
 
   it('starts a shared project experience without replaying the global introduction', () => {
@@ -114,8 +114,8 @@ describe('RunMode', () => {
     }))
 
     expect(screen.queryByText('任务成为可追踪的上下文')).toBeNull()
-    expect(screen.getByRole('heading', { name: 'TrumanWorld' })).toBeDefined()
-    expect(screen.getByRole('button', { name: /RUNNING PROJECT/ })).toBeDefined()
+    expect(screen.getByLabelText('TrumanWorld 当前运行阶段')).toBeDefined()
+    expect(screen.queryByRole('button', { name: /RUNNING PROJECT/ })).toBeNull()
     expect(container.querySelector('.run-mode.is-project-running')).not.toBeNull()
   })
 
@@ -123,6 +123,10 @@ describe('RunMode', () => {
     render(<RunMode open onClose={() => {}} />)
     const frame = screen.getByTitle('葛庆宇的 Agent 运行拓扑')
 
+    fireEvent(window, new window.MessageEvent('message', {
+      data: JSON.stringify({ type: 'gqy:run:ready' }),
+      source: frame.contentWindow,
+    }))
     fireEvent(window, new window.MessageEvent('message', {
       data: JSON.stringify({ type: 'gqy:run:journey-complete', node: 'issuelab' }),
       source: frame.contentWindow,
@@ -135,8 +139,25 @@ describe('RunMode', () => {
     }
 
     fireEvent.click(screen.getByRole('button', { name: '关闭真实证据档案' }))
-    expect(screen.getByText('3 条工作流，1 个方法')).toBeDefined()
-    expect(screen.getByText('3 / 3 VERIFIED')).toBeDefined()
+    expect(screen.getByText('三条工作流已验证')).toBeDefined()
+    expect(screen.getByRole('button', { name: 'TrumanWorld，已验证' })).toBeDefined()
+    expect(screen.getByRole('button', { name: 'IssueLab，已验证' })).toBeDefined()
+    expect(screen.getByRole('button', { name: 'article-mcp，已验证' })).toBeDefined()
+  })
+
+  it('keeps only one visible narrative layer while a project runs', () => {
+    const { container } = render(<RunMode open initialProject="issuelab" onClose={() => {}} />)
+    const frame = screen.getByTitle('葛庆宇的 Agent 运行拓扑')
+
+    fireEvent(window, new window.MessageEvent('message', {
+      data: JSON.stringify({ type: 'gqy:run:ready' }),
+      source: frame.contentWindow,
+    }))
+
+    expect(screen.getByLabelText('IssueLab 当前运行阶段')).toBeDefined()
+    expect(container.querySelector('.run-mode__focus')).toBeNull()
+    expect(container.querySelector('.run-mode__project-dock')).toBeNull()
+    expect(container.querySelector('.run-mode__console')).toBeNull()
   })
 
   it('does not download the iframe when the browser is unsupported', () => {

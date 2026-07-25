@@ -128,14 +128,14 @@ func _draw() -> void:
 		_draw_wide_world(size)
 
 func _draw_grid(size: Vector2) -> void:
-	var spacing := 64.0
+	var spacing := 96.0
 	var x := 0.0
 	while x <= size.x:
-		draw_line(Vector2(x, 0), Vector2(x, size.y), LINE_FAINT, 1.0)
+		draw_line(Vector2(x, 0), Vector2(x, size.y), Color(LINE_FAINT, 0.045), 1.0)
 		x += spacing
 	var y := 0.0
 	while y <= size.y:
-		draw_line(Vector2(0, y), Vector2(size.x, y), LINE_FAINT, 1.0)
+		draw_line(Vector2(0, y), Vector2(size.x, y), Color(LINE_FAINT, 0.045), 1.0)
 		y += spacing
 
 func _draw_journey_grid(size: Vector2, camera_x: float) -> void:
@@ -192,10 +192,9 @@ func _draw_journey_world(size: Vector2) -> void:
 	_draw_context_module(context_rect, active_stage == 0, journey_stage == 0)
 	_draw_memory_module(memory_rect, active_stage == 1, journey_stage == 1)
 	_draw_tools_module(tools_rect, active_stage == 2, journey_stage == 2)
-	_draw_label(Vector2(output_x - work_size.x * 0.5, works[0].position.y - 34.0), "VERIFIED OUTPUTS", 15, MUTED)
-	_draw_work_module(works[0], "TrumanWorld", "03", false, false)
-	_draw_work_module(works[1], "IssueLab", "04", active_stage == 3, journey_stage == 3)
-	_draw_work_module(works[2], "article-mcp", "05", false, false)
+	_draw_work_module(works[0], "TrumanWorld", false, false)
+	_draw_work_module(works[1], "IssueLab", active_stage == 3, journey_stage == 3)
+	_draw_work_module(works[2], "article-mcp", false, false)
 	_draw_context_capsule(route)
 
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
@@ -208,19 +207,10 @@ func _project_stage_progress(stage_index: int) -> float:
 func _draw_project_run_world(size: Vector2) -> void:
 	hit_areas.clear()
 	_draw_journey_grid(size, project_run_progress * size.x * 0.24)
-	_draw_label(Vector2(34.0, 54.0), "PROJECT RUNTIME / %s" % selected_node.to_upper(), 13, ACCENT)
-	_draw_label(Vector2(34.0, 76.0), "LIVE EVIDENCE TRACE", 10, Color(MUTED, 0.66))
 	match selected_node:
 		"trumanworld": _draw_truman_run(size)
 		"article-mcp": _draw_article_run(size)
 		_: _draw_issuelab_run(size)
-
-	var progress_width := size.x - 68.0
-	draw_rect(Rect2(Vector2(34.0, size.y - 34.0), Vector2(progress_width, 2.0)), LINE)
-	draw_rect(Rect2(Vector2(34.0, size.y - 34.0), Vector2(progress_width * project_run_progress, 2.0)), ACCENT)
-	for index in range(4):
-		var marker_x := 34.0 + progress_width * float(index) / 3.0
-		draw_rect(Rect2(Vector2(marker_x - 2.0, size.y - 38.0), Vector2(4.0, 10.0)), ACCENT if project_run_stage >= index else LINE, true)
 
 func _draw_truman_run(size: Vector2) -> void:
 	var center := Vector2(size.x * 0.53, size.y * 0.51)
@@ -386,9 +376,9 @@ func _draw_wide_world(size: Vector2) -> void:
 	_draw_context_module(context_rect, active_stage == 0, selected_node == "context")
 	_draw_memory_module(memory_rect, active_stage == 1, selected_node == "memory")
 	_draw_tools_module(tools_rect, active_stage == 2, selected_node == "tools")
-	_draw_work_module(works[0], "TrumanWorld", "03", active_stage == 3, selected_node == "trumanworld")
-	_draw_work_module(works[1], "IssueLab", "04", active_stage == 3, selected_node == "issuelab")
-	_draw_work_module(works[2], "article-mcp", "05", active_stage == 3, selected_node == "article-mcp")
+	_draw_work_module(works[0], "TrumanWorld", active_stage == 3, selected_node == "trumanworld")
+	_draw_work_module(works[1], "IssueLab", active_stage == 3, selected_node == "issuelab")
+	_draw_work_module(works[2], "article-mcp", active_stage == 3, selected_node == "article-mcp")
 
 	hit_areas = {
 		"context": context_rect,
@@ -419,9 +409,9 @@ func _draw_compact_world(size: Vector2) -> void:
 	_draw_context_module(context_rect, active_stage == 0, selected_node == "context", true)
 	_draw_memory_module(memory_rect, active_stage == 1, selected_node == "memory", true)
 	_draw_tools_module(tools_rect, active_stage == 2, selected_node == "tools", true)
-	_draw_work_module(works[0], "Truman", "03", active_stage == 3, selected_node == "trumanworld", true)
-	_draw_work_module(works[1], "IssueLab", "04", active_stage == 3, selected_node == "issuelab", true)
-	_draw_work_module(works[2], "article", "05", active_stage == 3, selected_node == "article-mcp", true)
+	_draw_work_module(works[0], "Truman", active_stage == 3, selected_node == "trumanworld", true)
+	_draw_work_module(works[1], "IssueLab", active_stage == 3, selected_node == "issuelab", true)
+	_draw_work_module(works[2], "article", active_stage == 3, selected_node == "article-mcp", true)
 
 	hit_areas = {
 		"context": context_rect,
@@ -533,7 +523,7 @@ func _draw_context_module(rect: Rect2, active: bool, selected: bool, compact := 
 
 func _draw_memory_module(rect: Rect2, active: bool, selected: bool, compact := false) -> void:
 	_draw_module_shell(rect, active, false, selected)
-	_draw_module_header(rect, "MEMORY", "01", compact)
+	_draw_module_header(rect, "MEMORY", compact)
 	var center := rect.get_center()
 	var icon_width := minf(rect.size.x * 0.32, 58.0)
 	var icon_y := center.y - (8.0 if compact else 26.0)
@@ -547,11 +537,10 @@ func _draw_memory_module(rect: Rect2, active: bool, selected: bool, compact := f
 			Vector2(center.x, icon_y + offset - 14.0),
 		])
 		draw_polyline(diamond, Color(MUTED, 0.75), 1.3, true)
-	_draw_status(rect, "SYNCED", compact)
 
 func _draw_tools_module(rect: Rect2, active: bool, selected: bool, compact := false) -> void:
 	_draw_module_shell(rect, active, false, selected)
-	_draw_module_header(rect, "TOOLS", "02", compact)
+	_draw_module_header(rect, "TOOLS", compact)
 	var center := rect.get_center()
 	var spread := minf(48.0, rect.size.x * 0.24)
 	var y := center.y - (4.0 if compact else 20.0)
@@ -560,20 +549,16 @@ func _draw_tools_module(rect: Rect2, active: bool, selected: bool, compact := fa
 	for point in [Vector2(center.x - spread, y + 24.0), Vector2(center.x, y - 14.0), Vector2(center.x + spread, y + 18.0)]:
 		draw_circle(point, 6.0, SURFACE_RAISED)
 		draw_arc(point, 6.0, 0, TAU, 16, Color(MUTED, 0.9), 1.5, true)
-	_draw_status(rect, "READY", compact)
 
-func _draw_work_module(rect: Rect2, title: String, index: String, active: bool, selected: bool, compact := false) -> void:
+func _draw_work_module(rect: Rect2, title: String, active: bool, selected: bool, compact := false) -> void:
 	_draw_module_shell(rect, active, false, selected)
 	var font_size := 10 if compact else 11
 	_draw_label(rect.position + Vector2(14.0, 24.0), title, font_size, INK)
-	_draw_label(Vector2(rect.end.x - (23.0 if compact else 28.0), rect.position.y + 24.0), index, font_size - 1, MUTED)
 	var doc_rect := Rect2(Vector2(rect.get_center().x - 13.0, rect.position.y + rect.size.y * 0.36), Vector2(26.0, 30.0 if compact else 38.0))
 	draw_rect(doc_rect, Color(MUTED, 0.72), false, 1.2)
 	for line_index in range(3):
 		var line_y := doc_rect.position.y + 8.0 + float(line_index) * 7.0
 		draw_line(Vector2(doc_rect.position.x + 6.0, line_y), Vector2(doc_rect.end.x - 6.0, line_y), Color(MUTED, 0.55), 1.0)
-	if not compact:
-		_draw_label(Vector2(rect.position.x + 14.0, rect.end.y - 13.0), "RUNNING", 10, FLOW)
 
 func _draw_module_shell(rect: Rect2, active: bool, context := false, selected := false) -> void:
 	var outline := ACCENT if selected else FLOW if active else Color(ACCENT, 0.66) if context else LINE
@@ -584,13 +569,9 @@ func _draw_module_shell(rect: Rect2, active: bool, context := false, selected :=
 	closed.append(points[0])
 	draw_polyline(closed, outline, 2.4 if selected else 1.8 if active else 1.2, true)
 
-func _draw_module_header(rect: Rect2, title: String, index: String, compact: bool) -> void:
+func _draw_module_header(rect: Rect2, title: String, compact: bool) -> void:
 	var font_size := 12 if compact else 14
 	_draw_label(rect.position + Vector2(18.0, 28.0), title, font_size, MUTED)
-	_draw_label(Vector2(rect.end.x - (32.0 if compact else 38.0), rect.position.y + 28.0), index, font_size - 2, MUTED)
-
-func _draw_status(rect: Rect2, text: String, compact: bool) -> void:
-	_draw_label(Vector2(rect.get_center().x - float(text.length()) * (3.4 if compact else 4.2), rect.end.y - 18.0), text, 10 if compact else 12, FLOW)
 
 func _draw_dot_matrix(rect: Rect2, color: Color) -> void:
 	var columns := 8
