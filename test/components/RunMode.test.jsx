@@ -91,7 +91,9 @@ describe('RunMode', () => {
       source: frame.contentWindow,
     }))
     expect(screen.getByLabelText('IssueLab 当前运行阶段').textContent).toContain('观点与证据形成线程')
+    expect(screen.getByLabelText('IssueLab 当前运行阶段').textContent).toContain('DISCUSSION')
     expect(screen.getByText('03 / 04')).toBeDefined()
+    expect(screen.getByLabelText('项目运行进度：第 3 阶段，共 4 阶段').querySelectorAll('.is-active')).toHaveLength(3)
 
     fireEvent(window, new window.MessageEvent('message', {
       data: JSON.stringify({ type: 'gqy:run:project-complete', node: 'issuelab' }),

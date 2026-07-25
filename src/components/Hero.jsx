@@ -9,6 +9,7 @@ import LanguageIcon from './LanguageIcon.jsx'
 import AgentWorkflow from './AgentWorkflow.jsx'
 import GitCourseGraph from './GitCourseGraph.jsx'
 import { warmGodotRuntime } from '../utils/godotRuntime.js'
+import { observeHomeSections } from '../utils/homeSectionObservers.js'
 import './Hero.css'
 
 const loadRunMode = () => import('./RunMode.jsx')
@@ -113,6 +114,7 @@ function isExternal(url) {
 
 export default function Hero() {
   const { data: projectData, loading } = useProjectsData()
+  const rootRef = useRef(null)
   const directRunProject = useMemo(getDirectRunProject, [])
   const [activeSection, setActiveSection] = useState('about')
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
@@ -147,22 +149,8 @@ export default function Hero() {
   }, [projectData])
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('is-visible')
-            setActiveSection(e.target.id)
-          }
-        })
-      },
-      { rootMargin: '-30% 0px -60% 0px' }
-    )
-    document.querySelectorAll('.home-section').forEach(s => observer.observe(s))
-    return () => observer.disconnect()
+    return observeHomeSections(rootRef.current, setActiveSection)
   }, [loading])
-
-  const rootRef = useRef(null)
 
   // 名字标题:逐字上浮入场(mount 时执行一次)
   useGSAP(() => {

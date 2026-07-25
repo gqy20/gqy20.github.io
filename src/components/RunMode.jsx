@@ -232,7 +232,7 @@ function EvidencePanel({ node, shareState, onClose, onShare }) {
   if (!evidence) return null
 
   return (
-    <article className="run-mode__evidence" aria-labelledby={`run-evidence-${node.id}`}>
+    <article className="run-mode__evidence" data-project={node.id} aria-labelledby={`run-evidence-${node.id}`}>
       <header className="run-mode__evidence-head">
         <div>
           <span>{evidence.eyebrow}</span>
@@ -353,10 +353,18 @@ function ProjectRunCaption({ node, stage }) {
   if (!content) return null
 
   return (
-    <section className="run-mode__run-caption" aria-label={`${node.title} 当前运行阶段`} aria-live="polite">
-      <span>{String(safeStage + 1).padStart(2, '0')} / 04</span>
+    <section className="run-mode__run-caption" data-stage={safeStage} aria-label={`${node.title} 当前运行阶段`} aria-live="polite">
+      <div className="run-mode__run-caption-head">
+        <span>{content.label}</span>
+        <b>{String(safeStage + 1).padStart(2, '0')} / 04</b>
+      </div>
       <h3>{content.title}</h3>
       <p>{content.detail}</p>
+      <div className="run-mode__run-meter" aria-label={`项目运行进度：第 ${safeStage + 1} 阶段，共 4 阶段`}>
+        {trace.stages.map((item, index) => (
+          <i key={item.label} className={index <= safeStage ? 'is-active' : ''} aria-hidden="true" />
+        ))}
+      </div>
     </section>
   )
 }
@@ -738,7 +746,7 @@ export default function RunMode({ open, onClose, projects = [], initialProject =
           )}
 
           {runtimeState === 'ready' && experienceMode === 'explore' && projectRun.status === 'running' && (
-            <ProjectRunCaption node={selected} stage={projectRun.stage} />
+            <ProjectRunCaption key={`${selected.id}-${projectRun.stage}`} node={selected} stage={projectRun.stage} />
           )}
 
           {runtimeState === 'ready' && experienceMode === 'explore' && pathState === 'running' && projectRun.status !== 'running' && (

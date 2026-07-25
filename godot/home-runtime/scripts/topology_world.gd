@@ -10,6 +10,7 @@ const LINE := Color(0.588, 0.784, 1.0, 0.18)
 const LINE_FAINT := Color(0.588, 0.784, 1.0, 0.08)
 const ACCENT := Color("ffb86b")
 const FLOW := Color("63d9ff")
+const VERIFIED := Color("b8f26d")
 
 var phase := 0.04
 var target_phase := -1.0
@@ -25,12 +26,12 @@ var journey_running := false
 var journey_progress := 0.0
 var journey_stage := -1
 var journey_target := "issuelab"
-var journey_duration := 9.2
+var journey_duration := 6.4
 var project_run_running := false
 var project_view_active := false
 var project_run_progress := 0.0
 var project_run_stage := -1
-var project_run_duration := 6.0
+var project_run_duration := 6.8
 var hit_areas: Dictionary = {}
 var message_callback
 
@@ -204,9 +205,65 @@ func _draw_journey_world(size: Vector2) -> void:
 func _project_stage_progress(stage_index: int) -> float:
 	return clampf(project_run_progress * 4.0 - float(stage_index), 0.0, 1.0)
 
+func _ease_out_expo(value: float) -> float:
+	var safe_value := clampf(value, 0.0, 1.0)
+	if safe_value >= 1.0:
+		return 1.0
+	return 1.0 - pow(2.0, -10.0 * safe_value)
+
+func _ease_in_out_cubic(value: float) -> float:
+	var safe_value := clampf(value, 0.0, 1.0)
+	if safe_value < 0.5:
+		return 4.0 * safe_value * safe_value * safe_value
+	return 1.0 - pow(-2.0 * safe_value + 2.0, 3.0) / 2.0
+
+func _rect_lerp(from_rect: Rect2, to_rect: Rect2, weight: float) -> Rect2:
+	var safe_weight := clampf(weight, 0.0, 1.0)
+	return Rect2(from_rect.position.lerp(to_rect.position, safe_weight), from_rect.size.lerp(to_rect.size, safe_weight))
+
+func _draw_project_atmosphere(size: Vector2) -> void:
+	var stage_centers := [
+		Vector2(size.x * 0.18, size.y * 0.5),
+		Vector2(size.x * 0.5, size.y * 0.5),
+		Vector2(size.x * 0.56, size.y * 0.5),
+		Vector2(size.x * 0.84, size.y * 0.5),
+	]
+	var safe_stage := clampi(project_run_stage, 0, stage_centers.size() - 1)
+	var local_progress := _project_stage_progress(safe_stage)
+	var focus: Vector2 = stage_centers[safe_stage]
+	var stage_color := VERIFIED if safe_stage == 3 else ACCENT if safe_stage == 0 else FLOW
+
+	for ring in range(4):
+		var radius := 32.0 + float(ring) * 42.0 + local_progress * 72.0
+		var alpha := maxf(0.0, 0.12 - float(ring) * 0.021) * (1.0 - local_progress * 0.72)
+		draw_arc(focus, radius, 0.0, TAU, 64, Color(stage_color, alpha), 1.0, true)
+
+	var scan_x := lerpf(-size.x * 0.12, size.x * 1.12, fmod(project_run_progress * 3.0, 1.0))
+	draw_line(Vector2(scan_x, size.y * 0.12), Vector2(scan_x, size.y * 0.88), Color(stage_color, 0.055), 1.0)
+	for offset in [-18.0, 18.0]:
+		draw_line(Vector2(0.0, focus.y + offset), Vector2(size.x, focus.y + offset), Color(stage_color, 0.026), 1.0)
+
+func _draw_role_node(point: Vector2, label: String, color: Color, intensity: float, radius := 27.0) -> void:
+	var safe_intensity := clampf(intensity, 0.0, 1.0)
+	draw_circle(point, radius + 9.0, Color(color, 0.025 + safe_intensity * 0.055))
+	draw_circle(point, radius, Color(SURFACE_RAISED, 0.88 + safe_intensity * 0.1))
+	draw_arc(point, radius, -PI * 0.45, PI * (1.15 + safe_intensity * 0.7), 32, Color(color, 0.3 + safe_intensity * 0.68), 2.0, true)
+	draw_circle(point, 3.5 + safe_intensity * 2.0, color)
+	_draw_label(point + Vector2(-float(label.length()) * 2.7, radius + 22.0), label, 9, Color(MUTED, 0.68 + safe_intensity * 0.3))
+
+func _draw_packet(from: Vector2, to: Vector2, progress: float, color: Color, size := 5.0) -> void:
+	var safe_progress := clampf(progress, 0.0, 1.0)
+	if safe_progress <= 0.001:
+		return
+	var point := from.lerp(to, _ease_in_out_cubic(safe_progress))
+	var previous := from.lerp(to, _ease_in_out_cubic(maxf(0.0, safe_progress - 0.08)))
+	draw_line(previous, point, Color(color, 0.36), 2.0, true)
+	draw_rect(Rect2(point - Vector2(size, size), Vector2(size * 2.0, size * 2.0)), color, true)
+
 func _draw_project_run_world(size: Vector2) -> void:
 	hit_areas.clear()
-	_draw_journey_grid(size, project_run_progress * size.x * 0.24)
+	_draw_journey_grid(size, project_run_progress * size.x * 0.42)
+	_draw_project_atmosphere(size)
 	match selected_node:
 		"trumanworld": _draw_truman_run(size)
 		"article-mcp": _draw_article_run(size)
@@ -214,9 +271,12 @@ func _draw_project_run_world(size: Vector2) -> void:
 
 func _draw_truman_run(size: Vector2) -> void:
 	var center := Vector2(size.x * 0.53, size.y * 0.51)
-	var event_rect := Rect2(Vector2(size.x * 0.07, center.y - 64.0), Vector2(size.x * 0.2, 128.0))
-	var ledger_rect := Rect2(Vector2(size.x * 0.79, center.y - 106.0), Vector2(size.x * 0.16, 212.0))
-	var agents := [
+	var event_target := Rect2(Vector2(size.x * 0.065, center.y - 68.0), Vector2(size.x * 0.205, 136.0))
+	var event_start := Rect2(Vector2(-event_target.size.x - 20.0, event_target.position.y), event_target.size)
+	var event_progress := _ease_out_expo(_project_stage_progress(0))
+	var event_rect := _rect_lerp(event_start, event_target, event_progress)
+	var ledger_target := Rect2(Vector2(size.x * 0.785, center.y - 112.0), Vector2(size.x * 0.17, 224.0))
+	var agent_targets := [
 		center + Vector2(-92.0, -116.0),
 		center + Vector2(104.0, -88.0),
 		center + Vector2(126.0, 92.0),
@@ -228,93 +288,146 @@ func _draw_truman_run(size: Vector2) -> void:
 	_draw_label(event_rect.position + Vector2(18.0, 58.0), "A NEW SIGNAL", 17, INK)
 	_draw_label(event_rect.position + Vector2(18.0, 84.0), "enters the timeline", 11, MUTED)
 
-	var signal_progress := _project_stage_progress(0)
-	var signal_end := center.lerp(event_rect.get_center(), 1.0 - signal_progress)
-	draw_line(event_rect.get_center(), signal_end, Color(FLOW, 0.82), 2.0, true)
-	draw_circle(signal_end, 6.0, ACCENT)
+	draw_line(event_rect.get_center(), center, Color(ACCENT, 0.18 + event_progress * 0.5), 1.5, true)
+	for packet_index in range(4):
+		var packet_progress := clampf(_project_stage_progress(0) * 1.35 - float(packet_index) * 0.12, 0.0, 1.0)
+		_draw_packet(event_rect.get_center(), center, packet_progress, ACCENT, 3.0 + float(packet_index % 2))
 
-	var agent_alpha := _project_stage_progress(1)
-	for index in range(agents.size()):
-		var point: Vector2 = agents[index]
-		draw_line(center, point, Color(FLOW, 0.18 + agent_alpha * 0.42), 1.4, true)
-		draw_circle(point, 19.0, Color(SURFACE_RAISED, 0.92))
-		draw_arc(point, 19.0, 0.0, TAU, 28, Color(FLOW, 0.22 + agent_alpha * 0.68), 1.8, true)
-		_draw_label(point + Vector2(-7.0, 5.0), "A%02d" % (index + 1), 9, MUTED)
+	var agent_progress := _project_stage_progress(1)
+	var agents: Array[Vector2] = []
+	for index in range(agent_targets.size()):
+		var split := _ease_out_expo(clampf(agent_progress * 1.25 - float(index) * 0.09, 0.0, 1.0))
+		var point: Vector2 = center.lerp(agent_targets[index], split)
+		agents.append(point)
+		if split > 0.001:
+			draw_line(center, point, Color(FLOW, 0.16 + split * 0.44), 1.4, true)
+			_draw_role_node(point, "A%02d" % (index + 1), FLOW, split, 19.0)
 
-	draw_circle(center, 36.0, Color(ACCENT, 0.08))
-	draw_arc(center, 36.0, 0.0, TAU, 36, ACCENT, 2.0, true)
+	draw_circle(center, 36.0 + agent_progress * 8.0, Color(ACCENT, 0.08))
+	draw_arc(center, 36.0 + agent_progress * 8.0, -PI * 0.5, PI * (1.1 + agent_progress), 42, ACCENT, 2.0, true)
 	_draw_label(center + Vector2(-21.0, 5.0), "STATE", 10, INK)
 
 	var governance_progress := _project_stage_progress(2)
-	for ring in range(3):
-		var radius := 54.0 + float(ring) * 38.0 + governance_progress * 14.0
-		draw_arc(center, radius, 0.0, TAU, 56, Color(FLOW, (0.22 - float(ring) * 0.045) * governance_progress), 1.0, true)
-	for index in range(agents.size()):
-		var next_index := (index + 1) % agents.size()
-		draw_line(agents[index], agents[next_index], Color(ACCENT, 0.42 * governance_progress), 1.2, true)
+	if governance_progress > 0.001:
+		for ring in range(3):
+			var radius := 58.0 + float(ring) * 42.0 + sin(governance_progress * PI + float(ring)) * 10.0
+			draw_arc(center, radius, -PI * 0.5 + governance_progress * float(ring + 1), PI * (0.45 + governance_progress * 1.5), 56, Color(FLOW, (0.26 - float(ring) * 0.052) * governance_progress), 1.4, true)
+		for index in range(agents.size()):
+			var next_index := (index + 1) % agents.size()
+			draw_line(agents[index], agents[next_index], Color(ACCENT, 0.5 * governance_progress), 1.4, true)
+			_draw_packet(agents[index], agents[next_index], fmod(governance_progress * 1.6 + float(index) * 0.19, 1.0), ACCENT, 2.5)
 
 	var evidence_progress := _project_stage_progress(3)
-	_draw_module_shell(ledger_rect, project_run_stage == 3, false, evidence_progress > 0.92)
-	_draw_label(ledger_rect.position + Vector2(16.0, 28.0), "WORLD LEDGER", 11, FLOW)
-	for row in range(5):
-		var row_y := ledger_rect.position.y + 54.0 + float(row) * 28.0
-		draw_rect(Rect2(Vector2(ledger_rect.position.x + 16.0, row_y), Vector2(6.0, 6.0)), ACCENT if row < 3 else FLOW)
-		draw_line(Vector2(ledger_rect.position.x + 32.0, row_y + 3.0), Vector2(ledger_rect.end.x - 18.0, row_y + 3.0), Color(MUTED, 0.22 + evidence_progress * 0.46), 1.0)
-	_draw_label(Vector2(ledger_rect.position.x + 16.0, ledger_rect.end.y - 18.0), "STATE COMMITTED", 10, Color(FLOW, evidence_progress))
+	var ledger_seed := Rect2(center - Vector2(20.0, 20.0), Vector2(40.0, 40.0))
+	var ledger_rect := _rect_lerp(ledger_seed, ledger_target, _ease_out_expo(evidence_progress))
+	if evidence_progress > 0.001:
+		for agent in agents:
+			draw_line(agent, ledger_rect.get_center(), Color(VERIFIED, evidence_progress * 0.32), 1.2, true)
+		_draw_module_shell(ledger_rect, project_run_stage == 3, false, evidence_progress > 0.88)
+		_draw_label(ledger_rect.position + Vector2(16.0, 28.0), "WORLD LEDGER", 11, FLOW)
+		for row in range(5):
+			var row_y := ledger_rect.position.y + 54.0 + float(row) * 28.0
+			var row_progress := clampf(evidence_progress * 1.45 - float(row) * 0.1, 0.0, 1.0)
+			draw_rect(Rect2(Vector2(ledger_rect.position.x + 16.0, row_y), Vector2(6.0, 6.0)), Color(VERIFIED if row < 3 else FLOW, row_progress))
+			draw_line(Vector2(ledger_rect.position.x + 32.0, row_y + 3.0), Vector2(lerpf(ledger_rect.position.x + 32.0, ledger_rect.end.x - 18.0, row_progress), row_y + 3.0), Color(MUTED, 0.72 * row_progress), 1.0)
+		_draw_label(Vector2(ledger_rect.position.x + 16.0, ledger_rect.end.y - 18.0), "STATE COMMITTED", 10, Color(VERIFIED, evidence_progress))
+		if evidence_progress > 0.72:
+			var seal_progress := (evidence_progress - 0.72) / 0.28
+			draw_arc(ledger_rect.get_center(), 42.0 + seal_progress * 32.0, 0.0, TAU, 48, Color(VERIFIED, 0.62 * (1.0 - seal_progress)), 2.0, true)
 
 func _draw_issuelab_run(size: Vector2) -> void:
 	var center_y := size.y * 0.5
-	var issue_rect := Rect2(Vector2(size.x * 0.06, center_y - 86.0), Vector2(size.x * 0.21, 172.0))
-	var result_rect := Rect2(Vector2(size.x * 0.77, center_y - 86.0), Vector2(size.x * 0.18, 172.0))
-	var agent_x := size.x * 0.49
-	var agents := [
-		Vector2(agent_x, center_y - 112.0),
-		Vector2(agent_x + 82.0, center_y),
-		Vector2(agent_x, center_y + 112.0),
+	var hub := Vector2(size.x * 0.535, center_y)
+	var issue_target := Rect2(Vector2(size.x * 0.055, center_y - 94.0), Vector2(size.x * 0.22, 188.0))
+	var issue_start := Rect2(Vector2(-issue_target.size.x - 24.0, issue_target.position.y), issue_target.size)
+	var issue_progress := _ease_out_expo(_project_stage_progress(0))
+	var issue_rect := _rect_lerp(issue_start, issue_target, issue_progress)
+	var result_target := Rect2(Vector2(size.x * 0.79, center_y - 108.0), Vector2(size.x * 0.165, 216.0))
+	var agent_targets := [
+		Vector2(size.x * 0.49, center_y - 128.0),
+		Vector2(size.x * 0.625, center_y),
+		Vector2(size.x * 0.49, center_y + 128.0),
 	]
 
 	_draw_module_shell(issue_rect, project_run_stage == 0, true, project_run_stage == 0)
 	_draw_label(issue_rect.position + Vector2(18.0, 30.0), "GITHUB ISSUE / 188", 11, ACCENT)
 	for row in range(4):
 		var width := issue_rect.size.x * (0.72 if row == 0 else 0.54 + float(row % 2) * 0.12)
-		draw_line(issue_rect.position + Vector2(18.0, 62.0 + row * 20.0), issue_rect.position + Vector2(18.0 + width, 62.0 + row * 20.0), Color(MUTED, 0.62), 1.3)
+		var row_progress := clampf(issue_progress * 1.35 - float(row) * 0.1, 0.0, 1.0)
+		draw_line(issue_rect.position + Vector2(18.0, 62.0 + row * 20.0), issue_rect.position + Vector2(18.0 + width * row_progress, 62.0 + row * 20.0), Color(MUTED, 0.62), 1.3)
 	_draw_label(issue_rect.position + Vector2(18.0, issue_rect.size.y - 20.0), "RESEARCH QUESTION", 10, FLOW)
 
-	var dispatch_progress := _project_stage_progress(0)
-	var dispatch_end: Vector2 = agents[1].lerp(issue_rect.get_center(), 1.0 - dispatch_progress)
-	draw_line(issue_rect.get_center(), dispatch_end, Color(FLOW, 0.72), 2.0, true)
-	draw_circle(dispatch_end, 6.0, ACCENT)
+	draw_line(issue_rect.get_center(), hub, Color(ACCENT, 0.16 + issue_progress * 0.45), 1.5, true)
+	for packet_index in range(5):
+		var packet_progress := clampf(_project_stage_progress(0) * 1.4 - float(packet_index) * 0.1, 0.0, 1.0)
+		_draw_packet(issue_rect.get_center(), hub, packet_progress, ACCENT if packet_index < 2 else FLOW, 3.0)
+	var intake_ring := 18.0 + issue_progress * 24.0
+	draw_arc(hub, intake_ring, -PI * 0.5, PI * (0.5 + issue_progress * 1.5), 40, Color(ACCENT, 0.82), 2.0, true)
+	_draw_label(hub + Vector2(-31.0, 5.0), "DISPATCH", 9, INK)
 
 	var agent_progress := _project_stage_progress(1)
 	var agent_labels := ["RESEARCH", "REVIEW", "SYNTHESIS"]
-	for index in range(agents.size()):
-		var point: Vector2 = agents[index]
-		draw_circle(point, 27.0, Color(SURFACE_RAISED, 0.94))
-		draw_arc(point, 27.0, 0.0, TAU, 32, Color(FLOW, 0.3 + agent_progress * 0.65), 1.8, true)
-		_draw_label(point + Vector2(-26.0, 49.0), agent_labels[index], 9, MUTED)
+	var agents: Array[Vector2] = []
+	for index in range(agent_targets.size()):
+		var split := _ease_out_expo(clampf(agent_progress * 1.3 - float(index) * 0.12, 0.0, 1.0))
+		var point: Vector2 = hub.lerp(agent_targets[index], split)
+		agents.append(point)
+		if split > 0.001:
+			draw_line(hub, point, Color(FLOW, 0.12 + split * 0.44), 1.4, true)
+			_draw_role_node(point, agent_labels[index], FLOW if index != 1 else ACCENT, split)
+		if split < 1.0 and split > 0.05:
+			draw_circle(hub.lerp(point, 0.48), 2.5, Color(FLOW, split))
 
 	var debate_progress := _project_stage_progress(2)
-	for index in range(agents.size()):
-		var next_index := (index + 1) % agents.size()
-		draw_line(agents[index], agents[next_index], Color(ACCENT, 0.22 + debate_progress * 0.58), 2.0, true)
-		var pulse: Vector2 = agents[index].lerp(agents[next_index], fmod(project_run_progress * 5.0 + float(index) * 0.28, 1.0))
-		draw_circle(pulse, 4.0, FLOW)
+	if debate_progress > 0.001:
+		for index in range(agents.size()):
+			var next_index := (index + 1) % agents.size()
+			draw_line(agents[index], agents[next_index], Color(ACCENT, 0.12 + debate_progress * 0.62), 2.0, true)
+			for pulse_index in range(2):
+				var pulse_progress := fmod(debate_progress * 1.8 + float(index) * 0.23 + float(pulse_index) * 0.52, 1.0)
+				_draw_packet(agents[index], agents[next_index], pulse_progress, FLOW if pulse_index == 0 else ACCENT, 2.5)
+	var claim_offsets := [Vector2(-44.0, -18.0), Vector2(20.0, -42.0), Vector2(18.0, 34.0), Vector2(-52.0, 48.0)]
+	for claim_index in range(claim_offsets.size()):
+		var claim_progress := clampf(debate_progress * 1.5 - float(claim_index) * 0.12, 0.0, 1.0)
+		var claim_position: Vector2 = hub + claim_offsets[claim_index] * _ease_out_expo(claim_progress)
+		var claim_color := VERIFIED if claim_index == 1 else ACCENT if claim_index == 3 else FLOW
+		if claim_progress > 0.001:
+			draw_rect(Rect2(claim_position - Vector2(12.0, 4.0), Vector2(24.0, 8.0)), Color(claim_color, 0.12 + claim_progress * 0.16), true)
+			draw_line(claim_position - Vector2(8.0, 0.0), claim_position + Vector2(8.0, 0.0), Color(claim_color, claim_progress), 1.2)
+	if debate_progress > 0.0:
+		draw_arc(hub, 48.0 + sin(debate_progress * PI) * 12.0, debate_progress * PI, debate_progress * PI + PI * 1.45, 42, Color(ACCENT, debate_progress * 0.72), 2.0, true)
+		_draw_label(hub + Vector2(-29.0, 74.0), "MODERATOR", 9, Color(MUTED, debate_progress))
 
 	var result_progress := _project_stage_progress(3)
-	_draw_module_shell(result_rect, project_run_stage == 3, false, result_progress > 0.92)
-	_draw_label(result_rect.position + Vector2(16.0, 30.0), "VERIFIED THREAD", 11, FLOW)
-	for row in range(3):
-		var row_y := result_rect.position.y + 62.0 + float(row) * 26.0
-		draw_rect(Rect2(Vector2(result_rect.position.x + 16.0, row_y - 4.0), Vector2(7.0, 7.0)), ACCENT)
-		draw_line(Vector2(result_rect.position.x + 34.0, row_y), Vector2(result_rect.end.x - 18.0, row_y), Color(MUTED, 0.3 + result_progress * 0.45), 1.2)
-	_draw_label(result_rect.position + Vector2(16.0, result_rect.size.y - 18.0), "PUBLIC EVIDENCE", 10, Color(FLOW, result_progress))
-	draw_line(agents[1], result_rect.get_center(), Color(FLOW, 0.24 + result_progress * 0.66), 2.0, true)
+	var result_seed := Rect2(hub - Vector2(20.0, 20.0), Vector2(40.0, 40.0))
+	var result_rect := _rect_lerp(result_seed, result_target, _ease_out_expo(result_progress))
+	var decision_point := hub.lerp(result_rect.get_center(), _ease_in_out_cubic(result_progress))
+	if result_progress > 0.001:
+		for agent in agents:
+			draw_line(agent, decision_point, Color(VERIFIED, result_progress * 0.42), 1.5, true)
+			draw_circle(agent.lerp(decision_point, _ease_in_out_cubic(result_progress)), 3.0, VERIFIED)
+		draw_line(hub, result_rect.get_center(), Color(VERIFIED, 0.18 + result_progress * 0.68), 2.2, true)
+		_draw_module_shell(result_rect, project_run_stage == 3, false, result_progress > 0.84)
+		_draw_label(result_rect.position + Vector2(16.0, 30.0), "VERIFIED THREAD", 11, FLOW)
+		for row in range(4):
+			var row_y := result_rect.position.y + 62.0 + float(row) * 26.0
+			var row_progress := clampf(result_progress * 1.5 - float(row) * 0.1, 0.0, 1.0)
+			draw_rect(Rect2(Vector2(result_rect.position.x + 16.0, row_y - 4.0), Vector2(7.0, 7.0)), Color(VERIFIED if row == 3 else ACCENT, row_progress))
+			draw_line(Vector2(result_rect.position.x + 34.0, row_y), Vector2(lerpf(result_rect.position.x + 34.0, result_rect.end.x - 18.0, row_progress), row_y), Color(MUTED, 0.75 * row_progress), 1.2)
+		_draw_label(result_rect.position + Vector2(16.0, result_rect.size.y - 18.0), "PUBLIC EVIDENCE", 10, Color(VERIFIED, result_progress))
+		if result_progress > 0.7:
+			var seal_progress := (result_progress - 0.7) / 0.3
+			for ring in range(3):
+				draw_arc(result_rect.get_center(), 34.0 + float(ring) * 20.0 + seal_progress * 26.0, 0.0, TAU, 48, Color(VERIFIED, (0.38 - float(ring) * 0.08) * (1.0 - seal_progress)), 1.6, true)
 
 func _draw_article_run(size: Vector2) -> void:
 	var center_y := size.y * 0.5
-	var query_rect := Rect2(Vector2(size.x * 0.05, center_y - 58.0), Vector2(size.x * 0.18, 116.0))
+	var query_target := Rect2(Vector2(size.x * 0.05, center_y - 62.0), Vector2(size.x * 0.18, 124.0))
+	var query_start := Rect2(Vector2(-query_target.size.x - 20.0, query_target.position.y), query_target.size)
+	var query_progress := _ease_out_expo(_project_stage_progress(0))
+	var query_rect := _rect_lerp(query_start, query_target, query_progress)
 	var filter_center := Vector2(size.x * 0.61, center_y)
-	var response_rect := Rect2(Vector2(size.x * 0.78, center_y - 102.0), Vector2(size.x * 0.17, 204.0))
+	var response_target := Rect2(Vector2(size.x * 0.78, center_y - 106.0), Vector2(size.x * 0.17, 212.0))
 	var source_x := size.x * 0.36
 
 	_draw_module_shell(query_rect, project_run_stage == 0, true, project_run_stage == 0)
@@ -324,12 +437,19 @@ func _draw_article_run(size: Vector2) -> void:
 
 	var source_progress := _project_stage_progress(1)
 	var source_labels := ["CROSSREF", "PUBMED", "OPENALEX"]
+	var source_rects: Array[Rect2] = []
 	for index in range(3):
-		var source_rect := Rect2(Vector2(source_x, center_y - 116.0 + float(index) * 82.0), Vector2(size.x * 0.15, 58.0))
-		_draw_module_shell(source_rect, project_run_stage == 1, false, false)
-		_draw_label(source_rect.position + Vector2(14.0, 24.0), source_labels[index], 10, MUTED)
-		_draw_label(source_rect.position + Vector2(14.0, 44.0), "%02d records" % (23 - index * 5), 9, Color(FLOW, source_progress))
-		draw_line(query_rect.get_center(), source_rect.get_center(), Color(FLOW, 0.18 + source_progress * 0.42), 1.2, true)
+		var source_target := Rect2(Vector2(source_x, center_y - 116.0 + float(index) * 82.0), Vector2(size.x * 0.15, 58.0))
+		var source_stage := _ease_out_expo(clampf(source_progress * 1.35 - float(index) * 0.14, 0.0, 1.0))
+		var source_seed := Rect2(query_rect.get_center() - Vector2(18.0, 12.0), Vector2(36.0, 24.0))
+		var source_rect := _rect_lerp(source_seed, source_target, source_stage)
+		source_rects.append(source_rect)
+		if source_stage > 0.001:
+			_draw_module_shell(source_rect, project_run_stage == 1, false, false)
+			_draw_label(source_rect.position + Vector2(14.0, 24.0), source_labels[index], 10, Color(MUTED, source_stage))
+			_draw_label(source_rect.position + Vector2(14.0, 44.0), "%02d records" % (23 - index * 5), 9, Color(FLOW, source_stage))
+			draw_line(query_rect.get_center(), source_rect.get_center(), Color(FLOW, 0.12 + source_stage * 0.48), 1.2, true)
+			_draw_packet(query_rect.get_center(), source_rect.get_center(), source_stage, FLOW, 2.5)
 
 	var filter_progress := _project_stage_progress(2)
 	var funnel := PackedVector2Array([
@@ -342,19 +462,36 @@ func _draw_article_run(size: Vector2) -> void:
 	])
 	var funnel_closed := PackedVector2Array(funnel)
 	funnel_closed.append(funnel[0])
-	draw_colored_polygon(funnel, Color(FLOW, 0.035 + filter_progress * 0.06))
-	draw_polyline(funnel_closed, Color(FLOW, 0.25 + filter_progress * 0.62), 1.8, true)
-	_draw_label(filter_center + Vector2(-31.0, -82.0), "FILTER", 10, FLOW)
-	_draw_label(filter_center + Vector2(-24.0, 2.0), "DEDUP", 9, MUTED)
+	if filter_progress > 0.001:
+		draw_colored_polygon(funnel, Color(FLOW, 0.035 + filter_progress * 0.06))
+		draw_polyline(funnel_closed, Color(FLOW, 0.25 + filter_progress * 0.62), 1.8, true)
+		_draw_label(filter_center + Vector2(-31.0, -82.0), "FILTER", 10, Color(FLOW, filter_progress))
+		_draw_label(filter_center + Vector2(-24.0, 2.0), "DEDUP", 9, Color(MUTED, filter_progress))
+		for source_index in range(source_rects.size()):
+			var source_center: Vector2 = source_rects[source_index].get_center()
+			draw_line(source_center, filter_center + Vector2(0.0, -54.0), Color(FLOW, filter_progress * 0.42), 1.2, true)
+			for particle_index in range(2):
+				var particle_progress := fmod(filter_progress * 1.7 + float(source_index) * 0.21 + float(particle_index) * 0.48, 1.0)
+				_draw_packet(source_center, filter_center + Vector2(0.0, -54.0), particle_progress, FLOW if particle_index == 0 else ACCENT, 2.0)
+		for particle_index in range(5):
+			var drop_progress := fmod(filter_progress * 1.8 + float(particle_index) * 0.17, 1.0)
+			var drop_from := filter_center + Vector2(0.0, -48.0)
+			var drop_to := filter_center + Vector2(0.0, 58.0)
+			_draw_packet(drop_from, drop_to, drop_progress, VERIFIED if particle_index == 4 else FLOW, 2.0)
 
 	var response_progress := _project_stage_progress(3)
-	draw_line(filter_center + Vector2(16.0, 62.0), response_rect.get_center(), Color(FLOW, 0.22 + response_progress * 0.66), 2.0, true)
-	_draw_module_shell(response_rect, project_run_stage == 3, false, response_progress > 0.92)
-	_draw_label(response_rect.position + Vector2(16.0, 28.0), "STRUCTURED RESULT", 10, FLOW)
-	for row in range(5):
-		var row_y := response_rect.position.y + 56.0 + float(row) * 25.0
-		draw_line(Vector2(response_rect.position.x + 16.0, row_y), Vector2(response_rect.end.x - 18.0 - float(row % 2) * 22.0, row_y), Color(MUTED, 0.28 + response_progress * 0.5), 1.2)
-	_draw_label(response_rect.position + Vector2(16.0, response_rect.size.y - 18.0), "RETURN TO AGENT", 10, Color(ACCENT, response_progress))
+	var response_seed := Rect2(filter_center - Vector2(18.0, 18.0), Vector2(36.0, 36.0))
+	var response_rect := _rect_lerp(response_seed, response_target, _ease_out_expo(response_progress))
+	if response_progress > 0.001:
+		draw_line(filter_center + Vector2(16.0, 62.0), response_rect.get_center(), Color(VERIFIED, 0.16 + response_progress * 0.72), 2.0, true)
+		_draw_packet(filter_center + Vector2(16.0, 62.0), response_rect.get_center(), response_progress, VERIFIED, 4.0)
+		_draw_module_shell(response_rect, project_run_stage == 3, false, response_progress > 0.92)
+		_draw_label(response_rect.position + Vector2(16.0, 28.0), "STRUCTURED RESULT", 10, Color(FLOW, response_progress))
+		for row in range(5):
+			var row_y := response_rect.position.y + 56.0 + float(row) * 25.0
+			var row_progress := clampf(response_progress * 1.45 - float(row) * 0.09, 0.0, 1.0)
+			draw_line(Vector2(response_rect.position.x + 16.0, row_y), Vector2(lerpf(response_rect.position.x + 16.0, response_rect.end.x - 18.0 - float(row % 2) * 22.0, row_progress), row_y), Color(MUTED, 0.76 * row_progress), 1.2)
+		_draw_label(response_rect.position + Vector2(16.0, response_rect.size.y - 18.0), "RETURN TO AGENT", 10, Color(VERIFIED, response_progress))
 
 func _draw_wide_world(size: Vector2) -> void:
 	var top := maxf(74.0, size.y * 0.13)

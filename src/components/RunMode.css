@@ -14,6 +14,7 @@
   --run-line-faint: rgba(150, 200, 255, 0.08);
   --run-accent: #ffb86b;
   --run-flow: #63d9ff;
+  --run-verified: #b8f26d;
   --run-danger: #ff7979;
 
   position: fixed;
@@ -2128,41 +2129,77 @@
 
 .run-mode__run-caption {
   position: absolute;
-  left: clamp(1.5rem, 6vw, 6rem);
-  bottom: clamp(3.5rem, 10vh, 6.5rem);
+  top: clamp(5.2rem, 11vh, 6.5rem);
+  left: clamp(1.25rem, 3vw, 3rem);
+  bottom: auto;
   z-index: 3;
-  width: min(38rem, calc(100% - 3rem));
+  width: min(25rem, calc(100% - 2.5rem));
+  padding: 0.85rem 1rem 0.95rem;
+  border-top: 1px solid rgba(255, 184, 107, 0.54);
   color: var(--run-ink);
+  background: linear-gradient(100deg, rgba(6, 9, 15, 0.88), rgba(6, 9, 15, 0.48) 68%, transparent);
   pointer-events: none;
   animation: run-caption-enter 460ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.run-mode__run-caption > span {
+.run-mode__run-caption-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.run-mode__run-caption-head span,
+.run-mode__run-caption-head b {
   color: var(--run-accent);
   font-family: var(--dt-font-mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.1em;
+  font-size: 0.53rem;
+  font-weight: 500;
+  letter-spacing: 0.075em;
+}
+
+.run-mode__run-caption-head b {
+  color: rgba(237, 241, 247, 0.5);
 }
 
 .run-mode__run-caption h3 {
-  max-width: 15ch;
-  margin: 0.7rem 0 0;
+  max-width: 22ch;
+  margin: 0.48rem 0 0;
   font-family: var(--dt-font-sans);
-  font-size: clamp(2.25rem, 5vw, 4.8rem);
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
   font-weight: 620;
-  line-height: 0.98;
-  letter-spacing: -0.045em;
-  text-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.45);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
   text-wrap: balance;
 }
 
 .run-mode__run-caption p {
-  max-width: 42ch;
-  margin: 1rem 0 0;
+  max-width: 48ch;
+  margin: 0.55rem 0 0;
   color: rgba(237, 241, 247, 0.68);
   font-family: var(--dt-font-sans);
-  font-size: 0.82rem;
-  line-height: 1.65;
+  font-size: 0.68rem;
+  line-height: 1.55;
+}
+
+.run-mode__run-meter {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.35rem;
+}
+
+.run-mode__run-meter i {
+  height: 2px;
+  background: rgba(150, 200, 255, 0.14);
+}
+
+.run-mode__run-meter i.is-active {
+  background: var(--run-accent);
+}
+
+.run-mode__run-meter i:last-child.is-active {
+  background: var(--run-verified);
 }
 
 .run-mode__journey-copy {
@@ -2202,6 +2239,8 @@
 
 .run-mode__evidence {
   inset: 5rem clamp(1rem, 3vw, 2.75rem) clamp(1rem, 3vw, 2.75rem);
+  transform-origin: 88% 50%;
+  animation: run-evidence-unfold 760ms cubic-bezier(0.16, 1, 0.3, 1) 240ms both;
 }
 
 .run-mode__evidence-open {
@@ -2233,8 +2272,26 @@
 }
 
 @keyframes run-caption-enter {
-  from { opacity: 0; transform: translateY(1rem); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateX(-0.8rem); clip-path: inset(0 100% 0 0); }
+  to { opacity: 1; transform: translateX(0); clip-path: inset(0); }
+}
+
+@keyframes run-evidence-unfold {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+    clip-path: inset(39% 1% 39% 82% round 0.25rem);
+  }
+  42% {
+    opacity: 1;
+    transform: scale(0.975);
+    clip-path: inset(18% 0 18% 46% round 0.1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    clip-path: inset(0 round 0);
+  }
 }
 
 @media (max-width: 900px) {
@@ -2253,7 +2310,8 @@
 
   .run-mode__run-caption {
     left: 1.5rem;
-    bottom: 3.5rem;
+    top: 5rem;
+    bottom: auto;
   }
 
   .run-mode__evidence {
@@ -2324,12 +2382,13 @@
 
   .run-mode__run-caption {
     left: 1rem;
-    bottom: 2.5rem;
+    top: 4.5rem;
+    bottom: auto;
     width: calc(100% - 2rem);
   }
 
   .run-mode__run-caption h3 {
-    font-size: clamp(2rem, 11vw, 3rem);
+    font-size: clamp(1.2rem, 7vw, 1.75rem);
   }
 
   .run-mode__journey-copy {
@@ -2370,5 +2429,14 @@
   .run-mode__evidence-open {
     background: var(--run-bg-deeper);
     backdrop-filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .run-mode__run-caption,
+  .run-mode__evidence {
+    animation: none !important;
+    clip-path: none !important;
+    transform: none !important;
   }
 }
