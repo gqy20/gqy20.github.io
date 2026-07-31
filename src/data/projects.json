@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-07-31T08:27:20.562Z",
+  "lastUpdated": "2026-07-31T13:24:36.968Z",
   "totalRepositories": 49,
   "totalProjects": 45,
-  "totalRepositoryStars": 102,
-  "totalStars": 100,
-  "followers": 19,
+  "totalRepositoryStars": 103,
+  "totalStars": 101,
+  "followers": 20,
   "categories": [
     "MCP工具",
     "AI应用",
@@ -200,11 +200,11 @@
         "url": "https://github.com/gqy20/TrumanWorld",
         "homepage": "https://truman.gqy25.top/",
         "language": "Python",
-        "stars": 12,
+        "stars": 13,
         "forks": 2,
-        "issues": 16,
+        "issues": 19,
         "createdAt": "2026-03-07T09:33:56Z",
-        "updatedAt": "2026-07-31T08:25:43Z",
+        "updatedAt": "2026-07-31T09:14:53Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -226,12 +226,45 @@
           "typescript"
         ],
         "isArchived": false,
-        "size": 6604,
+        "size": 8237,
         "license": "MIT License",
         "latestRelease": null,
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
+      },
+      {
+        "id": 1285578893,
+        "name": "vid-agent",
+        "fullName": "gqy20/vid-agent",
+        "description": "AI 团队的视频工作台：manim (数学/算法) + Remotion (产品/营销) 双引擎，AI Agent 编排视频生产",
+        "url": "https://github.com/gqy20/vid-agent",
+        "homepage": null,
+        "language": "TypeScript",
+        "stars": 3,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-07-01T00:28:26Z",
+        "updatedAt": "2026-07-31T08:32:17Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 47109,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": {
+          "name": "git-course-v0.1.0",
+          "commit": "abb3bed2119d79998652e10011823c19d5f684b3",
+          "zipball_url": "https://api.github.com/repos/gqy20/vid-agent/zipball/refs/tags/git-course-v0.1.0",
+          "tarball_url": "https://api.github.com/repos/gqy20/vid-agent/tarball/refs/tags/git-course-v0.1.0"
+        },
+        "totalReleases": 0,
+        "totalTags": 1
       },
       {
         "id": 1126636339,
@@ -266,39 +299,6 @@
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
-      },
-      {
-        "id": 1285578893,
-        "name": "vid-agent",
-        "fullName": "gqy20/vid-agent",
-        "description": "AI 团队的视频工作台：manim (数学/算法) + Remotion (产品/营销) 双引擎，AI Agent 编排视频生产",
-        "url": "https://github.com/gqy20/vid-agent",
-        "homepage": null,
-        "language": "TypeScript",
-        "stars": 3,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-07-01T00:28:26Z",
-        "updatedAt": "2026-07-29T09:57:44Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 47059,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": {
-          "name": "git-course-v0.1.0",
-          "commit": "abb3bed2119d79998652e10011823c19d5f684b3",
-          "zipball_url": "https://api.github.com/repos/gqy20/vid-agent/zipball/refs/tags/git-course-v0.1.0",
-          "tarball_url": "https://api.github.com/repos/gqy20/vid-agent/tarball/refs/tags/git-course-v0.1.0"
-        },
-        "totalReleases": 0,
-        "totalTags": 1
       },
       {
         "id": 1130347783,
@@ -1612,11 +1612,11 @@
       "url": "https://github.com/gqy20/TrumanWorld",
       "homepage": "https://truman.gqy25.top/",
       "language": "Python",
-      "stars": 12,
+      "stars": 13,
       "forks": 2,
-      "issues": 16,
+      "issues": 19,
       "createdAt": "2026-03-07T09:33:56Z",
-      "updatedAt": "2026-07-31T08:25:43Z",
+      "updatedAt": "2026-07-31T09:14:53Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1638,12 +1638,45 @@
         "typescript"
       ],
       "isArchived": false,
-      "size": 6604,
+      "size": 8237,
       "license": "MIT License",
       "latestRelease": null,
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
+    },
+    {
+      "id": 1285578893,
+      "name": "vid-agent",
+      "fullName": "gqy20/vid-agent",
+      "description": "AI 团队的视频工作台：manim (数学/算法) + Remotion (产品/营销) 双引擎，AI Agent 编排视频生产",
+      "url": "https://github.com/gqy20/vid-agent",
+      "homepage": null,
+      "language": "TypeScript",
+      "stars": 3,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-07-01T00:28:26Z",
+      "updatedAt": "2026-07-31T08:32:17Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 47109,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": {
+        "name": "git-course-v0.1.0",
+        "commit": "abb3bed2119d79998652e10011823c19d5f684b3",
+        "zipball_url": "https://api.github.com/repos/gqy20/vid-agent/zipball/refs/tags/git-course-v0.1.0",
+        "tarball_url": "https://api.github.com/repos/gqy20/vid-agent/tarball/refs/tags/git-course-v0.1.0"
+      },
+      "totalReleases": 0,
+      "totalTags": 1
     },
     {
       "id": 1126636339,
@@ -1678,39 +1711,6 @@
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
-    },
-    {
-      "id": 1285578893,
-      "name": "vid-agent",
-      "fullName": "gqy20/vid-agent",
-      "description": "AI 团队的视频工作台：manim (数学/算法) + Remotion (产品/营销) 双引擎，AI Agent 编排视频生产",
-      "url": "https://github.com/gqy20/vid-agent",
-      "homepage": null,
-      "language": "TypeScript",
-      "stars": 3,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-07-01T00:28:26Z",
-      "updatedAt": "2026-07-29T09:57:44Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 47059,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": {
-        "name": "git-course-v0.1.0",
-        "commit": "abb3bed2119d79998652e10011823c19d5f684b3",
-        "zipball_url": "https://api.github.com/repos/gqy20/vid-agent/zipball/refs/tags/git-course-v0.1.0",
-        "tarball_url": "https://api.github.com/repos/gqy20/vid-agent/tarball/refs/tags/git-course-v0.1.0"
-      },
-      "totalReleases": 0,
-      "totalTags": 1
     },
     {
       "id": 1130347783,
