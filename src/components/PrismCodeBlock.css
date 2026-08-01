@@ -57,7 +57,7 @@
   color: var(--dt-dim);
   font-size: 12px;
   opacity: 0.9;
-  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-family: var(--dt-font-mono);
 }
 
 .prism-code-actions {
@@ -122,7 +122,7 @@
   opacity: 0.7;
   font-size: 14px;
   padding: 20px;
-  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-family: var(--dt-font-mono);
 }
 
 /* 代码内容区域 */
@@ -131,7 +131,7 @@
   padding: 20px;
   background: var(--dt-surface);
   color: var(--dt-ink);
-  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-family: var(--dt-font-mono);
   font-size: 14px;
   line-height: 1.6;
   overflow-x: auto;

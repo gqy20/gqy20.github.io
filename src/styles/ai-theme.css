@@ -28,12 +28,12 @@
   --ai-accent-glow   : rgba(255, 184, 107, 0.10);
   --ai-accent-line   : rgba(255, 184, 107, 0.35);
 
-  /* — Fonts — */
-  --ai-font-display  : 'Fraunces', 'Noto Serif SC', Georgia, serif;
-  --ai-font-body     : 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --ai-font-serif    : 'Noto Serif SC', 'Fraunces', Georgia, serif;
-  --ai-font-sans     : 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
-  --ai-font-mono     : 'Geist Mono', 'JetBrains Mono', ui-monospace, SFMono, monospace;
+  /* — Fonts: legacy aliases, canonical definitions live in App.css — */
+  --ai-font-display  : var(--dt-font-display);
+  --ai-font-body     : var(--dt-font-sans);
+  --ai-font-serif    : var(--dt-font-serif);
+  --ai-font-sans     : var(--dt-font-sans);
+  --ai-font-mono     : var(--dt-font-mono);
 }
 
 /* — Force dark page background — */

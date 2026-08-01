@@ -26,7 +26,7 @@
 
 .mermaid-loading {
   color: var(--dt-dim);
-  font-family: 'SF Mono', Monaco, Consolas, monospace;
+  font-family: var(--dt-font-mono);
   font-size: 0.85rem;
   padding: 1rem;
 }
@@ -43,7 +43,7 @@
   color: var(--dt-dim);
   white-space: pre-wrap;
   word-break: break-all;
-  font-family: 'SF Mono', Monaco, Consolas, monospace;
+  font-family: var(--dt-font-mono);
 }
 
 /* ── 点击放大交互 ── */

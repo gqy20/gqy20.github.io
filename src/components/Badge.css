@@ -110,7 +110,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: ui-monospace, SFMono, Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-family: var(--dt-font-mono);
   font-size: 0.7rem;
 }
 

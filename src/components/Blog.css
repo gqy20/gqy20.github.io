@@ -65,7 +65,7 @@
   align-items: center;
   gap: 0.35rem;
   color: var(--dt-accent);
-  font-family: var(--dt-font-mono);
+  font-family: var(--dt-font-sans);
   font-size: 0.82rem;
   font-weight: 600;
   text-decoration: none;
@@ -149,7 +149,7 @@
   border-radius: 999px;
   background: transparent;
   color: var(--dt-dim);
-  font-family: var(--dt-font-mono);
+  font-family: var(--dt-font-sans);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -170,7 +170,7 @@
   border-radius: 999px;
   background: transparent;
   color: var(--dt-dim);
-  font-family: var(--dt-font-mono);
+  font-family: var(--dt-font-sans);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -199,7 +199,7 @@
   padding: 3rem 1rem;
   text-align: center;
   color: var(--dt-dim);
-  font-family: var(--dt-font-mono);
+  font-family: var(--dt-font-sans);
   font-size: 0.85rem;
 }
 
@@ -363,7 +363,7 @@
   background: var(--dt-surface);
   color: var(--dt-muted);
   text-align: center;
-  font-family: var(--dt-font-mono);
+  font-family: var(--dt-font-sans);
   font-size: 0.82rem;
 }
 
@@ -392,7 +392,7 @@
   border-radius: 6px;
   background: transparent;
   color: var(--dt-accent);
-  font-family: var(--dt-font-mono);
+  font-family: var(--dt-font-sans);
   font-size: 0.75rem;
   font-weight: 700;
   cursor: pointer;

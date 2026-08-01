@@ -37,7 +37,7 @@
   padding: 0.35rem 0.85rem;
   background: transparent;
   color: var(--dt-dim);
-  font-family: var(--dt-font-mono);
+  font-family: var(--dt-font-sans);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -92,7 +92,7 @@
 .error-container p {
   color: var(--dt-muted);
   margin-bottom: 1.5rem;
-  font-family: var(--dt-font-mono);
+  font-family: var(--dt-font-sans);
   font-size: 0.82rem;
 }
 
@@ -249,7 +249,7 @@
   color: var(--dt-dim);
   border: 1px solid var(--dt-line);
   border-radius: 6px;
-  font-family: var(--dt-font-mono);
+  font-family: var(--dt-font-sans);
   font-size: 0.7rem;
   font-weight: 700;
   cursor: pointer;
@@ -448,7 +448,7 @@
   text-decoration: none;
   border: 1px solid var(--dt-line);
   border-radius: 6px;
-  font-family: var(--dt-font-mono);
+  font-family: var(--dt-font-sans);
   font-size: 0.7rem;
   font-weight: 600;
   transition: all 0.22s ease;
@@ -473,7 +473,7 @@
   color: var(--dt-accent);
   border: 1px solid var(--dt-accent-line);
   border-radius: 6px;
-  font-family: var(--dt-font-mono);
+  font-family: var(--dt-font-sans);
   font-size: 0.75rem;
   font-weight: 700;
   text-decoration: none;
@@ -601,7 +601,7 @@
   border: 1px solid var(--dt-line-strong);
   padding: 0.6rem 1.15rem;
   border-radius: 8px;
-  font-family: var(--dt-font-mono);
+  font-family: var(--dt-font-sans);
   font-size: 0.8rem;
   letter-spacing: 0.02em;
   box-shadow: var(--dt-shadow-toast);
@@ -788,7 +788,7 @@
   align-items: center;
   gap: 0.35rem;
   margin-top: 0.9rem;
-  font-family: var(--dt-font-mono);
+  font-family: var(--dt-font-sans);
   font-size: 0.7rem;
   font-weight: 600;
   color: var(--dt-accent);

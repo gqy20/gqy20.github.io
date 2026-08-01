@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+import './styles/fonts.css'
 import Hero from './components/Hero'
 import ScrollToTopButton from './components/ScrollToTopButton.jsx'
 import ThemeToggle from './components/ThemeToggle.jsx'

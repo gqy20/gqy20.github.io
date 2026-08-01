@@ -65,11 +65,11 @@
   --w-layout: 1280px;
   --w-wide: 1440px;
 
-  /* — 字体（与原版一致）— */
-  --dt-font-display: 'Iowan Old Style', 'Baskerville', 'Songti SC', 'STSong', Georgia, serif;
-  --dt-font-serif: 'Songti SC', 'STSong', 'Noto Serif CJK SC', 'Iowan Old Style', Georgia, serif;
-  --dt-font-sans: -apple-system, BlinkMacSystemFont, sans-serif;
-  --dt-font-mono: 'SFMono-Regular', 'Cascadia Code', 'Liberation Mono', ui-monospace, monospace;
+  /* — 字体：标题固定品牌字形，中文与 UI 保持系统原生渲染 — */
+  --dt-font-display: 'Fraunces Variable', 'Songti SC', 'STSong', 'Noto Serif CJK SC', 'Source Han Serif SC', SimSun, Georgia, serif;
+  --dt-font-serif: 'Songti SC', 'STSong', 'Noto Serif CJK SC', 'Source Han Serif SC', SimSun, 'Iowan Old Style', Georgia, serif;
+  --dt-font-sans: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Segoe UI', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
+  --dt-font-mono: ui-monospace, 'SFMono-Regular', 'SF Mono', 'Cascadia Code', 'Roboto Mono', Consolas, 'Liberation Mono', monospace;
 
   /* ════════════════════════════════════════════════════════════
      兼容层（其他组件可能引用这些老变量名）
@@ -280,7 +280,7 @@ body > div, body > div > div, body > div > div > main {
   justify-content: center;
   min-height: 60vh;
   color: var(--muted);
-  font-family: var(--font-mono);
+  font-family: var(--dt-font-sans);
   font-size: 0.9rem;
   letter-spacing: 0.05em;
 }
