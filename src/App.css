@@ -131,33 +131,33 @@
 
   --dt-ink: #172033;
   --dt-muted: #4f5c74;
-  --dt-dim: #68758e;
+  --dt-dim: #5f6b82;
   --dt-ink-on-accent: #ffffff;
 
-  --dt-accent: #c45d00;
+  --dt-accent: #ad5000;
   --dt-accent-strong: #a94f00;
-  --dt-accent-soft: rgba(196, 93, 0, 0.09);
-  --dt-accent-line: rgba(196, 93, 0, 0.38);
-  --dt-focus-ring: rgba(196, 93, 0, 0.22);
+  --dt-accent-soft: rgba(173, 80, 0, 0.09);
+  --dt-accent-line: rgba(173, 80, 0, 0.38);
+  --dt-focus-ring: rgba(173, 80, 0, 0.22);
 
   --dt-shadow-card: 0 8px 24px rgba(18, 24, 38, 0.08);
   --dt-shadow-navbar: 0 8px 24px rgba(18, 24, 38, 0.05);
   --dt-shadow-toast: 0 10px 30px rgba(18, 24, 38, 0.12);
   --dt-shadow-modal: 0 24px 60px rgba(18, 24, 38, 0.18);
-  --dt-glow-accent: 0 0 8px rgba(217, 119, 6, 0.20);
-  --dt-glow-accent-soft: 0 0 0 3px rgba(217, 119, 6, 0.18);
+  --dt-glow-accent: 0 0 8px rgba(173, 80, 0, 0.20);
+  --dt-glow-accent-soft: 0 0 0 3px rgba(173, 80, 0, 0.18);
 
   --dt-code-inline-bg: rgba(18, 24, 38, 0.06);
-  --dt-quote-bg: rgba(217, 119, 6, 0.05);
+  --dt-quote-bg: rgba(173, 80, 0, 0.05);
   --dt-cover-fade: rgba(245, 247, 251, 0.92);
   --dt-event-tint: rgba(18, 24, 38, 0.04);
   --dt-event-tint-hover: rgba(18, 24, 38, 0.07);
-  --dt-accent-tint: rgba(217, 119, 6, 0.05);
-  --dt-accent-tint-hover: rgba(217, 119, 6, 0.10);
+  --dt-accent-tint: rgba(173, 80, 0, 0.05);
+  --dt-accent-tint-hover: rgba(173, 80, 0, 0.10);
 
   --dt-scroll-track: rgba(18, 24, 38, 0.04);
-  --dt-scroll-thumb: rgba(217, 119, 6, 0.30);
-  --dt-scroll-thumb-hover: rgba(217, 119, 6, 0.55);
+  --dt-scroll-thumb: rgba(173, 80, 0, 0.30);
+  --dt-scroll-thumb-hover: rgba(173, 80, 0, 0.55);
 
   --dt-noise-opacity: 0;        /* 亮色下直接隐藏 noise */
   --warning-text: #b45309;

@@ -13,16 +13,10 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (!id.includes('node_modules')) return
-          if (id.includes('/react/') || id.includes('/react-dom/')) return 'react-vendor'
-          if (
-            id.includes('/react-router-dom/') ||
-            id.includes('/framer-motion/') ||
-            id.includes('/react-markdown/')
-          ) {
-            return 'vendor'
+          // 精确匹配 React 包；不要用 `includes('/react/')`，它会误伤 @gsap/react。
+          if (/\/node_modules\/(?:react|react-dom|scheduler)\//.test(id)) {
+            return 'react-vendor'
           }
-          if (id.includes('/gsap/')) return 'gsap-vendor'
         },
         // 文件名包含内容哈希，便于缓存策略
         chunkFileNames: 'assets/[name]-[hash].js',

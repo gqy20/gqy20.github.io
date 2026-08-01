@@ -1,5 +1,4 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { gsap, SplitText, useGSAP } from '../lib/gsap.js'
 import { useProjectsData } from '../hooks/useProjectsData.js'
 import blogIndex from '../data/blog/index.json'
 import { SOCIAL_LINKS } from '../data/social.js'
@@ -151,81 +150,6 @@ export default function Hero() {
   useEffect(() => {
     return observeHomeSections(rootRef.current, setActiveSection)
   }, [loading])
-
-  // 名字标题:逐字上浮入场(mount 时执行一次)
-  useGSAP(() => {
-    const mm = gsap.matchMedia()
-    mm.add({
-      isReduce: '(prefers-reduced-motion: reduce)',
-      isNormal: '(prefers-reduced-motion: no-preference)'
-    }, ({ conditions }) => {
-      const { isReduce: reduce } = conditions
-      const zh = SplitText.create('.home-name__zh', { type: 'chars' })
-      const en = SplitText.create('.home-name__en', { type: 'chars' })
-      gsap.from(
-        [...zh.chars, ...en.chars],
-        reduce
-          ? { duration: 0 }
-          : { yPercent: 60, opacity: 0, duration: 0.6, ease: 'back.out(1.5)', stagger: 0.05 }
-      )
-    })
-    return () => mm.revert()
-  }, { scope: rootRef })
-
-  // 统计数字:从 0 计数(数据加载完成后触发)
-  useGSAP(() => {
-    if (loading) return
-    const mm = gsap.matchMedia()
-    mm.add({
-      isReduce: '(prefers-reduced-motion: reduce)',
-      isNormal: '(prefers-reduced-motion: no-preference)'
-    }, ({ conditions }) => {
-      const { isReduce: reduce } = conditions
-      gsap.from(
-        '.js-stat',
-        reduce
-          ? { duration: 0 }
-          : { textContent: 0, duration: 1.6, ease: 'power2.out', snap: { textContent: 1 }, stagger: 0.18 }
-      )
-    })
-    return () => mm.revert()
-  }, { scope: rootRef, dependencies: [loading] })
-
-  // 各 section 标题只在进入视口时拆字，避免首屏处理整页文本。
-  useGSAP(() => {
-    const mm = gsap.matchMedia()
-    mm.add({
-      isReduce: '(prefers-reduced-motion: reduce)',
-      isNormal: '(prefers-reduced-motion: no-preference)'
-    }, ({ conditions }) => {
-      const { isReduce: reduce } = conditions
-      if (reduce) return
-
-      const splits = []
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return
-          observer.unobserve(entry.target)
-          const split = SplitText.create(entry.target, { type: 'chars' })
-          splits.push(split)
-          gsap.from(split.chars, {
-            yPercent: 60,
-            opacity: 0,
-            duration: 0.5,
-            ease: 'back.out(1.5)',
-            stagger: 0.04,
-          })
-        })
-      }, { rootMargin: '0px 0px -12% 0px' })
-
-      gsap.utils.toArray('.home-section__title').forEach(label => observer.observe(label))
-      return () => {
-        observer.disconnect()
-        splits.forEach(split => split.revert())
-      }
-    })
-    return () => mm.revert()
-  }, { scope: rootRef })
 
   const handleNavClick = (e, id) => {
     e.preventDefault()
@@ -526,7 +450,7 @@ function SectionShell({ id, num, label, delay, children }) {
     >
       <header className="home-section__head">
         <span className="home-section__num">{num}</span>
-        <span className="home-section__title">{label}</span>
+        <h2 className="home-section__title">{label}</h2>
         <span className="home-section__rule" />
       </header>
       <div className="home-section__body">{children}</div>
