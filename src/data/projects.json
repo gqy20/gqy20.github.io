@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-08T06:29:10.694Z",
+  "lastUpdated": "2026-08-08T12:20:25.684Z",
   "totalRepositories": 51,
   "totalProjects": 47,
   "totalRepositoryStars": 103,
@@ -193,6 +193,34 @@
     ],
     "AI应用": [
       {
+        "id": 1318528333,
+        "name": "xykw",
+        "fullName": "gqy20/xykw",
+        "description": "面向杭州亲子家庭的自然声音 AI 识别与共创 MVP",
+        "url": "https://github.com/gqy20/xykw",
+        "homepage": "https://xykw-api.vercel.app",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-07-31T16:09:04Z",
+        "updatedAt": "2026-08-08T11:43:56Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 42250,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
         "id": 1126636339,
         "name": "TrendPluse",
         "fullName": "gqy20/TrendPluse",
@@ -299,34 +327,6 @@
         },
         "totalReleases": 0,
         "totalTags": 1
-      },
-      {
-        "id": 1318528333,
-        "name": "xykw",
-        "fullName": "gqy20/xykw",
-        "description": "面向杭州亲子家庭的自然声音 AI 识别与共创 MVP",
-        "url": "https://github.com/gqy20/xykw",
-        "homepage": "https://xykw-api.vercel.app",
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-07-31T16:09:04Z",
-        "updatedAt": "2026-08-05T04:14:31Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 42250,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
       },
       {
         "id": 1265662594,
@@ -1666,6 +1666,34 @@
       "totalTags": 5
     },
     {
+      "id": 1318528333,
+      "name": "xykw",
+      "fullName": "gqy20/xykw",
+      "description": "面向杭州亲子家庭的自然声音 AI 识别与共创 MVP",
+      "url": "https://github.com/gqy20/xykw",
+      "homepage": "https://xykw-api.vercel.app",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-07-31T16:09:04Z",
+      "updatedAt": "2026-08-08T11:43:56Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 42250,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -1772,34 +1800,6 @@
       },
       "totalReleases": 0,
       "totalTags": 1
-    },
-    {
-      "id": 1318528333,
-      "name": "xykw",
-      "fullName": "gqy20/xykw",
-      "description": "面向杭州亲子家庭的自然声音 AI 识别与共创 MVP",
-      "url": "https://github.com/gqy20/xykw",
-      "homepage": "https://xykw-api.vercel.app",
-      "language": "Python",
-      "stars": 0,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-07-31T16:09:04Z",
-      "updatedAt": "2026-08-05T04:14:31Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 42250,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
     },
     {
       "id": 1265662594,
