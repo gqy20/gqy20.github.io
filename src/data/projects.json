@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-08-16T12:12:57.115Z",
-  "totalRepositories": 51,
-  "totalProjects": 47,
+  "lastUpdated": "2026-08-16T18:10:23.551Z",
+  "totalRepositories": 52,
+  "totalProjects": 48,
   "totalRepositoryStars": 105,
   "totalStars": 103,
   "followers": 22,
@@ -930,6 +930,38 @@
       }
     ],
     "Web开发": [
+      {
+        "id": 1335931509,
+        "name": "dsh-showrunner",
+        "fullName": "gqy20/dsh-showrunner",
+        "description": "Agent show/game engine for DeepSeek Harness: scenario packs, machine-adjudicated matches (archaeology MVP), replayable event logs",
+        "url": "https://github.com/gqy20/dsh-showrunner",
+        "homepage": null,
+        "language": "TypeScript",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-08-16T12:54:46Z",
+        "updatedAt": "2026-08-16T13:55:28Z",
+        "category": "Web开发",
+        "priority": 4,
+        "tags": [
+          "Web",
+          "前端"
+        ],
+        "topics": [
+          "agent-game",
+          "deepseek-harness",
+          "dsh-plugin"
+        ],
+        "isArchived": false,
+        "size": 153,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 1084972160,
         "name": "cc_plugins",
@@ -2414,6 +2446,38 @@
       "latestTag": null,
       "totalReleases": 3,
       "totalTags": 3
+    },
+    {
+      "id": 1335931509,
+      "name": "dsh-showrunner",
+      "fullName": "gqy20/dsh-showrunner",
+      "description": "Agent show/game engine for DeepSeek Harness: scenario packs, machine-adjudicated matches (archaeology MVP), replayable event logs",
+      "url": "https://github.com/gqy20/dsh-showrunner",
+      "homepage": null,
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-08-16T12:54:46Z",
+      "updatedAt": "2026-08-16T13:55:28Z",
+      "category": "Web开发",
+      "priority": 4,
+      "tags": [
+        "Web",
+        "前端"
+      ],
+      "topics": [
+        "agent-game",
+        "deepseek-harness",
+        "dsh-plugin"
+      ],
+      "isArchived": false,
+      "size": 153,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 1084972160,
