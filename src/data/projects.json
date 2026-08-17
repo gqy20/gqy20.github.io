@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-17T00:28:54.061Z",
+  "lastUpdated": "2026-08-17T06:26:53.852Z",
   "totalRepositories": 52,
   "totalProjects": 48,
   "totalRepositoryStars": 105,
@@ -193,6 +193,34 @@
     ],
     "AI应用": [
       {
+        "id": 1265662594,
+        "name": "mmag",
+        "fullName": "gqy20/mmag",
+        "description": "Mattermost AI Agent — 通过 WebSocket 实时参与团队对话的智能 Bot",
+        "url": "https://github.com/gqy20/mmag",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-06-11T01:23:38Z",
+        "updatedAt": "2026-08-17T02:11:15Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 4631,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
         "id": 1126636339,
         "name": "TrendPluse",
         "fullName": "gqy20/TrendPluse",
@@ -204,7 +232,7 @@
         "forks": 0,
         "issues": 10,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-08-16T21:20:47Z",
+        "updatedAt": "2026-08-17T01:19:55Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -219,7 +247,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 26331,
+        "size": 26335,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -303,34 +331,6 @@
         "latestTag": null,
         "totalReleases": 1,
         "totalTags": 1
-      },
-      {
-        "id": 1265662594,
-        "name": "mmag",
-        "fullName": "gqy20/mmag",
-        "description": "Mattermost AI Agent — 通过 WebSocket 实时参与团队对话的智能 Bot",
-        "url": "https://github.com/gqy20/mmag",
-        "homepage": null,
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-06-11T01:23:38Z",
-        "updatedAt": "2026-08-09T12:30:16Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 4380,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
       },
       {
         "id": 1175140181,
@@ -1714,6 +1714,34 @@
       "totalTags": 5
     },
     {
+      "id": 1265662594,
+      "name": "mmag",
+      "fullName": "gqy20/mmag",
+      "description": "Mattermost AI Agent — 通过 WebSocket 实时参与团队对话的智能 Bot",
+      "url": "https://github.com/gqy20/mmag",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-06-11T01:23:38Z",
+      "updatedAt": "2026-08-17T02:11:15Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 4631,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -1725,7 +1753,7 @@
       "forks": 0,
       "issues": 10,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-08-16T21:20:47Z",
+      "updatedAt": "2026-08-17T01:19:55Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1740,7 +1768,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 26331,
+      "size": 26335,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -1824,34 +1852,6 @@
       "latestTag": null,
       "totalReleases": 1,
       "totalTags": 1
-    },
-    {
-      "id": 1265662594,
-      "name": "mmag",
-      "fullName": "gqy20/mmag",
-      "description": "Mattermost AI Agent — 通过 WebSocket 实时参与团队对话的智能 Bot",
-      "url": "https://github.com/gqy20/mmag",
-      "homepage": null,
-      "language": "Python",
-      "stars": 0,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-06-11T01:23:38Z",
-      "updatedAt": "2026-08-09T12:30:16Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 4380,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
     },
     {
       "id": 1175140181,
