@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-08-22T06:17:37.040Z",
+  "lastUpdated": "2026-08-22T12:13:24.649Z",
   "totalRepositories": 53,
   "totalProjects": 49,
-  "totalRepositoryStars": 106,
-  "totalStars": 104,
+  "totalRepositoryStars": 107,
+  "totalStars": 105,
   "followers": 23,
   "categories": [
     "MCP工具",
@@ -936,13 +936,13 @@
         "fullName": "gqy20/dance-os",
         "description": "面向舞蹈培训机构的 Agent 操作系统 v0.2 —— 业务是内核，技术是插件",
         "url": "https://github.com/gqy20/dance-os",
-        "homepage": null,
+        "homepage": "https://dance-os-one.vercel.app",
         "language": "TypeScript",
         "stars": 0,
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-08-21T17:06:01Z",
-        "updatedAt": "2026-08-22T03:38:41Z",
+        "updatedAt": "2026-08-22T10:13:58Z",
         "category": "Web开发",
         "priority": 4,
         "tags": [
@@ -951,7 +951,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 17653,
+        "size": 17821,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1235,6 +1235,39 @@
     ],
     "其他项目": [
       {
+        "id": 1323595263,
+        "name": "narra",
+        "fullName": "gqy20/narra",
+        "description": "Data-driven narrative simulation framework with a Go rules engine and Godot client.",
+        "url": "https://github.com/gqy20/narra",
+        "homepage": null,
+        "language": "Go",
+        "stars": 1,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-08-05T03:41:11Z",
+        "updatedAt": "2026-08-22T06:45:32Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "go"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 1387,
+        "license": "MIT License",
+        "latestRelease": {
+          "tagName": "v0.1.0",
+          "name": "Narra v0.1.0",
+          "publishedAt": "2026-08-05T11:20:08Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 1,
+        "totalTags": 1
+      },
+      {
         "id": 1273955381,
         "name": "anna-truman-director",
         "fullName": "gqy20/anna-truman-director",
@@ -1266,39 +1299,6 @@
         "latestTag": null,
         "totalReleases": 5,
         "totalTags": 5
-      },
-      {
-        "id": 1323595263,
-        "name": "narra",
-        "fullName": "gqy20/narra",
-        "description": "Data-driven narrative simulation framework with a Go rules engine and Godot client.",
-        "url": "https://github.com/gqy20/narra",
-        "homepage": null,
-        "language": "Go",
-        "stars": 0,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-08-05T03:41:11Z",
-        "updatedAt": "2026-08-09T13:34:09Z",
-        "category": "其他项目",
-        "priority": 7,
-        "tags": [
-          "go"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 1387,
-        "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.1.0",
-          "name": "Narra v0.1.0",
-          "publishedAt": "2026-08-05T11:20:08Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 1,
-        "totalTags": 1
       },
       {
         "id": 1309022792,
@@ -2481,13 +2481,13 @@
       "fullName": "gqy20/dance-os",
       "description": "面向舞蹈培训机构的 Agent 操作系统 v0.2 —— 业务是内核，技术是插件",
       "url": "https://github.com/gqy20/dance-os",
-      "homepage": null,
+      "homepage": "https://dance-os-one.vercel.app",
       "language": "TypeScript",
       "stars": 0,
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-08-21T17:06:01Z",
-      "updatedAt": "2026-08-22T03:38:41Z",
+      "updatedAt": "2026-08-22T10:13:58Z",
       "category": "Web开发",
       "priority": 4,
       "tags": [
@@ -2496,7 +2496,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 17653,
+      "size": 17821,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -2774,6 +2774,39 @@
       "totalTags": 0
     },
     {
+      "id": 1323595263,
+      "name": "narra",
+      "fullName": "gqy20/narra",
+      "description": "Data-driven narrative simulation framework with a Go rules engine and Godot client.",
+      "url": "https://github.com/gqy20/narra",
+      "homepage": null,
+      "language": "Go",
+      "stars": 1,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-08-05T03:41:11Z",
+      "updatedAt": "2026-08-22T06:45:32Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "go"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 1387,
+      "license": "MIT License",
+      "latestRelease": {
+        "tagName": "v0.1.0",
+        "name": "Narra v0.1.0",
+        "publishedAt": "2026-08-05T11:20:08Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 1,
+      "totalTags": 1
+    },
+    {
       "id": 1273955381,
       "name": "anna-truman-director",
       "fullName": "gqy20/anna-truman-director",
@@ -2805,39 +2838,6 @@
       "latestTag": null,
       "totalReleases": 5,
       "totalTags": 5
-    },
-    {
-      "id": 1323595263,
-      "name": "narra",
-      "fullName": "gqy20/narra",
-      "description": "Data-driven narrative simulation framework with a Go rules engine and Godot client.",
-      "url": "https://github.com/gqy20/narra",
-      "homepage": null,
-      "language": "Go",
-      "stars": 0,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-08-05T03:41:11Z",
-      "updatedAt": "2026-08-09T13:34:09Z",
-      "category": "其他项目",
-      "priority": 7,
-      "tags": [
-        "go"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 1387,
-      "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.1.0",
-        "name": "Narra v0.1.0",
-        "publishedAt": "2026-08-05T11:20:08Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 1,
-      "totalTags": 1
     },
     {
       "id": 1309022792,
