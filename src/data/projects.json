@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-26T12:22:53.188Z",
+  "lastUpdated": "2026-08-26T19:26:49.746Z",
   "totalRepositories": 53,
   "totalProjects": 49,
   "totalRepositoryStars": 107,
@@ -204,7 +204,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-07-31T16:09:04Z",
-        "updatedAt": "2026-08-26T11:08:16Z",
+        "updatedAt": "2026-08-26T17:06:57Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -223,7 +223,7 @@
           "qwen"
         ],
         "isArchived": false,
-        "size": 52681,
+        "size": 58543,
         "license": null,
         "latestRelease": {
           "tagName": "0.1.0",
@@ -1753,7 +1753,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-07-31T16:09:04Z",
-      "updatedAt": "2026-08-26T11:08:16Z",
+      "updatedAt": "2026-08-26T17:06:57Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1772,7 +1772,7 @@
         "qwen"
       ],
       "isArchived": false,
-      "size": 52681,
+      "size": 58543,
       "license": null,
       "latestRelease": {
         "tagName": "0.1.0",
