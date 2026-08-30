@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-30T01:57:16.385Z",
+  "lastUpdated": "2026-08-30T10:48:15.954Z",
   "totalRepositories": 53,
   "totalProjects": 49,
   "totalRepositoryStars": 108,
@@ -193,6 +193,50 @@
     ],
     "AI应用": [
       {
+        "id": 1318528333,
+        "name": "nature-sound-detective",
+        "fullName": "gqy20/nature-sound-detective",
+        "description": "自然声探员：面向儿童家庭的 AI 自然声音调查平台，通过多模型候选、现场观察、共听协作与自然明信片，让孩子学习倾听、记录和求证自然。",
+        "url": "https://github.com/gqy20/nature-sound-detective",
+        "homepage": "https://listen.gqy20.top/",
+        "language": "Python",
+        "stars": 1,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-07-31T16:09:04Z",
+        "updatedAt": "2026-08-30T07:02:42Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [
+          "bioacoustics",
+          "birdnet",
+          "citizen-science",
+          "fastapi",
+          "flutter",
+          "hangzhou",
+          "multimodal-ai",
+          "nature-education",
+          "qwen"
+        ],
+        "isArchived": false,
+        "size": 91316,
+        "license": null,
+        "latestRelease": {
+          "tagName": "0.4.1",
+          "name": "自然声探员 0.4.1",
+          "publishedAt": "2026-08-29T08:39:58Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 3,
+        "totalTags": 3
+      },
+      {
         "id": 1126636339,
         "name": "TrendPluse",
         "fullName": "gqy20/TrendPluse",
@@ -225,50 +269,6 @@
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
-      },
-      {
-        "id": 1318528333,
-        "name": "nature-sound-detective",
-        "fullName": "gqy20/nature-sound-detective",
-        "description": "自然声探员：面向儿童家庭的 AI 自然声音调查平台，通过多模型候选、现场观察、共听协作与自然明信片，让孩子学习倾听、记录和求证自然。",
-        "url": "https://github.com/gqy20/nature-sound-detective",
-        "homepage": "https://listen.gqy20.top/",
-        "language": "Python",
-        "stars": 1,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-07-31T16:09:04Z",
-        "updatedAt": "2026-08-29T08:35:07Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [
-          "bioacoustics",
-          "birdnet",
-          "citizen-science",
-          "fastapi",
-          "flutter",
-          "hangzhou",
-          "multimodal-ai",
-          "nature-education",
-          "qwen"
-        ],
-        "isArchived": false,
-        "size": 81086,
-        "license": null,
-        "latestRelease": {
-          "tagName": "0.4.1",
-          "name": "自然声探员 0.4.1",
-          "publishedAt": "2026-08-29T08:39:58Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 3,
-        "totalTags": 3
       },
       {
         "id": 1175140181,
@@ -1742,6 +1742,50 @@
       "totalTags": 5
     },
     {
+      "id": 1318528333,
+      "name": "nature-sound-detective",
+      "fullName": "gqy20/nature-sound-detective",
+      "description": "自然声探员：面向儿童家庭的 AI 自然声音调查平台，通过多模型候选、现场观察、共听协作与自然明信片，让孩子学习倾听、记录和求证自然。",
+      "url": "https://github.com/gqy20/nature-sound-detective",
+      "homepage": "https://listen.gqy20.top/",
+      "language": "Python",
+      "stars": 1,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-07-31T16:09:04Z",
+      "updatedAt": "2026-08-30T07:02:42Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [
+        "bioacoustics",
+        "birdnet",
+        "citizen-science",
+        "fastapi",
+        "flutter",
+        "hangzhou",
+        "multimodal-ai",
+        "nature-education",
+        "qwen"
+      ],
+      "isArchived": false,
+      "size": 91316,
+      "license": null,
+      "latestRelease": {
+        "tagName": "0.4.1",
+        "name": "自然声探员 0.4.1",
+        "publishedAt": "2026-08-29T08:39:58Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 3,
+      "totalTags": 3
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -1774,50 +1818,6 @@
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
-    },
-    {
-      "id": 1318528333,
-      "name": "nature-sound-detective",
-      "fullName": "gqy20/nature-sound-detective",
-      "description": "自然声探员：面向儿童家庭的 AI 自然声音调查平台，通过多模型候选、现场观察、共听协作与自然明信片，让孩子学习倾听、记录和求证自然。",
-      "url": "https://github.com/gqy20/nature-sound-detective",
-      "homepage": "https://listen.gqy20.top/",
-      "language": "Python",
-      "stars": 1,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-07-31T16:09:04Z",
-      "updatedAt": "2026-08-29T08:35:07Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [
-        "bioacoustics",
-        "birdnet",
-        "citizen-science",
-        "fastapi",
-        "flutter",
-        "hangzhou",
-        "multimodal-ai",
-        "nature-education",
-        "qwen"
-      ],
-      "isArchived": false,
-      "size": 81086,
-      "license": null,
-      "latestRelease": {
-        "tagName": "0.4.1",
-        "name": "自然声探员 0.4.1",
-        "publishedAt": "2026-08-29T08:39:58Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 3,
-      "totalTags": 3
     },
     {
       "id": 1175140181,
