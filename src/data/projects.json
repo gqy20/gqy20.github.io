@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-08-31T01:52:50.625Z",
-  "totalRepositories": 53,
-  "totalProjects": 49,
+  "lastUpdated": "2026-08-31T11:57:18.020Z",
+  "totalRepositories": 54,
+  "totalProjects": 50,
   "totalRepositoryStars": 108,
   "totalStars": 106,
   "followers": 22,
@@ -204,7 +204,7 @@
         "forks": 0,
         "issues": 10,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-08-30T23:10:41Z",
+        "updatedAt": "2026-08-31T04:20:14Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -219,7 +219,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 27294,
+        "size": 27298,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1235,6 +1235,63 @@
     ],
     "其他项目": [
       {
+        "id": 1350326116,
+        "name": "hiro2",
+        "fullName": "gqy20/hiro2",
+        "description": "暂无描述 - Python项目",
+        "url": "https://github.com/gqy20/hiro2",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-08-29T06:09:40Z",
+        "updatedAt": "2026-08-31T11:31:31Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "python"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 13606,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
+        "id": 1125693327,
+        "name": "quick-template",
+        "fullName": "gqy20/quick-template",
+        "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
+        "url": "https://github.com/gqy20/quick-template",
+        "homepage": "https://home.gqy20.top/quick-template/",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-12-31T07:12:07Z",
+        "updatedAt": "2026-08-31T07:59:24Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "python"
+        ],
+        "topics": [
+          "copier",
+          "python"
+        ],
+        "isArchived": false,
+        "size": 335,
+        "license": "MIT License",
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
         "id": 1323595263,
         "name": "narra",
         "fullName": "gqy20/narra",
@@ -1322,36 +1379,6 @@
         "isArchived": false,
         "size": 78937,
         "license": "MIT License",
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
-      },
-      {
-        "id": 1125693327,
-        "name": "quick-template",
-        "fullName": "gqy20/quick-template",
-        "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
-        "url": "https://github.com/gqy20/quick-template",
-        "homepage": "https://home.gqy20.top/quick-template/",
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2025-12-31T07:12:07Z",
-        "updatedAt": "2026-04-30T15:41:02Z",
-        "category": "其他项目",
-        "priority": 7,
-        "tags": [
-          "python"
-        ],
-        "topics": [
-          "copier",
-          "python"
-        ],
-        "isArchived": false,
-        "size": 230,
-        "license": null,
         "latestRelease": null,
         "latestTag": null,
         "totalReleases": 0,
@@ -1753,7 +1780,7 @@
       "forks": 0,
       "issues": 10,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-08-30T23:10:41Z",
+      "updatedAt": "2026-08-31T04:20:14Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1768,7 +1795,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 27294,
+      "size": 27298,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -2774,6 +2801,63 @@
       "totalTags": 0
     },
     {
+      "id": 1350326116,
+      "name": "hiro2",
+      "fullName": "gqy20/hiro2",
+      "description": "暂无描述 - Python项目",
+      "url": "https://github.com/gqy20/hiro2",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-08-29T06:09:40Z",
+      "updatedAt": "2026-08-31T11:31:31Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "python"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 13606,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
+      "id": 1125693327,
+      "name": "quick-template",
+      "fullName": "gqy20/quick-template",
+      "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
+      "url": "https://github.com/gqy20/quick-template",
+      "homepage": "https://home.gqy20.top/quick-template/",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-12-31T07:12:07Z",
+      "updatedAt": "2026-08-31T07:59:24Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "python"
+      ],
+      "topics": [
+        "copier",
+        "python"
+      ],
+      "isArchived": false,
+      "size": 335,
+      "license": "MIT License",
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1323595263,
       "name": "narra",
       "fullName": "gqy20/narra",
@@ -2861,36 +2945,6 @@
       "isArchived": false,
       "size": 78937,
       "license": "MIT License",
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
-    },
-    {
-      "id": 1125693327,
-      "name": "quick-template",
-      "fullName": "gqy20/quick-template",
-      "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
-      "url": "https://github.com/gqy20/quick-template",
-      "homepage": "https://home.gqy20.top/quick-template/",
-      "language": "Python",
-      "stars": 0,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2025-12-31T07:12:07Z",
-      "updatedAt": "2026-04-30T15:41:02Z",
-      "category": "其他项目",
-      "priority": 7,
-      "tags": [
-        "python"
-      ],
-      "topics": [
-        "copier",
-        "python"
-      ],
-      "isArchived": false,
-      "size": 230,
-      "license": null,
       "latestRelease": null,
       "latestTag": null,
       "totalReleases": 0,
