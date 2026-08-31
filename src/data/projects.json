@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-31T11:57:18.020Z",
+  "lastUpdated": "2026-08-31T18:30:37.603Z",
   "totalRepositories": 54,
   "totalProjects": 50,
   "totalRepositoryStars": 108,
@@ -1235,6 +1235,39 @@
     ],
     "其他项目": [
       {
+        "id": 1273955381,
+        "name": "anna-truman-director",
+        "fullName": "gqy20/anna-truman-director",
+        "description": "暂无描述 - Python项目",
+        "url": "https://github.com/gqy20/anna-truman-director",
+        "homepage": null,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-06-19T03:35:17Z",
+        "updatedAt": "2026-08-31T13:58:38Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "python"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 468,
+        "license": null,
+        "latestRelease": {
+          "tagName": "truman-director-v0.4.2",
+          "name": "truman-director-v0.4.2",
+          "publishedAt": "2026-08-16T04:13:20Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 5,
+        "totalTags": 5
+      },
+      {
         "id": 1350326116,
         "name": "hiro2",
         "fullName": "gqy20/hiro2",
@@ -1246,7 +1279,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-08-29T06:09:40Z",
-        "updatedAt": "2026-08-31T11:31:31Z",
+        "updatedAt": "2026-08-31T12:35:31Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -1254,7 +1287,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 13606,
+        "size": 16193,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1323,39 +1356,6 @@
         "latestTag": null,
         "totalReleases": 1,
         "totalTags": 1
-      },
-      {
-        "id": 1273955381,
-        "name": "anna-truman-director",
-        "fullName": "gqy20/anna-truman-director",
-        "description": "暂无描述 - Python项目",
-        "url": "https://github.com/gqy20/anna-truman-director",
-        "homepage": null,
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-06-19T03:35:17Z",
-        "updatedAt": "2026-08-19T09:10:18Z",
-        "category": "其他项目",
-        "priority": 7,
-        "tags": [
-          "python"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 461,
-        "license": null,
-        "latestRelease": {
-          "tagName": "truman-director-v0.4.2",
-          "name": "truman-director-v0.4.2",
-          "publishedAt": "2026-08-16T04:13:20Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 5,
-        "totalTags": 5
       },
       {
         "id": 1309022792,
@@ -2801,6 +2801,39 @@
       "totalTags": 0
     },
     {
+      "id": 1273955381,
+      "name": "anna-truman-director",
+      "fullName": "gqy20/anna-truman-director",
+      "description": "暂无描述 - Python项目",
+      "url": "https://github.com/gqy20/anna-truman-director",
+      "homepage": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-06-19T03:35:17Z",
+      "updatedAt": "2026-08-31T13:58:38Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "python"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 468,
+      "license": null,
+      "latestRelease": {
+        "tagName": "truman-director-v0.4.2",
+        "name": "truman-director-v0.4.2",
+        "publishedAt": "2026-08-16T04:13:20Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 5,
+      "totalTags": 5
+    },
+    {
       "id": 1350326116,
       "name": "hiro2",
       "fullName": "gqy20/hiro2",
@@ -2812,7 +2845,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-08-29T06:09:40Z",
-      "updatedAt": "2026-08-31T11:31:31Z",
+      "updatedAt": "2026-08-31T12:35:31Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -2820,7 +2853,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 13606,
+      "size": 16193,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -2889,39 +2922,6 @@
       "latestTag": null,
       "totalReleases": 1,
       "totalTags": 1
-    },
-    {
-      "id": 1273955381,
-      "name": "anna-truman-director",
-      "fullName": "gqy20/anna-truman-director",
-      "description": "暂无描述 - Python项目",
-      "url": "https://github.com/gqy20/anna-truman-director",
-      "homepage": null,
-      "language": "Python",
-      "stars": 0,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-06-19T03:35:17Z",
-      "updatedAt": "2026-08-19T09:10:18Z",
-      "category": "其他项目",
-      "priority": 7,
-      "tags": [
-        "python"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 461,
-      "license": null,
-      "latestRelease": {
-        "tagName": "truman-director-v0.4.2",
-        "name": "truman-director-v0.4.2",
-        "publishedAt": "2026-08-16T04:13:20Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 5,
-      "totalTags": 5
     },
     {
       "id": 1309022792,
