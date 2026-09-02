@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-02T10:02:36.736Z",
+  "lastUpdated": "2026-09-02T15:26:16.014Z",
   "totalRepositories": 54,
   "totalProjects": 50,
   "totalRepositoryStars": 109,
@@ -204,7 +204,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-07-31T16:09:04Z",
-        "updatedAt": "2026-09-02T08:54:59Z",
+        "updatedAt": "2026-09-02T12:52:31Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -223,18 +223,18 @@
           "qwen"
         ],
         "isArchived": false,
-        "size": 96067,
+        "size": 103345,
         "license": null,
         "latestRelease": {
-          "tagName": "0.4.1",
-          "name": "自然声探员 0.4.1",
-          "publishedAt": "2026-08-29T08:39:58Z",
+          "tagName": "0.4.2",
+          "name": "自然声探员 0.4.2",
+          "publishedAt": "2026-09-02T12:44:39Z",
           "prerelease": false,
           "draft": false
         },
         "latestTag": null,
-        "totalReleases": 3,
-        "totalTags": 3
+        "totalReleases": 4,
+        "totalTags": 4
       },
       {
         "id": 993845459,
@@ -1780,7 +1780,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-07-31T16:09:04Z",
-      "updatedAt": "2026-09-02T08:54:59Z",
+      "updatedAt": "2026-09-02T12:52:31Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1799,18 +1799,18 @@
         "qwen"
       ],
       "isArchived": false,
-      "size": 96067,
+      "size": 103345,
       "license": null,
       "latestRelease": {
-        "tagName": "0.4.1",
-        "name": "自然声探员 0.4.1",
-        "publishedAt": "2026-08-29T08:39:58Z",
+        "tagName": "0.4.2",
+        "name": "自然声探员 0.4.2",
+        "publishedAt": "2026-09-02T12:44:39Z",
         "prerelease": false,
         "draft": false
       },
       "latestTag": null,
-      "totalReleases": 3,
-      "totalTags": 3
+      "totalReleases": 4,
+      "totalTags": 4
     },
     {
       "id": 993845459,
