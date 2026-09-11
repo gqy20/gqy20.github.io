@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-11T15:21:16.674Z",
+  "lastUpdated": "2026-09-11T20:08:11.026Z",
   "totalRepositories": 54,
   "totalProjects": 50,
   "totalRepositoryStars": 112,
@@ -193,40 +193,6 @@
     ],
     "AI应用": [
       {
-        "id": 1232906183,
-        "name": "bitcat",
-        "fullName": "gqy20/bitcat",
-        "description": "A small desktop AI companion that can chat, watch tasks, manage reminders, observe your screen, and react as a pet.",
-        "url": "https://github.com/gqy20/bitcat",
-        "homepage": null,
-        "language": "Rust",
-        "stars": 1,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-05-08T11:52:27Z",
-        "updatedAt": "2026-09-11T15:11:59Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 40095,
-        "license": null,
-        "latestRelease": {
-          "tagName": "v0.1.6",
-          "name": "BitCat v0.1.6",
-          "publishedAt": "2026-05-24T13:01:09Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 5,
-        "totalTags": 5
-      },
-      {
         "id": 1126636339,
         "name": "TrendPluse",
         "fullName": "gqy20/TrendPluse",
@@ -238,7 +204,7 @@
         "forks": 0,
         "issues": 10,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-09-11T06:16:56Z",
+        "updatedAt": "2026-09-11T18:28:45Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -253,12 +219,46 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 26633,
+        "size": 26856,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
+      },
+      {
+        "id": 1232906183,
+        "name": "bitcat",
+        "fullName": "gqy20/bitcat",
+        "description": "A small desktop AI companion that can chat, watch tasks, manage reminders, observe your screen, and react as a pet.",
+        "url": "https://github.com/gqy20/bitcat",
+        "homepage": null,
+        "language": "Rust",
+        "stars": 1,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-05-08T11:52:27Z",
+        "updatedAt": "2026-09-11T17:01:31Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 40269,
+        "license": null,
+        "latestRelease": {
+          "tagName": "v0.1.6",
+          "name": "BitCat v0.1.6",
+          "publishedAt": "2026-05-24T13:01:09Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 5,
+        "totalTags": 5
       },
       {
         "id": 1235648882,
@@ -1769,40 +1769,6 @@
       "totalTags": 5
     },
     {
-      "id": 1232906183,
-      "name": "bitcat",
-      "fullName": "gqy20/bitcat",
-      "description": "A small desktop AI companion that can chat, watch tasks, manage reminders, observe your screen, and react as a pet.",
-      "url": "https://github.com/gqy20/bitcat",
-      "homepage": null,
-      "language": "Rust",
-      "stars": 1,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-05-08T11:52:27Z",
-      "updatedAt": "2026-09-11T15:11:59Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 40095,
-      "license": null,
-      "latestRelease": {
-        "tagName": "v0.1.6",
-        "name": "BitCat v0.1.6",
-        "publishedAt": "2026-05-24T13:01:09Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 5,
-      "totalTags": 5
-    },
-    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -1814,7 +1780,7 @@
       "forks": 0,
       "issues": 10,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-09-11T06:16:56Z",
+      "updatedAt": "2026-09-11T18:28:45Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1829,12 +1795,46 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 26633,
+      "size": 26856,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
+    },
+    {
+      "id": 1232906183,
+      "name": "bitcat",
+      "fullName": "gqy20/bitcat",
+      "description": "A small desktop AI companion that can chat, watch tasks, manage reminders, observe your screen, and react as a pet.",
+      "url": "https://github.com/gqy20/bitcat",
+      "homepage": null,
+      "language": "Rust",
+      "stars": 1,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-05-08T11:52:27Z",
+      "updatedAt": "2026-09-11T17:01:31Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 40269,
+      "license": null,
+      "latestRelease": {
+        "tagName": "v0.1.6",
+        "name": "BitCat v0.1.6",
+        "publishedAt": "2026-05-24T13:01:09Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 5,
+      "totalTags": 5
     },
     {
       "id": 1235648882,
