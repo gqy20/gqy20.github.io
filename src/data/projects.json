@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-13T10:42:11.747Z",
+  "lastUpdated": "2026-09-13T15:09:51.014Z",
   "totalRepositories": 54,
   "totalProjects": 50,
   "totalRepositoryStars": 113,
@@ -204,7 +204,7 @@
         "forks": 0,
         "issues": 4,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-09-13T10:41:13Z",
+        "updatedAt": "2026-09-13T13:16:41Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -219,7 +219,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 26762,
+        "size": 26821,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -238,7 +238,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-05-08T11:52:27Z",
-        "updatedAt": "2026-09-12T16:27:32Z",
+        "updatedAt": "2026-09-13T10:54:30Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -247,7 +247,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 40429,
+        "size": 40516,
         "license": null,
         "latestRelease": {
           "tagName": "v0.1.6",
@@ -1780,7 +1780,7 @@
       "forks": 0,
       "issues": 4,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-09-13T10:41:13Z",
+      "updatedAt": "2026-09-13T13:16:41Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1795,7 +1795,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 26762,
+      "size": 26821,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -1814,7 +1814,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-05-08T11:52:27Z",
-      "updatedAt": "2026-09-12T16:27:32Z",
+      "updatedAt": "2026-09-13T10:54:30Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1823,7 +1823,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 40429,
+      "size": 40516,
       "license": null,
       "latestRelease": {
         "tagName": "v0.1.6",
