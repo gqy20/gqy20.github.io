@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-09-14T01:56:06.094Z",
-  "totalRepositories": 54,
-  "totalProjects": 50,
+  "lastUpdated": "2026-09-14T11:03:55.880Z",
+  "totalRepositories": 55,
+  "totalProjects": 51,
   "totalRepositoryStars": 113,
   "totalStars": 111,
   "followers": 22,
@@ -16,6 +16,43 @@
   ],
   "projects": {
     "MCP工具": [
+      {
+        "id": 1369522490,
+        "name": "poolhall",
+        "fullName": "gqy20/poolhall",
+        "description": "PoolHall · 台球厅 —— 让每个 AI 智能体拥有一双不完美的手。确定性物理引擎 + Hand Model 手感注入 + MCP Server，Agent 知行曲线 Benchmark。",
+        "url": "https://github.com/gqy20/poolhall",
+        "homepage": null,
+        "language": "HTML",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-09-14T08:02:54Z",
+        "updatedAt": "2026-09-14T08:17:53Z",
+        "category": "MCP工具",
+        "priority": 1,
+        "tags": [
+          "MCP",
+          "AI工具"
+        ],
+        "topics": [
+          "agent-benchmark",
+          "ai-agents",
+          "billiards",
+          "determinism",
+          "mcp",
+          "mcp-server",
+          "physics-engine",
+          "typescript"
+        ],
+        "isArchived": false,
+        "size": 45010,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 1125737759,
         "name": "crawl-mcp",
@@ -204,7 +241,7 @@
         "forks": 0,
         "issues": 4,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-09-13T23:04:28Z",
+        "updatedAt": "2026-09-14T09:19:51Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -219,7 +256,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 26873,
+        "size": 26900,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1246,7 +1283,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-06-19T03:35:17Z",
-        "updatedAt": "2026-09-07T09:16:11Z",
+        "updatedAt": "2026-09-14T02:09:48Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -1254,12 +1291,12 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 555,
+        "size": 603,
         "license": null,
         "latestRelease": {
-          "tagName": "truman-director-v0.4.7",
-          "name": "truman-director-v0.4.7",
-          "publishedAt": "2026-09-07T09:17:41Z",
+          "tagName": "truman-director-v0.4.8",
+          "name": "truman-director-v0.4.8",
+          "publishedAt": "2026-09-14T02:10:55Z",
           "prerelease": false,
           "draft": false
         },
@@ -1595,6 +1632,43 @@
   },
   "allProjects": [
     {
+      "id": 1369522490,
+      "name": "poolhall",
+      "fullName": "gqy20/poolhall",
+      "description": "PoolHall · 台球厅 —— 让每个 AI 智能体拥有一双不完美的手。确定性物理引擎 + Hand Model 手感注入 + MCP Server，Agent 知行曲线 Benchmark。",
+      "url": "https://github.com/gqy20/poolhall",
+      "homepage": null,
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-09-14T08:02:54Z",
+      "updatedAt": "2026-09-14T08:17:53Z",
+      "category": "MCP工具",
+      "priority": 1,
+      "tags": [
+        "MCP",
+        "AI工具"
+      ],
+      "topics": [
+        "agent-benchmark",
+        "ai-agents",
+        "billiards",
+        "determinism",
+        "mcp",
+        "mcp-server",
+        "physics-engine",
+        "typescript"
+      ],
+      "isArchived": false,
+      "size": 45010,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1125737759,
       "name": "crawl-mcp",
       "fullName": "gqy20/crawl-mcp",
@@ -1780,7 +1854,7 @@
       "forks": 0,
       "issues": 4,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-09-13T23:04:28Z",
+      "updatedAt": "2026-09-14T09:19:51Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1795,7 +1869,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 26873,
+      "size": 26900,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -2812,7 +2886,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-06-19T03:35:17Z",
-      "updatedAt": "2026-09-07T09:16:11Z",
+      "updatedAt": "2026-09-14T02:09:48Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -2820,12 +2894,12 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 555,
+      "size": 603,
       "license": null,
       "latestRelease": {
-        "tagName": "truman-director-v0.4.7",
-        "name": "truman-director-v0.4.7",
-        "publishedAt": "2026-09-07T09:17:41Z",
+        "tagName": "truman-director-v0.4.8",
+        "name": "truman-director-v0.4.8",
+        "publishedAt": "2026-09-14T02:10:55Z",
         "prerelease": false,
         "draft": false
       },
