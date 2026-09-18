@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-18T01:47:26.239Z",
+  "lastUpdated": "2026-09-18T10:08:16.954Z",
   "totalRepositories": 55,
   "totalProjects": 51,
   "totalRepositoryStars": 114,
@@ -28,7 +28,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-09-14T08:02:54Z",
-        "updatedAt": "2026-09-14T08:17:53Z",
+        "updatedAt": "2026-09-18T03:07:35Z",
         "category": "MCP工具",
         "priority": 1,
         "tags": [
@@ -46,7 +46,7 @@
           "typescript"
         ],
         "isArchived": false,
-        "size": 45010,
+        "size": 45020,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -241,7 +241,7 @@
         "forks": 0,
         "issues": 4,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-09-17T21:55:41Z",
+        "updatedAt": "2026-09-18T07:20:05Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -256,12 +256,88 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 27284,
+        "size": 27366,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
+      },
+      {
+        "id": 1232906183,
+        "name": "bitcat",
+        "fullName": "gqy20/bitcat",
+        "description": "A small desktop AI companion that can chat, watch tasks, manage reminders, observe your screen, and react as a pet.",
+        "url": "https://github.com/gqy20/bitcat",
+        "homepage": null,
+        "language": "Rust",
+        "stars": 1,
+        "forks": 0,
+        "issues": 6,
+        "createdAt": "2026-05-08T11:52:27Z",
+        "updatedAt": "2026-09-18T03:00:44Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [
+          "ai-companion",
+          "anthropic",
+          "desktop-companion",
+          "desktop-pet",
+          "rust",
+          "tauri",
+          "windows"
+        ],
+        "isArchived": false,
+        "size": 40236,
+        "license": "MIT License",
+        "latestRelease": {
+          "tagName": "v0.2.0",
+          "name": "BitCat v0.2.0",
+          "publishedAt": "2026-09-16T09:30:01Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 5,
+        "totalTags": 5
+      },
+      {
+        "id": 1196258715,
+        "name": "zotero_cli",
+        "fullName": "gqy20/zotero_cli",
+        "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
+        "url": "https://github.com/gqy20/zotero_cli",
+        "homepage": null,
+        "language": "Go",
+        "stars": 9,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-03-30T14:22:18Z",
+        "updatedAt": "2026-09-18T02:59:37Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 4723,
+        "license": "MIT License",
+        "latestRelease": {
+          "tagName": "v0.1.0",
+          "name": "v0.1.0 · zot",
+          "publishedAt": "2026-07-15T02:16:32Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 5,
+        "totalTags": 5
       },
       {
         "id": 1285578893,
@@ -323,48 +399,6 @@
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
-      },
-      {
-        "id": 1232906183,
-        "name": "bitcat",
-        "fullName": "gqy20/bitcat",
-        "description": "A small desktop AI companion that can chat, watch tasks, manage reminders, observe your screen, and react as a pet.",
-        "url": "https://github.com/gqy20/bitcat",
-        "homepage": null,
-        "language": "Rust",
-        "stars": 1,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-05-08T11:52:27Z",
-        "updatedAt": "2026-09-17T04:36:09Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [
-          "ai-companion",
-          "anthropic",
-          "desktop-companion",
-          "desktop-pet",
-          "rust",
-          "tauri",
-          "windows"
-        ],
-        "isArchived": false,
-        "size": 39904,
-        "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.2.0",
-          "name": "BitCat v0.2.0",
-          "publishedAt": "2026-09-16T09:30:01Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 5,
-        "totalTags": 5
       },
       {
         "id": 1235648882,
@@ -602,40 +636,6 @@
         "latestTag": null,
         "totalReleases": 4,
         "totalTags": 4
-      },
-      {
-        "id": 1196258715,
-        "name": "zotero_cli",
-        "fullName": "gqy20/zotero_cli",
-        "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
-        "url": "https://github.com/gqy20/zotero_cli",
-        "homepage": null,
-        "language": "Go",
-        "stars": 9,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-03-30T14:22:18Z",
-        "updatedAt": "2026-07-16T02:21:14Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 4712,
-        "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.1.0",
-          "name": "v0.1.0 · zot",
-          "publishedAt": "2026-07-15T02:16:32Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 5,
-        "totalTags": 5
       },
       {
         "id": 1244811068,
@@ -1651,7 +1651,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-09-14T08:02:54Z",
-      "updatedAt": "2026-09-14T08:17:53Z",
+      "updatedAt": "2026-09-18T03:07:35Z",
       "category": "MCP工具",
       "priority": 1,
       "tags": [
@@ -1669,7 +1669,7 @@
         "typescript"
       ],
       "isArchived": false,
-      "size": 45010,
+      "size": 45020,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -1862,7 +1862,7 @@
       "forks": 0,
       "issues": 4,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-09-17T21:55:41Z",
+      "updatedAt": "2026-09-18T07:20:05Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1877,12 +1877,88 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 27284,
+      "size": 27366,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
+    },
+    {
+      "id": 1232906183,
+      "name": "bitcat",
+      "fullName": "gqy20/bitcat",
+      "description": "A small desktop AI companion that can chat, watch tasks, manage reminders, observe your screen, and react as a pet.",
+      "url": "https://github.com/gqy20/bitcat",
+      "homepage": null,
+      "language": "Rust",
+      "stars": 1,
+      "forks": 0,
+      "issues": 6,
+      "createdAt": "2026-05-08T11:52:27Z",
+      "updatedAt": "2026-09-18T03:00:44Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [
+        "ai-companion",
+        "anthropic",
+        "desktop-companion",
+        "desktop-pet",
+        "rust",
+        "tauri",
+        "windows"
+      ],
+      "isArchived": false,
+      "size": 40236,
+      "license": "MIT License",
+      "latestRelease": {
+        "tagName": "v0.2.0",
+        "name": "BitCat v0.2.0",
+        "publishedAt": "2026-09-16T09:30:01Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 5,
+      "totalTags": 5
+    },
+    {
+      "id": 1196258715,
+      "name": "zotero_cli",
+      "fullName": "gqy20/zotero_cli",
+      "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
+      "url": "https://github.com/gqy20/zotero_cli",
+      "homepage": null,
+      "language": "Go",
+      "stars": 9,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-03-30T14:22:18Z",
+      "updatedAt": "2026-09-18T02:59:37Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 4723,
+      "license": "MIT License",
+      "latestRelease": {
+        "tagName": "v0.1.0",
+        "name": "v0.1.0 · zot",
+        "publishedAt": "2026-07-15T02:16:32Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 5,
+      "totalTags": 5
     },
     {
       "id": 1285578893,
@@ -1944,48 +2020,6 @@
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
-    },
-    {
-      "id": 1232906183,
-      "name": "bitcat",
-      "fullName": "gqy20/bitcat",
-      "description": "A small desktop AI companion that can chat, watch tasks, manage reminders, observe your screen, and react as a pet.",
-      "url": "https://github.com/gqy20/bitcat",
-      "homepage": null,
-      "language": "Rust",
-      "stars": 1,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-05-08T11:52:27Z",
-      "updatedAt": "2026-09-17T04:36:09Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [
-        "ai-companion",
-        "anthropic",
-        "desktop-companion",
-        "desktop-pet",
-        "rust",
-        "tauri",
-        "windows"
-      ],
-      "isArchived": false,
-      "size": 39904,
-      "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.2.0",
-        "name": "BitCat v0.2.0",
-        "publishedAt": "2026-09-16T09:30:01Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 5,
-      "totalTags": 5
     },
     {
       "id": 1235648882,
@@ -2223,40 +2257,6 @@
       "latestTag": null,
       "totalReleases": 4,
       "totalTags": 4
-    },
-    {
-      "id": 1196258715,
-      "name": "zotero_cli",
-      "fullName": "gqy20/zotero_cli",
-      "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
-      "url": "https://github.com/gqy20/zotero_cli",
-      "homepage": null,
-      "language": "Go",
-      "stars": 9,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-03-30T14:22:18Z",
-      "updatedAt": "2026-07-16T02:21:14Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 4712,
-      "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.1.0",
-        "name": "v0.1.0 · zot",
-        "publishedAt": "2026-07-15T02:16:32Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 5,
-      "totalTags": 5
     },
     {
       "id": 1244811068,
