@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-20T19:53:24.805Z",
+  "lastUpdated": "2026-09-21T01:56:06.049Z",
   "totalRepositories": 55,
   "totalProjects": 51,
   "totalRepositoryStars": 114,
@@ -241,7 +241,7 @@
         "forks": 0,
         "issues": 7,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-09-20T02:19:06Z",
+        "updatedAt": "2026-09-20T21:10:55Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -256,7 +256,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 28052,
+        "size": 28088,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1261,7 +1261,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2025-06-23T06:53:28Z",
-        "updatedAt": "2026-09-19T21:23:52Z",
+        "updatedAt": "2026-09-20T21:25:17Z",
         "category": "个人项目",
         "priority": 6,
         "tags": [
@@ -1270,7 +1270,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 16827,
+        "size": 16888,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1291,7 +1291,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-06-19T03:35:17Z",
-        "updatedAt": "2026-09-14T02:09:48Z",
+        "updatedAt": "2026-09-21T01:42:07Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -1302,9 +1302,9 @@
         "size": 603,
         "license": null,
         "latestRelease": {
-          "tagName": "truman-director-v0.4.8",
-          "name": "truman-director-v0.4.8",
-          "publishedAt": "2026-09-14T02:10:55Z",
+          "tagName": "truman-director-v0.4.9",
+          "name": "truman-director-v0.4.9",
+          "publishedAt": "2026-09-21T01:43:28Z",
           "prerelease": false,
           "draft": false
         },
@@ -1862,7 +1862,7 @@
       "forks": 0,
       "issues": 7,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-09-20T02:19:06Z",
+      "updatedAt": "2026-09-20T21:10:55Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1877,7 +1877,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 28052,
+      "size": 28088,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -2874,7 +2874,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2025-06-23T06:53:28Z",
-      "updatedAt": "2026-09-19T21:23:52Z",
+      "updatedAt": "2026-09-20T21:25:17Z",
       "category": "个人项目",
       "priority": 6,
       "tags": [
@@ -2883,7 +2883,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 16827,
+      "size": 16888,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -2902,7 +2902,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-06-19T03:35:17Z",
-      "updatedAt": "2026-09-14T02:09:48Z",
+      "updatedAt": "2026-09-21T01:42:07Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -2913,9 +2913,9 @@
       "size": 603,
       "license": null,
       "latestRelease": {
-        "tagName": "truman-director-v0.4.8",
-        "name": "truman-director-v0.4.8",
-        "publishedAt": "2026-09-14T02:10:55Z",
+        "tagName": "truman-director-v0.4.9",
+        "name": "truman-director-v0.4.9",
+        "publishedAt": "2026-09-21T01:43:28Z",
         "prerelease": false,
         "draft": false
       },
