@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-21T01:56:06.049Z",
+  "lastUpdated": "2026-09-21T11:13:46.856Z",
   "totalRepositories": 55,
   "totalProjects": 51,
   "totalRepositoryStars": 114,
@@ -241,7 +241,7 @@
         "forks": 0,
         "issues": 7,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-09-20T21:10:55Z",
+        "updatedAt": "2026-09-21T03:52:45Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -256,7 +256,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 28088,
+        "size": 28244,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -487,7 +487,7 @@
         "homepage": "https://manim.gqy20.top/",
         "language": "Python",
         "stars": 6,
-        "forks": 3,
+        "forks": 4,
         "issues": 0,
         "createdAt": "2026-04-10T17:41:37Z",
         "updatedAt": "2026-09-07T09:15:14Z",
@@ -1291,7 +1291,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-06-19T03:35:17Z",
-        "updatedAt": "2026-09-21T01:42:07Z",
+        "updatedAt": "2026-09-21T02:07:04Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -1299,7 +1299,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 603,
+        "size": 677,
         "license": null,
         "latestRelease": {
           "tagName": "truman-director-v0.4.9",
@@ -1862,7 +1862,7 @@
       "forks": 0,
       "issues": 7,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-09-20T21:10:55Z",
+      "updatedAt": "2026-09-21T03:52:45Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1877,7 +1877,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 28088,
+      "size": 28244,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -2108,7 +2108,7 @@
       "homepage": "https://manim.gqy20.top/",
       "language": "Python",
       "stars": 6,
-      "forks": 3,
+      "forks": 4,
       "issues": 0,
       "createdAt": "2026-04-10T17:41:37Z",
       "updatedAt": "2026-09-07T09:15:14Z",
@@ -2902,7 +2902,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-06-19T03:35:17Z",
-      "updatedAt": "2026-09-21T01:42:07Z",
+      "updatedAt": "2026-09-21T02:07:04Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -2910,7 +2910,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 603,
+      "size": 677,
       "license": null,
       "latestRelease": {
         "tagName": "truman-director-v0.4.9",
