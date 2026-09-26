@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-26T02:12:49.895Z",
+  "lastUpdated": "2026-09-26T10:23:44.819Z",
   "totalRepositories": 55,
   "totalProjects": 51,
   "totalRepositoryStars": 115,
@@ -241,7 +241,7 @@
         "forks": 0,
         "issues": 8,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-09-25T21:59:55Z",
+        "updatedAt": "2026-09-26T03:42:06Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -256,7 +256,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 29071,
+        "size": 29272,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -275,7 +275,7 @@
         "forks": 0,
         "issues": 7,
         "createdAt": "2026-05-08T11:52:27Z",
-        "updatedAt": "2026-09-25T16:37:47Z",
+        "updatedAt": "2026-09-26T03:41:38Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -292,7 +292,7 @@
           "windows"
         ],
         "isArchived": false,
-        "size": 41539,
+        "size": 41541,
         "license": "MIT License",
         "latestRelease": {
           "tagName": "v0.2.0",
@@ -1862,7 +1862,7 @@
       "forks": 0,
       "issues": 8,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-09-25T21:59:55Z",
+      "updatedAt": "2026-09-26T03:42:06Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1877,7 +1877,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 29071,
+      "size": 29272,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -1896,7 +1896,7 @@
       "forks": 0,
       "issues": 7,
       "createdAt": "2026-05-08T11:52:27Z",
-      "updatedAt": "2026-09-25T16:37:47Z",
+      "updatedAt": "2026-09-26T03:41:38Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1913,7 +1913,7 @@
         "windows"
       ],
       "isArchived": false,
-      "size": 41539,
+      "size": 41541,
       "license": "MIT License",
       "latestRelease": {
         "tagName": "v0.2.0",
