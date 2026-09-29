@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-09-29T02:56:42.283Z",
-  "totalRepositories": 55,
-  "totalProjects": 51,
+  "lastUpdated": "2026-09-29T11:40:30.267Z",
+  "totalRepositories": 56,
+  "totalProjects": 52,
   "totalRepositoryStars": 115,
   "totalStars": 113,
   "followers": 23,
@@ -241,7 +241,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-03-03T13:41:53Z",
-        "updatedAt": "2026-09-29T02:15:52Z",
+        "updatedAt": "2026-09-29T07:11:13Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -250,7 +250,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 3896,
+        "size": 3897,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -269,7 +269,7 @@
         "forks": 0,
         "issues": 8,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-09-28T23:41:39Z",
+        "updatedAt": "2026-09-29T03:49:36Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -284,7 +284,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 29713,
+        "size": 29930,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -975,6 +975,34 @@
       }
     ],
     "Web开发": [
+      {
+        "id": 1394805707,
+        "name": "feed",
+        "fullName": "gqy20/feed",
+        "description": "暂无描述 - HTML项目",
+        "url": "https://github.com/gqy20/feed",
+        "homepage": null,
+        "language": "HTML",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-09-29T09:14:51Z",
+        "updatedAt": "2026-09-29T10:24:18Z",
+        "category": "Web开发",
+        "priority": 4,
+        "tags": [
+          "Web",
+          "前端"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 4,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 1342045507,
         "name": "dance-os",
@@ -1862,7 +1890,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-03-03T13:41:53Z",
-      "updatedAt": "2026-09-29T02:15:52Z",
+      "updatedAt": "2026-09-29T07:11:13Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1871,7 +1899,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 3896,
+      "size": 3897,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -1890,7 +1918,7 @@
       "forks": 0,
       "issues": 8,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-09-28T23:41:39Z",
+      "updatedAt": "2026-09-29T03:49:36Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1905,7 +1933,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 29713,
+      "size": 29930,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -2591,6 +2619,34 @@
       "latestTag": null,
       "totalReleases": 3,
       "totalTags": 3
+    },
+    {
+      "id": 1394805707,
+      "name": "feed",
+      "fullName": "gqy20/feed",
+      "description": "暂无描述 - HTML项目",
+      "url": "https://github.com/gqy20/feed",
+      "homepage": null,
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-09-29T09:14:51Z",
+      "updatedAt": "2026-09-29T10:24:18Z",
+      "category": "Web开发",
+      "priority": 4,
+      "tags": [
+        "Web",
+        "前端"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 4,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
     },
     {
       "id": 1342045507,
