@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-02T11:27:21.342Z",
+  "lastUpdated": "2026-10-02T16:54:23.650Z",
   "totalRepositories": 56,
   "totalProjects": 52,
   "totalRepositoryStars": 116,
@@ -241,7 +241,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-05-08T11:52:27Z",
-        "updatedAt": "2026-10-02T08:35:31Z",
+        "updatedAt": "2026-10-02T15:11:43Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -258,7 +258,7 @@
           "windows"
         ],
         "isArchived": false,
-        "size": 145756,
+        "size": 145838,
         "license": "MIT License",
         "latestRelease": {
           "tagName": "v0.2.0",
@@ -987,7 +987,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-09-29T09:14:51Z",
-        "updatedAt": "2026-10-02T08:50:34Z",
+        "updatedAt": "2026-10-02T16:18:15Z",
         "category": "Web开发",
         "priority": 4,
         "tags": [
@@ -1890,7 +1890,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-05-08T11:52:27Z",
-      "updatedAt": "2026-10-02T08:35:31Z",
+      "updatedAt": "2026-10-02T15:11:43Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1907,7 +1907,7 @@
         "windows"
       ],
       "isArchived": false,
-      "size": 145756,
+      "size": 145838,
       "license": "MIT License",
       "latestRelease": {
         "tagName": "v0.2.0",
@@ -2632,7 +2632,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-09-29T09:14:51Z",
-      "updatedAt": "2026-10-02T08:50:34Z",
+      "updatedAt": "2026-10-02T16:18:15Z",
       "category": "Web开发",
       "priority": 4,
       "tags": [
