@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-10-12T02:52:08.270Z",
-  "totalRepositories": 56,
-  "totalProjects": 52,
+  "lastUpdated": "2026-10-12T13:39:56.997Z",
+  "totalRepositories": 57,
+  "totalProjects": 53,
   "totalRepositoryStars": 116,
   "totalStars": 114,
   "followers": 23,
@@ -16,6 +16,43 @@
   ],
   "projects": {
     "MCP工具": [
+      {
+        "id": 1369522490,
+        "name": "poolhall",
+        "fullName": "gqy20/poolhall",
+        "description": "PoolHall · 台球厅 —— 让每个 AI 智能体拥有一双不完美的手。确定性物理引擎 + Hand Model 手感注入 + MCP Server，Agent 知行曲线 Benchmark。",
+        "url": "https://github.com/gqy20/poolhall",
+        "homepage": null,
+        "language": "HTML",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-09-14T08:02:54Z",
+        "updatedAt": "2026-10-12T09:40:52Z",
+        "category": "MCP工具",
+        "priority": 1,
+        "tags": [
+          "MCP",
+          "AI工具"
+        ],
+        "topics": [
+          "agent-benchmark",
+          "ai-agents",
+          "billiards",
+          "determinism",
+          "mcp",
+          "mcp-server",
+          "physics-engine",
+          "typescript"
+        ],
+        "isArchived": false,
+        "size": 45088,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 1125737759,
         "name": "crawl-mcp",
@@ -49,43 +86,6 @@
         "latestTag": null,
         "totalReleases": 4,
         "totalTags": 5
-      },
-      {
-        "id": 1369522490,
-        "name": "poolhall",
-        "fullName": "gqy20/poolhall",
-        "description": "PoolHall · 台球厅 —— 让每个 AI 智能体拥有一双不完美的手。确定性物理引擎 + Hand Model 手感注入 + MCP Server，Agent 知行曲线 Benchmark。",
-        "url": "https://github.com/gqy20/poolhall",
-        "homepage": null,
-        "language": "HTML",
-        "stars": 0,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-09-14T08:02:54Z",
-        "updatedAt": "2026-09-18T03:07:35Z",
-        "category": "MCP工具",
-        "priority": 1,
-        "tags": [
-          "MCP",
-          "AI工具"
-        ],
-        "topics": [
-          "agent-benchmark",
-          "ai-agents",
-          "billiards",
-          "determinism",
-          "mcp",
-          "mcp-server",
-          "physics-engine",
-          "typescript"
-        ],
-        "isArchived": false,
-        "size": 45020,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
       },
       {
         "id": 1019340765,
@@ -230,6 +230,40 @@
     ],
     "AI应用": [
       {
+        "id": 1294578427,
+        "name": "Trail",
+        "fullName": "gqy20/Trail",
+        "description": "暂无描述 - TypeScript项目",
+        "url": "https://github.com/gqy20/Trail",
+        "homepage": null,
+        "language": "TypeScript",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-07-09T03:06:48Z",
+        "updatedAt": "2026-10-12T06:27:10Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 1136,
+        "license": null,
+        "latestRelease": {
+          "tagName": "v0.2.1",
+          "name": "v0.2.1 · Trail",
+          "publishedAt": "2026-10-10T09:36:20Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 3,
+        "totalTags": 3
+      },
+      {
         "id": 1126636339,
         "name": "TrendPluse",
         "fullName": "gqy20/TrendPluse",
@@ -241,7 +275,7 @@
         "forks": 0,
         "issues": 8,
         "createdAt": "2026-01-02T09:55:54Z",
-        "updatedAt": "2026-10-11T22:41:12Z",
+        "updatedAt": "2026-10-12T04:52:27Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -256,7 +290,7 @@
           "trend-analysis"
         ],
         "isArchived": false,
-        "size": 32298,
+        "size": 32422,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1668,6 +1702,43 @@
   },
   "allProjects": [
     {
+      "id": 1369522490,
+      "name": "poolhall",
+      "fullName": "gqy20/poolhall",
+      "description": "PoolHall · 台球厅 —— 让每个 AI 智能体拥有一双不完美的手。确定性物理引擎 + Hand Model 手感注入 + MCP Server，Agent 知行曲线 Benchmark。",
+      "url": "https://github.com/gqy20/poolhall",
+      "homepage": null,
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-09-14T08:02:54Z",
+      "updatedAt": "2026-10-12T09:40:52Z",
+      "category": "MCP工具",
+      "priority": 1,
+      "tags": [
+        "MCP",
+        "AI工具"
+      ],
+      "topics": [
+        "agent-benchmark",
+        "ai-agents",
+        "billiards",
+        "determinism",
+        "mcp",
+        "mcp-server",
+        "physics-engine",
+        "typescript"
+      ],
+      "isArchived": false,
+      "size": 45088,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1125737759,
       "name": "crawl-mcp",
       "fullName": "gqy20/crawl-mcp",
@@ -1700,43 +1771,6 @@
       "latestTag": null,
       "totalReleases": 4,
       "totalTags": 5
-    },
-    {
-      "id": 1369522490,
-      "name": "poolhall",
-      "fullName": "gqy20/poolhall",
-      "description": "PoolHall · 台球厅 —— 让每个 AI 智能体拥有一双不完美的手。确定性物理引擎 + Hand Model 手感注入 + MCP Server，Agent 知行曲线 Benchmark。",
-      "url": "https://github.com/gqy20/poolhall",
-      "homepage": null,
-      "language": "HTML",
-      "stars": 0,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-09-14T08:02:54Z",
-      "updatedAt": "2026-09-18T03:07:35Z",
-      "category": "MCP工具",
-      "priority": 1,
-      "tags": [
-        "MCP",
-        "AI工具"
-      ],
-      "topics": [
-        "agent-benchmark",
-        "ai-agents",
-        "billiards",
-        "determinism",
-        "mcp",
-        "mcp-server",
-        "physics-engine",
-        "typescript"
-      ],
-      "isArchived": false,
-      "size": 45020,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
     },
     {
       "id": 1019340765,
@@ -1879,6 +1913,40 @@
       "totalTags": 5
     },
     {
+      "id": 1294578427,
+      "name": "Trail",
+      "fullName": "gqy20/Trail",
+      "description": "暂无描述 - TypeScript项目",
+      "url": "https://github.com/gqy20/Trail",
+      "homepage": null,
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-07-09T03:06:48Z",
+      "updatedAt": "2026-10-12T06:27:10Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 1136,
+      "license": null,
+      "latestRelease": {
+        "tagName": "v0.2.1",
+        "name": "v0.2.1 · Trail",
+        "publishedAt": "2026-10-10T09:36:20Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 3,
+      "totalTags": 3
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -1890,7 +1958,7 @@
       "forks": 0,
       "issues": 8,
       "createdAt": "2026-01-02T09:55:54Z",
-      "updatedAt": "2026-10-11T22:41:12Z",
+      "updatedAt": "2026-10-12T04:52:27Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1905,7 +1973,7 @@
         "trend-analysis"
       ],
       "isArchived": false,
-      "size": 32298,
+      "size": 32422,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
