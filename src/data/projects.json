@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-10-13T13:02:12.701Z",
+  "lastUpdated": "2026-10-13T22:01:09.537Z",
   "totalRepositories": 57,
   "totalProjects": 53,
   "totalRepositoryStars": 116,
   "totalStars": 114,
-  "followers": 23,
+  "followers": 22,
   "categories": [
     "MCP工具",
     "AI应用",
@@ -1021,7 +1021,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-09-29T09:14:51Z",
-        "updatedAt": "2026-10-13T09:02:52Z",
+        "updatedAt": "2026-10-13T20:05:08Z",
         "category": "Web开发",
         "priority": 4,
         "tags": [
@@ -1030,7 +1030,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 31636,
+        "size": 33635,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -2700,7 +2700,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-09-29T09:14:51Z",
-      "updatedAt": "2026-10-13T09:02:52Z",
+      "updatedAt": "2026-10-13T20:05:08Z",
       "category": "Web开发",
       "priority": 4,
       "tags": [
@@ -2709,7 +2709,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 31636,
+      "size": 33635,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
