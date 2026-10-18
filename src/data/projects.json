@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-18T14:57:44.287Z",
+  "lastUpdated": "2026-10-18T19:45:34.115Z",
   "totalRepositories": 57,
   "totalProjects": 53,
   "totalRepositoryStars": 117,
@@ -230,6 +230,40 @@
     ],
     "AI应用": [
       {
+        "id": 1235648882,
+        "name": "Aura",
+        "fullName": "gqy20/Aura",
+        "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
+        "url": "https://github.com/gqy20/Aura",
+        "homepage": "https://aura.gqy20.top/",
+        "language": "Kotlin",
+        "stars": 8,
+        "forks": 4,
+        "issues": 0,
+        "createdAt": "2026-05-11T14:21:06Z",
+        "updatedAt": "2026-10-18T18:11:20Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 6274,
+        "license": null,
+        "latestRelease": {
+          "tagName": "v0.1.6",
+          "name": "Aura v0.1.6",
+          "publishedAt": "2026-08-10T04:03:24Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 5,
+        "totalTags": 5
+      },
+      {
         "id": 1130347783,
         "name": "cc-insights",
         "fullName": "gqy20/cc-insights",
@@ -250,7 +284,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 13074,
+        "size": 13207,
         "license": "MIT License",
         "latestRelease": {
           "tagName": "v0.2.0",
@@ -284,46 +318,12 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 3937,
+        "size": 3946,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
-      },
-      {
-        "id": 1235648882,
-        "name": "Aura",
-        "fullName": "gqy20/Aura",
-        "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
-        "url": "https://github.com/gqy20/Aura",
-        "homepage": "https://aura.gqy20.top/",
-        "language": "Kotlin",
-        "stars": 8,
-        "forks": 4,
-        "issues": 0,
-        "createdAt": "2026-05-11T14:21:06Z",
-        "updatedAt": "2026-10-18T14:17:14Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 6207,
-        "license": null,
-        "latestRelease": {
-          "tagName": "v0.1.6",
-          "name": "Aura v0.1.6",
-          "publishedAt": "2026-08-10T04:03:24Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 5,
-        "totalTags": 5
       },
       {
         "id": 1126636339,
@@ -1021,7 +1021,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-09-29T09:14:51Z",
-        "updatedAt": "2026-10-17T20:09:18Z",
+        "updatedAt": "2026-10-18T16:04:53Z",
         "category": "Web开发",
         "priority": 4,
         "tags": [
@@ -1030,7 +1030,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 37550,
+        "size": 38407,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1913,6 +1913,40 @@
       "totalTags": 5
     },
     {
+      "id": 1235648882,
+      "name": "Aura",
+      "fullName": "gqy20/Aura",
+      "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
+      "url": "https://github.com/gqy20/Aura",
+      "homepage": "https://aura.gqy20.top/",
+      "language": "Kotlin",
+      "stars": 8,
+      "forks": 4,
+      "issues": 0,
+      "createdAt": "2026-05-11T14:21:06Z",
+      "updatedAt": "2026-10-18T18:11:20Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 6274,
+      "license": null,
+      "latestRelease": {
+        "tagName": "v0.1.6",
+        "name": "Aura v0.1.6",
+        "publishedAt": "2026-08-10T04:03:24Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 5,
+      "totalTags": 5
+    },
+    {
       "id": 1130347783,
       "name": "cc-insights",
       "fullName": "gqy20/cc-insights",
@@ -1933,7 +1967,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 13074,
+      "size": 13207,
       "license": "MIT License",
       "latestRelease": {
         "tagName": "v0.2.0",
@@ -1967,46 +2001,12 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 3937,
+      "size": 3946,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
-    },
-    {
-      "id": 1235648882,
-      "name": "Aura",
-      "fullName": "gqy20/Aura",
-      "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
-      "url": "https://github.com/gqy20/Aura",
-      "homepage": "https://aura.gqy20.top/",
-      "language": "Kotlin",
-      "stars": 8,
-      "forks": 4,
-      "issues": 0,
-      "createdAt": "2026-05-11T14:21:06Z",
-      "updatedAt": "2026-10-18T14:17:14Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 6207,
-      "license": null,
-      "latestRelease": {
-        "tagName": "v0.1.6",
-        "name": "Aura v0.1.6",
-        "publishedAt": "2026-08-10T04:03:24Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 5,
-      "totalTags": 5
     },
     {
       "id": 1126636339,
@@ -2700,7 +2700,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-09-29T09:14:51Z",
-      "updatedAt": "2026-10-17T20:09:18Z",
+      "updatedAt": "2026-10-18T16:04:53Z",
       "category": "Web开发",
       "priority": 4,
       "tags": [
@@ -2709,7 +2709,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 37550,
+      "size": 38407,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
