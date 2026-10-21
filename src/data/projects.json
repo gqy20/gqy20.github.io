@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-10-21T10:42:15.312Z",
-  "totalRepositories": 57,
-  "totalProjects": 53,
-  "totalRepositoryStars": 118,
-  "totalStars": 116,
+  "lastUpdated": "2026-10-21T16:11:33.068Z",
+  "totalRepositories": 58,
+  "totalProjects": 54,
+  "totalRepositoryStars": 120,
+  "totalStars": 118,
   "followers": 21,
   "categories": [
     "MCP工具",
@@ -1341,6 +1341,39 @@
       }
     ],
     "其他项目": [
+      {
+        "id": 1388013717,
+        "name": "actl",
+        "fullName": "gqy20/actl",
+        "description": "暂无描述 - Rust项目",
+        "url": "https://github.com/gqy20/actl",
+        "homepage": null,
+        "language": "Rust",
+        "stars": 2,
+        "forks": 0,
+        "issues": 2,
+        "createdAt": "2026-09-25T18:10:47Z",
+        "updatedAt": "2026-10-21T13:40:16Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "rust"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 5354,
+        "license": "MIT License",
+        "latestRelease": {
+          "tagName": "v0.2.3",
+          "name": "v0.2.3",
+          "publishedAt": "2026-10-13T05:32:14Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 5,
+        "totalTags": 5
+      },
       {
         "id": 1309022792,
         "name": "slingshot",
@@ -3013,6 +3046,39 @@
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
+    },
+    {
+      "id": 1388013717,
+      "name": "actl",
+      "fullName": "gqy20/actl",
+      "description": "暂无描述 - Rust项目",
+      "url": "https://github.com/gqy20/actl",
+      "homepage": null,
+      "language": "Rust",
+      "stars": 2,
+      "forks": 0,
+      "issues": 2,
+      "createdAt": "2026-09-25T18:10:47Z",
+      "updatedAt": "2026-10-21T13:40:16Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "rust"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 5354,
+      "license": "MIT License",
+      "latestRelease": {
+        "tagName": "v0.2.3",
+        "name": "v0.2.3",
+        "publishedAt": "2026-10-13T05:32:14Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 5,
+      "totalTags": 5
     },
     {
       "id": 1309022792,
