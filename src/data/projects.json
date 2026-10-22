@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-22T10:44:23.702Z",
+  "lastUpdated": "2026-10-22T16:09:42.662Z",
   "totalRepositories": 58,
   "totalProjects": 54,
   "totalRepositoryStars": 121,
@@ -241,7 +241,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-03-03T13:41:53Z",
-        "updatedAt": "2026-10-22T08:40:09Z",
+        "updatedAt": "2026-10-22T14:49:24Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -250,7 +250,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 4017,
+        "size": 4141,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -348,15 +348,14 @@
         "isArchived": false,
         "size": 12552,
         "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.2.0",
-          "name": "v0.2.0 · cc-insights",
-          "publishedAt": "2026-07-04T14:22:34Z",
-          "prerelease": false,
-          "draft": false
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.3.0",
+          "commit": "4b825b352e35c6799b9efa18f82be1debe14c941",
+          "zipball_url": "https://api.github.com/repos/gqy20/cc-insights/zipball/refs/tags/v0.3.0",
+          "tarball_url": "https://api.github.com/repos/gqy20/cc-insights/tarball/refs/tags/v0.3.0"
         },
-        "latestTag": null,
-        "totalReleases": 4,
+        "totalReleases": 0,
         "totalTags": 5
       },
       {
@@ -423,15 +422,14 @@
         "isArchived": false,
         "size": 1136,
         "license": null,
-        "latestRelease": {
-          "tagName": "v0.2.1",
-          "name": "v0.2.1 · Trail",
-          "publishedAt": "2026-10-10T09:36:20Z",
-          "prerelease": false,
-          "draft": false
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.2.1",
+          "commit": "f4e79dfe40b004214f4a00e953969f093ba1dca8",
+          "zipball_url": "https://api.github.com/repos/gqy20/Trail/zipball/refs/tags/v0.2.1",
+          "tarball_url": "https://api.github.com/repos/gqy20/Trail/tarball/refs/tags/v0.2.1"
         },
-        "latestTag": null,
-        "totalReleases": 3,
+        "totalReleases": 0,
         "totalTags": 3
       },
       {
@@ -465,15 +463,14 @@
         "isArchived": false,
         "size": 146124,
         "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.2.0",
-          "name": "BitCat v0.2.0",
-          "publishedAt": "2026-09-16T09:30:01Z",
-          "prerelease": false,
-          "draft": false
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.2.0",
+          "commit": "861336c0c6d95af45791d5cf5ba3614be95b7093",
+          "zipball_url": "https://api.github.com/repos/gqy20/bitcat/zipball/refs/tags/v0.2.0",
+          "tarball_url": "https://api.github.com/repos/gqy20/bitcat/tarball/refs/tags/v0.2.0"
         },
-        "latestTag": null,
-        "totalReleases": 5,
+        "totalReleases": 0,
         "totalTags": 5
       },
       {
@@ -499,15 +496,14 @@
         "isArchived": false,
         "size": 4723,
         "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.1.0",
-          "name": "v0.1.0 · zot",
-          "publishedAt": "2026-07-15T02:16:32Z",
-          "prerelease": false,
-          "draft": false
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.1.0",
+          "commit": "b1e5eae413c12fed8bbef55f04d3e7a45db4470b",
+          "zipball_url": "https://api.github.com/repos/gqy20/zotero_cli/zipball/refs/tags/v0.1.0",
+          "tarball_url": "https://api.github.com/repos/gqy20/zotero_cli/tarball/refs/tags/v0.1.0"
         },
-        "latestTag": null,
-        "totalReleases": 5,
+        "totalReleases": 0,
         "totalTags": 5
       },
       {
@@ -1513,15 +1509,14 @@
         "isArchived": false,
         "size": 1387,
         "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.1.0",
-          "name": "Narra v0.1.0",
-          "publishedAt": "2026-08-05T11:20:08Z",
-          "prerelease": false,
-          "draft": false
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.1.0",
+          "commit": "0603bac78074acdab3526ec2994f91481f6df569",
+          "zipball_url": "https://api.github.com/repos/gqy20/narra/zipball/refs/tags/v0.1.0",
+          "tarball_url": "https://api.github.com/repos/gqy20/narra/tarball/refs/tags/v0.1.0"
         },
-        "latestTag": null,
-        "totalReleases": 1,
+        "totalReleases": 0,
         "totalTags": 1
       },
       {
@@ -1546,15 +1541,14 @@
         "isArchived": false,
         "size": 262,
         "license": null,
-        "latestRelease": {
-          "tagName": "v1.1.6",
-          "name": "Gearbox Action v1.1.6",
-          "publishedAt": "2026-04-27T14:53:14Z",
-          "prerelease": false,
-          "draft": false
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v1.1.6",
+          "commit": "e4496fa606591ff2e62797848b44c24a1ca39d17",
+          "zipball_url": "https://api.github.com/repos/gqy20/gearbox-action/zipball/refs/tags/v1.1.6",
+          "tarball_url": "https://api.github.com/repos/gqy20/gearbox-action/tarball/refs/tags/v1.1.6"
         },
-        "latestTag": null,
-        "totalReleases": 5,
+        "totalReleases": 0,
         "totalTags": 5
       },
       {
@@ -1957,7 +1951,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-03-03T13:41:53Z",
-      "updatedAt": "2026-10-22T08:40:09Z",
+      "updatedAt": "2026-10-22T14:49:24Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1966,7 +1960,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 4017,
+      "size": 4141,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -2064,15 +2058,14 @@
       "isArchived": false,
       "size": 12552,
       "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.2.0",
-        "name": "v0.2.0 · cc-insights",
-        "publishedAt": "2026-07-04T14:22:34Z",
-        "prerelease": false,
-        "draft": false
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.3.0",
+        "commit": "4b825b352e35c6799b9efa18f82be1debe14c941",
+        "zipball_url": "https://api.github.com/repos/gqy20/cc-insights/zipball/refs/tags/v0.3.0",
+        "tarball_url": "https://api.github.com/repos/gqy20/cc-insights/tarball/refs/tags/v0.3.0"
       },
-      "latestTag": null,
-      "totalReleases": 4,
+      "totalReleases": 0,
       "totalTags": 5
     },
     {
@@ -2139,15 +2132,14 @@
       "isArchived": false,
       "size": 1136,
       "license": null,
-      "latestRelease": {
-        "tagName": "v0.2.1",
-        "name": "v0.2.1 · Trail",
-        "publishedAt": "2026-10-10T09:36:20Z",
-        "prerelease": false,
-        "draft": false
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.2.1",
+        "commit": "f4e79dfe40b004214f4a00e953969f093ba1dca8",
+        "zipball_url": "https://api.github.com/repos/gqy20/Trail/zipball/refs/tags/v0.2.1",
+        "tarball_url": "https://api.github.com/repos/gqy20/Trail/tarball/refs/tags/v0.2.1"
       },
-      "latestTag": null,
-      "totalReleases": 3,
+      "totalReleases": 0,
       "totalTags": 3
     },
     {
@@ -2181,15 +2173,14 @@
       "isArchived": false,
       "size": 146124,
       "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.2.0",
-        "name": "BitCat v0.2.0",
-        "publishedAt": "2026-09-16T09:30:01Z",
-        "prerelease": false,
-        "draft": false
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.2.0",
+        "commit": "861336c0c6d95af45791d5cf5ba3614be95b7093",
+        "zipball_url": "https://api.github.com/repos/gqy20/bitcat/zipball/refs/tags/v0.2.0",
+        "tarball_url": "https://api.github.com/repos/gqy20/bitcat/tarball/refs/tags/v0.2.0"
       },
-      "latestTag": null,
-      "totalReleases": 5,
+      "totalReleases": 0,
       "totalTags": 5
     },
     {
@@ -2215,15 +2206,14 @@
       "isArchived": false,
       "size": 4723,
       "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.1.0",
-        "name": "v0.1.0 · zot",
-        "publishedAt": "2026-07-15T02:16:32Z",
-        "prerelease": false,
-        "draft": false
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.1.0",
+        "commit": "b1e5eae413c12fed8bbef55f04d3e7a45db4470b",
+        "zipball_url": "https://api.github.com/repos/gqy20/zotero_cli/zipball/refs/tags/v0.1.0",
+        "tarball_url": "https://api.github.com/repos/gqy20/zotero_cli/tarball/refs/tags/v0.1.0"
       },
-      "latestTag": null,
-      "totalReleases": 5,
+      "totalReleases": 0,
       "totalTags": 5
     },
     {
@@ -3219,15 +3209,14 @@
       "isArchived": false,
       "size": 1387,
       "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.1.0",
-        "name": "Narra v0.1.0",
-        "publishedAt": "2026-08-05T11:20:08Z",
-        "prerelease": false,
-        "draft": false
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.1.0",
+        "commit": "0603bac78074acdab3526ec2994f91481f6df569",
+        "zipball_url": "https://api.github.com/repos/gqy20/narra/zipball/refs/tags/v0.1.0",
+        "tarball_url": "https://api.github.com/repos/gqy20/narra/tarball/refs/tags/v0.1.0"
       },
-      "latestTag": null,
-      "totalReleases": 1,
+      "totalReleases": 0,
       "totalTags": 1
     },
     {
@@ -3252,15 +3241,14 @@
       "isArchived": false,
       "size": 262,
       "license": null,
-      "latestRelease": {
-        "tagName": "v1.1.6",
-        "name": "Gearbox Action v1.1.6",
-        "publishedAt": "2026-04-27T14:53:14Z",
-        "prerelease": false,
-        "draft": false
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v1.1.6",
+        "commit": "e4496fa606591ff2e62797848b44c24a1ca39d17",
+        "zipball_url": "https://api.github.com/repos/gqy20/gearbox-action/zipball/refs/tags/v1.1.6",
+        "tarball_url": "https://api.github.com/repos/gqy20/gearbox-action/tarball/refs/tags/v1.1.6"
       },
-      "latestTag": null,
-      "totalReleases": 5,
+      "totalReleases": 0,
       "totalTags": 5
     },
     {
