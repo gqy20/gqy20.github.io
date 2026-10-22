@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-10-22T02:06:47.475Z",
+  "lastUpdated": "2026-10-22T10:44:23.702Z",
   "totalRepositories": 58,
   "totalProjects": 54,
-  "totalRepositoryStars": 120,
-  "totalStars": 118,
+  "totalRepositoryStars": 121,
+  "totalStars": 119,
   "followers": 21,
   "categories": [
     "MCP工具",
@@ -16,6 +16,41 @@
   ],
   "projects": {
     "MCP工具": [
+      {
+        "id": 1019340765,
+        "name": "article-mcp",
+        "fullName": "gqy20/article-mcp",
+        "description": "文献检索MCP",
+        "url": "https://github.com/gqy20/article-mcp",
+        "homepage": "https://pypi.org/project/article-mcp/",
+        "language": "Python",
+        "stars": 17,
+        "forks": 4,
+        "issues": 1,
+        "createdAt": "2025-07-14T07:18:21Z",
+        "updatedAt": "2026-10-22T07:39:49Z",
+        "category": "MCP工具",
+        "priority": 1,
+        "tags": [
+          "MCP",
+          "AI工具"
+        ],
+        "topics": [
+          "mcp"
+        ],
+        "isArchived": false,
+        "size": 1660,
+        "license": "MIT License",
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.2.2",
+          "commit": "fdb02268e53da3cf804c59ec3e8ddde4aa4732f5",
+          "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.2",
+          "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
+        },
+        "totalReleases": 0,
+        "totalTags": 5
+      },
       {
         "id": 1369522490,
         "name": "poolhall",
@@ -85,41 +120,6 @@
         },
         "latestTag": null,
         "totalReleases": 4,
-        "totalTags": 5
-      },
-      {
-        "id": 1019340765,
-        "name": "article-mcp",
-        "fullName": "gqy20/article-mcp",
-        "description": "文献检索MCP",
-        "url": "https://github.com/gqy20/article-mcp",
-        "homepage": "https://pypi.org/project/article-mcp/",
-        "language": "Python",
-        "stars": 16,
-        "forks": 4,
-        "issues": 1,
-        "createdAt": "2025-07-14T07:18:21Z",
-        "updatedAt": "2026-07-26T02:28:00Z",
-        "category": "MCP工具",
-        "priority": 1,
-        "tags": [
-          "MCP",
-          "AI工具"
-        ],
-        "topics": [
-          "mcp"
-        ],
-        "isArchived": false,
-        "size": 1660,
-        "license": "MIT License",
-        "latestRelease": null,
-        "latestTag": {
-          "name": "v0.2.2",
-          "commit": "fdb02268e53da3cf804c59ec3e8ddde4aa4732f5",
-          "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.2",
-          "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
-        },
-        "totalReleases": 0,
         "totalTags": 5
       },
       {
@@ -230,6 +230,34 @@
     ],
     "AI应用": [
       {
+        "id": 1171674153,
+        "name": "rss2cubox",
+        "fullName": "gqy20/rss2cubox",
+        "description": "将 RSS 订阅同步到 Cubox，支持 RSSHub 路由、并发抓取、AI 过滤、AI Agent 深化分析与全局洞察",
+        "url": "https://github.com/gqy20/rss2cubox",
+        "homepage": "https://info.gqy20.top/",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-03-03T13:41:53Z",
+        "updatedAt": "2026-10-22T08:40:09Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 4017,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
         "id": 1235648882,
         "name": "Aura",
         "fullName": "gqy20/Aura",
@@ -330,34 +358,6 @@
         "latestTag": null,
         "totalReleases": 4,
         "totalTags": 5
-      },
-      {
-        "id": 1171674153,
-        "name": "rss2cubox",
-        "fullName": "gqy20/rss2cubox",
-        "description": "将 RSS 订阅同步到 Cubox，支持 RSSHub 路由、并发抓取、AI 过滤、AI Agent 深化分析与全局洞察",
-        "url": "https://github.com/gqy20/rss2cubox",
-        "homepage": "https://info.gqy20.top/",
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-03-03T13:41:53Z",
-        "updatedAt": "2026-10-18T14:26:34Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 3946,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
       },
       {
         "id": 1175140181,
@@ -1735,6 +1735,41 @@
   },
   "allProjects": [
     {
+      "id": 1019340765,
+      "name": "article-mcp",
+      "fullName": "gqy20/article-mcp",
+      "description": "文献检索MCP",
+      "url": "https://github.com/gqy20/article-mcp",
+      "homepage": "https://pypi.org/project/article-mcp/",
+      "language": "Python",
+      "stars": 17,
+      "forks": 4,
+      "issues": 1,
+      "createdAt": "2025-07-14T07:18:21Z",
+      "updatedAt": "2026-10-22T07:39:49Z",
+      "category": "MCP工具",
+      "priority": 1,
+      "tags": [
+        "MCP",
+        "AI工具"
+      ],
+      "topics": [
+        "mcp"
+      ],
+      "isArchived": false,
+      "size": 1660,
+      "license": "MIT License",
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.2.2",
+        "commit": "fdb02268e53da3cf804c59ec3e8ddde4aa4732f5",
+        "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.2",
+        "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
+      },
+      "totalReleases": 0,
+      "totalTags": 5
+    },
+    {
       "id": 1369522490,
       "name": "poolhall",
       "fullName": "gqy20/poolhall",
@@ -1803,41 +1838,6 @@
       },
       "latestTag": null,
       "totalReleases": 4,
-      "totalTags": 5
-    },
-    {
-      "id": 1019340765,
-      "name": "article-mcp",
-      "fullName": "gqy20/article-mcp",
-      "description": "文献检索MCP",
-      "url": "https://github.com/gqy20/article-mcp",
-      "homepage": "https://pypi.org/project/article-mcp/",
-      "language": "Python",
-      "stars": 16,
-      "forks": 4,
-      "issues": 1,
-      "createdAt": "2025-07-14T07:18:21Z",
-      "updatedAt": "2026-07-26T02:28:00Z",
-      "category": "MCP工具",
-      "priority": 1,
-      "tags": [
-        "MCP",
-        "AI工具"
-      ],
-      "topics": [
-        "mcp"
-      ],
-      "isArchived": false,
-      "size": 1660,
-      "license": "MIT License",
-      "latestRelease": null,
-      "latestTag": {
-        "name": "v0.2.2",
-        "commit": "fdb02268e53da3cf804c59ec3e8ddde4aa4732f5",
-        "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.2",
-        "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
-      },
-      "totalReleases": 0,
       "totalTags": 5
     },
     {
@@ -1946,6 +1946,34 @@
       "totalTags": 5
     },
     {
+      "id": 1171674153,
+      "name": "rss2cubox",
+      "fullName": "gqy20/rss2cubox",
+      "description": "将 RSS 订阅同步到 Cubox，支持 RSSHub 路由、并发抓取、AI 过滤、AI Agent 深化分析与全局洞察",
+      "url": "https://github.com/gqy20/rss2cubox",
+      "homepage": "https://info.gqy20.top/",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-03-03T13:41:53Z",
+      "updatedAt": "2026-10-22T08:40:09Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 4017,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1235648882,
       "name": "Aura",
       "fullName": "gqy20/Aura",
@@ -2046,34 +2074,6 @@
       "latestTag": null,
       "totalReleases": 4,
       "totalTags": 5
-    },
-    {
-      "id": 1171674153,
-      "name": "rss2cubox",
-      "fullName": "gqy20/rss2cubox",
-      "description": "将 RSS 订阅同步到 Cubox，支持 RSSHub 路由、并发抓取、AI 过滤、AI Agent 深化分析与全局洞察",
-      "url": "https://github.com/gqy20/rss2cubox",
-      "homepage": "https://info.gqy20.top/",
-      "language": "Python",
-      "stars": 0,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-03-03T13:41:53Z",
-      "updatedAt": "2026-10-18T14:26:34Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 3946,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
     },
     {
       "id": 1175140181,
