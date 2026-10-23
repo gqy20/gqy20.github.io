@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-23T15:59:48.876Z",
+  "lastUpdated": "2026-10-23T20:42:37.814Z",
   "totalRepositories": 58,
   "totalProjects": 54,
   "totalRepositoryStars": 121,
@@ -241,7 +241,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-03-03T13:41:53Z",
-        "updatedAt": "2026-10-23T15:01:47Z",
+        "updatedAt": "2026-10-23T17:10:25Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -250,7 +250,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 4141,
+        "size": 4175,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1957,7 +1957,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-03-03T13:41:53Z",
-      "updatedAt": "2026-10-23T15:01:47Z",
+      "updatedAt": "2026-10-23T17:10:25Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1966,7 +1966,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 4141,
+      "size": 4175,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
