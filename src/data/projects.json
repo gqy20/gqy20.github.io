@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-23T02:11:44.751Z",
+  "lastUpdated": "2026-10-23T10:36:19.029Z",
   "totalRepositories": 58,
   "totalProjects": 54,
   "totalRepositoryStars": 121,
@@ -1351,7 +1351,7 @@
         "language": "Rust",
         "stars": 2,
         "forks": 0,
-        "issues": 2,
+        "issues": 4,
         "createdAt": "2026-09-25T18:10:47Z",
         "updatedAt": "2026-10-21T13:40:16Z",
         "category": "其他项目",
@@ -1361,7 +1361,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 5354,
+        "size": 5355,
         "license": "MIT License",
         "latestRelease": {
           "tagName": "v0.2.3",
@@ -3057,7 +3057,7 @@
       "language": "Rust",
       "stars": 2,
       "forks": 0,
-      "issues": 2,
+      "issues": 4,
       "createdAt": "2026-09-25T18:10:47Z",
       "updatedAt": "2026-10-21T13:40:16Z",
       "category": "其他项目",
@@ -3067,7 +3067,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 5354,
+      "size": 5355,
       "license": "MIT License",
       "latestRelease": {
         "tagName": "v0.2.3",
