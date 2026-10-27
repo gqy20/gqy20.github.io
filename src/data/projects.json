@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-10-27T11:09:11.589Z",
+  "lastUpdated": "2026-10-27T16:56:26.427Z",
   "totalRepositories": 58,
   "totalProjects": 54,
-  "totalRepositoryStars": 121,
-  "totalStars": 119,
+  "totalRepositoryStars": 122,
+  "totalStars": 120,
   "followers": 21,
   "categories": [
     "MCP工具",
@@ -229,6 +229,34 @@
       }
     ],
     "AI应用": [
+      {
+        "id": 1143385100,
+        "name": "Skills_demo",
+        "fullName": "gqy20/Skills_demo",
+        "description": "基于 Claude Code Skills 的自适应 AI 助手。",
+        "url": "https://github.com/gqy20/Skills_demo",
+        "homepage": null,
+        "language": "TypeScript",
+        "stars": 5,
+        "forks": 1,
+        "issues": 0,
+        "createdAt": "2026-01-27T14:15:31Z",
+        "updatedAt": "2026-10-27T13:57:39Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 10352,
+        "license": "MIT License",
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 1171674153,
         "name": "rss2cubox",
@@ -765,34 +793,6 @@
         "totalTags": 0
       },
       {
-        "id": 1143385100,
-        "name": "Skills_demo",
-        "fullName": "gqy20/Skills_demo",
-        "description": "基于 Claude Code Skills 的自适应 AI 助手。",
-        "url": "https://github.com/gqy20/Skills_demo",
-        "homepage": null,
-        "language": "TypeScript",
-        "stars": 4,
-        "forks": 1,
-        "issues": 0,
-        "createdAt": "2026-01-27T14:15:31Z",
-        "updatedAt": "2026-03-03T08:40:10Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 10352,
-        "license": "MIT License",
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
-      },
-      {
         "id": 1123557369,
         "name": "justdo",
         "fullName": "gqy20/justdo",
@@ -1021,7 +1021,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-09-29T09:14:51Z",
-        "updatedAt": "2026-10-24T16:05:21Z",
+        "updatedAt": "2026-10-27T16:05:35Z",
         "category": "Web开发",
         "priority": 4,
         "tags": [
@@ -1946,6 +1946,34 @@
       "totalTags": 5
     },
     {
+      "id": 1143385100,
+      "name": "Skills_demo",
+      "fullName": "gqy20/Skills_demo",
+      "description": "基于 Claude Code Skills 的自适应 AI 助手。",
+      "url": "https://github.com/gqy20/Skills_demo",
+      "homepage": null,
+      "language": "TypeScript",
+      "stars": 5,
+      "forks": 1,
+      "issues": 0,
+      "createdAt": "2026-01-27T14:15:31Z",
+      "updatedAt": "2026-10-27T13:57:39Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 10352,
+      "license": "MIT License",
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1171674153,
       "name": "rss2cubox",
       "fullName": "gqy20/rss2cubox",
@@ -2481,34 +2509,6 @@
       "totalTags": 0
     },
     {
-      "id": 1143385100,
-      "name": "Skills_demo",
-      "fullName": "gqy20/Skills_demo",
-      "description": "基于 Claude Code Skills 的自适应 AI 助手。",
-      "url": "https://github.com/gqy20/Skills_demo",
-      "homepage": null,
-      "language": "TypeScript",
-      "stars": 4,
-      "forks": 1,
-      "issues": 0,
-      "createdAt": "2026-01-27T14:15:31Z",
-      "updatedAt": "2026-03-03T08:40:10Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 10352,
-      "license": "MIT License",
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
-    },
-    {
       "id": 1123557369,
       "name": "justdo",
       "fullName": "gqy20/justdo",
@@ -2733,7 +2733,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-09-29T09:14:51Z",
-      "updatedAt": "2026-10-24T16:05:21Z",
+      "updatedAt": "2026-10-27T16:05:35Z",
       "category": "Web开发",
       "priority": 4,
       "tags": [
