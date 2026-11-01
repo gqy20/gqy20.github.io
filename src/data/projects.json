@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-01T02:49:33.291Z",
+  "lastUpdated": "2026-11-01T12:08:19.967Z",
   "totalRepositories": 58,
   "totalProjects": 54,
   "totalRepositoryStars": 124,
@@ -1010,34 +1010,6 @@
     ],
     "Web开发": [
       {
-        "id": 1084972160,
-        "name": "cc_plugins",
-        "fullName": "gqy20/cc_plugins",
-        "description": "Specialized collection of development plugins designed for expert analysis and research workflows",
-        "url": "https://github.com/gqy20/cc_plugins",
-        "homepage": null,
-        "language": "JavaScript",
-        "stars": 2,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2025-10-28T12:18:33Z",
-        "updatedAt": "2026-10-30T10:36:34Z",
-        "category": "Web开发",
-        "priority": 4,
-        "tags": [
-          "Web",
-          "前端"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 906,
-        "license": "MIT License",
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
-      },
-      {
         "id": 1394805707,
         "name": "feed",
         "fullName": "gqy20/feed",
@@ -1353,7 +1325,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2025-12-31T07:12:07Z",
-        "updatedAt": "2026-11-01T01:19:08Z",
+        "updatedAt": "2026-11-01T11:50:46Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -1365,6 +1337,38 @@
         ],
         "isArchived": false,
         "size": 406,
+        "license": "MIT License",
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.4.0",
+          "commit": "5a44de839fc0dc405ae234f519235dbc9a6395bd",
+          "zipball_url": "https://api.github.com/repos/gqy20/quick-template/zipball/refs/tags/v0.4.0",
+          "tarball_url": "https://api.github.com/repos/gqy20/quick-template/tarball/refs/tags/v0.4.0"
+        },
+        "totalReleases": 0,
+        "totalTags": 1
+      },
+      {
+        "id": 1084972160,
+        "name": "cc_plugins",
+        "fullName": "gqy20/cc_plugins",
+        "description": "Specialized collection of development plugins designed for expert analysis and research workflows",
+        "url": "https://github.com/gqy20/cc_plugins",
+        "homepage": null,
+        "language": "Python",
+        "stars": 2,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-10-28T12:18:33Z",
+        "updatedAt": "2026-11-01T11:25:15Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "python"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 1223,
         "license": "MIT License",
         "latestRelease": null,
         "latestTag": null,
@@ -2722,34 +2726,6 @@
       "totalTags": 3
     },
     {
-      "id": 1084972160,
-      "name": "cc_plugins",
-      "fullName": "gqy20/cc_plugins",
-      "description": "Specialized collection of development plugins designed for expert analysis and research workflows",
-      "url": "https://github.com/gqy20/cc_plugins",
-      "homepage": null,
-      "language": "JavaScript",
-      "stars": 2,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2025-10-28T12:18:33Z",
-      "updatedAt": "2026-10-30T10:36:34Z",
-      "category": "Web开发",
-      "priority": 4,
-      "tags": [
-        "Web",
-        "前端"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 906,
-      "license": "MIT License",
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
-    },
-    {
       "id": 1394805707,
       "name": "feed",
       "fullName": "gqy20/feed",
@@ -3059,7 +3035,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2025-12-31T07:12:07Z",
-      "updatedAt": "2026-11-01T01:19:08Z",
+      "updatedAt": "2026-11-01T11:50:46Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -3071,6 +3047,38 @@
       ],
       "isArchived": false,
       "size": 406,
+      "license": "MIT License",
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.4.0",
+        "commit": "5a44de839fc0dc405ae234f519235dbc9a6395bd",
+        "zipball_url": "https://api.github.com/repos/gqy20/quick-template/zipball/refs/tags/v0.4.0",
+        "tarball_url": "https://api.github.com/repos/gqy20/quick-template/tarball/refs/tags/v0.4.0"
+      },
+      "totalReleases": 0,
+      "totalTags": 1
+    },
+    {
+      "id": 1084972160,
+      "name": "cc_plugins",
+      "fullName": "gqy20/cc_plugins",
+      "description": "Specialized collection of development plugins designed for expert analysis and research workflows",
+      "url": "https://github.com/gqy20/cc_plugins",
+      "homepage": null,
+      "language": "Python",
+      "stars": 2,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-10-28T12:18:33Z",
+      "updatedAt": "2026-11-01T11:25:15Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "python"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 1223,
       "license": "MIT License",
       "latestRelease": null,
       "latestTag": null,
