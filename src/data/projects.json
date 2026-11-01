@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-01T12:08:19.967Z",
+  "lastUpdated": "2026-11-01T21:25:01.787Z",
   "totalRepositories": 58,
   "totalProjects": 54,
   "totalRepositoryStars": 124,
@@ -230,6 +230,40 @@
     ],
     "AI应用": [
       {
+        "id": 1130347783,
+        "name": "cc-insights",
+        "fullName": "gqy20/cc-insights",
+        "description": "AI 驱动的 Claude Code 使用数据分析工具 - 可视化数据、发现模式、获取智能推荐",
+        "url": "https://github.com/gqy20/cc-insights",
+        "homepage": null,
+        "language": "Go",
+        "stars": 5,
+        "forks": 1,
+        "issues": 0,
+        "createdAt": "2026-01-08T11:28:18Z",
+        "updatedAt": "2026-11-01T12:18:02Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 12731,
+        "license": "MIT License",
+        "latestRelease": {
+          "tagName": "v0.2.0",
+          "name": "v0.2.0 · cc-insights",
+          "publishedAt": "2026-07-04T14:22:34Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 4,
+        "totalTags": 5
+      },
+      {
         "id": 1126636339,
         "name": "TrendPluse",
         "fullName": "gqy20/TrendPluse",
@@ -324,40 +358,6 @@
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
-      },
-      {
-        "id": 1130347783,
-        "name": "cc-insights",
-        "fullName": "gqy20/cc-insights",
-        "description": "AI 驱动的 Claude Code 使用数据分析工具 - 可视化数据、发现模式、获取智能推荐",
-        "url": "https://github.com/gqy20/cc-insights",
-        "homepage": null,
-        "language": "Go",
-        "stars": 5,
-        "forks": 1,
-        "issues": 0,
-        "createdAt": "2026-01-08T11:28:18Z",
-        "updatedAt": "2026-10-28T02:12:26Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 12600,
-        "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.2.0",
-          "name": "v0.2.0 · cc-insights",
-          "publishedAt": "2026-07-04T14:22:34Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 4,
-        "totalTags": 5
       },
       {
         "id": 1143385100,
@@ -1314,6 +1314,33 @@
     ],
     "其他项目": [
       {
+        "id": 1084972160,
+        "name": "cc_plugins",
+        "fullName": "gqy20/cc_plugins",
+        "description": "Specialized collection of development plugins designed for expert analysis and research workflows",
+        "url": "https://github.com/gqy20/cc_plugins",
+        "homepage": null,
+        "language": "Python",
+        "stars": 2,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-10-28T12:18:33Z",
+        "updatedAt": "2026-11-01T12:08:02Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "python"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 1293,
+        "license": "MIT License",
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
         "id": 1125693327,
         "name": "quick-template",
         "fullName": "gqy20/quick-template",
@@ -1336,7 +1363,7 @@
           "python"
         ],
         "isArchived": false,
-        "size": 406,
+        "size": 627,
         "license": "MIT License",
         "latestRelease": null,
         "latestTag": {
@@ -1347,33 +1374,6 @@
         },
         "totalReleases": 0,
         "totalTags": 1
-      },
-      {
-        "id": 1084972160,
-        "name": "cc_plugins",
-        "fullName": "gqy20/cc_plugins",
-        "description": "Specialized collection of development plugins designed for expert analysis and research workflows",
-        "url": "https://github.com/gqy20/cc_plugins",
-        "homepage": null,
-        "language": "Python",
-        "stars": 2,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2025-10-28T12:18:33Z",
-        "updatedAt": "2026-11-01T11:25:15Z",
-        "category": "其他项目",
-        "priority": 7,
-        "tags": [
-          "python"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 1223,
-        "license": "MIT License",
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
       },
       {
         "id": 1388013717,
@@ -1950,6 +1950,40 @@
       "totalTags": 5
     },
     {
+      "id": 1130347783,
+      "name": "cc-insights",
+      "fullName": "gqy20/cc-insights",
+      "description": "AI 驱动的 Claude Code 使用数据分析工具 - 可视化数据、发现模式、获取智能推荐",
+      "url": "https://github.com/gqy20/cc-insights",
+      "homepage": null,
+      "language": "Go",
+      "stars": 5,
+      "forks": 1,
+      "issues": 0,
+      "createdAt": "2026-01-08T11:28:18Z",
+      "updatedAt": "2026-11-01T12:18:02Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 12731,
+      "license": "MIT License",
+      "latestRelease": {
+        "tagName": "v0.2.0",
+        "name": "v0.2.0 · cc-insights",
+        "publishedAt": "2026-07-04T14:22:34Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 4,
+      "totalTags": 5
+    },
+    {
       "id": 1126636339,
       "name": "TrendPluse",
       "fullName": "gqy20/TrendPluse",
@@ -2044,40 +2078,6 @@
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
-    },
-    {
-      "id": 1130347783,
-      "name": "cc-insights",
-      "fullName": "gqy20/cc-insights",
-      "description": "AI 驱动的 Claude Code 使用数据分析工具 - 可视化数据、发现模式、获取智能推荐",
-      "url": "https://github.com/gqy20/cc-insights",
-      "homepage": null,
-      "language": "Go",
-      "stars": 5,
-      "forks": 1,
-      "issues": 0,
-      "createdAt": "2026-01-08T11:28:18Z",
-      "updatedAt": "2026-10-28T02:12:26Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 12600,
-      "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.2.0",
-        "name": "v0.2.0 · cc-insights",
-        "publishedAt": "2026-07-04T14:22:34Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 4,
-      "totalTags": 5
     },
     {
       "id": 1143385100,
@@ -3024,6 +3024,33 @@
       "totalTags": 0
     },
     {
+      "id": 1084972160,
+      "name": "cc_plugins",
+      "fullName": "gqy20/cc_plugins",
+      "description": "Specialized collection of development plugins designed for expert analysis and research workflows",
+      "url": "https://github.com/gqy20/cc_plugins",
+      "homepage": null,
+      "language": "Python",
+      "stars": 2,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-10-28T12:18:33Z",
+      "updatedAt": "2026-11-01T12:08:02Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "python"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 1293,
+      "license": "MIT License",
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1125693327,
       "name": "quick-template",
       "fullName": "gqy20/quick-template",
@@ -3046,7 +3073,7 @@
         "python"
       ],
       "isArchived": false,
-      "size": 406,
+      "size": 627,
       "license": "MIT License",
       "latestRelease": null,
       "latestTag": {
@@ -3057,33 +3084,6 @@
       },
       "totalReleases": 0,
       "totalTags": 1
-    },
-    {
-      "id": 1084972160,
-      "name": "cc_plugins",
-      "fullName": "gqy20/cc_plugins",
-      "description": "Specialized collection of development plugins designed for expert analysis and research workflows",
-      "url": "https://github.com/gqy20/cc_plugins",
-      "homepage": null,
-      "language": "Python",
-      "stars": 2,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2025-10-28T12:18:33Z",
-      "updatedAt": "2026-11-01T11:25:15Z",
-      "category": "其他项目",
-      "priority": 7,
-      "tags": [
-        "python"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 1223,
-      "license": "MIT License",
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
     },
     {
       "id": 1388013717,
