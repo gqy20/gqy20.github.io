@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-31T20:43:35.104Z",
+  "lastUpdated": "2026-11-01T02:49:33.291Z",
   "totalRepositories": 58,
   "totalProjects": 54,
   "totalRepositoryStars": 124,
@@ -1323,7 +1323,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2025-06-23T06:53:28Z",
-        "updatedAt": "2026-10-30T22:54:42Z",
+        "updatedAt": "2026-10-31T22:25:52Z",
         "category": "个人项目",
         "priority": 6,
         "tags": [
@@ -1341,6 +1341,36 @@
       }
     ],
     "其他项目": [
+      {
+        "id": 1125693327,
+        "name": "quick-template",
+        "fullName": "gqy20/quick-template",
+        "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
+        "url": "https://github.com/gqy20/quick-template",
+        "homepage": "https://home.gqy20.top/quick-template/",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-12-31T07:12:07Z",
+        "updatedAt": "2026-11-01T01:19:08Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "python"
+        ],
+        "topics": [
+          "copier",
+          "python"
+        ],
+        "isArchived": false,
+        "size": 406,
+        "license": "MIT License",
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
       {
         "id": 1388013717,
         "name": "actl",
@@ -1456,36 +1486,6 @@
         "isArchived": false,
         "size": 18277,
         "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
-      },
-      {
-        "id": 1125693327,
-        "name": "quick-template",
-        "fullName": "gqy20/quick-template",
-        "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
-        "url": "https://github.com/gqy20/quick-template",
-        "homepage": "https://home.gqy20.top/quick-template/",
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2025-12-31T07:12:07Z",
-        "updatedAt": "2026-08-31T07:59:24Z",
-        "category": "其他项目",
-        "priority": 7,
-        "tags": [
-          "python"
-        ],
-        "topics": [
-          "copier",
-          "python"
-        ],
-        "isArchived": false,
-        "size": 335,
-        "license": "MIT License",
         "latestRelease": null,
         "latestTag": null,
         "totalReleases": 0,
@@ -3031,7 +3031,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2025-06-23T06:53:28Z",
-      "updatedAt": "2026-10-30T22:54:42Z",
+      "updatedAt": "2026-10-31T22:25:52Z",
       "category": "个人项目",
       "priority": 6,
       "tags": [
@@ -3042,6 +3042,36 @@
       "isArchived": false,
       "size": 18514,
       "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
+      "id": 1125693327,
+      "name": "quick-template",
+      "fullName": "gqy20/quick-template",
+      "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
+      "url": "https://github.com/gqy20/quick-template",
+      "homepage": "https://home.gqy20.top/quick-template/",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-12-31T07:12:07Z",
+      "updatedAt": "2026-11-01T01:19:08Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "python"
+      ],
+      "topics": [
+        "copier",
+        "python"
+      ],
+      "isArchived": false,
+      "size": 406,
+      "license": "MIT License",
       "latestRelease": null,
       "latestTag": null,
       "totalReleases": 0,
@@ -3162,36 +3192,6 @@
       "isArchived": false,
       "size": 18277,
       "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
-    },
-    {
-      "id": 1125693327,
-      "name": "quick-template",
-      "fullName": "gqy20/quick-template",
-      "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
-      "url": "https://github.com/gqy20/quick-template",
-      "homepage": "https://home.gqy20.top/quick-template/",
-      "language": "Python",
-      "stars": 0,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2025-12-31T07:12:07Z",
-      "updatedAt": "2026-08-31T07:59:24Z",
-      "category": "其他项目",
-      "priority": 7,
-      "tags": [
-        "python"
-      ],
-      "topics": [
-        "copier",
-        "python"
-      ],
-      "isArchived": false,
-      "size": 335,
-      "license": "MIT License",
       "latestRelease": null,
       "latestTag": null,
       "totalReleases": 0,
