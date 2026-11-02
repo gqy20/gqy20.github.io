@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-01T21:25:01.787Z",
+  "lastUpdated": "2026-11-02T02:56:50.976Z",
   "totalRepositories": 58,
   "totalProjects": 54,
   "totalRepositoryStars": 124,
@@ -1295,7 +1295,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2025-06-23T06:53:28Z",
-        "updatedAt": "2026-10-31T22:25:52Z",
+        "updatedAt": "2026-11-01T22:45:11Z",
         "category": "个人项目",
         "priority": 6,
         "tags": [
@@ -1304,7 +1304,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 18514,
+        "size": 18622,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1313,6 +1313,41 @@
       }
     ],
     "其他项目": [
+      {
+        "id": 1125693327,
+        "name": "quick-template",
+        "fullName": "gqy20/quick-template",
+        "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
+        "url": "https://github.com/gqy20/quick-template",
+        "homepage": "https://home.gqy20.top/quick-template/",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-12-31T07:12:07Z",
+        "updatedAt": "2026-11-02T01:18:47Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "python"
+        ],
+        "topics": [
+          "copier",
+          "python"
+        ],
+        "isArchived": false,
+        "size": 637,
+        "license": "MIT License",
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.4.0",
+          "commit": "5a44de839fc0dc405ae234f519235dbc9a6395bd",
+          "zipball_url": "https://api.github.com/repos/gqy20/quick-template/zipball/refs/tags/v0.4.0",
+          "tarball_url": "https://api.github.com/repos/gqy20/quick-template/tarball/refs/tags/v0.4.0"
+        },
+        "totalReleases": 0,
+        "totalTags": 1
+      },
       {
         "id": 1084972160,
         "name": "cc_plugins",
@@ -1339,41 +1374,6 @@
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
-      },
-      {
-        "id": 1125693327,
-        "name": "quick-template",
-        "fullName": "gqy20/quick-template",
-        "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
-        "url": "https://github.com/gqy20/quick-template",
-        "homepage": "https://home.gqy20.top/quick-template/",
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2025-12-31T07:12:07Z",
-        "updatedAt": "2026-11-01T11:50:46Z",
-        "category": "其他项目",
-        "priority": 7,
-        "tags": [
-          "python"
-        ],
-        "topics": [
-          "copier",
-          "python"
-        ],
-        "isArchived": false,
-        "size": 627,
-        "license": "MIT License",
-        "latestRelease": null,
-        "latestTag": {
-          "name": "v0.4.0",
-          "commit": "5a44de839fc0dc405ae234f519235dbc9a6395bd",
-          "zipball_url": "https://api.github.com/repos/gqy20/quick-template/zipball/refs/tags/v0.4.0",
-          "tarball_url": "https://api.github.com/repos/gqy20/quick-template/tarball/refs/tags/v0.4.0"
-        },
-        "totalReleases": 0,
-        "totalTags": 1
       },
       {
         "id": 1388013717,
@@ -3007,7 +3007,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2025-06-23T06:53:28Z",
-      "updatedAt": "2026-10-31T22:25:52Z",
+      "updatedAt": "2026-11-01T22:45:11Z",
       "category": "个人项目",
       "priority": 6,
       "tags": [
@@ -3016,12 +3016,47 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 18514,
+      "size": 18622,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
+    },
+    {
+      "id": 1125693327,
+      "name": "quick-template",
+      "fullName": "gqy20/quick-template",
+      "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
+      "url": "https://github.com/gqy20/quick-template",
+      "homepage": "https://home.gqy20.top/quick-template/",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-12-31T07:12:07Z",
+      "updatedAt": "2026-11-02T01:18:47Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "python"
+      ],
+      "topics": [
+        "copier",
+        "python"
+      ],
+      "isArchived": false,
+      "size": 637,
+      "license": "MIT License",
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.4.0",
+        "commit": "5a44de839fc0dc405ae234f519235dbc9a6395bd",
+        "zipball_url": "https://api.github.com/repos/gqy20/quick-template/zipball/refs/tags/v0.4.0",
+        "tarball_url": "https://api.github.com/repos/gqy20/quick-template/tarball/refs/tags/v0.4.0"
+      },
+      "totalReleases": 0,
+      "totalTags": 1
     },
     {
       "id": 1084972160,
@@ -3049,41 +3084,6 @@
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
-    },
-    {
-      "id": 1125693327,
-      "name": "quick-template",
-      "fullName": "gqy20/quick-template",
-      "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
-      "url": "https://github.com/gqy20/quick-template",
-      "homepage": "https://home.gqy20.top/quick-template/",
-      "language": "Python",
-      "stars": 0,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2025-12-31T07:12:07Z",
-      "updatedAt": "2026-11-01T11:50:46Z",
-      "category": "其他项目",
-      "priority": 7,
-      "tags": [
-        "python"
-      ],
-      "topics": [
-        "copier",
-        "python"
-      ],
-      "isArchived": false,
-      "size": 627,
-      "license": "MIT License",
-      "latestRelease": null,
-      "latestTag": {
-        "name": "v0.4.0",
-        "commit": "5a44de839fc0dc405ae234f519235dbc9a6395bd",
-        "zipball_url": "https://api.github.com/repos/gqy20/quick-template/zipball/refs/tags/v0.4.0",
-        "tarball_url": "https://api.github.com/repos/gqy20/quick-template/tarball/refs/tags/v0.4.0"
-      },
-      "totalReleases": 0,
-      "totalTags": 1
     },
     {
       "id": 1388013717,
