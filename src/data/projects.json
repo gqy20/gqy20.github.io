@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-11-02T02:56:50.976Z",
+  "lastUpdated": "2026-11-02T13:58:06.806Z",
   "totalRepositories": 58,
   "totalProjects": 54,
-  "totalRepositoryStars": 124,
-  "totalStars": 122,
+  "totalRepositoryStars": 126,
+  "totalStars": 124,
   "followers": 21,
   "categories": [
     "MCP工具",
@@ -230,6 +230,40 @@
     ],
     "AI应用": [
       {
+        "id": 1196258715,
+        "name": "zotero_cli",
+        "fullName": "gqy20/zotero_cli",
+        "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
+        "url": "https://github.com/gqy20/zotero_cli",
+        "homepage": null,
+        "language": "Go",
+        "stars": 10,
+        "forks": 0,
+        "issues": 1,
+        "createdAt": "2026-03-30T14:22:18Z",
+        "updatedAt": "2026-11-02T05:29:09Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 4931,
+        "license": "MIT License",
+        "latestRelease": {
+          "tagName": "v0.1.0",
+          "name": "v0.1.0 · zot",
+          "publishedAt": "2026-07-15T02:16:32Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 5,
+        "totalTags": 5
+      },
+      {
         "id": 1130347783,
         "name": "cc-insights",
         "fullName": "gqy20/cc-insights",
@@ -237,11 +271,11 @@
         "url": "https://github.com/gqy20/cc-insights",
         "homepage": null,
         "language": "Go",
-        "stars": 5,
+        "stars": 6,
         "forks": 1,
         "issues": 0,
         "createdAt": "2026-01-08T11:28:18Z",
-        "updatedAt": "2026-11-01T12:18:02Z",
+        "updatedAt": "2026-11-02T03:29:47Z",
         "category": "AI应用",
         "priority": 2,
         "tags": [
@@ -261,7 +295,7 @@
         },
         "latestTag": null,
         "totalReleases": 4,
-        "totalTags": 5
+        "totalTags": 0
       },
       {
         "id": 1126636339,
@@ -296,40 +330,6 @@
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
-      },
-      {
-        "id": 1196258715,
-        "name": "zotero_cli",
-        "fullName": "gqy20/zotero_cli",
-        "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
-        "url": "https://github.com/gqy20/zotero_cli",
-        "homepage": null,
-        "language": "Go",
-        "stars": 9,
-        "forks": 0,
-        "issues": 1,
-        "createdAt": "2026-03-30T14:22:18Z",
-        "updatedAt": "2026-10-29T12:55:45Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 4931,
-        "license": "MIT License",
-        "latestRelease": {
-          "tagName": "v0.1.0",
-          "name": "v0.1.0 · zot",
-          "publishedAt": "2026-07-15T02:16:32Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 5,
-        "totalTags": 5
       },
       {
         "id": 1171674153,
@@ -1314,41 +1314,6 @@
     ],
     "其他项目": [
       {
-        "id": 1125693327,
-        "name": "quick-template",
-        "fullName": "gqy20/quick-template",
-        "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
-        "url": "https://github.com/gqy20/quick-template",
-        "homepage": "https://home.gqy20.top/quick-template/",
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2025-12-31T07:12:07Z",
-        "updatedAt": "2026-11-02T01:18:47Z",
-        "category": "其他项目",
-        "priority": 7,
-        "tags": [
-          "python"
-        ],
-        "topics": [
-          "copier",
-          "python"
-        ],
-        "isArchived": false,
-        "size": 637,
-        "license": "MIT License",
-        "latestRelease": null,
-        "latestTag": {
-          "name": "v0.4.0",
-          "commit": "5a44de839fc0dc405ae234f519235dbc9a6395bd",
-          "zipball_url": "https://api.github.com/repos/gqy20/quick-template/zipball/refs/tags/v0.4.0",
-          "tarball_url": "https://api.github.com/repos/gqy20/quick-template/tarball/refs/tags/v0.4.0"
-        },
-        "totalReleases": 0,
-        "totalTags": 1
-      },
-      {
         "id": 1084972160,
         "name": "cc_plugins",
         "fullName": "gqy20/cc_plugins",
@@ -1360,7 +1325,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2025-10-28T12:18:33Z",
-        "updatedAt": "2026-11-01T12:08:02Z",
+        "updatedAt": "2026-11-02T09:54:05Z",
         "category": "其他项目",
         "priority": 7,
         "tags": [
@@ -1368,12 +1333,47 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 1293,
+        "size": 1468,
         "license": "MIT License",
         "latestRelease": null,
         "latestTag": null,
         "totalReleases": 0,
         "totalTags": 0
+      },
+      {
+        "id": 1125693327,
+        "name": "quick-template",
+        "fullName": "gqy20/quick-template",
+        "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
+        "url": "https://github.com/gqy20/quick-template",
+        "homepage": "https://home.gqy20.top/quick-template/",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 5,
+        "createdAt": "2025-12-31T07:12:07Z",
+        "updatedAt": "2026-11-02T09:43:03Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "python"
+        ],
+        "topics": [
+          "copier",
+          "python"
+        ],
+        "isArchived": false,
+        "size": 509,
+        "license": "MIT License",
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.4.0",
+          "commit": "5a44de839fc0dc405ae234f519235dbc9a6395bd",
+          "zipball_url": "https://api.github.com/repos/gqy20/quick-template/zipball/refs/tags/v0.4.0",
+          "tarball_url": "https://api.github.com/repos/gqy20/quick-template/tarball/refs/tags/v0.4.0"
+        },
+        "totalReleases": 0,
+        "totalTags": 1
       },
       {
         "id": 1388013717,
@@ -1950,6 +1950,40 @@
       "totalTags": 5
     },
     {
+      "id": 1196258715,
+      "name": "zotero_cli",
+      "fullName": "gqy20/zotero_cli",
+      "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
+      "url": "https://github.com/gqy20/zotero_cli",
+      "homepage": null,
+      "language": "Go",
+      "stars": 10,
+      "forks": 0,
+      "issues": 1,
+      "createdAt": "2026-03-30T14:22:18Z",
+      "updatedAt": "2026-11-02T05:29:09Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 4931,
+      "license": "MIT License",
+      "latestRelease": {
+        "tagName": "v0.1.0",
+        "name": "v0.1.0 · zot",
+        "publishedAt": "2026-07-15T02:16:32Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 5,
+      "totalTags": 5
+    },
+    {
       "id": 1130347783,
       "name": "cc-insights",
       "fullName": "gqy20/cc-insights",
@@ -1957,11 +1991,11 @@
       "url": "https://github.com/gqy20/cc-insights",
       "homepage": null,
       "language": "Go",
-      "stars": 5,
+      "stars": 6,
       "forks": 1,
       "issues": 0,
       "createdAt": "2026-01-08T11:28:18Z",
-      "updatedAt": "2026-11-01T12:18:02Z",
+      "updatedAt": "2026-11-02T03:29:47Z",
       "category": "AI应用",
       "priority": 2,
       "tags": [
@@ -1981,7 +2015,7 @@
       },
       "latestTag": null,
       "totalReleases": 4,
-      "totalTags": 5
+      "totalTags": 0
     },
     {
       "id": 1126636339,
@@ -2016,40 +2050,6 @@
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
-    },
-    {
-      "id": 1196258715,
-      "name": "zotero_cli",
-      "fullName": "gqy20/zotero_cli",
-      "description": "AI 原生 Zotero 命行工具 — 为 Claude Code 等 AI Agent 设计，直接操作文献库：检索、阅读 PDF、管理标注、生成引文",
-      "url": "https://github.com/gqy20/zotero_cli",
-      "homepage": null,
-      "language": "Go",
-      "stars": 9,
-      "forks": 0,
-      "issues": 1,
-      "createdAt": "2026-03-30T14:22:18Z",
-      "updatedAt": "2026-10-29T12:55:45Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 4931,
-      "license": "MIT License",
-      "latestRelease": {
-        "tagName": "v0.1.0",
-        "name": "v0.1.0 · zot",
-        "publishedAt": "2026-07-15T02:16:32Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 5,
-      "totalTags": 5
     },
     {
       "id": 1171674153,
@@ -3024,41 +3024,6 @@
       "totalTags": 0
     },
     {
-      "id": 1125693327,
-      "name": "quick-template",
-      "fullName": "gqy20/quick-template",
-      "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
-      "url": "https://github.com/gqy20/quick-template",
-      "homepage": "https://home.gqy20.top/quick-template/",
-      "language": "Python",
-      "stars": 0,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2025-12-31T07:12:07Z",
-      "updatedAt": "2026-11-02T01:18:47Z",
-      "category": "其他项目",
-      "priority": 7,
-      "tags": [
-        "python"
-      ],
-      "topics": [
-        "copier",
-        "python"
-      ],
-      "isArchived": false,
-      "size": 637,
-      "license": "MIT License",
-      "latestRelease": null,
-      "latestTag": {
-        "name": "v0.4.0",
-        "commit": "5a44de839fc0dc405ae234f519235dbc9a6395bd",
-        "zipball_url": "https://api.github.com/repos/gqy20/quick-template/zipball/refs/tags/v0.4.0",
-        "tarball_url": "https://api.github.com/repos/gqy20/quick-template/tarball/refs/tags/v0.4.0"
-      },
-      "totalReleases": 0,
-      "totalTags": 1
-    },
-    {
       "id": 1084972160,
       "name": "cc_plugins",
       "fullName": "gqy20/cc_plugins",
@@ -3070,7 +3035,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2025-10-28T12:18:33Z",
-      "updatedAt": "2026-11-01T12:08:02Z",
+      "updatedAt": "2026-11-02T09:54:05Z",
       "category": "其他项目",
       "priority": 7,
       "tags": [
@@ -3078,12 +3043,47 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 1293,
+      "size": 1468,
       "license": "MIT License",
       "latestRelease": null,
       "latestTag": null,
       "totalReleases": 0,
       "totalTags": 0
+    },
+    {
+      "id": 1125693327,
+      "name": "quick-template",
+      "fullName": "gqy20/quick-template",
+      "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
+      "url": "https://github.com/gqy20/quick-template",
+      "homepage": "https://home.gqy20.top/quick-template/",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 5,
+      "createdAt": "2025-12-31T07:12:07Z",
+      "updatedAt": "2026-11-02T09:43:03Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "python"
+      ],
+      "topics": [
+        "copier",
+        "python"
+      ],
+      "isArchived": false,
+      "size": 509,
+      "license": "MIT License",
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.4.0",
+        "commit": "5a44de839fc0dc405ae234f519235dbc9a6395bd",
+        "zipball_url": "https://api.github.com/repos/gqy20/quick-template/zipball/refs/tags/v0.4.0",
+        "tarball_url": "https://api.github.com/repos/gqy20/quick-template/tarball/refs/tags/v0.4.0"
+      },
+      "totalReleases": 0,
+      "totalTags": 1
     },
     {
       "id": 1388013717,
