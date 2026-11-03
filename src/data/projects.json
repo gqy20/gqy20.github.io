@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-11-02T13:58:06.806Z",
+  "lastUpdated": "2026-11-03T00:06:33.225Z",
   "totalRepositories": 58,
   "totalProjects": 54,
-  "totalRepositoryStars": 126,
-  "totalStars": 124,
+  "totalRepositoryStars": 127,
+  "totalStars": 125,
   "followers": 21,
   "categories": [
     "MCP工具",
@@ -24,11 +24,11 @@
         "url": "https://github.com/gqy20/article-mcp",
         "homepage": "https://pypi.org/project/article-mcp/",
         "language": "Python",
-        "stars": 17,
+        "stars": 18,
         "forks": 4,
         "issues": 1,
         "createdAt": "2025-07-14T07:18:21Z",
-        "updatedAt": "2026-10-22T07:39:49Z",
+        "updatedAt": "2026-11-02T14:44:51Z",
         "category": "MCP工具",
         "priority": 1,
         "tags": [
@@ -295,7 +295,7 @@
         },
         "latestTag": null,
         "totalReleases": 4,
-        "totalTags": 0
+        "totalTags": 5
       },
       {
         "id": 1126636339,
@@ -1746,11 +1746,11 @@
       "url": "https://github.com/gqy20/article-mcp",
       "homepage": "https://pypi.org/project/article-mcp/",
       "language": "Python",
-      "stars": 17,
+      "stars": 18,
       "forks": 4,
       "issues": 1,
       "createdAt": "2025-07-14T07:18:21Z",
-      "updatedAt": "2026-10-22T07:39:49Z",
+      "updatedAt": "2026-11-02T14:44:51Z",
       "category": "MCP工具",
       "priority": 1,
       "tags": [
@@ -2015,7 +2015,7 @@
       },
       "latestTag": null,
       "totalReleases": 4,
-      "totalTags": 0
+      "totalTags": 5
     },
     {
       "id": 1126636339,
