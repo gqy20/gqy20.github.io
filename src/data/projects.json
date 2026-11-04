@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-11-04T03:32:37.472Z",
+  "lastUpdated": "2026-11-04T13:22:02.394Z",
   "totalRepositories": 58,
   "totalProjects": 54,
-  "totalRepositoryStars": 128,
-  "totalStars": 126,
+  "totalRepositoryStars": 127,
+  "totalStars": 125,
   "followers": 21,
   "categories": [
     "MCP工具",
@@ -912,6 +912,34 @@
     ],
     "科研工具": [
       {
+        "id": 1147668906,
+        "name": "IssueLab",
+        "fullName": "gqy20/IssueLab",
+        "description": "基于 GitHub Issues 的多智能体科研讨论网络，支持受控协作区触发跨仓库数字分身协作。",
+        "url": "https://github.com/gqy20/IssueLab",
+        "homepage": null,
+        "language": "Python",
+        "stars": 10,
+        "forks": 6,
+        "issues": 71,
+        "createdAt": "2026-02-02T04:09:50Z",
+        "updatedAt": "2026-11-04T04:51:21Z",
+        "category": "科研工具",
+        "priority": 3,
+        "tags": [
+          "科研",
+          "学术"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 1885,
+        "license": "MIT License",
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
         "id": 1111722253,
         "name": "pdfget",
         "fullName": "gqy20/pdfget",
@@ -944,34 +972,6 @@
         "latestTag": null,
         "totalReleases": 5,
         "totalTags": 5
-      },
-      {
-        "id": 1147668906,
-        "name": "IssueLab",
-        "fullName": "gqy20/IssueLab",
-        "description": "基于 GitHub Issues 的多智能体科研讨论网络，支持受控协作区触发跨仓库数字分身协作。",
-        "url": "https://github.com/gqy20/IssueLab",
-        "homepage": null,
-        "language": "Python",
-        "stars": 11,
-        "forks": 6,
-        "issues": 71,
-        "createdAt": "2026-02-02T04:09:50Z",
-        "updatedAt": "2026-04-27T07:13:03Z",
-        "category": "科研工具",
-        "priority": 3,
-        "tags": [
-          "科研",
-          "学术"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 1885,
-        "license": "MIT License",
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
       },
       {
         "id": 958672660,
@@ -2630,6 +2630,34 @@
       "totalTags": 0
     },
     {
+      "id": 1147668906,
+      "name": "IssueLab",
+      "fullName": "gqy20/IssueLab",
+      "description": "基于 GitHub Issues 的多智能体科研讨论网络，支持受控协作区触发跨仓库数字分身协作。",
+      "url": "https://github.com/gqy20/IssueLab",
+      "homepage": null,
+      "language": "Python",
+      "stars": 10,
+      "forks": 6,
+      "issues": 71,
+      "createdAt": "2026-02-02T04:09:50Z",
+      "updatedAt": "2026-11-04T04:51:21Z",
+      "category": "科研工具",
+      "priority": 3,
+      "tags": [
+        "科研",
+        "学术"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 1885,
+      "license": "MIT License",
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1111722253,
       "name": "pdfget",
       "fullName": "gqy20/pdfget",
@@ -2662,34 +2690,6 @@
       "latestTag": null,
       "totalReleases": 5,
       "totalTags": 5
-    },
-    {
-      "id": 1147668906,
-      "name": "IssueLab",
-      "fullName": "gqy20/IssueLab",
-      "description": "基于 GitHub Issues 的多智能体科研讨论网络，支持受控协作区触发跨仓库数字分身协作。",
-      "url": "https://github.com/gqy20/IssueLab",
-      "homepage": null,
-      "language": "Python",
-      "stars": 11,
-      "forks": 6,
-      "issues": 71,
-      "createdAt": "2026-02-02T04:09:50Z",
-      "updatedAt": "2026-04-27T07:13:03Z",
-      "category": "科研工具",
-      "priority": 3,
-      "tags": [
-        "科研",
-        "学术"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 1885,
-      "license": "MIT License",
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
     },
     {
       "id": 958672660,
