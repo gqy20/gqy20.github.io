@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-11-05T22:58:00.673Z",
+  "lastUpdated": "2026-11-18T14:40:48.227Z",
   "totalRepositories": 58,
   "totalProjects": 54,
-  "totalRepositoryStars": 127,
-  "totalStars": 125,
+  "totalRepositoryStars": 132,
+  "totalStars": 130,
   "followers": 21,
   "categories": [
     "MCP工具",
@@ -109,7 +109,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 203,
+        "size": 405,
         "license": "MIT License",
         "latestRelease": {
           "tagName": "v0.2.0",
@@ -229,6 +229,102 @@
       }
     ],
     "AI应用": [
+      {
+        "id": 1207212892,
+        "name": "manim-agent",
+        "fullName": "gqy20/manim-agent",
+        "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
+        "url": "https://github.com/gqy20/manim-agent",
+        "homepage": "https://manim.gqy20.top/",
+        "language": "Python",
+        "stars": 8,
+        "forks": 5,
+        "issues": 0,
+        "createdAt": "2026-04-10T17:41:37Z",
+        "updatedAt": "2026-11-08T13:51:55Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 8698,
+        "license": null,
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
+        "id": 1294578427,
+        "name": "Trail",
+        "fullName": "gqy20/Trail",
+        "description": "暂无描述 - TypeScript项目",
+        "url": "https://github.com/gqy20/Trail",
+        "homepage": null,
+        "language": "TypeScript",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2026-07-09T03:06:48Z",
+        "updatedAt": "2026-11-07T02:50:40Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 1148,
+        "license": null,
+        "latestRelease": {
+          "tagName": "v0.2.1",
+          "name": "v0.2.1 · Trail",
+          "publishedAt": "2026-10-10T09:36:20Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 3,
+        "totalTags": 3
+      },
+      {
+        "id": 1235648882,
+        "name": "Aura",
+        "fullName": "gqy20/Aura",
+        "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
+        "url": "https://github.com/gqy20/Aura",
+        "homepage": "https://aura.gqy20.top/",
+        "language": "Kotlin",
+        "stars": 10,
+        "forks": 4,
+        "issues": 0,
+        "createdAt": "2026-05-11T14:21:06Z",
+        "updatedAt": "2026-11-06T05:22:01Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 6414,
+        "license": null,
+        "latestRelease": {
+          "tagName": "v0.1.6",
+          "name": "Aura v0.1.6",
+          "publishedAt": "2026-08-10T04:03:24Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 5,
+        "totalTags": 5
+      },
       {
         "id": 1175140181,
         "name": "TrumanWorld",
@@ -429,74 +525,6 @@
         "totalTags": 0
       },
       {
-        "id": 1235648882,
-        "name": "Aura",
-        "fullName": "gqy20/Aura",
-        "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
-        "url": "https://github.com/gqy20/Aura",
-        "homepage": "https://aura.gqy20.top/",
-        "language": "Kotlin",
-        "stars": 9,
-        "forks": 4,
-        "issues": 0,
-        "createdAt": "2026-05-11T14:21:06Z",
-        "updatedAt": "2026-10-21T03:10:41Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 6414,
-        "license": null,
-        "latestRelease": {
-          "tagName": "v0.1.6",
-          "name": "Aura v0.1.6",
-          "publishedAt": "2026-08-10T04:03:24Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 5,
-        "totalTags": 5
-      },
-      {
-        "id": 1294578427,
-        "name": "Trail",
-        "fullName": "gqy20/Trail",
-        "description": "暂无描述 - TypeScript项目",
-        "url": "https://github.com/gqy20/Trail",
-        "homepage": null,
-        "language": "TypeScript",
-        "stars": 0,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2026-07-09T03:06:48Z",
-        "updatedAt": "2026-10-12T06:27:10Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 1136,
-        "license": null,
-        "latestRelease": {
-          "tagName": "v0.2.1",
-          "name": "v0.2.1 · Trail",
-          "publishedAt": "2026-10-10T09:36:20Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 3,
-        "totalTags": 3
-      },
-      {
         "id": 1232906183,
         "name": "bitcat",
         "fullName": "gqy20/bitcat",
@@ -614,34 +642,6 @@
         "latestTag": null,
         "totalReleases": 4,
         "totalTags": 4
-      },
-      {
-        "id": 1207212892,
-        "name": "manim-agent",
-        "fullName": "gqy20/manim-agent",
-        "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
-        "url": "https://github.com/gqy20/manim-agent",
-        "homepage": "https://manim.gqy20.top/",
-        "language": "Python",
-        "stars": 6,
-        "forks": 4,
-        "issues": 0,
-        "createdAt": "2026-04-10T17:41:37Z",
-        "updatedAt": "2026-09-07T09:15:14Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 8698,
-        "license": null,
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
       },
       {
         "id": 993845459,
@@ -919,11 +919,11 @@
         "url": "https://github.com/gqy20/IssueLab",
         "homepage": null,
         "language": "Python",
-        "stars": 10,
+        "stars": 12,
         "forks": 6,
         "issues": 71,
         "createdAt": "2026-02-02T04:09:50Z",
-        "updatedAt": "2026-11-04T04:51:21Z",
+        "updatedAt": "2026-11-14T18:32:12Z",
         "category": "科研工具",
         "priority": 3,
         "tags": [
@@ -951,7 +951,7 @@
         "forks": 1,
         "issues": 0,
         "createdAt": "2025-12-07T14:12:28Z",
-        "updatedAt": "2026-08-13T05:17:35Z",
+        "updatedAt": "2026-11-12T15:05:48Z",
         "category": "科研工具",
         "priority": 3,
         "tags": [
@@ -960,7 +960,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 26043,
+        "size": 26344,
         "license": null,
         "latestRelease": {
           "tagName": "v0.1.6",
@@ -1021,7 +1021,7 @@
         "forks": 0,
         "issues": 0,
         "createdAt": "2026-09-29T09:14:51Z",
-        "updatedAt": "2026-11-05T12:23:48Z",
+        "updatedAt": "2026-11-07T02:06:47Z",
         "category": "Web开发",
         "priority": 4,
         "tags": [
@@ -1030,7 +1030,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 47756,
+        "size": 52128,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1314,6 +1314,41 @@
     ],
     "其他项目": [
       {
+        "id": 1125693327,
+        "name": "quick-template",
+        "fullName": "gqy20/quick-template",
+        "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
+        "url": "https://github.com/gqy20/quick-template",
+        "homepage": "https://home.gqy20.top/quick-template/",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-12-31T07:12:07Z",
+        "updatedAt": "2026-11-09T09:28:13Z",
+        "category": "其他项目",
+        "priority": 7,
+        "tags": [
+          "python"
+        ],
+        "topics": [
+          "copier",
+          "python"
+        ],
+        "isArchived": false,
+        "size": 892,
+        "license": "MIT License",
+        "latestRelease": null,
+        "latestTag": {
+          "name": "v0.4.0",
+          "commit": "5a44de839fc0dc405ae234f519235dbc9a6395bd",
+          "zipball_url": "https://api.github.com/repos/gqy20/quick-template/zipball/refs/tags/v0.4.0",
+          "tarball_url": "https://api.github.com/repos/gqy20/quick-template/tarball/refs/tags/v0.4.0"
+        },
+        "totalReleases": 0,
+        "totalTags": 1
+      },
+      {
         "id": 1084972160,
         "name": "cc_plugins",
         "fullName": "gqy20/cc_plugins",
@@ -1341,41 +1376,6 @@
         "totalTags": 0
       },
       {
-        "id": 1125693327,
-        "name": "quick-template",
-        "fullName": "gqy20/quick-template",
-        "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
-        "url": "https://github.com/gqy20/quick-template",
-        "homepage": "https://home.gqy20.top/quick-template/",
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "issues": 5,
-        "createdAt": "2025-12-31T07:12:07Z",
-        "updatedAt": "2026-11-02T09:43:03Z",
-        "category": "其他项目",
-        "priority": 7,
-        "tags": [
-          "python"
-        ],
-        "topics": [
-          "copier",
-          "python"
-        ],
-        "isArchived": false,
-        "size": 509,
-        "license": "MIT License",
-        "latestRelease": null,
-        "latestTag": {
-          "name": "v0.4.0",
-          "commit": "5a44de839fc0dc405ae234f519235dbc9a6395bd",
-          "zipball_url": "https://api.github.com/repos/gqy20/quick-template/zipball/refs/tags/v0.4.0",
-          "tarball_url": "https://api.github.com/repos/gqy20/quick-template/tarball/refs/tags/v0.4.0"
-        },
-        "totalReleases": 0,
-        "totalTags": 1
-      },
-      {
         "id": 1388013717,
         "name": "actl",
         "fullName": "gqy20/actl",
@@ -1395,7 +1395,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 6044,
+        "size": 6045,
         "license": "MIT License",
         "latestRelease": {
           "tagName": "v0.2.3",
@@ -1831,7 +1831,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 203,
+      "size": 405,
       "license": "MIT License",
       "latestRelease": {
         "tagName": "v0.2.0",
@@ -1947,6 +1947,102 @@
         "tarball_url": "https://api.github.com/repos/gqy20/protein-mcp/tarball/refs/tags/v0.1.5"
       },
       "totalReleases": 0,
+      "totalTags": 5
+    },
+    {
+      "id": 1207212892,
+      "name": "manim-agent",
+      "fullName": "gqy20/manim-agent",
+      "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
+      "url": "https://github.com/gqy20/manim-agent",
+      "homepage": "https://manim.gqy20.top/",
+      "language": "Python",
+      "stars": 8,
+      "forks": 5,
+      "issues": 0,
+      "createdAt": "2026-04-10T17:41:37Z",
+      "updatedAt": "2026-11-08T13:51:55Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 8698,
+      "license": null,
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
+      "id": 1294578427,
+      "name": "Trail",
+      "fullName": "gqy20/Trail",
+      "description": "暂无描述 - TypeScript项目",
+      "url": "https://github.com/gqy20/Trail",
+      "homepage": null,
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2026-07-09T03:06:48Z",
+      "updatedAt": "2026-11-07T02:50:40Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 1148,
+      "license": null,
+      "latestRelease": {
+        "tagName": "v0.2.1",
+        "name": "v0.2.1 · Trail",
+        "publishedAt": "2026-10-10T09:36:20Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 3,
+      "totalTags": 3
+    },
+    {
+      "id": 1235648882,
+      "name": "Aura",
+      "fullName": "gqy20/Aura",
+      "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
+      "url": "https://github.com/gqy20/Aura",
+      "homepage": "https://aura.gqy20.top/",
+      "language": "Kotlin",
+      "stars": 10,
+      "forks": 4,
+      "issues": 0,
+      "createdAt": "2026-05-11T14:21:06Z",
+      "updatedAt": "2026-11-06T05:22:01Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 6414,
+      "license": null,
+      "latestRelease": {
+        "tagName": "v0.1.6",
+        "name": "Aura v0.1.6",
+        "publishedAt": "2026-08-10T04:03:24Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 5,
       "totalTags": 5
     },
     {
@@ -2149,74 +2245,6 @@
       "totalTags": 0
     },
     {
-      "id": 1235648882,
-      "name": "Aura",
-      "fullName": "gqy20/Aura",
-      "description": "Aura · 奥拉 — 具有情绪感知和关系记忆的 Android AI 陪伴应用",
-      "url": "https://github.com/gqy20/Aura",
-      "homepage": "https://aura.gqy20.top/",
-      "language": "Kotlin",
-      "stars": 9,
-      "forks": 4,
-      "issues": 0,
-      "createdAt": "2026-05-11T14:21:06Z",
-      "updatedAt": "2026-10-21T03:10:41Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 6414,
-      "license": null,
-      "latestRelease": {
-        "tagName": "v0.1.6",
-        "name": "Aura v0.1.6",
-        "publishedAt": "2026-08-10T04:03:24Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 5,
-      "totalTags": 5
-    },
-    {
-      "id": 1294578427,
-      "name": "Trail",
-      "fullName": "gqy20/Trail",
-      "description": "暂无描述 - TypeScript项目",
-      "url": "https://github.com/gqy20/Trail",
-      "homepage": null,
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2026-07-09T03:06:48Z",
-      "updatedAt": "2026-10-12T06:27:10Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 1136,
-      "license": null,
-      "latestRelease": {
-        "tagName": "v0.2.1",
-        "name": "v0.2.1 · Trail",
-        "publishedAt": "2026-10-10T09:36:20Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 3,
-      "totalTags": 3
-    },
-    {
       "id": 1232906183,
       "name": "bitcat",
       "fullName": "gqy20/bitcat",
@@ -2334,34 +2362,6 @@
       "latestTag": null,
       "totalReleases": 4,
       "totalTags": 4
-    },
-    {
-      "id": 1207212892,
-      "name": "manim-agent",
-      "fullName": "gqy20/manim-agent",
-      "description": "AI 驱动的数学动画视频自动生成系统 — 自然语言输入，端到端产出带配音的 Manim 动画",
-      "url": "https://github.com/gqy20/manim-agent",
-      "homepage": "https://manim.gqy20.top/",
-      "language": "Python",
-      "stars": 6,
-      "forks": 4,
-      "issues": 0,
-      "createdAt": "2026-04-10T17:41:37Z",
-      "updatedAt": "2026-09-07T09:15:14Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 8698,
-      "license": null,
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
     },
     {
       "id": 993845459,
@@ -2637,11 +2637,11 @@
       "url": "https://github.com/gqy20/IssueLab",
       "homepage": null,
       "language": "Python",
-      "stars": 10,
+      "stars": 12,
       "forks": 6,
       "issues": 71,
       "createdAt": "2026-02-02T04:09:50Z",
-      "updatedAt": "2026-11-04T04:51:21Z",
+      "updatedAt": "2026-11-14T18:32:12Z",
       "category": "科研工具",
       "priority": 3,
       "tags": [
@@ -2669,7 +2669,7 @@
       "forks": 1,
       "issues": 0,
       "createdAt": "2025-12-07T14:12:28Z",
-      "updatedAt": "2026-08-13T05:17:35Z",
+      "updatedAt": "2026-11-12T15:05:48Z",
       "category": "科研工具",
       "priority": 3,
       "tags": [
@@ -2678,7 +2678,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 26043,
+      "size": 26344,
       "license": null,
       "latestRelease": {
         "tagName": "v0.1.6",
@@ -2737,7 +2737,7 @@
       "forks": 0,
       "issues": 0,
       "createdAt": "2026-09-29T09:14:51Z",
-      "updatedAt": "2026-11-05T12:23:48Z",
+      "updatedAt": "2026-11-07T02:06:47Z",
       "category": "Web开发",
       "priority": 4,
       "tags": [
@@ -2746,7 +2746,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 47756,
+      "size": 52128,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
@@ -3024,6 +3024,41 @@
       "totalTags": 0
     },
     {
+      "id": 1125693327,
+      "name": "quick-template",
+      "fullName": "gqy20/quick-template",
+      "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
+      "url": "https://github.com/gqy20/quick-template",
+      "homepage": "https://home.gqy20.top/quick-template/",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-12-31T07:12:07Z",
+      "updatedAt": "2026-11-09T09:28:13Z",
+      "category": "其他项目",
+      "priority": 7,
+      "tags": [
+        "python"
+      ],
+      "topics": [
+        "copier",
+        "python"
+      ],
+      "isArchived": false,
+      "size": 892,
+      "license": "MIT License",
+      "latestRelease": null,
+      "latestTag": {
+        "name": "v0.4.0",
+        "commit": "5a44de839fc0dc405ae234f519235dbc9a6395bd",
+        "zipball_url": "https://api.github.com/repos/gqy20/quick-template/zipball/refs/tags/v0.4.0",
+        "tarball_url": "https://api.github.com/repos/gqy20/quick-template/tarball/refs/tags/v0.4.0"
+      },
+      "totalReleases": 0,
+      "totalTags": 1
+    },
+    {
       "id": 1084972160,
       "name": "cc_plugins",
       "fullName": "gqy20/cc_plugins",
@@ -3051,41 +3086,6 @@
       "totalTags": 0
     },
     {
-      "id": 1125693327,
-      "name": "quick-template",
-      "fullName": "gqy20/quick-template",
-      "description": "多语言项目模板 - 支持 Python / Go / TypeScript，基于 Copier 秒级生成规范项目",
-      "url": "https://github.com/gqy20/quick-template",
-      "homepage": "https://home.gqy20.top/quick-template/",
-      "language": "Python",
-      "stars": 0,
-      "forks": 0,
-      "issues": 5,
-      "createdAt": "2025-12-31T07:12:07Z",
-      "updatedAt": "2026-11-02T09:43:03Z",
-      "category": "其他项目",
-      "priority": 7,
-      "tags": [
-        "python"
-      ],
-      "topics": [
-        "copier",
-        "python"
-      ],
-      "isArchived": false,
-      "size": 509,
-      "license": "MIT License",
-      "latestRelease": null,
-      "latestTag": {
-        "name": "v0.4.0",
-        "commit": "5a44de839fc0dc405ae234f519235dbc9a6395bd",
-        "zipball_url": "https://api.github.com/repos/gqy20/quick-template/zipball/refs/tags/v0.4.0",
-        "tarball_url": "https://api.github.com/repos/gqy20/quick-template/tarball/refs/tags/v0.4.0"
-      },
-      "totalReleases": 0,
-      "totalTags": 1
-    },
-    {
       "id": 1388013717,
       "name": "actl",
       "fullName": "gqy20/actl",
@@ -3105,7 +3105,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 6044,
+      "size": 6045,
       "license": "MIT License",
       "latestRelease": {
         "tagName": "v0.2.3",
