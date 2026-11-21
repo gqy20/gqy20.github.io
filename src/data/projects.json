@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-21T13:47:25.972Z",
+  "lastUpdated": "2026-11-21T22:30:31.708Z",
   "totalRepositories": 58,
   "totalProjects": 54,
   "totalRepositoryStars": 132,
@@ -39,14 +39,14 @@
           "mcp"
         ],
         "isArchived": false,
-        "size": 1660,
+        "size": 1997,
         "license": "MIT License",
         "latestRelease": null,
         "latestTag": {
-          "name": "v0.2.2",
-          "commit": "fdb02268e53da3cf804c59ec3e8ddde4aa4732f5",
-          "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.2",
-          "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
+          "name": "v0.2.3",
+          "commit": "d6be22d91adb9a46752dcc96d97569ac35f3532a",
+          "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.3",
+          "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.3"
         },
         "totalReleases": 0,
         "totalTags": 5
@@ -98,7 +98,7 @@
         "language": "Python",
         "stars": 1,
         "forks": 0,
-        "issues": 0,
+        "issues": 1,
         "createdAt": "2025-12-31T09:05:15Z",
         "updatedAt": "2026-09-30T15:26:06Z",
         "category": "MCP工具",
@@ -1368,7 +1368,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 1468,
+        "size": 1663,
         "license": "MIT License",
         "latestRelease": null,
         "latestTag": null,
@@ -1761,14 +1761,14 @@
         "mcp"
       ],
       "isArchived": false,
-      "size": 1660,
+      "size": 1997,
       "license": "MIT License",
       "latestRelease": null,
       "latestTag": {
-        "name": "v0.2.2",
-        "commit": "fdb02268e53da3cf804c59ec3e8ddde4aa4732f5",
-        "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.2",
-        "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.2"
+        "name": "v0.2.3",
+        "commit": "d6be22d91adb9a46752dcc96d97569ac35f3532a",
+        "zipball_url": "https://api.github.com/repos/gqy20/article-mcp/zipball/refs/tags/v0.2.3",
+        "tarball_url": "https://api.github.com/repos/gqy20/article-mcp/tarball/refs/tags/v0.2.3"
       },
       "totalReleases": 0,
       "totalTags": 5
@@ -1820,7 +1820,7 @@
       "language": "Python",
       "stars": 1,
       "forks": 0,
-      "issues": 0,
+      "issues": 1,
       "createdAt": "2025-12-31T09:05:15Z",
       "updatedAt": "2026-09-30T15:26:06Z",
       "category": "MCP工具",
@@ -3078,7 +3078,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 1468,
+      "size": 1663,
       "license": "MIT License",
       "latestRelease": null,
       "latestTag": null,
