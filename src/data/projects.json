@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-23T16:38:47.122Z",
+  "lastUpdated": "2026-11-24T03:31:27.742Z",
   "totalRepositories": 58,
   "totalProjects": 54,
   "totalRepositoryStars": 132,
@@ -1323,7 +1323,7 @@
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "issues": 0,
+        "issues": 4,
         "createdAt": "2025-12-31T07:12:07Z",
         "updatedAt": "2026-11-09T09:28:13Z",
         "category": "其他项目",
@@ -1336,7 +1336,7 @@
           "python"
         ],
         "isArchived": false,
-        "size": 892,
+        "size": 1094,
         "license": "MIT License",
         "latestRelease": null,
         "latestTag": {
@@ -3033,7 +3033,7 @@
       "language": "Python",
       "stars": 0,
       "forks": 0,
-      "issues": 0,
+      "issues": 4,
       "createdAt": "2025-12-31T07:12:07Z",
       "updatedAt": "2026-11-09T09:28:13Z",
       "category": "其他项目",
@@ -3046,7 +3046,7 @@
         "python"
       ],
       "isArchived": false,
-      "size": 892,
+      "size": 1094,
       "license": "MIT License",
       "latestRelease": null,
       "latestTag": {
