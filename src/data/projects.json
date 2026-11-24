@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-11-24T03:31:27.742Z",
+  "lastUpdated": "2026-11-24T16:34:37.482Z",
   "totalRepositories": 58,
   "totalProjects": 54,
-  "totalRepositoryStars": 132,
-  "totalStars": 130,
+  "totalRepositoryStars": 134,
+  "totalStars": 132,
   "followers": 21,
   "categories": [
     "MCP工具",
@@ -230,6 +230,47 @@
     ],
     "AI应用": [
       {
+        "id": 1175140181,
+        "name": "TrumanWorld",
+        "fullName": "gqy20/TrumanWorld",
+        "description": "🎭 楚门的世界 AI 版 | 在这个小镇里，AI 居民们不知道自己是 AI。你是导演，只能观察和创造条件——不能操控他们的想法。尊重每一个主体的自由意志。",
+        "url": "https://github.com/gqy20/TrumanWorld",
+        "homepage": "https://truman.gqy25.top/",
+        "language": "Python",
+        "stars": 18,
+        "forks": 2,
+        "issues": 22,
+        "createdAt": "2026-03-07T09:33:56Z",
+        "updatedAt": "2026-11-24T06:33:19Z",
+        "category": "AI应用",
+        "priority": 2,
+        "tags": [
+          "AI",
+          "机器学习"
+        ],
+        "topics": [
+          "agent",
+          "ai",
+          "claude",
+          "fastapi",
+          "generative-agents",
+          "llm",
+          "multi-agent-system",
+          "nextjs",
+          "python",
+          "simulation",
+          "social-simulation",
+          "typescript"
+        ],
+        "isArchived": false,
+        "size": 10990,
+        "license": "MIT License",
+        "latestRelease": null,
+        "latestTag": null,
+        "totalReleases": 0,
+        "totalTags": 0
+      },
+      {
         "id": 1207212892,
         "name": "manim-agent",
         "fullName": "gqy20/manim-agent",
@@ -324,47 +365,6 @@
         "latestTag": null,
         "totalReleases": 5,
         "totalTags": 5
-      },
-      {
-        "id": 1175140181,
-        "name": "TrumanWorld",
-        "fullName": "gqy20/TrumanWorld",
-        "description": "🎭 楚门的世界 AI 版 | 在这个小镇里，AI 居民们不知道自己是 AI。你是导演，只能观察和创造条件——不能操控他们的想法。尊重每一个主体的自由意志。",
-        "url": "https://github.com/gqy20/TrumanWorld",
-        "homepage": "https://truman.gqy25.top/",
-        "language": "Python",
-        "stars": 17,
-        "forks": 2,
-        "issues": 22,
-        "createdAt": "2026-03-07T09:33:56Z",
-        "updatedAt": "2026-11-03T15:37:37Z",
-        "category": "AI应用",
-        "priority": 2,
-        "tags": [
-          "AI",
-          "机器学习"
-        ],
-        "topics": [
-          "agent",
-          "ai",
-          "claude",
-          "fastapi",
-          "generative-agents",
-          "llm",
-          "multi-agent-system",
-          "nextjs",
-          "python",
-          "simulation",
-          "social-simulation",
-          "typescript"
-        ],
-        "isArchived": false,
-        "size": 10990,
-        "license": "MIT License",
-        "latestRelease": null,
-        "latestTag": null,
-        "totalReleases": 0,
-        "totalTags": 0
       },
       {
         "id": 1196258715,
@@ -912,6 +912,40 @@
     ],
     "科研工具": [
       {
+        "id": 958672660,
+        "name": "pub2tts",
+        "fullName": "gqy20/pub2tts",
+        "description": "从pubmed上获取文献，将标题、关键词、摘要等内容转成中文，并合成语音。",
+        "url": "https://github.com/gqy20/pub2tts",
+        "homepage": null,
+        "language": "Python",
+        "stars": 3,
+        "forks": 0,
+        "issues": 0,
+        "createdAt": "2025-04-01T15:19:11Z",
+        "updatedAt": "2026-11-24T14:20:22Z",
+        "category": "科研工具",
+        "priority": 3,
+        "tags": [
+          "科研",
+          "学术"
+        ],
+        "topics": [],
+        "isArchived": false,
+        "size": 12980,
+        "license": null,
+        "latestRelease": {
+          "tagName": "0.6",
+          "name": "0.6 ",
+          "publishedAt": "2025-04-19T17:00:43Z",
+          "prerelease": false,
+          "draft": false
+        },
+        "latestTag": null,
+        "totalReleases": 3,
+        "totalTags": 3
+      },
+      {
         "id": 1147668906,
         "name": "IssueLab",
         "fullName": "gqy20/IssueLab",
@@ -972,40 +1006,6 @@
         "latestTag": null,
         "totalReleases": 5,
         "totalTags": 5
-      },
-      {
-        "id": 958672660,
-        "name": "pub2tts",
-        "fullName": "gqy20/pub2tts",
-        "description": "从pubmed上获取文献，将标题、关键词、摘要等内容转成中文，并合成语音。",
-        "url": "https://github.com/gqy20/pub2tts",
-        "homepage": null,
-        "language": "Python",
-        "stars": 2,
-        "forks": 0,
-        "issues": 0,
-        "createdAt": "2025-04-01T15:19:11Z",
-        "updatedAt": "2026-02-15T12:03:10Z",
-        "category": "科研工具",
-        "priority": 3,
-        "tags": [
-          "科研",
-          "学术"
-        ],
-        "topics": [],
-        "isArchived": false,
-        "size": 12980,
-        "license": null,
-        "latestRelease": {
-          "tagName": "0.6",
-          "name": "0.6 ",
-          "publishedAt": "2025-04-19T17:00:43Z",
-          "prerelease": false,
-          "draft": false
-        },
-        "latestTag": null,
-        "totalReleases": 3,
-        "totalTags": 3
       }
     ],
     "Web开发": [
@@ -1304,7 +1304,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 18960,
+        "size": 19004,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -1950,6 +1950,47 @@
       "totalTags": 5
     },
     {
+      "id": 1175140181,
+      "name": "TrumanWorld",
+      "fullName": "gqy20/TrumanWorld",
+      "description": "🎭 楚门的世界 AI 版 | 在这个小镇里，AI 居民们不知道自己是 AI。你是导演，只能观察和创造条件——不能操控他们的想法。尊重每一个主体的自由意志。",
+      "url": "https://github.com/gqy20/TrumanWorld",
+      "homepage": "https://truman.gqy25.top/",
+      "language": "Python",
+      "stars": 18,
+      "forks": 2,
+      "issues": 22,
+      "createdAt": "2026-03-07T09:33:56Z",
+      "updatedAt": "2026-11-24T06:33:19Z",
+      "category": "AI应用",
+      "priority": 2,
+      "tags": [
+        "AI",
+        "机器学习"
+      ],
+      "topics": [
+        "agent",
+        "ai",
+        "claude",
+        "fastapi",
+        "generative-agents",
+        "llm",
+        "multi-agent-system",
+        "nextjs",
+        "python",
+        "simulation",
+        "social-simulation",
+        "typescript"
+      ],
+      "isArchived": false,
+      "size": 10990,
+      "license": "MIT License",
+      "latestRelease": null,
+      "latestTag": null,
+      "totalReleases": 0,
+      "totalTags": 0
+    },
+    {
       "id": 1207212892,
       "name": "manim-agent",
       "fullName": "gqy20/manim-agent",
@@ -2044,47 +2085,6 @@
       "latestTag": null,
       "totalReleases": 5,
       "totalTags": 5
-    },
-    {
-      "id": 1175140181,
-      "name": "TrumanWorld",
-      "fullName": "gqy20/TrumanWorld",
-      "description": "🎭 楚门的世界 AI 版 | 在这个小镇里，AI 居民们不知道自己是 AI。你是导演，只能观察和创造条件——不能操控他们的想法。尊重每一个主体的自由意志。",
-      "url": "https://github.com/gqy20/TrumanWorld",
-      "homepage": "https://truman.gqy25.top/",
-      "language": "Python",
-      "stars": 17,
-      "forks": 2,
-      "issues": 22,
-      "createdAt": "2026-03-07T09:33:56Z",
-      "updatedAt": "2026-11-03T15:37:37Z",
-      "category": "AI应用",
-      "priority": 2,
-      "tags": [
-        "AI",
-        "机器学习"
-      ],
-      "topics": [
-        "agent",
-        "ai",
-        "claude",
-        "fastapi",
-        "generative-agents",
-        "llm",
-        "multi-agent-system",
-        "nextjs",
-        "python",
-        "simulation",
-        "social-simulation",
-        "typescript"
-      ],
-      "isArchived": false,
-      "size": 10990,
-      "license": "MIT License",
-      "latestRelease": null,
-      "latestTag": null,
-      "totalReleases": 0,
-      "totalTags": 0
     },
     {
       "id": 1196258715,
@@ -2630,6 +2630,40 @@
       "totalTags": 0
     },
     {
+      "id": 958672660,
+      "name": "pub2tts",
+      "fullName": "gqy20/pub2tts",
+      "description": "从pubmed上获取文献，将标题、关键词、摘要等内容转成中文，并合成语音。",
+      "url": "https://github.com/gqy20/pub2tts",
+      "homepage": null,
+      "language": "Python",
+      "stars": 3,
+      "forks": 0,
+      "issues": 0,
+      "createdAt": "2025-04-01T15:19:11Z",
+      "updatedAt": "2026-11-24T14:20:22Z",
+      "category": "科研工具",
+      "priority": 3,
+      "tags": [
+        "科研",
+        "学术"
+      ],
+      "topics": [],
+      "isArchived": false,
+      "size": 12980,
+      "license": null,
+      "latestRelease": {
+        "tagName": "0.6",
+        "name": "0.6 ",
+        "publishedAt": "2025-04-19T17:00:43Z",
+        "prerelease": false,
+        "draft": false
+      },
+      "latestTag": null,
+      "totalReleases": 3,
+      "totalTags": 3
+    },
+    {
       "id": 1147668906,
       "name": "IssueLab",
       "fullName": "gqy20/IssueLab",
@@ -2690,40 +2724,6 @@
       "latestTag": null,
       "totalReleases": 5,
       "totalTags": 5
-    },
-    {
-      "id": 958672660,
-      "name": "pub2tts",
-      "fullName": "gqy20/pub2tts",
-      "description": "从pubmed上获取文献，将标题、关键词、摘要等内容转成中文，并合成语音。",
-      "url": "https://github.com/gqy20/pub2tts",
-      "homepage": null,
-      "language": "Python",
-      "stars": 2,
-      "forks": 0,
-      "issues": 0,
-      "createdAt": "2025-04-01T15:19:11Z",
-      "updatedAt": "2026-02-15T12:03:10Z",
-      "category": "科研工具",
-      "priority": 3,
-      "tags": [
-        "科研",
-        "学术"
-      ],
-      "topics": [],
-      "isArchived": false,
-      "size": 12980,
-      "license": null,
-      "latestRelease": {
-        "tagName": "0.6",
-        "name": "0.6 ",
-        "publishedAt": "2025-04-19T17:00:43Z",
-        "prerelease": false,
-        "draft": false
-      },
-      "latestTag": null,
-      "totalReleases": 3,
-      "totalTags": 3
     },
     {
       "id": 1394805707,
@@ -3016,7 +3016,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 18960,
+      "size": 19004,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
