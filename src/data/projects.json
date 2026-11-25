@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-25T01:40:11.284Z",
+  "lastUpdated": "2026-11-25T16:17:17.972Z",
   "totalRepositories": 58,
   "totalProjects": 54,
   "totalRepositoryStars": 134,
@@ -534,7 +534,7 @@
         "language": "Rust",
         "stars": 1,
         "forks": 0,
-        "issues": 3,
+        "issues": 1,
         "createdAt": "2026-05-08T11:52:27Z",
         "updatedAt": "2026-10-02T18:48:29Z",
         "category": "AI应用",
@@ -553,7 +553,7 @@
           "windows"
         ],
         "isArchived": false,
-        "size": 146125,
+        "size": 146568,
         "license": "MIT License",
         "latestRelease": {
           "tagName": "v0.2.0",
@@ -1304,7 +1304,7 @@
         ],
         "topics": [],
         "isArchived": false,
-        "size": 19004,
+        "size": 19041,
         "license": null,
         "latestRelease": null,
         "latestTag": null,
@@ -2254,7 +2254,7 @@
       "language": "Rust",
       "stars": 1,
       "forks": 0,
-      "issues": 3,
+      "issues": 1,
       "createdAt": "2026-05-08T11:52:27Z",
       "updatedAt": "2026-10-02T18:48:29Z",
       "category": "AI应用",
@@ -2273,7 +2273,7 @@
         "windows"
       ],
       "isArchived": false,
-      "size": 146125,
+      "size": 146568,
       "license": "MIT License",
       "latestRelease": {
         "tagName": "v0.2.0",
@@ -3016,7 +3016,7 @@
       ],
       "topics": [],
       "isArchived": false,
-      "size": 19004,
+      "size": 19041,
       "license": null,
       "latestRelease": null,
       "latestTag": null,
